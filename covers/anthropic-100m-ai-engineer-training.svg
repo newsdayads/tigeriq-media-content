@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24170f"/><stop offset="1" stop-color="#7b4b2f"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="675" fill="url(#bg)"/><circle cx="1040" cy="90" r="240" fill="white" opacity=".05"/><circle cx="90" cy="640" r="260" fill="white" opacity=".04"/>
+<g filter="url(#s)"><g transform="translate(600 290)"><rect x="-245" y="-130" width="490" height="260" rx="28" fill="#f2e9df"/><text x="0" y="-22" text-anchor="middle" fill="#21160f" font-family="Georgia,serif" font-size="78" font-weight="700">AI</text><g fill="#c76f43"><circle cx="-150" cy="70" r="30"/><circle cx="-75" cy="70" r="30"/><circle cx="0" cy="70" r="30"/><circle cx="75" cy="70" r="30"/><circle cx="150" cy="70" r="30"/></g><g stroke="#21160f" stroke-width="5"><path d="M-150 38V5M-75 38V5M0 38V5M75 38V5M150 38V5"/></g></g></g>
+<text x="64" y="72" fill="white" opacity=".78" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">ANTHROPIC · TALENT</text>
+<text x="64" y="590" fill="white" font-family="Arial,sans-serif" font-size="42" font-weight="700">10,000 ENGINEERS · $100M</text>
+<text x="64" y="628" fill="white" opacity=".68" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">TIGERIQ · EDITORIAL VISUAL</text></svg>
