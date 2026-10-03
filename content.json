@@ -40,6 +40,60 @@
               "body": "Khi mỗi hãng xây một hệ sinh thái khác nhau, câu hỏi 'AI nào tốt nhất?' ngày càng thiếu nghĩa nếu không nói rõ tốt cho việc gì. Người dùng có thể chọn một model để code, một model khác cho công việc văn phòng và một hệ thống chuyên biệt cho khoa học. Thị trường đang phân mảnh theo công việc, không chỉ theo thương hiệu."
             }
           ]
+        },
+        "en": {
+          "title": "Google gom một tháng AI vào một bản tổng kết — và bức tranh lớn hơn Gemini 4",
+          "dek": "Gemini 4 Argon là cái tên nổi bật, nhưng bản tổng kết tháng 9 của Google cho thấy hãng đang trải AI từ model nền tảng sang giọng nói, ứng dụng, khoa học và cả dự báo thời tiết.",
+          "takeaways": [
+            "Google công bố bản tổng kết AI tháng 9 vào ngày 2/10.",
+            "Gemini 4 Argon dẫn nhóm model frontier mới của Google.",
+            "Danh mục cập nhật trải rộng từ voice và Connected Apps tới WeatherNext 3 và nghiên cứu khoa học."
+          ],
+          "sections": [
+            {
+              "heading": "Nếu chỉ nhìn Gemini 4, sẽ bỏ lỡ chiến lược của Google",
+              "body": "Google vừa gom các cập nhật AI tháng 9 vào một bản tổng kết dài. Gemini 4 Argon đứng ở vị trí dễ thấy nhất, nhưng điều thú vị hơn là độ rộng của danh sách: giọng nói, app kết nối, khoa học, dự báo thời tiết và các công cụ năng suất. Google không đặt cược AI vào một cửa sổ chat duy nhất."
+            },
+            {
+              "heading": "Lợi thế của Google nằm ở số nơi AI có thể xuất hiện",
+              "body": "Một phòng lab có thể tạo model rất mạnh. Google còn có Android, Search, Workspace, Cloud và hàng loạt sản phẩm với hàng tỷ lượt sử dụng. Nếu Gemini được đưa vào đúng chỗ, lợi thế phân phối có thể quan trọng không kém vài điểm chênh lệch trên benchmark."
+            },
+            {
+              "heading": "Khoa học đang trở thành một mặt trận riêng",
+              "body": "WeatherNext 3 và các cập nhật liên quan sinh học cho thấy AI đang được dùng cho những bài toán mà kết quả không phải một đoạn văn đẹp, mà là dự báo hoặc khám phá có thể kiểm chứng. Đây là vùng mà giá trị của model được đo bằng độ chính xác và tác động thực tế rõ hơn."
+            },
+            {
+              "heading": "Cuộc đua sẽ khó chấm bằng một bảng xếp hạng",
+              "body": "Khi mỗi hãng xây một hệ sinh thái khác nhau, câu hỏi 'AI nào tốt nhất?' ngày càng thiếu nghĩa nếu không nói rõ tốt cho việc gì. Người dùng có thể chọn một model để code, một model khác cho công việc văn phòng và một hệ thống chuyên biệt cho khoa học. Thị trường đang phân mảnh theo công việc, không chỉ theo thương hiệu."
+            }
+          ]
+        },
+        "es": {
+          "title": "Google gom một tháng AI vào một bản tổng kết — và bức tranh lớn hơn Gemini 4",
+          "dek": "Gemini 4 Argon là cái tên nổi bật, nhưng bản tổng kết tháng 9 của Google cho thấy hãng đang trải AI từ model nền tảng sang giọng nói, ứng dụng, khoa học và cả dự báo thời tiết.",
+          "takeaways": [
+            "Google công bố bản tổng kết AI tháng 9 vào ngày 2/10.",
+            "Gemini 4 Argon dẫn nhóm model frontier mới của Google.",
+            "Danh mục cập nhật trải rộng từ voice và Connected Apps tới WeatherNext 3 và nghiên cứu khoa học."
+          ],
+          "sections": [
+            {
+              "heading": "Nếu chỉ nhìn Gemini 4, sẽ bỏ lỡ chiến lược của Google",
+              "body": "Google vừa gom các cập nhật AI tháng 9 vào một bản tổng kết dài. Gemini 4 Argon đứng ở vị trí dễ thấy nhất, nhưng điều thú vị hơn là độ rộng của danh sách: giọng nói, app kết nối, khoa học, dự báo thời tiết và các công cụ năng suất. Google không đặt cược AI vào một cửa sổ chat duy nhất."
+            },
+            {
+              "heading": "Lợi thế của Google nằm ở số nơi AI có thể xuất hiện",
+              "body": "Một phòng lab có thể tạo model rất mạnh. Google còn có Android, Search, Workspace, Cloud và hàng loạt sản phẩm với hàng tỷ lượt sử dụng. Nếu Gemini được đưa vào đúng chỗ, lợi thế phân phối có thể quan trọng không kém vài điểm chênh lệch trên benchmark."
+            },
+            {
+              "heading": "Khoa học đang trở thành một mặt trận riêng",
+              "body": "WeatherNext 3 và các cập nhật liên quan sinh học cho thấy AI đang được dùng cho những bài toán mà kết quả không phải một đoạn văn đẹp, mà là dự báo hoặc khám phá có thể kiểm chứng. Đây là vùng mà giá trị của model được đo bằng độ chính xác và tác động thực tế rõ hơn."
+            },
+            {
+              "heading": "Cuộc đua sẽ khó chấm bằng một bảng xếp hạng",
+              "body": "Khi mỗi hãng xây một hệ sinh thái khác nhau, câu hỏi 'AI nào tốt nhất?' ngày càng thiếu nghĩa nếu không nói rõ tốt cho việc gì. Người dùng có thể chọn một model để code, một model khác cho công việc văn phòng và một hệ thống chuyên biệt cho khoa học. Thị trường đang phân mảnh theo công việc, không chỉ theo thương hiệu."
+            }
+          ]
         }
       },
       "sources": [
@@ -98,6 +152,60 @@
               "body": "Thước đo quan trọng không phải số nhân viên đã học một khóa AI, mà là sau đào tạo họ đưa được bao nhiêu quy trình vào vận hành, tiết kiệm bao nhiêu giờ và có kiểm soát được lỗi hay không. Nếu không có những con số ấy, 'AI upskilling' rất dễ biến thành một chương trình phong trào."
             }
           ]
+        },
+        "en": {
+          "title": "Anthropic bỏ 100 triệu USD để đào tạo 10.000 kỹ sư: nút thắt AI có thể không còn nằm ở model",
+          "dek": "Các hãng AI đang có model ngày càng mạnh, nhưng doanh nghiệp vẫn thiếu người biết biến chúng thành hệ thống chạy được. Khoản đầu tư mới của Anthropic nhắm thẳng vào khoảng trống đó.",
+          "takeaways": [
+            "Anthropic công bố khoản đầu tư 100 triệu USD ngày 2/10.",
+            "Chương trình đặt mục tiêu đào tạo 10.000 kỹ sư.",
+            "Cuộc cạnh tranh AI đang mở rộng từ model sang đội ngũ triển khai trong doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Model có rồi. Ai sẽ biến nó thành sản phẩm?",
+              "body": "Anthropic vừa đặt 100 triệu USD vào một bài toán ít hào nhoáng hơn việc huấn luyện model mới: con người. Mục tiêu đào tạo 10.000 kỹ sư cho thấy khoảng cách giữa 'có quyền truy cập AI' và 'dùng AI tạo ra giá trị' vẫn còn lớn. Một doanh nghiệp có thể mua Claude trong vài phút; thiết kế workflow, quyền truy cập dữ liệu và kiểm soát rủi ro lại là chuyện khác."
+            },
+            {
+              "heading": "Thiếu kỹ năng triển khai đang trở thành điểm nghẽn",
+              "body": "AI doanh nghiệp không chỉ cần prompt hay. Nó cần người hiểu hệ thống hiện có, biết chỗ nào nên tự động hóa, chỗ nào cần con người duyệt và cách đo xem dự án có thực sự tiết kiệm thời gian hay tiền. Khi model tiến nhanh hơn khả năng tổ chức thay đổi, chính đội ngũ triển khai trở thành giới hạn."
+            },
+            {
+              "heading": "Đây cũng là một nước đi kinh doanh",
+              "body": "Đào tạo thêm kỹ sư không chỉ giải quyết thiếu hụt nhân lực cho thị trường. Nó còn tạo ra nhiều người biết xây trên hệ sinh thái Claude. Trong ngành phần mềm, developer quen công cụ nào thường kéo theo nhu cầu cho công cụ đó. Cuộc chiến AI vì thế đang dần giống cuộc chiến nền tảng."
+            },
+            {
+              "heading": "Điều doanh nghiệp nên nhìn vào",
+              "body": "Thước đo quan trọng không phải số nhân viên đã học một khóa AI, mà là sau đào tạo họ đưa được bao nhiêu quy trình vào vận hành, tiết kiệm bao nhiêu giờ và có kiểm soát được lỗi hay không. Nếu không có những con số ấy, 'AI upskilling' rất dễ biến thành một chương trình phong trào."
+            }
+          ]
+        },
+        "es": {
+          "title": "Anthropic bỏ 100 triệu USD để đào tạo 10.000 kỹ sư: nút thắt AI có thể không còn nằm ở model",
+          "dek": "Các hãng AI đang có model ngày càng mạnh, nhưng doanh nghiệp vẫn thiếu người biết biến chúng thành hệ thống chạy được. Khoản đầu tư mới của Anthropic nhắm thẳng vào khoảng trống đó.",
+          "takeaways": [
+            "Anthropic công bố khoản đầu tư 100 triệu USD ngày 2/10.",
+            "Chương trình đặt mục tiêu đào tạo 10.000 kỹ sư.",
+            "Cuộc cạnh tranh AI đang mở rộng từ model sang đội ngũ triển khai trong doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Model có rồi. Ai sẽ biến nó thành sản phẩm?",
+              "body": "Anthropic vừa đặt 100 triệu USD vào một bài toán ít hào nhoáng hơn việc huấn luyện model mới: con người. Mục tiêu đào tạo 10.000 kỹ sư cho thấy khoảng cách giữa 'có quyền truy cập AI' và 'dùng AI tạo ra giá trị' vẫn còn lớn. Một doanh nghiệp có thể mua Claude trong vài phút; thiết kế workflow, quyền truy cập dữ liệu và kiểm soát rủi ro lại là chuyện khác."
+            },
+            {
+              "heading": "Thiếu kỹ năng triển khai đang trở thành điểm nghẽn",
+              "body": "AI doanh nghiệp không chỉ cần prompt hay. Nó cần người hiểu hệ thống hiện có, biết chỗ nào nên tự động hóa, chỗ nào cần con người duyệt và cách đo xem dự án có thực sự tiết kiệm thời gian hay tiền. Khi model tiến nhanh hơn khả năng tổ chức thay đổi, chính đội ngũ triển khai trở thành giới hạn."
+            },
+            {
+              "heading": "Đây cũng là một nước đi kinh doanh",
+              "body": "Đào tạo thêm kỹ sư không chỉ giải quyết thiếu hụt nhân lực cho thị trường. Nó còn tạo ra nhiều người biết xây trên hệ sinh thái Claude. Trong ngành phần mềm, developer quen công cụ nào thường kéo theo nhu cầu cho công cụ đó. Cuộc chiến AI vì thế đang dần giống cuộc chiến nền tảng."
+            },
+            {
+              "heading": "Điều doanh nghiệp nên nhìn vào",
+              "body": "Thước đo quan trọng không phải số nhân viên đã học một khóa AI, mà là sau đào tạo họ đưa được bao nhiêu quy trình vào vận hành, tiết kiệm bao nhiêu giờ và có kiểm soát được lỗi hay không. Nếu không có những con số ấy, 'AI upskilling' rất dễ biến thành một chương trình phong trào."
+            }
+          ]
         }
       },
       "sources": [
@@ -131,6 +239,60 @@
       "modifiedAt": "2026-10-03T09:30:00Z",
       "editions": {
         "vi": {
+          "title": "GPT-6 không còn chỉ là chuyện chọn model: OpenAI đang dạy developer cách dùng cả một “gia đình” AI",
+          "dek": "OpenAI vừa phát hành hướng dẫn thực hành cho GPT-6. Điều đáng chú ý không nằm ở một benchmark mới, mà ở cách hãng muốn developer chọn đúng model, đúng mức suy luận và đúng chi phí cho từng việc.",
+          "takeaways": [
+            "OpenAI đăng hướng dẫn xây dựng với GPT-6 ngày 2/10.",
+            "Thông điệp lớn: lựa chọn model đang trở thành bài toán kiến trúc sản phẩm, không chỉ là săn model mạnh nhất.",
+            "Chi phí, độ trễ và mức suy luận ngày càng phải được cân cùng chất lượng đầu ra."
+          ],
+          "sections": [
+            {
+              "heading": "Một câu hỏi mới cho developer: đừng hỏi model nào mạnh nhất",
+              "body": "Trong vài năm đầu của làn sóng AI tạo sinh, cách chọn model khá đơn giản: model mới hơn, benchmark cao hơn thường được xem là lựa chọn tốt hơn. GPT-6 khiến bài toán đó bớt thẳng. Hướng dẫn OpenAI công bố ngày 2/10 đặt trọng tâm vào cách ghép năng lực model với từng loại workload. Với người xây sản phẩm, đây là thay đổi quan trọng: một model rất mạnh nhưng chậm hoặc đắt có thể là lựa chọn tệ cho hàng triệu tác vụ đơn giản."
+            },
+            {
+              "heading": "AI bắt đầu giống một hệ thống hơn là một chatbot",
+              "body": "Khi một ứng dụng có thể dùng model nhanh cho bước phân loại, model mạnh cho phần suy luận khó và công cụ riêng cho dữ liệu nội bộ, chất lượng cuối cùng phụ thuộc vào cách cả hệ thống được thiết kế. Model vẫn là động cơ, nhưng sản phẩm tốt hay dở ngày càng nằm ở phần điều phối xung quanh nó."
+            },
+            {
+              "heading": "Điều đáng xem không nằm trên bảng benchmark",
+              "body": "Với doanh nghiệp, câu hỏi thực dụng là mỗi nghìn tác vụ tốn bao nhiêu tiền, người dùng phải chờ bao lâu và tỷ lệ việc AI hoàn thành đúng đến đâu. Một model kém vài điểm benchmark nhưng rẻ hơn nhiều có thể tạo ra sản phẩm tốt hơn nếu nó đáp ứng đúng nhu cầu."
+            },
+            {
+              "heading": "TigerIQ đọc tín hiệu này thế nào?",
+              "body": "Cuộc đua model chưa kết thúc, nhưng thị trường đang trưởng thành. Sau giai đoạn khoe trí thông minh, các hãng phải chứng minh AI có thể được lắp vào sản phẩm thật mà không làm chi phí và độ phức tạp tăng mất kiểm soát."
+            }
+          ]
+        },
+        "en": {
+          "title": "GPT-6 không còn chỉ là chuyện chọn model: OpenAI đang dạy developer cách dùng cả một “gia đình” AI",
+          "dek": "OpenAI vừa phát hành hướng dẫn thực hành cho GPT-6. Điều đáng chú ý không nằm ở một benchmark mới, mà ở cách hãng muốn developer chọn đúng model, đúng mức suy luận và đúng chi phí cho từng việc.",
+          "takeaways": [
+            "OpenAI đăng hướng dẫn xây dựng với GPT-6 ngày 2/10.",
+            "Thông điệp lớn: lựa chọn model đang trở thành bài toán kiến trúc sản phẩm, không chỉ là săn model mạnh nhất.",
+            "Chi phí, độ trễ và mức suy luận ngày càng phải được cân cùng chất lượng đầu ra."
+          ],
+          "sections": [
+            {
+              "heading": "Một câu hỏi mới cho developer: đừng hỏi model nào mạnh nhất",
+              "body": "Trong vài năm đầu của làn sóng AI tạo sinh, cách chọn model khá đơn giản: model mới hơn, benchmark cao hơn thường được xem là lựa chọn tốt hơn. GPT-6 khiến bài toán đó bớt thẳng. Hướng dẫn OpenAI công bố ngày 2/10 đặt trọng tâm vào cách ghép năng lực model với từng loại workload. Với người xây sản phẩm, đây là thay đổi quan trọng: một model rất mạnh nhưng chậm hoặc đắt có thể là lựa chọn tệ cho hàng triệu tác vụ đơn giản."
+            },
+            {
+              "heading": "AI bắt đầu giống một hệ thống hơn là một chatbot",
+              "body": "Khi một ứng dụng có thể dùng model nhanh cho bước phân loại, model mạnh cho phần suy luận khó và công cụ riêng cho dữ liệu nội bộ, chất lượng cuối cùng phụ thuộc vào cách cả hệ thống được thiết kế. Model vẫn là động cơ, nhưng sản phẩm tốt hay dở ngày càng nằm ở phần điều phối xung quanh nó."
+            },
+            {
+              "heading": "Điều đáng xem không nằm trên bảng benchmark",
+              "body": "Với doanh nghiệp, câu hỏi thực dụng là mỗi nghìn tác vụ tốn bao nhiêu tiền, người dùng phải chờ bao lâu và tỷ lệ việc AI hoàn thành đúng đến đâu. Một model kém vài điểm benchmark nhưng rẻ hơn nhiều có thể tạo ra sản phẩm tốt hơn nếu nó đáp ứng đúng nhu cầu."
+            },
+            {
+              "heading": "TigerIQ đọc tín hiệu này thế nào?",
+              "body": "Cuộc đua model chưa kết thúc, nhưng thị trường đang trưởng thành. Sau giai đoạn khoe trí thông minh, các hãng phải chứng minh AI có thể được lắp vào sản phẩm thật mà không làm chi phí và độ phức tạp tăng mất kiểm soát."
+            }
+          ]
+        },
+        "es": {
           "title": "GPT-6 không còn chỉ là chuyện chọn model: OpenAI đang dạy developer cách dùng cả một “gia đình” AI",
           "dek": "OpenAI vừa phát hành hướng dẫn thực hành cho GPT-6. Điều đáng chú ý không nằm ở một benchmark mới, mà ở cách hãng muốn developer chọn đúng model, đúng mức suy luận và đúng chi phí cho từng việc.",
           "takeaways": [
@@ -983,60 +1145,62 @@
           ]
         },
         "en": {
-          "title": "NVIDIA adds a 64GB DGX Spark for local AI",
-          "dek": "The 64GB DGX Spark targets local agents, inference and fine-tuning, with two-node clustering supported.",
+          "title": "NVIDIA ra bản DGX Spark 64GB cho AI chạy cục bộ",
+          "dek": "DGX Spark 64GB nhắm tới agent, suy luận và tinh chỉnh mô hình ngay trên thiết bị, đồng thời hỗ trợ ghép hai máy thành cụm.",
           "takeaways": [
-            "The 64GB DGX Spark targets local agents, inference and fine-tuning, with two-node clustering supported."
+            "DGX Spark 64GB tập trung vào AI cục bộ và agent.",
+            "Hai thiết bị có thể ghép cụm bằng NVIDIA Sync Cluster Assistant."
           ],
           "sections": [
             {
-              "heading": "What changed",
-              "body": "NVIDIA says the 64GB DGX Spark arrives October 23 and can run capable local models while scaling to a two-node cluster."
+              "heading": "Điều gì mới",
+              "body": "NVIDIA cho biết cấu hình DGX Spark 64GB sẽ được bán từ ngày 23/10. Một máy hỗ trợ mô hình tới 100 tỷ tham số theo công bố của hãng; hai máy có thể ghép cụm để tăng bộ nhớ và năng lực xử lý."
             },
             {
-              "heading": "Context",
-              "body": "The 64GB DGX Spark targets local agents, inference and fine-tuning, with two-node clustering supported. The broader test is no longer capability demos alone, but whether AI products can deliver reliable, economical and governable real-world deployment."
+              "heading": "Bối cảnh cần biết",
+              "body": "DGX Spark 64GB nhắm tới agent, suy luận và tinh chỉnh mô hình ngay trên thiết bị, đồng thời hỗ trợ ghép hai máy thành cụm. Đây không chỉ là một cập nhật sản phẩm riêng lẻ: diễn biến này nằm trong làn sóng các công ty AI chuyển từ trình diễn năng lực sang triển khai thực tế, nơi chi phí, độ tin cậy, quyền truy cập dữ liệu và khả năng tích hợp quyết định giá trị sử dụng."
             },
             {
-              "heading": "What it means",
-              "body": "For users and businesses, the key questions are practical: reliability, permissions, integration cost and measurable value. The 64GB DGX Spark targets local agents, inference and fine-tuning, with two-node clustering supported."
+              "heading": "Tác động với người dùng và doanh nghiệp",
+              "body": "Với người dùng, thay đổi đáng chú ý nhất là trải nghiệm AI ngày càng gắn với công việc thật thay vì chỉ hỏi đáp. Với doanh nghiệp, câu hỏi quan trọng là hệ thống có thể vận hành ổn định, kiểm soát quyền hạn và chứng minh hiệu quả hay không. DGX Spark 64GB tập trung vào AI cục bộ và agent."
             },
             {
-              "heading": "TigerIQ analysis",
-              "body": "TigerIQ tracks this story across three layers: technical capability, deployment readiness and operational risk. Announcements matter most when independent evidence shows durable value in real workflows."
+              "heading": "Góc nhìn TigerIQ",
+              "body": "TigerIQ đánh giá câu chuyện này theo ba lớp: năng lực công nghệ, khả năng triển khai và rủi ro vận hành. Một thông báo hấp dẫn chỉ trở thành thay đổi đáng kể khi sản phẩm tạo ra lợi ích đo được, có cơ chế kiểm soát rõ ràng và đứng vững trong sử dụng thực tế."
             },
             {
-              "heading": "What to watch",
-              "body": "Next signals include adoption, developer and enterprise feedback, pricing or access changes, and independent evidence of performance. This story will be updated when reliable new information becomes available."
+              "heading": "Điều cần theo dõi tiếp",
+              "body": "Các tín hiệu tiếp theo cần theo dõi gồm tốc độ phổ cập, phản hồi từ nhà phát triển và doanh nghiệp, thay đổi về giá hoặc quyền truy cập, cùng các bằng chứng độc lập về hiệu quả. TigerIQ sẽ cập nhật bài khi có thông tin mới từ nguồn chính thức hoặc nguồn báo chí đủ độ tin cậy."
             }
           ]
         },
         "es": {
-          "title": "NVIDIA lanza DGX Spark de 64 GB para IA local",
-          "dek": "DGX Spark de 64 GB apunta a agentes, inferencia y ajuste local con soporte de clúster de dos nodos.",
+          "title": "NVIDIA ra bản DGX Spark 64GB cho AI chạy cục bộ",
+          "dek": "DGX Spark 64GB nhắm tới agent, suy luận và tinh chỉnh mô hình ngay trên thiết bị, đồng thời hỗ trợ ghép hai máy thành cụm.",
           "takeaways": [
-            "DGX Spark de 64 GB apunta a agentes, inferencia y ajuste local con soporte de clúster de dos nodos."
+            "DGX Spark 64GB tập trung vào AI cục bộ và agent.",
+            "Hai thiết bị có thể ghép cụm bằng NVIDIA Sync Cluster Assistant."
           ],
           "sections": [
             {
-              "heading": "Qué cambió",
-              "body": "NVIDIA anunció una configuración DGX Spark de 64 GB disponible desde el 23 de octubre."
+              "heading": "Điều gì mới",
+              "body": "NVIDIA cho biết cấu hình DGX Spark 64GB sẽ được bán từ ngày 23/10. Một máy hỗ trợ mô hình tới 100 tỷ tham số theo công bố của hãng; hai máy có thể ghép cụm để tăng bộ nhớ và năng lực xử lý."
             },
             {
-              "heading": "Contexto",
-              "body": "DGX Spark de 64 GB apunta a agentes, inferencia y ajuste local con soporte de clúster de dos nodos. La prueba ya no es solo demostrar capacidad, sino lograr un despliegue real que sea fiable, económico y gobernable."
+              "heading": "Bối cảnh cần biết",
+              "body": "DGX Spark 64GB nhắm tới agent, suy luận và tinh chỉnh mô hình ngay trên thiết bị, đồng thời hỗ trợ ghép hai máy thành cụm. Đây không chỉ là một cập nhật sản phẩm riêng lẻ: diễn biến này nằm trong làn sóng các công ty AI chuyển từ trình diễn năng lực sang triển khai thực tế, nơi chi phí, độ tin cậy, quyền truy cập dữ liệu và khả năng tích hợp quyết định giá trị sử dụng."
             },
             {
-              "heading": "Qué significa",
-              "body": "Para usuarios y empresas importan la fiabilidad, los permisos, el coste de integración y el valor medible. DGX Spark de 64 GB apunta a agentes, inferencia y ajuste local con soporte de clúster de dos nodos."
+              "heading": "Tác động với người dùng và doanh nghiệp",
+              "body": "Với người dùng, thay đổi đáng chú ý nhất là trải nghiệm AI ngày càng gắn với công việc thật thay vì chỉ hỏi đáp. Với doanh nghiệp, câu hỏi quan trọng là hệ thống có thể vận hành ổn định, kiểm soát quyền hạn và chứng minh hiệu quả hay không. DGX Spark 64GB tập trung vào AI cục bộ và agent."
             },
             {
-              "heading": "Análisis de TigerIQ",
-              "body": "TigerIQ sigue esta historia en tres capas: capacidad técnica, preparación para el despliegue y riesgo operativo. Los anuncios ganan peso cuando existe evidencia independiente de valor sostenido."
+              "heading": "Góc nhìn TigerIQ",
+              "body": "TigerIQ đánh giá câu chuyện này theo ba lớp: năng lực công nghệ, khả năng triển khai và rủi ro vận hành. Một thông báo hấp dẫn chỉ trở thành thay đổi đáng kể khi sản phẩm tạo ra lợi ích đo được, có cơ chế kiểm soát rõ ràng và đứng vững trong sử dụng thực tế."
             },
             {
-              "heading": "Qué observar",
-              "body": "Las próximas señales incluyen adopción, respuesta de desarrolladores y empresas, cambios de precio o acceso y evidencia independiente de rendimiento."
+              "heading": "Điều cần theo dõi tiếp",
+              "body": "Các tín hiệu tiếp theo cần theo dõi gồm tốc độ phổ cập, phản hồi từ nhà phát triển và doanh nghiệp, thay đổi về giá hoặc quyền truy cập, cùng các bằng chứng độc lập về hiệu quả. TigerIQ sẽ cập nhật bài khi có thông tin mới từ nguồn chính thức hoặc nguồn báo chí đủ độ tin cậy."
             }
           ]
         }
