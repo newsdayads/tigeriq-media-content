@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#174b75"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="675" fill="url(#bg)"/><circle cx="1040" cy="90" r="240" fill="white" opacity=".05"/><circle cx="90" cy="640" r="260" fill="white" opacity=".04"/>
+<g filter="url(#s)"><g transform="translate(600 295)"><circle r="145" fill="#fff" opacity=".09"/><g fill="none" stroke="#fff" stroke-width="9" opacity=".92"><circle r="88"/><path d="M0-150L58-48 145-38 78 36 92 130 0 88-92 130-78 36-145-38-58-48Z"/></g><g fill="#63d7ff"><circle cx="-180" cy="-70" r="18"/><circle cx="180" cy="-70" r="18"/><circle cx="-180" cy="95" r="18"/><circle cx="180" cy="95" r="18"/></g><g stroke="#63d7ff" stroke-width="4" opacity=".8"><path d="M-162-62L-96-30M162-62L96-30M-162 88L-88 55M162 88L88 55"/></g></g></g>
+<text x="64" y="72" fill="white" opacity=".78" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">OPENAI · DEVELOPERS</text>
+<text x="64" y="590" fill="white" font-family="Arial,sans-serif" font-size="42" font-weight="700">GPT-6 · BUILDERS GUIDE</text>
+<text x="64" y="628" fill="white" opacity=".68" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">TIGERIQ · EDITORIAL VISUAL</text></svg>
