@@ -441,17 +441,23 @@
         }
       },
       "sources": [
-        "Reuters — https://www.reuters.com/business/retail-consumer/ais-race-transform-world-before-money-runs-out-2026-10-03/"
+        "https://www.reuters.com/business/retail-consumer/ais-race-transform-world-before-money-runs-out-2026-10-03/",
+        "https://www.pwc.com/gx/en/issues/artificial-intelligence.html"
       ],
       "corrections": [],
       "verification": {
         "status": "verified",
-        "basis": "primary_journalism_source",
+        "basis": "independent_corroboration",
         "evidence": [
           {
             "sourceId": "reuters",
             "tier": "B",
             "url": "https://www.reuters.com/business/retail-consumer/ais-race-transform-world-before-money-runs-out-2026-10-03/"
+          },
+          {
+            "sourceId": "pwc",
+            "tier": "A",
+            "url": "https://www.pwc.com/gx/en/issues/artificial-intelligence.html"
           }
         ]
       }
