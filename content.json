@@ -89,7 +89,14 @@
       ],
       "verification": {
         "status": "verified",
-        "basis": "Google Research official source, published Oct 1 2026; manually gated publication during GitHub Actions cutover."
+        "basis": "Google Research official source, published Oct 1 2026; manually gated publication during GitHub Actions cutover.",
+        "evidence": [
+          {
+            "sourceId": "google-research-project-suncatcher",
+            "tier": "A",
+            "url": "https://blog.google/innovation-and-ai/technology/"
+          }
+        ]
       },
       "corrections": []
     },
