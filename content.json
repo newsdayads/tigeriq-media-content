@@ -1,11 +1,98 @@
 {
-  "updatedAt": "2026-10-03T09:30:00Z",
+  "updatedAt": "2026-10-03T23:23:07.607Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "google-project-suncatcher-satellite-ai-2026",
+      "category": "Research",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-03T23:23:07.607Z",
+      "modifiedAt": "2026-10-03T23:23:07.607Z",
+      "editions": {
+        "vi": {
+          "title": "Project Suncatcher đã lên quỹ đạo: Google đưa thử nghiệm hạ tầng AI ra không gian",
+          "dek": "Google Research cho biết nguyên mẫu vệ tinh Project Suncatcher đã ở trên quỹ đạo, đánh dấu bước thử nghiệm thực địa cho hướng nghiên cứu đưa hạ tầng tính toán AI ra ngoài Trái Đất.",
+          "takeaways": [
+            "Google Research công bố ngày 1/10 rằng nguyên mẫu Project Suncatcher đã ở trên quỹ đạo.",
+            "Dự án được Google mô tả là một moonshot nhằm nghiên cứu khả năng đặt hạ tầng AI trong không gian.",
+            "Cột mốc quỹ đạo biến ý tưởng thành một thử nghiệm phần cứng thực tế cần tiếp tục được đánh giá."
+          ],
+          "sections": [
+            {
+              "heading": "Từ ý tưởng moonshot sang phần cứng trên quỹ đạo",
+              "body": "Google Research đã đưa Project Suncatcher từ giai đoạn ý tưởng sang một nguyên mẫu vệ tinh trên quỹ đạo. Đây là cột mốc kỹ thuật quan trọng vì hệ thống giờ có thể được quan sát trong điều kiện vận hành thực tế thay vì chỉ qua mô phỏng."
+            },
+            {
+              "heading": "AI đang kéo bài toán hạ tầng sang những biên mới",
+              "body": "Nhu cầu tính toán cho AI khiến các phòng nghiên cứu xem xét nhiều kiến trúc hạ tầng khác nhau. Project Suncatcher đại diện cho một hướng nghiên cứu khác thường: đánh giá liệu một phần hạ tầng tính toán có thể hoạt động ngoài Trái Đất."
+            },
+            {
+              "heading": "Điều cần theo dõi tiếp theo",
+              "body": "Việc một nguyên mẫu lên quỹ đạo chưa đồng nghĩa mô hình hạ tầng này đã chứng minh hiệu quả kinh tế hay khả năng mở rộng. Các dữ liệu vận hành, độ tin cậy và hiệu quả hệ thống trong các thử nghiệm tiếp theo mới quyết định giá trị thực tế của hướng đi này."
+            }
+          ]
+        },
+        "en": {
+          "title": "Project Suncatcher reaches orbit as Google tests a new frontier for AI infrastructure",
+          "dek": "Google Research says its Project Suncatcher prototype satellite is now in orbit, moving the research effort to test AI infrastructure beyond Earth into a real-world hardware phase.",
+          "takeaways": [
+            "Google Research reported on October 1 that the Project Suncatcher prototype satellite is in orbit.",
+            "Google describes the project as a moonshot exploring AI infrastructure in space.",
+            "Orbit is an experimental milestone, not proof yet of economic viability or large-scale deployment."
+          ],
+          "sections": [
+            {
+              "heading": "From moonshot concept to orbital hardware",
+              "body": "Google Research has moved Project Suncatcher from a research concept to a prototype satellite operating in orbit. That matters because the project can now gather evidence under real operating conditions rather than relying only on simulations."
+            },
+            {
+              "heading": "AI demand is pushing infrastructure research outward",
+              "body": "Rising AI compute demand is encouraging research into unconventional infrastructure architectures. Project Suncatcher represents one such direction: studying whether parts of AI computing infrastructure can operate beyond Earth."
+            },
+            {
+              "heading": "What comes next",
+              "body": "A prototype reaching orbit does not establish that the architecture is economically viable or scalable. Operational data, reliability and system efficiency from future tests will determine whether this research direction can move beyond experimentation."
+            }
+          ]
+        },
+        "es": {
+          "title": "Project Suncatcher llega a órbita mientras Google prueba una nueva frontera para la infraestructura de IA",
+          "dek": "Google Research afirma que el satélite prototipo Project Suncatcher ya está en órbita, llevando a una fase de hardware real su investigación sobre infraestructura de IA más allá de la Tierra.",
+          "takeaways": [
+            "Google Research informó el 1 de octubre que el prototipo de Project Suncatcher está en órbita.",
+            "Google describe el proyecto como una iniciativa moonshot para estudiar infraestructura de IA en el espacio.",
+            "Llegar a órbita es un hito experimental, no una prueba de viabilidad económica ni de despliegue a gran escala."
+          ],
+          "sections": [
+            {
+              "heading": "Del concepto moonshot al hardware orbital",
+              "body": "Google Research ha llevado Project Suncatcher desde una idea de investigación hasta un satélite prototipo en órbita. El paso permite estudiar el sistema en condiciones reales de operación y no únicamente mediante simulaciones."
+            },
+            {
+              "heading": "La demanda de IA amplía la investigación de infraestructura",
+              "body": "El crecimiento de la demanda de cómputo para IA impulsa la exploración de arquitecturas de infraestructura poco convencionales. Project Suncatcher estudia una de ellas: si parte de la infraestructura de cómputo de IA puede operar fuera de la Tierra."
+            },
+            {
+              "heading": "Qué habrá que observar ahora",
+              "body": "Que un prototipo alcance la órbita no demuestra todavía que esta arquitectura sea económicamente viable o escalable. Los datos operativos, la fiabilidad y la eficiencia del sistema en futuras pruebas determinarán el valor práctico de esta línea de investigación."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blog.google/innovation-and-ai/technology/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Google Research official source, published Oct 1 2026; manually gated publication during GitHub Actions cutover."
+      },
+      "corrections": []
+    },
     {
       "slug": "google-september-ai-roundup-gemini4",
       "category": "Models",
