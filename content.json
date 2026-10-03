@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T02:35:00Z",
+  "updatedAt": "2026-10-03T03:50:00Z",
   "breaking": {
     "vi": "Meta mở mã cho các thiết bị dùng Muse; Apple siết quyền truy cập ổ đĩa khi AI agent làm tăng rủi ro.",
     "en": "Meta opens Muse gadget code while Apple tightens full-disk access as AI agents raise security risk.",
@@ -25,8 +25,14 @@
             "Giá trị thực tế sẽ phụ thuộc vào quyền truy cập, độ tin cậy và cách Muse tương tác với dữ liệu cá nhân."
           ],
           "sections": [
-            {"heading": "Điều gì mới", "body": "Theo TechCrunch và The Verge, Meta đã công bố mã cho phép nhà phát triển thử nghiệm Muse trên các thiết bị do họ tự xây dựng. Hướng đi này biến Muse từ một trải nghiệm đóng thành một nền tảng có thể được nhúng vào nhiều bề mặt phần cứng."},
-            {"heading": "Vì sao đáng chú ý", "body": "Khi AI agent đi ra khỏi trình duyệt và điện thoại để xuất hiện trên màn hình gia đình hoặc thiết bị chuyên dụng, lớp cạnh tranh chuyển sang tích hợp phần cứng, quyền truy cập và khả năng duy trì ngữ cảnh."}
+            {
+              "heading": "Điều gì mới",
+              "body": "Theo TechCrunch và The Verge, Meta đã công bố mã cho phép nhà phát triển thử nghiệm Muse trên các thiết bị do họ tự xây dựng. Hướng đi này biến Muse từ một trải nghiệm đóng thành một nền tảng có thể được nhúng vào nhiều bề mặt phần cứng."
+            },
+            {
+              "heading": "Vì sao đáng chú ý",
+              "body": "Khi AI agent đi ra khỏi trình duyệt và điện thoại để xuất hiện trên màn hình gia đình hoặc thiết bị chuyên dụng, lớp cạnh tranh chuyển sang tích hợp phần cứng, quyền truy cập và khả năng duy trì ngữ cảnh."
+            }
           ]
         },
         "en": {
@@ -38,15 +44,29 @@
             "Real-world value will depend on permissions, reliability and access to personal data."
           ],
           "sections": [
-            {"heading": "What changed", "body": "TechCrunch and The Verge report that Meta released code that allows developers to experiment with Muse on custom-built devices. The move turns Muse into a more portable AI layer across hardware surfaces."},
-            {"heading": "Why it matters", "body": "As agents move beyond browsers and phones, competition shifts toward hardware integration, permissions and persistent context."}
+            {
+              "heading": "What changed",
+              "body": "TechCrunch and The Verge report that Meta released code that allows developers to experiment with Muse on custom-built devices. The move turns Muse into a more portable AI layer across hardware surfaces."
+            },
+            {
+              "heading": "Why it matters",
+              "body": "As agents move beyond browsers and phones, competition shifts toward hardware integration, permissions and persistent context."
+            }
           ]
         },
         "es": {
           "title": "Meta abre el código de Muse para crear nuevos dispositivos con IA",
           "dek": "TechCrunch y The Verge informan que Meta permite integrar Muse en dispositivos y pantallas personalizados.",
-          "takeaways": ["Muse se plantea como una capa de IA integrable.", "La integración de hardware y los permisos serán claves."],
-          "sections": [{"heading": "Qué cambió", "body": "Meta ha publicado código para que los desarrolladores experimenten con Muse en dispositivos personalizados."}]
+          "takeaways": [
+            "Muse se plantea como una capa de IA integrable.",
+            "La integración de hardware y los permisos serán claves."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "Meta ha publicado código para que los desarrolladores experimenten con Muse en dispositivos personalizados."
+            }
+          ]
         }
       },
       "sources": [
@@ -74,21 +94,42 @@
             "Bảo mật agent sẽ ngày càng gắn với thiết kế quyền hạn, không chỉ với chất lượng mô hình."
           ],
           "sections": [
-            {"heading": "Thay đổi chính", "body": "Các bài viết từ The Verge và Ars Technica cho biết Apple đang thay đổi cách cấp Full Disk Access trên Mac. Mục tiêu là giảm nguy cơ ứng dụng hoặc AI agent có quyền quá rộng đối với dữ liệu người dùng."},
-            {"heading": "Tác động với AI agent", "body": "Một agent có thể chuỗi nhiều hành động nên mức độ rủi ro của một quyền hệ thống có thể lớn hơn so với ứng dụng truyền thống. Đây là lý do mô hình permission và audit log trở thành thành phần cốt lõi của sản phẩm AI."}
+            {
+              "heading": "Thay đổi chính",
+              "body": "Các bài viết từ The Verge và Ars Technica cho biết Apple đang thay đổi cách cấp Full Disk Access trên Mac. Mục tiêu là giảm nguy cơ ứng dụng hoặc AI agent có quyền quá rộng đối với dữ liệu người dùng."
+            },
+            {
+              "heading": "Tác động với AI agent",
+              "body": "Một agent có thể chuỗi nhiều hành động nên mức độ rủi ro của một quyền hệ thống có thể lớn hơn so với ứng dụng truyền thống. Đây là lý do mô hình permission và audit log trở thành thành phần cốt lõi của sản phẩm AI."
+            }
           ]
         },
         "en": {
           "title": "Apple tightens full-disk access as AI agents increase security risk",
           "dek": "The Verge and Ars Technica report that Apple is adding tighter controls around Full Disk Access on Mac as AI agents gain more autonomy.",
-          "takeaways": ["Broad permissions carry more risk when agents can take multi-step actions.", "Agent security is becoming a permissions and audit problem, not only a model problem."],
-          "sections": [{"heading": "The change", "body": "Apple is changing how Full Disk Access is granted on Mac, according to reports from The Verge and Ars Technica."}]
+          "takeaways": [
+            "Broad permissions carry more risk when agents can take multi-step actions.",
+            "Agent security is becoming a permissions and audit problem, not only a model problem."
+          ],
+          "sections": [
+            {
+              "heading": "The change",
+              "body": "Apple is changing how Full Disk Access is granted on Mac, according to reports from The Verge and Ars Technica."
+            }
+          ]
         },
         "es": {
           "title": "Apple endurece el acceso total al disco ante el riesgo de los agentes de IA",
           "dek": "The Verge y Ars Technica informan de nuevos controles para Full Disk Access en Mac.",
-          "takeaways": ["Los permisos amplios son más sensibles cuando un agente ejecuta múltiples acciones."],
-          "sections": [{"heading": "El cambio", "body": "Apple está reforzando la concesión de acceso total al disco en Mac."}]
+          "takeaways": [
+            "Los permisos amplios son más sensibles cuando un agente ejecuta múltiples acciones."
+          ],
+          "sections": [
+            {
+              "heading": "El cambio",
+              "body": "Apple está reforzando la concesión de acceso total al disco en Mac."
+            }
+          ]
         }
       },
       "sources": [
@@ -110,20 +151,43 @@
         "vi": {
           "title": "GitHub Copilot Code Review có API và mức effort mặc định mới",
           "dek": "GitHub cho biết nhà phát triển có thể yêu cầu Copilot code review qua REST hoặc GraphQL API và đặt effort cho từng yêu cầu.",
-          "takeaways": ["Code review của Copilot có thể được gọi bằng API.", "Balanced trở thành mức effort mặc định theo GitHub Changelog."],
-          "sections": [{"heading": "Điều thay đổi", "body": "GitHub Changelog thông báo Copilot code review nay có thể được yêu cầu qua REST và GraphQL API. Điều này mở đường cho việc tích hợp review AI vào pipeline tự động mà không phải thao tác thủ công trên giao diện."}]
+          "takeaways": [
+            "Code review của Copilot có thể được gọi bằng API.",
+            "Balanced trở thành mức effort mặc định theo GitHub Changelog."
+          ],
+          "sections": [
+            {
+              "heading": "Điều thay đổi",
+              "body": "GitHub Changelog thông báo Copilot code review nay có thể được yêu cầu qua REST và GraphQL API. Điều này mở đường cho việc tích hợp review AI vào pipeline tự động mà không phải thao tác thủ công trên giao diện."
+            }
+          ]
         },
         "en": {
           "title": "GitHub Copilot code review adds API support and a new default effort level",
           "dek": "GitHub says developers can now request Copilot code review through REST or GraphQL APIs and set effort per request.",
-          "takeaways": ["Copilot code review is now callable through APIs.", "Balanced is the new default effort level."],
-          "sections": [{"heading": "What changed", "body": "GitHub Changelog says Copilot code review can now be requested through REST and GraphQL APIs, making automated review easier to integrate into engineering workflows."}]
+          "takeaways": [
+            "Copilot code review is now callable through APIs.",
+            "Balanced is the new default effort level."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "GitHub Changelog says Copilot code review can now be requested through REST and GraphQL APIs, making automated review easier to integrate into engineering workflows."
+            }
+          ]
         },
         "es": {
           "title": "GitHub Copilot Code Review añade soporte de API",
           "dek": "GitHub permite solicitar revisiones de código mediante REST o GraphQL.",
-          "takeaways": ["Las revisiones pueden integrarse en pipelines automáticos."],
-          "sections": [{"heading": "Qué cambió", "body": "Copilot Code Review ahora puede invocarse mediante las APIs de GitHub."}]
+          "takeaways": [
+            "Las revisiones pueden integrarse en pipelines automáticos."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "Copilot Code Review ahora puede invocarse mediante las APIs de GitHub."
+            }
+          ]
         }
       },
       "sources": [
@@ -144,35 +208,143 @@
         "vi": {
           "title": "OpenAI xuất bản hướng dẫn chọn và đưa dòng GPT-6 vào production",
           "dek": "Bài hướng dẫn mới của OpenAI tập trung vào chọn model GPT-6, điều chỉnh reasoning effort, cải thiện prompt, phối hợp công cụ và chuẩn bị workflow cho production.",
-          "takeaways": ["OpenAI đặt trọng tâm vào lựa chọn model theo workload.", "Reasoning effort, prompt, skill và tool orchestration được xem như các biến vận hành.", "Production readiness là một phần rõ ràng của hướng dẫn."],
-          "sections": [{"heading": "Nội dung chính", "body": "Theo OpenAI News, hướng dẫn mới dành cho startup trình bày cách lựa chọn các model trong dòng GPT-6, tinh chỉnh reasoning effort, cải thiện prompt và skill, phối hợp công cụ và chuẩn bị workflow trước khi đưa vào production."}]
+          "takeaways": [
+            "OpenAI đặt trọng tâm vào lựa chọn model theo workload.",
+            "Reasoning effort, prompt, skill và tool orchestration được xem như các biến vận hành.",
+            "Production readiness là một phần rõ ràng của hướng dẫn."
+          ],
+          "sections": [
+            {
+              "heading": "Nội dung chính",
+              "body": "Theo OpenAI News, hướng dẫn mới dành cho startup trình bày cách lựa chọn các model trong dòng GPT-6, tinh chỉnh reasoning effort, cải thiện prompt và skill, phối hợp công cụ và chuẩn bị workflow trước khi đưa vào production."
+            }
+          ]
         },
         "en": {
           "title": "OpenAI publishes a practical guide to building with the GPT-6 family",
           "dek": "OpenAI's guide focuses on choosing GPT-6 models, tuning reasoning effort, improving prompts and skills, coordinating tools and preparing workflows for production.",
-          "takeaways": ["Model selection is framed around workload.", "Reasoning effort and tool orchestration are treated as operational variables."],
-          "sections": [{"heading": "What the guide covers", "body": "OpenAI News describes guidance for startups on choosing GPT-6 models, tuning reasoning effort, improving prompts and skills, coordinating tools and preparing workflows for production."}]
+          "takeaways": [
+            "Model selection is framed around workload.",
+            "Reasoning effort and tool orchestration are treated as operational variables."
+          ],
+          "sections": [
+            {
+              "heading": "What the guide covers",
+              "body": "OpenAI News describes guidance for startups on choosing GPT-6 models, tuning reasoning effort, improving prompts and skills, coordinating tools and preparing workflows for production."
+            }
+          ]
         },
         "es": {
           "title": "OpenAI publica una guía práctica para la familia GPT-6",
           "dek": "La guía cubre selección de modelos, reasoning effort, prompts, herramientas y preparación para producción.",
-          "takeaways": ["La selección del modelo depende de la carga de trabajo."],
-          "sections": [{"heading": "Qué cubre", "body": "OpenAI presenta una guía para elegir modelos GPT-6 y preparar flujos de trabajo para producción."}]
+          "takeaways": [
+            "La selección del modelo depende de la carga de trabajo."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cubre",
+              "body": "OpenAI presenta una guía para elegir modelos GPT-6 y preparar flujos de trabajo para producción."
+            }
+          ]
         }
       },
       "sources": [
         "OpenAI News — https://openai.com/index/practical-guide-building-gpt-6"
       ],
       "corrections": []
+    },
+    {
+      "slug": "google-ai-updates-september-2026",
+      "category": "AI Platforms",
+      "age": "mới cập nhật",
+      "readTime": "3 phút đọc",
+      "verified": "Official Google source",
+      "accent": "blue",
+      "publishedAt": "2026-10-02T15:00:00Z",
+      "modifiedAt": "2026-10-03T03:50:00Z",
+      "editions": {
+        "vi": {
+          "title": "Google tổng hợp các cập nhật AI nổi bật trong tháng 9/2026",
+          "dek": "Google vừa xuất bản bản tổng hợp những cập nhật AI mà hãng đã công bố trong tháng 9/2026.",
+          "takeaways": [
+            "Google gom các thay đổi AI trong tháng vào một bản cập nhật chính thức.",
+            "Đây là nguồn tốt để đối chiếu timeline sản phẩm và tính năng."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "Google đã đăng bản tổng hợp các cập nhật AI được công bố trong tháng 9/2026. TigerIQ dùng nguồn chính thức này như một mốc tham chiếu để kiểm tra timeline khi tổng hợp các tin liên quan."
+            }
+          ]
+        },
+        "en": {
+          "title": "Google recaps its major AI updates from September 2026",
+          "dek": "Google published an official roundup of the AI updates it announced during September 2026.",
+          "takeaways": [
+            "The official roundup provides a useful timeline of Google's AI changes."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "Google published an official roundup of its September 2026 AI announcements, providing a reference timeline for related product updates."
+            }
+          ]
+        },
+        "es": {
+          "title": "Google resume sus principales novedades de IA de septiembre de 2026",
+          "dek": "Google publicó un resumen oficial de las novedades de IA anunciadas durante septiembre de 2026.",
+          "takeaways": [
+            "El resumen oficial ofrece una cronología útil de los cambios de IA de Google."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "Google publicó un resumen oficial de sus anuncios de IA de septiembre de 2026."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "Google AI — https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
+      ],
+      "corrections": []
     }
   ],
   "adSlots": {
-    "home_top": {"provider": "placeholder", "size": "970x90", "enabled": true},
-    "home_sidebar": {"provider": "placeholder", "size": "300x250", "enabled": true},
-    "home_infeed": {"provider": "placeholder", "size": "728x90", "enabled": true},
-    "article_top": {"provider": "placeholder", "size": "970x90", "enabled": true},
-    "article_inline": {"provider": "placeholder", "size": "728x90", "enabled": true},
-    "article_rail": {"provider": "placeholder", "size": "300x600", "enabled": true},
-    "article_end": {"provider": "placeholder", "size": "970x250", "enabled": true}
+    "home_top": {
+      "provider": "placeholder",
+      "size": "970x90",
+      "enabled": true
+    },
+    "home_sidebar": {
+      "provider": "placeholder",
+      "size": "300x250",
+      "enabled": true
+    },
+    "home_infeed": {
+      "provider": "placeholder",
+      "size": "728x90",
+      "enabled": true
+    },
+    "article_top": {
+      "provider": "placeholder",
+      "size": "970x90",
+      "enabled": true
+    },
+    "article_inline": {
+      "provider": "placeholder",
+      "size": "728x90",
+      "enabled": true
+    },
+    "article_rail": {
+      "provider": "placeholder",
+      "size": "300x600",
+      "enabled": true
+    },
+    "article_end": {
+      "provider": "placeholder",
+      "size": "970x250",
+      "enabled": true
+    }
   }
 }
