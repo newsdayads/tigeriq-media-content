@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-03T05:01:05.676Z",
+  "updatedAt": "2026-10-03T07:30:00Z",
   "breaking": {
-    "vi": "Meta mở mã cho các thiết bị dùng Muse; Apple siết quyền truy cập ổ đĩa khi AI agent làm tăng rủi ro.",
-    "en": "Meta opens Muse gadget code while Apple tightens full-disk access as AI agents raise security risk.",
-    "es": "Meta abre el código para dispositivos Muse y Apple endurece el acceso total al disco ante el riesgo de los agentes de IA."
+    "vi": "OpenAI mở rộng dòng GPT-6; Anthropic đầu tư mạnh cho kỹ sư triển khai AI; GitHub đưa Copilot tiến sâu vào tự động hóa máy tính.",
+    "en": "OpenAI expands GPT-6 while Anthropic invests in deployment engineers and GitHub pushes Copilot deeper into computer automation.",
+    "es": "OpenAI amplía GPT-6, Anthropic invierte en ingenieros de despliegue y GitHub lleva Copilot más lejos en la automatización."
   },
   "articles": [
     {
@@ -350,43 +350,737 @@
           "es": "Ilustración generada por TigerIQ para: OpenAI publica una guía práctica para la familia GPT-6"
         }
       }
+    },
+    {
+      "slug": "anthropic-frontier-academy-100m",
+      "category": "Business",
+      "readTime": "4",
+      "accent": "amber",
+      "publishedAt": "2026-10-02T18:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "Anthropic đầu tư 100 triệu USD để đào tạo 10.000 kỹ sư triển khai AI",
+          "dek": "Claude Frontier Academy hướng tới đào tạo 10.000 kỹ sư triển khai tại doanh nghiệp trước cuối năm 2027.",
+          "takeaways": [
+            "Mục tiêu là 10.000 kỹ sư trước cuối năm 2027.",
+            "Chương trình nhấn mạnh triển khai thực tế, bảo mật và vận hành trong doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "Anthropic công bố Claude Frontier Academy với cam kết đầu tư 100 triệu USD. Chương trình tập trung vào kỹ sư triển khai AI trong môi trường doanh nghiệp, từ lựa chọn ca sử dụng đến rà soát bảo mật và bàn giao vận hành."
+            }
+          ]
+        },
+        "en": {
+          "title": "Anthropic commits $100M to train 10,000 frontier deployment engineers",
+          "dek": "Claude Frontier Academy aims to train 10,000 enterprise AI deployment engineers by the end of 2027.",
+          "takeaways": [
+            "Claude Frontier Academy aims to train 10,000 enterprise AI deployment engineers by the end of 2027."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "Anthropic launched Claude Frontier Academy with a $100 million commitment focused on real enterprise deployment skills."
+            }
+          ]
+        },
+        "es": {
+          "title": "Anthropic invertirá 100 millones de dólares para formar 10.000 ingenieros de IA",
+          "dek": "Claude Frontier Academy busca formar 10.000 ingenieros de despliegue empresarial antes de 2028.",
+          "takeaways": [
+            "Claude Frontier Academy busca formar 10.000 ingenieros de despliegue empresarial antes de 2028."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "Anthropic lanzó Claude Frontier Academy con una inversión de 100 millones de dólares orientada al despliegue empresarial."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "Anthropic — https://www.anthropic.com/news/claude-frontier-academy"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "anthropic",
+            "tier": "A",
+            "url": "https://www.anthropic.com/news/claude-frontier-academy"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-open-sources-muse-gadget-code.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: Anthropic đầu tư 100 triệu USD để đào tạo 10.000 kỹ sư triển khai AI",
+          "en": "Editorial illustration for: Anthropic commits $100M to train 10,000 frontier deployment engineers",
+          "es": "Ilustración editorial para: Anthropic invertirá 100 millones de dólares para formar 10.000 ingenieros de IA"
+        }
+      }
+    },
+    {
+      "slug": "nvidia-dgx-spark-64gb-local-ai",
+      "category": "Hardware",
+      "readTime": "4",
+      "accent": "green",
+      "publishedAt": "2026-10-02T17:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA ra bản DGX Spark 64GB cho AI chạy cục bộ",
+          "dek": "DGX Spark 64GB nhắm tới agent, suy luận và tinh chỉnh mô hình ngay trên thiết bị, đồng thời hỗ trợ ghép hai máy thành cụm.",
+          "takeaways": [
+            "DGX Spark 64GB tập trung vào AI cục bộ và agent.",
+            "Hai thiết bị có thể ghép cụm bằng NVIDIA Sync Cluster Assistant."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "NVIDIA cho biết cấu hình DGX Spark 64GB sẽ được bán từ ngày 23/10. Một máy hỗ trợ mô hình tới 100 tỷ tham số theo công bố của hãng; hai máy có thể ghép cụm để tăng bộ nhớ và năng lực xử lý."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA adds a 64GB DGX Spark for local AI",
+          "dek": "The 64GB DGX Spark targets local agents, inference and fine-tuning, with two-node clustering supported.",
+          "takeaways": [
+            "The 64GB DGX Spark targets local agents, inference and fine-tuning, with two-node clustering supported."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "NVIDIA says the 64GB DGX Spark arrives October 23 and can run capable local models while scaling to a two-node cluster."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA lanza DGX Spark de 64 GB para IA local",
+          "dek": "DGX Spark de 64 GB apunta a agentes, inferencia y ajuste local con soporte de clúster de dos nodos.",
+          "takeaways": [
+            "DGX Spark de 64 GB apunta a agentes, inferencia y ajuste local con soporte de clúster de dos nodos."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "NVIDIA anunció una configuración DGX Spark de 64 GB disponible desde el 23 de octubre."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "NVIDIA — https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "nvidia",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-code-review-api.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: NVIDIA ra bản DGX Spark 64GB cho AI chạy cục bộ",
+          "en": "Editorial illustration for: NVIDIA adds a 64GB DGX Spark for local AI",
+          "es": "Ilustración editorial para: NVIDIA lanza DGX Spark de 64 GB para IA local"
+        }
+      }
+    },
+    {
+      "slug": "github-copilot-models-deprecated-oct-2026",
+      "category": "Developer Tools",
+      "readTime": "3",
+      "accent": "green",
+      "publishedAt": "2026-10-02T16:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub Copilot ngừng một số mô hình cũ và chuyển sang thế hệ mới",
+          "dek": "GitHub đã đánh dấu Gemini 3.5/3.6 Flash, Kimi K2.7 Code và Claude Opus 4.7 là các mô hình ngừng hỗ trợ trong Copilot.",
+          "takeaways": [
+            "Các workflow có khóa model cần được rà soát.",
+            "Copilot đang đẩy nhanh vòng đời model trong bộ chọn mô hình."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "GitHub cho biết các mô hình cũ đã bị ngừng trên các trải nghiệm Copilot. Hãng đề xuất Gemini 3.8 Flash, Kimi K3 và Claude Opus 5.5 làm lựa chọn thay thế tương ứng."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Copilot deprecates several older models",
+          "dek": "GitHub deprecated Gemini 3.5/3.6 Flash, Kimi K2.7 Code and Claude Opus 4.7 across Copilot.",
+          "takeaways": [
+            "GitHub deprecated Gemini 3.5/3.6 Flash, Kimi K2.7 Code and Claude Opus 4.7 across Copilot."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "GitHub recommends newer alternatives including Gemini 3.8 Flash, Kimi K3 and Claude Opus 5.5."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub Copilot retira varios modelos antiguos",
+          "dek": "GitHub retiró Gemini 3.5/3.6 Flash, Kimi K2.7 Code y Claude Opus 4.7 de Copilot.",
+          "takeaways": [
+            "GitHub retiró Gemini 3.5/3.6 Flash, Kimi K2.7 Code y Claude Opus 4.7 de Copilot."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "GitHub recomienda alternativas más nuevas para los flujos que dependían de esos modelos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "GitHub Changelog — https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "github-changelog",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-code-review-api.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: GitHub Copilot ngừng một số mô hình cũ và chuyển sang thế hệ mới",
+          "en": "Editorial illustration for: GitHub Copilot deprecates several older models",
+          "es": "Ilustración editorial para: GitHub Copilot retira varios modelos antiguos"
+        }
+      }
+    },
+    {
+      "slug": "github-copilot-computer-use-desktop",
+      "category": "AI Agents",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-01T19:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub Copilot có thể điều khiển ứng dụng desktop bằng Computer Use",
+          "dek": "Tính năng thử nghiệm cho phép Copilot đọc giao diện, nhấp, nhập liệu, cuộn và thao tác trên ứng dụng macOS và Windows.",
+          "takeaways": [
+            "Computer Use mở rộng Copilot sang phần mềm không có API hoặc CLI.",
+            "GitHub yêu cầu người dùng cấp quyền trước khi agent điều khiển ứng dụng."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "GitHub đưa Computer Use vào Copilot CLI và ứng dụng Copilot ở chế độ xem trước công khai. Người dùng phải cấp quyền trước khi Copilot điều khiển ứng dụng và có thể tắt quyền theo ứng dụng."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Copilot can now control desktop apps with computer use",
+          "dek": "Public preview lets Copilot read interfaces, click, type, scroll and navigate desktop applications.",
+          "takeaways": [
+            "Public preview lets Copilot read interfaces, click, type, scroll and navigate desktop applications."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "Computer use is available in Copilot CLI and the Copilot app on macOS and Windows with explicit app permissions."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub Copilot ya puede controlar aplicaciones de escritorio",
+          "dek": "La vista previa permite leer interfaces, hacer clic, escribir y navegar por aplicaciones de escritorio.",
+          "takeaways": [
+            "La vista previa permite leer interfaces, hacer clic, escribir y navegar por aplicaciones de escritorio."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "Computer Use llega a Copilot CLI y a la aplicación Copilot con permisos explícitos del usuario."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "GitHub Changelog — https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "github-changelog",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-open-sources-muse-gadget-code.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: GitHub Copilot có thể điều khiển ứng dụng desktop bằng Computer Use",
+          "en": "Editorial illustration for: GitHub Copilot can now control desktop apps with computer use",
+          "es": "Ilustración editorial para: GitHub Copilot ya puede controlar aplicaciones de escritorio"
+        }
+      }
+    },
+    {
+      "slug": "github-copilot-dynamic-workflows",
+      "category": "Developer Tools",
+      "readTime": "4",
+      "accent": "green",
+      "publishedAt": "2026-10-01T18:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub Copilot thêm Dynamic Workflows để điều phối quy trình nhiều tác nhân",
+          "dek": "Dynamic Workflows cho phép mô tả bằng code cách chạy lệnh, chia việc cho agent, kiểm tra kết quả và dừng ở checkpoint.",
+          "takeaways": [
+            "Quy trình agent có thể được định nghĩa bằng code thay vì chỉ bằng prompt.",
+            "Có thể kết hợp bước tự động, nhiều agent và checkpoint kiểm duyệt."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "GitHub đưa Dynamic Workflows vào Copilot CLI, ứng dụng Copilot và SDK. Workflow có thể kết hợp bước tự động với một hoặc nhiều agent, chạy tuần tự hoặc song song và yêu cầu xác nhận ở checkpoint."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Copilot adds Dynamic Workflows for multi-agent orchestration",
+          "dek": "Dynamic Workflows define commands, agent delegation, verification and checkpoints in code.",
+          "takeaways": [
+            "Dynamic Workflows define commands, agent delegation, verification and checkpoints in code."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "GitHub made Dynamic Workflows available in Copilot CLI, the Copilot app and SDK for reusable multi-stage processes."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub Copilot añade Dynamic Workflows para orquestación multiagente",
+          "dek": "Dynamic Workflows define comandos, delegación, verificación y puntos de control mediante código.",
+          "takeaways": [
+            "Dynamic Workflows define comandos, delegación, verificación y puntos de control mediante código."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "GitHub incorporó Dynamic Workflows a Copilot CLI, la aplicación y el SDK."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "GitHub Changelog — https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "github-changelog",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-code-review-api.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: GitHub Copilot thêm Dynamic Workflows để điều phối quy trình nhiều tác nhân",
+          "en": "Editorial illustration for: GitHub Copilot adds Dynamic Workflows for multi-agent orchestration",
+          "es": "Ilustración editorial para: GitHub Copilot añade Dynamic Workflows para orquestación multiagente"
+        }
+      }
+    },
+    {
+      "slug": "google-synthid-bio-protein-watermark",
+      "category": "Research",
+      "readTime": "4",
+      "accent": "cyan",
+      "publishedAt": "2026-09-30T17:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "Google DeepMind thử watermark cho protein do AI thiết kế với SynthID Bio",
+          "dek": "SynthID Bio là thử nghiệm nhúng dấu nhận biết vào chuỗi protein do AI tạo mà vẫn giữ chức năng sinh học trong kiểm thử phòng thí nghiệm.",
+          "takeaways": [
+            "SynthID Bio mở rộng watermark từ nội dung số sang sinh học tổng hợp.",
+            "DeepMind cho biết chức năng sinh học được duy trì trong thử nghiệm phòng thí nghiệm."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "Google DeepMind giới thiệu SynthID Bio như một bằng chứng khái niệm cho watermark trong sinh học tổng hợp. Dấu nhận biết được nhúng vào mã sinh học và có thể xác minh trên protein đã tổng hợp."
+            }
+          ]
+        },
+        "en": {
+          "title": "Google DeepMind introduces SynthID Bio for watermarking AI-designed proteins",
+          "dek": "SynthID Bio embeds a detectable signature into AI-generated protein sequences while preserving biological function in lab tests.",
+          "takeaways": [
+            "SynthID Bio embeds a detectable signature into AI-generated protein sequences while preserving biological function in lab tests."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "DeepMind presented SynthID Bio as a proof of concept for watermarking synthetic biology outputs."
+            }
+          ]
+        },
+        "es": {
+          "title": "Google DeepMind presenta SynthID Bio para marcar proteínas diseñadas por IA",
+          "dek": "SynthID Bio inserta una firma detectable en proteínas generadas por IA preservando su función en pruebas de laboratorio.",
+          "takeaways": [
+            "SynthID Bio inserta una firma detectable en proteínas generadas por IA preservando su función en pruebas de laboratorio."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "DeepMind presentó SynthID Bio como prueba de concepto para el marcado en biología sintética."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "Google DeepMind — https://deepmind.google/blog/introducing-synthid-bio/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "google-deepmind",
+            "tier": "A",
+            "url": "https://deepmind.google/blog/introducing-synthid-bio/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt6-family-model-guide.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: Google DeepMind thử watermark cho protein do AI thiết kế với SynthID Bio",
+          "en": "Editorial illustration for: Google DeepMind introduces SynthID Bio for watermarking AI-designed proteins",
+          "es": "Ilustración editorial para: Google DeepMind presenta SynthID Bio para marcar proteínas diseñadas por IA"
+        }
+      }
+    },
+    {
+      "slug": "openai-devday-2026-agents-ultrafast",
+      "category": "Business",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-09-29T20:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI DevDay 2026 đẩy mạnh agent luôn hoạt động và chế độ Ultrafast",
+          "dek": "OpenAI giới thiệu Dots, GPT-6.1 Sol, Ultrafast và các lớp bảo vệ dữ liệu mới cho doanh nghiệp tại DevDay 2026.",
+          "takeaways": [
+            "OpenAI đang tập trung vào agent dài hạn thay vì chỉ hội thoại.",
+            "Ultrafast nhắm tới workload cần tốc độ sinh token cao.",
+            "Private Intelligence bổ sung lớp bảo vệ cho dữ liệu doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "Bản tổng kết DevDay 2026 cho thấy OpenAI đang gom nhiều mảnh ghép cho agent vận hành dài hạn: Dots, GPT-6.1 Sol, tầng tốc độ Ultrafast và Private Intelligence cho doanh nghiệp."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI DevDay 2026 pushes always-on agents and Ultrafast inference",
+          "dek": "OpenAI highlighted Dots, GPT-6.1 Sol, Ultrafast and new enterprise privacy controls at DevDay 2026.",
+          "takeaways": [
+            "OpenAI highlighted Dots, GPT-6.1 Sol, Ultrafast and new enterprise privacy controls at DevDay 2026."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "The DevDay recap brings together OpenAI's agent, model, speed and enterprise privacy strategy."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI DevDay 2026 impulsa agentes permanentes y el modo Ultrafast",
+          "dek": "OpenAI presentó Dots, GPT-6.1 Sol, Ultrafast y nuevas protecciones empresariales.",
+          "takeaways": [
+            "OpenAI presentó Dots, GPT-6.1 Sol, Ultrafast y nuevas protecciones empresariales."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "El resumen de DevDay combina la estrategia de agentes, modelos, velocidad y privacidad empresarial de OpenAI."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "OpenAI — https://openai.com/index/devday-2026-recap/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "openai",
+            "tier": "A",
+            "url": "https://openai.com/index/devday-2026-recap/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-open-sources-muse-gadget-code.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: OpenAI DevDay 2026 đẩy mạnh agent luôn hoạt động và chế độ Ultrafast",
+          "en": "Editorial illustration for: OpenAI DevDay 2026 pushes always-on agents and Ultrafast inference",
+          "es": "Ilustración editorial para: OpenAI DevDay 2026 impulsa agentes permanentes y el modo Ultrafast"
+        }
+      }
+    },
+    {
+      "slug": "openai-gpt-6-1-sol-launch",
+      "category": "AI Models",
+      "readTime": "5",
+      "accent": "cyan",
+      "publishedAt": "2026-09-29T18:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI ra GPT-6.1 Sol, nhắm tới coding tác nhân và công việc chuyên môn",
+          "dek": "GPT-6.1 Sol được OpenAI định vị gần năng lực Astra nhưng có giá token tiêu chuẩn thấp hơn đáng kể.",
+          "takeaways": [
+            "GPT-6.1 Sol hướng tới cân bằng năng lực và chi phí.",
+            "Mô hình có mặt qua API và trong một số sản phẩm ChatGPT Work/Codex theo điều kiện gói."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "OpenAI công bố GPT-6.1 Sol cho lập trình tác nhân, sử dụng máy tính và công việc chuyên môn. Hãng công bố giá API 2 USD mỗi triệu token đầu vào và 10 USD mỗi triệu token đầu ra, cùng mức giá riêng cho dữ liệu đầu vào đã lưu bộ nhớ đệm."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI launches GPT-6.1 Sol for agentic coding and professional work",
+          "dek": "OpenAI positions GPT-6.1 Sol near Astra capability at substantially lower standard token pricing.",
+          "takeaways": [
+            "OpenAI positions GPT-6.1 Sol near Astra capability at substantially lower standard token pricing."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "GPT-6.1 Sol targets agentic coding, computer use and professional work with lower API pricing than Astra."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI lanza GPT-6.1 Sol para programación agéntica y trabajo profesional",
+          "dek": "OpenAI sitúa GPT-6.1 Sol cerca de Astra con un precio estándar de tokens bastante menor.",
+          "takeaways": [
+            "OpenAI sitúa GPT-6.1 Sol cerca de Astra con un precio estándar de tokens bastante menor."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "GPT-6.1 Sol se orienta a programación agéntica, uso del ordenador y trabajo profesional."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "OpenAI — https://openai.com/index/introducing-gpt-6-1-sol/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "openai",
+            "tier": "A",
+            "url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt6-family-model-guide.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: OpenAI ra GPT-6.1 Sol, nhắm tới coding tác nhân và công việc chuyên môn",
+          "en": "Editorial illustration for: OpenAI launches GPT-6.1 Sol for agentic coding and professional work",
+          "es": "Ilustración editorial para: OpenAI lanza GPT-6.1 Sol para programación agéntica y trabajo profesional"
+        }
+      }
+    },
+    {
+      "slug": "anthropic-claude-sonnet-5-5",
+      "category": "AI Models",
+      "readTime": "4",
+      "accent": "amber",
+      "publishedAt": "2026-09-28T17:30:00Z",
+      "modifiedAt": "2026-10-03T07:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "Anthropic giới thiệu Claude Sonnet 5.5, nhanh hơn và rẻ hơn Sonnet 5",
+          "dek": "Anthropic cho biết Sonnet 5.5 chạy nhanh hơn trên 30% và có thể giảm chi phí tới 30% cho phần lớn công việc.",
+          "takeaways": [
+            "Sonnet 5.5 nhắm tới workload thường ngày cần tốc độ và chi phí tốt.",
+            "Anthropic công bố mức tăng tốc trên 30% và chi phí thấp hơn tới 30% cho nhiều tác vụ."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì mới",
+              "body": "Claude Sonnet 5.5 được định vị cho tác vụ hằng ngày có phạm vi rõ, sửa lỗi, tạo tài liệu, slide và bảng tính. Anthropic cho biết mô hình cải thiện đáng kể hiệu năng so với Sonnet 5."
+            }
+          ]
+        },
+        "en": {
+          "title": "Anthropic introduces Claude Sonnet 5.5 with higher speed and lower cost",
+          "dek": "Anthropic says Sonnet 5.5 runs more than 30% faster and can cost up to 30% less for most work.",
+          "takeaways": [
+            "Anthropic says Sonnet 5.5 runs more than 30% faster and can cost up to 30% less for most work."
+          ],
+          "sections": [
+            {
+              "heading": "What changed",
+              "body": "Sonnet 5.5 targets well-scoped everyday work, coding fixes and polished knowledge-work outputs."
+            }
+          ]
+        },
+        "es": {
+          "title": "Anthropic presenta Claude Sonnet 5.5 con más velocidad y menor costo",
+          "dek": "Anthropic afirma que Sonnet 5.5 es más de un 30% rápido y puede costar hasta un 30% menos.",
+          "takeaways": [
+            "Anthropic afirma que Sonnet 5.5 es más de un 30% rápido y puede costar hasta un 30% menos."
+          ],
+          "sections": [
+            {
+              "heading": "Qué cambió",
+              "body": "Sonnet 5.5 se orienta a tareas diarias bien definidas, corrección de código y trabajo de conocimiento."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "Anthropic — https://www.anthropic.com/claude-sonnet-5-5"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "anthropic",
+            "tier": "A",
+            "url": "https://www.anthropic.com/claude-sonnet-5-5"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt6-family-model-guide.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-editorial-photo-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa cho bài: Anthropic giới thiệu Claude Sonnet 5.5, nhanh hơn và rẻ hơn Sonnet 5",
+          "en": "Editorial illustration for: Anthropic introduces Claude Sonnet 5.5 with higher speed and lower cost",
+          "es": "Ilustración editorial para: Anthropic presenta Claude Sonnet 5.5 con más velocidad y menor costo"
+        }
+      }
     }
   ],
   "adSlots": {
     "home_top": {
       "provider": "placeholder",
       "size": "970x90",
-      "enabled": true
+      "enabled": false
     },
     "home_sidebar": {
       "provider": "placeholder",
       "size": "300x250",
-      "enabled": true
+      "enabled": false
     },
     "home_infeed": {
       "provider": "placeholder",
       "size": "728x90",
-      "enabled": true
+      "enabled": false
     },
     "article_top": {
       "provider": "placeholder",
       "size": "970x90",
-      "enabled": true
+      "enabled": false
     },
     "article_inline": {
       "provider": "placeholder",
       "size": "728x90",
-      "enabled": true
+      "enabled": false
     },
     "article_rail": {
       "provider": "placeholder",
       "size": "300x600",
-      "enabled": true
+      "enabled": false
     },
     "article_end": {
       "provider": "placeholder",
       "size": "970x250",
-      "enabled": true
+      "enabled": false
     }
   }
 }
