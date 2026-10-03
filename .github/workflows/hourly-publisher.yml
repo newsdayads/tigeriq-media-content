@@ -1,0 +1,32 @@
+name: Hourly AI Publisher
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  models: read
+concurrency:
+  group: hourly-ai-publisher
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Generate and independently review
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/hourly-publish.mjs
+      - name: Commit publication
+        run: |
+          if git diff --quiet -- content.json; then echo "No qualified new story"; exit 0; fi
+          git config user.name "tigeriq-media-bot"
+          git config user.email "tigeriq-media-bot@users.noreply.github.com"
+          git add content.json
+          git commit -m "publish: hourly verified AI story"
+          git push
