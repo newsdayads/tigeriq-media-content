@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a3b"/><stop offset="1" stop-color="#183e86"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="675" fill="url(#bg)"/><circle cx="1040" cy="90" r="240" fill="white" opacity=".05"/><circle cx="90" cy="640" r="260" fill="white" opacity=".04"/>
+<g filter="url(#s)"><g transform="translate(600 285)"><path d="M0-175C22-64 68-18 178 0 68 18 22 64 0 175-22 64-68 18-178 0-68-18-22-64 0-175Z" fill="#8ab4f8"/><path d="M0-175C12-85 42-35 105-12" fill="none" stroke="#e8f0fe" stroke-width="18" stroke-linecap="round"/><circle cx="-220" cy="-105" r="28" fill="#4285f4"/><circle cx="220" cy="-105" r="28" fill="#ea4335"/><circle cx="-220" cy="105" r="28" fill="#fbbc04"/><circle cx="220" cy="105" r="28" fill="#34a853"/></g></g>
+<text x="64" y="72" fill="white" opacity=".78" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">GOOGLE · AI ROUNDUP</text>
+<text x="64" y="590" fill="white" font-family="Arial,sans-serif" font-size="42" font-weight="700">GEMINI 4 · SEPTEMBER</text>
+<text x="64" y="628" fill="white" opacity=".68" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">TIGERIQ · EDITORIAL VISUAL</text></svg>
