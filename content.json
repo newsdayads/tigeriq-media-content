@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T04:14:00.000Z",
+  "updatedAt": "2026-10-03T05:01:05.676Z",
   "breaking": {
     "vi": "Meta mở mã cho các thiết bị dùng Muse; Apple siết quyền truy cập ổ đĩa khi AI agent làm tăng rủi ro.",
     "en": "Meta opens Muse gadget code while Apple tightens full-disk access as AI agents raise security risk.",
@@ -88,6 +88,18 @@
             "url": "https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link"
           }
         ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-open-sources-muse-gadget-code.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Meta mở mã để nhà phát triển tự tạo thiết bị dùng Muse AI",
+          "en": "TigerIQ-generated illustration for: Meta opens Muse code so developers can build their own AI gadgets",
+          "es": "Ilustración generada por TigerIQ para: Meta abre el código de Muse para crear nuevos dispositivos con IA"
+        }
       }
     },
     {
@@ -166,6 +178,18 @@
             "url": "https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/"
           }
         ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/apple-tightens-full-disk-access-ai-agents.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Apple siết quyền truy cập toàn bộ ổ đĩa khi AI agent làm tăng rủi ro",
+          "en": "TigerIQ-generated illustration for: Apple tightens full-disk access as AI agents increase security risk",
+          "es": "Ilustración generada por TigerIQ para: Apple endurece el acceso total al disco ante el riesgo de los agentes de IA"
+        }
       }
     },
     {
@@ -233,6 +257,18 @@
             "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level"
           }
         ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-code-review-api.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub Copilot Code Review có API và mức effort mặc định mới",
+          "en": "TigerIQ-generated illustration for: GitHub Copilot code review adds API support and a new default effort level",
+          "es": "Ilustración generada por TigerIQ para: GitHub Copilot Code Review añade soporte de API"
+        }
       }
     },
     {
@@ -301,6 +337,18 @@
             "url": "https://openai.com/index/practical-guide-building-gpt-6"
           }
         ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt6-family-model-guide.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI xuất bản hướng dẫn chọn và đưa dòng GPT-6 vào production",
+          "en": "TigerIQ-generated illustration for: OpenAI publishes a practical guide to building with the GPT-6 family",
+          "es": "Ilustración generada por TigerIQ para: OpenAI publica una guía práctica para la familia GPT-6"
+        }
       }
     }
   ],
