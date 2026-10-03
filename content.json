@@ -43,17 +43,23 @@
         }
       },
       "sources": [
-        "Google — September 2026 AI updates"
+        "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
+        "https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/"
       ],
       "corrections": [],
       "verification": {
         "status": "verified",
-        "basis": "primary_and_reported_sources",
+        "basis": "primary_plus_independent_corroboration",
         "evidence": [
           {
             "sourceId": "google",
             "tier": "A",
             "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
+          },
+          {
+            "sourceId": "reuters",
+            "tier": "B",
+            "url": "https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/"
           }
         ]
       }
@@ -95,17 +101,23 @@
         }
       },
       "sources": [
-        "Anthropic Newsroom — $100M engineer training initiative"
+        "https://www.anthropic.com/news/claude-frontier-academy",
+        "https://www.businessinsider.com/anthropic-will-train-10-000-ai-engineers-boost-enterprise-adoption-2026-10"
       ],
       "corrections": [],
       "verification": {
         "status": "verified",
-        "basis": "primary_and_reported_sources",
+        "basis": "primary_plus_independent_corroboration",
         "evidence": [
           {
             "sourceId": "anthropic",
             "tier": "A",
-            "url": "https://www.anthropic.com/news"
+            "url": "https://www.anthropic.com/news/claude-frontier-academy"
+          },
+          {
+            "sourceId": "businessinsider",
+            "tier": "B",
+            "url": "https://www.businessinsider.com/anthropic-will-train-10-000-ai-engineers-boost-enterprise-adoption-2026-10"
           }
         ]
       }
@@ -147,17 +159,23 @@
         }
       },
       "sources": [
-        "OpenAI — A practical guide to building with GPT-6"
+        "https://openai.com/news/",
+        "https://ebs.publicnow.com/view/D9B5A903DD4928188676461A83438CB77383D745"
       ],
       "corrections": [],
       "verification": {
         "status": "verified",
-        "basis": "primary_and_reported_sources",
+        "basis": "primary_plus_independent_corroboration",
         "evidence": [
           {
             "sourceId": "openai",
             "tier": "A",
             "url": "https://openai.com/news/"
+          },
+          {
+            "sourceId": "publicnow",
+            "tier": "B",
+            "url": "https://ebs.publicnow.com/view/D9B5A903DD4928188676461A83438CB77383D745"
           }
         ]
       }
@@ -1024,17 +1042,23 @@
         }
       },
       "sources": [
-        "NVIDIA — https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/"
+        "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/",
+        "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less"
       ],
       "corrections": [],
       "verification": {
         "status": "verified",
-        "basis": "primary_source",
+        "basis": "primary_plus_independent_corroboration",
         "evidence": [
           {
             "sourceId": "nvidia",
             "tier": "A",
             "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/"
+          },
+          {
+            "sourceId": "tomshardware",
+            "tier": "B",
+            "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less"
           }
         ]
       },
