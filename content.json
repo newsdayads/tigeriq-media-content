@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T03:50:00Z",
+  "updatedAt": "2026-10-03T04:14:00.000Z",
   "breaking": {
     "vi": "Meta mở mã cho các thiết bị dùng Muse; Apple siết quyền truy cập ổ đĩa khi AI agent làm tăng rủi ro.",
     "en": "Meta opens Muse gadget code while Apple tightens full-disk access as AI agents raise security risk.",
@@ -11,7 +11,6 @@
       "category": "AI Agents",
       "age": "mới cập nhật",
       "readTime": "4 phút đọc",
-      "verified": "2 independent technology publications",
       "accent": "blue",
       "publishedAt": "2026-10-03T00:45:39Z",
       "modifiedAt": "2026-10-03T02:35:00Z",
@@ -73,14 +72,29 @@
         "TechCrunch — https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/",
         "The Verge — https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link"
       ],
-      "corrections": []
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "corroborated_sources",
+        "evidence": [
+          {
+            "sourceId": "techcrunch",
+            "tier": "B",
+            "url": "https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/"
+          },
+          {
+            "sourceId": "the-verge",
+            "tier": "B",
+            "url": "https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link"
+          }
+        ]
+      }
     },
     {
       "slug": "apple-tightens-full-disk-access-ai-agents",
       "category": "Security",
       "age": "3 giờ trước",
       "readTime": "5 phút đọc",
-      "verified": "The Verge + Ars Technica",
       "accent": "amber",
       "publishedAt": "2026-10-02T23:03:16Z",
       "modifiedAt": "2026-10-03T02:35:00Z",
@@ -136,14 +150,29 @@
         "The Verge — https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents",
         "Ars Technica — https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/"
       ],
-      "corrections": []
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "corroborated_sources",
+        "evidence": [
+          {
+            "sourceId": "the-verge",
+            "tier": "B",
+            "url": "https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents"
+          },
+          {
+            "sourceId": "ars-technica",
+            "tier": "B",
+            "url": "https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/"
+          }
+        ]
+      }
     },
     {
       "slug": "github-copilot-code-review-api",
       "category": "Developer Tools",
       "age": "7 giờ trước",
       "readTime": "3 phút đọc",
-      "verified": "Official GitHub Changelog",
       "accent": "green",
       "publishedAt": "2026-10-02T19:13:50Z",
       "modifiedAt": "2026-10-03T02:35:00Z",
@@ -193,14 +222,24 @@
       "sources": [
         "GitHub Changelog — https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level"
       ],
-      "corrections": []
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "github-changelog",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level"
+          }
+        ]
+      }
     },
     {
       "slug": "openai-gpt6-family-model-guide",
       "category": "AI Models",
       "age": "10 giờ trước",
       "readTime": "4 phút đọc",
-      "verified": "Official OpenAI News",
       "accent": "cyan",
       "publishedAt": "2026-10-02T16:15:00Z",
       "modifiedAt": "2026-10-03T02:35:00Z",
@@ -251,63 +290,18 @@
       "sources": [
         "OpenAI News — https://openai.com/index/practical-guide-building-gpt-6"
       ],
-      "corrections": []
-    },
-    {
-      "slug": "google-ai-updates-september-2026",
-      "category": "AI Platforms",
-      "age": "mới cập nhật",
-      "readTime": "3 phút đọc",
-      "verified": "Official Google source",
-      "accent": "blue",
-      "publishedAt": "2026-10-02T15:00:00Z",
-      "modifiedAt": "2026-10-03T03:50:00Z",
-      "editions": {
-        "vi": {
-          "title": "Google tổng hợp các cập nhật AI nổi bật trong tháng 9/2026",
-          "dek": "Google vừa xuất bản bản tổng hợp những cập nhật AI mà hãng đã công bố trong tháng 9/2026.",
-          "takeaways": [
-            "Google gom các thay đổi AI trong tháng vào một bản cập nhật chính thức.",
-            "Đây là nguồn tốt để đối chiếu timeline sản phẩm và tính năng."
-          ],
-          "sections": [
-            {
-              "heading": "Điều gì mới",
-              "body": "Google đã đăng bản tổng hợp các cập nhật AI được công bố trong tháng 9/2026. TigerIQ dùng nguồn chính thức này như một mốc tham chiếu để kiểm tra timeline khi tổng hợp các tin liên quan."
-            }
-          ]
-        },
-        "en": {
-          "title": "Google recaps its major AI updates from September 2026",
-          "dek": "Google published an official roundup of the AI updates it announced during September 2026.",
-          "takeaways": [
-            "The official roundup provides a useful timeline of Google's AI changes."
-          ],
-          "sections": [
-            {
-              "heading": "What changed",
-              "body": "Google published an official roundup of its September 2026 AI announcements, providing a reference timeline for related product updates."
-            }
-          ]
-        },
-        "es": {
-          "title": "Google resume sus principales novedades de IA de septiembre de 2026",
-          "dek": "Google publicó un resumen oficial de las novedades de IA anunciadas durante septiembre de 2026.",
-          "takeaways": [
-            "El resumen oficial ofrece una cronología útil de los cambios de IA de Google."
-          ],
-          "sections": [
-            {
-              "heading": "Qué cambió",
-              "body": "Google publicó un resumen oficial de sus anuncios de IA de septiembre de 2026."
-            }
-          ]
-        }
-      },
-      "sources": [
-        "Google AI — https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
-      ],
-      "corrections": []
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source",
+        "evidence": [
+          {
+            "sourceId": "openai-news",
+            "tier": "A",
+            "url": "https://openai.com/index/practical-guide-building-gpt-6"
+          }
+        ]
+      }
     }
   ],
   "adSlots": {
