@@ -21,5 +21,5 @@ const review=await ai(process.env.REVIEWER_MODEL||"meta/Llama-3.3-70B-Instruct",
 if(!review.pass)throw new Error("review_rejected:"+JSON.stringify(review.issues||[]));
 const path="content.json";const content=JSON.parse(await fs.readFile(path,"utf8"));if(content.articles.some(a=>a.slug===draft.slug)){console.log("NOOP duplicate",draft.slug);process.exit(0)}
 const now=new Date().toISOString();const sources=[...new Set(items.slice(0,6).map(x=>x.url))];
-content.updatedAt=now;content.articles.unshift({slug:draft.slug,category:draft.category||"Models",readTime:String(draft.readTime||5),accent:"blue",publishedAt:now,modifiedAt:now,editions:draft.editions,sources,verification:{status:"verified",basis:"Official-source fact pack; independent GitHub Models review PASS"},corrections:[]});
+content.updatedAt=now;content.articles.unshift({slug:draft.slug,category:draft.category||"Models",readTime:String(draft.readTime||5),accent:"blue",publishedAt:now,modifiedAt:now,editions:draft.editions,sources,verification:{status:"verified",basis:"Official-source fact pack; independent GitHub Models review PASS",evidence:[{sourceId:"official-primary",tier:"A",url:sources[0]}]},corrections:[]});
 await fs.writeFile(path,JSON.stringify(content,null,2)+"\n");console.log("AUTO_PUBLISH_READY",draft.slug);
