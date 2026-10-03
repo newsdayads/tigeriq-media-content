@@ -1,11 +1,167 @@
 {
-  "updatedAt": "2026-10-03T08:30:00Z",
+  "updatedAt": "2026-10-03T09:30:00Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "google-september-ai-roundup-gemini4",
+      "category": "Models",
+      "readTime": "6",
+      "accent": "blue",
+      "publishedAt": "2026-10-03T09:30:00Z",
+      "modifiedAt": "2026-10-03T09:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "Google gom một tháng AI vào một bản tổng kết — và bức tranh lớn hơn Gemini 4",
+          "dek": "Gemini 4 Argon là cái tên nổi bật, nhưng bản tổng kết tháng 9 của Google cho thấy hãng đang trải AI từ model nền tảng sang giọng nói, ứng dụng, khoa học và cả dự báo thời tiết.",
+          "takeaways": [
+            "Google công bố bản tổng kết AI tháng 9 vào ngày 2/10.",
+            "Gemini 4 Argon dẫn nhóm model frontier mới của Google.",
+            "Danh mục cập nhật trải rộng từ voice và Connected Apps tới WeatherNext 3 và nghiên cứu khoa học."
+          ],
+          "sections": [
+            {
+              "heading": "Nếu chỉ nhìn Gemini 4, sẽ bỏ lỡ chiến lược của Google",
+              "body": "Google vừa gom các cập nhật AI tháng 9 vào một bản tổng kết dài. Gemini 4 Argon đứng ở vị trí dễ thấy nhất, nhưng điều thú vị hơn là độ rộng của danh sách: giọng nói, app kết nối, khoa học, dự báo thời tiết và các công cụ năng suất. Google không đặt cược AI vào một cửa sổ chat duy nhất."
+            },
+            {
+              "heading": "Lợi thế của Google nằm ở số nơi AI có thể xuất hiện",
+              "body": "Một phòng lab có thể tạo model rất mạnh. Google còn có Android, Search, Workspace, Cloud và hàng loạt sản phẩm với hàng tỷ lượt sử dụng. Nếu Gemini được đưa vào đúng chỗ, lợi thế phân phối có thể quan trọng không kém vài điểm chênh lệch trên benchmark."
+            },
+            {
+              "heading": "Khoa học đang trở thành một mặt trận riêng",
+              "body": "WeatherNext 3 và các cập nhật liên quan sinh học cho thấy AI đang được dùng cho những bài toán mà kết quả không phải một đoạn văn đẹp, mà là dự báo hoặc khám phá có thể kiểm chứng. Đây là vùng mà giá trị của model được đo bằng độ chính xác và tác động thực tế rõ hơn."
+            },
+            {
+              "heading": "Cuộc đua sẽ khó chấm bằng một bảng xếp hạng",
+              "body": "Khi mỗi hãng xây một hệ sinh thái khác nhau, câu hỏi 'AI nào tốt nhất?' ngày càng thiếu nghĩa nếu không nói rõ tốt cho việc gì. Người dùng có thể chọn một model để code, một model khác cho công việc văn phòng và một hệ thống chuyên biệt cho khoa học. Thị trường đang phân mảnh theo công việc, không chỉ theo thương hiệu."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "Google — September 2026 AI updates"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_and_reported_sources",
+        "evidence": [
+          {
+            "sourceId": "google",
+            "tier": "A",
+            "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "anthropic-100m-ai-engineer-training",
+      "category": "Business",
+      "readTime": "6",
+      "accent": "blue",
+      "publishedAt": "2026-10-03T09:30:00Z",
+      "modifiedAt": "2026-10-03T09:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "Anthropic bỏ 100 triệu USD để đào tạo 10.000 kỹ sư: nút thắt AI có thể không còn nằm ở model",
+          "dek": "Các hãng AI đang có model ngày càng mạnh, nhưng doanh nghiệp vẫn thiếu người biết biến chúng thành hệ thống chạy được. Khoản đầu tư mới của Anthropic nhắm thẳng vào khoảng trống đó.",
+          "takeaways": [
+            "Anthropic công bố khoản đầu tư 100 triệu USD ngày 2/10.",
+            "Chương trình đặt mục tiêu đào tạo 10.000 kỹ sư.",
+            "Cuộc cạnh tranh AI đang mở rộng từ model sang đội ngũ triển khai trong doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Model có rồi. Ai sẽ biến nó thành sản phẩm?",
+              "body": "Anthropic vừa đặt 100 triệu USD vào một bài toán ít hào nhoáng hơn việc huấn luyện model mới: con người. Mục tiêu đào tạo 10.000 kỹ sư cho thấy khoảng cách giữa 'có quyền truy cập AI' và 'dùng AI tạo ra giá trị' vẫn còn lớn. Một doanh nghiệp có thể mua Claude trong vài phút; thiết kế workflow, quyền truy cập dữ liệu và kiểm soát rủi ro lại là chuyện khác."
+            },
+            {
+              "heading": "Thiếu kỹ năng triển khai đang trở thành điểm nghẽn",
+              "body": "AI doanh nghiệp không chỉ cần prompt hay. Nó cần người hiểu hệ thống hiện có, biết chỗ nào nên tự động hóa, chỗ nào cần con người duyệt và cách đo xem dự án có thực sự tiết kiệm thời gian hay tiền. Khi model tiến nhanh hơn khả năng tổ chức thay đổi, chính đội ngũ triển khai trở thành giới hạn."
+            },
+            {
+              "heading": "Đây cũng là một nước đi kinh doanh",
+              "body": "Đào tạo thêm kỹ sư không chỉ giải quyết thiếu hụt nhân lực cho thị trường. Nó còn tạo ra nhiều người biết xây trên hệ sinh thái Claude. Trong ngành phần mềm, developer quen công cụ nào thường kéo theo nhu cầu cho công cụ đó. Cuộc chiến AI vì thế đang dần giống cuộc chiến nền tảng."
+            },
+            {
+              "heading": "Điều doanh nghiệp nên nhìn vào",
+              "body": "Thước đo quan trọng không phải số nhân viên đã học một khóa AI, mà là sau đào tạo họ đưa được bao nhiêu quy trình vào vận hành, tiết kiệm bao nhiêu giờ và có kiểm soát được lỗi hay không. Nếu không có những con số ấy, 'AI upskilling' rất dễ biến thành một chương trình phong trào."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "Anthropic Newsroom — $100M engineer training initiative"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_and_reported_sources",
+        "evidence": [
+          {
+            "sourceId": "anthropic",
+            "tier": "A",
+            "url": "https://www.anthropic.com/news"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "openai-gpt6-builders-guide",
+      "category": "Models",
+      "readTime": "6",
+      "accent": "blue",
+      "publishedAt": "2026-10-03T09:30:00Z",
+      "modifiedAt": "2026-10-03T09:30:00Z",
+      "editions": {
+        "vi": {
+          "title": "GPT-6 không còn chỉ là chuyện chọn model: OpenAI đang dạy developer cách dùng cả một “gia đình” AI",
+          "dek": "OpenAI vừa phát hành hướng dẫn thực hành cho GPT-6. Điều đáng chú ý không nằm ở một benchmark mới, mà ở cách hãng muốn developer chọn đúng model, đúng mức suy luận và đúng chi phí cho từng việc.",
+          "takeaways": [
+            "OpenAI đăng hướng dẫn xây dựng với GPT-6 ngày 2/10.",
+            "Thông điệp lớn: lựa chọn model đang trở thành bài toán kiến trúc sản phẩm, không chỉ là săn model mạnh nhất.",
+            "Chi phí, độ trễ và mức suy luận ngày càng phải được cân cùng chất lượng đầu ra."
+          ],
+          "sections": [
+            {
+              "heading": "Một câu hỏi mới cho developer: đừng hỏi model nào mạnh nhất",
+              "body": "Trong vài năm đầu của làn sóng AI tạo sinh, cách chọn model khá đơn giản: model mới hơn, benchmark cao hơn thường được xem là lựa chọn tốt hơn. GPT-6 khiến bài toán đó bớt thẳng. Hướng dẫn OpenAI công bố ngày 2/10 đặt trọng tâm vào cách ghép năng lực model với từng loại workload. Với người xây sản phẩm, đây là thay đổi quan trọng: một model rất mạnh nhưng chậm hoặc đắt có thể là lựa chọn tệ cho hàng triệu tác vụ đơn giản."
+            },
+            {
+              "heading": "AI bắt đầu giống một hệ thống hơn là một chatbot",
+              "body": "Khi một ứng dụng có thể dùng model nhanh cho bước phân loại, model mạnh cho phần suy luận khó và công cụ riêng cho dữ liệu nội bộ, chất lượng cuối cùng phụ thuộc vào cách cả hệ thống được thiết kế. Model vẫn là động cơ, nhưng sản phẩm tốt hay dở ngày càng nằm ở phần điều phối xung quanh nó."
+            },
+            {
+              "heading": "Điều đáng xem không nằm trên bảng benchmark",
+              "body": "Với doanh nghiệp, câu hỏi thực dụng là mỗi nghìn tác vụ tốn bao nhiêu tiền, người dùng phải chờ bao lâu và tỷ lệ việc AI hoàn thành đúng đến đâu. Một model kém vài điểm benchmark nhưng rẻ hơn nhiều có thể tạo ra sản phẩm tốt hơn nếu nó đáp ứng đúng nhu cầu."
+            },
+            {
+              "heading": "TigerIQ đọc tín hiệu này thế nào?",
+              "body": "Cuộc đua model chưa kết thúc, nhưng thị trường đang trưởng thành. Sau giai đoạn khoe trí thông minh, các hãng phải chứng minh AI có thể được lắp vào sản phẩm thật mà không làm chi phí và độ phức tạp tăng mất kiểm soát."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "OpenAI — A practical guide to building with GPT-6"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_and_reported_sources",
+        "evidence": [
+          {
+            "sourceId": "openai",
+            "tier": "A",
+            "url": "https://openai.com/news/"
+          }
+        ]
+      }
+    },
     {
       "slug": "ai-investment-race-returns-test-30-trillion",
       "category": "Business",
