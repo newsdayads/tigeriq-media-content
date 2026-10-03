@@ -9,39 +9,43 @@
     {
       "slug": "ai-investment-race-returns-test-30-trillion",
       "category": "Business",
-      "readTime": "9",
+      "readTime": "7",
       "accent": "blue",
       "publishedAt": "2026-10-03T07:45:00Z",
-      "modifiedAt": "2026-10-03T08:30:00Z",
+      "modifiedAt": "2026-10-03T07:42:03.271Z",
       "editions": {
         "vi": {
-          "title": "Cuộc đua AI trước phép thử nghìn tỷ USD: tiền đang chạy nhanh hơn năng suất",
-          "dek": "Đầu tư AI toàn cầu có thể vượt 30.000 tỷ USD vào năm 2050, nhưng bài toán lớn hơn là liệu doanh thu và năng suất có tăng đủ nhanh để biện minh cho tốc độ xây hạ tầng hiện nay.",
+          "title": "AI đang đốt một núi tiền. Câu hỏi là: bao giờ nó kiếm lại được?",
+          "dek": "Hàng chục nghìn tỷ USD có thể chảy vào AI trong vài thập kỷ tới. Công nghệ vẫn tiến rất nhanh, nhưng giới đầu tư bắt đầu hỏi một câu kém hào nhoáng hơn: doanh thu và năng suất có theo kịp số tiền đang được đổ vào hay không?",
           "takeaways": [
-            "Reuters dẫn ước tính của PwC rằng đầu tư liên quan AI có thể vượt 30.000 tỷ USD trên toàn cầu vào năm 2050, phần lớn gắn với hạ tầng trung tâm dữ liệu.",
-            "Bain & Company ước tính các đơn vị xây hạ tầng AI cần tạo thêm hơn 4.200 tỷ USD doanh thu trong vòng năm năm để hỗ trợ quy mô đầu tư hiện tại.",
-            "Khoảng cách giữa kỳ vọng công nghệ và hiệu quả kinh tế thực tế đang trở thành phép thử trung tâm của làn sóng AI."
+            "PwC ước tính đầu tư liên quan đến AI có thể vượt 30.000 tỷ USD trên toàn cầu vào năm 2050.",
+            "Bain cho rằng hạ tầng AI cần tạo thêm hơn 4.200 tỷ USD doanh thu trong 5 năm để tương xứng với quy mô đầu tư hiện nay.",
+            "Cuộc đua AI đang chuyển dần từ câu hỏi “model nào mạnh hơn?” sang “AI tạo ra bao nhiêu giá trị thật?”"
           ],
           "sections": [
             {
-              "heading": "Tiền đang đổ vào AI ở quy mô chưa từng có",
-              "body": "Cuộc đua AI đã bước sang giai đoạn mà câu chuyện không còn chỉ xoay quanh model nào thông minh hơn. Theo phân tích của Reuters, các tập đoàn công nghệ, nhà cung cấp cloud và doanh nghiệp hạ tầng đang đặt cược lượng vốn khổng lồ vào trung tâm dữ liệu, chip, điện năng và mạng lưới phục vụ AI. PwC dự báo tổng đầu tư liên quan có thể vượt 30.000 tỷ USD trên toàn cầu vào năm 2050. Quy mô đó biến AI từ một chu kỳ phần mềm thành một cuộc tái cấu trúc hạ tầng công nghệ."
+              "heading": "Một hóa đơn khổng lồ đang được viết",
+              "body": "Nhìn vào AI lúc này rất dễ bị cuốn theo những màn ra mắt model mới, agent mới hay các benchmark liên tục bị phá. Nhưng phía sau những bản demo hào nhoáng là một hóa đơn ngày càng lớn: trung tâm dữ liệu, chip, điện, mạng và hàng loạt hạ tầng phải được xây trước khi người dùng tạo ra một đồng doanh thu tương ứng. Reuters dẫn ước tính của PwC rằng tổng đầu tư liên quan đến AI trên toàn cầu có thể vượt 30.000 tỷ USD vào năm 2050. Con số đủ lớn để câu chuyện AI không còn giống một chu kỳ phần mềm thông thường nữa."
             },
             {
-              "heading": "Doanh thu phải chạy nhanh hơn",
-              "body": "Vấn đề là hạ tầng chỉ có ý nghĩa kinh tế khi tạo ra đủ nhu cầu trả tiền. Reuters dẫn ước tính của Bain & Company rằng các nhà xây dựng hạ tầng AI cần hơn 4.200 tỷ USD doanh thu mới trong vòng năm năm để biện minh cho mức đầu tư hiện tại. Đây là khoảng cách rất lớn giữa kỳ vọng và dòng tiền thực tế, đặc biệt khi nhiều ứng dụng AI vẫn đang tìm mô hình kinh doanh bền vững."
+              "heading": "Vấn đề không phải AI có giỏi hơn hay không",
+              "body": "AI gần như chắc chắn sẽ tiếp tục giỏi hơn. Câu khó hơn là nó giỏi lên có nhanh bằng tốc độ tiền đang được chi hay không. Bain & Company ước tính các đơn vị xây hạ tầng AI cần tạo thêm hơn 4.200 tỷ USD doanh thu trong vòng 5 năm để hỗ trợ quy mô đầu tư hiện tại. Nói đơn giản: thị trường đang xây một cỗ máy cực đắt trước khi biết chắc khách hàng sẽ trả bao nhiêu tiền để sử dụng nó."
             },
             {
-              "heading": "Năng suất chưa theo kịp câu chuyện công nghệ",
-              "body": "Những người lạc quan cho rằng AI có thể tạo ra thay đổi sâu hơn các làn sóng công nghệ trước. Tuy nhiên, các nhà kinh tế được Reuters dẫn lời lưu ý rằng tác động năng suất trên diện rộng chưa xuất hiện rõ ràng và có thể cần nhiều năm, thậm chí nhiều thập kỷ, để lan ra toàn nền kinh tế. Lịch sử của đường sắt, viễn thông và Internet cũng cho thấy hạ tầng có thể tạo giá trị dài hạn ngay cả khi nhà đầu tư ở giai đoạn đầu không phải lúc nào cũng thu được lợi nhuận như kỳ vọng."
+              "heading": "Đây là chỗ câu chuyện bắt đầu thú vị",
+              "body": "Nếu AI thực sự giúp một công ty làm cùng lượng việc với ít thời gian và nhân lực hơn, khoản đầu tư khổng lồ có thể hợp lý. Nhưng nếu phần lớn giá trị chỉ nằm ở việc người dùng thử chatbot, tạo ảnh hoặc doanh nghiệp mua AI vì sợ bị bỏ lại, khoảng cách giữa kỳ vọng và doanh thu sẽ sớm lộ ra. Đó cũng là lý do các con số về năng suất quan trọng hơn những màn trình diễn model: chúng cho biết AI có đang thay đổi nền kinh tế thật hay mới chủ yếu thay đổi cách ngành công nghệ kể câu chuyện về tương lai."
             },
             {
-              "heading": "Thị trường lao động đã bắt đầu cảm nhận sức ép",
-              "body": "Ngay cả trước khi hiệu quả năng suất được chứng minh đầy đủ, AI đã tác động tới cách doanh nghiệp tuyển dụng và tổ chức công việc. Reuters ghi nhận áp lực đặc biệt ở nhóm việc văn phòng đầu sự nghiệp. Điều này khiến cuộc tranh luận về AI không chỉ là câu chuyện định giá công ty công nghệ, mà còn liên quan đến cách kỹ năng, nghề nghiệp và cơ hội việc làm được tái phân bổ."
+              "heading": "Lịch sử từng có những cuộc đua như thế này",
+              "body": "Đường sắt, viễn thông rồi Internet đều từng trải qua giai đoạn tiền đổ vào hạ tầng nhanh hơn lợi nhuận. Một số công ty biến mất, nhà đầu tư mất tiền, nhưng phần hạ tầng còn lại sau đó vẫn thay đổi cả nền kinh tế. AI có thể đi theo một quỹ đạo tương tự: công nghệ thắng không đồng nghĩa mọi công ty đặt cược vào nó hôm nay đều thắng."
             },
             {
-              "heading": "Góc nhìn TigerIQ: 2027 sẽ là cuộc thi về hiệu quả, không chỉ benchmark",
-              "body": "TigerIQ cho rằng giai đoạn tiếp theo của AI sẽ được đánh giá bằng ba con số thực dụng hơn benchmark: chi phí để vận hành một workload, doanh thu hoặc năng suất tạo thêm, và thời gian hoàn vốn của hạ tầng. Những model mạnh hơn vẫn quan trọng, nhưng thị trường sẽ ngày càng đòi bằng chứng rằng AI có thể chuyển năng lực thành giá trị kinh tế có thể đo được."
+              "heading": "Và người lao động không cần đợi đến 2050",
+              "body": "Trong khi giới đầu tư tranh luận về thời gian hoàn vốn, tác động của AI lên việc làm đã xuất hiện sớm hơn. Reuters ghi nhận sức ép đặc biệt ở nhóm công việc văn phòng đầu sự nghiệp. Đây là nghịch lý đáng chú ý: năng suất toàn nền kinh tế chưa tăng rõ rệt, nhưng từng doanh nghiệp đã bắt đầu thay đổi cách tuyển người và phân chia công việc vì họ tin AI sẽ làm được nhiều hơn."
+            },
+            {
+              "heading": "TigerIQ sẽ nhìn cuộc đua này bằng một thước đo khác",
+              "body": "Từ đây, chúng tôi không chỉ theo dõi model nào đứng đầu benchmark. Ba con số đáng xem hơn là: một tác vụ AI thực sự tốn bao nhiêu tiền; nó giúp tạo thêm bao nhiêu doanh thu hoặc tiết kiệm bao nhiêu giờ làm; và mất bao lâu để khoản đầu tư hạ tầng hoàn vốn. Khi ba con số đó bắt đầu đẹp lên, AI mới thực sự bước từ thời kỳ gây kinh ngạc sang thời kỳ tạo ra tiền."
             }
           ]
         },
@@ -1804,5 +1808,28 @@
       "size": "970x250",
       "enabled": false
     }
+  },
+  "editorialGuide": {
+    "title": "TigerIQ Editorial Voice v1 — viết như người, không viết như template AI",
+    "rules": [
+      "Mở bằng chi tiết, nghịch lý, câu hỏi hoặc hệ quả khiến người đọc muốn biết tiếp; không mở bằng 'Bối cảnh cần biết'.",
+      "Mỗi bài phải có một mạch kể riêng. Không ép mọi bài vào cùng bộ heading.",
+      "Ưu tiên câu cụ thể, chủ động, độ dài biến thiên. Tránh chuỗi câu có cấu trúc giống nhau.",
+      "Dữ kiện phải gắn vào câu chuyện: nói con số rồi giải thích nó có nghĩa gì với người đọc.",
+      "Phân biệt rõ fact và analysis. TigerIQ được phép có góc nhìn nhưng không được biến suy đoán thành fact.",
+      "Xóa filler kiểu 'điều này cho thấy', 'trong bối cảnh', 'cần theo dõi', 'không chỉ... mà còn...' nếu không thêm thông tin.",
+      "Không dùng đoạn kết chung chung. Kết bằng câu hỏi còn mở, hệ quả cụ thể hoặc thước đo cần theo dõi.",
+      "Đọc thành tiếng trước publish. Nếu nghe giống memo, slide, báo cáo hoặc chatbot thì viết lại.",
+      "Tin nhanh có thể ngắn. Bài phân tích chỉ dài khi có thêm thông tin, bối cảnh hoặc insight; tuyệt đối không kéo chữ để đủ section.",
+      "Tiêu đề ưu tiên rõ + có lực; tránh clickbait và tránh title kiểu tài liệu nội bộ."
+    ],
+    "antiPatterns": [
+      "Bối cảnh cần biết",
+      "Tác động với người dùng và doanh nghiệp",
+      "Góc nhìn TigerIQ (lặp ở mọi bài)",
+      "Điều cần theo dõi tiếp",
+      "Các tín hiệu tiếp theo cần theo dõi gồm"
+    ],
+    "referenceStyle": "Reuters: thông tin dày nhưng câu chuyện trôi tự nhiên; The Verge/TechCrunch: giọng gần người đọc hơn, headline có lực. Học nguyên tắc, không bắt chước câu chữ."
   }
 }
