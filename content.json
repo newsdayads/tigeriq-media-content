@@ -1,11 +1,121 @@
 {
-  "updatedAt": "2026-10-03T23:23:07.607Z",
+  "updatedAt": "2026-10-04T09:51:17.445Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "meta-muse-spark-open-math-research-2026",
+      "category": "Research",
+      "storyType": "Research",
+      "readTime": "7",
+      "accent": "cyan",
+      "publishedAt": "2026-10-04T09:51:17.445Z",
+      "modifiedAt": "2026-10-04T09:51:17.445Z",
+      "editions": {
+        "vi": {
+          "title": "Muse Spark bước vào toán học mở: 6 bài nghiên cứu cho thấy AI đang đổi vai từ “giải bài” sang cộng tác nghiên cứu",
+          "dek": "Meta công bố sáu bài toán học được thực hiện cùng Muse Spark 1.1 và 1.2; năm bài trả lời các câu hỏi mở trước đó. Điểm đáng chú ý không chỉ là kết quả, mà là quy trình: nhà toán học chọn vấn đề, AI hỗ trợ tìm hướng và soạn thảo, rồi một nhóm chuyên gia khác kiểm tra.",
+          "takeaways": [
+            "Meta công bố 6 bài nghiên cứu toán học có Muse Spark tham gia; 5 bài được Meta mô tả là trả lời các câu hỏi mở trước đó.",
+            "Muse Spark được dùng qua giao diện meta.ai thông thường, không cần một hệ thống nghiên cứu tùy biến riêng.",
+            "Con người vẫn giữ vai trò chọn bài toán, kiểm tra và sửa lập luận; Meta cũng ghi nhận các kết quả độc lập xuất hiện song song ở một số bài."
+          ],
+          "sections": [
+            {
+              "heading": "Điều gì thực sự mới?",
+              "body": "Ngày 2/10, Meta AI Research công bố sáu bài toán học trải từ xác suất, phương trình vi phân, lý thuyết nhóm, tối ưu hóa đến vật lý số học và đại số không kết hợp. Theo Meta, năm trong sáu bài trả lời những câu hỏi đã được đặt ra trước đó. Hai công trình dùng phản ví dụ để bác bỏ các giả thuyết toán học."
+            },
+            {
+              "heading": "AI không làm việc một mình",
+              "body": "Cách Meta mô tả quy trình quan trọng hơn một tiêu đề kiểu “AI tự giải toán”. Các nhà toán học chọn vấn đề và định hướng nghiên cứu; Muse Spark hỗ trợ thử ý tưởng, tính toán, tìm phản ví dụ hoặc tạo bản nháp; sau đó các nhà nghiên cứu kiểm tra, sửa và hoàn thiện. Meta cho biết một nhóm toán học thứ hai tham gia review và các bài đánh dấu phần nội dung chủ yếu do người hay AI soạn."
+            },
+            {
+              "heading": "Tín hiệu lớn đối với AI nghiên cứu",
+              "body": "Nếu mô hình này lặp lại được, giá trị của frontier AI có thể dịch chuyển từ benchmark có đáp án sang hỗ trợ công việc nơi chưa có đáp án sẵn. Đây là khác biệt lớn: một hệ thống hữu ích cho nghiên cứu phải chịu được thử-sai, kiểm tra chéo và việc chuyên gia bác bỏ đề xuất của mô hình."
+            },
+            {
+              "heading": "Nhưng chưa thể gọi là nhà toán học tự trị",
+              "body": "Bằng chứng hiện có không cho phép kết luận Muse Spark tự mình giải năm bài toán mở. Meta mô tả đây là hợp tác người–AI, và ở một số kết quả họ thừa nhận các nhóm khác đã công bố lời giải độc lập. Chất lượng cuối cùng vẫn cần cộng đồng chuyên môn đọc và kiểm tra từng chứng minh."
+            },
+            {
+              "heading": "TigerIQ nhìn gì từ câu chuyện này?",
+              "body": "Điểm đáng theo dõi không phải cuộc đua xem model nào “thông minh như nhà khoa học”, mà là liệu quy trình người–AI–review độc lập có tạo ra kết quả mới một cách lặp lại hay không. Nếu có, benchmark tiếp theo của AI nghiên cứu sẽ phải đo đóng góp vào khám phá thực tế, khả năng tự phát hiện sai và mức công sức con người cần để biến gợi ý của model thành kết quả đáng tin."
+            }
+          ]
+        },
+        "en": {
+          "title": "Muse Spark moves into open mathematics: six papers show AI shifting from problem-solving to research collaboration",
+          "dek": "Meta published six mathematics papers produced with Muse Spark 1.1 and 1.2, five of which it says answer previously open questions. The more important signal is the workflow: mathematicians chose and guided the problems, AI helped explore and draft, and separate experts reviewed the work.",
+          "takeaways": [
+            "Meta released six mathematics papers involving Muse Spark; it says five address previously open questions.",
+            "The work used ordinary meta.ai chat rather than a bespoke research scaffold.",
+            "Human mathematicians selected problems, checked and revised arguments, while Meta says a second group reviewed the work."
+          ],
+          "sections": [
+            {
+              "heading": "What is actually new?",
+              "body": "On October 2, Meta AI Research published six mathematics papers spanning probability, differential equations, group theory, optimization, arithmetic physics and non-associative algebra. Meta says five answer questions that had previously remained open, with two works using counterexamples to overturn conjectures."
+            },
+            {
+              "heading": "The AI did not work alone",
+              "body": "Meta's process matters more than a headline claiming that AI solved mathematics autonomously. Mathematicians selected and guided the problems; Muse Spark helped test ideas, perform calculations, search for counterexamples and draft material; researchers then checked, corrected and completed the arguments. Meta says a second group of mathematicians reviewed the work and the papers identify primarily human- and AI-drafted passages."
+            },
+            {
+              "heading": "A bigger signal for research AI",
+              "body": "If this pattern proves repeatable, frontier AI may be moving beyond benchmarks with known answers toward work where no answer key exists. Useful research systems must tolerate failed approaches, verification and expert rejection rather than merely producing plausible solutions."
+            },
+            {
+              "heading": "Not an autonomous mathematician",
+              "body": "The available evidence does not justify saying Muse Spark independently solved five open problems. Meta explicitly presents the projects as human-AI collaborations, and it acknowledges independent concurrent results for some questions. Specialists still need to scrutinize the individual proofs."
+            },
+            {
+              "heading": "TigerIQ's read",
+              "body": "The key question is not which model can be branded a scientist. It is whether a human-AI-independent-review loop can repeatedly generate genuinely new, verifiable results. If so, research-AI evaluation will need to measure real discovery contribution, self-correction and how much expert labor is required to turn model output into trustworthy science."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://research.meta.ai/blog/solving-open-research-problems-together",
+        "https://www.explainx.ai/blog/meta-muse-spark-six-open-math-problems-2026"
+      ],
+      "factPack": {
+        "locked": true,
+        "evidence": [
+          {
+            "publisher": "Meta AI Research",
+            "url": "https://research.meta.ai/blog/solving-open-research-problems-together",
+            "tier": "A"
+          },
+          {
+            "publisher": "Explainx",
+            "url": "https://www.explainx.ai/blog/meta-muse-spark-six-open-math-problems-2026",
+            "tier": "B"
+          }
+        ]
+      },
+      "editorialScore": 88,
+      "verification": {
+        "status": "verified",
+        "basis": "TigerIQ Newsroom V2: primary Meta research post corroborated against independent technical coverage; claims scoped to disclosed evidence.",
+        "evidence": [
+          {
+            "sourceId": "meta-primary",
+            "tier": "A",
+            "url": "https://research.meta.ai/blog/solving-open-research-problems-together"
+          },
+          {
+            "sourceId": "explainx-secondary",
+            "tier": "B",
+            "url": "https://www.explainx.ai/blog/meta-muse-spark-six-open-math-problems-2026"
+          }
+        ]
+      },
+      "corrections": []
+    },
     {
       "slug": "google-project-suncatcher-satellite-ai-2026",
       "category": "Research",
