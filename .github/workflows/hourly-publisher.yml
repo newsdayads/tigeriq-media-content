@@ -4,8 +4,8 @@ on:
     - cron: "17 * * * *"
   workflow_dispatch:
   push:
-    branches: [main]
-    paths: [".github/workflows/hourly-publisher.yml"]
+    branches:
+      - main
 permissions:
   contents: write
   models: read
@@ -14,6 +14,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
+    if: github.event_name != 'push' || github.actor != 'tigeriq-media-bot'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
