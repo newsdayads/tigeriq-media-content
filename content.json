@@ -98,7 +98,17 @@
           }
         ]
       },
-      "corrections": []
+      "corrections": [],
+      "cover": {
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/suncatcher.width-1300.jpg",
+        "generated": false,
+        "generator": "Google official editorial image",
+        "alt": {
+          "vi": "Project Suncatcher của Google",
+          "en": "Google Project Suncatcher",
+          "es": "Project Suncatcher de Google"
+        }
+      }
     },
     {
       "slug": "google-september-ai-roundup-gemini4",
