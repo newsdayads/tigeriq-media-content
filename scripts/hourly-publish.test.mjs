@@ -10,9 +10,11 @@ const date="Sat, 17 Oct 2026 23:00:00 GMT";
 const feeds=[{id:"openai",url:"https://example.org/a"},{id:"google",url:"https://example.org/b"}];
 const item=(url)=>"<rss><item><title>Two-source inference evaluation announcement</title><link>"+url+
  "</link><pubDate>"+date+"</pubDate><description>Official announcement evaluates technology results with caveats about methods and limitations.</description></item></rss>";
+const officialTitle="Two-source inference evaluation announcement";
+const officialExcerpt="Official announcement evaluates technology results with caveats about methods and limitations.";
 const data=[
- {id:"openai-1",publisher:"openai",url:"https://openai.com/news/one"},
- {id:"google-1",publisher:"google",url:"https://blog.google/ai/two"}
+ {id:"openai-1",publisher:"openai",url:"https://openai.com/news/one",title:officialTitle,summary:officialExcerpt},
+ {id:"google-1",publisher:"google",url:"https://blog.google/ai/two",title:officialTitle,summary:officialExcerpt}
 ];
 const edition=lang=>({title:lang+" official AI technology evaluation findings",dek:"Summary with independently checked technology source evidence in "+lang,
  takeaways:["First verified evaluation and context","Independent official sources support this summary","Limitations and uncertainty are described"],
@@ -22,8 +24,10 @@ const draft={slug:"ai-inference-evaluation-2026",category:"Research",readTime:5,
  claims:[{text:"Both official feeds discuss technology evaluation",sourceIds:["openai-1","google-1"]},
          {text:"Both official feeds discuss methodology and limitations",sourceIds:["google-1","openai-1"]}],
  editions:{vi:edition("vi"),en:edition("en"),es:edition("es")}};
+const excerpts=(ids)=>ids.map(sourceId=>({sourceId,text:officialExcerpt}));
 const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceIds:["openai-1","google-1"],supportedClaims:[0,1],
- claimSourceEvidence:[{index:0,sourceIds:["openai-1","google-1"]},{index:1,sourceIds:["google-1","openai-1"]}]};
+ claimSourceEvidence:[{index:0,sourceIds:["openai-1","google-1"],excerpts:excerpts(["openai-1","google-1"])},
+                      {index:1,sourceIds:["google-1","openai-1"],excerpts:excerpts(["google-1","openai-1"])}]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
  WRITER_MODEL:"writer-model",REVIEWER_MODEL:"reviewer-model"};
 function mockFetch({replyDraft=draft,replyReview=review,nonJson=false,modelPrompts=null}={}){
@@ -86,6 +90,18 @@ test("independent reviewer must attest all sources and claims",()=>{
  assert.throws(()=>verifyReview({...review,claimSourceEvidence:[{index:0,sourceIds:["openai-1"]},review.claimSourceEvidence[1]]},draft,data),/REVIEW_PER_CLAIM_SOURCES_UNVERIFIED/);
  assert.throws(()=>verifyReview({...review,claimSourceEvidence:[{index:0,sourceIds:["openai-1","openai-1"]},review.claimSourceEvidence[1]]},draft,data),/REVIEW_PER_CLAIM_SOURCES_UNVERIFIED/);
  assert.throws(()=>verifyReview({...review,claimSourceEvidence:[{index:0,sourceIds:["openai-1","other"]},review.claimSourceEvidence[1]]},draft,data),/REVIEW_PER_CLAIM_SOURCES_UNVERIFIED/);
+});
+test("reviewer excerpt provenance matches each official feed, not only its source ID",()=>{
+ const swap=evidence=>({...review,claimSourceEvidence:[evidence,review.claimSourceEvidence[1]]});
+ const base=review.claimSourceEvidence[0];
+ assert.doesNotThrow(()=>verifyReview(review,draft,data));
+ assert.throws(()=>verifyReview(swap({...base,excerpts:[]}),draft,data),/REVIEW_EXCERPTS_UNVERIFIED/);
+ assert.throws(()=>verifyReview(swap({...base,excerpts:excerpts(["openai-1","openai-1"])}),draft,data),/REVIEW_EXCERPTS_UNVERIFIED/);
+ assert.throws(()=>verifyReview(swap({...base,excerpts:[{sourceId:"openai-1",text:"Invented article claim not present in the source summary"},{sourceId:"google-1",text:officialExcerpt}]}),draft,data),/REVIEW_EXCERPTS_UNVERIFIED/);
+ assert.throws(()=>verifyReview(swap({...base,excerpts:[{sourceId:"openai-1",text:"too short"},{sourceId:"google-1",text:officialExcerpt}]}),draft,data),/REVIEW_EXCERPTS_UNVERIFIED/);
+ assert.throws(()=>verifyReview(swap({...base,excerpts:[{sourceId:"openai-1",text:officialExcerpt},{sourceId:"google-1",text:undefined}]}),draft,data),/REVIEW_EXCERPTS_UNVERIFIED/);
+ const crossPublisherSources=[data[0],{...data[1],title:"Completely unrelated source headline",summary:"Separate research that does not corroborate the claim being reviewed."}];
+ assert.throws(()=>verifyReview(review,draft,crossPublisherSources),/REVIEW_EXCERPTS_UNVERIFIED/);
 });
 test("copyright-safe SVG escapes untrusted title",()=>{
  const svg=coverSvg("<unsafe>&news");
