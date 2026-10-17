@@ -5,7 +5,8 @@ import {pathToFileURL} from "node:url";
 export const FEEDS=[
   {id:"openai",url:"https://openai.com/news/rss.xml"},
   {id:"google",url:"https://blog.google/technology/ai/rss/"},
-  {id:"anthropic",url:"https://www.anthropic.com/rss.xml"},
+  {id:"github",url:"https://github.blog/changelog/feed/"},
+  {id:"meta",url:"https://engineering.fb.com/feed/"},
   {id:"nvidia",url:"https://blogs.nvidia.com/feed/"}
 ];
 const LANGS=["vi","en","es"];
