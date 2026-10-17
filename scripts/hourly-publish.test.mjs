@@ -19,8 +19,8 @@ const edition=lang=>({title:lang+" official AI technology evaluation findings",d
  sections:[1,2,3].map(n=>({heading:"Section "+n+" details",body:"Only source supported technology statements are included here, with limitations explicitly acknowledged and no invented facts."}))});
 const draft={slug:"ai-inference-evaluation-2026",category:"Research",readTime:5,
  sourceIds:["openai-1","google-1"],
- claims:[{text:"The first feed discusses evaluation",sourceIds:["openai-1"]},
-         {text:"The second discusses methodology",sourceIds:["google-1"]}],
+ claims:[{text:"Both official feeds discuss technology evaluation",sourceIds:["openai-1","google-1"]},
+         {text:"Both official feeds discuss methodology and limitations",sourceIds:["google-1","openai-1"]}],
  editions:{vi:edition("vi"),en:edition("en"),es:edition("es")}};
 const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceIds:["openai-1","google-1"],supportedClaims:[0,1]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
@@ -63,6 +63,18 @@ test("writer must have 3 native locales and two independent verified sources",()
  assert.throws(()=>validateDraft({...draft,editions:{vi:edition("vi"),en:edition("en")}},data),/LOCALES_INCOMPLETE/);
  assert.throws(()=>validateDraft({...draft,sourceIds:["openai-1"]},data),/SOURCES_INSUFFICIENT/);
 });
+test("each factual claim must cite two different official publishers",()=>{
+ const claimWithIds=ids=>({...draft,claims:[{...draft.claims[0],sourceIds:ids},draft.claims[1]]});
+ assert.equal(validateDraft(draft,data).length,2);
+ assert.throws(()=>validateDraft(claimWithIds(["openai-1"]),data),/DRAFT_CLAIMS_UNSUPPORTED/);
+ assert.throws(()=>validateDraft(claimWithIds(["openai-1","openai-1"]),data),/DRAFT_CLAIMS_UNSUPPORTED/);
+ assert.throws(()=>validateDraft(claimWithIds(["openai-1","missing-id"]),data),/DRAFT_CLAIMS_UNSUPPORTED/);
+ const samePublisherItems=[...data,{id:"openai-2",publisher:"openai",url:"https://openai.com/news/other"}];
+ const samePublisherDraft={...draft,sourceIds:["openai-1","openai-2","google-1"],
+   claims:[{...draft.claims[0],sourceIds:["openai-1","openai-2"]},draft.claims[1]]};
+ assert.throws(()=>validateDraft(samePublisherDraft,samePublisherItems),/DRAFT_CLAIMS_UNSUPPORTED/);
+});
+
 test("independent reviewer must attest all sources and claims",()=>{
  assert.doesNotThrow(()=>verifyReview(review,draft,data));
  assert.throws(()=>verifyReview({...review,pass:false},draft,data),/REVIEW_REJECTED/);
