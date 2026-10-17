@@ -9,6 +9,17 @@ export const FEEDS=[
   {id:"meta",url:"https://engineering.fb.com/feed/"},
   {id:"nvidia",url:"https://blogs.nvidia.com/feed/"}
 ];
+const OFFICIAL_LINK_HOSTS={
+  openai:["openai.com"],
+  google:["blog.google","research.google","deepmind.google"],
+  github:["github.blog","github.com"],
+  meta:["engineering.fb.com","about.fb.com","ai.meta.com"],
+  nvidia:["blogs.nvidia.com","nvidia.com"]
+};
+function officialPublisherLink(source,hostname){
+  return Boolean(OFFICIAL_LINK_HOSTS[source]?.some(host=>
+    hostname===host||hostname.endsWith("."+host)));
+}
 const LANGS=["vi","en","es"];
 const clean=s=>String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
   .replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<")
@@ -24,7 +35,10 @@ export function parseFeed(xml,source,now=new Date()){
     const atom=item.match(/<link\b[^>]*href=["']([^"']+)["']/i)?.[1]||"";
     const link=getTag(item,"link")||atom;
     let url;
-    try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password)return [];url=u.href;}catch{return [];}
+    try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
+      !officialPublisherLink(source,u.hostname.toLowerCase()))return [];
+      url=u.href;
+    }catch{return [];}
     if(!title||summary.length<20||!Number.isFinite(stamp)||stamp>now.getTime()+600000||
       now.getTime()-stamp>72*3600000)return [];
     return [{id:source+"-"+(index+1),publisher:source,title,summary,url,publishedAt:new Date(stamp).toISOString()}];
