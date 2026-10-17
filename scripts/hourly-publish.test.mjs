@@ -26,12 +26,13 @@ const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceId
  claimSourceEvidence:[{index:0,sourceIds:["openai-1","google-1"]},{index:1,sourceIds:["google-1","openai-1"]}]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
  WRITER_MODEL:"writer-model",REVIEWER_MODEL:"reviewer-model"};
-function mockFetch({replyDraft=draft,replyReview=review,nonJson=false}={}){
+function mockFetch({replyDraft=draft,replyReview=review,nonJson=false,modelPrompts=null}={}){
  let call=0;
- return async url=>{
+ return async (url,options)=>{
    if(url===feeds[0].url)return new Response(item(data[0].url),{status:200});
    if(url===feeds[1].url)return new Response(item(data[1].url),{status:200});
    if(url===env.AI_CHAT_COMPLETIONS_URL){
+     if(modelPrompts)modelPrompts.push(JSON.parse(options.body).messages[0].content);
      if(nonJson)return new Response("OK\n",{status:200,headers:{"content-type":"application/json"}});
      return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify(call++===0?replyDraft:replyReview)}}]}),
        {status:200,headers:{"content-type":"application/json"}});
@@ -114,6 +115,15 @@ test("review failure and bad AI envelope preserve content",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:mockFetch({nonJson:true}),env,now,feeds}),/INVALID_JSON_ENVELOPE/);
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
  assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
+test("AI writer and reviewer prompts require two-source claim evidence",()=>tmp(async root=>{
+ const modelPrompts=[];
+ const result=await publish({root,fetchImpl:mockFetch({modelPrompts}),env,now,feeds});
+ assert.equal(result.status,"staged");
+ assert.equal(modelPrompts.length,2);
+ assert.match(modelPrompts[0],/claims:\[\{text,sourceIds:\[idA,idB\]\}\]/);
+ assert.match(modelPrompts[1],/claimSourceEvidence/);
+ assert.match(modelPrompts[1],/For EACH claim index/);
 }));
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
