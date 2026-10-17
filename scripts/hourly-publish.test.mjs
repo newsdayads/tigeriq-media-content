@@ -55,6 +55,17 @@ test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
  assert.equal(parseFeed(item("http://unsafe.example/x"),"openai",now).length,0);
 });
+test("official publisher RSS cannot reclassify third-party links as independent official evidence",()=>{
+ assert.equal(parseFeed(item("https://www.openai.com/news/article"),"openai",now).length,1);
+ assert.equal(parseFeed(item("https://blog.google/ai/article"),"google",now).length,1);
+ assert.equal(parseFeed(item("https://github.blog/changelog/article"),"github",now).length,1);
+ assert.equal(parseFeed(item("https://engineering.fb.com/2026/example"),"meta",now).length,1);
+ assert.equal(parseFeed(item("https://blogs.nvidia.com/blog/example"),"nvidia",now).length,1);
+ assert.equal(parseFeed(item("https://outside.example.com/ai/article"),"openai",now).length,0);
+ assert.equal(parseFeed(item("https://fakeopenai.com/news/article"),"openai",now).length,0);
+ assert.equal(parseFeed(item("https://openai.com.evil.example/news/article"),"openai",now).length,0);
+ assert.equal(parseFeed(item("https://openai.com/news/article"),"unknown-source",now).length,0);
+});
 test("retired GitHub Models, missing provider and reviewer reuse are blocked",()=>{
  assert.throws(()=>providerConfig({}),/AI_PROVIDER_NOT_CONFIGURED/);
  assert.throws(()=>providerConfig({...env,AI_CHAT_COMPLETIONS_URL:"https://models.github.ai/inference/chat/completions"}),/RETIRED/);
