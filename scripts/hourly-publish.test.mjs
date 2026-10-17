@@ -22,7 +22,8 @@ const draft={slug:"ai-inference-evaluation-2026",category:"Research",readTime:5,
  claims:[{text:"Both official feeds discuss technology evaluation",sourceIds:["openai-1","google-1"]},
          {text:"Both official feeds discuss methodology and limitations",sourceIds:["google-1","openai-1"]}],
  editions:{vi:edition("vi"),en:edition("en"),es:edition("es")}};
-const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceIds:["openai-1","google-1"],supportedClaims:[0,1]};
+const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceIds:["openai-1","google-1"],supportedClaims:[0,1],
+ claimSourceEvidence:[{index:0,sourceIds:["openai-1","google-1"]},{index:1,sourceIds:["google-1","openai-1"]}]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
  WRITER_MODEL:"writer-model",REVIEWER_MODEL:"reviewer-model"};
 function mockFetch({replyDraft=draft,replyReview=review,nonJson=false}={}){
@@ -79,6 +80,11 @@ test("independent reviewer must attest all sources and claims",()=>{
  assert.doesNotThrow(()=>verifyReview(review,draft,data));
  assert.throws(()=>verifyReview({...review,pass:false},draft,data),/REVIEW_REJECTED/);
  assert.throws(()=>verifyReview({...review,supportedClaims:[0]},draft,data),/REVIEW_CLAIMS_UNVERIFIED/);
+ assert.throws(()=>verifyReview({...review,claimSourceEvidence:undefined},draft,data),/REVIEW_PER_CLAIM_EVIDENCE_MISSING/);
+ assert.throws(()=>verifyReview({...review,claimSourceEvidence:[review.claimSourceEvidence[0],review.claimSourceEvidence[0]]},draft,data),/REVIEW_PER_CLAIM_EVIDENCE_MISSING/);
+ assert.throws(()=>verifyReview({...review,claimSourceEvidence:[{index:0,sourceIds:["openai-1"]},review.claimSourceEvidence[1]]},draft,data),/REVIEW_PER_CLAIM_SOURCES_UNVERIFIED/);
+ assert.throws(()=>verifyReview({...review,claimSourceEvidence:[{index:0,sourceIds:["openai-1","openai-1"]},review.claimSourceEvidence[1]]},draft,data),/REVIEW_PER_CLAIM_SOURCES_UNVERIFIED/);
+ assert.throws(()=>verifyReview({...review,claimSourceEvidence:[{index:0,sourceIds:["openai-1","other"]},review.claimSourceEvidence[1]]},draft,data),/REVIEW_PER_CLAIM_SOURCES_UNVERIFIED/);
 });
 test("copyright-safe SVG escapes untrusted title",()=>{
  const svg=coverSvg("<unsafe>&news");
