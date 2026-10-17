@@ -22,6 +22,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
+      - name: Publisher non-secret provider metadata presence
+        env:
+          AI_URL_SET: ${{ vars.AI_CHAT_COMPLETIONS_URL != '' }}
+          WRITER_MODEL_SET: ${{ vars.WRITER_MODEL != '' }}
+          REVIEWER_MODEL_SET: ${{ vars.REVIEWER_MODEL != '' }}
+        run: |
+          echo "AI_CHAT_COMPLETIONS_URL_PRESENT=$AI_URL_SET"
+          echo "WRITER_MODEL_PRESENT=$WRITER_MODEL_SET"
+          echo "REVIEWER_MODEL_PRESENT=$REVIEWER_MODEL_SET"
+          echo "AI_API_KEY_PRESENT=NOT_CHECKED_SECRET_READ_FORBIDDEN"
       - name: Publisher fail-closed tests
         run: node --test scripts/hourly-publish.test.mjs
   publish:
