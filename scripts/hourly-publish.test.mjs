@@ -73,6 +73,26 @@ test("XML-commented RSS and Atom items must never become official article eviden
    "a commented-out Atom entry must not be accepted as official evidence");
 });
 
+test("RSS and Atom CDATA must not create phantom official article entries",()=>{
+ const fakeRss='<item><title>Fictional model breakthrough announced today</title>'+
+   '<link>https://openai.com/news/fictional-cdata-phantom</link>'+
+   '<pubDate>'+date+'</pubDate>'+
+   '<description>This is a fake official announcement embedded as unparsed text, not a story.</description></item>';
+ const outer='<rss><channel><description><![CDATA['+fakeRss+']]></description>'+
+   item(data[0].url).replace('<rss>','').replace('</rss>','')+'</channel></rss>';
+ const observed=parseFeed(outer,"openai",now);
+ assert.equal(observed.length,1,"a literal item tag inside feed CDATA is not a published article");
+ assert.equal(observed[0].url,data[0].url,"the sole visible story is the real RSS item");
+ assert.equal(observed[0].id,"openai-1","CDATA must not shift official source identity");
+ const fakeAtom='<entry><title>Fictional cross-source validation</title>'+
+   '<link rel="alternate" href="https://blog.google/ai/phantom-cdata"/>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<summary>Fake report nested in feed CDATA, not a published news story.</summary></entry>';
+ const atom='<feed><subtitle><![CDATA['+fakeAtom+']]></subtitle></feed>';
+ assert.equal(parseFeed(atom,"google",now).length,0,
+   "a literal Atom entry inside CDATA is not published evidence");
+});
+
 test("RSS content:encoded provides recent official evidence when description is missing",()=>{
  const xml='<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><item>'+
    '<title>Official AI evaluation findings from the publisher</title>'+
