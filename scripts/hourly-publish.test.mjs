@@ -216,6 +216,8 @@ test("RSS same-publisher HTTPS redirect is explicitly followed",()=>tmp(async ro
   };
   const result=await publish({root,fetchImpl:redirectedFetch,env,now,feeds});
   assert.equal(result.status,"staged","same-publisher redirect must preserve legitimate RSS");
-  assert.deepEqual(calls.map(c=>c.url),[feeds[0].url,feeds[1].url,destination]);
-  assert.ok(calls.every(c=>c.redirect==="manual"));
+  const rssCalls=calls.filter(c=>c.url!==env.AI_CHAT_COMPLETIONS_URL);
+  assert.deepEqual(rssCalls.map(c=>c.url),[feeds[0].url,feeds[1].url,destination]);
+  assert.ok(rssCalls.every(c=>c.redirect==="manual"),
+    "RSS fetch must use manual redirects; model API calls are a separate surface");
 }));
