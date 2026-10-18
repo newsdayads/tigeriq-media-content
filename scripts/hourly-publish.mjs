@@ -56,7 +56,7 @@ export function parseFeed(xml,source,now=new Date()){
     if(!title||summary.length<20||!Number.isFinite(stamp)||stamp>now.getTime()+600000||
       now.getTime()-stamp>72*3600000)return [];
     return [{id:source+"-"+(index+1),publisher:source,title,summary,url,publishedAt:new Date(stamp).toISOString()}];
-  }).slice(0,20);
+  }).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)).slice(0,20);
 }
 
 export function providerConfig(env=process.env){
