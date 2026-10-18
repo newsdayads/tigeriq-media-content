@@ -129,6 +129,13 @@ test("copyright-safe SVG escapes untrusted title",()=>{
  assert.match(svg,/&lt;unsafe&gt;&amp;news/);
  assert.ok(!svg.includes("<unsafe>"));
 });
+test("untrusted AI title cannot put XML-forbidden control characters in original SVG",()=>{
+ const svg=coverSvg("AI\u0000 updates\u0001 with\u000b rights\u001f\uFFFE\uFFFF");
+ assert.doesNotMatch(svg,/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/u,
+   "XML 1.0 forbids NUL and non-whitespace C0 controls in character data");
+ assert.match(svg,/AI updates with rights/,"safe visible title content remains intact");
+});
+
 test("generated SVG terminates as valid XML, without escaped newline bytes after root",()=>{
  const svg=coverSvg("Original news cover");
  assert.match(svg, /<\/svg>\n$/, "a literal backslash-n after the XML root corrupts SVG");
