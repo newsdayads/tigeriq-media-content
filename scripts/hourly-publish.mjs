@@ -120,6 +120,20 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
   return parsed;
 }
 
+// Compare official article identity without harmless campaign tracking. Retain
+// all original URLs for citations; do not remove meaningful query parameters.
+export function sourceIdentityUrl(value){
+  try{
+    const url=new URL(value);
+    for(const name of [...url.searchParams.keys()]){
+      if(/^utm_/i.test(name)||/^(fbclid|gclid|msclkid)$/i.test(name))
+        url.searchParams.delete(name);
+    }
+    url.hash="";
+    return url.href;
+  }catch{return String(value);}
+}
+
 export function validateDraft(draft,items){
   if(typeof draft?.slug!=="string"||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(draft.slug)||draft.slug.length>96)throw Error("DRAFT_SLUG_INVALID");
   if(typeof draft.category!=="string"||!draft.category.trim())throw Error("DRAFT_CATEGORY_INVALID");
@@ -318,7 +332,9 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     +'Write each locale natively; give full article and uncertainty. PACKET='+JSON.stringify(packet)});
   if(draft.noQualifiedStory===true){console.log("NOOP_NO_VERIFIABLE_STORY");return {status:"noop"};}
   const sources=validateDraft(draft,packet);
-  if(store.articles.some(a=>a.slug===draft.slug||(Array.isArray(a.sources)&&sources.some(s=>a.sources.includes(s.url))))){
+  const draftSourceUrls=new Set(sources.map(s=>sourceIdentityUrl(s.url)));
+  if(store.articles.some(a=>a.slug===draft.slug||(Array.isArray(a.sources)&&
+    a.sources.some(url=>draftSourceUrls.has(sourceIdentityUrl(url)))))){
     console.log("NOOP_DUPLICATE_STORY");return {status:"noop"};
   }
   const review=await modelJson({fetchImpl,provider,model:provider.reviewer,prompt:
