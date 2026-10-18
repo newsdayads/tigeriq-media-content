@@ -57,6 +57,42 @@ export function providerConfig(env=process.env){
   return {url:u.href,key,writer,reviewer};
 }
 
+// Never buffer unbounded provider JSON. Reject oversized declared bodies before
+// reading, then enforce the same byte limit on streamed/chunked responses.
+export async function readBoundedAiResponse(response,maxBytes=1024*1024){
+  const header=response.headers?.get?.("content-length");
+  const declared=typeof header==="string"&&/^\d+$/.test(header.trim())
+    ? Number(header.trim()) : null;
+  if(declared!==null&&declared>maxBytes){
+    await response.body?.cancel?.().catch(()=>{});
+    throw Error("AI_PROVIDER_RESPONSE_TOO_LARGE");
+  }
+  const reader=response.body?.getReader?.();
+  if(!reader){
+    const raw=await response.text();
+    if(Buffer.byteLength(raw,"utf8")>maxBytes)throw Error("AI_PROVIDER_RESPONSE_TOO_LARGE");
+    return raw;
+  }
+  const chunks=[];
+  let total=0;
+  try{
+    for(;;){
+      const {done,value}=await reader.read();
+      if(done)break;
+      if(!(value instanceof Uint8Array))throw Error("AI_PROVIDER_RESPONSE_INVALID_CHUNK");
+      total+=value.byteLength;
+      if(total>maxBytes)throw Error("AI_PROVIDER_RESPONSE_TOO_LARGE");
+      chunks.push(value);
+    }
+    return Buffer.concat(chunks,total).toString("utf8");
+  }catch(error){
+    await reader.cancel().catch(()=>{});
+    throw error;
+  }finally{
+    reader.releaseLock();
+  }
+}
+
 export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
   let r;
   try{
@@ -68,7 +104,9 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   if(!/json/i.test(r.headers.get("content-type")||""))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
   let envelope;
-  try{envelope=JSON.parse(await r.text());}catch{throw Error("AI_PROVIDER_INVALID_JSON_ENVELOPE");}
+  try{envelope=JSON.parse(await readBoundedAiResponse(r));}
+  catch(e){if(e?.message==="AI_PROVIDER_RESPONSE_TOO_LARGE")throw e;
+    throw Error("AI_PROVIDER_INVALID_JSON_ENVELOPE");}
   const output=envelope?.choices?.[0]?.message?.content;
   if(typeof output!=="string"||output.length<2||output.length>100000)throw Error("AI_PROVIDER_EMPTY_COMPLETION");
   let parsed;
