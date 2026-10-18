@@ -171,3 +171,51 @@ test("RSS redirect to unauthorized host cannot impersonate official feed evidenc
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
  assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));
+
+test("RSS fetch refuses a disallowed initial host before any network request",()=>tmp(async root=>{
+  const attempted=[];
+  const otherFeed=feeds[1];
+  const forged={id:"openai",url:"http://127.0.0.1:8795/private"};
+  const baseFetch=mockFetch();
+  const guardedFetch=async (url,options)=>{
+    attempted.push(url);
+    if(url===forged.url)throw Error("PRIVATE_HOST_WAS_REQUESTED");
+    return baseFetch(url,options);
+  };
+  const result=await publish({root,fetchImpl:guardedFetch,env,now,feeds:[forged,otherFeed]});
+  assert.equal(result.status,"noop");
+  assert.deepEqual(attempted,[otherFeed.url],"unapproved host must not even receive a request");
+}));
+
+test("RSS HTTP redirect never auto-follows an unapproved host",()=>tmp(async root=>{
+  const calls=[];
+  const baseFetch=mockFetch();
+  const guardedFetch=async (url,options)=>{
+    calls.push({url,redirect:options?.redirect});
+    if(url===feeds[0].url)return new Response(null,{status:302,
+      headers:{location:"http://127.0.0.1:8795/private"}});
+    return baseFetch(url,options);
+  };
+  const result=await publish({root,fetchImpl:guardedFetch,env,now,feeds});
+  assert.equal(result.status,"noop");
+  assert.deepEqual(calls.map(c=>c.url),[feeds[0].url,feeds[1].url]);
+  assert.ok(calls.every(c=>c.redirect==="manual"),
+    "native fetch must never follow a redirect before the allowlist gate");
+}));
+
+test("RSS same-publisher HTTPS redirect is explicitly followed",()=>tmp(async root=>{
+  const calls=[];
+  const baseFetch=mockFetch();
+  const destination="https://blog.google/innovation-and-ai/technology/ai/rss/";
+  const redirectedFetch=async (url,options)=>{
+    calls.push({url,redirect:options?.redirect});
+    if(url===feeds[1].url)return new Response(null,{status:301,
+      headers:{location:"/innovation-and-ai/technology/ai/rss/"}});
+    if(url===destination)return rssResponse(item(data[1].url),destination);
+    return baseFetch(url,options);
+  };
+  const result=await publish({root,fetchImpl:redirectedFetch,env,now,feeds});
+  assert.equal(result.status,"staged","same-publisher redirect must preserve legitimate RSS");
+  assert.deepEqual(calls.map(c=>c.url),[feeds[0].url,feeds[1].url,destination]);
+  assert.ok(calls.every(c=>c.redirect==="manual"));
+}));
