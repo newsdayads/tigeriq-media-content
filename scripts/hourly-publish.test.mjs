@@ -229,6 +229,48 @@ test("large official RSS collection has a bounded and publisher-diverse AI promp
  assert.ok(captured[0].length<15000,"provider request must not contain an uncontrolled full-feed dump");
 }));
 
+
+test("RSS with declared excessive body length is rejected before buffering any bytes",()=>tmp(async root=>{
+  let bodyReads=0,modelCalls=0;
+  const intercepted=async url=>{
+    if(url===feeds[0].url)return {
+      ok:true,url,headers:{get:name=>name==="content-length"?"2000001":null},
+      text:async()=>{bodyReads++;return item(data[0].url);}
+    };
+    if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
+    modelCalls++;throw Error("MODEL_MUST_NOT_BE_CALLED");
+  };
+  const result=await publish({root,fetchImpl:intercepted,env,now,feeds});
+  assert.equal(result.status,"noop");
+  assert.equal(bodyReads,0,"an oversized RSS body must not be read into memory even if the returned text is small");
+  assert.equal(modelCalls,0);
+  assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,0);
+}));
+
+test("chunked RSS larger than 2 MB is cancelled without consuming the whole stream",()=>tmp(async root=>{
+  let cancelled=false,pulls=0,modelCalls=0;
+  const chunks=new ReadableStream({
+    pull(controller){
+      if(++pulls>6){controller.close();return;}
+      controller.enqueue(new Uint8Array(750000));
+    },
+    cancel(){cancelled=true;}
+  });
+  const oversized=new Response(chunks,{status:200,headers:{"content-type":"application/rss+xml"}});
+  Object.defineProperty(oversized,"url",{value:feeds[0].url});
+  const intercepted=async url=>{
+    if(url===feeds[0].url)return oversized;
+    if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
+    modelCalls++;throw Error("MODEL_MUST_NOT_BE_CALLED");
+  };
+  const result=await publish({root,fetchImpl:intercepted,env,now,feeds});
+  assert.equal(result.status,"noop");
+  assert.equal(cancelled,true,"oversized chunked RSS must be cancelled rather than fully buffered");
+  assert.ok(pulls<6,"do not consume all possible chunks after crossing the byte budget");
+  assert.equal(modelCalls,0);
+  assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,0);
+}));
+
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
 }));
