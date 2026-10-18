@@ -29,7 +29,7 @@ const getTag=(item,t)=>clean(item.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S
 
 export function parseFeed(xml,source,now=new Date()){
   const entries=String(xml).match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)||[];
-  return entries.slice(0,20).flatMap((item,index)=>{
+  return entries.flatMap((item,index)=>{
     const title=getTag(item,"title");
     const summary=(getTag(item,"description")||getTag(item,"summary")).slice(0,1200);
     const stamp=Date.parse(getTag(item,"pubDate")||getTag(item,"published")||getTag(item,"updated"));
@@ -48,7 +48,7 @@ export function parseFeed(xml,source,now=new Date()){
     if(!title||summary.length<20||!Number.isFinite(stamp)||stamp>now.getTime()+600000||
       now.getTime()-stamp>72*3600000)return [];
     return [{id:source+"-"+(index+1),publisher:source,title,summary,url,publishedAt:new Date(stamp).toISOString()}];
-  });
+  }).slice(0,20);
 }
 
 export function providerConfig(env=process.env){
