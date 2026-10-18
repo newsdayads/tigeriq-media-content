@@ -277,6 +277,27 @@ test("isolated full workflow stages 3 languages and a rights-tagged cover",()=>t
  assert.equal(store.articles[0].verification.evidence.length,2);
  assert.match(await fs.readFile(join(root,"covers",result.slug+".svg"),"utf8"),/TIGERIQ/);
 }));
+test("news cluster key must be stable by real article URLs, not transient RSS row positions",()=>tmp(async root=>{
+ const first=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
+ assert.equal(first.status,"staged");
+ const initialStore=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8"));
+ const firstCluster=initialStore.articles[0].clusterKey;
+ const changedUrls=["https://openai.com/news/another-breakthrough","https://blog.google/ai/another-breakthrough"];
+ const anotherDraft={...draft,slug:"ai-another-breakthrough-2026"};
+ const secondBase=mockFetch({replyDraft:anotherDraft});
+ const secondFetch=(url,options)=>{
+   if(url===feeds[0].url)return rssResponse(item(changedUrls[0]),url);
+   if(url===feeds[1].url)return rssResponse(item(changedUrls[1]),url);
+   return secondBase(url,options);
+ };
+ const next=await publish({root,fetchImpl:secondFetch,env,now,feeds});
+ assert.equal(next.status,"staged","new official URLs must remain eligible for a new article");
+ const updated=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8"));
+ assert.equal(updated.articles.length,2);
+ assert.notEqual(updated.articles[0].clusterKey,firstCluster,
+   "different official URLs at the same RSS indices must NOT share one news cluster identity");
+}));
+
 test("duplicate is NOOP, not a duplicate publication",()=>tmp(async root=>{
  await publish({root,fetchImpl:mockFetch(),env,now,feeds});
  const again=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
