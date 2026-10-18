@@ -33,8 +33,13 @@ export function parseFeed(xml,source,now=new Date()){
     const title=getTag(item,"title");
     const summary=(getTag(item,"description")||getTag(item,"summary")).slice(0,1200);
     const stamp=Date.parse(getTag(item,"pubDate")||getTag(item,"published")||getTag(item,"updated"));
-    const atom=item.match(/<link\b[^>]*href=["']([^"']+)["']/i)?.[1]||"";
-    const link=getTag(item,"link")||atom;
+    // Atom can list a rel="self" feed identifier before the article's rel="alternate".
+    const atomLinks=[...item.matchAll(/<link\b[^>]*>/gi)]
+      .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
+      .filter(l=>l.href);
+    const atom=(atomLinks.find(l=>/\brel\s*=\s*(["'])alternate\1/i.test(l.tag))||
+      atomLinks.find(l=>!/\brel\s*=\s*(["'])self\1/i.test(l.tag)))?.href||"";
+    const link=(getTag(item,"link")||atom).replace(/&amp;/gi,"&");
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
       !officialPublisherLink(source,u.hostname.toLowerCase()))return [];
