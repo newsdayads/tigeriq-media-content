@@ -95,6 +95,22 @@ test("Atom entry must choose rel alternate article link and decode XML ampersand
    "Atom rel=self is a feed identifier, not an article; XML ampersands must be decoded");
 });
 
+test("Atom enclosure and related links cannot impersonate official article evidence",()=>{
+ const start='<feed><entry><title>Official AI evaluation reference</title>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<summary>Official evaluation report examines measurable findings and limitations of new AI systems.</summary>';
+ const enclosure=start+
+   '<link rel="enclosure" type="audio/mpeg" href="https://blog.google/media/research-podcast.mp3"/>'+
+   '<link rel="related" href="https://blog.google/related-material"/></entry></feed>';
+ assert.equal(parseFeed(enclosure,"google",now).length,0,
+   "Atom enclosure/related metadata is not a published article permalink");
+ const defaultArticle=start+
+   '<link type="text/html" href="https://blog.google/ai/research-article"/></entry></feed>';
+ assert.equal(parseFeed(defaultArticle,"google",now)[0]?.url,
+   "https://blog.google/ai/research-article",
+   "an unqualified Atom link remains a valid alternate article URL");
+});
+
 test("official publisher RSS cannot reclassify third-party links as independent official evidence",()=>{
  assert.equal(parseFeed(item("https://www.openai.com/news/article"),"openai",now).length,1);
  assert.equal(parseFeed(item("https://blog.google/ai/article"),"google",now).length,1);
