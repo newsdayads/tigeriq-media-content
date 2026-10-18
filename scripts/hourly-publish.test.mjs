@@ -56,6 +56,19 @@ test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
  assert.equal(parseFeed(item("http://unsafe.example/x"),"openai",now).length,0);
 });
+test("RSS content:encoded provides recent official evidence when description is missing",()=>{
+ const xml='<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><item>'+
+   '<title>Official AI evaluation findings from the publisher</title>'+
+   '<link>https://openai.com/news/ai-evaluation</link>'+
+   '<pubDate>'+date+'</pubDate>'+
+   '<content:encoded><![CDATA[<p>Official AI evaluation reports new results, replicable methods, and clearly documented limitations.</p>]]></content:encoded>'+
+   '</item></channel></rss>';
+ const stories=parseFeed(xml,"openai",now);
+ assert.equal(stories.length,1,"a valid official content:encoded RSS item must not be discarded");
+ assert.match(stories[0].summary,/replicable methods, and clearly documented limitations/);
+ assert.equal(stories[0].url,"https://openai.com/news/ai-evaluation");
+});
+
 test("fresh official RSS item after twenty stale items is still discoverable",()=>{
  const staleItems=Array.from({length:20},(_,i)=>
    "<item><title>Old official archive item "+i+"</title>"+
