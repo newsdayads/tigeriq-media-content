@@ -31,7 +31,7 @@ export function parseFeed(xml,source,now=new Date()){
   const entries=String(xml).match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)||[];
   return entries.flatMap((item,index)=>{
     const title=getTag(item,"title");
-    const summary=(getTag(item,"description")||getTag(item,"summary")).slice(0,1200);
+    const summary=(getTag(item,"description")||getTag(item,"summary")||getTag(item,"content")).slice(0,1200);
     const stamp=Date.parse(getTag(item,"pubDate")||getTag(item,"published")||getTag(item,"updated"));
     // Atom can list a rel="self" feed identifier before the article's rel="alternate".
     const atomLinks=[...item.matchAll(/<link\b[^>]*>/gi)]
