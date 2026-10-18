@@ -29,9 +29,9 @@ const getTag=(item,t)=>clean(item.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S
 
 export function parseFeed(xml,source,now=new Date()){
   // XML comments are inert; preserve CDATA payloads while removing comments.
-  const activeXml=String(xml).replace(/<!--[\\s\\S]*?-->|<!\\[CDATA\\[[\\s\\S]*?\\]\\]>/g,
+  const activeXml=String(xml).replace(/<!--[\s\S]*?-->|<!\[CDATA\[[\s\S]*?\]\]>/g,
     token=>token.startsWith("<!--")?"":token);
-  const entries=activeXml.match(/<item(?:\\s[^>]*)?>[\\s\\S]*?<\\/item>|<entry(?:\\s[^>]*)?>[\\s\\S]*?<\\/entry>/gi)||[];
+  const entries=activeXml.match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)||[];
   return entries.flatMap((item,index)=>{
     const title=getTag(item,"title");
     const summary=(getTag(item,"description")||getTag(item,"summary")||getTag(item,"content")||getTag(item,"content:encoded")).slice(0,1200);
