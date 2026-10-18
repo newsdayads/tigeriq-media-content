@@ -56,6 +56,21 @@ test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
  assert.equal(parseFeed(item("http://unsafe.example/x"),"openai",now).length,0);
 });
+test("fresh official RSS item after twenty stale items is still discoverable",()=>{
+ const staleItems=Array.from({length:20},(_,i)=>
+   "<item><title>Old official archive item "+i+"</title>"+
+   "<link>https://openai.com/news/archive-"+i+"</link>"+
+   "<pubDate>Tue, 01 Sep 2026 12:00:00 GMT</pubDate>"+
+   "<description>Historical official AI archive source, outside the recent freshness window.</description></item>").join("");
+ const fresh="<item><title>Current official AI safety report</title>"+
+   "<link>https://openai.com/news/current-report</link>"+
+   "<pubDate>"+date+"</pubDate>"+
+   "<description>Recent official AI report with detailed methods, findings and limitations.</description></item>";
+ const articles=parseFeed("<rss>"+staleItems+fresh+"</rss>","openai",now);
+ assert.equal(articles.length,1,"discard expired entries before applying a cap of 20 accepted news items");
+ assert.equal(articles[0].url,"https://openai.com/news/current-report");
+});
+
 test("Atom entry must choose rel alternate article link and decode XML ampersands",()=>{
  const entry='<feed><entry><title>Official AI model evaluation report</title>'+
    '<link rel="self" href="https://blog.google/feeds/posts/default/991"/>'+
