@@ -81,6 +81,12 @@ test("writer must have 3 native locales and two independent verified sources",()
  assert.throws(()=>validateDraft({...draft,editions:{vi:edition("vi"),en:edition("en")}},data),/LOCALES_INCOMPLETE/);
  assert.throws(()=>validateDraft({...draft,sourceIds:["openai-1"]},data),/SOURCES_INSUFFICIENT/);
 });
+test("draft slug requires a primitive string, not a regex-coerced number or object",()=>{
+ assert.throws(()=>validateDraft({...draft,slug:123},data),/DRAFT_SLUG_INVALID/);
+ assert.throws(()=>validateDraft({...draft,slug:new String("valid-slug")},data),/DRAFT_SLUG_INVALID/);
+ assert.doesNotThrow(()=>validateDraft(draft,data));
+});
+
 test("each factual claim must cite two different official publishers",()=>{
  const claimWithIds=ids=>({...draft,claims:[{...draft.claims[0],sourceIds:ids},draft.claims[1]]});
  assert.equal(validateDraft(draft,data).length,2);
