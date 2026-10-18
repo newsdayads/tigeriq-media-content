@@ -39,8 +39,14 @@ export function parseFeed(xml,source,now=new Date()){
       .filter(l=>l.href);
     // Atom defaults missing rel to "alternate". Other relations (enclosure,
     // related, self) are metadata, not article provenance.
-    const atom=(atomLinks.find(l=>/\brel\s*=\s*(["'])alternate\1/i.test(l.tag))||
-      atomLinks.find(l=>!/\brel\s*=/i.test(l.tag)))?.href||"";
+    // An alternate Atom/XML feed or media attachment is not an HTML article.
+    const atomArticleLinks=atomLinks.filter(l=>{
+      const type=l.tag.match(/\s+type\s*=\s*(["'])(.*?)\1/i)?.[2]
+        ?.split(";")[0].trim().toLowerCase();
+      return !type||type==="text/html"||type==="application/xhtml+xml";
+    });
+    const atom=(atomArticleLinks.find(l=>/\brel\s*=\s*(["'])alternate\1/i.test(l.tag))||
+      atomArticleLinks.find(l=>!/\brel\s*=/i.test(l.tag)))?.href||"";
     const link=(getTag(item,"link")||atom).replace(/&amp;/gi,"&");
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
