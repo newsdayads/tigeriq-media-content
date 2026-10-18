@@ -174,6 +174,33 @@ test("AI writer and reviewer prompts require two-source claim evidence",()=>tmp(
  assert.match(modelPrompts[1],/claimSourceEvidence/);
  assert.match(modelPrompts[1],/For EACH claim index/);
 }));
+test("large official RSS collection has a bounded and publisher-diverse AI prompt packet",()=>tmp(async root=>{
+ const verbose=source=>"<rss>"+Array.from({length:18},(_,i)=>
+   "<item><title>Official AI evaluation announcement "+source+" "+i+"</title>"
+   +"<link>"+(source==="openai"?"https://openai.com/news/":"https://blog.google/ai/")+i+"</link>"
+   +"<pubDate>"+date+"</pubDate>"
+   +"<description>"+("Official technical release evidence and methods. ").repeat(28)+"</description>"
+   +"</item>").join("")+"</rss>";
+ const captured=[];
+ const boundedFetch=async(url,options)=>{
+   if(url===feeds[0].url)return rssResponse(verbose("openai"),url);
+   if(url===feeds[1].url)return rssResponse(verbose("google"),url);
+   if(url===env.AI_CHAT_COMPLETIONS_URL){
+     captured.push(JSON.parse(options.body).messages[0].content);
+     return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({noQualifiedStory:true})}}]}),
+       {status:200,headers:{"content-type":"application/json"}});
+   }
+   throw Error("Unexpected test URL");
+ };
+ const result=await publish({root,fetchImpl:boundedFetch,env,now,feeds});
+ assert.equal(result.status,"noop");
+ assert.equal(captured.length,1);
+ const packet=JSON.parse(captured[0].split(" PACKET=").at(-1));
+ assert.ok(JSON.stringify(packet).length<=12000,"source packet must have a deterministic 12k-char upper bound");
+ assert.ok(new Set(packet.map(x=>x.publisher)).size>=2,"packet must retain independent publishers");
+ assert.ok(captured[0].length<15000,"provider request must not contain an uncontrolled full-feed dump");
+}));
+
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
 }));
