@@ -99,7 +99,7 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
     r=await fetchImpl(provider.url,{method:"POST",
       headers:{"authorization":"Bearer "+provider.key,"content-type":"application/json","accept":"application/json"},
       body:JSON.stringify({model,messages:[{role:"user",content:prompt}],temperature:0.2,response_format:{type:"json_object"}}),
-      signal:AbortSignal.timeout(90000)});
+      signal:AbortSignal.timeout(90000),redirect:"error"});
   }catch{throw Error("AI_PROVIDER_TRANSPORT_FAILED");}
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   if(!/json/i.test(r.headers.get("content-type")||""))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
