@@ -77,6 +77,21 @@ test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
 });
 
+test("AI POST refuses an off-origin HTTP redirect before forwarding sensitive prompts",async()=>{
+ let forwarded=0;
+ const intercepted=async (_url,options)=>{
+   // Native fetch follows a 307/308 POST by default, including the JSON body.
+   // A strict redirect policy makes the transport fail closed instead.
+   if(options.redirect==="error")throw Error("SIMULATED_UNTRUSTED_307_BLOCKED");
+   forwarded++;
+   return new Response(JSON.stringify({choices:[{message:{content:'{"ok":true}'}}]}),
+     {status:200,headers:{"content-type":"application/json"}});
+ };
+ await assert.rejects(()=>modelJson({fetchImpl:intercepted,provider:providerConfig(env),
+   model:"writer-model",prompt:"DRAFT_PRIVATE_NOT_FOR_OTHER_ORIGIN"}),/AI_PROVIDER_TRANSPORT_FAILED/);
+ assert.equal(forwarded,0,"redirect policy must prevent sending the draft to a new origin");
+});
+
 test("AI provider rejects oversized declared JSON before reading response body",async()=>{
  let bodyReads=0;
  const fetchImpl=async()=>({
