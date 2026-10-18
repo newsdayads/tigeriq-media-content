@@ -76,6 +76,31 @@ test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  const provider=providerConfig(env);
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
 });
+
+test("AI provider rejects oversized declared JSON before reading response body",async()=>{
+ let bodyReads=0;
+ const fetchImpl=async()=>({
+   ok:true,status:200,headers:{get:name=>name==="content-type"?"application/json":
+      name==="content-length"?"2097152":null},
+   text:async()=>{bodyReads++;return "{}";},
+ });
+ await assert.rejects(()=>modelJson({fetchImpl,provider:providerConfig(env),model:"writer-model",prompt:"test"}),
+   /AI_PROVIDER_RESPONSE_TOO_LARGE/);
+ assert.equal(bodyReads,0,"a declared oversized response must be stopped before JSON buffering");
+});
+
+test("AI provider streaming JSON has a strict byte budget and cancels oversized body",async()=>{
+ let cancelled=false;
+ const stream=new ReadableStream({
+   pull(controller){controller.enqueue(new Uint8Array(150000));},
+   cancel(){cancelled=true;}
+ });
+ const fetchImpl=async()=>new Response(stream,{status:200,headers:{"content-type":"application/json"}});
+ await assert.rejects(()=>modelJson({fetchImpl,provider:providerConfig(env),model:"writer-model",prompt:"test"}),
+   /AI_PROVIDER_RESPONSE_TOO_LARGE/);
+ assert.equal(cancelled,true,"must terminate the provider stream after exceeding the byte budget");
+});
+
 test("writer must have 3 native locales and two independent verified sources",()=>{
  assert.equal(validateDraft(draft,data).length,2);
  assert.throws(()=>validateDraft({...draft,editions:{vi:edition("vi"),en:edition("en")}},data),/LOCALES_INCOMPLETE/);
