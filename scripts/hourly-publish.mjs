@@ -77,7 +77,7 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
 }
 
 export function validateDraft(draft,items){
-  if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(draft?.slug||"")||draft.slug.length>96)throw Error("DRAFT_SLUG_INVALID");
+  if(typeof draft?.slug!=="string"||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(draft.slug)||draft.slug.length>96)throw Error("DRAFT_SLUG_INVALID");
   if(typeof draft.category!=="string"||!draft.category.trim())throw Error("DRAFT_CATEGORY_INVALID");
   if(!Array.isArray(draft.sourceIds)||draft.sourceIds.length<2)throw Error("DRAFT_SOURCES_INSUFFICIENT");
   const sourceIds=[...new Set(draft.sourceIds)];
