@@ -90,9 +90,12 @@ test("AI provider rejects oversized declared JSON before reading response body",
 });
 
 test("AI provider streaming JSON has a strict byte budget and cancels oversized body",async()=>{
- let cancelled=false;
+ let cancelled=false,pulls=0;
  const stream=new ReadableStream({
-   pull(controller){controller.enqueue(new Uint8Array(150000));},
+   pull(controller){
+     if(++pulls>10){controller.close();return;}
+     controller.enqueue(new Uint8Array(150000));
+   },
    cancel(){cancelled=true;}
  });
  const fetchImpl=async()=>new Response(stream,{status:200,headers:{"content-type":"application/json"}});
