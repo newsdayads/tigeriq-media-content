@@ -56,6 +56,19 @@ test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
  assert.equal(parseFeed(item("http://unsafe.example/x"),"openai",now).length,0);
 });
+test("Atom entry must choose rel alternate article link and decode XML ampersands",()=>{
+ const entry='<feed><entry><title>Official AI model evaluation report</title>'+
+   '<link rel="self" href="https://blog.google/feeds/posts/default/991"/>'+
+   '<link type="text/html" rel="alternate" href="https://blog.google/ai/story?topic=ai&amp;source=feed"/>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<summary>Official results with methodology, evidence and limitations for this AI evaluation.</summary>'+
+   '</entry></feed>';
+ const found=parseFeed(entry,"google",now);
+ assert.equal(found.length,1,"valid Atom entry with official article");
+ assert.equal(found[0].url,"https://blog.google/ai/story?topic=ai&source=feed",
+   "Atom rel=self is a feed identifier, not an article; XML ampersands must be decoded");
+});
+
 test("official publisher RSS cannot reclassify third-party links as independent official evidence",()=>{
  assert.equal(parseFeed(item("https://www.openai.com/news/article"),"openai",now).length,1);
  assert.equal(parseFeed(item("https://blog.google/ai/article"),"google",now).length,1);
