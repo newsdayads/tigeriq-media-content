@@ -7,7 +7,7 @@ import {parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,p
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
-const feeds=[{id:"openai",url:"https://example.org/a"},{id:"google",url:"https://example.org/b"}];
+const feeds=[{id:"openai",url:"https://openai.com/news/rss.xml"},{id:"google",url:"https://blog.google/technology/ai/rss/"}];
 const item=(url)=>"<rss><item><title>Two-source inference evaluation announcement</title><link>"+url+
  "</link><pubDate>"+date+"</pubDate><description>Official announcement evaluates technology results with caveats about methods and limitations.</description></item></rss>";
 const officialTitle="Two-source inference evaluation announcement";
@@ -30,11 +30,12 @@ const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceId
                       {index:1,sourceIds:["google-1","openai-1"],excerpts:excerpts(["google-1","openai-1"])}]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
  WRITER_MODEL:"writer-model",REVIEWER_MODEL:"reviewer-model"};
+function rssResponse(xml,url){ const response=new Response(xml,{status:200}); Object.defineProperty(response,"url",{value:url}); return response; }
 function mockFetch({replyDraft=draft,replyReview=review,nonJson=false,modelPrompts=null}={}){
  let call=0;
  return async (url,options)=>{
-   if(url===feeds[0].url)return new Response(item(data[0].url),{status:200});
-   if(url===feeds[1].url)return new Response(item(data[1].url),{status:200});
+   if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+   if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
    if(url===env.AI_CHAT_COMPLETIONS_URL){
      if(modelPrompts)modelPrompts.push(JSON.parse(options.body).messages[0].content);
      if(nonJson)return new Response("OK\n",{status:200,headers:{"content-type":"application/json"}});
@@ -156,4 +157,17 @@ test("AI writer and reviewer prompts require two-source claim evidence",()=>tmp(
 }));
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
+}));
+
+test("RSS redirect to unauthorized host cannot impersonate official feed evidence",()=>tmp(async root=>{
+ const baseFetch=mockFetch();
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ const divertedFetch=async (url,options)=>{
+   if(url===feeds[0].url)return rssResponse(item(data[0].url),"https://untrusted-news.example/rss");
+   return baseFetch(url,options);
+ };
+ const result=await publish({root,fetchImpl:divertedFetch,env,now,feeds});
+ assert.equal(result.status,"noop","off-domain RSS redirect must not count as official publisher evidence");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+ assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));

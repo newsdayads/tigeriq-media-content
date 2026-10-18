@@ -160,6 +160,14 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     try{
       const r=await fetchImpl(feed.url,{headers:{"user-agent":"TigerIQ-News/2.0"},signal:AbortSignal.timeout(15000)});
       if(!r.ok)continue;
+      let resolvedFeed;
+      try{resolvedFeed=new URL(r.url);}catch{
+        console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);continue;
+      }
+      if(resolvedFeed.protocol!=="https:"||resolvedFeed.username||resolvedFeed.password||
+        !officialPublisherLink(feed.id,resolvedFeed.hostname.toLowerCase())){
+        console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);continue;
+      }
       const xml=await r.text();
       if(xml.length<=2000000)items.push(...parseFeed(xml,feed.id,now));
     }catch{console.warn("FEED_FETCH_FAILED "+feed.id);}
