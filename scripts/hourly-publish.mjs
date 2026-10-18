@@ -129,9 +129,9 @@ export function verifyReview(review,draft,sources){
         if(!reviewed.includes(e?.sourceId)||typeof e?.text!=="string"||
           e.text.trim().length<24||e.text.length>500)return true;
         const source=sources.find(s=>s.id===e.sourceId);
-        const passage=e.text.trim().replace(/\\s+/g," ").toLowerCase();
+        const passage=e.text.trim().replace(/\s+/g," ").toLowerCase();
         const original=[source?.title,source?.summary].filter(Boolean)
-          .join(" ").replace(/\\s+/g," ").toLowerCase();
+          .join(" ").replace(/\s+/g," ").toLowerCase();
         return !original.includes(passage);
       })){
       throw Error("REVIEW_EXCERPTS_UNVERIFIED");
