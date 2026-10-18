@@ -158,18 +158,45 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   const items=[];
   for(const feed of feeds){
     try{
-      const r=await fetchImpl(feed.url,{headers:{"user-agent":"TigerIQ-News/2.0"},signal:AbortSignal.timeout(15000)});
-      if(!r.ok)continue;
-      let resolvedFeed;
-      try{resolvedFeed=new URL(r.url);}catch{
-        console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);continue;
+      let target=feed.url;
+      // Native fetch auto-follows redirects by default. Validate each request BEFORE sending it.
+      for(let redirects=0;redirects<=3;redirects++){
+        let requested;
+        try{requested=new URL(target);}catch{
+          console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
+        }
+        if(requested.protocol!=="https:"||requested.username||requested.password||
+          !officialPublisherLink(feed.id,requested.hostname.toLowerCase())){
+          console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
+        }
+        const r=await fetchImpl(requested.href,{headers:{"user-agent":"TigerIQ-News/2.0"},
+          signal:AbortSignal.timeout(15000),redirect:"manual"});
+        if([301,302,303,307,308].includes(r.status)){
+          if(redirects===3){
+            console.warn("FEED_REDIRECT_LIMIT "+feed.id);break;
+          }
+          const location=r.headers?.get("location");
+          if(!location){
+            console.warn("FEED_REDIRECT_LOCATION_MISSING "+feed.id);break;
+          }
+          try{target=new URL(location,requested).href;}catch{
+            console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
+          }
+          continue;
+        }
+        if(!r.ok)break;
+        let resolvedFeed;
+        try{resolvedFeed=new URL(r.url);}catch{
+          console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
+        }
+        if(resolvedFeed.protocol!=="https:"||resolvedFeed.username||resolvedFeed.password||
+          !officialPublisherLink(feed.id,resolvedFeed.hostname.toLowerCase())){
+          console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
+        }
+        const xml=await r.text();
+        if(xml.length<=2000000)items.push(...parseFeed(xml,feed.id,now));
+        break;
       }
-      if(resolvedFeed.protocol!=="https:"||resolvedFeed.username||resolvedFeed.password||
-        !officialPublisherLink(feed.id,resolvedFeed.hostname.toLowerCase())){
-        console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);continue;
-      }
-      const xml=await r.text();
-      if(xml.length<=2000000)items.push(...parseFeed(xml,feed.id,now));
     }catch{console.warn("FEED_FETCH_FAILED "+feed.id);}
   }
   if(new Set(items.map(i=>i.publisher)).size<2){
