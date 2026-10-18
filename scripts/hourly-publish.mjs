@@ -59,18 +59,18 @@ export function providerConfig(env=process.env){
 
 // Never buffer unbounded provider JSON. Reject oversized declared bodies before
 // reading, then enforce the same byte limit on streamed/chunked responses.
-export async function readBoundedAiResponse(response,maxBytes=1024*1024){
+export async function readBoundedHttpText(response,maxBytes=1024*1024,tooLargeError="AI_PROVIDER_RESPONSE_TOO_LARGE"){
   const header=response.headers?.get?.("content-length");
   const declared=typeof header==="string"&&/^\d+$/.test(header.trim())
     ? Number(header.trim()) : null;
   if(declared!==null&&declared>maxBytes){
     await response.body?.cancel?.().catch(()=>{});
-    throw Error("AI_PROVIDER_RESPONSE_TOO_LARGE");
+    throw Error(tooLargeError);
   }
   const reader=response.body?.getReader?.();
   if(!reader){
     const raw=await response.text();
-    if(Buffer.byteLength(raw,"utf8")>maxBytes)throw Error("AI_PROVIDER_RESPONSE_TOO_LARGE");
+    if(Buffer.byteLength(raw,"utf8")>maxBytes)throw Error(tooLargeError);
     return raw;
   }
   const chunks=[];
@@ -81,7 +81,7 @@ export async function readBoundedAiResponse(response,maxBytes=1024*1024){
       if(done)break;
       if(!(value instanceof Uint8Array))throw Error("AI_PROVIDER_RESPONSE_INVALID_CHUNK");
       total+=value.byteLength;
-      if(total>maxBytes)throw Error("AI_PROVIDER_RESPONSE_TOO_LARGE");
+      if(total>maxBytes)throw Error(tooLargeError);
       chunks.push(value);
     }
     return Buffer.concat(chunks,total).toString("utf8");
@@ -104,7 +104,7 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   if(!/json/i.test(r.headers.get("content-type")||""))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
   let envelope;
-  try{envelope=JSON.parse(await readBoundedAiResponse(r));}
+  try{envelope=JSON.parse(await readBoundedHttpText(r));}
   catch(e){if(e?.message==="AI_PROVIDER_RESPONSE_TOO_LARGE")throw e;
     throw Error("AI_PROVIDER_INVALID_JSON_ENVELOPE");}
   const output=envelope?.choices?.[0]?.message?.content;
@@ -290,8 +290,8 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
           !officialPublisherLink(feed.id,resolvedFeed.hostname.toLowerCase())){
           console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
         }
-        const xml=await r.text();
-        if(xml.length<=2000000)items.push(...parseFeed(xml,feed.id,now));
+        const xml=await readBoundedHttpText(r,2000000,"FEED_RESPONSE_TOO_LARGE");
+        items.push(...parseFeed(xml,feed.id,now));
         break;
       }
     }catch{console.warn("FEED_FETCH_FAILED "+feed.id);}
