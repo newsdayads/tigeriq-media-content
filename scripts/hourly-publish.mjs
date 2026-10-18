@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import {randomUUID} from "node:crypto";
 import {join} from "node:path";
 import {pathToFileURL} from "node:url";
 
@@ -178,6 +179,25 @@ export function sourcePacket(items){
   return packet;
 }
 
+// Stage on the same filesystem; rename switches the canonical JSON in one
+// step. A failed write cannot truncate the existing content.json.
+export async function commitContentJsonAtomically(path,content,io=fs){
+  const pending=path+".pending-"+randomUUID();
+  let created=false;
+  let handle=null;
+  try{
+    handle=await io.open(pending,"wx");
+    created=true;
+    try{await handle.writeFile(content,"utf8");}
+    finally{await handle.close();handle=null;}
+    await io.rename(pending,path);
+  }catch(error){
+    if(handle)await handle.close().catch(()=>{});
+    if(created)await io.unlink(pending).catch(()=>{});
+    throw error;
+  }
+}
+
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
   const provider=providerConfig(env);
   const items=[];
@@ -270,7 +290,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   await fs.mkdir(join(root,"covers"),{recursive:true});
   await fs.writeFile(coverPath,coverSvg(draft.editions.en.title),{flag:"wx"});
   store.updatedAt=nowIso;store.articles.unshift(story);
-  try{await fs.writeFile(path,JSON.stringify(store,null,2)+"\n");}
+  try{await commitContentJsonAtomically(path,JSON.stringify(store,null,2)+"\n");}
   catch(e){await fs.unlink(coverPath);throw e;}
   console.log("AUTO_PUBLISH_READY "+slug+" vi/en/es original-cover");
   return {status:"staged",slug};
