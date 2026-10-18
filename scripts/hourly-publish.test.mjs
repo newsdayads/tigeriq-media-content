@@ -111,6 +111,20 @@ test("Atom enclosure and related links cannot impersonate official article evide
    "an unqualified Atom link remains a valid alternate article URL");
 });
 
+test("Atom alternate XML feed must not supersede actual HTML article permalink",()=>{
+ const prefix='<feed><entry><title>Official research report on AI evaluation methods</title>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<summary>Official report summarizes reproducible AI research evaluation evidence and its technical limitations.</summary>';
+ const xml='<link rel="alternate" type="application/atom+xml" href="https://blog.google/feeds/ai.xml"/>';
+ const html='<link rel="alternate" type="text/html" href="https://blog.google/ai/research-breakthrough"/>';
+ const entries=parseFeed(prefix+xml+html+'</entry></feed>',"google",now);
+ assert.equal(entries.length,1);
+ assert.equal(entries[0].url,"https://blog.google/ai/research-breakthrough",
+   "XML feed is metadata, while text/html alternate is the article permalink");
+ assert.equal(parseFeed(prefix+xml+'</entry></feed>',"google",now).length,0,
+   "an XML-only alternate is not a readable news article permalink");
+});
+
 test("official publisher RSS cannot reclassify third-party links as independent official evidence",()=>{
  assert.equal(parseFeed(item("https://www.openai.com/news/article"),"openai",now).length,1);
  assert.equal(parseFeed(item("https://blog.google/ai/article"),"google",now).length,1);
