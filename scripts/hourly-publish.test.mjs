@@ -214,6 +214,16 @@ test("duplicate is NOOP, not a duplicate publication",()=>tmp(async root=>{
  assert.equal(again.status,"noop");
  assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,1);
 }));
+test("publisher deduplicates same official story despite differing UTM tracking parameters",()=>tmp(async root=>{
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ const result=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
+ assert.equal(result.status,"noop",
+   "same official source with only tracking-parameter variation must not be published again");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+ assert.deepEqual(await fs.readdir(root),["content.json"],"duplicate must create no cover");
+}, {articles:[{slug:"an-earlier-slug-for-the-same-news",
+ sources:["https://openai.com/news/one?utm_source=old-alert&utm_medium=rss"]}]}));
+
 test("review failure and bad AI envelope preserve content",()=>tmp(async root=>{
  const before=await fs.readFile(join(root,"content.json"),"utf8");
  await assert.rejects(()=>publish({root,fetchImpl:mockFetch({replyReview:{...review,pass:false}}),env,now,feeds}),/REVIEW_REJECTED/);
