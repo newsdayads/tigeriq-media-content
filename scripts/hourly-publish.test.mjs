@@ -93,6 +93,22 @@ test("RSS and Atom CDATA must not create phantom official article entries",()=>{
    "a literal Atom entry inside CDATA is not published evidence");
 });
 
+test("CDATA markers in a genuine RSS title must remain literal, not inject hidden content",()=>{
+ const marker="__TIGERIQ_CDATA_0__";
+ const expectedTitle="Official AI "+marker+" evaluation announcement";
+ const xml="<rss><item><title>"+expectedTitle+"</title>"+
+   "<link>https://openai.com/news/marker-test</link><pubDate>"+date+"</pubDate>"+
+   "<description><![CDATA[Documented evaluation with methods, caveats and limitations from the official publisher.]]></description>"+
+   "</item></rss>";
+ const articles=parseFeed(xml,"openai",now);
+ assert.equal(articles.length,1,"the legitimate article remains eligible");
+ assert.equal(articles[0].title,expectedTitle,
+   "literal title data must not be replaced by an internal CDATA placeholder");
+ assert.equal(articles[0].summary,
+   "Documented evaluation with methods, caveats and limitations from the official publisher.");
+ assert.equal(articles[0].url,"https://openai.com/news/marker-test");
+});
+
 test("RSS content:encoded provides recent official evidence when description is missing",()=>{
  const xml='<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><item>'+
    '<title>Official AI evaluation findings from the publisher</title>'+
