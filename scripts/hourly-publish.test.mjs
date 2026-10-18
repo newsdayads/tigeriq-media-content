@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically} from "./hourly-publish.mjs";
+import {parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -316,4 +316,49 @@ test("content.json switches only at rename after successful staged write",async(
  assert.equal(files.get(canonical),"NEXT_JSON");
  assert.deepEqual([...files.keys()],[canonical]);
  assert.deepEqual(ops,["open","write","close","rename"]);
+});
+
+test("interrupted SVG cover write cleans only its own new partial file",async()=>{
+ const path="/tmp/news/covers/story.svg",files=new Map(),ops=[];
+ const io={
+   open:async(p,flag)=>{
+     assert.equal(p,path);assert.equal(flag,"wx");files.set(path,"PARTIAL_SVG");ops.push("open");
+     return {
+       writeFile:async()=>{ops.push("write");throw Error("SIMULATED_COVER_DISK_FULL");},
+       close:async()=>{ops.push("close");},
+     };
+   },
+   unlink:async(p)=>{assert.equal(p,path);ops.push("unlink");files.delete(p);}
+ };
+ await assert.rejects(()=>createCoverExclusively(path,"FULL_SVG",io),/SIMULATED_COVER_DISK_FULL/);
+ assert.equal(files.has(path),false,"no orphan cover may block a subsequent story attempt");
+ assert.deepEqual(ops,["open","write","close","unlink"]);
+});
+
+test("existing SVG cover is never unlinked if exclusive creation fails",async()=>{
+ const path="/tmp/news/covers/story.svg",files=new Map([[path,"EXISTING_SVG"]]),ops=[];
+ const io={
+   open:async()=>{ops.push("open");const err=Error("file exists");err.code="EEXIST";throw err;},
+   unlink:async()=>{ops.push("BAD_UNLINK");files.delete(path);}
+ };
+ await assert.rejects(()=>createCoverExclusively(path,"NEXT_SVG",io),{code:"EEXIST"});
+ assert.equal(files.get(path),"EXISTING_SVG");
+ assert.deepEqual(ops,["open"]);
+});
+
+test("successful SVG cover creation commits complete bytes without cleanup",async()=>{
+ const path="/tmp/news/covers/story.svg",files=new Map(),ops=[];
+ const io={
+   open:async(p,flag)=>{
+     assert.equal(flag,"wx");files.set(p,"");ops.push("open");
+     return {
+       writeFile:async(data,encoding)=>{assert.equal(encoding,"utf8");files.set(p,data);ops.push("write");},
+       close:async()=>{ops.push("close");}
+     };
+   },
+   unlink:async()=>{ops.push("BAD_UNLINK");}
+ };
+ await createCoverExclusively(path,"<svg>valid</svg>",io);
+ assert.equal(files.get(path),"<svg>valid</svg>");
+ assert.deepEqual(ops,["open","write","close"]);
 });
