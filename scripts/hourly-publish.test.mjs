@@ -129,6 +129,12 @@ test("copyright-safe SVG escapes untrusted title",()=>{
  assert.match(svg,/&lt;unsafe&gt;&amp;news/);
  assert.ok(!svg.includes("<unsafe>"));
 });
+test("generated SVG terminates as valid XML, without escaped newline bytes after root",()=>{
+ const svg=coverSvg("Original news cover");
+ assert.match(svg, /<\/svg>\n$/, "a literal backslash-n after the XML root corrupts SVG");
+ assert.doesNotMatch(svg, /<\/svg>\\n$/, "SVG must not contain a literal escaped newline after root");
+});
+
 test("isolated full workflow stages 3 languages and a rights-tagged cover",()=>tmp(async root=>{
  const result=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
  assert.equal(result.status,"staged");
