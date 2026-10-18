@@ -329,7 +329,12 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   const path=join(root,"content.json");
   const store=JSON.parse(await fs.readFile(path,"utf8"));
   if(!Array.isArray(store.articles))throw Error("CONTENT_STORE_INVALID");
-  const packet=sourcePacket(items);
+  // Do not pay a writer to rediscover sources already represented in public content.
+  // The later draft-level duplicate gate remains in place as defense in depth.
+  const publishedSources=new Set(store.articles.flatMap(a=>Array.isArray(a?.sources)?a.sources:[])
+    .filter(url=>typeof url==="string").map(sourceIdentityUrl));
+  const unseenItems=items.filter(item=>!publishedSources.has(sourceIdentityUrl(item.url)));
+  const packet=sourcePacket(unseenItems);
   if(new Set(packet.map(i=>i.publisher)).size<2){
     console.log("NOOP_PACKET_INSUFFICIENT_PUBLISHERS");return {status:"noop"};
   }
