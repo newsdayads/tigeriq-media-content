@@ -71,6 +71,17 @@ test("fresh official RSS item after twenty stale items is still discoverable",()
  assert.equal(articles[0].url,"https://openai.com/news/current-report");
 });
 
+test("Atom content-only official entry provides evidence when summary is omitted",()=>{
+ const entry='<feed><entry><title>Official AI research update with detailed findings</title>'+
+   '<link rel="alternate" type="text/html" href="https://blog.google/ai/research-report"/>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<content type="html">Official research report documents evaluation methods, verifiable evidence and key limitations.</content>'+
+   '</entry></feed>';
+ const found=parseFeed(entry,"google",now);
+ assert.equal(found.length,1,"Atom permits a content element without a summary element");
+ assert.match(found[0].summary,/verifiable evidence and key limitations/);
+});
+
 test("Atom entry must choose rel alternate article link and decode XML ampersands",()=>{
  const entry='<feed><entry><title>Official AI model evaluation report</title>'+
    '<link rel="self" href="https://blog.google/feeds/posts/default/991"/>'+
