@@ -28,15 +28,16 @@ const clean=s=>String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
 const getTag=(item,t)=>clean(item.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S]*?)<\\/"+t+">","i"))?.[1]||"");
 
 export function parseFeed(xml,source,now=new Date()){
-  // Remove inert XML comments and mask CDATA before locating entry boundaries.
-  // Restore CDATA only inside genuine entries so text containing <item> or
-  // <entry> cannot fabricate a publisher article or shift its source ID.
-  const cdata=[];
-  const activeXml=String(xml).replace(/<!--[\s\S]*?-->|<!\[CDATA\[[\s\S]*?\]\]>/g,
-    token=>token.startsWith("<!--")?"":("__TIGERIQ_CDATA_"+(cdata.push(token)-1)+"__"));
-  const entries=activeXml.match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)||[];
-  return entries.flatMap((raw,index)=>{
-    const item=raw.replace(/__TIGERIQ_CDATA_(\d+)__/g,(_,n)=>cdata[Number(n)]||"");
+  // Preserve offsets while masking inert comments and CDATA during boundary
+  // detection. Slice genuine entries from comment-masked XML to keep CDATA
+  // text intact without placeholder collisions with publisher-provided text.
+  const contentXml=String(xml).replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g,
+    token=>token.startsWith("<!--")?" ".repeat(token.length):token);
+  const boundaryXml=contentXml.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    token=>" ".repeat(token.length));
+  const entries=[...boundaryXml.matchAll(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)];
+  return entries.flatMap((match,index)=>{
+    const item=contentXml.slice(match.index,match.index+match[0].length);
     const title=getTag(item,"title");
     const summary=(getTag(item,"description")||getTag(item,"summary")||getTag(item,"content")||getTag(item,"content:encoded")).slice(0,1200);
     const stamp=Date.parse(getTag(item,"pubDate")||getTag(item,"published")||getTag(item,"updated"));
