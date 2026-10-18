@@ -198,6 +198,20 @@ export async function commitContentJsonAtomically(path,content,io=fs){
   }
 }
 
+// Own the exclusive cover handle before writing, so any partial SVG created
+// by a failed write can be removed without touching a pre-existing cover.
+export async function createCoverExclusively(path,svg,io=fs){
+  const handle=await io.open(path,"wx");
+  try{
+    await handle.writeFile(svg,"utf8");
+    await handle.close();
+  }catch(error){
+    await handle.close().catch(()=>{});
+    await io.unlink(path).catch(()=>{});
+    throw error;
+  }
+}
+
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
   const provider=providerConfig(env);
   const items=[];
@@ -288,7 +302,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
       alt:{vi:draft.editions.vi.title,en:draft.editions.en.title,es:draft.editions.es.title}},
     corrections:[]};
   await fs.mkdir(join(root,"covers"),{recursive:true});
-  await fs.writeFile(coverPath,coverSvg(draft.editions.en.title),{flag:"wx"});
+  await createCoverExclusively(coverPath,coverSvg(draft.editions.en.title));
   store.updatedAt=nowIso;store.articles.unshift(story);
   try{await commitContentJsonAtomically(path,JSON.stringify(store,null,2)+"\n");}
   catch(e){await fs.unlink(coverPath);throw e;}
