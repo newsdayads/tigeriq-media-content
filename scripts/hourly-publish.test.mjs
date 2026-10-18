@@ -84,6 +84,24 @@ test("fresh official RSS item after twenty stale items is still discoverable",()
  assert.equal(articles[0].url,"https://openai.com/news/current-report");
 });
 
+test("freshest official article after twenty still-valid older entries must be included",()=>{
+ const olderDate="Sat, 17 Oct 2026 04:00:00 GMT";
+ const previous=Array.from({length:20},(_,i)=>
+   "<item><title>Previous official AI research bulletin "+i+"</title>"+
+   "<link>https://openai.com/news/earlier-"+i+"</link>"+
+   "<pubDate>"+olderDate+"</pubDate>"+
+   "<description>Earlier verified AI engineering report with methods and measurable results.</description></item>").join("");
+ const latest="<item><title>Newest official AI research breakthrough</title>"+
+   "<link>https://openai.com/news/latest-breakthrough</link>"+
+   "<pubDate>"+date+"</pubDate>"+
+   "<description>Newest official AI research report containing evaluation results and limitations.</description></item>";
+ const parsed=parseFeed("<rss>"+previous+latest+"</rss>","openai",now);
+ assert.equal(parsed.length,20,"bound AI source packet to 20 articles per publisher");
+ assert.equal(parsed[0]?.url,"https://openai.com/news/latest-breakthrough",
+   "newest valid official article must be considered even when the feed is not date sorted");
+ assert.equal(parsed.some(a=>a.url==="https://openai.com/news/latest-breakthrough"),true);
+});
+
 test("Atom content-only official entry provides evidence when summary is omitted",()=>{
  const entry='<feed><entry><title>Official AI research update with detailed findings</title>'+
    '<link rel="alternate" type="text/html" href="https://blog.google/ai/research-report"/>'+
