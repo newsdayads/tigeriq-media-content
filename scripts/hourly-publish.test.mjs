@@ -283,6 +283,23 @@ test("duplicate is NOOP, not a duplicate publication",()=>tmp(async root=>{
  assert.equal(again.status,"noop");
  assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,1);
 }));
+test("duplicate source feeds must not consume any model calls before noop",()=>tmp(async root=>{
+ const original=await fs.readFile(join(root,"content.json"),"utf8");
+ const calls=[];
+ const fetchImpl=async (url,options)=>{
+   if(url===env.AI_CHAT_COMPLETIONS_URL){calls.push(JSON.parse(options.body));throw Error("METERED_MODEL_MUST_NOT_RUN_ON_KNOWN_SOURCES");}
+   return mockFetch()(url,options);
+ };
+ const result=await publish({root,fetchImpl,env,now,feeds});
+ assert.equal(result.status,"noop");
+ assert.deepEqual(calls,[],"already-published sources must be filtered before a metered AI request");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+ assert.deepEqual(await fs.readdir(root),["content.json"]);
+},{articles:[{slug:"prior-verified-story",sources:[
+  "https://openai.com/news/one?utm_source=old-alert",
+  "https://blog.google/ai/two?fbclid=old-session"
+]}]}));
+
 test("publisher deduplicates same official story despite differing UTM tracking parameters",()=>tmp(async root=>{
  const before=await fs.readFile(join(root,"content.json"),"utf8");
  const result=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
