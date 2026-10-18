@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import {randomUUID} from "node:crypto";
+import {randomUUID,createHash} from "node:crypto";
 import {join} from "node:path";
 import {pathToFileURL} from "node:url";
 
@@ -361,8 +361,13 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   const coverPath=join(root,"covers",slug+".svg");
   try{await fs.access(coverPath);throw Error("COVER_ALREADY_EXISTS");}
   catch(e){if(e.code!=="ENOENT")throw e;}
+  // Feed ordinal IDs (publisher-1, publisher-2) are re-used each polling run.
+  // Cluster identity must derive from actual canonical article URL identities.
+  const clusterKey="news:"+createHash("sha256")
+    .update(JSON.stringify([...new Set(sources.map(s=>sourceIdentityUrl(s.url)))].sort()))
+    .digest("hex");
   const story={slug,category:draft.category,storyId:"tigeriq:"+slug,
-    clusterKey:"news:"+sources.map(s=>s.id).sort().join("+"),
+    clusterKey,
     readTime:String(parseInt(draft.readTime,10)||5),accent:"blue",publishedAt:nowIso,modifiedAt:nowIso,
     editions:draft.editions,sources:sources.map(s=>s.url),
     factPack:{status:"reviewed",sources:sources.map(s=>({sourceId:s.id,publisher:s.publisher,url:s.url,title:s.title})),claims:draft.claims},
