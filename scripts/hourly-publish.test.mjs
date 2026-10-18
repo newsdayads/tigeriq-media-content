@@ -56,6 +56,23 @@ test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
  assert.equal(parseFeed(item("http://unsafe.example/x"),"openai",now).length,0);
 });
+test("XML-commented RSS and Atom items must never become official article evidence",()=>{
+ const legitimate=item(data[0].url);
+ const commented=legitimate.replace("<rss>","<rss><!--").replace("</rss>","--></rss>");
+ assert.equal(parseFeed(commented,"openai",now).length,0,
+   "an RSS item enclosed in an XML comment is not published evidence");
+ const mixed=commented.replace("--></rss>","-->")+legitimate.replace("<rss>","");
+ const actual=parseFeed(mixed,"openai",now);
+ assert.equal(actual.length,1,"only the real item after an XML comment should remain");
+ assert.equal(actual[0].id,"openai-1","commented entries must not shift canonical source IDs");
+ const atom='<feed><!--<entry><title>Fake official AI announcement from Google</title>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<summary>Fake evaluation details deliberately hidden inside an XML comment.</summary>'+
+   '<link rel="alternate" href="https://blog.google/ai/two"/></entry>--></feed>';
+ assert.equal(parseFeed(atom,"google",now).length,0,
+   "a commented-out Atom entry must not be accepted as official evidence");
+});
+
 test("RSS content:encoded provides recent official evidence when description is missing",()=>{
  const xml='<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><item>'+
    '<title>Official AI evaluation findings from the publisher</title>'+
