@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish} from "./hourly-publish.mjs";
+import {parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -267,3 +267,53 @@ test("RSS same-publisher HTTPS redirect is explicitly followed",()=>tmp(async ro
   assert.ok(rssCalls.every(c=>c.redirect==="manual"),
     "RSS fetch must use manual redirects; model API calls are a separate surface");
 }));
+
+test("content.json staged write failure preserves canonical bytes and removes partial tempfile",async()=>{
+ const canonical="/tmp/news/content.json",files=new Map([[canonical,"PREVIOUS_VALID_JSON"]]),ops=[];
+ const io={
+  open:async(p,mode)=>{
+   assert.equal(mode,"wx");assert.notEqual(p,canonical);
+   ops.push("open");files.set(p,"PARTIAL");
+   return {writeFile:async()=>{ops.push("write");throw Error("SIMULATED_DISK_FULL");},
+           close:async()=>{ops.push("close");}};
+  },
+  rename:async()=>{throw Error("RENAME_MUST_NOT_RUN");},
+  unlink:async p=>{ops.push("unlink");files.delete(p);}
+ };
+ await assert.rejects(()=>commitContentJsonAtomically(canonical,"NEXT_JSON",io),/SIMULATED_DISK_FULL/);
+ assert.equal(files.get(canonical),"PREVIOUS_VALID_JSON");
+ assert.deepEqual([...files.keys()],[canonical]);
+ assert.deepEqual(ops,["open","write","close","unlink"]);
+});
+test("content.json failed atomic rename preserves previous file and cleans tempfile",async()=>{
+ const canonical="/tmp/news/content.json",files=new Map([[canonical,"PREVIOUS_VALID_JSON"]]),ops=[];
+ const io={
+  open:async(p,mode)=>{
+   assert.equal(mode,"wx");assert.notEqual(p,canonical);
+   files.set(p,"");return {writeFile:async data=>{files.set(p,data);},close:async()=>{}};
+  },
+  rename:async()=>{ops.push("rename");throw Error("SIMULATED_RENAME_DENIED");},
+  unlink:async p=>{ops.push("unlink");files.delete(p);}
+ };
+ await assert.rejects(()=>commitContentJsonAtomically(canonical,"NEXT_JSON",io),/SIMULATED_RENAME_DENIED/);
+ assert.equal(files.get(canonical),"PREVIOUS_VALID_JSON");
+ assert.deepEqual([...files.keys()],[canonical]);
+ assert.deepEqual(ops,["rename","unlink"]);
+});
+test("content.json switches only at rename after successful staged write",async()=>{
+ const canonical="/tmp/news/content.json",files=new Map([[canonical,"PREVIOUS_VALID_JSON"]]),ops=[];
+ const io={
+  open:async(p,mode)=>{
+   assert.equal(mode,"wx");assert.notEqual(p,canonical);
+   files.set(p,"");ops.push("open");
+   return {writeFile:async data=>{assert.equal(files.get(canonical),"PREVIOUS_VALID_JSON");files.set(p,data);ops.push("write");},
+           close:async()=>{ops.push("close");}};
+  },
+  rename:async(from,to)=>{assert.equal(to,canonical);assert.equal(files.get(canonical),"PREVIOUS_VALID_JSON");files.set(to,files.get(from));files.delete(from);ops.push("rename");},
+  unlink:async()=>{throw Error("UNLINK_NOT_EXPECTED");}
+ };
+ await commitContentJsonAtomically(canonical,"NEXT_JSON",io);
+ assert.equal(files.get(canonical),"NEXT_JSON");
+ assert.deepEqual([...files.keys()],[canonical]);
+ assert.deepEqual(ops,["open","write","close","rename"]);
+});
