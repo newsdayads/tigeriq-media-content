@@ -1883,13 +1883,17 @@ test("XML 1.0 only permits S whitespace at document boundaries and XML attribute
   assert.equal(parseFeed(validAtom,"google",now).length,1,"ordinary Atom still works");
   assert.equal(parseFeed("\uFEFF"+validRss,"openai",now).length,1,
     "one true leading Unicode BOM remains legitimate");
+  assert.equal(parseFeed("\uFEFF"+validAtom,"google",now).length,1,
+    "Atom also permits one initial Unicode BOM");
   assert.equal(parseFeed(" \t"+validRss+"\r\n","openai",now).length,1,
     "XML 1.0 S whitespace is allowed");
   for(const [label,space] of [["NBSP","\u00A0"],["FIGURE","\u2007"],
       ["NARROW_NBSP","\u202F"],["MID_STREAM_BOM","\uFEFF"]]){
     for(const [kind,document,source] of [["RSS",validRss,"openai"],["ATOM",validAtom,"google"]]){
-      assert.deepEqual(parseFeed(space+document,source,now),[],
-        kind+" must reject non-XML "+label+" before the document element");
+      if(label!=="MID_STREAM_BOM"){
+        assert.deepEqual(parseFeed(space+document,source,now),[],
+          kind+" must reject non-XML "+label+" before the document element");
+      }
       assert.deepEqual(parseFeed(document+space,source,now),[],
         kind+" must reject non-XML "+label+" after the document element");
     }
