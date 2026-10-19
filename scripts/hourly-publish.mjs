@@ -25,7 +25,14 @@ const LANGS=["vi","en","es"];
 const clean=s=>String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
   .replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<")
   .replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
-const getTag=(item,t)=>clean(item.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S]*?)<\\/"+t+">","i"))?.[1]||"");
+const getTag=(item,t,masked=item)=>{
+  const match=masked.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S]*?)<\\/"+t+">","i"));
+  if(!match)return "";
+  // The mask and original entry have identical offsets, so preserve real
+  // CDATA content without interpreting tags quoted inside it as metadata.
+  const start=match.index+match[0].indexOf(">")+1;
+  return clean(item.slice(start,start+match[1].length));
+};
 
 export function parseFeed(xml,source,now=new Date()){
   // Preserve offsets while masking inert comments and CDATA during boundary
@@ -38,14 +45,14 @@ export function parseFeed(xml,source,now=new Date()){
   const entries=[...boundaryXml.matchAll(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)];
   return entries.flatMap((match,index)=>{
     const item=contentXml.slice(match.index,match.index+match[0].length);
-    const title=getTag(item,"title");
-    const summary=(getTag(item,"description")||getTag(item,"summary")||getTag(item,"content")||getTag(item,"content:encoded")).slice(0,1200);
-    const stamp=Date.parse(getTag(item,"pubDate")||getTag(item,"published")||getTag(item,"updated"));
+    const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+      token=>" ".repeat(token.length));
+    const title=getTag(item,"title",atomMetadataXml);
+    const summary=(getTag(item,"description",atomMetadataXml)||getTag(item,"summary",atomMetadataXml)||getTag(item,"content",atomMetadataXml)||getTag(item,"content:encoded",atomMetadataXml)).slice(0,1200);
+    const stamp=Date.parse(getTag(item,"pubDate",atomMetadataXml)||getTag(item,"published",atomMetadataXml)||getTag(item,"updated",atomMetadataXml));
     // Atom can list a rel="self" feed identifier before the article's rel="alternate".
     // An Atom permalink is metadata, never markup quoted in article CDATA.
     // Equal-length masking leaves the real link tags outside CDATA intact.
-    const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
-      token=>" ".repeat(token.length));
     const atomLinks=[...atomMetadataXml.matchAll(/<link\b[^>]*>/gi)]
       .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
       .filter(l=>l.href);
@@ -62,10 +69,7 @@ export function parseFeed(xml,source,now=new Date()){
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLinkMatch=atomMetadataXml.match(/<link(?:\s[^>]*)?>([\s\S]*?)<\/link>/i);
-    const rssLink=rssLinkMatch
-      ? getTag(item.slice(rssLinkMatch.index,rssLinkMatch.index+rssLinkMatch[0].length),"link")
-      : "";
+    const rssLink=getTag(item,"link",atomMetadataXml);
     const link=(rssLink||atom).replace(/&amp;/gi,"&");
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
