@@ -308,6 +308,8 @@ export async function createCoverExclusively(path,svg,io=fs){
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
   const provider=providerConfig(env);
   const items=[];
+  // Distinguish source outages from a healthy run with no qualifying stories.
+  const readableFeeds=new Set();
   for(const feed of feeds){
     try{
       let target=feed.url;
@@ -346,10 +348,19 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
           console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
         }
         const xml=await readBoundedHttpText(r,2000000,"FEED_RESPONSE_TOO_LARGE");
+        // HTTP 200 with an error/login HTML body is not an official feed.
+        if(!/<(?:rss|feed|rdf:RDF)(?:\s|>)/i.test(xml)){
+          console.warn("FEED_DOCUMENT_INVALID "+feed.id);break;
+        }
         items.push(...parseFeed(xml,feed.id,now));
+        readableFeeds.add(feed.id);
         break;
       }
     }catch{console.warn("FEED_FETCH_FAILED "+feed.id);}
+  }
+  if(readableFeeds.size<2){
+    console.error("FEED_QUORUM_UNAVAILABLE");
+    throw Error("FEED_QUORUM_UNAVAILABLE");
   }
   if(new Set(items.map(i=>i.publisher)).size<2){
     console.log("NOOP_INSUFFICIENT_FRESH_OFFICIAL_SOURCES");return {status:"noop"};
