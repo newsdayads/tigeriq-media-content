@@ -1597,3 +1597,45 @@ test("Reserved or malformed XML processing instructions cannot count as official
  assert.equal(aiCalls,0,"do not invoke any provider on malformed source quorum");
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
 }));
+
+
+test("Atom link identity must come from real href/rel attributes, not quoted metadata",()=>tmp(async root=>{
+ const atom=link=>'<feed><entry>'+
+   '<title>Verified official AI model methodology and independent evaluation findings</title>'+
+   '<summary>The official technical evaluation details methods limitations and verified results in the research article.</summary>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+link+'</entry></feed>';
+ const article='https://blog.google/ai/verified-official-study';
+ const invalid=[
+   ["rel=self with rel=alternate hidden in title",
+      '<link rel="self" title="rel='+"'alternate'"+'" href="'+article+'"/>'],
+   ["rel=enclosure with rel=alternate hidden in description",
+      '<link rel="enclosure" description="quoted rel='+"'alternate'"+'" href="'+article+'"/>'],
+   ["data-href is not an Atom link href",
+      '<link rel="alternate" data-href="'+article+'"/>'],
+   ["title text containing href= is not an Atom link href",
+      '<link rel="alternate" title="href='+"'"+article+"'"+'"/>']
+ ];
+ for(const [reason,link] of invalid){
+   assert.equal(parseFeed(atom(link),"google",now).length,0,reason);
+ }
+ const accepted=[
+   '<link rel="alternate" type="text/html" href="'+article+'"/>',
+   '<link type="text/html" href="'+article+'"/>'
+ ];
+ for(const link of accepted){
+   const valid=parseFeed(atom(link),"google",now);
+   assert.equal(valid.length,1,"real Atom article href remains accepted");
+   assert.equal(valid[0].url,article);
+ }
+ const original=await fs.readFile(join(root,"content.json"),"utf8");
+ let aiCalls=0;
+ const fetchImpl=async url=>{
+   if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+   if(url===feeds[1].url)return rssResponse(atom(invalid[0][1]),url);
+   aiCalls++;throw Error("AI_MUST_NOT_RUN");
+ };
+ assert.deepEqual(await publish({root,fetchImpl,env,now,feeds}),{status:"noop"},
+   "forged rel attribute must never create two publisher story quorum");
+ assert.equal(aiCalls,0,"AI provider must not be called for forged source");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+}));
