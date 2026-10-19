@@ -1080,3 +1080,29 @@ test("nested title markup cannot masquerade as an RSS or Atom entry permalink",(
   assert.equal(parseFeed(atom('<link rel="alternate" href="https://blog.google/ai/real-permalink"/>'),"google",now)[0]?.url,
     "https://blog.google/ai/real-permalink");
 });
+
+
+test("separate top-level XML roots must not satisfy official feed quorum",()=>tmp(async root=>{
+  const saved=await fs.readFile(join(root,"content.json"),"utf8");
+  const fakeRss='<rss></rss>'+item(data[1].url);
+  const fakeAtom='<feed></feed><feed><entry>'+
+    '<title>Invented official AI research with measurable outcomes</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Fake news embedded after a complete document; this is not a well-formed XML feed.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/fake-second-root"/>'+
+    '</entry></feed>';
+  for(const [kind,body] of [["RSS",fakeRss],["Atom",fakeAtom]]){
+    let modelCalls=0;
+    const fetchImpl=async url=>{
+      if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+      if(url===feeds[1].url)return rssResponse(body,url);
+      modelCalls++;throw Error("UNTRUSTWORTHY_XML_REACHED_METERED_AI");
+    };
+    await assert.rejects(
+      ()=>publish({root,fetchImpl,env,now,feeds}),
+      /FEED_QUORUM_UNAVAILABLE/,
+      kind+" concatenated root documents must fail closed before model invocation");
+    assert.equal(modelCalls,0,kind+" invalid XML must never reach AI");
+    assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),saved);
+  }
+}));
