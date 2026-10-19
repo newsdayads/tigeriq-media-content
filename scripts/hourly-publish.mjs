@@ -36,7 +36,7 @@ const getTag=(item,t,masked=item)=>{
 
 // Reject incomplete or misnested XML, not just missing </rss> or </feed>.
 // Treat all markup as data; never fetch external XML entities or parse DTDs.
-function xmlTagsAreBalanced(xml){
+function xmlTagsAreBalanced(xml,onTag=null){
   const stack=[];
   for(let pos=0;pos<xml.length;){
     const lt=xml.indexOf("<",pos);
@@ -72,6 +72,7 @@ function xmlTagsAreBalanced(xml){
     const selfClose=/\/\s*$/.test(tag);
     const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
     if(!match||(closing&&selfClose))return false;
+    if(onTag)onTag({name:match[1],parent:stack.at(-1)||"",depth:stack.length,closing,selfClose,start:lt,end:end+1});
     if(closing){
       if(stack.pop()!==match[1])return false;
     }else if(!selfClose)stack.push(match[1]);
@@ -88,9 +89,29 @@ export function parseFeed(xml,source,now=new Date()){
     token=>token.startsWith("<!--")?" ".repeat(token.length):token);
   const boundaryXml=contentXml.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
     token=>" ".repeat(token.length));
-  const entries=[...boundaryXml.matchAll(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)];
+  // Only an RSS item directly under rss/channel (or an Atom entry directly
+  // under feed) is an article. Nested <item>/<entry> in body metadata is data.
+  // Use the same tag stack as the structural check, so a nested closing tag
+  // cannot truncate an outer article before its real closing tag.
+  const entries=[];
+  const opened=new Map();
+  if(!xmlTagsAreBalanced(boundaryXml,tag=>{
+    const name=tag.name.toLowerCase();
+    const parent=tag.parent.toLowerCase();
+    if(!tag.closing&&!tag.selfClose&&
+      ((name==="item"&&["rss","channel","rdf:rdf"].includes(parent))||
+        (name==="entry"&&parent==="feed"))){
+      opened.set(tag.depth+1,{start:tag.start,name});
+    }else if(tag.closing){
+      const candidate=opened.get(tag.depth);
+      if(candidate&&candidate.name===name){
+        entries.push({index:candidate.start,length:tag.end-candidate.start});
+        opened.delete(tag.depth);
+      }
+    }
+  }))return [];
   return entries.flatMap((match,index)=>{
-    const item=contentXml.slice(match.index,match.index+match[0].length);
+    const item=contentXml.slice(match.index,match.index+match.length);
     const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
       token=>" ".repeat(token.length));
     // Text-bearing fields can contain nested XML/XHTML tags. Only the entry's
