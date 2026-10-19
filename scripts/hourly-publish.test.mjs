@@ -179,6 +179,23 @@ test("Atom entry must choose rel alternate article link and decode XML ampersand
    "Atom rel=self is a feed identifier, not an article; XML ampersands must be decoded");
 });
 
+test("Atom links quoted inside CDATA cannot become article URLs",()=>{
+ const start='<feed><entry><title>Official AI evaluation with detailed methods</title>'+
+   '<updated>2026-10-17T23:00:00Z</updated>';
+ const fake='<link rel="alternate" type="text/html" href="https://blog.google/ai/phantom-cdata-link"/>';
+ const quoted='<summary><![CDATA[Official findings include reproducible methods and an example of quoted XML '+
+   fake+' which is documentation text, not a source article URL.]]></summary>';
+ const self='<link rel="self" href="https://blog.google/feed/self"/>';
+ const onlyMetadata=parseFeed(start+quoted+self+'</entry></feed>',"google",now);
+ assert.equal(onlyMetadata.length,0,
+   "CDATA content cannot turn a self-only Atom entry into an article");
+ const real='<link rel="alternate" type="text/html" href="https://blog.google/ai/verified-real-article"/>';
+ const realArticle=parseFeed(start+quoted+self+real+'</entry></feed>',"google",now);
+ assert.equal(realArticle.length,1);
+ assert.equal(realArticle[0].url,"https://blog.google/ai/verified-real-article",
+   "CDATA fake link must not override the genuine Atom alternate permalink");
+});
+
 test("Atom enclosure and related links cannot impersonate official article evidence",()=>{
  const start='<feed><entry><title>Official AI evaluation reference</title>'+
    '<updated>2026-10-17T23:00:00Z</updated>'+
