@@ -1801,3 +1801,29 @@ test("XML RSS/Atom element names are case-sensitive for publisher evidence and q
   assert.equal(modelCalls,0);
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+test("Atom relation token must match registered lowercase alternate without case folding",()=>tmp(async root=>{
+ const good='<feed><entry><title>Official AI evaluation and research methodology</title>'+
+  '<updated>2026-10-17T23:00:00Z</updated>'+
+  '<summary>Official report describes technical experiments, verified methods and important limitations.</summary>'+
+  '<link rel="alternate" href="https://blog.google/ai/genuine-alternate"/></entry></feed>';
+ assert.equal(parseFeed(good,"google",now).length,1,"registered alternate is recognized");
+ const implicit=good.replace('rel="alternate" ','');
+ assert.equal(parseFeed(implicit,"google",now).length,1,"missing rel defaults to alternate by RFC 4287");
+ for(const nonAlternate of ['ALTERNATE','Alternate','alternate2','self']){
+   const spoof=good.replace('rel="alternate"','rel="'+nonAlternate+'"');
+   assert.deepEqual(parseFeed(spoof,"google",now),[],
+     "distinct rel value must not be converted into the registered alternate relation");
+ }
+ const forged=good.replace('rel="alternate"','rel="ALTERNATE"');
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ let modelCalls=0;
+ const fetchImpl=async url=>{
+  if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+  if(url===feeds[1].url)return rssResponse(forged,url);
+  modelCalls++;throw Error("AI_CALLED_ON_UNREGISTERED_ATOM_RELATION");
+ };
+ assert.deepEqual(await publish({root,fetchImpl,env,now,feeds}),{status:"noop"});
+ assert.equal(modelCalls,0,"unregistered Atom rel cannot unlock a paid model request");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
