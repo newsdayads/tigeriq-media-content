@@ -51,6 +51,30 @@ async function tmp(cb,store={articles:[]}){
  try{return await cb(root);}finally{await fs.rm(root,{recursive:true,force:true});}
 }
 
+test("RSS metadata fields inside quoted CDATA must never spoof title or freshness",()=>{
+ const officialTitle="Actual official publication with reproducible AI evaluation findings";
+ const summary='<description><![CDATA[Official paper reports reproducible testing methods and relevant caveats. '+
+   'Example XML: <title>Fabricated spectacular AI result</title>'+
+   '<pubDate>'+date+'</pubDate> are literal quoted text only.]]></description>';
+ const rss=(timestamp,titleMarkup='<title>'+officialTitle+'</title>')=>
+   '<rss><item>'+summary+titleMarkup+
+   '<link>https://openai.com/news/real-research-publication</link>'+
+   '<pubDate>'+timestamp+'</pubDate></item></rss>';
+ const expired=parseFeed(rss("Fri, 09 Oct 2026 23:00:00 GMT"),"openai",now);
+ assert.equal(expired.length,0,
+   "CDATA pseudo pubDate cannot refresh an expired original article");
+ const fresh=parseFeed(rss(date),"openai",now);
+ assert.equal(fresh.length,1);
+ assert.equal(fresh[0].title,officialTitle,
+   "CDATA pseudo title cannot override the real RSS title");
+ assert.equal(fresh[0].publishedAt,new Date(date).toISOString());
+ const legalCdataTitle='<title><![CDATA['+officialTitle+']]></title>';
+ const legal=parseFeed(rss(date,legalCdataTitle),"openai",now);
+ assert.equal(legal.length,1);
+ assert.equal(legal[0].title,officialTitle,
+   "genuine CDATA title remains visible after metadata masking");
+});
+
 test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",now).length,1);
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
