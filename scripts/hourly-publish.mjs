@@ -361,7 +361,14 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         const root=xml.replace(/^\uFEFF/,"")
           .replace(/^\s*<\?xml\b[^?]*\?>/i,"")
           .replace(/^\s*(?:<!--[\s\S]*?-->\s*)*/,"");
-        if(!/^<(?:rss|feed|rdf:RDF)(?:\s|>)/i.test(root)){
+        // The opening tag alone is not a complete feed: a truncated HTTP 200
+        // response would otherwise count toward the healthy publisher quorum.
+        // Strip inert CDATA/comments before checking the matching root end.
+        const rootName=root.match(/^<(rss|feed|rdf:RDF)(?=\s|>)[^>]*>/i)?.[1];
+        const structuralXml=root.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g," ");
+        const completeRoot=rootName &&
+          new RegExp("</"+rootName+"\\s*>\\s*(?:<\\?[^?]*\\?>\\s*)*$","i").test(structuralXml);
+        if(!completeRoot){
           console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
         items.push(...parseFeed(xml,feed.id,now));
