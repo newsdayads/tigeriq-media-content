@@ -1827,3 +1827,47 @@ test("Atom relation token must match registered lowercase alternate without case
  assert.equal(modelCalls,0,"unregistered Atom rel cannot unlock a paid model request");
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+test("RSS text link and Atom href permalink must never cross-contaminate feed formats",()=>tmp(async root=>{
+ const rss='<rss><channel><item><title>Official research evaluation update with independent methods</title>'+
+  '<link>https://openai.com/news/genuine-rss-article</link><pubDate>'+date+'</pubDate>'+
+  '<description>Official source documents independent experiments and verified limitations in detail.</description>'+
+  '</item></channel></rss>';
+ const atomStart='<feed><entry><title>Official model research with reproducible methodology</title>'+
+  '<updated>2026-10-17T23:00:00Z</updated>'+
+  '<summary>Official source covers independent research findings, methods and detailed limitations.</summary>';
+ const actual='https://blog.google/ai/authentic-href';
+ const fake='https://blog.google/ai/forged-link-text';
+ const goodAtom=atomStart+'<link rel="alternate" href="'+actual+'"/></entry></feed>';
+ assert.equal(parseFeed(rss,"openai",now)[0]?.url,
+   'https://openai.com/news/genuine-rss-article');
+ assert.equal(parseFeed(goodAtom,"google",now)[0]?.url,actual);
+ for(const invalid of [
+   atomStart+'<link>'+fake+'</link></entry></feed>',
+   atomStart+'<link rel="self">'+fake+'</link></entry></feed>',
+   atomStart+'<link rel="self" href="'+actual+'">'+fake+'</link></entry></feed>'
+ ]){
+   assert.deepEqual(parseFeed(invalid,"google",now),[],
+     "Atom link text or self-relation cannot become an alternate article URL");
+ }
+ const misleadingAtom=atomStart+'<link rel="self" href="'+fake+'">'+fake+'</link>'+
+   '<link rel="alternate" href="'+actual+'"/></entry></feed>';
+ assert.equal(parseFeed(misleadingAtom,"google",now)[0]?.url,actual,
+   "an actual Atom alternate href must win over textual content of self link");
+ const fauxRss='<rss><channel><item><title>RSS sample with non-RSS Atom-only link</title>'+
+  '<link rel="alternate" href="https://openai.com/news/not-rss-text"/><pubDate>'+date+'</pubDate>'+
+  '<description>Official research mentions technical methods, results and limitations.</description>'+
+  '</item></channel></rss>';
+ assert.deepEqual(parseFeed(fauxRss,"openai",now),[],
+   "RSS item must not silently use Atom href fallback in place of its RSS link text");
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ let modelCalls=0;
+ const fetchImpl=async url=>{
+   if(url===feeds[0].url)return rssResponse(rss,url);
+   if(url===feeds[1].url)return rssResponse(atomStart+'<link>'+fake+'</link></entry></feed>',url);
+   modelCalls++;throw Error("AI_CALLED_WITH_ATOM_LINK_TEXT_PROVENANCE");
+ };
+ assert.deepEqual(await publish({root,fetchImpl,env,now,feeds}),{status:"noop"});
+ assert.equal(modelCalls,0,"false second publisher cannot invoke a model");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
