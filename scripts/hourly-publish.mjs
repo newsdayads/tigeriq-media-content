@@ -294,7 +294,9 @@ export function parseFeed(xml,source,now=new Date()){
           if(!rest.slice(pos).trim())break;
           return;
         }
-        attrs.set(match[1].toLowerCase(),match[2]??match[3]);
+        // XML attribute names are case-sensitive. REL/HREF are different
+        // attributes from the Atom rel/href metadata and must never shadow it.
+        attrs.set(match[1],match[2]??match[3]);
         pos=attribute.lastIndex;
       }
       const href=attrs.get("href");
