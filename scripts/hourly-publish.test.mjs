@@ -1933,3 +1933,46 @@ test("malformed XML prologs cannot count as readable independent publishers",()=
       why+" must not mutate content.json");
   }
 }));
+
+test("XML 1.0 declaration grammar rejects duplicated, reordered and malformed attributes before source quorum",()=>tmp(async root=>{
+  const valid=item(data[0].url);
+  const good=[
+    valid,
+    '<?xml version="1.0"?>'+valid,
+    '<?xml version="1.0" encoding="UTF-8"?>'+valid,
+    "<?xml version='1.0' standalone='yes'?>"+valid,
+    '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'+valid,
+    "\uFEFF"+'<?xml version="1.0"?>'+valid
+  ];
+  for(const xml of good){
+    assert.equal(parseFeed(xml,"openai",now).length,1,
+      "XML 1.0 standard valid declaration must keep legitimate article evidence");
+  }
+  const bad=[
+    ["duplicate encoding",'<?xml version="1.0" encoding="UTF-8" encoding="UTF-16"?>'+valid],
+    ["duplicate standalone",'<?xml version="1.0" standalone="yes" standalone="no"?>'+valid],
+    ["wrong attribute order",'<?xml version="1.0" standalone="yes" encoding="UTF-8"?>'+valid],
+    ["unregistered standalone value",'<?xml version="1.0" standalone="maybe"?>'+valid],
+    ["invalid encoding name",'<?xml version="1.0" encoding="9UTF-8"?>'+valid],
+    ["XML declaration after S whitespace",' \t<?xml version="1.0"?>'+valid],
+    ["non XML S between xml and version",'<?xml\u00A0version="1.0"?>'+valid]
+  ];
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  for(const [reason,xml] of bad){
+    assert.deepEqual(parseFeed(xml,"openai",now),[],reason+" cannot be official evidence");
+  }
+  // A malformed feed plus one valid independent feed cannot silently
+  // become a healthy two-publisher NOOP, nor invoke a metered model.
+  for(const [reason,xml] of [bad[0],bad[3],bad[5]]){
+    let modelCalls=0;
+    const fetchImpl=async url=>{
+      if(url===feeds[0].url)return rssResponse(xml,url);
+      if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
+      modelCalls++;throw Error("NO_MODEL_FOR_INVALID_XML_DECLARATION");
+    };
+    await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),
+      /FEED_QUORUM_UNAVAILABLE/,reason+" must not count healthy source quorum");
+    assert.equal(modelCalls,0,"invalid prolog cannot cause paid model traffic");
+    assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+  }
+}));
