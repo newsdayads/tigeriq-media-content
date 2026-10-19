@@ -1106,3 +1106,19 @@ test("separate top-level XML roots must not satisfy official feed quorum",()=>tm
     assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),saved);
   }
 }));
+
+
+test("reject non-whitespace bytes outside the official single XML root",()=>{
+  const valid=item(data[0].url);
+  assert.equal(parseFeed(valid,"openai",now).length,1,"baseline valid feed must work");
+  for(const malformed of [
+    "UNTRUSTED_PREFIX"+valid,
+    valid+"UNTRUSTED_TRAILER",
+    "<!--allowed prolog comment-->UNTRUSTED_PREFIX"+valid,
+  ]){
+    assert.deepEqual(parseFeed(malformed,"openai",now),[],
+      "a single balanced XML root with non-markup outside is not a well-formed publisher feed");
+  }
+  assert.equal(parseFeed(" \n"+valid+"\n ","openai",now).length,1,
+    "whitespace outside a single root must remain valid");
+});
