@@ -959,3 +959,23 @@ test("Atom embedded source metadata cannot impersonate entry title date or perma
   assert.equal(fresh[0].url,authenticLink,
     "Atom source.link must not replace an entry's real article permalink");
 });
+
+test("nested fake item within RSS channel description and Atom subtitle cannot become official source entries",()=>{
+  const validRss='<item><title>Real publisher model research with reproducible evaluation</title>'+
+    '<link>https://openai.com/news/real-article</link><pubDate>'+date+'</pubDate>'+
+    '<description>Real publisher documents methods, caveats and experimental results.</description></item>';
+  const fakeRss='<item><title>Fabricated urgent AI safety finding leaked inside descriptive markup</title>'+
+    '<link>https://openai.com/news/fake-embedded-story</link><pubDate>'+date+'</pubDate>'+
+    '<description>Embedded example only; never an independent official RSS story.</description></item>';
+  const rss='<rss><channel><description><example>'+fakeRss+'</example></description>'+validRss+'</channel></rss>';
+  const rssFound=parseFeed(rss,"openai",now);
+  assert.deepEqual(rssFound.map(x=>x.url),["https://openai.com/news/real-article"],
+    "only a direct RSS channel item may become a publisher article");
+  const fakeAtom='<entry><title>Fabricated Atom AI system research announcement</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Embedded example, not an authentic independent official Atom story.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/embedded-forgery"/></entry>';
+  const atom='<feed><subtitle><example>'+fakeAtom+'</example></subtitle></feed>';
+  assert.deepEqual(parseFeed(atom,"google",now),[],
+    "Atom entry nested inside subtitle is not a direct feed entry");
+});
