@@ -1242,3 +1242,21 @@ test("unquoted opening XML attributes must never become official RSS or Atom evi
   assert.deepEqual(parseFeed(brokenAtom,"google",now),[],
     "a malformed Atom opening tag must never count as official publisher evidence");
 });
+
+
+test("duplicate XML attribute names must not become publisher evidence",()=>{
+  const baseline=item(data[0].url);
+  const malformedRss=baseline.replace("<item>","<item id=\"first\" id=\"second\">");
+  assert.equal(parseFeed(baseline,"openai",now).length,1,"well-formed RSS remains valid");
+  assert.deepEqual(parseFeed(malformedRss,"openai",now),[],
+    "a duplicate XML attribute invalidates the official RSS document");
+
+  const atom='<feed><entry><title>Official independent AI research evaluation findings</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official independent technical study includes measured evidence and methodological caveats.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/actual-research"/></entry></feed>';
+  const malformedAtom=atom.replace('rel="alternate"','rel="alternate" rel="self"');
+  assert.equal(parseFeed(atom,"google",now).length,1,"well-formed Atom remains valid");
+  assert.deepEqual(parseFeed(malformedAtom,"google",now),[],
+    "duplicate Atom link relations are not well-formed publisher evidence");
+});
