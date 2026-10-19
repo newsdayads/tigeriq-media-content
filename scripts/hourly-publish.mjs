@@ -331,7 +331,7 @@ export function parseFeed(xml,source,now=new Date()){
       const type=l.type?.split(";")[0].trim().toLowerCase();
       return !type||type==="text/html"||type==="application/xhtml+xml";
     });
-    const atom=(atomArticleLinks.find(l=>l.rel?.toLowerCase()==="alternate")||
+    const atom=(atomArticleLinks.find(l=>l.rel==="alternate")||
       atomArticleLinks.find(l=>l.rel===undefined))?.href||"";
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
