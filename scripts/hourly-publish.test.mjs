@@ -698,6 +698,34 @@ for(const scenario of ["transport-error","invalid-document"]){
  }));
 }
 
+
+test("HTTP 200 HTML with a pasted RSS example is not a genuine readable official feed",()=>tmp(async root=>{
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ let aiCalls=0;
+ const deceptiveHtml="<html><body><h1>Temporarily unavailable</h1><pre><rss><item><title>Sample only</title></item></rss></pre></body></html>";
+ const fakeFetch=async url=>{
+  if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+  if(url===feeds[1].url)return rssResponse(deceptiveHtml,url);
+  aiCalls++;throw Error("AI_MUST_NOT_RUN");
+ };
+ await assert.rejects(
+  ()=>publish({root,fetchImpl:fakeFetch,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/,
+  "embedded sample markup in HTTP 200 HTML must not satisfy publisher quorum");
+ assert.equal(aiCalls,0);
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+ assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
+
+test("genuine RSS with BOM, XML declaration and leading comment still counts as a feed",()=>tmp(async root=>{
+ const original=mockFetch();
+ const bom=String.fromCharCode(0xfeff);
+ const wrapped=bom+'  <?xml version="1.0" encoding="UTF-8"?>\n<!-- legal publisher preamble -->\n'+item(data[0].url);
+ const fetchImpl=async (url,options)=>url===feeds[0].url?rssResponse(wrapped,url):original(url,options);
+ const result=await publish({root,fetchImpl,env,now,feeds});
+ assert.equal(result.status,"staged","normal XML preamble must not break official RSS");
+ assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,1);
+}));
+
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
 }));
