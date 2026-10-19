@@ -1905,3 +1905,31 @@ test("XML 1.0 only permits S whitespace at document boundaries and XML attribute
   assert.deepEqual(parseFeed(validAtom.replace('<link rel=', '<link\u00A0rel='),"google",now),[],
     "non-XML whitespace must not separate XML attributes");
 });
+
+test("malformed XML prologs cannot count as readable independent publishers",()=>tmp(async root=>{
+  const valid=item(data[0].url);
+  const legal='<?xml version="1.0" encoding="UTF-8"?>'+valid;
+  assert.equal(parseFeed(legal,"openai",now).length,1,
+    "official XML 1.0 declaration remains accepted");
+  const forged=[
+    ["reserved uppercase XML PI",'<?XML version="1.0"?>'+valid],
+    ["XML 2.0 unsupported prolog",'<?xml version="2.0"?>'+valid]
+  ];
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  for(const [why,xml] of forged){
+    assert.deepEqual(parseFeed(xml,"openai",now),[],why+" is not well-formed source XML");
+    const warnings=[];
+    let aiCalls=0;
+    const fetchImpl=async url=>{
+      if(url===feeds[0].url)return rssResponse(xml,url);
+      if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
+      aiCalls++;throw Error("MODEL_MUST_NOT_BE_CALLED");
+    };
+    await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),
+      /FEED_QUORUM_UNAVAILABLE/,
+      why+" must not raise readable publisher count to two");
+    assert.equal(aiCalls,0,why+" must not trigger metered model");
+    assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before,
+      why+" must not mutate content.json");
+  }
+}));
