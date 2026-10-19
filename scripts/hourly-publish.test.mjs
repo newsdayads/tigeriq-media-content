@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -1122,3 +1122,41 @@ test("reject non-whitespace bytes outside the official single XML root",()=>{
   assert.equal(parseFeed(" \n"+valid+"\n ","openai",now).length,1,
     "whitespace outside a single root must remain valid");
 });
+
+
+test("opt-in real official public-feed quorum on the scoped GitHub PR, never AI or publish",{skip:!(
+  process.env.GITHUB_ACTIONS==="true"&&
+  process.env.GITHUB_HEAD_REF==="fix/gh4456-truncated-official-feed-root-20261019-nv02")},async()=>{
+  // Only read official public feeds. Bounded bytes/timeout, no tokens, writes or
+  // third-party redirects. External reachability is a preflight observation,
+  // not approval to merge, use a metered model, or publish.
+  const current=new Date();
+  const observations=[];
+  for(const feed of FEEDS){
+    try{
+      const endpoint=new URL(feed.url);
+      assert.equal(endpoint.protocol,"https:");
+      const res=await fetch(endpoint.href,{
+        redirect:"manual",
+        headers:{"user-agent":"TigerIQ-News/2.0"},
+        signal:AbortSignal.timeout(12000)
+      });
+      if(!res.ok){
+        observations.push({id:feed.id,status:res.status,valid:false});continue;
+      }
+      if(new URL(res.url).hostname!==endpoint.hostname){
+        observations.push({id:feed.id,status:"ORIGIN_CHANGE",valid:false});continue;
+      }
+      const xml=await readBoundedHttpText(res,2_000_000,"FEED_RESPONSE_TOO_LARGE");
+      const valid=/^\uFEFF?\s*(?:<\?xml\b[^?]*\?>\s*)?(?:<!--[\s\S]*?-->\s*)*<(rss|feed|rdf:RDF)(?=\s|>)/i.test(xml);
+      const rows=valid?parseFeed(xml,feed.id,current):[];
+      observations.push({id:feed.id,status:res.status,valid,bytes:Buffer.byteLength(xml),fresh:rows.length});
+    }catch(e){
+      observations.push({id:feed.id,status:e?.message||"FETCH_FAILED",valid:false});
+    }
+  }
+  // Metadata only: never log source bodies, article text or model payloads.
+  console.log("OFFICIAL_PUBLIC_FEED_PREFLIGHT "+JSON.stringify(observations));
+  assert.ok(observations.filter(x=>x.valid).length>=2,
+    "two independent official public RSS/Atom feeds must be readable");
+},70000);
