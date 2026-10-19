@@ -74,7 +74,11 @@ function xmlTagsAreBalanced(xml,onTag=null){
       else if(char===">"){end=i;break;}
     }
     if(end<0||quote)return false;
-    const tag=xml.slice(lt+1,end).trim();
+    // XML tag names must immediately follow '<' or '</'. Trimming away
+    // whitespace at this boundary would accept malformed official feed items.
+    const rawTag=xml.slice(lt+1,end);
+    if(/^\s|^\/\s/.test(rawTag))return false;
+    const tag=rawTag.trim();
     const closing=tag.startsWith("/");
     const selfClose=/\/\s*$/.test(tag);
     const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
