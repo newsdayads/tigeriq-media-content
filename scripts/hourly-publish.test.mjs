@@ -1485,3 +1485,43 @@ test("out-of-range XML numeric character references never validate official publ
   assert.equal(aiCalls,0,"invalid numeric character references cannot unlock AI calls");
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+
+test("literal XML 1.0 forbidden characters must invalidate complete RSS and Atom feeds",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  const atom='<feed><entry><title>Official AI research with reproducible technical evidence</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research provides measured evidence, methods and detailed limitations.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/xml-literal-char-validation"/></entry></feed>';
+  assert.equal(parseFeed(rss,"openai",now).length,1,"valid RSS baseline");
+  assert.equal(parseFeed(atom,"google",now).length,1,"valid Atom baseline");
+  for(const character of ["\u0000","\u0001","\u000b","\u001f","\uFFFE","\uFFFF","\uD800","\uDC00"]){
+    for(const malformed of [
+      rss.replace("Official announcement","Official "+character+" announcement"),
+      rss.replace("<item>","<item note='bad "+character+"'>"),
+      rss.replace("<item>","<!-- bad "+character+" -->"+"<item>"),
+      rss.replace("Official announcement","<![CDATA[Official "+character+" announcement]]>")
+    ]){
+      assert.deepEqual(parseFeed(malformed,"openai",now),[],
+        "raw XML-forbidden code point cannot authenticate an RSS item");
+    }
+    assert.deepEqual(parseFeed(atom.replace("measured evidence","measured "+character+" evidence"),"google",now),[],
+      "raw XML-forbidden code point cannot authenticate an Atom entry");
+  }
+  assert.equal(parseFeed(rss.replace("Official announcement","Official \u0009\u000a\u000d announcement"),"openai",now).length,1,
+    "XML 1.0 TAB, LF and CR remain legal literal characters");
+  assert.equal(parseFeed(atom.replace("measured evidence","measured \u{1F642} evidence"),"google",now).length,1,
+    "valid supplementary-plane Unicode in the Atom body remains legal");
+
+  let aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(item(data[1].url)
+      .replace("Official announcement","Official \u0000 announcement"),url);
+    aiCalls++;throw Error("AI_CALLED_WITH_INVALID_RAW_XML_CHARACTER");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(aiCalls,0,"malformed publisher XML never unlocks provider invocation");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));

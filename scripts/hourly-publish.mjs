@@ -44,16 +44,25 @@ function xmlReferencesAreValid(text){
   // valid numeric entity can still reference a forbidden code point.
   for(const [,raw] of text.matchAll(/&#(x[0-9A-Fa-f]+|[0-9]+);/g)){
     const cp=raw.startsWith("x")?Number.parseInt(raw.slice(1),16):Number.parseInt(raw,10);
-    if(!(cp===9||cp===10||cp===13||
-      (cp>=0x20&&cp<=0xD7FF)||(cp>=0xE000&&cp<=0xFFFD)||
-      (cp>=0x10000&&cp<=0x10FFFF)))return false;
+    if(!xml10CharAllowed(cp))return false;
   }
   return true;
+}
+
+// XML 1.0 raw characters and numeric references share the same allowed
+// Unicode range. A lone surrogate, raw NUL or control is not publisher XML.
+function xml10CharAllowed(cp){
+  return cp===9||cp===10||cp===13||
+    (cp>=0x20&&cp<=0xD7FF)||(cp>=0xE000&&cp<=0xFFFD)||
+    (cp>=0x10000&&cp<=0x10FFFF);
 }
 
 // Reject incomplete or misnested XML, not just missing </rss> or </feed>.
 // Treat all markup as data; never fetch external XML entities or parse DTDs.
 function xmlTagsAreBalanced(xml,onTag=null){
+  // Check the original document, including XML comments, CDATA, processing
+  // instructions and attributes, before masking any of these regions.
+  for(const char of xml)if(!xml10CharAllowed(char.codePointAt(0)))return false;
   const stack=[];
   let rootCount=0;
   for(let pos=0;pos<xml.length;){
