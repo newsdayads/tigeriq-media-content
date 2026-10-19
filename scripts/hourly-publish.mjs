@@ -48,7 +48,7 @@ const getTag=(item,t,masked=item,cleanup=clean)=>{
   // Read the entire opening tag, including quoted attribute values that may
   // legally contain '>'. The first raw '>' is not necessarily the tag end.
   const match=masked.match(new RegExp(
-    "(<"+t+"(?=\\s|>)(?:\\s+[A-Za-z_:][\\w.:-]*\\s*=\\s*(?:\"[^\"<]*\"|'[^'<]*'))*\\s*>)([\\s\\S]*?)<\\/"+t+">","i"));
+    "(<"+t+"(?=\\s|>)(?:\\s+[A-Za-z_:][\\w.:-]*\\s*=\\s*(?:\"[^\"<]*\"|'[^'<]*'))*\\s*>)([\\s\\S]*?)<\\/"+t+">"));
   if(!match)return "";
   // The mask and original entry have identical offsets, preserving real
   // CDATA while preventing tag-like text in quoted attributes from leaking.
@@ -261,12 +261,12 @@ export function parseFeed(xml,source,now=new Date()){
   const entries=[];
   const opened=new Map();
   if(!xmlTagsAreBalanced(boundaryXml,tag=>{
-    const name=tag.name.toLowerCase();
-    const ancestors=tag.ancestors.map(x=>x.toLowerCase());
+    const name=tag.name;
+    const ancestors=tag.ancestors;
     // Enforce ancestry all the way back to the XML document root, not
     // merely the immediate parent (which may itself be forged in a body).
     const rssDirect=name==="item"&&(
-      (ancestors.length===1&&["rss","rdf:rdf"].includes(ancestors[0]))||
+      (ancestors.length===1&&["rss","rdf:RDF"].includes(ancestors[0]))||
       (ancestors.length===2&&ancestors[0]==="rss"&&ancestors[1]==="channel"));
     const atomDirect=name==="entry"&&ancestors.length===1&&ancestors[0]==="feed";
     if(!tag.closing&&!tag.selfClose&&(rssDirect||atomDirect)){
@@ -304,7 +304,7 @@ export function parseFeed(xml,source,now=new Date()){
     // can confuse title="rel='alternate'" or data-href= with real rel/href,
     // falsely treating non-article or missing URLs as official provenance.
     if(!xmlTagsAreBalanced(entryMetadataXml,tag=>{
-      if(tag.closing||tag.depth!==1||tag.name.toLowerCase()!=="link")return;
+      if(tag.closing||tag.depth!==1||tag.name!=="link")return;
       const raw=entryMetadataXml.slice(tag.start,tag.end);
       const rest=raw.slice(5,-1).replace(/\/\s*$/,"");
       const attrs=new Map();
@@ -626,10 +626,10 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         // The opening tag alone is not a complete feed: a truncated HTTP 200
         // response would otherwise count toward the healthy publisher quorum.
         // Strip inert CDATA/comments before checking the matching root end.
-        const rootName=root.match(/^<(rss|feed|rdf:RDF)(?=\s|>)[^>]*>/i)?.[1];
+        const rootName=root.match(/^<(rss|feed|rdf:RDF)(?=\s|>)[^>]*>/)?.[1];
         const structuralXml=root.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g," ");
         const completeRoot=rootName &&
-          new RegExp("</"+rootName+"\\s*>\\s*(?:<\\?[^?]*\\?>\\s*)*$","i").test(structuralXml);
+          new RegExp("</"+rootName+"\\s*>\\s*(?:<\\?[^?]*\\?>\\s*)*$").test(structuralXml);
         if(!completeRoot||!xmlTagsAreBalanced(root)){
           console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
