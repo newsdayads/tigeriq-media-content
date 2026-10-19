@@ -631,7 +631,10 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         const structuralXml=root.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g," ");
         const completeRoot=rootName &&
           new RegExp("</"+rootName+"\\s*>\\s*(?:<\\?[^?]*\\?>\\s*)*$").test(structuralXml);
-        if(!completeRoot||!xmlTagsAreBalanced(root)){
+        // Validate the entire received XML, including its declaration and PIs.
+        // Stripping the prolog is only for locating the feed root, never for
+        // accepting a malformed document as a healthy independent publisher.
+        if(!completeRoot||!xmlTagsAreBalanced(xml.replace(/^\uFEFF/,""))){
           console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
         items.push(...parseFeed(xml,feed.id,now));
