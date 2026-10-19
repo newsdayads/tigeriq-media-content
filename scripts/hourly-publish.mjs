@@ -41,7 +41,13 @@ function xmlTagsAreBalanced(xml,onTag=null){
   let rootCount=0;
   for(let pos=0;pos<xml.length;){
     const lt=xml.indexOf("<",pos);
-    if(lt<0)break;
+    // XML may contain only whitespace, comments and processing instructions
+    // outside the document root. A balanced root alone is not enough.
+    if(lt<0){
+      if(stack.length===0&&/\\S/.test(xml.slice(pos)))return false;
+      break;
+    }
+    if(stack.length===0&&/\\S/.test(xml.slice(pos,lt)))return false;
     if(xml.startsWith("<!--",lt)){
       const end=xml.indexOf("-->",lt+4);
       if(end<0)return false;
