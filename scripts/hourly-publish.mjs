@@ -42,7 +42,11 @@ export function parseFeed(xml,source,now=new Date()){
     const summary=(getTag(item,"description")||getTag(item,"summary")||getTag(item,"content")||getTag(item,"content:encoded")).slice(0,1200);
     const stamp=Date.parse(getTag(item,"pubDate")||getTag(item,"published")||getTag(item,"updated"));
     // Atom can list a rel="self" feed identifier before the article's rel="alternate".
-    const atomLinks=[...item.matchAll(/<link\b[^>]*>/gi)]
+    // An Atom permalink is metadata, never markup quoted in article CDATA.
+    // Equal-length masking leaves the real link tags outside CDATA intact.
+    const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+      token=>" ".repeat(token.length));
+    const atomLinks=[...atomMetadataXml.matchAll(/<link\b[^>]*>/gi)]
       .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
       .filter(l=>l.href);
     // Atom defaults missing rel to "alternate". Other relations (enclosure,
