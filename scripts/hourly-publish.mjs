@@ -80,7 +80,7 @@ function xmlTagsAreBalanced(xml,onTag=null){
     const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
     // XML end-tags contain a name only (and optional whitespace), never
     // attributes or slash markers. Name-only balancing is insufficient.
-    if(!match||(closing&&(selfClose||!/^\\/[A-Za-z_][\\w.:-]*$/.test(tag))))return false;
+    if(!match||(closing&&(selfClose||!/^\/[A-Za-z_][\w.:-]*$/.test(tag))))return false;
     // A document must have exactly one top-level XML element. Balanced,
     // concatenated RSS/Atom documents are not one trustworthy publisher feed.
     if(!closing&&stack.length===0&&++rootCount>1)return false;
