@@ -979,3 +979,22 @@ test("nested fake item within RSS channel description and Atom subtitle cannot b
   assert.deepEqual(parseFeed(atom,"google",now),[],
     "Atom entry nested inside subtitle is not a direct feed entry");
 });
+
+test("fake RSS channel or Atom feed nested inside description cannot launder a direct-looking article",()=>{
+  const rss='<rss><channel><description><rss><channel><item>'+
+    '<title>Fake security announcement nested under a forged channel</title>'+
+    '<link>https://openai.com/news/nested-channel-forgery</link>'+
+    '<pubDate>'+date+'</pubDate>'+
+    '<description>Embedded sample with invented details; not an authentic publisher story.</description>'+
+    '</item></channel></rss></description></channel></rss>';
+  assert.deepEqual(parseFeed(rss,"openai",now),[],
+    "the entry must descend directly from the top-level RSS channel, not an inner channel");
+  const atom='<feed><subtitle><feed><entry>'+
+    '<title>Fake Atom AI release inside a nested feed object</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Embedded sample with fake technical claims; not independently published news.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/nested-feed-forgery"/>'+
+    '</entry></feed></subtitle></feed>';
+  assert.deepEqual(parseFeed(atom,"google",now),[],
+    "Atom entry must belong directly to the document feed root");
+});
