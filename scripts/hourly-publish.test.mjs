@@ -998,3 +998,27 @@ test("fake RSS channel or Atom feed nested inside description cannot launder a d
   assert.deepEqual(parseFeed(atom,"google",now),[],
     "Atom entry must belong directly to the document feed root");
 });
+
+test("two structurally nested fake entries must never reach the AI writer or mutate content",()=>tmp(async root=>{
+  const original=await fs.readFile(join(root,"content.json"),"utf8");
+  const embeddedRss='<item><title>Fake official AI breaking announcement inside examples</title>'+
+    '<link>https://openai.com/news/forged-inner-item</link><pubDate>'+date+'</pubDate>'+
+    '<description>Illustrative example only, not independent publisher evidence.</description></item>';
+  const rss='<rss><channel><description><section>'+embeddedRss+'</section></description></channel></rss>';
+  const embeddedAtom='<entry><title>Fabricated publisher AI announcement from example data</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Embedded demonstration data, not a signed public feed entry.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/forged-inner-entry"/></entry>';
+  const atom='<feed><subtitle><example>'+embeddedAtom+'</example></subtitle></feed>';
+  let aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(atom,url);
+    aiCalls++;throw Error("FORGED_FEED_REACHED_AI_WRITER");
+  };
+  const outcome=await publish({root,fetchImpl,env,now,feeds});
+  assert.equal(outcome.status,"noop","ghost source entries cannot trigger publication");
+  assert.equal(aiCalls,0,"no model requests on nested article forgeries");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+  assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
