@@ -1708,3 +1708,46 @@ test("Legitimate quoted greater-than in XML attributes never contaminates offici
  assert.equal(realAtom[0].url,"https://blog.google/ai/official-quoted-attributes");
  assert.equal(realAtom[0].publishedAt,"2026-10-17T23:00:00.000Z");
 });
+
+
+test("XML numeric permalink references decode exactly once for RSS and Atom source identity",()=>{
+ const expectedRss="https://openai.com/news/technical-study?a=1&b=2";
+ const rss=url=>'<rss><channel><item>'+
+   '<title>Official AI evaluation research reports transparent methodology</title>'+
+   '<link>'+url+'</link><pubDate>'+date+'</pubDate>'+
+   '<description>Official publication describes independent experiments, reproducible measurements and limitations of research.</description>'+
+   '</item></channel></rss>';
+ for(const [name,permalink] of [
+  ["decimal", "https://openai.com/news/technical-study?a=1&#38;b=2"],
+  ["hexadecimal", "https://openai.com/news/technical-study?a=1&#x26;b=2"],
+  ["predefined", "https://openai.com/news/technical-study?a=1&amp;b=2"]
+ ]){
+   const actual=parseFeed(rss(permalink),"openai",now);
+   assert.equal(actual.length,1,name+" RSS remains an official article");
+   assert.equal(actual[0].url,expectedRss,name+" RSS source URL identity must be decoded");
+ }
+ const expectedAtom="https://blog.google/ai/technical-study?a=1&b=2";
+ const atom=url=>'<feed><entry>'+
+  '<title>Official AI evaluation research confirms independent technical findings</title>'+
+  '<summary>Official report describes research methods, reproducible evaluations and important limitations.</summary>'+
+  '<updated>2026-10-17T23:00:00Z</updated>'+
+  '<link rel="alternate" href="'+url+'"/></entry></feed>';
+ for(const [name,permalink] of [
+  ["decimal", "https://blog.google/ai/technical-study?a=1&#38;b=2"],
+  ["hexadecimal", "https://blog.google/ai/technical-study?a=1&#x26;b=2"],
+  ["predefined", "https://blog.google/ai/technical-study?a=1&amp;b=2"]
+ ]){
+   const actual=parseFeed(atom(permalink),"google",now);
+   assert.equal(actual.length,1,name+" Atom remains an official article");
+   assert.equal(actual[0].url,expectedAtom,name+" Atom source URL identity must be decoded");
+ }
+ // The literal URL substring "&#38;" was encoded as &amp;#38; in XML.
+ // Decoding XML a second time would fabricate an extra URL query argument.
+ const literal="https://openai.com/news/technical-study?a=1&#38;b=2";
+ const escapedNumeric=rss(literal.replace("&#38;","&amp;#38;"));
+ assert.equal(parseFeed(escapedNumeric,"openai",now)[0]?.url,literal,
+   "a literal escaped numeric-looking sequence must not be double-decoded");
+ const cdata=rss('<![CDATA['+expectedRss+']]>');
+ assert.equal(parseFeed(cdata,"openai",now)[0]?.url,expectedRss,
+   "CDATA literal ampersands must stay intact");
+});
