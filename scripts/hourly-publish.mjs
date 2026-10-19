@@ -72,7 +72,7 @@ function xmlTagsAreBalanced(xml,onTag=null){
     const selfClose=/\/\s*$/.test(tag);
     const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
     if(!match||(closing&&selfClose))return false;
-    if(onTag)onTag({name:match[1],parent:stack.at(-1)||"",depth:stack.length,closing,selfClose,start:lt,end:end+1});
+    if(onTag)onTag({name:match[1],ancestors:stack.slice(),depth:stack.length,closing,selfClose,start:lt,end:end+1});
     if(closing){
       if(stack.pop()!==match[1])return false;
     }else if(!selfClose)stack.push(match[1]);
@@ -97,10 +97,14 @@ export function parseFeed(xml,source,now=new Date()){
   const opened=new Map();
   if(!xmlTagsAreBalanced(boundaryXml,tag=>{
     const name=tag.name.toLowerCase();
-    const parent=tag.parent.toLowerCase();
-    if(!tag.closing&&!tag.selfClose&&
-      ((name==="item"&&["rss","channel","rdf:rdf"].includes(parent))||
-        (name==="entry"&&parent==="feed"))){
+    const ancestors=tag.ancestors.map(x=>x.toLowerCase());
+    // Enforce ancestry all the way back to the XML document root, not
+    // merely the immediate parent (which may itself be forged in a body).
+    const rssDirect=name==="item"&&(
+      (ancestors.length===1&&["rss","rdf:rdf"].includes(ancestors[0]))||
+      (ancestors.length===2&&ancestors[0]==="rss"&&ancestors[1]==="channel"));
+    const atomDirect=name==="entry"&&ancestors.length===1&&ancestors[0]==="feed";
+    if(!tag.closing&&!tag.selfClose&&(rssDirect||atomDirect)){
       opened.set(tag.depth+1,{start:tag.start,name});
     }else if(tag.closing){
       const candidate=opened.get(tag.depth);
