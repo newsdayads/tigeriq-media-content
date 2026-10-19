@@ -1677,3 +1677,34 @@ test("Atom attributes are XML-case-sensitive and uppercase shadow attributes can
  assert.equal(aiCalls,0,"uppercase shadow attributes cannot unlock AI generation");
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
 }));
+
+
+test("Legitimate quoted greater-than in XML attributes never contaminates official entry metadata",()=>{
+ const expectedUrl="https://openai.com/news/quoted-attribute-article";
+ const rss='<rss><channel><item>'+
+   '<title note="trusted > preview">Official AI inference evaluation with verified methodology</title>'+
+   '<link context="article > publisher">'+expectedUrl+'</link>'+
+   '<pubDate origin="fresh > current">'+date+'</pubDate>'+
+   '<description note="methods > summary">The official announcement reports reproducible AI experiments, measured findings and meaningful methodological limitations.</description>'+
+   '</item></channel></rss>';
+ const realRss=parseFeed(rss,"openai",now);
+ assert.equal(realRss.length,1,"valid XML attributes must not silently delete official RSS items");
+ assert.equal(realRss[0].title,"Official AI inference evaluation with verified methodology");
+ assert.equal(realRss[0].url,expectedUrl);
+ assert.equal(realRss[0].summary,
+   "The official announcement reports reproducible AI experiments, measured findings and meaningful methodological limitations.");
+ assert.equal(realRss[0].publishedAt,new Date(date).toISOString());
+ const atom='<feed><entry>'+
+   "<title origin='research > early'>Verified AI model safety evaluation from official publisher</title>"+
+   '<summary note="tests > estimates">The official study explains independent testing, reproducible results, design choices and known limitations.</summary>'+
+   '<updated origin="utc > local">2026-10-17T23:00:00Z</updated>'+
+   '<link rel="alternate" title="article > snippet" href="https://blog.google/ai/official-quoted-attributes"/>'+
+   '</entry></feed>';
+ const realAtom=parseFeed(atom,"google",now);
+ assert.equal(realAtom.length,1,"valid Atom metadata with quoted greater-than must remain source evidence");
+ assert.equal(realAtom[0].title,"Verified AI model safety evaluation from official publisher");
+ assert.equal(realAtom[0].summary,
+   "The official study explains independent testing, reproducible results, design choices and known limitations.");
+ assert.equal(realAtom[0].url,"https://blog.google/ai/official-quoted-attributes");
+ assert.equal(realAtom[0].publishedAt,"2026-10-17T23:00:00.000Z");
+});
