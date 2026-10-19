@@ -1871,3 +1871,33 @@ test("RSS text link and Atom href permalink must never cross-contaminate feed fo
  assert.equal(modelCalls,0,"false second publisher cannot invoke a model");
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+test("XML 1.0 only permits S whitespace at document boundaries and XML attribute separators",()=>{
+  const validRss=item("https://openai.com/news/xml-lexical-space");
+  const validAtom='<feed><entry><title>Official AI technology research results and limitations</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<link rel="alternate" href="https://blog.google/ai/xml-lexical-space"/>'+
+    '<summary>Official technology research reports verifiable measurements and their limitations.</summary>'+
+    '</entry></feed>';
+  assert.equal(parseFeed(validRss,"openai",now).length,1,"ordinary RSS still works");
+  assert.equal(parseFeed(validAtom,"google",now).length,1,"ordinary Atom still works");
+  assert.equal(parseFeed("\uFEFF"+validRss,"openai",now).length,1,
+    "one true leading Unicode BOM remains legitimate");
+  assert.equal(parseFeed(" \t"+validRss+"\r\n","openai",now).length,1,
+    "XML 1.0 S whitespace is allowed");
+  for(const [label,space] of [["NBSP","\u00A0"],["FIGURE","\u2007"],
+      ["NARROW_NBSP","\u202F"],["MID_STREAM_BOM","\uFEFF"]]){
+    for(const [kind,document,source] of [["RSS",validRss,"openai"],["ATOM",validAtom,"google"]]){
+      assert.deepEqual(parseFeed(space+document,source,now),[],
+        kind+" must reject non-XML "+label+" before the document element");
+      assert.deepEqual(parseFeed(document+space,source,now),[],
+        kind+" must reject non-XML "+label+" after the document element");
+    }
+  }
+  assert.deepEqual(parseFeed(" \uFEFF"+validRss,"openai",now),[],
+    "BOM is a signature only at byte-zero, not after whitespace");
+  assert.deepEqual(parseFeed(validRss.replace("<rss>","<rss\u00A0>"),"openai",now),[],
+    "non-XML whitespace must not terminate an XML tag name");
+  assert.deepEqual(parseFeed(validAtom.replace('<link rel=', '<link\u00A0rel='),"google",now),[],
+    "non-XML whitespace must not separate XML attributes");
+});
