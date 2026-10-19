@@ -26,12 +26,15 @@ const clean=s=>String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
   .replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<")
   .replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
 const getTag=(item,t,masked=item)=>{
-  const match=masked.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S]*?)<\\/"+t+">","i"));
+  // Read the entire opening tag, including quoted attribute values that may
+  // legally contain '>'. The first raw '>' is not necessarily the tag end.
+  const match=masked.match(new RegExp(
+    "(<"+t+"(?=\\s|>)(?:\\s+[A-Za-z_:][\\w.:-]*\\s*=\\s*(?:\"[^\"<]*\"|'[^'<]*'))*\\s*>)([\\s\\S]*?)<\\/"+t+">","i"));
   if(!match)return "";
-  // The mask and original entry have identical offsets, so preserve real
-  // CDATA content without interpreting tags quoted inside it as metadata.
-  const start=match.index+match[0].indexOf(">")+1;
-  return clean(item.slice(start,start+match[1].length));
+  // The mask and original entry have identical offsets, preserving real
+  // CDATA while preventing tag-like text in quoted attributes from leaking.
+  const start=match.index+match[1].length;
+  return clean(item.slice(start,start+match[2].length));
 };
 
 // No DTDs are accepted. XML character data and attributes may contain only
