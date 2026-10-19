@@ -653,6 +653,26 @@ test("chunked RSS larger than 2 MB is cancelled without consuming the whole stre
   assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,0);
 }));
 
+test("HTTP failure in one of three feeds emits an Action warning while healthy empty feeds noop",t=>tmp(async root=>{
+  const notes=[];
+  t.mock.method(console,"warn",(...args)=>notes.push(args.join(" ")));
+  const third={id:"github",url:"https://github.blog/changelog/feed/"};
+  const expired="Mon, 01 Sep 2025 10:00:00 GMT";
+  const source={google:item(data[1].url).replace(date,expired),
+    github:item("https://github.blog/changelog/safe-entry").replace(date,expired)};
+  const noAiFetch=async url=>{
+    if(url===feeds[0].url)return new Response("unavailable",{status:503});
+    if(url===feeds[1].url)return rssResponse(source.google,url);
+    if(url===third.url)return rssResponse(source.github,url);
+    throw Error("AI_MUST_NOT_RUN");
+  };
+  const response=await publish({root,fetchImpl:noAiFetch,env,now,feeds:[...feeds,third]});
+  assert.equal(response.status,"noop");
+  assert.ok(notes.some(note=>note.includes("FEED_HTTP_UNAVAILABLE openai 503")),
+    "degraded feed should produce an actionable GitHub Actions annotation");
+  assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
+
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
 }));
