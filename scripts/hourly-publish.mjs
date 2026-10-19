@@ -81,6 +81,12 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // XML end-tags contain a name only (and optional whitespace), never
     // attributes or slash markers. Name-only balancing is insufficient.
     if(!match||(closing&&(selfClose||!/^\/[A-Za-z_][\w.:-]*$/.test(tag))))return false;
+    // XML attributes require names and quoted values. A balanced tag stack
+    // alone must not bless malformed publisher metadata as an official feed.
+    if(!closing){
+      const attrs=tag.slice(match[0].length).replace(/\/\s*$/,"");
+      if(!/^(?:\s+[A-Za-z_:][\w.:-]*\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(attrs))return false;
+    }
     // A document must have exactly one top-level XML element. Balanced,
     // concatenated RSS/Atom documents are not one trustworthy publisher feed.
     if(!closing&&stack.length===0&&++rootCount>1)return false;
