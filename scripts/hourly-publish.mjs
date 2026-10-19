@@ -38,7 +38,17 @@ const getTag=(item,t,masked=item)=>{
 // five predefined named entities and numeric character references; a literal
 // ampersand or undeclared HTML entity makes the official feed ill-formed.
 function xmlReferencesAreValid(text){
-  return !/&(?!(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));)/.test(text);
+  if(/&(?!(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));)/.test(text))return false;
+  // XML 1.0 Char ::= #x9 | #xA | #xD | [#x20-#xD7FF] |
+  // [#xE000-#xFFFD] | [#x10000-#x10FFFF]. A syntactically
+  // valid numeric entity can still reference a forbidden code point.
+  for(const [,raw] of text.matchAll(/&#(x[0-9A-Fa-f]+|[0-9]+);/g)){
+    const cp=raw.startsWith("x")?Number.parseInt(raw.slice(1),16):Number.parseInt(raw,10);
+    if(!(cp===9||cp===10||cp===13||
+      (cp>=0x20&&cp<=0xD7FF)||(cp>=0xE000&&cp<=0xFFFD)||
+      (cp>=0x10000&&cp<=0x10FFFF)))return false;
+  }
+  return true;
 }
 
 // Reject incomplete or misnested XML, not just missing </rss> or </feed>.
