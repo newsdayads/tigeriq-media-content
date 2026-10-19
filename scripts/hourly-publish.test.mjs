@@ -1022,3 +1022,37 @@ test("two structurally nested fake entries must never reach the AI writer or mut
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
   assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));
+
+test("nested RSS and Atom extension metadata cannot impersonate direct entry title date and permalink",()=>{
+  const old="Thu, 08 Oct 2026 23:00:00 GMT";
+  const fakeRss='<vendor:example><title>Fabricated breaking announcement in foreign metadata</title>'+
+    '<pubDate>'+date+'</pubDate>'+
+    '<link>https://openai.com/news/fake-extension</link></vendor:example>';
+  const rss=stamp=>'<rss><channel><item>'+fakeRss+
+    '<title>Real original evaluation with published methods and limitations</title>'+
+    '<pubDate>'+stamp+'</pubDate>'+
+    '<link>https://openai.com/news/authentic-extension-proof</link>'+
+    '<description>Legitimate original publisher summary with detailed results and important limitations.</description>'+
+    '</item></channel></rss>';
+  assert.deepEqual(parseFeed(rss(old),"openai",now),[],
+    "foreign RSS extension pubDate must never renew an expired article");
+  const realRss=parseFeed(rss(date),"openai",now);
+  assert.equal(realRss.length,1);
+  assert.equal(realRss[0].title,"Real original evaluation with published methods and limitations");
+  assert.equal(realRss[0].url,"https://openai.com/news/authentic-extension-proof");
+  const foreignAtom='<author><name><title>Invented model launch in author extension</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<link rel="alternate" href="https://blog.google/ai/fake-author-link"/></name></author>';
+  const atom=stamp=>'<feed><entry>'+foreignAtom+
+    '<title>Real official model assessment with documented limitations</title>'+
+    '<updated>'+stamp+'</updated>'+
+    '<summary>Original publisher describes replicated tests, evaluation conditions and important caveats.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/real-extension-proof"/>'+
+    '</entry></feed>';
+  assert.deepEqual(parseFeed(atom("2026-10-08T23:00:00Z"),"google",now),[],
+    "nested author.updated must not freshen an expired Atom entry");
+  const realAtom=parseFeed(atom("2026-10-17T23:00:00Z"),"google",now);
+  assert.equal(realAtom.length,1);
+  assert.equal(realAtom[0].title,"Real official model assessment with documented limitations");
+  assert.equal(realAtom[0].url,"https://blog.google/ai/real-extension-proof");
+});
