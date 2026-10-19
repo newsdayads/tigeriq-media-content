@@ -913,3 +913,26 @@ test("truncated RSS or Atom root cannot falsely satisfy the official feed quorum
     assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
   }
 }));
+
+test("closed RSS/Atom roots with broken inner XML cannot count as healthy official feeds",()=>tmp(async root=>{
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  const broken=[
+    {kind:"rss-unclosed-item",xml:"<rss><item><title>Incomplete entry</title></rss>"},
+    {kind:"atom-unclosed-entry",xml:"<feed><entry><title>Incomplete entry</title></feed>"},
+    {kind:"rss-misnested-tags",xml:"<rss><item><title>Swapped closures</item></title></rss>"},
+    {kind:"atom-truncated-summary",xml:"<feed><entry><summary>Broken</entry></feed>"}
+  ];
+  for(const {kind,xml} of broken){
+    let aiCalls=0;
+    const fetchImpl=async (url)=>{
+      if(url===feeds[0].url)return rssResponse(item(data[0].url).replace(date,"Mon, 01 Sep 2025 10:00:00 GMT"),url);
+      if(url===feeds[1].url)return rssResponse(xml,url);
+      aiCalls++;throw Error("AI_MUST_NOT_RUN");
+    };
+    await assert.rejects(
+      ()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/,
+      kind+" incomplete nested XML must not count toward the readable quorum");
+    assert.equal(aiCalls,0,kind+" cannot call AI with incomplete source evidence");
+    assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+  }
+}));
