@@ -62,7 +62,7 @@ export function parseFeed(xml,source,now=new Date()){
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLinkMatch=atomMetadataXml.match(/<link(?:\\s[^>]*)?>([\\s\\S]*?)<\\/link>/i);
+    const rssLinkMatch=atomMetadataXml.match(/<link(?:\s[^>]*)?>([\s\S]*?)<\/link>/i);
     const rssLink=rssLinkMatch
       ? getTag(item.slice(rssLinkMatch.index,rssLinkMatch.index+rssLinkMatch[0].length),"link")
       : "";
