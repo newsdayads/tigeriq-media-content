@@ -936,3 +936,26 @@ test("closed RSS/Atom roots with broken inner XML cannot count as healthy offici
     assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
   }
 }));
+
+test("Atom embedded source metadata cannot impersonate entry title date or permalink",()=>{
+  const authenticTitle="Actual official AI safety research with published evaluation methods";
+  const authenticLink="https://blog.google/ai/authentic-atom-research";
+  const nestedSource='<source>'+
+    '<title>Fabricated urgent AI results from source-level metadata</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<link rel="alternate" href="https://blog.google/ai/forged-source-link"/>'+
+    '</source>';
+  const entry=timestamp=>'<feed><entry>'+nestedSource+
+    '<title>'+authenticTitle+'</title>'+
+    '<updated>'+timestamp+'</updated>'+
+    '<summary>Official publisher explains evaluation evidence, techniques and limitations in detail.</summary>'+
+    '<link rel="alternate" href="'+authenticLink+'"/>'+
+    '</entry></feed>';
+  assert.equal(parseFeed(entry("2026-10-09T23:00:00Z"),"google",now).length,0,
+    "Atom source.updated must not refresh an expired entry");
+  const fresh=parseFeed(entry("2026-10-17T23:00:00Z"),"google",now);
+  assert.equal(fresh.length,1);
+  assert.equal(fresh[0].title,authenticTitle);
+  assert.equal(fresh[0].url,authenticLink,
+    "Atom source.link must not replace an entry's real article permalink");
+});
