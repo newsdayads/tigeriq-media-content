@@ -101,6 +101,51 @@ test("RSS metadata fields inside quoted CDATA must never spoof title or freshnes
    "genuine CDATA title remains visible after metadata masking");
 });
 
+test("feed outage is an error rather than NOOP_NO_QUALIFIED_STORY",()=>tmp(async root=>{
+  const original=await fs.readFile(join(root,"content.json"),"utf8");
+  let aiCalls=0;
+  const outageFetch=async url=>{
+    if(url===feeds[0].url)throw Error("NETWORK_DOWN");
+    if(url===feeds[1].url)return new Response("upstream unavailable",{status:503});
+    aiCalls++;throw Error("AI_MUST_NOT_RUN");
+  };
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:outageFetch,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/,
+    "total official source outage must fail the scheduled Action");
+  assert.equal(aiCalls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+  assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
+
+test("one healthy feed and one failed feed is degraded not a quiet no-news run",()=>tmp(async root=>{
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  let aiCalls=0;
+  const degradedFetch=async url=>{
+    if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+    if(url===feeds[1].url)throw Error("DNS_UNAVAILABLE");
+    aiCalls++;throw Error("AI_MUST_NOT_RUN");
+  };
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:degradedFetch,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(aiCalls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+  assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
+
+test("two reachable official feeds with only expired news remain a legitimate noop",()=>tmp(async root=>{
+  let aiCalls=0;
+  const oldDate="Mon, 01 Sep 2025 10:00:00 GMT";
+  const stale=item(data[0].url).replace(date,oldDate);
+  const staleTwo=item(data[1].url).replace(date,oldDate);
+  const staleFetch=async url=>{
+    if(url===feeds[0].url)return rssResponse(stale,url);
+    if(url===feeds[1].url)return rssResponse(staleTwo,url);
+    aiCalls++;throw Error("AI_MUST_NOT_RUN");
+  };
+  assert.deepEqual(await publish({root,fetchImpl:staleFetch,env,now,feeds}),{status:"noop"});
+  assert.equal(aiCalls,0);
+}));
+
 test("RSS must contain recent dated HTTPS summary",()=>{
  assert.equal(parseFeed(item(data[0].url),"openai",now).length,1);
  assert.equal(parseFeed(item(data[0].url),"openai",new Date("2026-11-01T03:00:00Z")).length,0);
