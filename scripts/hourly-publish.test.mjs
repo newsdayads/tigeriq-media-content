@@ -1751,3 +1751,38 @@ test("XML numeric permalink references decode exactly once for RSS and Atom sour
  assert.equal(parseFeed(cdata,"openai",now)[0]?.url,expectedRss,
    "CDATA literal ampersands must stay intact");
 });
+
+test("XML RSS/Atom element names are case-sensitive for publisher evidence and quorum",()=>tmp(async root=>{
+  const validRss=item(data[0].url);
+  const atom='<feed><entry><title>Official verified AI research announcement</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research presents evaluated findings and methodology limitations.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/genuine-case-sensitive-entry"/></entry></feed>';
+  assert.equal(parseFeed(validRss,"openai",now).length,1);
+  assert.equal(parseFeed(atom,"google",now).length,1);
+  for(const bad of [
+    validRss.replace("<rss>","<RSS>").replace("</rss>","</RSS>"),
+    validRss.replace("<item>","<ITEM>").replace("</item>","</ITEM>"),
+    validRss.replace("<title>","<TITLE>").replace("</title>","</TITLE>"),
+    validRss.replace("<pubDate>","<PUBDATE>").replace("</pubDate>","</PUBDATE>")
+  ]) assert.deepEqual(parseFeed(bad,"openai",now),[],
+    "non-RSS uppercase element must not be recognized as the official RSS element");
+  for(const bad of [
+    atom.replace("<feed>","<FEED>").replace("</feed>","</FEED>"),
+    atom.replace("<entry>","<ENTRY>").replace("</entry>","</ENTRY>"),
+    atom.replace("<title>","<TITLE>").replace("</title>","</TITLE>"),
+    atom.replace("<link ","<LINK ")
+  ]) assert.deepEqual(parseFeed(bad,"google",now),[],
+    "XML case differences cannot create a valid Atom article");
+  let modelCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(validRss,url);
+    if(url===feeds[1].url)return rssResponse(
+      validRss.replace(data[0].url,data[1].url).replace("<rss>","<RSS>").replace("</rss>","</RSS>"),url);
+    modelCalls++;throw Error("AI_CALLED_WITH_INVALID_XML_CASE");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(modelCalls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
