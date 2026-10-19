@@ -888,3 +888,28 @@ test("successful SVG cover creation commits complete bytes without cleanup",asyn
  assert.equal(files.get(path),"<svg>valid</svg>");
  assert.deepEqual(ops,["open","write","close"]);
 });
+
+test("truncated RSS or Atom root cannot falsely satisfy the official feed quorum",()=>tmp(async root=>{
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  const original=mockFetch();
+  const truncated=[
+    {kind:"RSS",xml:item(data[1].url).replace(/<\/rss>$/,"")},
+    {kind:"Atom",xml:'<feed><entry><title>Official analysis with reproduced evidence</title>'+
+      '<updated>2026-10-17T23:00:00Z</updated>'+
+      '<summary>Official source explains evaluation methods, results and important limitations.</summary>'+
+      '<link rel="alternate" href="https://blog.google/ai/two"/></entry>'}
+  ];
+  for(const {kind,xml} of truncated){
+    let aiCalls=0;
+    const fetchImpl=async (url,options)=>{
+      if(url===feeds[1].url)return rssResponse(xml,url);
+      if(url===feeds[0].url)return rssResponse(item(data[0].url).replace(date,"Mon, 01 Sep 2025 10:00:00 GMT"),url);
+      aiCalls++;return original(url,options);
+    };
+    await assert.rejects(
+      ()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/,
+      kind+" incomplete official document must count as an unavailable feed, not a healthy document");
+    assert.equal(aiCalls,0,kind+" cannot reach metered AI provider");
+    assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+  }
+}));
