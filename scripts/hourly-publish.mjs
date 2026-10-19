@@ -38,6 +38,7 @@ const getTag=(item,t,masked=item)=>{
 // Treat all markup as data; never fetch external XML entities or parse DTDs.
 function xmlTagsAreBalanced(xml,onTag=null){
   const stack=[];
+  let rootCount=0;
   for(let pos=0;pos<xml.length;){
     const lt=xml.indexOf("<",pos);
     if(lt<0)break;
@@ -72,13 +73,16 @@ function xmlTagsAreBalanced(xml,onTag=null){
     const selfClose=/\/\s*$/.test(tag);
     const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
     if(!match||(closing&&selfClose))return false;
+    // A document must have exactly one top-level XML element. Balanced,
+    // concatenated RSS/Atom documents are not one trustworthy publisher feed.
+    if(!closing&&stack.length===0&&++rootCount>1)return false;
     if(onTag)onTag({name:match[1],ancestors:stack.slice(),depth:stack.length,closing,selfClose,start:lt,end:end+1});
     if(closing){
       if(stack.pop()!==match[1])return false;
     }else if(!selfClose)stack.push(match[1]);
     pos=end+1;
   }
-  return stack.length===0;
+  return stack.length===0&&rootCount===1;
 }
 
 // The entry's foreign extension metadata is NOT the publisher's own title,
