@@ -1136,16 +1136,35 @@ test("opt-in real official public-feed quorum on the scoped GitHub PR, never AI 
     try{
       const endpoint=new URL(feed.url);
       assert.equal(endpoint.protocol,"https:");
-      const res=await fetch(endpoint.href,{
-        redirect:"manual",
-        headers:{"user-agent":"TigerIQ-News/2.0"},
-        signal:AbortSignal.timeout(12000)
-      });
-      if(!res.ok){
-        observations.push({id:feed.id,status:res.status,valid:false});continue;
+      let target=endpoint.href;
+      let res=null;
+      let redirectViolation=null;
+      for(let hops=0;hops<=3;hops++){
+        const requested=new URL(target);
+        if(requested.protocol!=="https:"||requested.username||requested.password||
+          requested.hostname!==endpoint.hostname){
+          redirectViolation="ORIGIN_CHANGE";break;
+        }
+        res=await fetch(requested.href,{
+          redirect:"manual",
+          headers:{"user-agent":"TigerIQ-News/2.0"},
+          signal:AbortSignal.timeout(12000)
+        });
+        if([301,302,303,307,308].includes(res.status)){
+          if(hops===3){redirectViolation="REDIRECT_LIMIT";break;}
+          const location=res.headers.get("location");
+          if(!location){redirectViolation="MISSING_LOCATION";break;}
+          try{target=new URL(location,requested).href;}
+          catch{redirectViolation="BAD_LOCATION";break;}
+          continue;
+        }
+        break;
       }
-      if(new URL(res.url).hostname!==endpoint.hostname){
-        observations.push({id:feed.id,status:"ORIGIN_CHANGE",valid:false});continue;
+      if(redirectViolation){
+        observations.push({id:feed.id,status:redirectViolation,valid:false});continue;
+      }
+      if(!res?.ok){
+        observations.push({id:feed.id,status:res?.status||"NO_RESPONSE",valid:false});continue;
       }
       const xml=await readBoundedHttpText(res,2_000_000,"FEED_RESPONSE_TOO_LARGE");
       const valid=/^\uFEFF?\s*(?:<\?xml\b[^?]*\?>\s*)?(?:<!--[\s\S]*?-->\s*)*<(rss|feed|rdf:RDF)(?=\s|>)/i.test(xml);
