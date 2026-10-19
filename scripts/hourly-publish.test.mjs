@@ -1198,3 +1198,30 @@ test("malformed XML closing tags with injected attributes never become official 
   assert.deepEqual(parseFeed(invalidAtom,"google",now),[],
     "malformed Atom closing tags cannot satisfy the official feed quorum");
 });
+
+
+test("a fourth same-publisher RSS redirect is never requested and cannot fake quorum",()=>tmp(async root=>{
+  // Regression: even HTTPS redirects on an approved publisher host must stop
+  // before hop 4. No AI request or content mutation may follow a fake quorum.
+  const hops=[
+    "https://openai.com/news/rss.xml",
+    "https://openai.com/news/redirect-1",
+    "https://openai.com/news/redirect-2",
+    "https://openai.com/news/redirect-3",
+    "https://openai.com/news/redirect-4"
+  ];
+  const requested=[];
+  const fetchImpl=async (url,options)=>{
+    if(url===feeds[1].url)return rssResponse("<rss></rss>",url);
+    requested.push(url);
+    assert.equal(options?.redirect,"manual","redirect handling must stay explicit");
+    const step=hops.indexOf(url);
+    if(step<0)throw Error("UNEXPECTED_EXTERNAL_REQUEST");
+    if(step===4)throw Error("FOURTH_REDIRECT_WAS_FETCHED");
+    return new Response(null,{status:302,headers:{location:hops[step+1]}});
+  };
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.deepEqual(requested,hops.slice(0,4),"never request the fifth URL after 4 redirects");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),'{"articles":[]}',
+    "failed quorum must preserve canonical content byte for byte");
+}));
