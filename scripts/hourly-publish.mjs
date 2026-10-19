@@ -47,19 +47,18 @@ export function parseFeed(xml,source,now=new Date()){
     const item=contentXml.slice(match.index,match.index+match[0].length);
     const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
       token=>" ".repeat(token.length));
-    const title=getTag(item,"title",atomMetadataXml);
-    const summary=(getTag(item,"description",atomMetadataXml)||getTag(item,"summary",atomMetadataXml)||getTag(item,"content",atomMetadataXml)||getTag(item,"content:encoded",atomMetadataXml)).slice(0,1200);
-    const stamp=Date.parse(getTag(item,"pubDate",atomMetadataXml)||getTag(item,"published",atomMetadataXml)||getTag(item,"updated",atomMetadataXml));
-    // Atom can list a rel="self" feed identifier before the article's rel="alternate".
-    // An Atom permalink is metadata, never markup quoted in article CDATA.
-    // Equal-length masking leaves the real link tags outside CDATA intact.
-    // Links embedded inside entry body/summary are editorial content, not
-    // publisher-asserted entry-level permalinks (even if they are valid XHTML).
-    // Mask the full text-bearing elements only for permalink discovery.
-    const linkMetadataXml=atomMetadataXml.replace(
+    // Text-bearing fields can contain nested XML/XHTML tags. Only the entry's
+    // own metadata may supply titles, timestamps or article permalinks.
+    // Preserve equal-length offsets and read genuine CDATA payloads from item.
+    const entryMetadataXml=atomMetadataXml.replace(
       /<(description|summary|content(?::encoded)?)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi,
       token=>" ".repeat(token.length));
-    const atomLinks=[...linkMetadataXml.matchAll(/<link\b[^>]*>/gi)]
+    const title=getTag(item,"title",entryMetadataXml);
+    const summary=(getTag(item,"description",atomMetadataXml)||getTag(item,"summary",atomMetadataXml)||getTag(item,"content",atomMetadataXml)||getTag(item,"content:encoded",atomMetadataXml)).slice(0,1200);
+    const stamp=Date.parse(getTag(item,"pubDate",entryMetadataXml)||getTag(item,"published",entryMetadataXml)||getTag(item,"updated",entryMetadataXml));
+    // Atom can list a rel="self" feed identifier before the article's rel="alternate".
+    // URL links in text-bearing fields are not publisher entry permalinks.
+    const atomLinks=[...entryMetadataXml.matchAll(/<link\b[^>]*>/gi)]
       .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
       .filter(l=>l.href);
     // Atom defaults missing rel to "alternate". Other relations (enclosure,
@@ -75,7 +74,7 @@ export function parseFeed(xml,source,now=new Date()){
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLink=getTag(item,"link",linkMetadataXml);
+    const rssLink=getTag(item,"link",entryMetadataXml);
     const link=(rssLink||atom).replace(/&amp;/gi,"&");
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
