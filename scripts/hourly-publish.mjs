@@ -495,7 +495,7 @@ export function verifyReview(review,draft,sources){
   }
 }
 
-const svgEscape=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g,"")
+const svgEscape=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uD800-\uDFFF\uFFFE\uFFFF]/gu,"")
   .replace(/&/g,"&amp;").replace(/</g,"&lt;")
   .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");
 export function coverSvg(title){
