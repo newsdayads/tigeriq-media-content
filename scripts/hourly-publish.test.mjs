@@ -1056,3 +1056,27 @@ test("nested RSS and Atom extension metadata cannot impersonate direct entry tit
   assert.equal(realAtom[0].title,"Real official model assessment with documented limitations");
   assert.equal(realAtom[0].url,"https://blog.google/ai/real-extension-proof");
 });
+
+test("nested title markup cannot masquerade as an RSS or Atom entry permalink",()=>{
+  const title='<title>Genuine evaluation and documented research '+
+    '<span><link>https://openai.com/news/forged-title-permalink</link></span></title>';
+  const rss=link=>'<rss><channel><item>'+title+
+    '<pubDate>'+date+'</pubDate>'+
+    '<description>Publisher describes independently evaluated methods, limitations and outcomes.</description>'+
+    link+'</item></channel></rss>';
+  assert.deepEqual(parseFeed(rss(""),"openai",now),[],
+    "nested RSS title.link cannot substitute for a direct item link");
+  assert.equal(parseFeed(rss('<link>https://openai.com/news/real-permalink</link>'),"openai",now)[0]?.url,
+    "https://openai.com/news/real-permalink",
+    "real direct RSS item link must outrank nested markup");
+  const fake='<title type="xhtml"><div>Authenticated AI research summary '+
+    '<link rel="alternate" href="https://blog.google/ai/forged-xhtml-title"/></div></title>';
+  const atom=link=>'<feed><entry>'+fake+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Publisher describes independent technical evaluation with evidence and caveats.</summary>'+
+    link+'</entry></feed>';
+  assert.deepEqual(parseFeed(atom(""),"google",now),[],
+    "XHTML Atom title.link cannot substitute for a direct entry alternate link");
+  assert.equal(parseFeed(atom('<link rel="alternate" href="https://blog.google/ai/real-permalink"/>'),"google",now)[0]?.url,
+    "https://blog.google/ai/real-permalink");
+});
