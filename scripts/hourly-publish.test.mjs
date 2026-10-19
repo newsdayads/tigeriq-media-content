@@ -179,6 +179,27 @@ test("Atom entry must choose rel alternate article link and decode XML ampersand
    "Atom rel=self is a feed identifier, not an article; XML ampersands must be decoded");
 });
 
+test("RSS link tags quoted inside item CDATA cannot masquerade as article permalinks",()=>{
+ const head='<rss><item><title>Official AI evaluation and testing methodology</title>'+
+   '<pubDate>'+date+'</pubDate>';
+ const fake='<link>https://openai.com/news/phantom-link-from-cdata</link>';
+ const quoted='<description><![CDATA[Real publisher research notes include methods and a quoted XML example '+
+   fake+' which must never be treated as an actual RSS article permalink.]]></description>';
+ const onlyQuoted=parseFeed(head+quoted+'</item></rss>',"openai",now);
+ assert.equal(onlyQuoted.length,0,
+   "RSS entry with no actual link must not use a quoted <link> inside CDATA");
+ const real='<link>https://openai.com/news/verified-rss-permalink</link>';
+ const withReal=parseFeed(head+quoted+real+'</item></rss>',"openai",now);
+ assert.equal(withReal.length,1);
+ assert.equal(withReal[0].url,"https://openai.com/news/verified-rss-permalink",
+   "real permalink must outrank fake quoted CDATA link");
+ const realCdata='<link><![CDATA[https://openai.com/news/legitimate-cdata-link]]></link>';
+ const withCdataUrl=parseFeed(head+quoted+realCdata+'</item></rss>',"openai",now);
+ assert.equal(withCdataUrl.length,1);
+ assert.equal(withCdataUrl[0].url,"https://openai.com/news/legitimate-cdata-link",
+   "preserve legal CDATA text within a genuine RSS link element");
+});
+
 test("Atom links quoted inside CDATA cannot become article URLs",()=>{
  const start='<feed><entry><title>Official AI evaluation with detailed methods</title>'+
    '<updated>2026-10-17T23:00:00Z</updated>';
