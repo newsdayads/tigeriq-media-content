@@ -1410,3 +1410,41 @@ test("XML CDATA may exist inside an element, never before or after the official 
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before,
     "invalid outside-root CDATA must not change published content");
 }));
+
+
+test("raw ampersands and unknown entities cannot authenticate official XML feed sources",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  const good=rss.replace(data[0].url,data[0].url+"?a=1&amp;b=2");
+  const parsed=parseFeed(good,"openai",now);
+  assert.equal(parsed.length,1,"predefined XML amp entity remains allowed");
+  assert.equal(parsed[0].url,data[0].url+"?a=1&b=2",
+    "escaped ampersands in official article links decode correctly");
+  assert.equal(parseFeed(rss.replace(data[0].url,data[0].url+"?a=1&b=2"),"openai",now).length,0,
+    "raw ampersands make XML article permalinks malformed");
+  assert.equal(parseFeed(rss.replace("Official announcement","Official &unknown; announcement"),"openai",now).length,0,
+    "undeclared entity references make publisher XML malformed");
+  assert.equal(parseFeed(rss.replace("<item>","<item note='raw & bad'>"),"openai",now).length,0,
+    "raw ampersands in quoted XML attributes remain invalid");
+  assert.equal(parseFeed(rss.replace("<item>","<item note='valid &amp; quoted'>"),"openai",now).length,1,
+    "properly escaped attribute values remain valid");
+
+  const atom='<feed><entry><title>Official AI inference research findings and benchmarks</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research explains test setup, measured findings and limitations.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/valid?x=1&amp;y=2"/></entry></feed>';
+  assert.equal(parseFeed(atom,"google",now).length,1);
+  assert.equal(parseFeed(atom.replace("&amp;","&"),"google",now).length,0,
+    "Atom attribute links cannot use unescaped ampersands");
+
+  let aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(
+      item(data[1].url).replace("Official announcement","Official &unbound; announcement"),url);
+    aiCalls++;throw Error("AI_CALLED_ON_MALFORMED_XML_REFERENCE");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(aiCalls,0,"an invalid second publisher cannot unlock paid provider calls");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
