@@ -241,6 +241,39 @@ test("Atom links quoted inside CDATA cannot become article URLs",()=>{
    "CDATA fake link must not override the genuine Atom alternate permalink");
 });
 
+test("Nested XHTML link elements within Atom content cannot impersonate the entry permalink",()=>{
+ const start='<feed><entry><title>Official detailed AI research evaluation</title>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<summary>Official report details independent evaluation methods with measurable results and important limitations.</summary>';
+ const nested='<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">'+
+   '<p>Links in article body are not Atom entry-level provenance.</p>'+
+   '<link rel="alternate" type="text/html" href="https://blog.google/ai/phantom-nested-article"/>'+
+   '</div></content>';
+ const self='<link rel="self" href="https://blog.google/feed/entry/42"/>';
+ const noArticle=parseFeed(start+nested+self+'</entry></feed>',"google",now);
+ assert.equal(noArticle.length,0,
+   "a nested XHTML resource must never be promoted to an Atom article link");
+ const direct='<link rel="alternate" type="text/html" href="https://blog.google/ai/verified-article"/>';
+ const actual=parseFeed(start+nested+self+direct+'</entry></feed>',"google",now);
+ assert.equal(actual.length,1);
+ assert.equal(actual[0].url,"https://blog.google/ai/verified-article",
+   "entry-level permalink must outrank nested article-body links");
+});
+
+test("Nested XML link tags in RSS description cannot impersonate the article URL",()=>{
+ const start='<rss><item><title>Official engineering model evaluation</title>'+
+   '<pubDate>'+date+'</pubDate>';
+ const nested='<description><p>Full evaluation with reproducible methods and limitations.</p>'+
+   '<link>https://openai.com/news/phantom-description-link</link></description>';
+ assert.equal(parseFeed(start+nested+'</item></rss>',"openai",now).length,0,
+   "RSS description-body markup is not an article permalink");
+ const direct='<link>https://openai.com/news/real-evaluation</link>';
+ const valid=parseFeed(start+nested+direct+'</item></rss>',"openai",now);
+ assert.equal(valid.length,1);
+ assert.equal(valid[0].url,"https://openai.com/news/real-evaluation",
+   "entry-level RSS link must take precedence over nested description markup");
+});
+
 test("Atom enclosure and related links cannot impersonate official article evidence",()=>{
  const start='<feed><entry><title>Official AI evaluation reference</title>'+
    '<updated>2026-10-17T23:00:00Z</updated>'+
