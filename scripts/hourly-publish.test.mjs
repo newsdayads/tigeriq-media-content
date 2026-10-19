@@ -734,7 +734,9 @@ test("HTTP 200 HTML with a pasted RSS example is not a genuine readable official
 test("genuine RSS with BOM, XML declaration and leading comment still counts as a feed",()=>tmp(async root=>{
  const original=mockFetch();
  const bom=String.fromCharCode(0xfeff);
- const wrapped=bom+'  <?xml version="1.0" encoding="UTF-8"?>\n<!-- legal publisher preamble -->\n'+item(data[0].url);
+ const wrapped=bom+'<?xml version="1.0" encoding="UTF-8"?>\n<!-- legal publisher preamble -->\n'+item(data[0].url);
+ assert.deepEqual(parseFeed(bom+'  <?xml version="1.0"?>'+item(data[0].url),"openai",now),[],
+   "XML declaration after whitespace, even when a true BOM is present, is invalid");
  const fetchImpl=async (url,options)=>url===feeds[0].url?rssResponse(wrapped,url):original(url,options);
  const result=await publish({root,fetchImpl,env,now,feeds});
  assert.equal(result.status,"staged","normal XML preamble must not break official RSS");
