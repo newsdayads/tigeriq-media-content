@@ -1285,3 +1285,25 @@ test("XML whitespace after a markup opener must not become an official RSS or At
       "invalid whitespace around Atom entry openers cannot launder published evidence");
   }
 });
+
+
+test("quoted XML attribute values containing name-equals fragments remain valid official feeds",()=>{
+  const baseline=item(data[0].url);
+  const validRss=baseline.replace("<item>",'<item data-note="literal id=inside" id="real">');
+  assert.equal(parseFeed(baseline,"openai",now).length,1,"RSS baseline must be genuine");
+  assert.equal(parseFeed(validRss,"openai",now).length,1,
+    "attribute-name-looking bytes inside quoted RSS values must not be counted as attributes");
+  assert.deepEqual(parseFeed(baseline.replace("<item>",'<item id="one" id="two">'),"openai",now),[],
+    "genuinely duplicated RSS attributes must remain rejected");
+
+  const atom='<feed><entry><title>Real published AI systems research results</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official experiment reports verified results with detailed caveats and reproducibility.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/real-quoted-attributes"/></entry></feed>';
+  const validAtom=atom.replace("<entry>",'<entry data-note="literal ref=inside" ref="real">');
+  assert.equal(parseFeed(atom,"google",now).length,1,"Atom baseline must be genuine");
+  assert.equal(parseFeed(validAtom,"google",now).length,1,
+    "valid quoted Atom values cannot invent duplicate attributes");
+  assert.deepEqual(parseFeed(atom.replace("<entry>",'<entry ref="one" ref="two">'),"google",now),[],
+    "genuinely duplicated Atom attributes must remain rejected");
+});
