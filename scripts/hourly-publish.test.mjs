@@ -504,6 +504,21 @@ test("generated SVG terminates as valid XML, without escaped newline bytes after
  assert.doesNotMatch(svg, /<\/svg>\\n$/, "SVG must not contain a literal escaped newline after root");
 });
 
+test("SVG cover must never emit lone UTF-16 surrogate after title truncation",()=>{
+  const loneHigh="Untrusted news "+String.fromCharCode(0xd800)+" headline";
+  const loneLow="Untrusted news "+String.fromCharCode(0xdc00)+" headline";
+  const truncatedPair="A".repeat(69)+"\u{1F680} next";
+  for(const title of [loneHigh,loneLow,truncatedPair]){
+    const svg=coverSvg(title);
+    assert.doesNotMatch(svg,/[\uD800-\uDFFF]/u,
+      "an unpaired UTF-16 surrogate produces invalid XML and must not be written into an SVG cover");
+    assert.match(svg,/<\/svg>\n$/);
+  }
+  const fullyIncluded=coverSvg("A".repeat(68)+"\u{1F680}");
+  assert.match(fullyIncluded,/\u{1F680}/u,
+    "legitimate non-BMP Unicode characters should be retained when they fit");
+});
+
 test("isolated full workflow stages 3 languages and a rights-tagged cover",()=>tmp(async root=>{
  const result=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
  assert.equal(result.status,"staged");
