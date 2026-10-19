@@ -96,7 +96,7 @@ function xmlTagsAreBalanced(xml,onTag=null){
       // Real CDATA sections are consumed by the separate branch below.
       if(xml.slice(pos).includes("]]>"))return false;
       if(!xmlReferencesAreValid(xml.slice(pos)))return false;
-      if(stack.length===0&&/\S/.test(xml.slice(pos)))return false;
+      if(stack.length===0&&!/^[ \t\r\n]*$/.test(xml.slice(pos)))return false;
       break;
     }
     // Only ordinary character data is checked: comments, processing
@@ -104,7 +104,7 @@ function xmlTagsAreBalanced(xml,onTag=null){
     const textBefore=xml.slice(pos,lt);
     if(textBefore.includes("]]>"))return false;
     if(!xmlReferencesAreValid(textBefore))return false;
-    if(stack.length===0&&/\S/.test(textBefore))return false;
+    if(stack.length===0&&!/^[ \t\r\n]*$/.test(textBefore))return false;
     if(xml.startsWith("<!--",lt)){
       const end=xml.indexOf("-->",lt+4);
       // XML 1.0 forbids "--" inside comments, even when a later --> closes it.
@@ -155,7 +155,7 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // XML empty-element syntax requires '/>' with no whitespace in between.
     // trim() must not silently transform malformed '<tag/ >' into '<tag/>'.
     if(/\/\s+$/.test(rawTag))return false;
-    const tag=rawTag.trim();
+    const tag=rawTag.replace(/^[ \t\r\n]+|[ \t\r\n]+$/g,"");
     const closing=tag.startsWith("/");
     const selfClose=/\/\s*$/.test(tag);
     const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
@@ -166,14 +166,14 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // alone must not bless malformed publisher metadata as an official feed.
     if(!closing){
       const attrs=tag.slice(match[0].length).replace(/\/\s*$/,"");
-      if(!/^(?:\s+[A-Za-z_:][\w.:-]*\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(attrs)
+      if(!/^(?:[ \t\r\n]+[A-Za-z_:][\w.:-]*[ \t\r\n]*=[ \t\r\n]*(?:"[^"<]*"|'[^'<]*'))*[ \t\r\n]*$/.test(attrs)
         ||!xmlReferencesAreValid(attrs))return false;
       // Duplicate attribute names make XML not well-formed; silently taking
       // the first of multiple rel/href values could launder false provenance.
       // Consume each whole quoted attribute. Looking for name= fragments
       // across raw text would mistake an id= inside a quoted value for a
       // second XML attribute and reject otherwise valid publisher feeds.
-      const names=[...attrs.matchAll(/\s+([A-Za-z_:][\w.:-]*)\s*=\s*(?:"[^"<]*"|'[^'<]*')/g)]
+      const names=[...attrs.matchAll(/[ \t\r\n]+([A-Za-z_:][\w.:-]*)[ \t\r\n]*=[ \t\r\n]*(?:"[^"<]*"|'[^'<]*')/g)]
         .map(m=>m[1]);
       if(new Set(names).size!==names.length)return false;
     }
@@ -246,11 +246,12 @@ function maskNestedEntryMetadata(item){
 export function parseFeed(xml,source,now=new Date()){
   // Validate source XML before masking comments. Malformed publisher comments
   // must not disappear into whitespace and launder fabricated source entries.
-  if(!xmlTagsAreBalanced(String(xml)))return [];
+  const publisherXml=String(xml).replace(/^\uFEFF/,"");
+  if(!xmlTagsAreBalanced(publisherXml))return [];
   // Preserve offsets while masking inert comments and CDATA during boundary
   // detection. Slice genuine entries from comment-masked XML to keep CDATA
   // text intact without placeholder collisions with publisher-provided text.
-  const contentXml=String(xml).replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g,
+  const contentXml=publisherXml.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g,
     token=>token.startsWith("<!--")?" ".repeat(token.length):token);
   const boundaryXml=contentXml.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
     token=>" ".repeat(token.length));
@@ -621,8 +622,8 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         // feed. Match the document root after only the XML declaration and
         // leading comments; deliberately do not search within arbitrary text.
         const root=xml.replace(/^\uFEFF/,"")
-          .replace(/^\s*<\?xml\b[^?]*\?>/i,"")
-          .replace(/^\s*(?:<!--[\s\S]*?-->\s*)*/,"");
+          .replace(/^[ \t\r\n]*<\?xml\b[^?]*\?>/i,"")
+          .replace(/^[ \t\r\n]*(?:<!--[\s\S]*?-->[ \t\r\n]*)*/,"");
         // The opening tag alone is not a complete feed: a truncated HTTP 200
         // response would otherwise count toward the healthy publisher quorum.
         // Strip inert CDATA/comments before checking the matching root end.
