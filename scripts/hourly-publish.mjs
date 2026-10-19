@@ -130,9 +130,12 @@ function xmlTagsAreBalanced(xml,onTag=null){
       const target=instruction.match(/^([A-Za-z_][\w.:-]*)(?=\s|$)/)?.[1];
       if(!target)return false;
       if(/^xml$/i.test(target)){
+        // The XML declaration must be the FIRST construct in a document,
+        // and its optional encoding/standalone pseudo-attributes must
+        // occur at most once, in the order required by XML 1.0 [23].
         const firstPrologDeclaration=target==="xml"&&rootCount===0&&
-          stack.length===0&&xml.slice(0,lt).replace(/^\uFEFF/,"").trim()==="";
-        const validDeclaration=/^xml\s+version\s*=\s*(?:"1\.0"|'1\.0')(?:\s+(?:encoding|standalone)\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(instruction);
+          stack.length===0&&lt===0;
+        const validDeclaration=/^xml[ \t\r\n]+version[ \t\r\n]*=[ \t\r\n]*(?:"1\.0"|'1\.0')(?:[ \t\r\n]+encoding[ \t\r\n]*=[ \t\r\n]*(?:"[A-Za-z][A-Za-z0-9._-]*"|'[A-Za-z][A-Za-z0-9._-]*'))?(?:[ \t\r\n]+standalone[ \t\r\n]*=[ \t\r\n]*(?:"(?:yes|no)"|'(?:yes|no)'))?[ \t\r\n]*$/.test(instruction);
         if(!firstPrologDeclaration||!validDeclaration)return false;
       }
       pos=end+2;continue;
