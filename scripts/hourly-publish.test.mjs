@@ -622,8 +622,8 @@ test("RSS with declared excessive body length is rejected before buffering any b
     if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
     modelCalls++;throw Error("MODEL_MUST_NOT_BE_CALLED");
   };
-  const result=await publish({root,fetchImpl:intercepted,env,now,feeds});
-  assert.equal(result.status,"noop");
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:intercepted,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
   assert.equal(bodyReads,0,"an oversized RSS body must not be read into memory even if the returned text is small");
   assert.equal(modelCalls,0);
   assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,0);
@@ -645,8 +645,8 @@ test("chunked RSS larger than 2 MB is cancelled without consuming the whole stre
     if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
     modelCalls++;throw Error("MODEL_MUST_NOT_BE_CALLED");
   };
-  const result=await publish({root,fetchImpl:intercepted,env,now,feeds});
-  assert.equal(result.status,"noop");
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:intercepted,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
   assert.equal(cancelled,true,"oversized chunked RSS must be cancelled rather than fully buffered");
   assert.ok(pulls<6,"do not consume all possible chunks after crossing the byte budget");
   assert.equal(modelCalls,0);
@@ -664,8 +664,9 @@ test("RSS redirect to unauthorized host cannot impersonate official feed evidenc
    if(url===feeds[0].url)return rssResponse(item(data[0].url),"https://untrusted-news.example/rss");
    return baseFetch(url,options);
  };
- const result=await publish({root,fetchImpl:divertedFetch,env,now,feeds});
- assert.equal(result.status,"noop","off-domain RSS redirect must not count as official publisher evidence");
+ await assert.rejects(
+   ()=>publish({root,fetchImpl:divertedFetch,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/,
+   "off-domain RSS redirect must not count as official publisher evidence");
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
  assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));
@@ -680,8 +681,8 @@ test("RSS fetch refuses a disallowed initial host before any network request",()
     if(url===forged.url)throw Error("PRIVATE_HOST_WAS_REQUESTED");
     return baseFetch(url,options);
   };
-  const result=await publish({root,fetchImpl:guardedFetch,env,now,feeds:[forged,otherFeed]});
-  assert.equal(result.status,"noop");
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:guardedFetch,env,now,feeds:[forged,otherFeed]}),/FEED_QUORUM_UNAVAILABLE/);
   assert.deepEqual(attempted,[otherFeed.url],"unapproved host must not even receive a request");
 }));
 
@@ -694,8 +695,8 @@ test("RSS HTTP redirect never auto-follows an unapproved host",()=>tmp(async roo
       headers:{location:"http://127.0.0.1:8795/private"}});
     return baseFetch(url,options);
   };
-  const result=await publish({root,fetchImpl:guardedFetch,env,now,feeds});
-  assert.equal(result.status,"noop");
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:guardedFetch,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
   assert.deepEqual(calls.map(c=>c.url),[feeds[0].url,feeds[1].url]);
   assert.ok(calls.every(c=>c.redirect==="manual"),
     "native fetch must never follow a redirect before the allowlist gate");
