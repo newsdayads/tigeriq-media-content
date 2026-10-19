@@ -1525,3 +1525,41 @@ test("literal XML 1.0 forbidden characters must invalidate complete RSS and Atom
   assert.equal(aiCalls,0,"malformed publisher XML never unlocks provider invocation");
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+
+test("CDATA close token in ordinary XML text cannot authenticate official publisher feeds",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  const atom='<feed><entry><title>Official AI research with reproducible evidence</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research provides measured evidence, methods and detailed limitations.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/cdata-terminator-validation"/></entry></feed>';
+  assert.equal(parseFeed(rss,"openai",now).length,1,"valid RSS baseline");
+  assert.equal(parseFeed(atom,"google",now).length,1,"valid Atom baseline");
+  for(const invalid of [
+    rss.replace("Official announcement","Official ]]> announcement"),
+    rss.replace("Two-source inference","Two-source ]]> inference"),
+    rss.replace("</title><link>","</title>]]><link>"),
+    rss.replace("<item>","<item>]]>"),
+    atom.replace("measured evidence","measured ]]> evidence")
+  ]){
+    assert.deepEqual(parseFeed(invalid,invalid.startsWith("<feed>")?"google":"openai",now),[],
+      "the CDATA closing sequence is forbidden outside real CDATA");
+  }
+  assert.equal(parseFeed(rss.replace("Official announcement","Official ]]&gt; announcement"),"openai",now).length,1,
+    "escaped greater-than in ordinary XML text is legal");
+  assert.equal(parseFeed(rss.replace("<item>","<item><!-- genuine comment ]]> remains legal -->"),"openai",now).length,1,
+    "the same sequence inside an XML comment is not character data");
+  assert.equal(parseFeed(rss.replace("Official announcement","<![CDATA[Official ]]]]><![CDATA[> announcement]]>"),"openai",now).length,1,
+    "adjacent well-formed CDATA sections must remain valid");
+
+  let aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(atom.replace("measured evidence","measured ]]> evidence"),url);
+    aiCalls++;throw Error("AI_CALLED_WITH_UNTRUSTED_XML_CDATA_CLOSE_TOKEN");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(aiCalls,0,"malformed feed cannot unlock a provider call");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));

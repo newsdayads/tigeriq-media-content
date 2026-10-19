@@ -70,6 +70,9 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // XML may contain only whitespace, comments and processing instructions
     // outside the document root. A balanced root alone is not enough.
     if(lt<0){
+      // XML 1.0 prohibits the CDATA closer in ordinary character data.
+      // Real CDATA sections are consumed by the separate branch below.
+      if(xml.slice(pos).includes("]]>"))return false;
       if(!xmlReferencesAreValid(xml.slice(pos)))return false;
       if(stack.length===0&&/\S/.test(xml.slice(pos)))return false;
       break;
@@ -77,6 +80,7 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // Only ordinary character data is checked: comments, processing
     // instructions and CDATA sections are handled separately below.
     const textBefore=xml.slice(pos,lt);
+    if(textBefore.includes("]]>"))return false;
     if(!xmlReferencesAreValid(textBefore))return false;
     if(stack.length===0&&/\S/.test(textBefore))return false;
     if(xml.startsWith("<!--",lt)){
