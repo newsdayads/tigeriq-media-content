@@ -53,7 +53,13 @@ export function parseFeed(xml,source,now=new Date()){
     // Atom can list a rel="self" feed identifier before the article's rel="alternate".
     // An Atom permalink is metadata, never markup quoted in article CDATA.
     // Equal-length masking leaves the real link tags outside CDATA intact.
-    const atomLinks=[...atomMetadataXml.matchAll(/<link\b[^>]*>/gi)]
+    // Links embedded inside entry body/summary are editorial content, not
+    // publisher-asserted entry-level permalinks (even if they are valid XHTML).
+    // Mask the full text-bearing elements only for permalink discovery.
+    const linkMetadataXml=atomMetadataXml.replace(
+      /<(description|summary|content(?::encoded)?)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi,
+      token=>" ".repeat(token.length));
+    const atomLinks=[...linkMetadataXml.matchAll(/<link\b[^>]*>/gi)]
       .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
       .filter(l=>l.href);
     // Atom defaults missing rel to "alternate". Other relations (enclosure,
@@ -69,7 +75,7 @@ export function parseFeed(xml,source,now=new Date()){
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLink=getTag(item,"link",atomMetadataXml);
+    const rssLink=getTag(item,"link",linkMetadataXml);
     const link=(rssLink||atom).replace(/&amp;/gi,"&");
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
