@@ -59,7 +59,14 @@ export function parseFeed(xml,source,now=new Date()){
     });
     const atom=(atomArticleLinks.find(l=>/\brel\s*=\s*(["'])alternate\1/i.test(l.tag))||
       atomArticleLinks.find(l=>!/\brel\s*=/i.test(l.tag)))?.href||"";
-    const link=(getTag(item,"link")||atom).replace(/&amp;/gi,"&");
+    // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
+    // Match against masked metadata but extract from original offsets so valid
+    // <link><![CDATA[https://...]]></link> content is preserved.
+    const rssLinkMatch=atomMetadataXml.match(/<link(?:\\s[^>]*)?>([\\s\\S]*?)<\\/link>/i);
+    const rssLink=rssLinkMatch
+      ? getTag(item.slice(rssLinkMatch.index,rssLinkMatch.index+rssLinkMatch[0].length),"link")
+      : "";
+    const link=(rssLink||atom).replace(/&amp;/gi,"&");
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
       !officialPublisherLink(source,u.hostname.toLowerCase()))return [];
