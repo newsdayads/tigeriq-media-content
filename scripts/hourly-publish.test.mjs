@@ -1307,3 +1307,31 @@ test("quoted XML attribute values containing name-equals fragments remain valid 
   assert.deepEqual(parseFeed(atom.replace("<entry>",'<entry ref="one" ref="two">'),"google",now),[],
     "genuinely duplicated Atom attributes must remain rejected");
 });
+
+
+test("malformed XML comments with internal double hyphen cannot authenticate publisher feeds",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  const validRss=rss.replace("<item>","<!-- legitimate source-side note --><item>");
+  const badRss=rss.replace("<item>","<!-- broken -- comment body --><item>");
+  assert.equal(parseFeed(validRss,"openai",now).length,1,
+    "well-formed source comments remain compatible");
+  assert.deepEqual(parseFeed(badRss,"openai",now),[],
+    "an XML comment containing forbidden internal double hyphens invalidates its publisher feed");
+  const atom='<feed><entry><title>Official research with measured model evaluation results</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research documents reproducible methods, limitations and technical results.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/verified-report"/></entry></feed>';
+  assert.equal(parseFeed(atom.replace("<entry>","<!-- real comment --><entry>"),"google",now).length,1);
+  assert.deepEqual(parseFeed(atom.replace("<entry>","<!-- invalid -- comment --><entry>"),"google",now),[],
+    "malformed Atom source comments cannot be ignored to fabricate independent evidence");
+  let modelCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(badRss.replace(data[0].url,data[1].url),url);
+    modelCalls++;throw Error("MODEL_CALLED_WITH_MALFORMED_OFFICIAL_FEED");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(modelCalls,0,"a malformed comment can never unlock a metered AI call");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
