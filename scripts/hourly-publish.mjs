@@ -25,7 +25,26 @@ const LANGS=["vi","en","es"];
 const clean=s=>String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
   .replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<")
   .replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
-const getTag=(item,t,masked=item)=>{
+// A source permalink must be decoded as XML exactly once. CDATA contents
+// are already literal text; decoding &#38; inside CDATA or &amp;#38; twice
+// would change the query, source identity and later publisher citation.
+const XML_LINK_ENTITIES={amp:"&",lt:"<",gt:">",quot:'"',apos:"'"};
+function decodeXmlLinkReference(entity){
+  const name=entity.slice(1,-1);
+  if(name[0]!=="#")return XML_LINK_ENTITIES[name]??entity;
+  const cp=name.startsWith("#x")?Number.parseInt(name.slice(2),16):
+    Number.parseInt(name.slice(1),10);
+  if(!xml10CharAllowed(cp))throw Error("XML_LINK_REFERENCE_INVALID");
+  return String.fromCodePoint(cp);
+}
+const xmlLinkReferencePattern=/&(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));/g;
+const decodeXmlLink=s=>String(s).replace(xmlLinkReferencePattern,decodeXmlLinkReference);
+const cleanXmlLink=s=>String(s||"").replace(
+  /<!\[CDATA\[([\s\S]*?)\]\]>|<[^>]+>|&(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));/g,
+  (part,cdata)=>cdata!==undefined?cdata:part.startsWith("<")?" ":decodeXmlLinkReference(part)
+).replace(/\s+/g," ").trim();
+
+const getTag=(item,t,masked=item,cleanup=clean)=>{
   // Read the entire opening tag, including quoted attribute values that may
   // legally contain '>'. The first raw '>' is not necessarily the tag end.
   const match=masked.match(new RegExp(
@@ -34,7 +53,7 @@ const getTag=(item,t,masked=item)=>{
   // The mask and original entry have identical offsets, preserving real
   // CDATA while preventing tag-like text in quoted attributes from leaking.
   const start=match.index+match[1].length;
-  return clean(item.slice(start,start+match[2].length));
+  return cleanup(item.slice(start,start+match[2].length));
 };
 
 // No DTDs are accepted. XML character data and attributes may contain only
@@ -317,8 +336,8 @@ export function parseFeed(xml,source,now=new Date()){
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLink=getTag(item,"link",entryMetadataXml);
-    const link=(rssLink||atom).replace(/&amp;/gi,"&");
+    const rssLink=getTag(item,"link",entryMetadataXml,cleanXmlLink);
+    const link=rssLink||decodeXmlLink(atom);
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
       !officialPublisherLink(source,u.hostname.toLowerCase()))return [];
