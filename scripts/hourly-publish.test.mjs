@@ -1563,3 +1563,37 @@ test("CDATA close token in ordinary XML text cannot authenticate official publis
   assert.equal(aiCalls,0,"malformed feed cannot unlock a provider call");
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+
+test("Reserved or malformed XML processing instructions cannot count as official publisher feeds",()=>tmp(async root=>{
+ const actual=item(data[0].url);
+ const illegal=[
+  ["reserved XML declaration inside RSS root",'<?xml version="1.0"?>'],
+  ["mixed-case reserved XML PI inside RSS root",'<?XML version="1.0"?>'],
+  ["empty XML PI target",'<??>'],
+  ["whitespace before XML PI target",'<? bogus?>'],
+  ["invalid character in XML PI target",'<?bad@target?>']
+ ];
+ for(const [name,pi] of illegal){
+   const forged=actual.replace("<rss>","<rss>"+pi);
+   assert.equal(parseFeed(forged,"openai",now).length,0,name);
+ }
+ const validProlog='<?xml version="1.0" encoding="UTF-8"?>'+actual;
+ assert.equal(parseFeed(validProlog,"openai",now).length,1,
+   "genuine first-position XML declaration must remain supported");
+ const validStylesheet='<?xml-stylesheet type="text/xsl" href="style.xsl"?>'+actual;
+ assert.equal(parseFeed(validStylesheet,"openai",now).length,1,
+   "legal non-reserved processing instruction must remain supported");
+ const bogus=actual.replace("<rss>",'<rss><?xml version="1.0"?>');
+ const original=await fs.readFile(join(root,"content.json"),"utf8");
+ let aiCalls=0;
+ const fetchImpl=async url=>{
+   if(url===feeds[0].url)return rssResponse(bogus,url);
+   if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
+   aiCalls++;throw Error("AI_MUST_NOT_RUN");
+ };
+ await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/,
+   "malformed feed plus one valid feed must not satisfy publisher quorum");
+ assert.equal(aiCalls,0,"do not invoke any provider on malformed source quorum");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+}));
