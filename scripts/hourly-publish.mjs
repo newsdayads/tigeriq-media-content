@@ -34,6 +34,52 @@ const getTag=(item,t,masked=item)=>{
   return clean(item.slice(start,start+match[1].length));
 };
 
+// Reject incomplete or misnested XML, not just missing </rss> or </feed>.
+// Treat all markup as data; never fetch external XML entities or parse DTDs.
+function xmlTagsAreBalanced(xml){
+  const stack=[];
+  for(let pos=0;pos<xml.length;){
+    const lt=xml.indexOf("<",pos);
+    if(lt<0)break;
+    if(xml.startsWith("<!--",lt)){
+      const end=xml.indexOf("-->",lt+4);
+      if(end<0)return false;
+      pos=end+3;continue;
+    }
+    if(xml.startsWith("<![CDATA[",lt)){
+      const end=xml.indexOf("]]>",lt+9);
+      if(end<0)return false;
+      pos=end+3;continue;
+    }
+    if(xml.startsWith("<?",lt)){
+      const end=xml.indexOf("?>",lt+2);
+      if(end<0)return false;
+      pos=end+2;continue;
+    }
+    if(xml.startsWith("<!",lt))return false;
+    let end=-1,quote="";
+    for(let i=lt+1;i<xml.length;i++){
+      const char=xml[i];
+      if(char==="<")return false;
+      if(quote){
+        if(char===quote)quote="";
+      }else if(char==='"'||char==="'")quote=char;
+      else if(char===">"){end=i;break;}
+    }
+    if(end<0||quote)return false;
+    const tag=xml.slice(lt+1,end).trim();
+    const closing=tag.startsWith("/");
+    const selfClose=/\/\s*$/.test(tag);
+    const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
+    if(!match||(closing&&selfClose))return false;
+    if(closing){
+      if(stack.pop()!==match[1])return false;
+    }else if(!selfClose)stack.push(match[1]);
+    pos=end+1;
+  }
+  return stack.length===0;
+}
+
 export function parseFeed(xml,source,now=new Date()){
   // Preserve offsets while masking inert comments and CDATA during boundary
   // detection. Slice genuine entries from comment-masked XML to keep CDATA
@@ -368,7 +414,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         const structuralXml=root.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g," ");
         const completeRoot=rootName &&
           new RegExp("</"+rootName+"\\s*>\\s*(?:<\\?[^?]*\\?>\\s*)*$","i").test(structuralXml);
-        if(!completeRoot){
+        if(!completeRoot||!xmlTagsAreBalanced(root)){
           console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
         items.push(...parseFeed(xml,feed.id,now));
