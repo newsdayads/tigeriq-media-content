@@ -97,7 +97,7 @@ export function parseFeed(xml,source,now=new Date()){
     // own metadata may supply titles, timestamps or article permalinks.
     // Preserve equal-length offsets and read genuine CDATA payloads from item.
     const entryMetadataXml=atomMetadataXml.replace(
-      /<(description|summary|content(?::encoded)?)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi,
+      /<(description|summary|content(?::encoded)?|source)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi,
       token=>" ".repeat(token.length));
     const title=getTag(item,"title",entryMetadataXml);
     const summary=(getTag(item,"description",atomMetadataXml)||getTag(item,"summary",atomMetadataXml)||getTag(item,"content",atomMetadataXml)||getTag(item,"content:encoded",atomMetadataXml)).slice(0,1200);
