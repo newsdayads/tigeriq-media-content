@@ -270,11 +270,11 @@ export function parseFeed(xml,source,now=new Date()){
       (ancestors.length===2&&ancestors[0]==="rss"&&ancestors[1]==="channel"));
     const atomDirect=name==="entry"&&ancestors.length===1&&ancestors[0]==="feed";
     if(!tag.closing&&!tag.selfClose&&(rssDirect||atomDirect)){
-      opened.set(tag.depth+1,{start:tag.start,name});
+      opened.set(tag.depth+1,{start:tag.start,name,format:rssDirect?"rss":"atom"});
     }else if(tag.closing){
       const candidate=opened.get(tag.depth);
       if(candidate&&candidate.name===name){
-        entries.push({index:candidate.start,length:tag.end-candidate.start});
+        entries.push({index:candidate.start,length:tag.end-candidate.start,format:candidate.format});
         opened.delete(tag.depth);
       }
     }
@@ -336,8 +336,8 @@ export function parseFeed(xml,source,now=new Date()){
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLink=getTag(item,"link",entryMetadataXml,cleanXmlLink);
-    const link=rssLink||decodeXmlLink(atom);
+    const rssLink=match.format==="rss"?getTag(item,"link",entryMetadataXml,cleanXmlLink):"";
+    const link=match.format==="rss"?rssLink:decodeXmlLink(atom);
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
       !officialPublisherLink(source,u.hostname.toLowerCase()))return [];
