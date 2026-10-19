@@ -34,6 +34,13 @@ const getTag=(item,t,masked=item)=>{
   return clean(item.slice(start,start+match[1].length));
 };
 
+// No DTDs are accepted. XML character data and attributes may contain only
+// five predefined named entities and numeric character references; a literal
+// ampersand or undeclared HTML entity makes the official feed ill-formed.
+function xmlReferencesAreValid(text){
+  return !/&(?!(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));)/.test(text);
+}
+
 // Reject incomplete or misnested XML, not just missing </rss> or </feed>.
 // Treat all markup as data; never fetch external XML entities or parse DTDs.
 function xmlTagsAreBalanced(xml,onTag=null){
@@ -44,10 +51,15 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // XML may contain only whitespace, comments and processing instructions
     // outside the document root. A balanced root alone is not enough.
     if(lt<0){
+      if(!xmlReferencesAreValid(xml.slice(pos)))return false;
       if(stack.length===0&&/\S/.test(xml.slice(pos)))return false;
       break;
     }
-    if(stack.length===0&&/\S/.test(xml.slice(pos,lt)))return false;
+    // Only ordinary character data is checked: comments, processing
+    // instructions and CDATA sections are handled separately below.
+    const textBefore=xml.slice(pos,lt);
+    if(!xmlReferencesAreValid(textBefore))return false;
+    if(stack.length===0&&/\S/.test(textBefore))return false;
     if(xml.startsWith("<!--",lt)){
       const end=xml.indexOf("-->",lt+4);
       // XML 1.0 forbids "--" inside comments, even when a later --> closes it.
@@ -96,7 +108,8 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // alone must not bless malformed publisher metadata as an official feed.
     if(!closing){
       const attrs=tag.slice(match[0].length).replace(/\/\s*$/,"");
-      if(!/^(?:\s+[A-Za-z_:][\w.:-]*\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(attrs))return false;
+      if(!/^(?:\s+[A-Za-z_:][\w.:-]*\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(attrs)
+        ||!xmlReferencesAreValid(attrs))return false;
       // Duplicate attribute names make XML not well-formed; silently taking
       // the first of multiple rel/href values could launder false provenance.
       // Consume each whole quoted attribute. Looking for name= fragments
