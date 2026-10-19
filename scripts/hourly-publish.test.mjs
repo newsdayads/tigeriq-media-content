@@ -1639,3 +1639,41 @@ test("Atom link identity must come from real href/rel attributes, not quoted met
  assert.equal(aiCalls,0,"AI provider must not be called for forged source");
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
 }));
+
+
+test("Atom attributes are XML-case-sensitive and uppercase shadow attributes cannot spoof provenance",()=>tmp(async root=>{
+ const article="https://blog.google/ai/official-technical-review";
+ const atom=attrs=>'<feed><entry>'+
+   '<title>Official technical review of reproducible AI methodology</title>'+
+   '<summary>The official research report summarizes independent evaluations, methodology and important known limitations.</summary>'+
+   '<updated>2026-10-17T23:00:00Z</updated>'+
+   '<link '+attrs+'/></entry></feed>';
+ const bad=[
+  ["uppercase REL overrides true rel=enclosure",
+   'rel="enclosure" REL="alternate" href="'+article+'"'],
+  ["uppercase HREF shadows true off-origin href",
+   'rel="alternate" href="https://untrusted.example/forged" HREF="'+article+'"'],
+  ["uppercase HREF alone is not Atom href",
+   'rel="alternate" HREF="'+article+'"'],
+  ["mixed-case HrEf alone is not Atom href",
+   'rel="alternate" HrEf="'+article+'"'],
+ ];
+ for(const [reason,attrs] of bad){
+   assert.equal(parseFeed(atom(attrs),"google",now).length,0,reason);
+ }
+ const good=parseFeed(atom('rel="alternate" href="'+article+'"'),"google",now);
+ assert.equal(good.length,1,"the exact lower-case official Atom attributes must remain valid");
+ assert.equal(good[0].url,article);
+ const actualFallback=parseFeed(atom('REL="alternate" href="'+article+'"'),"google",now);
+ assert.equal(actualFallback.length,1,"without a lowercase rel, Atom defaults to alternate");
+ const original=await fs.readFile(join(root,"content.json"),"utf8");
+ let aiCalls=0;
+ const fetchImpl=async url=>{
+   if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+   if(url===feeds[1].url)return rssResponse(atom(bad[0][1]),url);
+   aiCalls++;throw Error("AI_MUST_NOT_RUN");
+ };
+ assert.deepEqual(await publish({root,fetchImpl,env,now,feeds}),{status:"noop"});
+ assert.equal(aiCalls,0,"uppercase shadow attributes cannot unlock AI generation");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+}));
