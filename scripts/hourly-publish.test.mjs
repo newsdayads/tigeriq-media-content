@@ -1260,3 +1260,28 @@ test("duplicate XML attribute names must not become publisher evidence",()=>{
   assert.deepEqual(parseFeed(malformedAtom,"google",now),[],
     "duplicate Atom link relations are not well-formed publisher evidence");
 });
+
+
+test("XML whitespace after a markup opener must not become an official RSS or Atom article",()=>{
+  const rss=item(data[0].url);
+  assert.equal(parseFeed(rss,"openai",now).length,1,"valid RSS still accepted");
+  for(const broken of [
+    rss.replace("<item>","< item>"),
+    rss.replace("</item>","</ item>")
+  ]){
+    assert.deepEqual(parseFeed(broken,"openai",now),[],
+      "whitespace between < or </ and an XML tag name makes the document malformed");
+  }
+  const atom='<feed><entry><title>Real official AI research with methods and limitations</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research release describes empirical evaluation and reproducible methodology.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/real-entry"/></entry></feed>';
+  assert.equal(parseFeed(atom,"google",now).length,1,"valid Atom still accepted");
+  for(const broken of [
+    atom.replace("<entry>","< entry>"),
+    atom.replace("</entry>","</ entry>")
+  ]){
+    assert.deepEqual(parseFeed(broken,"google",now),[],
+      "invalid whitespace around Atom entry openers cannot launder published evidence");
+  }
+});
