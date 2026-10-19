@@ -355,7 +355,13 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         }
         const xml=await readBoundedHttpText(r,2000000,"FEED_RESPONSE_TOO_LARGE");
         // HTTP 200 with an error/login HTML body is not an official feed.
-        if(!/<(?:rss|feed|rdf:RDF)(?:\s|>)/i.test(xml)){
+        // A nested RSS sample inside an HTML error page is NOT an official
+        // feed. Match the document root after only the XML declaration and
+        // leading comments; deliberately do not search within arbitrary text.
+        const root=xml.replace(/^\uFEFF/,"")
+          .replace(/^\s*<\?xml\b[^?]*\?>/i,"")
+          .replace(/^\s*(?:<!--[\s\S]*?-->\s*)*/,"");
+        if(!/^<(?:rss|feed|rdf:RDF)(?:\s|>)/i.test(root)){
           console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
         items.push(...parseFeed(xml,feed.id,now));
