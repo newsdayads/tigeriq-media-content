@@ -50,7 +50,8 @@ function xmlTagsAreBalanced(xml,onTag=null){
     if(stack.length===0&&/\S/.test(xml.slice(pos,lt)))return false;
     if(xml.startsWith("<!--",lt)){
       const end=xml.indexOf("-->",lt+4);
-      if(end<0)return false;
+      // XML 1.0 forbids "--" inside comments, even when a later --> closes it.
+      if(end<0||xml.slice(lt+4,end).includes("--"))return false;
       pos=end+3;continue;
     }
     if(xml.startsWith("<![CDATA[",lt)){
@@ -166,6 +167,9 @@ function maskNestedEntryMetadata(item){
 }
 
 export function parseFeed(xml,source,now=new Date()){
+  // Validate source XML before masking comments. Malformed publisher comments
+  // must not disappear into whitespace and launder fabricated source entries.
+  if(!xmlTagsAreBalanced(String(xml)))return [];
   // Preserve offsets while masking inert comments and CDATA during boundary
   // detection. Slice genuine entries from comment-masked XML to keep CDATA
   // text intact without placeholder collisions with publisher-provided text.
