@@ -51,6 +51,32 @@ async function tmp(cb,store={articles:[]}){
  try{return await cb(root);}finally{await fs.rm(root,{recursive:true,force:true});}
 }
 
+test("Nested RSS and Atom body fields cannot spoof entry titles or freshness",()=>{
+ const officialTitle="Actual official AI research publication with tested methodology";
+ const nestedRss='<description><p>Publisher evidence with reproducible testing, observations and limitations. '+
+   '<title>Fabricated source announcement</title><pubDate>'+date+'</pubDate></p></description>';
+ const rss=timestamp=>'<rss><item>'+nestedRss+
+   '<title>'+officialTitle+'</title><link>https://openai.com/news/authentic-research</link>'+
+   '<pubDate>'+timestamp+'</pubDate></item></rss>';
+ assert.equal(parseFeed(rss("Fri, 09 Oct 2026 23:00:00 GMT"),"openai",now).length,0,
+   "nested RSS description date cannot renew a stale official article");
+ const fresh=parseFeed(rss(date),"openai",now);
+ assert.equal(fresh.length,1);
+ assert.equal(fresh[0].title,officialTitle,
+   "nested description title cannot override the direct RSS item title");
+ const nestedAtom='<content type="xhtml"><div><h2>Publisher findings and documented limitations</h2>'+
+   '<title>Fabricated Atom announcement</title><updated>2026-10-17T23:00:00Z</updated></div></content>';
+ const atom=timestamp=>'<feed><entry>'+nestedAtom+
+   '<title>'+officialTitle+'</title><updated>'+timestamp+'</updated>'+
+   '<link rel="alternate" href="https://blog.google/ai/authentic-research"/></entry></feed>';
+ assert.equal(parseFeed(atom("2026-10-09T23:00:00Z"),"google",now).length,0,
+   "nested Atom XHTML updated cannot renew a stale official article");
+ const freshAtom=parseFeed(atom("2026-10-17T23:00:00Z"),"google",now);
+ assert.equal(freshAtom.length,1);
+ assert.equal(freshAtom[0].title,officialTitle,
+   "nested Atom body title cannot override the entry's publisher metadata");
+});
+
 test("RSS metadata fields inside quoted CDATA must never spoof title or freshness",()=>{
  const officialTitle="Actual official publication with reproducible AI evaluation findings";
  const summary='<description><![CDATA[Official paper reports reproducible testing methods and relevant caveats. '+
