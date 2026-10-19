@@ -81,6 +81,34 @@ function xmlTagsAreBalanced(xml,onTag=null){
   return stack.length===0;
 }
 
+// The entry's foreign extension metadata is NOT the publisher's own title,
+// date, summary, or article permalink. Preserve the exact offsets while
+// blanking direct-child foreign subtrees; legal CDATA within owned fields
+// remains intact for extraction from the original XML.
+function maskForeignEntryMetadata(item){
+  const inertCdata=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    token=>" ".repeat(token.length));
+  const owned=new Set(["title","link","pubdate","published","updated",
+    "description","summary","content","content:encoded"]);
+  const ranges=[];
+  let foreignStart=null;
+  if(!xmlTagsAreBalanced(inertCdata,tag=>{
+    const name=tag.name.toLowerCase();
+    if(!tag.closing&&tag.depth===1&&!owned.has(name)){
+      if(tag.selfClose)ranges.push([tag.start,tag.end]);
+      else foreignStart=tag.start;
+    }else if(tag.closing&&tag.depth===2&&foreignStart!==null){
+      ranges.push([foreignStart,tag.end]);
+      foreignStart=null;
+    }
+  })||foreignStart!==null)return null;
+  let masked=item;
+  for(const [start,end] of ranges.reverse()){
+    masked=masked.slice(0,start)+" ".repeat(end-start)+masked.slice(end);
+  }
+  return masked;
+}
+
 export function parseFeed(xml,source,now=new Date()){
   // Preserve offsets while masking inert comments and CDATA during boundary
   // detection. Slice genuine entries from comment-masked XML to keep CDATA
@@ -116,7 +144,9 @@ export function parseFeed(xml,source,now=new Date()){
   }))return [];
   return entries.flatMap((match,index)=>{
     const item=contentXml.slice(match.index,match.index+match.length);
-    const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    const directMetadata=maskForeignEntryMetadata(item);
+    if(directMetadata===null)return [];
+    const atomMetadataXml=directMetadata.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
       token=>" ".repeat(token.length));
     // Text-bearing fields can contain nested XML/XHTML tags. Only the entry's
     // own metadata may supply titles, timestamps or article permalinks.
