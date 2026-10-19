@@ -338,7 +338,13 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
           }
           continue;
         }
-        if(!r.ok)break;
+        if(!r.ok){
+          // Degraded-but-usable source quorum must still surface a warning in
+          // GitHub Actions, not silently masquerade as a fully healthy NOOP.
+          const sourceId=String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32);
+          console.warn("::warning title=Official feed HTTP::FEED_HTTP_UNAVAILABLE "+sourceId+" "+r.status);
+          break;
+        }
         let resolvedFeed;
         try{resolvedFeed=new URL(r.url);}catch{
           console.warn("FEED_ORIGIN_UNVERIFIED "+feed.id);break;
