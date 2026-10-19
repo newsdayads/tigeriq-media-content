@@ -276,19 +276,39 @@ export function parseFeed(xml,source,now=new Date()){
     const stamp=Date.parse(getTag(item,"pubDate",entryMetadataXml)||getTag(item,"published",entryMetadataXml)||getTag(item,"updated",entryMetadataXml));
     // Atom can list a rel="self" feed identifier before the article's rel="alternate".
     // URL links in text-bearing fields are not publisher entry permalinks.
-    const atomLinks=[...entryMetadataXml.matchAll(/<link\b[^>]*>/gi)]
-      .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
-      .filter(l=>l.href);
+    const atomLinks=[];
+    // Walk structurally verified direct child elements and parse attribute
+    // boundaries sequentially. Regex searches across an entire <link> tag
+    // can confuse title="rel='alternate'" or data-href= with real rel/href,
+    // falsely treating non-article or missing URLs as official provenance.
+    if(!xmlTagsAreBalanced(entryMetadataXml,tag=>{
+      if(tag.closing||tag.depth!==1||tag.name.toLowerCase()!=="link")return;
+      const raw=entryMetadataXml.slice(tag.start,tag.end);
+      const rest=raw.slice(5,-1).replace(/\/\s*$/,"");
+      const attrs=new Map();
+      const attribute=/\s+([A-Za-z_:][\w.:-]*)\s*=\s*(?:"([^"<]*)"|'([^'<]*)')/gy;
+      for(let pos=0;pos<rest.length;){
+        attribute.lastIndex=pos;
+        const match=attribute.exec(rest);
+        if(!match){
+          if(!rest.slice(pos).trim())break;
+          return;
+        }
+        attrs.set(match[1].toLowerCase(),match[2]??match[3]);
+        pos=attribute.lastIndex;
+      }
+      const href=attrs.get("href");
+      if(href)atomLinks.push({href,rel:attrs.get("rel"),type:attrs.get("type")});
+    }))return [];
     // Atom defaults missing rel to "alternate". Other relations (enclosure,
     // related, self) are metadata, not article provenance.
     // An alternate Atom/XML feed or media attachment is not an HTML article.
     const atomArticleLinks=atomLinks.filter(l=>{
-      const type=l.tag.match(/\s+type\s*=\s*(["'])(.*?)\1/i)?.[2]
-        ?.split(";")[0].trim().toLowerCase();
+      const type=l.type?.split(";")[0].trim().toLowerCase();
       return !type||type==="text/html"||type==="application/xhtml+xml";
     });
-    const atom=(atomArticleLinks.find(l=>/\brel\s*=\s*(["'])alternate\1/i.test(l.tag))||
-      atomArticleLinks.find(l=>!/\brel\s*=/i.test(l.tag)))?.href||"";
+    const atom=(atomArticleLinks.find(l=>l.rel?.toLowerCase()==="alternate")||
+      atomArticleLinks.find(l=>l.rel===undefined))?.href||"";
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
