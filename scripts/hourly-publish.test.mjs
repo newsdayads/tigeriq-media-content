@@ -673,6 +673,31 @@ test("HTTP failure in one of three feeds emits an Action warning while healthy e
   assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));
 
+for(const scenario of ["transport-error","invalid-document"]){
+ test("partial official feed "+scenario+" yields an actionable warning and keeps no-news noop",t=>tmp(async root=>{
+  const notes=[];
+  t.mock.method(console,"warn",(...args)=>notes.push(args.join(" ")));
+  const third={id:"github",url:"https://github.blog/changelog/feed/"};
+  const expired="Mon, 01 Sep 2025 10:00:00 GMT";
+  const fetchImpl=async url=>{
+   if(url===feeds[0].url){
+    if(scenario==="transport-error")throw Error("FAKE_NETWORK_DOWN");
+    return rssResponse("<html><body>Login required</body></html>",url);
+   }
+   if(url===feeds[1].url)return rssResponse(item(data[1].url).replace(date,expired),url);
+   if(url===third.url)return rssResponse(item("https://github.blog/changelog/testing").replace(date,expired),url);
+   throw Error("NO_MODEL_REQUEST_ALLOWED");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  const outcome=await publish({root,fetchImpl,env,now,feeds:[...feeds,third]});
+  assert.equal(outcome.status,"noop");
+  const expected=scenario==="transport-error"?"FEED_FETCH_FAILED openai":"FEED_DOCUMENT_INVALID openai";
+  assert.ok(notes.some(note=>note.includes("::warning")&&note.includes(expected)),
+   "partial feed failure must appear as a GitHub Actions warning");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+ }));
+}
+
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
 }));
