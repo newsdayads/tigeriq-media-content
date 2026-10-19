@@ -109,6 +109,32 @@ function maskForeignEntryMetadata(item){
   return masked;
 }
 
+// Filter nested markup inside the entry's direct metadata before selecting
+// title, date and permalink. RSS/Atom rich text may contain nested links:
+// those are content, never official entry-level article provenance.
+// Preserve source byte offsets so genuine CDATA and markup stay readable in
+// the original top-level summary/title extraction.
+function maskNestedEntryMetadata(item){
+  const inertCdata=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    token=>" ".repeat(token.length));
+  const ranges=[];
+  let nestedStart=null;
+  if(!xmlTagsAreBalanced(inertCdata,tag=>{
+    if(tag.depth===2&&!tag.closing){
+      if(tag.selfClose)ranges.push([tag.start,tag.end]);
+      else nestedStart=tag.start;
+    }else if(tag.depth===3&&tag.closing&&nestedStart!==null){
+      ranges.push([nestedStart,tag.end]);
+      nestedStart=null;
+    }
+  })||nestedStart!==null)return null;
+  let masked=item;
+  for(const [start,end] of ranges.reverse()){
+    masked=masked.slice(0,start)+" ".repeat(end-start)+masked.slice(end);
+  }
+  return masked;
+}
+
 export function parseFeed(xml,source,now=new Date()){
   // Preserve offsets while masking inert comments and CDATA during boundary
   // detection. Slice genuine entries from comment-masked XML to keep CDATA
@@ -146,7 +172,9 @@ export function parseFeed(xml,source,now=new Date()){
     const item=contentXml.slice(match.index,match.index+match.length);
     const directMetadata=maskForeignEntryMetadata(item);
     if(directMetadata===null)return [];
-    const atomMetadataXml=directMetadata.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    const nestedSafeMetadata=maskNestedEntryMetadata(directMetadata);
+    if(nestedSafeMetadata===null)return [];
+    const atomMetadataXml=nestedSafeMetadata.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
       token=>" ".repeat(token.length));
     // Text-bearing fields can contain nested XML/XHTML tags. Only the entry's
     // own metadata may supply titles, timestamps or article permalinks.
