@@ -92,7 +92,11 @@ function xmlTagsAreBalanced(xml,onTag=null){
       if(!/^(?:\s+[A-Za-z_:][\w.:-]*\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(attrs))return false;
       // Duplicate attribute names make XML not well-formed; silently taking
       // the first of multiple rel/href values could launder false provenance.
-      const names=[...attrs.matchAll(/\s+([A-Za-z_:][\w.:-]*)\s*=/g)].map(m=>m[1]);
+      // Consume each whole quoted attribute. Looking for name= fragments
+      // across raw text would mistake an id= inside a quoted value for a
+      // second XML attribute and reject otherwise valid publisher feeds.
+      const names=[...attrs.matchAll(/\s+([A-Za-z_:][\w.:-]*)\s*=\s*(?:"[^"<]*"|'[^'<]*')/g)]
+        .map(m=>m[1]);
       if(new Set(names).size!==names.length)return false;
     }
     // A document must have exactly one top-level XML element. Balanced,
