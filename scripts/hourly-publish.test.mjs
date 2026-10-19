@@ -1179,3 +1179,22 @@ test("opt-in real official public-feed quorum on the scoped GitHub PR, never AI 
   assert.ok(observations.filter(x=>x.valid).length>=2,
     "two independent official public RSS/Atom feeds must be readable");
 },70000);
+
+
+test("malformed XML closing tags with injected attributes never become official publisher items",()=>{
+  const validRss=item(data[0].url);
+  const invalidRss=validRss.replace("</item>","</item ignored='pretend-valid'>");
+  assert.equal(parseFeed(validRss,"openai",now).length,1,"baseline RSS must remain accepted");
+  assert.deepEqual(parseFeed(invalidRss,"openai",now),[],
+    "XML closing tags cannot contain attributes, even when stack tag names balance");
+
+  const validAtom='<feed><entry><title>Validated technical findings across independent datasets</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official researchers describe their observed technical findings, methods, limitations and caveats.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/confirmed-technical-findings"/>'+
+    '</entry></feed>';
+  const invalidAtom=validAtom.replace("</entry>","</entry injected='metadata'>");
+  assert.equal(parseFeed(validAtom,"google",now).length,1,"baseline Atom must remain accepted");
+  assert.deepEqual(parseFeed(invalidAtom,"google",now),[],
+    "malformed Atom closing tags cannot satisfy the official feed quorum");
+});
