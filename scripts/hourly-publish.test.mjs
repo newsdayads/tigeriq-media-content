@@ -1335,3 +1335,35 @@ test("malformed XML comments with internal double hyphen cannot authenticate pub
   assert.equal(modelCalls,0,"a malformed comment can never unlock a metered AI call");
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+
+test("XML self-closing slash must immediately precede > in RSS and Atom publisher evidence",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  const validRss=rss.replace("<item>","<item><extension />");
+  const invalidRss=rss.replace("<item>","<item><extension/ >");
+  assert.equal(parseFeed(validRss,"openai",now).length,1,
+    "XML permits spaces before the slash in an otherwise valid empty element");
+  assert.deepEqual(parseFeed(invalidRss,"openai",now),[],
+    "the slash and closing angle bracket of an XML empty element must be adjacent");
+
+  const atom='<feed><entry><title>Official AI research with validated technical findings</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research describes measured technical findings with methods and limitations.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/verified-selfclosing"/></entry></feed>';
+  assert.equal(parseFeed(atom.replace("<entry>","<entry><extension />"),"google",now).length,1,
+    "a valid Atom empty element must stay accepted");
+  assert.deepEqual(parseFeed(atom.replace("<entry>","<entry><extension/ >"),"google",now),[],
+    "malformed Atom empty elements must not authenticate the entire publisher feed");
+
+  let aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(invalidRss.replace(data[0].url,data[1].url),url);
+    aiCalls++;throw Error("AI_CALLED_AFTER_MALFORMED_EMPTY_ELEMENT");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(aiCalls,0,"malformed second publisher cannot trigger any provider request");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before,
+    "a rejected feed cannot mutate the canonical publication store");
+}));
