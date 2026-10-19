@@ -356,13 +356,13 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         const xml=await readBoundedHttpText(r,2000000,"FEED_RESPONSE_TOO_LARGE");
         // HTTP 200 with an error/login HTML body is not an official feed.
         if(!/<(?:rss|feed|rdf:RDF)(?:\s|>)/i.test(xml)){
-          console.warn("FEED_DOCUMENT_INVALID "+feed.id);break;
+          console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
         items.push(...parseFeed(xml,feed.id,now));
         readableFeeds.add(feed.id);
         break;
       }
-    }catch{console.warn("FEED_FETCH_FAILED "+feed.id);}
+    }catch{console.warn("::warning title=Official feed fetch::FEED_FETCH_FAILED "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));}
   }
   if(readableFeeds.size<2){
     console.error("FEED_QUORUM_UNAVAILABLE");
