@@ -1225,3 +1225,20 @@ test("a fourth same-publisher RSS redirect is never requested and cannot fake qu
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),'{"articles":[]}',
     "failed quorum must preserve canonical content byte for byte");
 }));
+
+
+test("unquoted opening XML attributes must never become official RSS or Atom evidence",()=>{
+  const rss=item(data[0].url);
+  const brokenRss=rss.replace("<item>","<item poisoned=unquoted>");
+  assert.equal(parseFeed(rss,"openai",now).length,1,"valid RSS baseline accepted");
+  assert.deepEqual(parseFeed(brokenRss,"openai",now),[],
+    "XML attributes without quote delimiters must not become authentic source metadata");
+  const atom='<feed><entry><title>Real independently sourced AI research results</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official scientists describe their measured technical evaluation and caveats.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/real-open-tag"/></entry></feed>';
+  const brokenAtom=atom.replace("<entry>","<entry invented=bare>");
+  assert.equal(parseFeed(atom,"google",now).length,1,"valid Atom baseline accepted");
+  assert.deepEqual(parseFeed(brokenAtom,"google",now),[],
+    "a malformed Atom opening tag must never count as official publisher evidence");
+});
