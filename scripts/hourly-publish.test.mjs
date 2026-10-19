@@ -1448,3 +1448,40 @@ test("raw ampersands and unknown entities cannot authenticate official XML feed 
   assert.equal(aiCalls,0,"an invalid second publisher cannot unlock paid provider calls");
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+
+test("out-of-range XML numeric character references never validate official publisher evidence",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  assert.equal(parseFeed(rss,"openai",now).length,1,"genuine RSS remains valid");
+  for(const reference of ["&#0;","&#x0;","&#x1F;","&#xD800;","&#55296;","&#xFFFE;","&#x110000;"]){
+    const invalid=rss.replace("Official announcement","Official "+reference+" announcement");
+    assert.deepEqual(parseFeed(invalid,"openai",now),[],
+      "invalid Unicode or XML 1.0 code point "+reference+" must reject the entire source");
+    assert.deepEqual(parseFeed(rss.replace("<item>","<item note='bad "+reference+"'>"),"openai",now),[],
+      "invalid XML character reference in an attribute must reject the document");
+  }
+  assert.equal(parseFeed(rss.replace("Official announcement","Official &#65; announcement"),"openai",now).length,1,
+    "valid decimal XML character reference must still pass");
+  assert.equal(parseFeed(rss.replace("Official announcement","Official &#x1F642; announcement"),"openai",now).length,1,
+    "valid supplementary-plane XML character reference must still pass");
+
+  const atom='<feed><entry><title>Official AI research with reproducible technical evidence</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary>Official research provides measured evidence, methods and detailed limitations.</summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/charref-validation"/></entry></feed>';
+  assert.equal(parseFeed(atom,"google",now).length,1,"valid Atom control remains accepted");
+  assert.deepEqual(parseFeed(atom.replace("measured evidence","measured &#x110000; evidence"),"google",now),[],
+    "Atom source with an out-of-range code point must be rejected");
+
+  let aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(item(data[1].url)
+      .replace("Official announcement","Official &#xD800; announcement"),url);
+    aiCalls++;throw Error("AI_CALLED_ON_INVALID_NUMERIC_XML_REFERENCE");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(aiCalls,0,"invalid numeric character references cannot unlock AI calls");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
