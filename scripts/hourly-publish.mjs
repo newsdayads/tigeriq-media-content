@@ -100,6 +100,19 @@ function xmlTagsAreBalanced(xml,onTag=null){
     if(xml.startsWith("<?",lt)){
       const end=xml.indexOf("?>",lt+2);
       if(end<0)return false;
+      const instruction=xml.slice(lt+2,end);
+      // Processing instructions require a nonempty XML Name as their target.
+      // The target "xml" (in any capitalization) is reserved for the XML
+      // declaration, which may occur only once before the document root.
+      // Do not count ill-formed official feeds toward publisher quorum.
+      const target=instruction.match(/^([A-Za-z_][\w.:-]*)(?=\s|$)/)?.[1];
+      if(!target)return false;
+      if(/^xml$/i.test(target)){
+        const firstPrologDeclaration=target==="xml"&&rootCount===0&&
+          stack.length===0&&xml.slice(0,lt).replace(/^\uFEFF/,"").trim()==="";
+        const validDeclaration=/^xml\s+version\s*=\s*(?:"1\.0"|'1\.0')(?:\s+(?:encoding|standalone)\s*=\s*(?:"[^"<]*"|'[^'<]*'))*\s*$/.test(instruction);
+        if(!firstPrologDeclaration||!validDeclaration)return false;
+      }
       pos=end+2;continue;
     }
     if(xml.startsWith("<!",lt))return false;
