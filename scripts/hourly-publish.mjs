@@ -79,6 +79,9 @@ function xmlTagsAreBalanced(xml,onTag=null){
     // whitespace at this boundary would accept malformed official feed items.
     const rawTag=xml.slice(lt+1,end);
     if(/^\s|^\/\s/.test(rawTag))return false;
+    // XML empty-element syntax requires '/>' with no whitespace in between.
+    // trim() must not silently transform malformed '<tag/ >' into '<tag/>'.
+    if(/\/\s+$/.test(rawTag))return false;
     const tag=rawTag.trim();
     const closing=tag.startsWith("/");
     const selfClose=/\/\s*$/.test(tag);
