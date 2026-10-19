@@ -55,6 +55,9 @@ function xmlTagsAreBalanced(xml,onTag=null){
       pos=end+3;continue;
     }
     if(xml.startsWith("<![CDATA[",lt)){
+      // Unlike comments and processing instructions, CDATA sections are
+      // permitted only inside an XML element, never outside the feed root.
+      if(stack.length===0)return false;
       const end=xml.indexOf("]]>",lt+9);
       if(end<0)return false;
       pos=end+3;continue;
