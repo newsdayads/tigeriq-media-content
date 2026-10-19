@@ -1367,3 +1367,46 @@ test("XML self-closing slash must immediately precede > in RSS and Atom publishe
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before,
     "a rejected feed cannot mutate the canonical publication store");
 }));
+
+
+test("XML CDATA may exist inside an element, never before or after the official feed root",()=>tmp(async root=>{
+  const rss=item(data[0].url);
+  const validRss=rss.replace("<description>","<description><![CDATA[")
+    .replace("</description>","]]></description>");
+  assert.equal(parseFeed(validRss,"openai",now).length,1,
+    "legitimate RSS CDATA inside the description must remain accepted");
+  for(const invalid of [
+    "<![CDATA[untrusted outside-root prefix]]>"+rss,
+    rss+"<![CDATA[untrusted outside-root suffix]]>"
+  ]){
+    assert.deepEqual(parseFeed(invalid,"openai",now),[],
+      "a publisher document with CDATA outside its root is not well-formed XML");
+  }
+
+  const atom='<feed><entry><title>Official AI research with measured evaluation results</title>'+
+    '<updated>2026-10-17T23:00:00Z</updated>'+
+    '<summary><![CDATA[Official research covers verified testing results, methods and limitations.]]></summary>'+
+    '<link rel="alternate" href="https://blog.google/ai/cdata-root-check"/></entry></feed>';
+  assert.equal(parseFeed(atom,"google",now).length,1,
+    "legitimate Atom CDATA inside the summary must remain accepted");
+  for(const invalid of [
+    "<![CDATA[untrusted outside-root prefix]]>"+atom,
+    atom+"<![CDATA[untrusted outside-root suffix]]>"
+  ]){
+    assert.deepEqual(parseFeed(invalid,"google",now),[],
+      "CDATA outside the Atom feed root cannot authenticate official source metadata");
+  }
+
+  let modelCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(rss,url);
+    if(url===feeds[1].url)return rssResponse(
+      "<![CDATA[forged outside-root evidence]]>"+item(data[1].url),url);
+    modelCalls++;throw Error("MODEL_CALLED_WITH_MALFORMED_CDATA_OUTSIDE_ROOT");
+  };
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  await assert.rejects(()=>publish({root,fetchImpl,env,now,feeds}),/FEED_QUORUM_UNAVAILABLE/);
+  assert.equal(modelCalls,0,"an invalid second publisher must never trigger AI requests");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before,
+    "invalid outside-root CDATA must not change published content");
+}));
