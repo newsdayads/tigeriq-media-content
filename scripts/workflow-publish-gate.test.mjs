@@ -10,13 +10,15 @@ test('NOOP cannot report a newly verified public article', () => {
   const verify = yaml.split('      - name: Verify live article and original cover without AI provider calls\n')[1];
   assert.ok(commit, 'commit step must exist');
   assert.ok(verify, 'live verification step must exist');
-  assert.match(commit, /\n        id: publication\n/);
+  assert.match(commit, /^        id: publication$/m);
   assert.match(commit, /if git diff --cached --quiet; then[\s\S]*echo "published=false" >> "\$GITHUB_OUTPUT"/);
   assert.match(commit, /git push[\s\S]*echo "published=true" >> "\$GITHUB_OUTPUT"/);
-  assert.match(verify, /\n        if: steps\.publication\.outputs\.published == 'true'\n/);
+  assert.match(verify, /^        if: steps\.publication\.outputs\.published == 'true'$/m);
 });
 
 test('publisher only executes on scheduled or manually dispatched runs', () => {
   assert.match(yaml, /publish:\n    if: github\.event_name != 'pull_request'/);
   assert.match(yaml, /cron: "17 \* \* \* \*"/);
+  assert.match(yaml, /^      - scripts\/workflow-publish-gate\.test\.mjs$/m);
+  assert.match(yaml, /run: node --test [^\n]*scripts\/workflow-publish-gate\.test\.mjs/);
 });
