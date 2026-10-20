@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -2251,4 +2251,13 @@ test("KPI missed article hour is attributed only to genuine schedules and uses s
   assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","pull_request"),null);
   assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","workflow_dispatch"),null);
   assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY",undefined),null);
+});
+
+
+test("Hourly publisher guard recognizes one existing real publication per UTC hour",()=>{
+ const prior=[{slug:"first",publishedAt:"2026-10-20T11:42:15.592Z"}];
+ assert.equal(alreadyPublishedInUtcHour(prior,new Date("2026-10-20T11:59:00Z")),true);
+ assert.equal(alreadyPublishedInUtcHour(prior,new Date("2026-10-20T12:17:00Z")),false);
+ assert.equal(alreadyPublishedInUtcHour([{slug:"old"}],new Date("2026-10-20T11:42:00Z")),false);
+ assert.equal(alreadyPublishedInUtcHour([],new Date("2026-10-20T11:42:00Z")),false);
 });
