@@ -2250,7 +2250,11 @@ test("KPI missed article hour is attributed only to genuine schedules and uses s
     "MISSED_HOURLY_TARGET UNCLASSIFIED_FAILURE");
   assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","pull_request"),null);
   assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","workflow_dispatch"),null);
-  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY",undefined),null);
+  // undefined selects the production default process.env.GITHUB_EVENT_NAME,
+  // which is "schedule" in a genuine cron run. Use an explicit non-event
+  // to test missing event metadata without inheriting the Actions runner.
+  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY",""),null);
+  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","unknown"),null);
 });
 
 
