@@ -30,8 +30,9 @@ test('PR checks cannot evict a pending scheduled or manually dispatched publishe
   assert.match(yaml, /^  workflow_dispatch:$/m);
 });
 
-// A semantic hourly schedule edit is used once to re-register the GitHub Actions
-// schedule actor without increasing the cadence or changing the minute offset.
-test('refreshed schedule still fires once per hour at minute 17 UTC', () => {
-  assert.match(yaml, /^    - cron: "17 \\*\\/1 \\* \\* \\*"$/m);
+// A semantic hourly schedule edit re-registers the GitHub Actions actor
+// without increasing the cadence or changing minute 17 UTC.
+test('refreshed schedule preserves the single hourly minute-17 trigger', () => {
+  const cronLines = yaml.split('\n').filter(line => line.trim().startsWith('- cron:'));
+  assert.deepEqual(cronLines, ['    - cron: "17 */1 * * *"']);
 });
