@@ -427,7 +427,8 @@ test("AI JSON media type rejects malformed parameter syntax before reading provi
 test("AI JSON responses accept canonical media type with case and charset",async()=>{
  const provider=providerConfig(env);
  const body=JSON.stringify({choices:[{message:{content:JSON.stringify({ok:true})}}]});
- for(const mediaType of ["application/json","application/json; charset=utf-8","Application/JSON; charset=UTF-8"]){
+ for(const mediaType of ["application/json","application/json; charset=utf-8",
+   "Application/JSON; charset=UTF-8",'application/json; charset="utf-8"']){
    const fetchImpl=async()=>new Response(body,{status:200,headers:{"content-type":mediaType}});
    assert.deepEqual(await modelJson({fetchImpl,provider,model:provider.writer,prompt:"test"}),{ok:true});
  }
