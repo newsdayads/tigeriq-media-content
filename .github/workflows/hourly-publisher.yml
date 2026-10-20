@@ -1,7 +1,7 @@
 name: Hourly AI Publisher
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17 */1 * * *"
   workflow_dispatch:
   pull_request:
     paths:
