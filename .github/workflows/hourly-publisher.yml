@@ -3,6 +3,15 @@ on:
   schedule:
     - cron: "17 */1 * * *"
   workflow_dispatch:
+    inputs:
+      scheduler:
+        description: "Origin of authenticated external cron (manual or cloudflare)"
+        required: false
+        type: string
+      scheduled_hour_utc:
+        description: "Original UTC hour of external cron delivery"
+        required: false
+        type: string
   pull_request:
     paths:
       - scripts/hourly-publish.mjs
@@ -10,6 +19,7 @@ on:
       - scripts/public-site-verify.mjs
       - scripts/public-site-verify.test.mjs
       - scripts/workflow-publish-gate.test.mjs
+      - infra/cloudflare-news-trigger/**
       - .github/workflows/hourly-publisher.yml
 permissions:
   contents: read
@@ -37,7 +47,7 @@ jobs:
           echo "REVIEWER_MODEL_PRESENT=$REVIEWER_MODEL_SET"
           echo "AI_API_KEY_PRESENT=NOT_CHECKED_SECRET_READ_FORBIDDEN"
       - name: Publisher fail-closed and public-site guard tests
-        run: node --test scripts/hourly-publish.test.mjs scripts/public-site-verify.test.mjs scripts/workflow-publish-gate.test.mjs
+        run: node --test scripts/hourly-publish.test.mjs scripts/public-site-verify.test.mjs scripts/workflow-publish-gate.test.mjs infra/cloudflare-news-trigger/cron.test.mjs
       - name: Public article and cover HTTP verification (read only)
         if: github.event_name == 'pull_request'
         run: node scripts/public-site-verify.mjs
@@ -57,6 +67,7 @@ jobs:
       - name: Generate, independently review, and prepare article
         env:
           NEWS_REPORTING_MODE: official-announcement
+          NEWS_HOURLY_PUBLISH_LIMIT: "true"
           AI_CHAT_COMPLETIONS_URL: ${{ vars.AI_CHAT_COMPLETIONS_URL }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           WRITER_MODEL: ${{ vars.WRITER_MODEL }}
