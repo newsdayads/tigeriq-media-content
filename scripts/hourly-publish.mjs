@@ -412,7 +412,7 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
   // Only canonical JSON responses are valid. JSONP, NDJSON and other
   // lookalike media types must not be accepted as model attestations.
   const mediaType=String(r.headers?.get?.("content-type")||"").trim();
-  if(!/^application\/json(?:\s*;|$)/i.test(mediaType))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
+  if(!/^application\/json(?:\s*;\s*charset\s*=\s*(?:utf-8|"utf-8")\s*)?$/i.test(mediaType))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
   let envelope;
   try{envelope=JSON.parse(await readBoundedHttpText(r));}
   catch(e){if(e?.message==="AI_PROVIDER_RESPONSE_TOO_LARGE")throw e;
