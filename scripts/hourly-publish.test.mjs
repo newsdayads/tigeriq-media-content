@@ -637,6 +637,37 @@ test("AI writer and reviewer prompts require two-source claim evidence",()=>tmp(
  assert.match(modelPrompts[1],/claimSourceEvidence/);
  assert.match(modelPrompts[1],/For EACH claim index/);
 }));
+test("no-verifiable-story has non-secret source packet diagnostics without changing editorial gates",t=>tmp(async root=>{
+ const messages=[];
+ t.mock.method(console,"log",(...args)=>messages.push(args.join(" ")));
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ const result=await publish({root,fetchImpl:mockFetch({replyDraft:{noQualifiedStory:true}}),env,now,feeds});
+ assert.deepEqual(result,{status:"noop"});
+ assert.ok(messages.includes("SOURCE_PACKET_READY items=2 publishers=2"),
+   "publisher should explain bounded independent source packet size before writer NOOP");
+ assert.ok(messages.includes("NOOP_NO_VERIFIABLE_STORY"),
+   "do not reclassify an evidence-based writer refusal as publication");
+ const diagnostics=messages.filter(message=>message.startsWith("SOURCE_PACKET_READY"));
+ assert.equal(diagnostics.length,1);
+ assert.ok(diagnostics.every(message=>!message.includes("https://")&&!message.includes(officialTitle)&&!message.includes(env.AI_API_KEY)),
+   "diagnostic must contain counts only, never URLs, feed excerpts or credentials");
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+ assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
+
+test("source packet diagnostics also accompany verified staging without exposing source text",t=>tmp(async root=>{
+ const messages=[];
+ t.mock.method(console,"log",(...args)=>messages.push(args.join(" ")));
+ const result=await publish({root,fetchImpl:mockFetch(),env,now,feeds});
+ assert.equal(result.status,"staged");
+ assert.equal(messages.filter(message=>message==="SOURCE_PACKET_READY items=2 publishers=2").length,1);
+ assert.ok(messages.some(message=>message.startsWith("AUTO_PUBLISH_READY ")));
+ const diagnostics=messages.filter(message=>message.startsWith("SOURCE_PACKET_READY"));
+ assert.ok(diagnostics.every(message=>!message.includes("https://")&&!message.includes(officialTitle)&&!message.includes(env.AI_API_KEY)));
+ const store=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8"));
+ assert.deepEqual(Object.keys(store.articles[0].editions).sort(),["en","es","vi"]);
+}));
+
 test("large official RSS collection has a bounded and publisher-diverse AI prompt packet",()=>tmp(async root=>{
  const verbose=source=>"<rss>"+Array.from({length:18},(_,i)=>
    "<item><title>Official AI evaluation announcement "+source+" "+i+"</title>"
