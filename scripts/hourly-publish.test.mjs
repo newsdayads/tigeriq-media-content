@@ -396,6 +396,42 @@ test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
 });
 
+test("Gemini HTTP503 recovers with exactly one bounded delayed retry and unchanged request",async t=>{
+ const warns=[],delays=[],requests=[];
+ t.mock.method(console,"warn",(...args)=>warns.push(args.join(" ")));
+ const provider=providerConfig(env);
+ const fetchImpl=async(url,options)=>{
+   requests.push({url,method:options.method,redirect:options.redirect,body:options.body});
+   if(requests.length===1)return new Response("temporarily overloaded",{status:503});
+   return new Response(JSON.stringify({choices:[{message:{content:'{"ok":true}'}}]}),
+     {status:200,headers:{"content-type":"application/json"}});
+ };
+ const result=await modelJson({fetchImpl,provider,model:provider.writer,prompt:"test",
+   sleepImpl:async ms=>delays.push(ms)});
+ assert.deepEqual(result,{ok:true});
+ assert.equal(requests.length,2,"never retry indefinitely");
+ assert.deepEqual(requests[0],requests[1],"repeat only identical approved model request");
+ assert.equal(requests[0].redirect,"error","never follow a credential-bearing POST redirect");
+ assert.equal(delays.length,1);
+ assert.ok(delays[0]>=1000&&delays[0]<=1250,"bounded jitter backoff");
+ assert.deepEqual(warns,["AI_PROVIDER_HTTP_503_BACKOFF_ONCE"]);
+ assert.ok(warns.every(line=>!line.includes(env.AI_API_KEY)));
+});
+
+test("persistent HTTP503 fails closed after one retry; quota/auth errors never retry",async t=>{
+ const warnings=[],provider=providerConfig(env);
+ t.mock.method(console,"warn",(...args)=>warnings.push(args.join(" ")));
+ for(const code of [503,401,403,429]){
+   let calls=0;const delays=[];
+   const fetchImpl=async()=>{calls++;return new Response(null,{status:code});};
+   await assert.rejects(()=>modelJson({fetchImpl,provider,model:provider.writer,prompt:"test",
+     sleepImpl:async ms=>delays.push(ms)}),new RegExp("AI_PROVIDER_HTTP_"+code));
+   assert.equal(calls,code===503?2:1,"no unauthorized retries");
+   assert.equal(delays.length,code===503?1:0);
+ }
+ assert.deepEqual(warnings,["AI_PROVIDER_HTTP_503_BACKOFF_ONCE"]);
+});
+
 test("AI JSON responses require application/json media type, not JSONP or lookalikes",async()=>{
  const provider=providerConfig(env);
  const body=JSON.stringify({choices:[{message:{content:JSON.stringify({ok:true})}}]});
