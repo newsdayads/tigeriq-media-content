@@ -18,7 +18,7 @@ test('NOOP cannot report a newly verified public article', () => {
 
 test('publisher only executes on scheduled or manually dispatched runs', () => {
   assert.match(yaml, /publish:\n    if: github\.event_name != 'pull_request'/);
-  assert.match(yaml, /cron: "17 \* \* \* \*"/);
+  assert.match(yaml, /cron: "17 \*\/1 \* \* \*"/);
   assert.match(yaml, /^      - scripts\/workflow-publish-gate\.test\.mjs$/m);
   assert.match(yaml, /run: node --test [^\n]*scripts\/workflow-publish-gate\.test\.mjs/);
 });
@@ -28,4 +28,11 @@ test('PR checks cannot evict a pending scheduled or manually dispatched publishe
   assert.match(yaml, /^  cancel-in-progress: false$/m);
   assert.match(yaml, /^  schedule:$/m);
   assert.match(yaml, /^  workflow_dispatch:$/m);
+});
+
+// A semantic hourly schedule edit re-registers the GitHub Actions actor
+// without increasing the cadence or changing minute 17 UTC.
+test('refreshed schedule preserves the single hourly minute-17 trigger', () => {
+  const cronLines = yaml.split('\n').filter(line => line.trim().startsWith('- cron:'));
+  assert.deepEqual(cronLines, ['    - cron: "17 */1 * * *"']);
 });
