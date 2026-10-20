@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -2152,3 +2152,23 @@ test("Official announcement mode refuses missing full source text without AI or 
   assert.equal(aiCalls,0);
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
+
+test("Actions incident diagnostic identifies provider, feed and cover failure without leaking raw errors",()=>{
+  assert.deepEqual(summarizePublishResult(null,new Error("AI_PROVIDER_HTTP_503")),
+    {status:"FAILURE",area:"AI_PROVIDER",code:"AI_PROVIDER_HTTP_503"});
+  assert.deepEqual(summarizePublishResult(null,new Error("FEED_QUORUM_UNAVAILABLE")),
+    {status:"FAILURE",area:"OFFICIAL_SOURCE",code:"FEED_QUORUM_UNAVAILABLE"});
+  assert.deepEqual(summarizePublishResult(null,new Error("COVER_ALREADY_EXISTS")),
+    {status:"FAILURE",area:"CONTENT_OR_COVER",code:"COVER_ALREADY_EXISTS"});
+  assert.deepEqual(summarizePublishResult(null,new Error("path /private/token?q=secret")),
+    {status:"FAILURE",area:"PUBLISHER",code:"UNCLASSIFIED_FAILURE"});
+});
+
+test("Actions editorial NOOP and staged article cannot be reported as publication success",()=>{
+  assert.deepEqual(summarizePublishResult({status:"noop"}),
+    {status:"NOOP",area:"EDITORIAL",code:"NO_QUALIFIED_NEW_STORY"});
+  assert.deepEqual(summarizePublishResult({status:"staged",slug:"pending-cover"}),
+    {status:"STAGED",area:"PUBLICATION",code:"ARTICLE_STAGED_NOT_COMMITTED"});
+  assert.deepEqual(summarizePublishResult(undefined),
+    {status:"FAILURE",area:"PUBLISHER",code:"UNKNOWN_RUN_OUTCOME"});
+});
