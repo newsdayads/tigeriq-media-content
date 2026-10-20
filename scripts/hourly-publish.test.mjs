@@ -2265,3 +2265,20 @@ test("Hourly publisher guard recognizes one existing real publication per UTC ho
  assert.equal(alreadyPublishedInUtcHour([{slug:"old"}],new Date("2026-10-20T11:42:00Z")),false);
  assert.equal(alreadyPublishedInUtcHour([],new Date("2026-10-20T11:42:00Z")),false);
 });
+
+test("second cron in an already-published UTC hour ignores later upstream feed outages",()=>tmp(async root=>{
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  let networkCalls=0;
+  const feedOutage=async()=>{networkCalls++;throw Error("SIMULATED_FEED_OUTAGE");};
+  const limited={...env,NEWS_HOURLY_PUBLISH_LIMIT:"true"};
+  assert.deepEqual(await publish({root,fetchImpl:feedOutage,env:limited,now,feeds}),
+    {status:"noop"},"one verified publication already satisfies this UTC hour");
+  assert.equal(networkCalls,0,"no feed or AI calls after an accepted same-hour article");
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+  await assert.rejects(
+    ()=>publish({root,fetchImpl:feedOutage,env:limited,
+      now:new Date(now.getTime()+60*60*1000),feeds}),
+    /FEED_QUORUM_UNAVAILABLE/,
+    "the next UTC hour still fails closed when no official feed is readable");
+  assert.equal(networkCalls,2,"the next hour must attempt both configured feeds");
+}, {articles:[{slug:"verified-earlier-hour",publishedAt:now.toISOString()}]}));
