@@ -7,6 +7,8 @@ on:
     paths:
       - scripts/hourly-publish.mjs
       - scripts/hourly-publish.test.mjs
+      - scripts/public-site-verify.mjs
+      - scripts/public-site-verify.test.mjs
       - .github/workflows/hourly-publisher.yml
 permissions:
   contents: read
@@ -32,8 +34,11 @@ jobs:
           echo "WRITER_MODEL_PRESENT=$WRITER_MODEL_SET"
           echo "REVIEWER_MODEL_PRESENT=$REVIEWER_MODEL_SET"
           echo "AI_API_KEY_PRESENT=NOT_CHECKED_SECRET_READ_FORBIDDEN"
-      - name: Publisher fail-closed tests
-        run: node --test scripts/hourly-publish.test.mjs
+      - name: Publisher fail-closed and public-site guard tests
+        run: node --test scripts/hourly-publish.test.mjs scripts/public-site-verify.test.mjs
+      - name: Public article and cover HTTP verification (read only)
+        if: github.event_name == 'pull_request'
+        run: node scripts/public-site-verify.mjs
   publish:
     if: github.event_name != 'pull_request'
     needs: test
@@ -62,3 +67,5 @@ jobs:
           git config user.email "tigeriq-media-bot@users.noreply.github.com"
           git commit -m "publish: verified trilingual AI story and cover"
           git push
+      - name: Verify live article and original cover without AI provider calls
+        run: node scripts/public-site-verify.mjs
