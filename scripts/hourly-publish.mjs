@@ -635,6 +635,11 @@ export async function createCoverExclusively(path,svg,io=fs){
 
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
   const provider=providerConfig(env);
+  // The approved attributed-announcement mode needs one complete official
+  // article and a separate AI reviewer, not two independent RSS publishers.
+  // Corroborated reporting keeps its strict two-publisher requirement.
+  const attributed=env.NEWS_REPORTING_MODE==="official-announcement";
+  const requiredPublishers=attributed?1:2;
   const items=[];
   // Distinguish source outages from a healthy run with no qualifying stories.
   const readableFeeds=new Set();
@@ -708,11 +713,11 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
       }
     }catch{console.warn("::warning title=Official feed fetch::FEED_FETCH_FAILED "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));}
   }
-  if(readableFeeds.size<2){
+  if(readableFeeds.size<requiredPublishers){
     console.error("FEED_QUORUM_UNAVAILABLE");
     throw Error("FEED_QUORUM_UNAVAILABLE");
   }
-  if(new Set(items.map(i=>i.publisher)).size<2){
+  if(new Set(items.map(i=>i.publisher)).size<requiredPublishers){
     console.log("NOOP_INSUFFICIENT_FRESH_OFFICIAL_SOURCES");return {status:"noop"};
   }
   const path=join(root,"content.json");
@@ -723,7 +728,6 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   const publishedSources=new Set(store.articles.flatMap(a=>Array.isArray(a?.sources)?a.sources:[])
     .filter(url=>typeof url==="string").map(sourceIdentityUrl));
   const unseenItems=items.filter(item=>!publishedSources.has(sourceIdentityUrl(item.url)));
-  const attributed=env.NEWS_REPORTING_MODE==="official-announcement";
   let packet=sourcePacket(unseenItems);
   if(attributed){
     packet=[];
