@@ -41,7 +41,7 @@ jobs:
           import assert from 'node:assert/strict';
           import { modelJson } from './scripts/hourly-publish.mjs';
           const endpoint = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
-          const models = ['gemini-3.1-flash-lite', 'gemini-3.8-flash'];
+          const models = ['gemini-3.1-flash-lite', 'gemini-3.5-flash'];
           const env = process.env;
           assert.equal(env.AI_CHAT_COMPLETIONS_URL, endpoint, 'UNEXPECTED_TEST_ENDPOINT');
           assert.equal(env.WRITER_MODEL, models[0], 'UNEXPECTED_WRITER_MODEL');
