@@ -1,6 +1,15 @@
 name: News API isolated test
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Readiness checks public configuration only; live-api needs authorized test key'
+        type: choice
+        required: true
+        default: readiness
+        options:
+          - readiness
+          - live-api
   pull_request:
     paths:
       - .github/workflows/news-api-test.yml
@@ -19,10 +28,38 @@ jobs:
         with:
           node-version: "24"
       - name: Existing publisher regression tests without provider calls
-        run: node --test scripts/hourly-publish.test.mjs
-  api-probe:
+        run: node --test scripts/hourly-publish.test.mjs scripts/news-api-workflow.test.mjs
+  config-readiness:
     if: github.event_name == 'workflow_dispatch'
     needs: source-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Validate non-secret Gemini endpoint and model settings
+        env:
+          AI_CHAT_COMPLETIONS_URL: ${{ vars.AI_CHAT_COMPLETIONS_URL }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+        run: |
+          node --input-type=module <<'NODE'
+          const expected={
+            AI_CHAT_COMPLETIONS_URL:'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
+            WRITER_MODEL:'gemini-3.1-flash-lite',
+            REVIEWER_MODEL:'gemini-3.5-flash'
+          };
+          let invalid=false;
+          for(const [name,value] of Object.entries(expected)){
+            if(process.env[name]!==value){
+              console.error('NEWS_ENV_NOT_READY:'+name);
+              invalid=true;
+            }
+          }
+          if(invalid)process.exit(1);
+          console.log('NEWS_ENV_READY_NON_SECRET_ONLY');
+          NODE
+  api-probe:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'live-api'
+    needs: [source-tests, config-readiness]
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
