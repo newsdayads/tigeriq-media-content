@@ -633,6 +633,11 @@ export async function createCoverExclusively(path,svg,io=fs){
   }
 }
 
+export function alreadyPublishedInUtcHour(articles,now){
+  const hour=now.toISOString().slice(0,13);
+  return Array.isArray(articles)&&articles.some(a=>typeof a?.publishedAt==="string"&&a.publishedAt.startsWith(hour));
+}
+
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
   const provider=providerConfig(env);
   // The approved attributed-announcement mode needs one complete official
@@ -723,6 +728,13 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   const path=join(root,"content.json");
   const store=JSON.parse(await fs.readFile(path,"utf8"));
   if(!Array.isArray(store.articles))throw Error("CONTENT_STORE_INVALID");
+  // Both GitHub-native and external cron may dispatch in one hour.
+  // In the production workflow, one accepted article ends that UTC hour.
+  // NOOP here is not a missed hour: a public story already exists.
+  if(env.NEWS_HOURLY_PUBLISH_LIMIT==="true"&&alreadyPublishedInUtcHour(store.articles,now)){
+    console.log("NOOP_HOURLY_ARTICLE_ALREADY_PUBLISHED");
+    return {status:"noop"};
+  }
   // Do not pay a writer to rediscover sources already represented in public content.
   // The later draft-level duplicate gate remains in place as defense in depth.
   const publishedSources=new Set(store.articles.flatMap(a=>Array.isArray(a?.sources)?a.sources:[])
