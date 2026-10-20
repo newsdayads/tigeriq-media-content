@@ -36,3 +36,13 @@ test('refreshed schedule preserves the single hourly minute-17 trigger', () => {
   const cronLines = yaml.split('\n').filter(line => line.trim().startsWith('- cron:'));
   assert.deepEqual(cronLines, ['    - cron: "17 */1 * * *"']);
 });
+
+// Keep both jobs on a supported action runtime. GitHub Actions previously
+// reported Node.js 20 deprecation warnings for the v4 action implementations.
+test('publisher uses Node 24-native actions without implicit npm cache', () => {
+  assert.equal([...yaml.matchAll(/^\s+- uses: actions\/checkout@v6$/gm)].length, 2);
+  assert.equal([...yaml.matchAll(/^\s+- uses: actions\/setup-node@v6$/gm)].length, 2);
+  assert.equal([...yaml.matchAll(/^\s+node-version: "24"$/gm)].length, 2);
+  assert.equal([...yaml.matchAll(/^\s+package-manager-cache: false$/gm)].length, 2);
+  assert.doesNotMatch(yaml, /actions\/(?:checkout|setup-node)@v[1-4]\b/);
+});
