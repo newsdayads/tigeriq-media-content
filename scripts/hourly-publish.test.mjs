@@ -2047,3 +2047,72 @@ test("XML 1.0 declaration grammar rejects duplicated, reordered and malformed at
     assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
   }
 }));
+
+const officialAnnouncement=()=>{
+  const d=structuredClone(draft);
+  d.reportingMode="official-announcement";
+  d.sourceIds=["openai-1"];
+  d.claims=d.claims.map(c=>({...c,sourceIds:["openai-1"]}));
+  const labels={vi:"Theo công bố của OpenAI.",en:"According to OpenAI.",es:"Según OpenAI."};
+  for(const l of ["vi","en","es"])d.editions[l].dek=labels[l]+" "+d.editions[l].dek;
+  return d;
+};
+const announcementReview=()=>({
+  pass:true,claimsSupported:true,localesValid:true,attributionValid:true,
+  supportedSourceIds:["openai-1"],supportedClaims:[0,1],
+  claimSourceEvidence:[0,1].map(index=>({index,sourceIds:["openai-1"],
+    excerpts:[{sourceId:"openai-1",text:officialExcerpt}]}))
+});
+
+test("Attributed official announcement accepts one authentic publisher while legacy reporting stays strict",()=>{
+  const d=officialAnnouncement();
+  assert.equal(validateDraft(d,data).length,1);
+  verifyReview(announcementReview(),d,[data[0]]);
+  const old=structuredClone(d);delete old.reportingMode;
+  assert.throws(()=>validateDraft(old,data),/DRAFT_SOURCES_INSUFFICIENT/);
+  const untrusted=[{...data[0],url:"https://untrusted.example/claim"}];
+  assert.throws(()=>validateDraft(d,untrusted),/OFFICIAL_SOURCE_UNVERIFIED/);
+  for(const l of ["vi","en","es"]){
+    const missing=structuredClone(d);missing.editions[l].dek=edition(l).dek;
+    assert.throws(()=>validateDraft(missing,data),/OFFICIAL_ATTRIBUTION_MISSING/);
+  }
+  const rejected=announcementReview();rejected.attributionValid=false;
+  assert.throws(()=>verifyReview(rejected,d,[data[0]]),/REVIEW_ATTRIBUTION_UNVERIFIED/);
+  const forged=announcementReview();forged.claimSourceEvidence[0].excerpts[0].text="Fabricated quotation unrelated to the official article text";
+  assert.throws(()=>verifyReview(forged,d,[data[0]]),/REVIEW_EXCERPTS_UNVERIFIED/);
+});
+
+test("Official announcement mode reads full official article before writer and stages three attributed locales",()=>tmp(async root=>{
+  const d=officialAnnouncement(),r=announcementReview();
+  const calls=[];
+  const base=mockFetch({replyDraft:d,replyReview:r});
+  const fetchImpl=async(url,opts)=>{
+    calls.push(url);
+    if(url===data[0].url)return new Response(
+      "<html><article><h1>"+officialTitle+"</h1><p>"+officialExcerpt.repeat(8)+"</p></article></html>",
+      {status:200,headers:{"content-type":"text/html"}});
+    return base(url,opts);
+  };
+  const result=await publish({root,fetchImpl,env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds});
+  assert.equal(result.status,"staged");
+  assert.ok(calls.indexOf(data[0].url)<calls.indexOf(env.AI_CHAT_COMPLETIONS_URL));
+  const story=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+  assert.equal(story.reportingMode,"official-announcement");
+  assert.equal(story.sources.length,1);
+  for(const l of ["vi","en","es"])assert.match(story.editions[l].dek,/OpenAI/);
+}));
+
+test("Official announcement mode refuses missing full source text without AI or content mutation",()=>tmp(async root=>{
+  let aiCalls=0;
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+    if(url===feeds[1].url)return rssResponse(item(data[1].url),url);
+    if(url===data[0].url||url===data[1].url)return new Response("unavailable",{status:503});
+    aiCalls++;throw Error("AI_MUST_NOT_RUN_WITHOUT_FULL_ARTICLE");
+  };
+  const result=await publish({root,fetchImpl,env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds});
+  assert.deepEqual(result,{status:"noop"});
+  assert.equal(aiCalls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
