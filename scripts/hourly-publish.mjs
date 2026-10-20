@@ -400,14 +400,24 @@ export async function readBoundedHttpText(response,maxBytes=1024*1024,tooLargeEr
   }
 }
 
-export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
+export async function modelJson({fetchImpl=fetch,provider,model,prompt,
+  sleepImpl=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){
   let r;
-  try{
-    r=await fetchImpl(provider.url,{method:"POST",
-      headers:{"authorization":"Bearer "+provider.key,"content-type":"application/json","accept":"application/json"},
-      body:JSON.stringify({model,messages:[{role:"user",content:prompt}],temperature:0.2,response_format:{type:"json_object"}}),
-      signal:AbortSignal.timeout(90000),redirect:"error"});
-  }catch{throw Error("AI_PROVIDER_TRANSPORT_FAILED");}
+  const body=JSON.stringify({model,messages:[{role:"user",content:prompt}],
+    temperature:0.2,response_format:{type:"json_object"}});
+  // Gemini 503 is transient overload. At most one short jittered retry per
+  // model request; never retry auth, quota or malformed responses.
+  for(let attempt=0;attempt<2;attempt++){
+    try{
+      r=await fetchImpl(provider.url,{method:"POST",
+        headers:{"authorization":"Bearer "+provider.key,"content-type":"application/json","accept":"application/json"},
+        body,signal:AbortSignal.timeout(90000),redirect:"error"});
+    }catch{throw Error("AI_PROVIDER_TRANSPORT_FAILED");}
+    if(r.status!==503||attempt!==0)break;
+    try{await r.body?.cancel?.();}catch{}
+    console.warn("AI_PROVIDER_HTTP_503_BACKOFF_ONCE");
+    await sleepImpl(1000+Math.floor(Math.random()*251));
+  }
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   // Only canonical JSON responses are valid. JSONP, NDJSON and other
   // lookalike media types must not be accepted as model attestations.
