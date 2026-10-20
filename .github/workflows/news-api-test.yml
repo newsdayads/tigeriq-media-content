@@ -1,0 +1,67 @@
+name: News API isolated test
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/news-api-test.yml
+permissions:
+  contents: read
+concurrency:
+  group: news-api-isolated-test
+  cancel-in-progress: false
+jobs:
+  source-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Existing publisher regression tests without provider calls
+        run: node --test scripts/hourly-publish.test.mjs
+  api-probe:
+    if: github.event_name == 'workflow_dispatch'
+    needs: source-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Two JSON probes only - no feed, article, cover, commit or publish
+        env:
+          NEWS_API_TEST_KEY: ${{ secrets.NEWS_API_TEST_KEY }}
+          AI_CHAT_COMPLETIONS_URL: ${{ vars.AI_CHAT_COMPLETIONS_URL }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { modelJson } from './scripts/hourly-publish.mjs';
+          const endpoint = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
+          const models = ['gemini-3.1-flash-lite', 'gemini-3.8-flash'];
+          const env = process.env;
+          assert.equal(env.AI_CHAT_COMPLETIONS_URL, endpoint, 'UNEXPECTED_TEST_ENDPOINT');
+          assert.equal(env.WRITER_MODEL, models[0], 'UNEXPECTED_WRITER_MODEL');
+          assert.equal(env.REVIEWER_MODEL, models[1], 'UNEXPECTED_REVIEWER_MODEL');
+          assert.ok(env.NEWS_API_TEST_KEY, 'TEST_KEY_NOT_CONFIGURED');
+          const provider = { url: endpoint, key: env.NEWS_API_TEST_KEY };
+          // A fixed public test prompt; no source or account data is sent.
+          // Sequential single attempts: never retry or choose a paid fallback.
+          for (const model of models) {
+            try {
+              const result = await modelJson({
+                provider, model,
+                prompt: 'Return only this JSON object: {"ok":true}'
+              });
+              assert.deepEqual(result, {ok:true});
+              console.log('JSON_API_PROBE_OK ' + model);
+            } catch {
+              console.error('JSON_API_PROBE_FAILED ' + model);
+              process.exit(1);
+            }
+          }
+          console.log('NO_PUBLICATION_PERFORMED');
+          NODE
