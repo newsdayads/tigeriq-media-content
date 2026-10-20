@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -2238,3 +2238,17 @@ test("Official source mode with only old articles and one healthy feed has legit
   assert.deepEqual(result,{status:"noop"});
   assert.equal(aiCalls,0);
 }));
+
+test("KPI missed article hour is attributed only to genuine schedules and uses safe reason codes",()=>{
+  assert.equal(missedHourlyTarget("NOOP_NO_READABLE_OFFICIAL_ARTICLE","schedule"),
+    "MISSED_HOURLY_TARGET NOOP_NO_READABLE_OFFICIAL_ARTICLE");
+  assert.equal(missedHourlyTarget("NOOP_DUPLICATE_STORY","schedule"),
+    "MISSED_HOURLY_TARGET NOOP_DUPLICATE_STORY");
+  assert.equal(missedHourlyTarget("FEED_QUORUM_UNAVAILABLE","schedule"),
+    "MISSED_HOURLY_TARGET FEED_QUORUM_UNAVAILABLE");
+  assert.equal(missedHourlyTarget("HTTP https://secret.example/key=1","schedule"),
+    "MISSED_HOURLY_TARGET UNCLASSIFIED_FAILURE");
+  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","pull_request"),null);
+  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","workflow_dispatch"),null);
+  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY",undefined),null);
+});
