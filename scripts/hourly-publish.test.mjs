@@ -396,6 +396,28 @@ test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
 });
 
+test("AI JSON responses require application/json media type, not JSONP or lookalikes",async()=>{
+ const provider=providerConfig(env);
+ const body=JSON.stringify({choices:[{message:{content:JSON.stringify({ok:true})}}]});
+ for(const mediaType of ["application/jsonp","application/json-seq","text/json","application/x-ndjson"]){
+   let consumed=false;
+   const fetchImpl=async()=>({ok:true,status:200,headers:{get:name=>name==="content-type"?mediaType:null},
+     text:async()=>{consumed=true;return body;}});
+   await assert.rejects(()=>modelJson({fetchImpl,provider,model:provider.writer,prompt:"test"}),
+     /AI_PROVIDER_NON_JSON_RESPONSE/,mediaType+" must fail closed");
+   assert.equal(consumed,false,"invalid media type must be refused before reading payload");
+ }
+});
+
+test("AI JSON responses accept canonical media type with case and charset",async()=>{
+ const provider=providerConfig(env);
+ const body=JSON.stringify({choices:[{message:{content:JSON.stringify({ok:true})}}]});
+ for(const mediaType of ["application/json","application/json; charset=utf-8","Application/JSON; charset=UTF-8"]){
+   const fetchImpl=async()=>new Response(body,{status:200,headers:{"content-type":mediaType}});
+   assert.deepEqual(await modelJson({fetchImpl,provider,model:provider.writer,prompt:"test"}),{ok:true});
+ }
+});
+
 test("AI POST refuses an off-origin HTTP redirect before forwarding sensitive prompts",async()=>{
  let forwarded=0;
  const intercepted=async (_url,options)=>{
