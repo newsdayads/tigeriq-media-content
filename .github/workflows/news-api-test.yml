@@ -30,7 +30,8 @@ jobs:
       - name: Existing publisher regression tests without provider calls
         run: node --test scripts/hourly-publish.test.mjs scripts/news-api-workflow.test.mjs
   config-readiness:
-    if: github.event_name == 'workflow_dispatch'
+    # Pull-request checks use only non-secret repository variables; they never read API keys.
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
     needs: source-tests
     runs-on: ubuntu-latest
     timeout-minutes: 2

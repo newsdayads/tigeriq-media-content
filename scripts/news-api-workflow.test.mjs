@@ -35,3 +35,15 @@ test("the isolated workflow has no write or automatic publish permission",()=>{
   assert.doesNotMatch(workflow,/(?:^|\n)\s+push:|contents: write|schedule:|git push|gh api .*actions\/variables/);
   assert.match(workflow,/node --test scripts\/hourly-publish\.test\.mjs scripts\/news-api-workflow\.test\.mjs/);
 });
+
+
+test("pull requests execute non-secret readiness but never provider calls",()=>{
+  const readiness=workflow.split("\n  config-readiness:\n")[1]?.split("\n  api-probe:\n")[0];
+  assert.ok(readiness,"config-readiness job must be present");
+  assert.match(readiness,/if:.*github\.event_name == 'pull_request'/);
+  assert.match(readiness,/NEWS_ENV_NOT_READY:/);
+  assert.match(readiness,/NEWS_ENV_READY_NON_SECRET_ONLY/);
+  assert.doesNotMatch(readiness,/secrets\.|NEWS_API_TEST_KEY|modelJson|curl |fetch\(/);
+  const live=workflow.split("\n  api-probe:\n")[1];
+  assert.match(live,/if: github\.event_name == 'workflow_dispatch' && inputs\.mode == 'live-api'/);
+});
