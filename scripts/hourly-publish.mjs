@@ -409,7 +409,7 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt}){
       signal:AbortSignal.timeout(90000),redirect:"error"});
   }catch{throw Error("AI_PROVIDER_TRANSPORT_FAILED");}
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
-  if(!/json/i.test(r.headers.get("content-type")||""))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
+  // Only canonical JSON responses are valid. JSONP, NDJSON and other\n  // lookalike media types must not be accepted as model attestations.\n  const mediaType=String(r.headers?.get?.("content-type")||"").trim();\n  if(!/^application\\/json(?:\\s*;|$)/i.test(mediaType))throw Error("AI_PROVIDER_NON_JSON_RESPONSE");
   let envelope;
   try{envelope=JSON.parse(await readBoundedHttpText(r));}
   catch(e){if(e?.message==="AI_PROVIDER_RESPONSE_TOO_LARGE")throw e;
