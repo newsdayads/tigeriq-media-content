@@ -798,6 +798,48 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   return {status:"staged",slug};
 }
 
+// Distinguish a legitimate editorial NOOP, a staged (not yet committed)
+// article and a real publisher failure in GitHub Actions. Only emit static
+// diagnostic tokens; provider responses, paths and credentials remain private.
+export function summarizePublishResult(result,error=null){
+  if(error){
+    const message=typeof error?.message==="string"?error.message:"";
+    const code=/^[A-Z][A-Z0-9_]{2,90}$/.test(message)?message:"UNCLASSIFIED_FAILURE";
+    const area=code.startsWith("AI_PROVIDER_")?"AI_PROVIDER":
+      code.startsWith("FEED_")||code.startsWith("OFFICIAL_")?"OFFICIAL_SOURCE":
+      code.startsWith("COVER_")||code.startsWith("CONTENT_")?"CONTENT_OR_COVER":"PUBLISHER";
+    return {status:"FAILURE",area,code};
+  }
+  if(result?.status==="noop")return {status:"NOOP",area:"EDITORIAL",code:"NO_QUALIFIED_NEW_STORY"};
+  if(result?.status==="staged")return {status:"STAGED",area:"PUBLICATION",code:"ARTICLE_STAGED_NOT_COMMITTED"};
+  return {status:"FAILURE",area:"PUBLISHER",code:"UNKNOWN_RUN_OUTCOME"};
+}
+
+async function reportCliPublishResult(result,error=null){
+  const record=summarizePublishResult(result,error);
+  const diagnostic=record.area+" "+record.code;
+  if(record.status==="FAILURE"){
+    console.error("PUBLISH_FAILED "+record.code);
+    // A native Actions error annotation is visible to incident triage without
+    // exposing the upstream response or crossing an issues/write permission gate.
+    console.error("::error title=TigerIQ News "+record.area+"::"+record.code);
+    process.exitCode=1;
+  }else{
+    console.log("PUBLISH_RUN_STATUS "+record.status+" "+diagnostic);
+  }
+  if(process.env.GITHUB_STEP_SUMMARY){
+    const summary="### TigerIQ News publisher\\n\\n"+
+      "- Outcome: "+record.status+"\\n"+
+      "- Stage: "+record.area+"\\n"+
+      "- Code: `"+record.code+"`\\n"+
+      "- Publication: "+(record.status==="STAGED"?"staged; commit step still pending":
+        record.status==="NOOP"?"no qualifying new story":"failed; no publication receipt")+"\\n";
+    try{await fs.appendFile(process.env.GITHUB_STEP_SUMMARY,summary.replaceAll("\\n","\n"),"utf8");}
+    catch{console.warn("PUBLISH_SUMMARY_WRITE_FAILED");}
+  }
+}
+
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
-  publish().catch(e=>{console.error("PUBLISH_FAILED "+e.message);process.exitCode=1;});
+  publish().then(result=>reportCliPublishResult(result))
+    .catch(e=>reportCliPublishResult(null,e));
 }
