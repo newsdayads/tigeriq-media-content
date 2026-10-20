@@ -2172,3 +2172,69 @@ test("Actions editorial NOOP and staged article cannot be reported as publicatio
   assert.deepEqual(summarizePublishResult(undefined),
     {status:"FAILURE",area:"PUBLISHER",code:"UNKNOWN_RUN_OUTCOME"});
 });
+
+
+test("Official announcement mode tolerates an unrelated feed outage with one complete primary article",()=>tmp(async root=>{
+  const draftOne=officialAnnouncement(),reviewOne=announcementReview();
+  const base=mockFetch({replyDraft:draftOne,replyReview:reviewOne});
+  const calls=[],warnings=[];
+  const originalWarn=console.warn;
+  console.warn=(s)=>warnings.push(String(s));
+  try{
+    const fetchImpl=async(url,opts)=>{
+      calls.push(url);
+      if(url===feeds[1].url)throw Error("SECOND_OFFICIAL_FEED_DNS_UNAVAILABLE");
+      if(url===data[0].url)return new Response(
+        "<html><article><h1>"+officialTitle+"</h1><p>"+officialExcerpt.repeat(8)+"</p></article></html>",
+        {status:200,headers:{"content-type":"text/html"}});
+      return base(url,opts);
+    };
+    const result=await publish({root,fetchImpl,
+      env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds});
+    assert.equal(result.status,"staged");
+    assert.equal(calls.filter(url=>url===env.AI_CHAT_COMPLETIONS_URL).length,2,
+      "one verified primary source still requires a distinct writer and reviewer");
+    assert.ok(warnings.some(w=>w.includes("FEED_FETCH_FAILED google")),
+      "degraded publisher feed must be visible in Actions diagnostics");
+    const story=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+    assert.equal(story.reportingMode,"official-announcement");
+    assert.deepEqual(story.sources,[data[0].url]);
+    for(const lang of ["vi","en","es"])assert.match(story.editions[lang].dek,/OpenAI/);
+  }finally{console.warn=originalWarn;}
+}));
+
+test("One surviving feed does not relax corroborated mode or accept unverified source",()=>tmp(async root=>{
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  let aiCalls=0;
+  const brokenSource=async url=>{
+    if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+    if(url===feeds[1].url)throw Error("SECOND_FEED_DOWN");
+    aiCalls++;throw Error("AI_MUST_NOT_RUN");
+  };
+  await assert.rejects(()=>publish({root,fetchImpl:brokenSource,env,now,feeds}),
+    /FEED_QUORUM_UNAVAILABLE/,"two-publisher corroborated mode must still fail closed");
+  const invalidSource=async url=>{
+    if(url===feeds[0].url)return rssResponse("<html>login required</html>",url);
+    if(url===feeds[1].url)throw Error("SECOND_FEED_DOWN");
+    aiCalls++;throw Error("AI_MUST_NOT_RUN");
+  };
+  await assert.rejects(()=>publish({root,fetchImpl:invalidSource,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds}),
+    /FEED_QUORUM_UNAVAILABLE/,"one malformed source cannot satisfy the official feed requirement");
+  assert.equal(aiCalls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
+
+test("Official source mode with only old articles and one healthy feed has legitimate NOOP",()=>tmp(async root=>{
+  let aiCalls=0;
+  const stale=item(data[0].url).replace(date,"Mon, 01 Sep 2025 10:00:00 GMT");
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(stale,url);
+    if(url===feeds[1].url)throw Error("SECOND_FEED_UNAVAILABLE");
+    aiCalls++;throw Error("AI_MUST_NOT_RUN");
+  };
+  const result=await publish({root,fetchImpl,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds});
+  assert.deepEqual(result,{status:"noop"});
+  assert.equal(aiCalls,0);
+}));
