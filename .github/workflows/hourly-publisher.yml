@@ -48,6 +48,7 @@ jobs:
           node-version: "24"
       - name: Generate, independently review, and prepare article
         env:
+          NEWS_REPORTING_MODE: official-announcement
           AI_CHAT_COMPLETIONS_URL: ${{ vars.AI_CHAT_COMPLETIONS_URL }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           WRITER_MODEL: ${{ vars.WRITER_MODEL }}
