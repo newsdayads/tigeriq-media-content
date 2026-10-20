@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-04T09:51:17.445Z",
+  "updatedAt": "2026-10-20T11:42:15.592Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-bsc-ai-factory-collaboration",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-bsc-ai-factory-collaboration",
+      "clusterKey": "news:3e35233bb99548bb9651d64d3632bd41ed58da5e7b8412111710039c2a56223b",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-20T11:42:15.592Z",
+      "modifiedAt": "2026-10-20T11:42:15.592Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA và BSC hợp tác thúc đẩy các startup AI tại Tây Ban Nha",
+          "dek": "Theo công bố của NVIDIA. Chương trình tăng tốc AI Factory của BSC hiện đã tích hợp với cổng thông tin NVIDIA Inception để hỗ trợ các doanh nghiệp khởi nghiệp.",
+          "takeaways": [
+            "Các thành viên NVIDIA Inception có thể truy cập dịch vụ của BSC AI Factory.",
+            "Chương trình cung cấp tài nguyên tính toán chủ quyền và đào tạo kỹ thuật.",
+            "Hơn 800 dịch vụ đã được cung cấp cho khách hàng từ khi ra mắt vào tháng 4 năm 2025."
+          ],
+          "sections": [
+            {
+              "heading": "Tích hợp dịch vụ mới",
+              "body": "NVIDIA thông báo rằng các thành viên trong chương trình NVIDIA Inception hiện có thể tiếp cận các dịch vụ của BSC AI Factory thông qua cổng thông tin chuyên dụng. Sự hợp tác này nhằm mục đích bổ sung các nguồn lực như đào tạo từ Viện Học sâu NVIDIA, kết nối vốn đầu tư mạo hiểm và cố vấn kinh doanh cho các startup tại Tây Ban Nha."
+            },
+            {
+              "heading": "Hỗ trợ đổi mới sáng tạo",
+              "body": "Chương trình tăng tốc BSC AI Factory cung cấp cho các startup quyền truy cập vào hạ tầng tính toán chủ quyền và hỗ trợ kỹ thuật chuyên sâu. Kể từ khi ra mắt vào tháng 4 năm 2025, chương trình đã thực hiện hơn 800 dịch vụ cho các khách hàng thuộc cả khu vực công và tư nhân, thúc đẩy các giải pháp trong nhiều lĩnh vực."
+            },
+            {
+              "heading": "Các dự án tiêu biểu",
+              "body": "Nhiều startup đã đạt được những kết quả đáng chú ý, bao gồm Qatium với công nghệ trí tuệ nước, OneCareAI với giải pháp phát hiện rung tâm nhĩ, và Avatia với hệ thống đại lý giọng nói cho ngành dược phẩm. Các công ty này sử dụng hạ tầng của MareNostrum 5 và các khung phần mềm của NVIDIA để phát triển sản phẩm."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA and BSC Partner to Advance AI Startups in Spain",
+          "dek": "According to NVIDIA. The Barcelona Supercomputing Center's AI Factory Accelerator Programme now integrates with the NVIDIA Inception portal to support regional innovation.",
+          "takeaways": [
+            "NVIDIA Inception members gain access to BSC AI Factory services via the portal.",
+            "The program provides startups with sovereign compute, technical support, and training.",
+            "The BSC AI Factory has delivered over 800 services since its April 2025 launch."
+          ],
+          "sections": [
+            {
+              "heading": "Portal Integration",
+              "body": "NVIDIA announced that members of the NVIDIA Inception program can now access specific services from the Barcelona Supercomputing Center (BSC) AI Factory directly through the Inception portal. This integration aims to complement the BSC AI Factory Accelerator Programme by providing startups with additional resources, including business mentoring, venture capital connections, and training via the NVIDIA Deep Learning Institute."
+            },
+            {
+              "heading": "Accelerator Program Scope",
+              "body": "The BSC AI Factory Accelerator Programme is designed to provide startups with access to sovereign compute resources and technical training. As one of Europe’s first AI factories and the first in Spain, the initiative has successfully delivered more than 800 services to public and private-sector clients since its official launch in April 2025, supporting innovation across various industries."
+            },
+            {
+              "heading": "Startup Innovations",
+              "body": "Several startups, including Qatium, OneCareAI, and Avatia, have utilized the program to develop advanced AI solutions. These companies leverage NVIDIA accelerated computing and frameworks like NIM microservices and Nemotron models to address challenges in water management, healthcare diagnostics, and pharmaceutical sales intelligence, demonstrating the breadth of the current startup cohort."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA y BSC colaboran para impulsar startups de IA en España",
+          "dek": "Según NVIDIA. El programa de aceleración AI Factory del BSC se integra con el portal NVIDIA Inception para fomentar la innovación regional.",
+          "takeaways": [
+            "Los miembros de NVIDIA Inception acceden a servicios de BSC AI Factory.",
+            "El programa ofrece computación soberana, soporte técnico y formación especializada.",
+            "Se han prestado más de 800 servicios desde el lanzamiento en abril de 2025."
+          ],
+          "sections": [
+            {
+              "heading": "Integración de servicios",
+              "body": "NVIDIA ha anunciado que los miembros del programa NVIDIA Inception ahora pueden acceder a servicios específicos de la AI Factory del Barcelona Supercomputing Center (BSC) a través del portal de Inception. Esta colaboración busca complementar el programa de aceleración del BSC proporcionando a las startups recursos adicionales, incluyendo mentoría empresarial, conexiones de capital riesgo y formación técnica."
+            },
+            {
+              "heading": "Programa de aceleración",
+              "body": "El programa de aceleración BSC AI Factory proporciona a las startups acceso a computación soberana y soporte técnico avanzado. Siendo una de las primeras fábricas de IA de Europa y la primera en España, la iniciativa ha entregado más de 800 servicios a clientes del sector público y privado desde su lanzamiento en abril de 2025, impulsando la innovación tecnológica."
+            },
+            {
+              "heading": "Innovaciones destacadas",
+              "body": "Startups como Qatium, OneCareAI y Avatia han utilizado el programa para desarrollar soluciones de IA de vanguardia. Estas empresas aprovechan la computación acelerada de NVIDIA y marcos de trabajo como los microservicios NIM y los modelos Nemotron para abordar desafíos en la gestión del agua, diagnósticos médicos y servicios farmacéuticos, demostrando el impacto del ecosistema."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/spain-startups-barcelona-supercomputing-center/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/spain-startups-barcelona-supercomputing-center/",
+            "title": "Spain-Based Startups Advance Regional Innovation With Barcelona Supercomputing Center"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA Inception members can now access specific Barcelona Supercomputing Center (BSC) AI Factory services directly through the NVIDIA Inception portal.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "The BSC AI Factory Accelerator Programme provides startups with sovereign compute resources, technical support, and training to foster regional innovation.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/spain-startups-barcelona-supercomputing-center/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-bsc-ai-factory-collaboration.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA và BSC hợp tác thúc đẩy các startup AI tại Tây Ban Nha",
+          "en": "NVIDIA and BSC Partner to Advance AI Startups in Spain",
+          "es": "NVIDIA y BSC colaboran para impulsar startups de IA en España"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "meta-muse-spark-open-math-research-2026",
       "category": "Research",
