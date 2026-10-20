@@ -3,18 +3,42 @@ on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  pull_request:
+    paths:
+      - scripts/hourly-publish.mjs
+      - scripts/hourly-publish.test.mjs
+      - .github/workflows/hourly-publisher.yml
 permissions:
-  contents: write
-  models: read
+  contents: read
 concurrency:
   group: hourly-ai-publisher
   cancel-in-progress: false
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Publisher non-secret provider metadata presence
+        env:
+          AI_URL_SET: ${{ vars.AI_CHAT_COMPLETIONS_URL != '' }}
+          WRITER_MODEL_SET: ${{ vars.WRITER_MODEL != '' }}
+          REVIEWER_MODEL_SET: ${{ vars.REVIEWER_MODEL != '' }}
+        run: |
+          echo "AI_CHAT_COMPLETIONS_URL_PRESENT=$AI_URL_SET"
+          echo "WRITER_MODEL_PRESENT=$WRITER_MODEL_SET"
+          echo "REVIEWER_MODEL_PRESENT=$REVIEWER_MODEL_SET"
+          echo "AI_API_KEY_PRESENT=NOT_CHECKED_SECRET_READ_FORBIDDEN"
+      - name: Publisher fail-closed tests
+        run: node --test scripts/hourly-publish.test.mjs
   publish:
-    if: github.event_name != 'push' || github.actor != 'tigeriq-media-bot'
+    if: github.event_name != 'pull_request'
+    needs: test
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -22,15 +46,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - name: Generate and independently review
+      - name: Generate, independently review, and prepare article
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          AI_CHAT_COMPLETIONS_URL: ${{ vars.AI_CHAT_COMPLETIONS_URL }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
         run: node scripts/hourly-publish.mjs
-      - name: Commit publication
+      - name: Commit article and original cover
         run: |
-          if git diff --quiet -- content.json; then echo "No qualified new story"; exit 0; fi
+          git add -- content.json covers/
+          if git diff --cached --quiet; then echo "NOOP_NO_QUALIFIED_NEW_STORY"; exit 0; fi
           git config user.name "tigeriq-media-bot"
           git config user.email "tigeriq-media-bot@users.noreply.github.com"
-          git add content.json
-          git commit -m "publish: hourly verified AI story"
+          git commit -m "publish: verified trilingual AI story and cover"
           git push
