@@ -21,10 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: "24"
+          package-manager-cache: false
       - name: Publisher non-secret provider metadata presence
         env:
           AI_URL_SET: ${{ vars.AI_CHAT_COMPLETIONS_URL != '' }}
@@ -48,10 +49,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: "24"
+          package-manager-cache: false
       - name: Generate, independently review, and prepare article
         env:
           NEWS_REPORTING_MODE: official-announcement
