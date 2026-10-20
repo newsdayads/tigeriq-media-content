@@ -22,3 +22,10 @@ test('publisher only executes on scheduled or manually dispatched runs', () => {
   assert.match(yaml, /^      - scripts\/workflow-publish-gate\.test\.mjs$/m);
   assert.match(yaml, /run: node --test [^\n]*scripts\/workflow-publish-gate\.test\.mjs/);
 });
+
+test('PR checks cannot evict a pending scheduled or manually dispatched publisher', () => {
+  assert.match(yaml, /^  group: hourly-ai-publisher-\$\{\{ github\.event_name == 'pull_request' && github\.event\.pull_request\.number \|\| 'publish' \}\}$/m);
+  assert.match(yaml, /^  cancel-in-progress: false$/m);
+  assert.match(yaml, /^  schedule:$/m);
+  assert.match(yaml, /^  workflow_dispatch:$/m);
+});
