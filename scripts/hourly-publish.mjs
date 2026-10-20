@@ -25,57 +25,323 @@ const LANGS=["vi","en","es"];
 const clean=s=>String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
   .replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<")
   .replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
-const getTag=(item,t,masked=item)=>{
-  const match=masked.match(new RegExp("<"+t+"(?:\\s[^>]*)?>([\\s\\S]*?)<\\/"+t+">","i"));
+// A source permalink must be decoded as XML exactly once. CDATA contents
+// are already literal text; decoding &#38; inside CDATA or &amp;#38; twice
+// would change the query, source identity and later publisher citation.
+const XML_LINK_ENTITIES={amp:"&",lt:"<",gt:">",quot:'"',apos:"'"};
+function decodeXmlLinkReference(entity){
+  const name=entity.slice(1,-1);
+  if(name[0]!=="#")return XML_LINK_ENTITIES[name]??entity;
+  const cp=name.startsWith("#x")?Number.parseInt(name.slice(2),16):
+    Number.parseInt(name.slice(1),10);
+  if(!xml10CharAllowed(cp))throw Error("XML_LINK_REFERENCE_INVALID");
+  return String.fromCodePoint(cp);
+}
+const xmlLinkReferencePattern=/&(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));/g;
+const decodeXmlLink=s=>String(s).replace(xmlLinkReferencePattern,decodeXmlLinkReference);
+const cleanXmlLink=s=>String(s||"").replace(
+  /<!\[CDATA\[([\s\S]*?)\]\]>|<[^>]+>|&(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));/g,
+  (part,cdata)=>cdata!==undefined?cdata:part.startsWith("<")?" ":decodeXmlLinkReference(part)
+).replace(/\s+/g," ").trim();
+
+const getTag=(item,t,masked=item,cleanup=clean)=>{
+  // Read the entire opening tag, including quoted attribute values that may
+  // legally contain '>'. The first raw '>' is not necessarily the tag end.
+  const match=masked.match(new RegExp(
+    "(<"+t+"(?=\\s|>)(?:\\s+[A-Za-z_:][\\w.:-]*\\s*=\\s*(?:\"[^\"<]*\"|'[^'<]*'))*\\s*>)([\\s\\S]*?)<\\/"+t+">"));
   if(!match)return "";
-  // The mask and original entry have identical offsets, so preserve real
-  // CDATA content without interpreting tags quoted inside it as metadata.
-  const start=match.index+match[0].indexOf(">")+1;
-  return clean(item.slice(start,start+match[1].length));
+  // The mask and original entry have identical offsets, preserving real
+  // CDATA while preventing tag-like text in quoted attributes from leaking.
+  const start=match.index+match[1].length;
+  return cleanup(item.slice(start,start+match[2].length));
 };
 
+// No DTDs are accepted. XML character data and attributes may contain only
+// five predefined named entities and numeric character references; a literal
+// ampersand or undeclared HTML entity makes the official feed ill-formed.
+function xmlReferencesAreValid(text){
+  if(/&(?!(?:amp|lt|gt|quot|apos|#(?:[0-9]+|x[0-9A-Fa-f]+));)/.test(text))return false;
+  // XML 1.0 Char ::= #x9 | #xA | #xD | [#x20-#xD7FF] |
+  // [#xE000-#xFFFD] | [#x10000-#x10FFFF]. A syntactically
+  // valid numeric entity can still reference a forbidden code point.
+  for(const [,raw] of text.matchAll(/&#(x[0-9A-Fa-f]+|[0-9]+);/g)){
+    const cp=raw.startsWith("x")?Number.parseInt(raw.slice(1),16):Number.parseInt(raw,10);
+    if(!xml10CharAllowed(cp))return false;
+  }
+  return true;
+}
+
+// XML 1.0 raw characters and numeric references share the same allowed
+// Unicode range. A lone surrogate, raw NUL or control is not publisher XML.
+function xml10CharAllowed(cp){
+  return cp===9||cp===10||cp===13||
+    (cp>=0x20&&cp<=0xD7FF)||(cp>=0xE000&&cp<=0xFFFD)||
+    (cp>=0x10000&&cp<=0x10FFFF);
+}
+
+// Reject incomplete or misnested XML, not just missing </rss> or </feed>.
+// Treat all markup as data; never fetch external XML entities or parse DTDs.
+function xmlTagsAreBalanced(xml,onTag=null){
+  // Check the original document, including XML comments, CDATA, processing
+  // instructions and attributes, before masking any of these regions.
+  for(const char of xml)if(!xml10CharAllowed(char.codePointAt(0)))return false;
+  const stack=[];
+  let rootCount=0;
+  for(let pos=0;pos<xml.length;){
+    const lt=xml.indexOf("<",pos);
+    // XML may contain only whitespace, comments and processing instructions
+    // outside the document root. A balanced root alone is not enough.
+    if(lt<0){
+      // XML 1.0 prohibits the CDATA closer in ordinary character data.
+      // Real CDATA sections are consumed by the separate branch below.
+      if(xml.slice(pos).includes("]]>"))return false;
+      if(!xmlReferencesAreValid(xml.slice(pos)))return false;
+      if(stack.length===0&&!/^[ \t\r\n]*$/.test(xml.slice(pos)))return false;
+      break;
+    }
+    // Only ordinary character data is checked: comments, processing
+    // instructions and CDATA sections are handled separately below.
+    const textBefore=xml.slice(pos,lt);
+    if(textBefore.includes("]]>"))return false;
+    if(!xmlReferencesAreValid(textBefore))return false;
+    if(stack.length===0&&!/^[ \t\r\n]*$/.test(textBefore))return false;
+    if(xml.startsWith("<!--",lt)){
+      const end=xml.indexOf("-->",lt+4);
+      // XML 1.0 forbids "--" inside comments, even when a later --> closes it.
+      if(end<0||xml.slice(lt+4,end).includes("--"))return false;
+      pos=end+3;continue;
+    }
+    if(xml.startsWith("<![CDATA[",lt)){
+      // Unlike comments and processing instructions, CDATA sections are
+      // permitted only inside an XML element, never outside the feed root.
+      if(stack.length===0)return false;
+      const end=xml.indexOf("]]>",lt+9);
+      if(end<0)return false;
+      pos=end+3;continue;
+    }
+    if(xml.startsWith("<?",lt)){
+      const end=xml.indexOf("?>",lt+2);
+      if(end<0)return false;
+      const instruction=xml.slice(lt+2,end);
+      // Processing instructions require a nonempty XML Name as their target.
+      // The target "xml" (in any capitalization) is reserved for the XML
+      // declaration, which may occur only once before the document root.
+      // Do not count ill-formed official feeds toward publisher quorum.
+      const target=instruction.match(/^([A-Za-z_][\w.:-]*)(?=\s|$)/)?.[1];
+      if(!target)return false;
+      if(/^xml$/i.test(target)){
+        // The XML declaration must be the FIRST construct in a document,
+        // and its optional encoding/standalone pseudo-attributes must
+        // occur at most once, in the order required by XML 1.0 [23].
+        const firstPrologDeclaration=target==="xml"&&rootCount===0&&
+          stack.length===0&&lt===0;
+        const validDeclaration=/^xml[ \t\r\n]+version[ \t\r\n]*=[ \t\r\n]*(?:"1\.0"|'1\.0')(?:[ \t\r\n]+encoding[ \t\r\n]*=[ \t\r\n]*(?:"[A-Za-z][A-Za-z0-9._-]*"|'[A-Za-z][A-Za-z0-9._-]*'))?(?:[ \t\r\n]+standalone[ \t\r\n]*=[ \t\r\n]*(?:"(?:yes|no)"|'(?:yes|no)'))?[ \t\r\n]*$/.test(instruction);
+        if(!firstPrologDeclaration||!validDeclaration)return false;
+      }
+      pos=end+2;continue;
+    }
+    if(xml.startsWith("<!",lt))return false;
+    let end=-1,quote="";
+    for(let i=lt+1;i<xml.length;i++){
+      const char=xml[i];
+      if(char==="<")return false;
+      if(quote){
+        if(char===quote)quote="";
+      }else if(char==='"'||char==="'")quote=char;
+      else if(char===">"){end=i;break;}
+    }
+    if(end<0||quote)return false;
+    // XML tag names must immediately follow '<' or '</'. Trimming away
+    // whitespace at this boundary would accept malformed official feed items.
+    const rawTag=xml.slice(lt+1,end);
+    if(/^\s|^\/\s/.test(rawTag))return false;
+    // XML empty-element syntax requires '/>' with no whitespace in between.
+    // trim() must not silently transform malformed '<tag/ >' into '<tag/>'.
+    if(/\/\s+$/.test(rawTag))return false;
+    const tag=rawTag.replace(/^[ \t\r\n]+|[ \t\r\n]+$/g,"");
+    const closing=tag.startsWith("/");
+    const selfClose=/\/\s*$/.test(tag);
+    const match=tag.match(/^\/?([A-Za-z_][\w.:-]*)(?=\s|\/?$)/);
+    // XML end-tags contain a name only (and optional whitespace), never
+    // attributes or slash markers. Name-only balancing is insufficient.
+    if(!match||(closing&&(selfClose||!/^\/[A-Za-z_][\w.:-]*$/.test(tag))))return false;
+    // XML attributes require names and quoted values. A balanced tag stack
+    // alone must not bless malformed publisher metadata as an official feed.
+    if(!closing){
+      const attrs=tag.slice(match[0].length).replace(/\/\s*$/,"");
+      if(!/^(?:[ \t\r\n]+[A-Za-z_:][\w.:-]*[ \t\r\n]*=[ \t\r\n]*(?:"[^"<]*"|'[^'<]*'))*[ \t\r\n]*$/.test(attrs)
+        ||!xmlReferencesAreValid(attrs))return false;
+      // Duplicate attribute names make XML not well-formed; silently taking
+      // the first of multiple rel/href values could launder false provenance.
+      // Consume each whole quoted attribute. Looking for name= fragments
+      // across raw text would mistake an id= inside a quoted value for a
+      // second XML attribute and reject otherwise valid publisher feeds.
+      const names=[...attrs.matchAll(/[ \t\r\n]+([A-Za-z_:][\w.:-]*)[ \t\r\n]*=[ \t\r\n]*(?:"[^"<]*"|'[^'<]*')/g)]
+        .map(m=>m[1]);
+      if(new Set(names).size!==names.length)return false;
+    }
+    // A document must have exactly one top-level XML element. Balanced,
+    // concatenated RSS/Atom documents are not one trustworthy publisher feed.
+    if(!closing&&stack.length===0&&++rootCount>1)return false;
+    if(onTag)onTag({name:match[1],ancestors:stack.slice(),depth:stack.length,closing,selfClose,start:lt,end:end+1});
+    if(closing){
+      if(stack.pop()!==match[1])return false;
+    }else if(!selfClose)stack.push(match[1]);
+    pos=end+1;
+  }
+  return stack.length===0&&rootCount===1;
+}
+
+// The entry's foreign extension metadata is NOT the publisher's own title,
+// date, summary, or article permalink. Preserve the exact offsets while
+// blanking direct-child foreign subtrees; legal CDATA within owned fields
+// remains intact for extraction from the original XML.
+function maskForeignEntryMetadata(item){
+  const inertCdata=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    token=>" ".repeat(token.length));
+  const owned=new Set(["title","link","pubdate","published","updated",
+    "description","summary","content","content:encoded"]);
+  const ranges=[];
+  let foreignStart=null;
+  if(!xmlTagsAreBalanced(inertCdata,tag=>{
+    const name=tag.name.toLowerCase();
+    if(!tag.closing&&tag.depth===1&&!owned.has(name)){
+      if(tag.selfClose)ranges.push([tag.start,tag.end]);
+      else foreignStart=tag.start;
+    }else if(tag.closing&&tag.depth===2&&foreignStart!==null){
+      ranges.push([foreignStart,tag.end]);
+      foreignStart=null;
+    }
+  })||foreignStart!==null)return null;
+  let masked=item;
+  for(const [start,end] of ranges.reverse()){
+    masked=masked.slice(0,start)+" ".repeat(end-start)+masked.slice(end);
+  }
+  return masked;
+}
+
+// Filter nested markup inside the entry's direct metadata before selecting
+// title, date and permalink. RSS/Atom rich text may contain nested links:
+// those are content, never official entry-level article provenance.
+// Preserve source byte offsets so genuine CDATA and markup stay readable in
+// the original top-level summary/title extraction.
+function maskNestedEntryMetadata(item){
+  const inertCdata=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    token=>" ".repeat(token.length));
+  const ranges=[];
+  let nestedStart=null;
+  if(!xmlTagsAreBalanced(inertCdata,tag=>{
+    if(tag.depth===2&&!tag.closing){
+      if(tag.selfClose)ranges.push([tag.start,tag.end]);
+      else nestedStart=tag.start;
+    }else if(tag.depth===3&&tag.closing&&nestedStart!==null){
+      ranges.push([nestedStart,tag.end]);
+      nestedStart=null;
+    }
+  })||nestedStart!==null)return null;
+  let masked=item;
+  for(const [start,end] of ranges.reverse()){
+    masked=masked.slice(0,start)+" ".repeat(end-start)+masked.slice(end);
+  }
+  return masked;
+}
+
 export function parseFeed(xml,source,now=new Date()){
+  // Validate source XML before masking comments. Malformed publisher comments
+  // must not disappear into whitespace and launder fabricated source entries.
+  const publisherXml=String(xml).replace(/^\uFEFF/,"");
+  if(!xmlTagsAreBalanced(publisherXml))return [];
   // Preserve offsets while masking inert comments and CDATA during boundary
   // detection. Slice genuine entries from comment-masked XML to keep CDATA
   // text intact without placeholder collisions with publisher-provided text.
-  const contentXml=String(xml).replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g,
+  const contentXml=publisherXml.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g,
     token=>token.startsWith("<!--")?" ".repeat(token.length):token);
   const boundaryXml=contentXml.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
     token=>" ".repeat(token.length));
-  const entries=[...boundaryXml.matchAll(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>|<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi)];
+  // Only an RSS item directly under rss/channel (or an Atom entry directly
+  // under feed) is an article. Nested <item>/<entry> in body metadata is data.
+  // Use the same tag stack as the structural check, so a nested closing tag
+  // cannot truncate an outer article before its real closing tag.
+  const entries=[];
+  const opened=new Map();
+  if(!xmlTagsAreBalanced(boundaryXml,tag=>{
+    const name=tag.name;
+    const ancestors=tag.ancestors;
+    // Enforce ancestry all the way back to the XML document root, not
+    // merely the immediate parent (which may itself be forged in a body).
+    const rssDirect=name==="item"&&(
+      (ancestors.length===1&&["rss","rdf:RDF"].includes(ancestors[0]))||
+      (ancestors.length===2&&ancestors[0]==="rss"&&ancestors[1]==="channel"));
+    const atomDirect=name==="entry"&&ancestors.length===1&&ancestors[0]==="feed";
+    if(!tag.closing&&!tag.selfClose&&(rssDirect||atomDirect)){
+      opened.set(tag.depth+1,{start:tag.start,name,format:rssDirect?"rss":"atom"});
+    }else if(tag.closing){
+      const candidate=opened.get(tag.depth);
+      if(candidate&&candidate.name===name){
+        entries.push({index:candidate.start,length:tag.end-candidate.start,format:candidate.format});
+        opened.delete(tag.depth);
+      }
+    }
+  }))return [];
   return entries.flatMap((match,index)=>{
-    const item=contentXml.slice(match.index,match.index+match[0].length);
-    const atomMetadataXml=item.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
+    const item=contentXml.slice(match.index,match.index+match.length);
+    const directMetadata=maskForeignEntryMetadata(item);
+    if(directMetadata===null)return [];
+    const nestedSafeMetadata=maskNestedEntryMetadata(directMetadata);
+    if(nestedSafeMetadata===null)return [];
+    const atomMetadataXml=nestedSafeMetadata.replace(/<!\[CDATA\[[\s\S]*?\]\]>/g,
       token=>" ".repeat(token.length));
     // Text-bearing fields can contain nested XML/XHTML tags. Only the entry's
     // own metadata may supply titles, timestamps or article permalinks.
     // Preserve equal-length offsets and read genuine CDATA payloads from item.
     const entryMetadataXml=atomMetadataXml.replace(
-      /<(description|summary|content(?::encoded)?)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi,
+      /<(description|summary|content(?::encoded)?|source)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi,
       token=>" ".repeat(token.length));
     const title=getTag(item,"title",entryMetadataXml);
     const summary=(getTag(item,"description",atomMetadataXml)||getTag(item,"summary",atomMetadataXml)||getTag(item,"content",atomMetadataXml)||getTag(item,"content:encoded",atomMetadataXml)).slice(0,1200);
     const stamp=Date.parse(getTag(item,"pubDate",entryMetadataXml)||getTag(item,"published",entryMetadataXml)||getTag(item,"updated",entryMetadataXml));
     // Atom can list a rel="self" feed identifier before the article's rel="alternate".
     // URL links in text-bearing fields are not publisher entry permalinks.
-    const atomLinks=[...entryMetadataXml.matchAll(/<link\b[^>]*>/gi)]
-      .map(m=>({tag:m[0],href:m[0].match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2]}))
-      .filter(l=>l.href);
+    const atomLinks=[];
+    // Walk structurally verified direct child elements and parse attribute
+    // boundaries sequentially. Regex searches across an entire <link> tag
+    // can confuse title="rel='alternate'" or data-href= with real rel/href,
+    // falsely treating non-article or missing URLs as official provenance.
+    if(!xmlTagsAreBalanced(entryMetadataXml,tag=>{
+      if(tag.closing||tag.depth!==1||tag.name!=="link")return;
+      const raw=entryMetadataXml.slice(tag.start,tag.end);
+      const rest=raw.slice(5,-1).replace(/\/\s*$/,"");
+      const attrs=new Map();
+      const attribute=/\s+([A-Za-z_:][\w.:-]*)\s*=\s*(?:"([^"<]*)"|'([^'<]*)')/gy;
+      for(let pos=0;pos<rest.length;){
+        attribute.lastIndex=pos;
+        const match=attribute.exec(rest);
+        if(!match){
+          if(!rest.slice(pos).trim())break;
+          return;
+        }
+        // XML attribute names are case-sensitive. REL/HREF are different
+        // attributes from the Atom rel/href metadata and must never shadow it.
+        attrs.set(match[1],match[2]??match[3]);
+        pos=attribute.lastIndex;
+      }
+      const href=attrs.get("href");
+      if(href)atomLinks.push({href,rel:attrs.get("rel"),type:attrs.get("type")});
+    }))return [];
     // Atom defaults missing rel to "alternate". Other relations (enclosure,
     // related, self) are metadata, not article provenance.
     // An alternate Atom/XML feed or media attachment is not an HTML article.
     const atomArticleLinks=atomLinks.filter(l=>{
-      const type=l.tag.match(/\s+type\s*=\s*(["'])(.*?)\1/i)?.[2]
-        ?.split(";")[0].trim().toLowerCase();
+      const type=l.type?.split(";")[0].trim().toLowerCase();
       return !type||type==="text/html"||type==="application/xhtml+xml";
     });
-    const atom=(atomArticleLinks.find(l=>/\brel\s*=\s*(["'])alternate\1/i.test(l.tag))||
-      atomArticleLinks.find(l=>!/\brel\s*=/i.test(l.tag)))?.href||"";
+    const atom=(atomArticleLinks.find(l=>l.rel==="alternate")||
+      atomArticleLinks.find(l=>l.rel===undefined))?.href||"";
     // RSS <link> is entry metadata, not a quoted tag inside summary CDATA.
     // Match against masked metadata but extract from original offsets so valid
     // <link><![CDATA[https://...]]></link> content is preserved.
-    const rssLink=getTag(item,"link",entryMetadataXml);
-    const link=(rssLink||atom).replace(/&amp;/gi,"&");
+    const rssLink=match.format==="rss"?getTag(item,"link",entryMetadataXml,cleanXmlLink):"";
+    const link=match.format==="rss"?rssLink:decodeXmlLink(atom);
     let url;
     try{const u=new URL(link);if(u.protocol!=="https:"||u.username||u.password||
       !officialPublisherLink(source,u.hostname.toLowerCase()))return [];
@@ -233,7 +499,7 @@ export function verifyReview(review,draft,sources){
   }
 }
 
-const svgEscape=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g,"")
+const svgEscape=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uD800-\uDFFF\uFFFE\uFFFF]/gu,"")
   .replace(/&/g,"&amp;").replace(/</g,"&lt;")
   .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");
 export function coverSvg(title){
@@ -359,9 +625,19 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
         // feed. Match the document root after only the XML declaration and
         // leading comments; deliberately do not search within arbitrary text.
         const root=xml.replace(/^\uFEFF/,"")
-          .replace(/^\s*<\?xml\b[^?]*\?>/i,"")
-          .replace(/^\s*(?:<!--[\s\S]*?-->\s*)*/,"");
-        if(!/^<(?:rss|feed|rdf:RDF)(?:\s|>)/i.test(root)){
+          .replace(/^[ \t\r\n]*<\?xml\b[^?]*\?>/i,"")
+          .replace(/^[ \t\r\n]*(?:<!--[\s\S]*?-->[ \t\r\n]*)*/,"");
+        // The opening tag alone is not a complete feed: a truncated HTTP 200
+        // response would otherwise count toward the healthy publisher quorum.
+        // Strip inert CDATA/comments before checking the matching root end.
+        const rootName=root.match(/^<(rss|feed|rdf:RDF)(?=\s|>)[^>]*>/)?.[1];
+        const structuralXml=root.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g," ");
+        const completeRoot=rootName &&
+          new RegExp("</"+rootName+"\\s*>\\s*(?:<\\?[^?]*\\?>\\s*)*$").test(structuralXml);
+        // Validate the entire received XML, including its declaration and PIs.
+        // Stripping the prolog is only for locating the feed root, never for
+        // accepting a malformed document as a healthy independent publisher.
+        if(!completeRoot||!xmlTagsAreBalanced(xml.replace(/^\uFEFF/,""))){
           console.warn("::warning title=Official feed document::FEED_DOCUMENT_INVALID "+String(feed.id).replace(/[^a-z0-9_-]/gi,"").slice(0,32));break;
         }
         items.push(...parseFeed(xml,feed.id,now));
