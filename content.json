@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T07:17:49.441Z",
+  "updatedAt": "2026-10-21T08:47:52.665Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-dependabot-rest-api-version-updates",
+      "reportingMode": "official-announcement",
+      "category": "Software Development Tools",
+      "storyId": "tigeriq:github-dependabot-rest-api-version-updates",
+      "clusterKey": "news:f134db75a21c0fb25fd4691c6638347852c4ea3a838be5b96f5fed0539f33b57",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T08:47:52.665Z",
+      "modifiedAt": "2026-10-21T08:47:52.665Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật API Dependabot với thông tin phiên bản phụ thuộc",
+          "dek": "Theo công bố của GitHub. GitHub bổ sung trường dữ liệu mới vào API REST của Dependabot để hỗ trợ quản lý lỗ hổng bảo mật hiệu quả hơn.",
+          "takeaways": [
+            "Trường version_requirement mới hiển thị phiên bản phụ thuộc trực tiếp trong phản hồi API.",
+            "Người dùng không cần phải phân tích tệp khóa hoặc thực hiện các yêu cầu GraphQL riêng biệt.",
+            "Tính năng này hiện đã có sẵn trên GitHub.com và GitHub Enterprise Cloud."
+          ],
+          "sections": [
+            {
+              "heading": "Cập nhật tính năng API",
+              "body": "GitHub thông báo rằng API REST cho các cảnh báo Dependabot hiện đã bao gồm trường version_requirement. Trường này cung cấp phiên bản hoặc ràng buộc phiên bản mà Dependabot đã ghi nhận cho một cảnh báo cụ thể, giúp người dùng nắm bắt thông tin mà không cần truy vấn thêm."
+            },
+            {
+              "heading": "Phương thức thu thập dữ liệu",
+              "body": "Giá trị của trường này được xác định dựa trên cách Dependabot phát hiện phụ thuộc, bao gồm các tệp khóa (lockfiles), tệp kê khai (manifests) hoặc thông qua API gửi phụ thuộc. Trong trường hợp không có giá trị khả dụng, trường này sẽ trả về giá trị null."
+            },
+            {
+              "heading": "Khả năng tương thích và triển khai",
+              "body": "Tính năng này hiện đã được triển khai cho người dùng GitHub.com và GitHub Enterprise Cloud. Đối với khách hàng sử dụng GitHub Enterprise Server, tính năng này sẽ được tích hợp trong phiên bản 3.24 sắp tới, hỗ trợ cả danh sách cảnh báo và webhook."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Enhances Dependabot REST API with Dependency Version Data",
+          "dek": "According to GitHub. GitHub introduces a new version_requirement field to its Dependabot alerts API to streamline vulnerability tracking.",
+          "takeaways": [
+            "The new version_requirement field provides direct access to vulnerable dependency versions.",
+            "Users can now avoid manual lockfile parsing or additional GraphQL requests for version data.",
+            "The update is currently live on GitHub.com and GitHub Enterprise Cloud platforms."
+          ],
+          "sections": [
+            {
+              "heading": "API Update Overview",
+              "body": "GitHub has updated its Dependabot alerts REST API to include a version_requirement field. This addition allows developers to see the specific version or version constraint recorded by Dependabot for a vulnerable dependency directly within the alert response, simplifying security workflows."
+            },
+            {
+              "heading": "Data Detection Methods",
+              "body": "The version information is populated based on the detection method used by Dependabot, such as resolved versions from lockfiles, declared versions in manifests, or data submitted via the dependency submission API. The field may return null if no specific version data is available."
+            },
+            {
+              "heading": "Availability and Support",
+              "body": "This feature is available immediately for GitHub.com and GitHub Enterprise Cloud users. GitHub confirmed that the update will be included in the upcoming GitHub Enterprise Server 3.24 release, covering individual alerts, repository lists, and webhook payloads."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub actualiza la API de Dependabot con datos de versiones",
+          "dek": "Según GitHub. GitHub añade un campo de versión a su API de alertas de Dependabot para facilitar la gestión de vulnerabilidades.",
+          "takeaways": [
+            "El nuevo campo version_requirement muestra la versión de la dependencia vulnerable directamente.",
+            "Se elimina la necesidad de analizar archivos de bloqueo o realizar consultas GraphQL adicionales.",
+            "La funcionalidad ya está disponible en GitHub.com y GitHub Enterprise Cloud."
+          ],
+          "sections": [
+            {
+              "heading": "Mejoras en la API",
+              "body": "GitHub ha anunciado la inclusión del campo version_requirement en la API REST de alertas de Dependabot. Este cambio permite a los usuarios obtener la versión o restricción de versión registrada para una dependencia vulnerable sin necesidad de realizar procesos de consulta externos."
+            },
+            {
+              "heading": "Fuentes de información",
+              "body": "El valor del campo depende del método de detección utilizado por Dependabot, incluyendo archivos de bloqueo, manifiestos o la API de envío de dependencias. En casos donde no exista un valor disponible, el campo se mostrará como nulo para evitar errores de datos."
+            },
+            {
+              "heading": "Disponibilidad del servicio",
+              "body": "La actualización ya se encuentra operativa en GitHub.com y GitHub Enterprise Cloud. Además, GitHub ha confirmado que esta capacidad se integrará en la versión 3.24 de GitHub Enterprise Server, permitiendo su uso en alertas individuales, listas de repositorios y webhooks."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-3",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions",
+            "title": "Dependabot alerts REST API now includes dependency versions"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has updated the Dependabot alerts REST API to include a new version_requirement field that displays the specific version or constraint of a vulnerable dependency.",
+            "sourceIds": [
+              "github-3"
+            ]
+          },
+          {
+            "text": "The new field is available immediately on GitHub.com and GitHub Enterprise Cloud, with support scheduled for GitHub Enterprise Server 3.24.",
+            "sourceIds": [
+              "github-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-3",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-dependabot-rest-api-version-updates.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật API Dependabot với thông tin phiên bản phụ thuộc",
+          "en": "GitHub Enhances Dependabot REST API with Dependency Version Data",
+          "es": "GitHub actualiza la API de Dependabot con datos de versiones"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-secret-scanning-updates-october-2026",
       "reportingMode": "official-announcement",
