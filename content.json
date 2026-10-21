@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T15:17:50.884Z",
+  "updatedAt": "2026-10-21T21:17:51.668Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-cli-expiring-oauth-tokens",
+      "reportingMode": "official-announcement",
+      "category": "Software Development",
+      "storyId": "tigeriq:github-cli-expiring-oauth-tokens",
+      "clusterKey": "news:bafdaf555c768ab609dc75eec941af182d91ef6b64244ec3ece38ca09507edfd",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T21:17:51.668Z",
+      "modifiedAt": "2026-10-21T21:17:51.668Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub CLI giới thiệu mã thông báo OAuth tự động làm mới",
+          "dek": "Theo công bố của GitHub. GitHub ra mắt tính năng mã thông báo hết hạn và tự động làm mới trong bản xem trước công khai cho công cụ dòng lệnh.",
+          "takeaways": [
+            "Người dùng có thể chọn sử dụng mã thông báo OAuth có thời hạn và tự động làm mới.",
+            "Tính năng này giúp tăng cường bảo mật bằng cách làm cho mã thông báo bị rò rỉ trở nên vô dụng sau vài giờ.",
+            "GitHub khuyến nghị sử dụng phiên bản Git 2.46 trở lên để quản lý mã thông báo hiệu quả hơn."
+          ],
+          "sections": [
+            {
+              "heading": "Cơ chế hoạt động mới",
+              "body": "GitHub CLI phiên bản 2.103.0 giới thiệu khả năng sử dụng mã thông báo truy cập có thời hạn kết hợp với mã thông báo làm mới xoay vòng. Khi người dùng chọn tham gia, hệ thống sẽ tự động làm mới mã thông báo khi cần thiết, giúp duy trì trạng thái xác thực mà không cần đăng nhập lại thủ công."
+            },
+            {
+              "heading": "Hướng dẫn triển khai",
+              "body": "Người dùng có thể kích hoạt tính năng này bằng cách sử dụng cờ --expiring khi đăng nhập hoặc cấu hình thông qua lệnh gh config set expiring_credentials enabled. GitHub khuyến nghị cấu hình CLI làm trình trợ giúp thông tin xác thực cho Git để đảm bảo các thao tác qua HTTPS được xử lý chính xác."
+            },
+            {
+              "heading": "Lưu ý về tính tương thích",
+              "body": "Tính năng này hiện là tùy chọn và có khả năng tương thích ngược. Nếu máy chủ không hỗ trợ mã thông báo có thể làm mới, hệ thống sẽ tự động quay lại sử dụng mã thông báo không hết hạn truyền thống. GitHub lưu ý rằng các tập lệnh lưu trữ mã thông báo tĩnh có thể gặp lỗi nếu không cập nhật cách truy xuất."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub CLI Introduces Expiring and Auto-Refreshing OAuth Tokens",
+          "dek": "According to GitHub. GitHub announces a public preview of expiring, automatically refreshing OAuth credentials for its command-line interface.",
+          "takeaways": [
+            "Users can now opt into expiring access tokens that automatically refresh in the background.",
+            "The feature improves security by ensuring leaked access tokens become unusable within hours.",
+            "GitHub plans to make expiring credentials the default for new sign-ins in a future release."
+          ],
+          "sections": [
+            {
+              "heading": "New Authentication Mechanism",
+              "body": "Starting with GitHub CLI v2.103.0, users can utilize expiring access tokens paired with rotating refresh tokens. This system automatically refreshes credentials as needed, allowing users to stay authenticated without manual re-authentication while reducing the window of opportunity for leaked tokens."
+            },
+            {
+              "heading": "Configuration and Setup",
+              "body": "Users can enable this feature by passing the --expiring flag during login or by running the configuration command to enable it globally. GitHub strongly recommends setting the CLI as the Git credential helper to ensure that expiring tokens are correctly handled during Git operations over HTTPS."
+            },
+            {
+              "heading": "Compatibility and Limitations",
+              "body": "The feature is currently opt-in and backward compatible. If a server does not support refreshable credentials, the CLI will fall back to standard non-expiring tokens. GitHub warns that scripts or extensions that cache tokens instead of fetching them fresh via the CLI may break when using expiring credentials."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub CLI presenta tokens OAuth que expiran y se actualizan automáticamente",
+          "dek": "Según GitHub. GitHub anuncia una vista previa pública de credenciales OAuth que expiran y se actualizan automáticamente para su interfaz de línea de comandos.",
+          "takeaways": [
+            "Los usuarios pueden optar por tokens de acceso que expiran y se renuevan automáticamente.",
+            "Esta función mejora la seguridad al invalidar tokens filtrados en pocas horas.",
+            "GitHub planea convertir estas credenciales en el estándar predeterminado en futuras versiones."
+          ],
+          "sections": [
+            {
+              "heading": "Nuevo mecanismo de autenticación",
+              "body": "A partir de la versión 2.103.0 de GitHub CLI, se permite el uso de tokens de acceso con fecha de caducidad junto con tokens de actualización rotativos. El sistema refresca automáticamente las credenciales según sea necesario, manteniendo la sesión activa sin necesidad de reautenticación manual constante."
+            },
+            {
+              "heading": "Configuración e implementación",
+              "body": "Los usuarios pueden activar esta función mediante el flag --expiring al iniciar sesión o configurándola globalmente. GitHub recomienda encarecidamente configurar la CLI como ayudante de credenciales de Git para asegurar que los tokens que expiran se gestionen correctamente en operaciones HTTPS."
+            },
+            {
+              "heading": "Compatibilidad y advertencias",
+              "body": "La función es opcional y compatible con versiones anteriores. Si el servidor no admite credenciales actualizables, la CLI volverá a utilizar tokens estándar. GitHub advierte que los scripts que almacenan tokens de forma estática en lugar de solicitarlos mediante la CLI podrían dejar de funcionar correctamente."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-1",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens",
+            "title": "GitHub CLI: Opt in to expiring, auto-refreshing OAuth tokens"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub CLI now supports expiring, automatically refreshing OAuth credentials as part of a public preview.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "The new feature is opt-in and backward compatible, with plans to make it the default for new sign-ins in a future release.",
+            "sourceIds": [
+              "github-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-cli-expiring-oauth-tokens.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub CLI giới thiệu mã thông báo OAuth tự động làm mới",
+          "en": "GitHub CLI Introduces Expiring and Auto-Refreshing OAuth Tokens",
+          "es": "GitHub CLI presenta tokens OAuth que expiran y se actualizan automáticamente"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "google-cloud-nvidia-vera-rubin-availability",
       "reportingMode": "official-announcement",
