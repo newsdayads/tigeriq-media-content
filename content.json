@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T21:17:51.668Z",
+  "updatedAt": "2026-10-21T22:22:23.133Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-expands-european-ai-cloud-infrastructure",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-expands-european-ai-cloud-infrastructure",
+      "clusterKey": "news:23e1334bc4ec8d1557a60a0d42d39efc8fc0e64cc15d93efab4d4f2c202d51a0",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T22:22:23.133Z",
+      "modifiedAt": "2026-10-21T22:22:23.133Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA mở rộng hạ tầng đám mây AI tại châu Âu",
+          "dek": "Theo công bố của NVIDIA. NVIDIA công bố các đối tác đám mây mới và kiến trúc bảo mật OpenShell nhằm tăng cường năng lực tính toán AI tại khu vực.",
+          "takeaways": [
+            "Mở rộng hạ tầng tính toán AI tại châu Âu, châu Phi và Trung Á.",
+            "Ra mắt kiến trúc OpenShell để kiểm soát an toàn cho các tác nhân AI.",
+            "Tăng cường hiệu suất suy luận thông qua các hệ thống NVIDIA mới."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng hạ tầng đám mây",
+              "body": "NVIDIA thông báo rằng các đối tác đám mây của họ tại châu Âu và các khu vực lân cận đang mở rộng năng lực tính toán để hỗ trợ đào tạo mô hình và suy luận. Các đối tác như Nscale và Crusoe đang triển khai các hệ thống NVIDIA Vera Rubin và DSX để tối ưu hóa việc sử dụng năng lượng và tăng cường thông lượng suy luận cho các nhà phát triển."
+            },
+            {
+              "heading": "Hỗ trợ mô hình mở",
+              "body": "Hệ sinh thái đối tác đang tích hợp các thư viện và mô hình mở để hỗ trợ các nhà phát triển xây dựng ứng dụng từ đào tạo đến suy luận. Các công ty như Nebius, Baseten và Mistral đang sử dụng hạ tầng của NVIDIA để cải thiện hiệu suất, giảm chi phí suy luận và hỗ trợ các mô hình đa phương thức tiên tiến cho doanh nghiệp."
+            },
+            {
+              "heading": "Kiến trúc bảo mật OpenShell",
+              "body": "Tại sự kiện GTC Berlin, NVIDIA đã giới thiệu Kiến trúc tham chiếu OpenShell. Giải pháp này được thiết kế để cung cấp cho các tổ chức khả năng kiểm soát toàn diện đối với các tác nhân AI, thiết lập các ranh giới an toàn về những gì tác nhân có thể truy cập và thực hiện thông qua việc thực thi bảo mật trong silicon."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Expands European AI Cloud Infrastructure and Security",
+          "dek": "According to NVIDIA. NVIDIA announces new regional cloud partnerships and the OpenShell Reference Architecture to enhance sovereign AI capabilities.",
+          "takeaways": [
+            "Expanded regional AI compute capacity across Europe, Africa, and Central Asia.",
+            "Introduction of OpenShell Reference Architecture for secure AI agent deployment.",
+            "Integration of new NVIDIA hardware to improve inference throughput and energy efficiency."
+          ],
+          "sections": [
+            {
+              "heading": "Scaling Regional AI Infrastructure",
+              "body": "NVIDIA announced that its cloud partners across Europe, the Nordics, Africa, and Central Asia are expanding regional compute capacity. Partners such as Nscale and Crusoe are utilizing NVIDIA's full-stack infrastructure, including the Vera Rubin platform, to provide developers with localized compute resources for training and inference while optimizing power consumption."
+            },
+            {
+              "heading": "Advancing Open Model Ecosystems",
+              "body": "The ecosystem is expanding support for open models and libraries to facilitate specialized task fine-tuning and large-scale inference. Companies like Nebius, Baseten, and Mistral are leveraging NVIDIA-accelerated infrastructure to improve token generation speeds, reduce inference costs, and support the development of multimodal frontier models for various enterprise applications."
+            },
+            {
+              "heading": "Secure AI Agent Deployment",
+              "body": "Announced at GTC Berlin, the NVIDIA OpenShell Reference Architecture aims to provide organizations with full-stack control over AI agents. By utilizing NVIDIA OpenShell runtime software and in-silicon enforcement via BlueField-4 DPUs, the architecture allows organizations to set clear boundaries on agent access and actions within their production environments."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA expande su infraestructura de nube de IA en Europa",
+          "dek": "Según NVIDIA. NVIDIA anuncia nuevas asociaciones en la nube y la arquitectura OpenShell para mejorar la seguridad y capacidad de IA en la región.",
+          "takeaways": [
+            "Expansión de la capacidad de cómputo de IA en Europa, África y Asia Central.",
+            "Lanzamiento de la arquitectura OpenShell para la seguridad de agentes de IA.",
+            "Optimización de la eficiencia energética y el rendimiento de inferencia."
+          ],
+          "sections": [
+            {
+              "heading": "Escalamiento de infraestructura regional",
+              "body": "NVIDIA informó que sus socios de nube en Europa, los países nórdicos, África y Asia Central están aumentando su capacidad de cómputo regional. Empresas como Nscale y Crusoe están implementando la plataforma NVIDIA Vera Rubin y sistemas DSX para ofrecer a los desarrolladores recursos de entrenamiento e inferencia más cercanos a sus datos, mejorando la eficiencia energética."
+            },
+            {
+              "heading": "Apoyo a modelos abiertos",
+              "body": "El ecosistema está ampliando el soporte para modelos y bibliotecas abiertas, facilitando el ajuste fino y la inferencia a gran escala. Socios como Nebius, Baseten y Mistral están utilizando la infraestructura de NVIDIA para acelerar la generación de tokens, reducir costos operativos y permitir el desarrollo de modelos multimodales avanzados para sectores como finanzas y robótica."
+            },
+            {
+              "heading": "Seguridad para agentes de IA",
+              "body": "Durante el GTC Berlin, NVIDIA presentó la Arquitectura de Referencia OpenShell. Este marco está diseñado para brindar a las organizaciones un control total sobre los agentes de IA, permitiendo establecer límites claros sobre lo que los agentes pueden acceder y ejecutar mediante la aplicación de seguridad directamente en el silicio con las unidades DPU BlueField-4."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/cloud-partners-europe-sovereign-safety-open-agents/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-3",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/cloud-partners-europe-sovereign-safety-open-agents/",
+            "title": "NVIDIA Cloud Partners Scale Across Europe — Sovereign, Open and Built for Safe AI Agents"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced the expansion of its regional AI cloud partner ecosystem across Europe, the Nordics, Africa, and Central Asia to provide localized compute capacity.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          },
+          {
+            "text": "The company introduced the NVIDIA OpenShell Reference Architecture, designed to provide organizations with full-stack control over AI agent access and security boundaries.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-3",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/cloud-partners-europe-sovereign-safety-open-agents/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-expands-european-ai-cloud-infrastructure.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA mở rộng hạ tầng đám mây AI tại châu Âu",
+          "en": "NVIDIA Expands European AI Cloud Infrastructure and Security",
+          "es": "NVIDIA expande su infraestructura de nube de IA en Europa"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-cli-expiring-oauth-tokens",
       "reportingMode": "official-announcement",
