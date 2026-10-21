@@ -85,5 +85,7 @@ test('new editorial SVG is self-contained and has valid accessible text', async 
   assert.match(svg, /<title id="title">/);
   assert.match(svg, /<desc id="desc">/);
   assert.match(svg, /<\/svg>\s*$/);
-  assert.doesNotMatch(svg, /<script\b|<foreignObject\b|https?:\/\/|xlink:href\s*=/i);
+  assert.match(svg, /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
+  const payload = svg.replace('xmlns="http://www.w3.org/2000/svg"', '');
+  assert.doesNotMatch(payload, /<script\b|<foreignObject\b|https?:\/\/|xlink:href\s*=/i);
 });
