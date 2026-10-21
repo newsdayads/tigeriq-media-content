@@ -405,6 +405,23 @@ export function providerTransportCode(signal){
     ?"AI_PROVIDER_TIMEOUT":"AI_PROVIDER_TRANSPORT_FAILED";
 }
 
+// Honor an upstream 503 cooldown only when a second attempt can stay inside
+// our bounded, zero-extra-call retry budget. A longer cooldown means fail
+// closed rather than retrying early against an overloaded provider.
+const MAX_PROVIDER_503_RETRY_DELAY_MS=30000;
+function provider503RetryAfterMs(response){
+  const value=response.headers?.get?.("retry-after")?.trim();
+  if(!value)return null;
+  if(/^\\d+$/.test(value))
+    return value.length>5?MAX_PROVIDER_503_RETRY_DELAY_MS+1:Number(value)*1000;
+  // Accept the canonical HTTP-date, not arbitrary user-controlled date text.
+  if(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), \\d{2} [A-Z][a-z]{2} \\d{4} \\d{2}:\\d{2}:\\d{2} GMT$/.test(value)){
+    const when=Date.parse(value);
+    if(Number.isFinite(when))return Math.max(0,when-Date.now());
+  }
+  return null;
+}
+
 export async function modelJson({fetchImpl=fetch,provider,model,prompt,
   sleepImpl=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){
   let r;
@@ -424,9 +441,12 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt,
       throw Error(providerTransportCode(signal));
     }
     if(r.status!==503||attempt!==0)break;
+    const requestedDelayMs=provider503RetryAfterMs(r);
+    if(requestedDelayMs!==null&&requestedDelayMs>MAX_PROVIDER_503_RETRY_DELAY_MS)break;
     try{await r.body?.cancel?.();}catch{}
     console.warn("AI_PROVIDER_HTTP_503_BACKOFF_ONCE");
-    await sleepImpl(1000+Math.floor(Math.random()*251));
+    const defaultDelayMs=1000+Math.floor(Math.random()*251);
+    await sleepImpl(requestedDelayMs===null?defaultDelayMs:Math.max(defaultDelayMs,requestedDelayMs));
   }
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   // Only canonical JSON responses are valid. JSONP, NDJSON and other
