@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T06:17:48.129Z",
+  "updatedAt": "2026-10-21T07:17:49.441Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-secret-scanning-updates-october-2026",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:github-secret-scanning-updates-october-2026",
+      "clusterKey": "news:d2909a2652ca9a69e13b68c132cc79961261d418d4999dfcf6cf60544b9db87f",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T07:17:49.441Z",
+      "modifiedAt": "2026-10-21T07:17:49.441Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật tính năng quét bí mật",
+          "dek": "Theo công bố của GitHub. GitHub thông báo các thay đổi về nhật ký kiểm toán và cải tiến kỹ thuật cho hệ thống quét bí mật.",
+          "takeaways": [
+            "Thay đổi định dạng trường business trong nhật ký kiểm toán từ tên hiển thị sang slug.",
+            "Hỗ trợ giải mã tự động cho các mã thông báo GitHub được mã hóa Base64.",
+            "Cải thiện khả năng truy cập và sửa lỗi cho các yêu cầu bỏ qua quét bí mật."
+          ],
+          "sections": [
+            {
+              "heading": "Thay đổi về nhật ký kiểm toán",
+              "body": "Bắt đầu từ ngày 12 tháng 11 năm 2026, trường business trong các sự kiện nhật ký kiểm toán secret_scanning_alert và secret_scanning_push_protection.bypass sẽ chuyển từ tên hiển thị doanh nghiệp sang slug doanh nghiệp. Người dùng được khuyến nghị cập nhật các tích hợp tự động để chấp nhận cả hai định dạng hoặc sử dụng business_id để tránh gián đoạn quy trình làm việc."
+            },
+            {
+              "heading": "Cải tiến tính năng quét bí mật",
+              "body": "GitHub đã mở rộng khả năng thu hồi mã thông báo cho các kho lưu trữ riêng tư và nội bộ. Hệ thống hiện hỗ trợ tự động giải mã các mã thông báo truy cập cá nhân cổ điển, mã thông báo chi tiết, mã thông báo OAuth và mã thông báo người dùng ứng dụng GitHub được mã hóa dưới dạng Base64."
+            },
+            {
+              "heading": "Sửa lỗi và tối ưu hóa hệ thống",
+              "body": "Các bản cập nhật bao gồm việc sửa lỗi cho các yêu cầu bỏ qua, cải thiện khả năng truy cập cho người dùng sử dụng trình đọc màn hình và điều chỉnh mã phản hồi API cho các mẫu tùy chỉnh. Các yêu cầu không hợp lệ hiện sẽ trả về mã lỗi 422 thay vì 500 để giúp các nhà phát triển phân biệt lỗi đầu vào với lỗi máy chủ."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Announces Updates to Secret Scanning",
+          "dek": "According to GitHub. GitHub introduces audit log changes and technical improvements to its secret scanning infrastructure.",
+          "takeaways": [
+            "Audit log events will transition to using enterprise slugs instead of display names.",
+            "Secret scanning now automatically decodes Base64-encoded GitHub tokens for revocation.",
+            "API and webhook improvements provide better error handling and correlation for developers."
+          ],
+          "sections": [
+            {
+              "heading": "Audit Log Event Changes",
+              "body": "Effective November 12, 2026, the business field in secret_scanning_alert and secret_scanning_push_protection.bypass audit log events will shift from the enterprise display name to the enterprise slug. GitHub advises users to update integrations that filter by display name to accept both formats or transition to using the business_id to ensure continued functionality."
+            },
+            {
+              "heading": "Enhanced Secret Revocation",
+              "body": "GitHub has expanded its revocation action for private and internal repositories to support Base64-encoded tokens. This includes classic personal access tokens, fine-grained tokens, OAuth tokens, and GitHub App user tokens. The platform now automatically decodes these values, streamlining the security response process for developers."
+            },
+            {
+              "heading": "System Improvements and Bug Fixes",
+              "body": "The update addresses several technical issues, including fixing empty metadata in bypass-request API responses and resolving push failures related to delegated bypass configurations. Additionally, the custom pattern API now returns a 422 error code for invalid arguments, allowing integrations to better distinguish between input errors and server-side failures."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub anuncia actualizaciones en el escaneo de secretos",
+          "dek": "Según GitHub. GitHub presenta cambios en los registros de auditoría y mejoras técnicas para su sistema de escaneo de secretos.",
+          "takeaways": [
+            "Los eventos de registro de auditoría utilizarán slugs empresariales en lugar de nombres para mostrar.",
+            "El escaneo de secretos ahora decodifica automáticamente tokens de GitHub codificados en Base64.",
+            "Se han implementado mejoras en la API y webhooks para facilitar la integración y el manejo de errores."
+          ],
+          "sections": [
+            {
+              "heading": "Cambios en registros de auditoría",
+              "body": "A partir del 12 de noviembre de 2026, el campo business en los eventos de auditoría secret_scanning_alert y secret_scanning_push_protection.bypass cambiará del nombre para mostrar de la empresa al slug de la empresa. GitHub recomienda actualizar las integraciones que filtran por nombre para aceptar ambos formatos o utilizar business_id para evitar interrupciones."
+            },
+            {
+              "heading": "Mejoras en la revocación de secretos",
+              "body": "GitHub ha ampliado la acción de revocación para repositorios privados e internos, permitiendo el soporte para tokens codificados en Base64. Esto incluye tokens de acceso personal clásicos, tokens detallados, tokens OAuth y tokens de usuario de aplicaciones de GitHub, los cuales ahora son decodificados automáticamente por la plataforma."
+            },
+            {
+              "heading": "Correcciones y optimizaciones",
+              "body": "Las actualizaciones incluyen la resolución de errores en las respuestas de la API para solicitudes de omisión y mejoras en la accesibilidad para lectores de pantalla. Además, la API de patrones personalizados ahora devuelve un código de error 422 para argumentos no válidos, permitiendo a los desarrolladores identificar mejor los errores de entrada frente a fallos del servidor."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-2",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning",
+            "title": "Updates to GitHub secret scanning"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub is updating the business field in specific audit log events from the enterprise display name to the enterprise slug starting November 12, 2026.",
+            "sourceIds": [
+              "github-2"
+            ]
+          },
+          {
+            "text": "GitHub has expanded its secret scanning revocation action to support Base64-encoded tokens for private and internal repositories.",
+            "sourceIds": [
+              "github-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-2",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-secret-scanning-updates-october-2026.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật tính năng quét bí mật",
+          "en": "GitHub Announces Updates to Secret Scanning",
+          "es": "GitHub anuncia actualizaciones en el escaneo de secretos"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-bulk-migrate-branch-protections-to-rulesets",
       "reportingMode": "official-announcement",
