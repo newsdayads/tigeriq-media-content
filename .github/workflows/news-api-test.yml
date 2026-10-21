@@ -13,6 +13,9 @@ on:
   pull_request:
     paths:
       - .github/workflows/news-api-test.yml
+      - content.json
+      - covers/**
+      - scripts/content-integrity.test.mjs
 permissions:
   contents: read
 concurrency:
@@ -28,7 +31,7 @@ jobs:
         with:
           node-version: "24"
       - name: Existing publisher regression tests without provider calls
-        run: node --test scripts/hourly-publish.test.mjs scripts/news-api-workflow.test.mjs
+        run: node --test scripts/hourly-publish.test.mjs scripts/news-api-workflow.test.mjs scripts/content-integrity.test.mjs
   config-readiness:
     # Pull-request checks use only non-secret repository variables; they never read API keys.
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
