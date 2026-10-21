@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T04:17:50.403Z",
+  "updatedAt": "2026-10-21T06:17:48.129Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-bulk-migrate-branch-protections-to-rulesets",
+      "reportingMode": "official-announcement",
+      "category": "Software Development Tools",
+      "storyId": "tigeriq:github-bulk-migrate-branch-protections-to-rulesets",
+      "clusterKey": "news:e37a573b506264fab83005ba13dc160daa0ef0b2f96af9ef026e9bb3bf0a6740",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T06:17:48.129Z",
+      "modifiedAt": "2026-10-21T06:17:48.129Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub ra mắt tính năng chuyển đổi hàng loạt quy tắc bảo vệ nhánh sang Rulesets",
+          "dek": "Theo công bố của GitHub. Người dùng hiện có thể chuyển đổi toàn bộ quy tắc bảo vệ nhánh cũ sang hệ thống Rulesets mới chỉ với một thao tác duy nhất.",
+          "takeaways": [
+            "Hỗ trợ chuyển đổi toàn bộ quy tắc bảo vệ nhánh sang Rulesets cùng lúc.",
+            "Cung cấp giao diện xem trước để kiểm tra các quy tắc trước khi xác nhận.",
+            "Cho phép tùy chọn giữ lại hoặc xóa bỏ các quy tắc bảo vệ nhánh cũ sau khi chuyển đổi."
+          ],
+          "sections": [
+            {
+              "heading": "Cơ chế chuyển đổi mới",
+              "body": "GitHub thông báo rằng người dùng có thể truy cập vào mục Settings và chọn Rulesets để bắt đầu quá trình nhập các quy tắc bảo vệ nhánh. Hệ thống sẽ hiển thị hộp thoại xem trước, cho phép người dùng kiểm tra các quy tắc sẽ được tạo, xác định các quy tắc đã có sẵn và xử lý các trường hợp một quy tắc cũ tạo ra nhiều quy tắc mới để đảm bảo tính nhất quán."
+            },
+            {
+              "heading": "Lợi ích của việc sử dụng Rulesets",
+              "body": "Theo GitHub, việc chuyển đổi sang Rulesets mang lại nhiều ưu điểm so với các quy tắc bảo vệ nhánh truyền thống. Các lợi ích bao gồm khả năng áp dụng quy tắc trên nhiều nhánh thông qua khớp mẫu, xếp chồng nhiều quy tắc để kiểm soát chính sách chi tiết, quản lý ở cấp độ tổ chức hoặc doanh nghiệp, và cấu hình quyền bỏ qua cho người dùng, nhóm hoặc ứng dụng."
+            },
+            {
+              "heading": "Khả năng sẵn sàng của tính năng",
+              "body": "Tính năng chuyển đổi hàng loạt này hiện đã được triển khai cho tất cả các kho lưu trữ có hỗ trợ Rulesets. Sau khi hoàn tất quá trình tạo quy tắc mới, người dùng có quyền lựa chọn giữ lại hoặc xóa bỏ các quy tắc bảo vệ nhánh cũ để tối ưu hóa cấu hình quản trị cho dự án của mình."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Introduces Bulk Migration of Branch Protections to Rulesets",
+          "dek": "According to GitHub. GitHub now allows repository administrators to convert all existing branch protection rules into rulesets in a single, streamlined action.",
+          "takeaways": [
+            "Users can now convert all repository branch protection rules to rulesets at once.",
+            "The import dialog provides a preview of new rulesets and enforcement status options.",
+            "Rulesets offer advanced features like pattern matching and organization-level management."
+          ],
+          "sections": [
+            {
+              "heading": "Streamlined Migration Process",
+              "body": "GitHub has announced a new capability that enables users to migrate all branch protection rules to rulesets within a single repository action. By navigating to the Rulesets section in repository settings, administrators can import existing rules, preview the resulting configurations, and choose specific enforcement statuses such as Active, Evaluate, or Disabled before finalizing the migration."
+            },
+            {
+              "heading": "Advantages of Rulesets",
+              "body": "The publisher highlights that rulesets provide significant improvements over classic branch protections. These advantages include the ability to apply rules across multiple branches using pattern matching, the capacity to layer multiple rulesets for granular policy control, and the option to manage configurations at the organization or enterprise level, alongside fine-grained bypass permissions."
+            },
+            {
+              "heading": "Availability and Configuration",
+              "body": "This bulk migration feature is available for all repositories that currently support rulesets. During the migration process, users are presented with the option to either retain or delete the original branch protection rules after the new rulesets have been successfully created, ensuring flexibility in how teams transition their repository security policies."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub lanza la migración masiva de protecciones de rama a Rulesets",
+          "dek": "Según GitHub. GitHub permite ahora convertir todas las reglas de protección de ramas existentes en un repositorio a Rulesets mediante una única acción.",
+          "takeaways": [
+            "Permite convertir todas las reglas de protección de ramas a Rulesets de una vez.",
+            "Incluye una interfaz de vista previa para revisar los cambios antes de confirmar.",
+            "Ofrece mayor flexibilidad mediante el uso de patrones y gestión a nivel de organización."
+          ],
+          "sections": [
+            {
+              "heading": "Proceso de migración simplificado",
+              "body": "GitHub ha anunciado una nueva funcionalidad que permite a los usuarios convertir todas las reglas de protección de ramas de un repositorio a Rulesets en una sola acción. A través de la configuración del repositorio, los administradores pueden importar reglas, previsualizar los resultados y seleccionar estados de cumplimiento como Activo, Evaluar o Deshabilitado antes de completar la migración."
+            },
+            {
+              "heading": "Ventajas de utilizar Rulesets",
+              "body": "Según la plataforma, los Rulesets ofrecen ventajas superiores a las protecciones de rama clásicas. Estas incluyen la aplicación de reglas en múltiples ramas mediante coincidencia de patrones, la capacidad de superponer varias reglas para un control granular de políticas, y la gestión centralizada a nivel de organización o empresa, además de permisos de omisión detallados."
+            },
+            {
+              "heading": "Disponibilidad y opciones de gestión",
+              "body": "Esta función de migración masiva está disponible para todos los repositorios que admiten Rulesets. Al finalizar la creación de los nuevos conjuntos de reglas, el sistema permite a los usuarios elegir si desean conservar o eliminar las reglas de protección de ramas originales, facilitando así la transición hacia un modelo de gestión de políticas más moderno y escalable."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-1",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository",
+            "title": "Bulk migrate branch protections to rulesets for a repository"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has introduced a new feature allowing users to convert all existing branch protection rules within a repository into rulesets in a single action.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "The migration tool provides a preview interface to review created rulesets, identify existing coverage, and manage enforcement statuses before finalizing the conversion.",
+            "sourceIds": [
+              "github-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-bulk-migrate-branch-protections-to-rulesets.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub ra mắt tính năng chuyển đổi hàng loạt quy tắc bảo vệ nhánh sang Rulesets",
+          "en": "GitHub Introduces Bulk Migration of Branch Protections to Rulesets",
+          "es": "GitHub lanza la migración masiva de protecciones de rama a Rulesets"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "southeast-asia-digital-economy-ai-growth",
       "reportingMode": "official-announcement",
