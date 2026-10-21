@@ -423,6 +423,7 @@ function provider503RetryAfterMs(response){
 }
 
 export async function modelJson({fetchImpl=fetch,provider,model,prompt,
+  timeoutSignalFactory=ms=>AbortSignal.timeout(ms),
   sleepImpl=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){
   let r;
   const body=JSON.stringify({model,messages:[{role:"user",content:prompt}],
