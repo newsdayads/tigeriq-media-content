@@ -429,13 +429,15 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt,
     temperature:0.2,response_format:{type:"json_object"}});
   // Bounded 503 recovery delays: 2s, 8s, 20s; stop at any 429/auth error.
   for(let attempt=0;attempt<MAX_PROVIDER_503_ATTEMPTS;attempt++){
-    const signal=AbortSignal.timeout(90000);
+    // Three native locales and separate review need a bounded but sufficient
+    // single-request response window. No additional requests on timeout.
+    const signal=timeoutSignalFactory(120000);
     try{
       r=await fetchImpl(provider.url,{method:"POST",
         headers:{"authorization":"Bearer "+provider.key,"content-type":"application/json","accept":"application/json"},
         body,signal,redirect:"error"});
     }catch{
-      // The real 90-second deadline is distinct from DNS/TLS/socket failures.
+      // The real 120-second deadline is distinct from DNS/TLS/socket failures.
       // Never log exception text, URLs or credentials. No automatic retry.
       throw Error(providerTransportCode(signal));
     }
