@@ -8,7 +8,7 @@ const provider={url:"https://example.invalid/ai",key:"local-test-only",writer:"w
 test("actual provider request timeout is distinguished without retrying or exposing secrets",async t=>{
   let calls=0;
   t.mock.method(AbortSignal,"timeout",ms=>{
-    assert.equal(ms,90000,"retain exact production deadline");
+    assert.equal(ms,120000,"retain the new bounded production deadline");
     return AbortSignal.abort(new DOMException("private upstream timeout detail","TimeoutError"));
   });
   await assert.rejects(()=>modelJson({provider,model:provider.writer,prompt:"fixture only",

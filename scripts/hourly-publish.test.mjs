@@ -396,6 +396,24 @@ test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
 });
 
+test("trilingual AI response allows a bounded 120-second HTTP window without extra calls",async()=>{
+  const provider=providerConfig(env);
+  let deadlineMs=null,requests=0;
+  const result=await modelJson({
+    provider,model:provider.writer,prompt:"test",
+    timeoutSignalFactory:ms=>{deadlineMs=ms;return new AbortController().signal;},
+    fetchImpl:async(_url,options)=>{
+      requests++;
+      assert.ok(options.signal,"the timeout signal is attached to the actual model request");
+      return new Response(JSON.stringify({choices:[{message:{content:'{"ok":true}'}}]}),
+        {status:200,headers:{"content-type":"application/json"}});
+    }
+  });
+  assert.deepEqual(result,{ok:true});
+  assert.equal(deadlineMs,120000,"allow a 120-second response, not the previous 90-second cutoff");
+  assert.equal(requests,1,"do not add paid model attempts");
+});
+
 test("Gemini HTTP503 recovers with bounded delayed retry and unchanged request",async t=>{
  const warns=[],delays=[],requests=[];
  t.mock.method(console,"warn",(...args)=>warns.push(args.join(" ")));
