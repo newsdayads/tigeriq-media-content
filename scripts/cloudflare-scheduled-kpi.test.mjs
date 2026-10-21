@@ -18,6 +18,6 @@ test("Cloudflare scheduled dispatch reports missed hourly news; manual and PR do
 test("publisher forwards dispatch origin to reporter without changing production cron",()=>{
   const yaml=readFileSync(new URL("../.github/workflows/hourly-publisher.yml",import.meta.url),"utf8");
   assert.match(yaml,/^          NEWS_SCHEDULER_ORIGIN: \$\{\{ inputs\.scheduler \}\}$/m);
-  assert.match(yaml,/^    - cron: "17 \/\*\/1 \* \* \*"$/m);
+  assert.ok(yaml.includes('    - cron: "17 */1 * * *"'));
   assert.match(yaml,/scripts\/cloudflare-scheduled-kpi\.test\.mjs/);
 });
