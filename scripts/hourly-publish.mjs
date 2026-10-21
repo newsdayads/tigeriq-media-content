@@ -400,6 +400,11 @@ export async function readBoundedHttpText(response,maxBytes=1024*1024,tooLargeEr
   }
 }
 
+export function providerTransportCode(signal){
+  return signal?.aborted&&signal.reason?.name==="TimeoutError"
+    ?"AI_PROVIDER_TIMEOUT":"AI_PROVIDER_TRANSPORT_FAILED";
+}
+
 export async function modelJson({fetchImpl=fetch,provider,model,prompt,
   sleepImpl=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){
   let r;
@@ -408,11 +413,16 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt,
   // Gemini 503 is transient overload. At most one short jittered retry per
   // model request; never retry auth, quota or malformed responses.
   for(let attempt=0;attempt<2;attempt++){
+    const signal=AbortSignal.timeout(90000);
     try{
       r=await fetchImpl(provider.url,{method:"POST",
         headers:{"authorization":"Bearer "+provider.key,"content-type":"application/json","accept":"application/json"},
-        body,signal:AbortSignal.timeout(90000),redirect:"error"});
-    }catch{throw Error("AI_PROVIDER_TRANSPORT_FAILED");}
+        body,signal,redirect:"error"});
+    }catch{
+      // The real 90-second deadline is distinct from DNS/TLS/socket failures.
+      // Never log exception text, URLs or credentials. No automatic retry.
+      throw Error(providerTransportCode(signal));
+    }
     if(r.status!==503||attempt!==0)break;
     try{await r.body?.cancel?.();}catch{}
     console.warn("AI_PROVIDER_HTTP_503_BACKOFF_ONCE");
