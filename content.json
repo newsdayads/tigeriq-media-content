@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-20T11:42:15.592Z",
+  "updatedAt": "2026-10-21T04:17:50.403Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "southeast-asia-digital-economy-ai-growth",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:southeast-asia-digital-economy-ai-growth",
+      "clusterKey": "news:262e3b74e86be17f503b1e69be9f5230ca7b707ac0b6643ff05aee962d65645e",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T04:17:50.403Z",
+      "modifiedAt": "2026-10-21T04:17:50.403Z",
+      "editions": {
+        "vi": {
+          "title": "Nền kinh tế số Đông Nam Á dự kiến đạt 368 tỷ USD",
+          "dek": "Theo công bố của Google. Báo cáo e-Conomy SEA 2026 của Google cho thấy trí tuệ nhân tạo tạo sinh đang thúc đẩy tăng trưởng kinh tế số mạnh mẽ trong khu vực.",
+          "takeaways": [
+            "Nền kinh tế số Đông Nam Á dự kiến đạt 1 nghìn tỷ USD vào năm 2035.",
+            "243 triệu người dùng tại khu vực đang sử dụng trí tuệ nhân tạo tạo sinh.",
+            "Cần mở rộng hạ tầng trung tâm dữ liệu để đáp ứng nhu cầu tính toán."
+          ],
+          "sections": [
+            {
+              "heading": "Tăng trưởng kinh tế số",
+              "body": "Theo báo cáo e-Conomy SEA lần thứ 11, nền kinh tế số của Đông Nam Á đang tăng trưởng 17% mỗi năm, đạt giá trị 368 tỷ USD trong năm 2026. Sự phát triển này được thúc đẩy bởi việc áp dụng rộng rãi trí tuệ nhân tạo trong nhiều lĩnh vực kinh tế khác nhau."
+            },
+            {
+              "heading": "Sự trỗi dậy của AI",
+              "body": "Trí tuệ nhân tạo tạo sinh hiện là một phần thiết yếu trong cuộc sống hàng ngày của 243 triệu người tại Đông Nam Á. Tốc độ phổ cập của công nghệ này nhanh gấp bốn lần so với sự phát triển của internet di động, tạo tiền đề cho kỷ nguyên thương mại đại lý."
+            },
+            {
+              "heading": "Yêu cầu hạ tầng",
+              "body": "Để duy trì đà tăng trưởng, khu vực cần tập trung vào việc mở rộng hạ tầng trung tâm dữ liệu gấp ba lần trong năm năm tới. Ngoài ra, việc cải thiện hiệu quả năng lượng và thiết lập các chính sách thương mại số thống nhất là những điều kiện tiên quyết quan trọng."
+            }
+          ]
+        },
+        "en": {
+          "title": "Southeast Asia Digital Economy Projected to Hit $368 Billion",
+          "dek": "According to Google. Google's 11th e-Conomy SEA report highlights generative AI as a primary driver for regional economic growth toward a $1 trillion valuation.",
+          "takeaways": [
+            "The regional digital economy is on track to exceed $1 trillion by 2035.",
+            "Generative AI adoption is scaling four times faster than mobile internet.",
+            "75% of users are willing to let AI agents handle transactions autonomously."
+          ],
+          "sections": [
+            {
+              "heading": "Economic Growth Projections",
+              "body": "The 11th e-Conomy SEA report, published by Google, Temasek, and Bain & Company, indicates that Southeast Asia's digital economy is growing at 17% year-on-year. It is expected to reach $368 billion in Gross Merchandise Value in 2026, with a trajectory toward $1 trillion by 2035."
+            },
+            {
+              "heading": "AI Adoption and Trust",
+              "body": "Generative AI has become an essential daily tool for 243 million people in the region. Consumer trust is rising, with 62% of users reporting higher confidence in AI tools compared to last year, clearing the path for the emergence of agentic commerce where AI handles complex tasks."
+            },
+            {
+              "heading": "Infrastructure and Governance",
+              "body": "To support a projected 60-fold increase in AI usage, the region must expand data center capacity by approximately three times over the next five years. Success also depends on strict energy efficiency standards and the implementation of the ASEAN Digital Economy Framework Agreement."
+            }
+          ]
+        },
+        "es": {
+          "title": "La economía digital del Sudeste Asiático alcanzará los 368 mil millones",
+          "dek": "Según Google. El informe e-Conomy SEA 2026 de Google señala que la inteligencia artificial generativa está impulsando el crecimiento económico regional.",
+          "takeaways": [
+            "La economía digital regional superará el billón de dólares para 2035.",
+            "La IA generativa crece cuatro veces más rápido que el internet móvil.",
+            "Se requiere triplicar la capacidad de los centros de datos en cinco años."
+          ],
+          "sections": [
+            {
+              "heading": "Proyecciones de crecimiento",
+              "body": "El informe e-Conomy SEA, elaborado por Google, Temasek y Bain & Company, estima que la economía digital del Sudeste Asiático alcanzará los 368 mil millones de dólares en 2026. Este crecimiento del 17% anual posiciona a la región para superar el billón de dólares para 2035."
+            },
+            {
+              "heading": "Adopción de inteligencia artificial",
+              "body": "La inteligencia artificial generativa es utilizada actualmente por 243 millones de personas en la región. La creciente confianza de los consumidores, con un 62% reportando mayor seguridad en estas herramientas, está facilitando la transición hacia el comercio autónomo gestionado por agentes de IA."
+            },
+            {
+              "heading": "Necesidades de infraestructura",
+              "body": "Para sostener el aumento proyectado en el uso de IA, la región debe expandir su infraestructura física, incluyendo una triplicación de la capacidad de los centros de datos. Asimismo, se enfatiza la importancia de la eficiencia energética y la gobernanza digital unificada mediante el acuerdo DEFA."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "google-1",
+            "publisher": "google",
+            "url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
+            "title": "Southeast Asia’s digital economy to hit $368 billion"
+          }
+        ],
+        "claims": [
+          {
+            "text": "The 11th e-Conomy SEA report projects Southeast Asia's digital economy will reach $368 billion in 2026 and exceed $1 trillion by 2035.",
+            "sourceIds": [
+              "google-1"
+            ]
+          },
+          {
+            "text": "Generative AI is currently utilized by 243 million people in Southeast Asia, with usage scaling four times faster than the mobile internet.",
+            "sourceIds": [
+              "google-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "google-1",
+            "tier": "A",
+            "url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/southeast-asia-digital-economy-ai-growth.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Nền kinh tế số Đông Nam Á dự kiến đạt 368 tỷ USD",
+          "en": "Southeast Asia Digital Economy Projected to Hit $368 Billion",
+          "es": "La economía digital del Sudeste Asiático alcanzará los 368 mil millones"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-bsc-ai-factory-collaboration",
       "reportingMode": "official-announcement",
