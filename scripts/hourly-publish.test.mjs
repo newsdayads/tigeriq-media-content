@@ -396,7 +396,7 @@ test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
 });
 
-test("Gemini HTTP503 recovers with exactly one bounded delayed retry and unchanged request",async t=>{
+test("Gemini HTTP503 recovers with bounded delayed retry and unchanged request",async t=>{
  const warns=[],delays=[],requests=[];
  t.mock.method(console,"warn",(...args)=>warns.push(args.join(" ")));
  const provider=providerConfig(env);
@@ -413,12 +413,12 @@ test("Gemini HTTP503 recovers with exactly one bounded delayed retry and unchang
  assert.deepEqual(requests[0],requests[1],"repeat only identical approved model request");
  assert.equal(requests[0].redirect,"error","never follow a credential-bearing POST redirect");
  assert.equal(delays.length,1);
- assert.ok(delays[0]>=1000&&delays[0]<=1250,"bounded jitter backoff");
- assert.deepEqual(warns,["AI_PROVIDER_HTTP_503_BACKOFF_ONCE"]);
+ assert.ok(delays[0]>=2000&&delays[0]<=2250,"bounded jitter backoff");
+ assert.deepEqual(warns,["AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_1"]);
  assert.ok(warns.every(line=>!line.includes(env.AI_API_KEY)));
 });
 
-test("HTTP503 Retry-After seconds defers the one approved retry, without extra provider calls",async t=>{
+test("HTTP503 Retry-After seconds defers first approved retry without changing the request",async t=>{
   t.mock.method(console,"warn",()=>{});
   const waits=[],calls=[];
   const provider=providerConfig(env);
@@ -431,7 +431,7 @@ test("HTTP503 Retry-After seconds defers the one approved retry, without extra p
   assert.deepEqual(await modelJson({fetchImpl,provider,model:provider.writer,prompt:"fixture",
     sleepImpl:async ms=>waits.push(ms)}),{ok:true});
   assert.deepEqual(waits,[5000],"respect provider's short Retry-After instead of premature 1s retry");
-  assert.equal(calls.length,2,"never add a third request");
+  assert.equal(calls.length,2,"success stops further requests");
   assert.deepEqual(calls[0],calls[1],"reuse only the approved identical request");
 });
 
@@ -462,7 +462,7 @@ test("HTTP503 Retry-After HTTP-date is honored when within bounded budget",async
   assert.equal(calls,2);
 });
 
-test("persistent HTTP503 fails closed after one retry; quota/auth errors never retry",async t=>{
+test("persistent HTTP503 fails closed after bounded retries; quota/auth errors never retry",async t=>{
  const warnings=[],provider=providerConfig(env);
  t.mock.method(console,"warn",(...args)=>warnings.push(args.join(" ")));
  for(const code of [503,401,403,429]){
@@ -470,10 +470,30 @@ test("persistent HTTP503 fails closed after one retry; quota/auth errors never r
    const fetchImpl=async()=>{calls++;return new Response(null,{status:code});};
    await assert.rejects(()=>modelJson({fetchImpl,provider,model:provider.writer,prompt:"test",
      sleepImpl:async ms=>delays.push(ms)}),new RegExp("AI_PROVIDER_HTTP_"+code));
-   assert.equal(calls,code===503?2:1,"no unauthorized retries");
-   assert.equal(delays.length,code===503?1:0);
+   assert.equal(calls,code===503?4:1,"no unauthorized retries");
+   assert.equal(delays.length,code===503?3:0);
  }
- assert.deepEqual(warnings,["AI_PROVIDER_HTTP_503_BACKOFF_ONCE"]);
+ assert.deepEqual(warnings,["AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_1","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_2","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_3"]);
+});
+
+test("Gemini 503 recovers on fourth bounded attempt and preserves identical prompt",async t=>{
+ const warns=[],requests=[],delays=[];
+ t.mock.method(console,"warn",(...args)=>warns.push(args.join(" ")));
+ const provider=providerConfig(env);
+ const fetchImpl=async (url,options)=>{
+   requests.push({url,body:options.body,redirect:options.redirect});
+   if(requests.length<4)return new Response(null,{status:503});
+   return new Response(JSON.stringify({choices:[{message:{content:'{"ok":true}'}}]}),
+      {status:200,headers:{"content-type":"application/json"}});
+ };
+ assert.deepEqual(await modelJson({fetchImpl,provider,model:provider.writer,prompt:"test",
+   sleepImpl:async ms=>delays.push(ms)}),{ok:true});
+ assert.equal(requests.length,4);
+ assert.ok(requests.every(x=>JSON.stringify(x)===JSON.stringify(requests[0])));
+ assert.equal(delays.length,3);
+ for(const [i,min] of [2000,8000,20000].entries())
+   assert.ok(delays[i]>=min&&delays[i]<=min+250,"bounded delay "+i);
+ assert.deepEqual(warns,["AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_1","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_2","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_3"]);
 });
 
 test("AI JSON responses require application/json media type, not JSONP or lookalikes",async()=>{

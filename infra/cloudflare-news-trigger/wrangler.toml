@@ -4,7 +4,7 @@ compatibility_date = "2026-10-20"
 workers_dev = false
 
 [triggers]
-crons = ["17 * * * *"]
+crons = ["17,47 * * * *"]
 
 # Keep cron invocation and sanitized dispatch receipts across Git deployments.
 [observability]
