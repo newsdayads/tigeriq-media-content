@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T08:47:52.665Z",
+  "updatedAt": "2026-10-21T12:36:05.664Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
@@ -693,7 +693,7 @@
       "readTime": "7",
       "accent": "cyan",
       "publishedAt": "2026-10-04T09:51:17.445Z",
-      "modifiedAt": "2026-10-04T09:51:17.445Z",
+      "modifiedAt": "2026-10-21T12:36:05.664Z",
       "editions": {
         "vi": {
           "title": "Muse Spark bước vào toán học mở: 6 bài nghiên cứu cho thấy AI đang đổi vai từ “giải bài” sang cộng tác nghiên cứu",
@@ -756,6 +756,37 @@
               "body": "The key question is not which model can be branded a scientist. It is whether a human-AI-independent-review loop can repeatedly generate genuinely new, verifiable results. If so, research-AI evaluation will need to measure real discovery contribution, self-correction and how much expert labor is required to turn model output into trustworthy science."
             }
           ]
+        },
+        "es": {
+          "title": "Muse Spark entra en las matemáticas abiertas: seis artículos muestran el paso de resolver problemas a colaborar en investigación",
+          "dek": "Meta publicó seis artículos de matemáticas realizados con Muse Spark 1.1 y 1.2; afirma que cinco abordan cuestiones antes abiertas. La clave es el proceso: matemáticos eligieron y guiaron los problemas, la IA ayudó a explorar y redactar, y otros expertos revisaron el trabajo.",
+          "takeaways": [
+            "Meta presentó seis artículos de matemáticas con participación de Muse Spark; según la empresa, cinco responden a preguntas anteriormente abiertas.",
+            "El trabajo se realizó mediante el chat habitual de meta.ai, sin una infraestructura de investigación a medida.",
+            "Los matemáticos eligieron los problemas, comprobaron y corrigieron argumentos; Meta afirma que un segundo grupo revisó los trabajos."
+          ],
+          "sections": [
+            {
+              "heading": "¿Qué hay realmente de nuevo?",
+              "body": "El 2 de octubre, Meta AI Research publicó seis artículos que abarcan probabilidad, ecuaciones diferenciales, teoría de grupos, optimización, física aritmética y álgebra no asociativa. Meta sostiene que cinco responden a cuestiones previamente abiertas y que dos recurren a contraejemplos para refutar conjeturas."
+            },
+            {
+              "heading": "La IA no trabajó sola",
+              "body": "Importa más el procedimiento que un titular sobre una IA que resuelve matemáticas por sí misma. Los matemáticos seleccionaron y orientaron los problemas; Muse Spark ayudó a probar ideas, realizar cálculos, buscar contraejemplos y preparar borradores. Después, los investigadores comprobaron, corrigieron y completaron los argumentos. Según Meta, un segundo grupo de matemáticos revisó el trabajo y los artículos identifican qué fragmentos fueron redactados principalmente por personas o por IA."
+            },
+            {
+              "heading": "Una señal más amplia para la investigación con IA",
+              "body": "Si este enfoque resulta reproducible, la IA de frontera podría pasar de pruebas con respuestas conocidas a investigaciones sin soluciones preestablecidas. Un sistema útil para la ciencia debe tolerar intentos fallidos, verificaciones y el rechazo de hipótesis por parte de expertos, no limitarse a generar respuestas plausibles."
+            },
+            {
+              "heading": "Todavía no es un matemático autónomo",
+              "body": "La evidencia disponible no permite afirmar que Muse Spark resolviera por sí solo cinco problemas abiertos. Meta describe expresamente colaboraciones entre personas e IA y reconoce resultados independientes y simultáneos en algunas cuestiones. Los especialistas aún deben examinar cada demostración."
+            },
+            {
+              "heading": "La lectura de TigerIQ",
+              "body": "La pregunta clave no es qué modelo puede recibir la etiqueta de científico, sino si un ciclo de colaboración entre personas, IA y revisión independiente puede producir de forma repetida resultados nuevos y verificables. Si es así, evaluar la IA de investigación exigirá medir su contribución a descubrimientos reales, su capacidad de corregirse y el esfuerzo experto necesario para convertir sugerencias en conocimiento fiable."
+            }
+          ]
         }
       },
       "sources": [
@@ -794,7 +825,19 @@
           }
         ]
       },
-      "corrections": []
+      "corrections": [],
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-muse-spark-open-math-research-2026.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-original-editorial-svg-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Minh họa gốc TigerIQ về sáu bài nghiên cứu toán học sử dụng Muse Spark trong quy trình hợp tác người và AI",
+          "en": "Original TigerIQ illustration of six Muse Spark mathematics research papers connected through human-AI collaboration",
+          "es": "Ilustración original de TigerIQ de seis artículos de investigación matemática con Muse Spark y colaboración entre personas e IA"
+        }
+      }
     },
     {
       "slug": "google-project-suncatcher-satellite-ai-2026",
