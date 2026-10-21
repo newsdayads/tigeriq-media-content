@@ -35,6 +35,6 @@ test("socket failures and untrusted timeout-shaped errors remain generic transpo
 
 test("existing publish workflow runs diagnostics without changing schedule, retries or secrets",()=>{
   const yaml=readFileSync(new URL("../.github/workflows/hourly-publisher.yml",import.meta.url),"utf8");
-  assert.ok(yaml.includes('    - cron: "17 */1 * * *"'));
+  assert.ok(yaml.includes('    - cron: "17,47 * * * *"'));
   assert.match(yaml,/scripts\/provider-transport-diagnostic\.test\.mjs/);
 });
