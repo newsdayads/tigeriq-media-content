@@ -19,6 +19,17 @@ test("external cron targets exact main workflow once with nonsecret receipt",asy
   });
   assert.equal(calls[0].init.headers.Authorization,"Bearer github-fine-grained-test-token");
 });
+test("secondary minute-47 delivery shares the exact UTC hour marker",async()=>{
+ const packets=[];
+ const env={GITHUB_ACTIONS_TOKEN:"github-fine-grained-test-token"};
+ const fetchImpl=async (_url,options)=>{packets.push(JSON.parse(options.body));return {status:204};};
+ for(const minute of [17,47])
+   await dispatchNewsHour({env,scheduledTime:Date.parse("2026-10-21T03:"+minute+":00Z"),fetchImpl});
+ assert.equal(packets.length,2);
+ assert.equal(packets[0].inputs.scheduled_hour_utc,"2026-10-21T03:00:00Z");
+ assert.deepEqual(packets[0],packets[1]);
+});
+
 test("missing credentials and invalid scheduler inputs fail closed",async()=>{
   await assert.rejects(()=>dispatchNewsHour({env:{},scheduledTime:Date.now(),fetchImpl:()=>{throw Error("MUST_NOT_CALL");}}),/GITHUB_ACTIONS_TOKEN_NOT_CONFIGURED/);
   assert.throws(()=>scheduledHourUtc("garbage"),/INVALID_SCHEDULED_TIME/);
