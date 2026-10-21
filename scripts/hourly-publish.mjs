@@ -821,8 +821,14 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
 // Owner KPI: an editorial NOOP or upstream failure on a genuine scheduled
 // attempt is a missed article hour, not a successful hourly publication.
 // Only fixed machine codes are logged. Never include provider text/secrets.
-export function missedHourlyTarget(reason,eventName=process.env.GITHUB_EVENT_NAME){
-  if(eventName!=="schedule")return null;
+export function missedHourlyTarget(reason,eventName=process.env.GITHUB_EVENT_NAME,
+  schedulerOrigin=process.env.NEWS_SCHEDULER_ORIGIN){
+  // GitHub native schedule and the explicit Cloudflare dispatch are hourly
+  // targets. An ordinary manual dispatch or PR is not an hourly KPI attempt.
+  // This tag classifies diagnostics only: a Cloudflare Cron receipt is still
+  // required to prove that a dispatch was genuinely automatic.
+  if(eventName!=="schedule"&&
+    !(eventName==="workflow_dispatch"&&schedulerOrigin==="cloudflare"))return null;
   const safe=/^[A-Z][A-Z0-9_]{2,80}$/.test(reason)?reason:"UNCLASSIFIED_FAILURE";
   return "MISSED_HOURLY_TARGET "+safe;
 }
