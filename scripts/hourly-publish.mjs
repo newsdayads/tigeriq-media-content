@@ -412,10 +412,10 @@ const MAX_PROVIDER_503_RETRY_DELAY_MS=30000;
 function provider503RetryAfterMs(response){
   const value=response.headers?.get?.("retry-after")?.trim();
   if(!value)return null;
-  if(/^\\d+$/.test(value))
+  if(/^\d+$/.test(value))
     return value.length>5?MAX_PROVIDER_503_RETRY_DELAY_MS+1:Number(value)*1000;
   // Accept the canonical HTTP-date, not arbitrary user-controlled date text.
-  if(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), \\d{2} [A-Z][a-z]{2} \\d{4} \\d{2}:\\d{2}:\\d{2} GMT$/.test(value)){
+  if(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), \d{2} [A-Z][a-z]{2} \d{4} \d{2}:\d{2}:\d{2} GMT$/.test(value)){
     const when=Date.parse(value);
     if(Number.isFinite(when))return Math.max(0,when-Date.now());
   }
