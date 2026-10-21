@@ -405,10 +405,10 @@ export function providerTransportCode(signal){
     ?"AI_PROVIDER_TIMEOUT":"AI_PROVIDER_TRANSPORT_FAILED";
 }
 
-// Honor an upstream 503 cooldown only when a second attempt can stay inside
-// our bounded, zero-extra-call retry budget. A longer cooldown means fail
-// closed rather than retrying early against an overloaded provider.
+// Gemini 503 recovery: four identical approved requests maximum with bounded
+// exponential backoff. No retry for auth, quota, transport or invalid JSON.
 const MAX_PROVIDER_503_RETRY_DELAY_MS=30000;
+const MAX_PROVIDER_503_ATTEMPTS=4;
 function provider503RetryAfterMs(response){
   const value=response.headers?.get?.("retry-after")?.trim();
   if(!value)return null;
@@ -427,9 +427,8 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt,
   let r;
   const body=JSON.stringify({model,messages:[{role:"user",content:prompt}],
     temperature:0.2,response_format:{type:"json_object"}});
-  // Gemini 503 is transient overload. At most one short jittered retry per
-  // model request; never retry auth, quota or malformed responses.
-  for(let attempt=0;attempt<2;attempt++){
+  // Bounded 503 recovery delays: 2s, 8s, 20s; stop at any 429/auth error.
+  for(let attempt=0;attempt<MAX_PROVIDER_503_ATTEMPTS;attempt++){
     const signal=AbortSignal.timeout(90000);
     try{
       r=await fetchImpl(provider.url,{method:"POST",
@@ -440,13 +439,15 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt,
       // Never log exception text, URLs or credentials. No automatic retry.
       throw Error(providerTransportCode(signal));
     }
-    if(r.status!==503||attempt!==0)break;
+    if(r.status!==503||attempt===MAX_PROVIDER_503_ATTEMPTS-1)break;
     const requestedDelayMs=provider503RetryAfterMs(r);
     if(requestedDelayMs!==null&&requestedDelayMs>MAX_PROVIDER_503_RETRY_DELAY_MS)break;
     try{await r.body?.cancel?.();}catch{}
-    console.warn("AI_PROVIDER_HTTP_503_BACKOFF_ONCE");
-    const defaultDelayMs=1000+Math.floor(Math.random()*251);
-    await sleepImpl(requestedDelayMs===null?defaultDelayMs:Math.max(defaultDelayMs,requestedDelayMs));
+    const defaultDelayMs=[2000,8000,20000][attempt]+Math.floor(Math.random()*251);
+    const waitMs=requestedDelayMs===null?defaultDelayMs:Math.max(defaultDelayMs,requestedDelayMs);
+    if(waitMs>MAX_PROVIDER_503_RETRY_DELAY_MS)break;
+    console.warn("AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_"+(attempt+1));
+    await sleepImpl(waitMs);
   }
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   // Only canonical JSON responses are valid. JSONP, NDJSON and other
