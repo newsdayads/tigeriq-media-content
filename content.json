@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T12:36:05.664Z",
+  "updatedAt": "2026-10-21T13:47:50.350Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-gtc-berlin-local-ai-hardware-announcements",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-gtc-berlin-local-ai-hardware-announcements",
+      "clusterKey": "news:549836a229f16e177f1c43128d358063378beebd931c9a78e47d3ef2caea016e",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T13:47:50.350Z",
+      "modifiedAt": "2026-10-21T13:47:50.350Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA công bố loạt phần cứng AI cục bộ mới tại GTC Berlin",
+          "dek": "Theo công bố của NVIDIA. NVIDIA giới thiệu các nâng cấp cho dòng RTX Spark, DGX Spark và DGX Station nhằm hỗ trợ phát triển AI tại chỗ.",
+          "takeaways": [
+            "RTX Spark hỗ trợ chạy các tác nhân AI cá nhân trên máy tính Windows.",
+            "DGX Spark 64GB sẽ bắt đầu được phân phối từ ngày 23 tháng 10.",
+            "DGX Station cho Windows dự kiến ra mắt vào tháng 12 với nhiều tích hợp phần mềm."
+          ],
+          "sections": [
+            {
+              "heading": "Phát triển hệ sinh thái RTX Spark",
+              "body": "NVIDIA cho biết RTX Spark được thiết kế để chạy các tác nhân cá nhân, hỗ trợ sáng tạo nội dung và chơi game với hiệu suất cao. Nền tảng này hiện đã có sẵn thông qua các đối tác như ASUS, Dell, HP, Lenovo và MSI, cho phép người dùng chạy các mô hình AI cục bộ mà không cần truyền dữ liệu ra bên ngoài."
+            },
+            {
+              "heading": "Nâng cấp cho dòng DGX Spark",
+              "body": "Dòng DGX Spark 64GB sẽ được tung ra thị trường vào ngày 23 tháng 10, cho phép các nhà phát triển kết nối tối đa tám đơn vị để xử lý các mô hình lớn hơn. NVIDIA cũng giới thiệu NVIDIA Sync Model Launcher để đơn giản hóa việc truy cập và quản lý các mô hình AI trên hệ thống cục bộ hoặc cụm máy chủ."
+            },
+            {
+              "heading": "DGX Station và giải pháp doanh nghiệp",
+              "body": "DGX Station cung cấp khả năng tính toán cho các nhóm lớn với khả năng phục vụ hơn 30 người dùng. Phiên bản dành cho Windows sẽ ra mắt vào tháng 12, tích hợp với các ứng dụng kỹ thuật từ các đối tác như Siemens và Dassault Systèmes, giúp doanh nghiệp triển khai AI trong môi trường làm việc hiện có."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Unveils Expanded Local AI Hardware Portfolio at GTC Berlin",
+          "dek": "According to NVIDIA. NVIDIA announces updates to its RTX Spark, DGX Spark, and DGX Station lines to support on-device AI development and enterprise workloads.",
+          "takeaways": [
+            "RTX Spark enables personal AI agents to run locally on Windows PCs.",
+            "DGX Spark 64GB systems are scheduled for release starting October 23.",
+            "DGX Station for Windows will launch in December with enterprise software support."
+          ],
+          "sections": [
+            {
+              "heading": "Advancing Local AI with RTX Spark",
+              "body": "NVIDIA announced that RTX Spark is designed to power personal agents and high-performance content creation on Windows PCs. The platform allows for local, private AI execution, ensuring user data remains on the device. Laptops featuring this technology are currently available from major manufacturers including ASUS, Dell, HP, Lenovo, and MSI."
+            },
+            {
+              "heading": "DGX Spark Developer Updates",
+              "body": "The company confirmed that DGX Spark 64GB systems will begin rolling out on October 23. Developers can scale their operations by connecting up to eight units using NVIDIA Sync Cluster Assistant. Additionally, a software update this month introduces the Wi-Fi Assistant and new skills to streamline troubleshooting and maintenance for local AI clusters."
+            },
+            {
+              "heading": "Enterprise Capabilities for DGX Station",
+              "body": "NVIDIA is expanding the DGX Station ecosystem with a Windows-based version arriving in December. This iteration is designed to support professional manufacturing and engineering applications from partners like Siemens and Rockwell Automation. The system aims to provide local, controlled computing environments for teams requiring high-performance AI iteration."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA presenta su nueva cartera de hardware de IA local en GTC Berlin",
+          "dek": "Según NVIDIA. NVIDIA anuncia actualizaciones en sus líneas RTX Spark, DGX Spark y DGX Station para potenciar el desarrollo de IA en dispositivos locales.",
+          "takeaways": [
+            "RTX Spark permite ejecutar agentes de IA personales localmente en PCs con Windows.",
+            "Los sistemas DGX Spark de 64GB comenzarán a distribuirse el 23 de octubre.",
+            "DGX Station para Windows se lanzará en diciembre con soporte para aplicaciones empresariales."
+          ],
+          "sections": [
+            {
+              "heading": "Impulsando la IA local con RTX Spark",
+              "body": "NVIDIA anunció que RTX Spark está diseñado para ejecutar agentes personales y creación de contenido de alto rendimiento en PCs con Windows. La plataforma permite la ejecución de IA local y privada, garantizando que los datos del usuario permanezcan en el dispositivo. Los equipos con esta tecnología ya están disponibles a través de fabricantes como ASUS, Dell, HP, Lenovo y MSI."
+            },
+            {
+              "heading": "Actualizaciones para desarrolladores con DGX Spark",
+              "body": "La compañía confirmó que los sistemas DGX Spark de 64GB comenzarán a estar disponibles el 23 de octubre. Los desarrolladores pueden escalar sus operaciones conectando hasta ocho unidades mediante el NVIDIA Sync Cluster Assistant. Además, una actualización de software este mes introduce el Wi-Fi Assistant y nuevas funciones para simplificar el mantenimiento de clústeres de IA locales."
+            },
+            {
+              "heading": "Capacidades empresariales para DGX Station",
+              "body": "NVIDIA está expandiendo el ecosistema DGX Station con una versión para Windows que llegará en diciembre. Esta iteración está diseñada para soportar aplicaciones profesionales de fabricación e ingeniería de socios como Siemens y Rockwell Automation. El sistema busca proporcionar entornos de computación locales y controlados para equipos que requieren iteración de IA de alto rendimiento."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/local-ai-gtc-rtx-dgx-spark-station-sync/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/local-ai-gtc-rtx-dgx-spark-station-sync/",
+            "title": "Bringing the Spark to Europe: Local Intelligence Powers Next Wave of Agents"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced the expansion of its local AI hardware lineup including updates to RTX Spark, DGX Spark, and DGX Station at GTC Berlin.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "NVIDIA stated that DGX Station for Windows is scheduled for release in December with support for various manufacturing and engineering applications.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/local-ai-gtc-rtx-dgx-spark-station-sync/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-gtc-berlin-local-ai-hardware-announcements.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA công bố loạt phần cứng AI cục bộ mới tại GTC Berlin",
+          "en": "NVIDIA Unveils Expanded Local AI Hardware Portfolio at GTC Berlin",
+          "es": "NVIDIA presenta su nueva cartera de hardware de IA local en GTC Berlin"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-dependabot-rest-api-version-updates",
       "reportingMode": "official-announcement",
