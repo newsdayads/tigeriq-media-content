@@ -5,3 +5,8 @@ workers_dev = false
 
 [triggers]
 crons = ["17 * * * *"]
+
+# Keep cron invocation and sanitized dispatch receipts across Git deployments.
+[observability]
+enabled = true
+head_sampling_rate = 1
