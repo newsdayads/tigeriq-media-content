@@ -1,7 +1,7 @@
 name: Hourly AI Publisher
 on:
   schedule:
-    - cron: "17 */1 * * *"
+    - cron: "17,47 * * * *"
   workflow_dispatch:
     inputs:
       scheduler:
