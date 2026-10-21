@@ -418,6 +418,50 @@ test("Gemini HTTP503 recovers with exactly one bounded delayed retry and unchang
  assert.ok(warns.every(line=>!line.includes(env.AI_API_KEY)));
 });
 
+test("HTTP503 Retry-After seconds defers the one approved retry, without extra provider calls",async t=>{
+  t.mock.method(console,"warn",()=>{});
+  const waits=[],calls=[];
+  const provider=providerConfig(env);
+  const fetchImpl=async(_url,options)=>{
+    calls.push({body:options.body,authorization:options.headers.authorization});
+    if(calls.length===1)return new Response(null,{status:503,headers:{"retry-after":"5"}});
+    return new Response(JSON.stringify({choices:[{message:{content:'{"ok":true}'}}]}),
+      {status:200,headers:{"content-type":"application/json"}});
+  };
+  assert.deepEqual(await modelJson({fetchImpl,provider,model:provider.writer,prompt:"fixture",
+    sleepImpl:async ms=>waits.push(ms)}),{ok:true});
+  assert.deepEqual(waits,[5000],"respect provider's short Retry-After instead of premature 1s retry");
+  assert.equal(calls.length,2,"never add a third request");
+  assert.deepEqual(calls[0],calls[1],"reuse only the approved identical request");
+});
+
+test("HTTP503 Retry-After longer than bounded 30s budget fails closed without a second API request",async t=>{
+  t.mock.method(console,"warn",()=>{});
+  let calls=0;const waits=[];
+  await assert.rejects(()=>modelJson({provider:providerConfig(env),model:"fixture",prompt:"fixture",
+    fetchImpl:async()=>{calls++;return new Response(null,{status:503,headers:{"retry-after":"120"}});},
+    sleepImpl:async ms=>waits.push(ms)}),/AI_PROVIDER_HTTP_503/);
+  assert.equal(calls,1,"do not ignore upstream 120-second retry restriction");
+  assert.deepEqual(waits,[],"do not extend the bounded workflow to 120 seconds");
+});
+
+test("HTTP503 Retry-After HTTP-date is honored when within bounded budget",async t=>{
+  t.mock.method(console,"warn",()=>{});
+  const now=Date.parse("2026-10-21T02:00:00Z");
+  t.mock.method(Date,"now",()=>now);
+  const waits=[];let calls=0;
+  await modelJson({provider:providerConfig(env),model:"fixture",prompt:"fixture",
+    fetchImpl:async()=>{
+      calls++;
+      if(calls===1)return new Response(null,{status:503,
+        headers:{"retry-after":"Wed, 21 Oct 2026 02:00:07 GMT"}});
+      return new Response(JSON.stringify({choices:[{message:{content:'{"ok":true}'}}]}),
+        {headers:{"content-type":"application/json"}});
+    },sleepImpl:async ms=>waits.push(ms)});
+  assert.deepEqual(waits,[7000]);
+  assert.equal(calls,2);
+});
+
 test("persistent HTTP503 fails closed after one retry; quota/auth errors never retry",async t=>{
  const warnings=[],provider=providerConfig(env);
  t.mock.method(console,"warn",(...args)=>warnings.push(args.join(" ")));
