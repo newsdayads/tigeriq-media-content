@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T13:47:50.350Z",
+  "updatedAt": "2026-10-21T15:17:50.884Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "google-cloud-nvidia-vera-rubin-availability",
+      "reportingMode": "official-announcement",
+      "category": "Cloud Computing & AI Infrastructure",
+      "storyId": "tigeriq:google-cloud-nvidia-vera-rubin-availability",
+      "clusterKey": "news:310c45f2ca5d6cb691595c4e3faa712045de437105622f8a2356363617d0e5a9",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-21T15:17:50.884Z",
+      "modifiedAt": "2026-10-21T15:17:50.884Z",
+      "editions": {
+        "vi": {
+          "title": "Google Cloud và NVIDIA công bố hạ tầng Vera Rubin",
+          "dek": "Theo công bố của NVIDIA. Nền tảng tích hợp mới hỗ trợ đào tạo AI và học tăng cường quy mô lớn trên Google Cloud.",
+          "takeaways": [
+            "Ra mắt các phiên bản A5X sử dụng kiến trúc NVIDIA Vera Rubin NVL72.",
+            "Google Cloud dự kiến mở rộng quy mô lên tới 960.000 GPU Rubin.",
+            "Hỗ trợ tính năng điện toán bảo mật (Confidential Computing) cho các tác vụ AI."
+          ],
+          "sections": [
+            {
+              "heading": "Ra mắt hạ tầng A5X",
+              "body": "Google Cloud và NVIDIA thông báo về việc cung cấp rộng rãi các phiên bản A5X, kết hợp giữa NVIDIA Vera Rubin NVL72, bộ chuyển mạch ConnectX-9 SuperNIC và công nghệ làm mát bằng chất lỏng thế hệ thứ tư của Google. Hệ thống này được thiết kế để phục vụ các tác vụ suy luận đại lý và học tăng cường đòi hỏi hiệu suất cao."
+            },
+            {
+              "heading": "Ứng dụng thực tế của khách hàng",
+              "body": "Công ty Ineffable Intelligence là đơn vị đầu tiên tiếp cận A5X để phát triển các hệ thống siêu học tập (superlearner) có khả năng tự cải thiện liên tục. Ngoài ra, WPP cũng đã thử nghiệm kiến trúc đại lý sáng tạo trên nền tảng này, cho phép thực hiện các quy trình công việc phức tạp như tạo video và chỉnh sửa nội dung với sự kiểm soát chặt chẽ."
+            },
+            {
+              "heading": "Bảo mật và hiệu quả năng lượng",
+              "body": "Google Cloud sẽ cung cấp tính năng NVIDIA Confidential Computing ở quy mô rack trên các phiên bản bare metal, giúp bảo vệ dữ liệu và mô hình độc quyền. Đồng thời, hai công ty đang nghiên cứu các khả năng tối ưu hóa hiệu suất trên mỗi watt điện để hỗ trợ triển khai hạ tầng quy mô lớn trong giới hạn ngân sách năng lượng của trung tâm dữ liệu."
+            }
+          ]
+        },
+        "en": {
+          "title": "Google Cloud and NVIDIA Announce Vera Rubin Infrastructure",
+          "dek": "According to NVIDIA. New integrated platform brings Vera Rubin NVL72 to Google Cloud for large-scale AI training and reinforcement learning.",
+          "takeaways": [
+            "General availability of A5X instances featuring NVIDIA Vera Rubin NVL72 technology.",
+            "Google Cloud plans to scale infrastructure to 960,000 Rubin GPUs across multiple sites.",
+            "Introduction of rack-scale Confidential Computing for secure AI agent execution."
+          ],
+          "sections": [
+            {
+              "heading": "A5X Instance Launch",
+              "body": "Google Cloud and NVIDIA have announced the general availability of A5X instances, which integrate NVIDIA Vera Rubin NVL72, ConnectX-9 SuperNICs, and Google Cloud’s advanced liquid-cooling technology. This platform is designed to support demanding agentic inference and large-scale reinforcement learning workloads within Google Cloud’s AI Hypercomputer."
+            },
+            {
+              "heading": "Customer Adoption and Use Cases",
+              "body": "Ineffable Intelligence, founded by David Silver, is utilizing the platform to advance reinforcement learning systems that learn continuously from experience. WPP has also demonstrated creative agent architectures on A5X instances, enabling multistep creative workflows such as video generation and upscaling while maintaining governed access to sensitive brand assets."
+            },
+            {
+              "heading": "Security and Sustainability",
+              "body": "Google Cloud is expanding its Confidential Computing offerings to include rack-scale support on bare metal instances to protect proprietary models and sensitive data. Furthermore, the companies are exploring NVIDIA DSX MaxLPS capabilities to optimize performance per watt, aiming to expand capacity within existing data-center power budgets."
+            }
+          ]
+        },
+        "es": {
+          "title": "Google Cloud y NVIDIA anuncian infraestructura Vera Rubin",
+          "dek": "Según NVIDIA. La nueva plataforma integrada lleva la tecnología Vera Rubin NVL72 a la nube para entrenamiento de IA a gran escala.",
+          "takeaways": [
+            "Disponibilidad general de instancias A5X con tecnología NVIDIA Vera Rubin NVL72.",
+            "Google Cloud planea escalar su infraestructura hasta 960,000 GPUs Rubin.",
+            "Implementación de computación confidencial a escala de rack para mayor seguridad."
+          ],
+          "sections": [
+            {
+              "heading": "Lanzamiento de instancias A5X",
+              "body": "Google Cloud y NVIDIA anunciaron la disponibilidad general de las instancias A5X, que combinan NVIDIA Vera Rubin NVL72, SuperNICs ConnectX-9 y tecnología de refrigeración líquida avanzada de Google Cloud. Esta infraestructura está diseñada para manejar cargas de trabajo de inferencia de agentes y aprendizaje por refuerzo a gran escala."
+            },
+            {
+              "heading": "Adopción por parte de clientes",
+              "body": "Ineffable Intelligence es el primer cliente en acceder a A5X para desarrollar sistemas de aprendizaje continuo. Por su parte, WPP ha demostrado el uso de arquitecturas de agentes creativos en estas instancias, permitiendo flujos de trabajo complejos como la generación de video y el escalado de imágenes bajo entornos de ejecución gobernados y seguros."
+            },
+            {
+              "heading": "Seguridad y eficiencia energética",
+              "body": "Google Cloud ofrecerá NVIDIA Confidential Computing a escala de rack en instancias bare metal para proteger modelos y datos sensibles. Adicionalmente, ambas empresas están explorando capacidades de NVIDIA DSX MaxLPS para optimizar el rendimiento por vatio, buscando maximizar la capacidad dentro de los presupuestos de energía de los centros de datos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-2",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
+            "title": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Google Cloud and NVIDIA have announced the general availability of A5X instances featuring NVIDIA Vera Rubin NVL72 infrastructure.",
+            "sourceIds": [
+              "nvidia-2"
+            ]
+          },
+          {
+            "text": "Google Cloud plans to scale its Vera Rubin-based infrastructure to support up to 960,000 Rubin GPUs across multiple data center sites.",
+            "sourceIds": [
+              "nvidia-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-2",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/google-cloud-nvidia-vera-rubin-availability.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Google Cloud và NVIDIA công bố hạ tầng Vera Rubin",
+          "en": "Google Cloud and NVIDIA Announce Vera Rubin Infrastructure",
+          "es": "Google Cloud y NVIDIA anuncian infraestructura Vera Rubin"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-gtc-berlin-local-ai-hardware-announcements",
       "reportingMode": "official-announcement",
