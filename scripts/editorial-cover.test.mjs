@@ -42,7 +42,7 @@ test("non-BMP code point fits at the 70-character headline boundary",()=>{
 test("self-contained SVG has no remote references, scripts, branding logos or AI expense",()=>{
  for(const [title] of samples){
   const svg=editorialCoverSvg(title);
-  assert.doesNotMatch(svg,/<script|<image|<foreignObject|https?:\/\/|url\(["']?https?:/i);
+  assert.doesNotMatch(svg.replace('xmlns="http://www.w3.org/2000/svg"',""),/<script|<image|<foreignObject|https?:\/\/|url\(["']?https?:/i);
   assert.match(svg,/width="1200" height="675"/);
   assert.match(svg,/Original TigerIQ conceptual editorial scene/);
  }
