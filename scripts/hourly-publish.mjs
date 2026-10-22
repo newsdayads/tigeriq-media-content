@@ -642,8 +642,8 @@ export function coverSvg(title){
     const y=52+((hash+i*127)*1597334677>>>0)%565;
     sparkle+='<circle cx="'+x+'" cy="'+y+'" r="'+(i%3+2)+'" fill="'+light+'" opacity=".35"/>';
   }
-  return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" data-topic="'+topic+'">'
-    +'<title>'+text+'</title><desc>Original topic-specific editorial illustration by TigerIQ News.</desc>'
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc" data-topic="'+topic+'">'
+    +'<title id="title">'+text+'</title><desc id="desc">Original topic-specific editorial illustration by TigerIQ News.</desc>'
     +'<defs><linearGradient id="b" x2=".93" y2="1"><stop stop-color="'+dark+'"/><stop offset="1" stop-color="'+mid+'"/></linearGradient>'
     +'<radialGradient id="h"><stop stop-color="'+light+'" stop-opacity=".3"/><stop offset="1" stop-color="'+light+'" stop-opacity="0"/></radialGradient>'
     +'<pattern id="g" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" stroke="#fff" stroke-opacity=".08" fill="none"/></pattern></defs>'
