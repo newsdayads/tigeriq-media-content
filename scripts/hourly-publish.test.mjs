@@ -2398,7 +2398,7 @@ test("visual cover illustrates story subject instead of reusing the old title-on
   for(const [title,topic] of topics){
     const svg=coverSvg(title);
     assert.match(svg,new RegExp('data-topic="'+topic+'"'));
-    assert.match(svg,/<title>[^<]+<\/title>/);
+    assert.match(svg,/<title id="title">[^<]+<\/title>/);
     assert.match(svg,/1200" height="675"/);
     assert.doesNotMatch(svg,/AI &amp; TECHNOLOGY|<text[^>]*>[^<]*\bOriginal news cover\b/);
     art.add(svg);
