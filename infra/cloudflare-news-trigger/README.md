@@ -26,7 +26,10 @@ GitHub-hosted secret. It is a genuine hosted hourly trigger, not a ChatGPT task.
    and publication commit + public VI/EN/ES + cover. **Dispatch HTTP 204 is
    only queue acceptance**, never publication PASS. Check two consecutive
    hours to accept K02.
-5. GitHub's own schedule remains as backup. The publisher contains the
+5. GitHub's own once-hourly schedule at minute **47 UTC** remains a staggered
+   backup to Cloudflare's minute **17 UTC** trigger. Both schedules are configured
+   once per hour in source; a source PR does not deploy the Cloudflare Worker.
+   The publisher contains the
    `NEWS_HOURLY_PUBLISH_LIMIT=true` guard to prevent generating a second
    story for a UTC hour when both triggers fire; GitHub job concurrency is
    serialized by existing `publish` group.

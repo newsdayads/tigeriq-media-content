@@ -15,9 +15,9 @@ test("Cloudflare scheduled dispatch reports missed hourly news; manual and PR do
     "MISSED_HOURLY_TARGET UNCLASSIFIED_FAILURE");
 });
 
-test("publisher forwards dispatch origin to reporter without changing production cron",()=>{
+test("publisher forwards origin with exactly one staggered native backup",()=>{
   const yaml=readFileSync(new URL("../.github/workflows/hourly-publisher.yml",import.meta.url),"utf8");
   assert.match(yaml,/^          NEWS_SCHEDULER_ORIGIN: \$\{\{ inputs\.scheduler \}\}$/m);
-  assert.ok(yaml.includes('    - cron: "17,47 * * * *"'));
+  assert.ok(yaml.includes('    - cron: "47 * * * *"'));
   assert.match(yaml,/scripts\/cloudflare-scheduled-kpi\.test\.mjs/);
 });
