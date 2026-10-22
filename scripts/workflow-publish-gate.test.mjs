@@ -46,3 +46,15 @@ test('publisher uses Node 24-native actions without implicit npm cache', () => {
   assert.equal([...yaml.matchAll(/^\s+package-manager-cache: false$/gm)].length, 2);
   assert.doesNotMatch(yaml, /actions\/(?:checkout|setup-node)@v[1-4]\b/);
 });
+
+// Cover-only or content-only PRs must run the existing read-only publishing
+// checks; changing an editorial asset cannot silently skip the QA gate.
+test('publication QA includes content-only and cover-only pull requests', () => {
+  const paths = yaml.split('  pull_request:\n    paths:\n')[1]?.split('\npermissions:')[0];
+  assert.ok(paths, 'pull_request path filter must exist');
+  assert.match(paths, /^      - content\.json$/m);
+  assert.match(paths, /^      - covers\/\*\*$/m);
+  assert.match(paths, /^      - scripts\/hourly-publish\.mjs$/m);
+  assert.match(yaml, /^    if: github\.event_name != 'pull_request'$/m,
+    'a PR must NEVER run the publishing job');
+});
