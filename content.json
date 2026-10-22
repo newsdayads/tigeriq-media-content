@@ -1,11 +1,153 @@
 {
-  "updatedAt": "2026-10-22T04:47:48.127Z",
+  "updatedAt": "2026-10-22T05:17:48.799Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-european-financial-ai-adoption",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-european-financial-ai-adoption",
+      "clusterKey": "news:1cba8445b29c4baa2133051c7b8e27044a75ca9a5a88787249c22cb4fc296e6a",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-22T05:17:48.799Z",
+      "modifiedAt": "2026-10-22T05:17:48.799Z",
+      "editions": {
+        "vi": {
+          "title": "Các tổ chức tài chính châu Âu áp dụng mô hình AI mở của NVIDIA",
+          "dek": "Theo công bố của NVIDIA. NVIDIA công bố các giải pháp tính toán tăng tốc giúp ngân hàng xây dựng trí tuệ nhân tạo riêng biệt.",
+          "takeaways": [
+            "Revolut đang mở rộng mô hình PRAGMA trên nền tảng NVIDIA Blackwell Ultra.",
+            "Stripe đạt hiệu suất nhanh gấp 42 lần trong các đường ống dữ liệu phát hiện gian lận.",
+            "Các ngân hàng như bunq và NatWest sử dụng mô hình mở để tối ưu hóa chi phí và độ chính xác."
+          ],
+          "sections": [
+            {
+              "heading": "Triển khai mô hình tại các ngân hàng",
+              "body": "NVIDIA thông báo rằng nhiều tổ chức tài chính lớn tại châu Âu đang chuyển đổi hạ tầng công nghệ bằng cách sử dụng các mô hình trọng số mở. Revolut hiện đang xây dựng lại hệ thống của mình dựa trên mô hình nền tảng PRAGMA, được hỗ trợ bởi phần cứng NVIDIA Blackwell Ultra và bộ công cụ cuDF để phục vụ hàng chục triệu khách hàng."
+            },
+            {
+              "heading": "Tối ưu hóa hiệu suất và chi phí",
+              "body": "Theo công bố từ NVIDIA, các tổ chức như bunq đã đạt được chất lượng tương đương với các mô hình đóng hàng đầu nhưng với chi phí thấp hơn 60% cho mỗi phản hồi. Ngoài ra, Stripe đã ghi nhận mức tiết kiệm chi phí lên tới 92% trong các thử nghiệm ngoại tuyến cho nền tảng phát hiện gian lận Stripe Radar nhờ vào việc tăng tốc dữ liệu bằng GPU."
+            },
+            {
+              "heading": "Nghiên cứu và phân tích dữ liệu",
+              "body": "Các tổ chức như LSEG và RavenPack đang hợp tác với NVIDIA để tăng tốc quá trình phân tích dữ liệu tài chính lịch sử. Việc sử dụng công cụ Polars GPU và các mô hình Nemotron cho phép các tổ chức này xử lý khối lượng dữ liệu lớn nhanh hơn gấp 10 lần, hỗ trợ việc đưa ra quyết định tài chính chính xác và kịp thời hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "European Financial Institutions Adopt NVIDIA Open Model Infrastructure",
+          "dek": "According to NVIDIA. NVIDIA announces new financial sector deployments leveraging accelerated computing and open-weight models.",
+          "takeaways": [
+            "Revolut is scaling its PRAGMA foundation model using NVIDIA Blackwell Ultra GPUs.",
+            "Stripe achieved 42x faster data pipelines and 92% cost savings in fraud detection testing.",
+            "European banks are utilizing open-weight models to maintain control over proprietary data."
+          ],
+          "sections": [
+            {
+              "heading": "Production-Scale AI Adoption",
+              "body": "NVIDIA announced that European financial services organizations are building proprietary intelligence using open-weight models on accelerated infrastructure. Revolut is currently rebuilding its technology stack on the PRAGMA foundation model, utilizing NVIDIA cuDF and Blackwell Ultra GPUs to scale its production systems for millions of customers."
+            },
+            {
+              "heading": "Operational Efficiency Gains",
+              "body": "The publisher highlighted significant efficiency improvements across the sector. Neobank bunq reported that deploying on Nebius with NVIDIA accelerated computing matches the quality of leading closed models at 60% of the cost. Similarly, Stripe reported a 42x speed increase in data pipelines for its fraud-detection platform during offline testing."
+            },
+            {
+              "heading": "Advanced Financial Research",
+              "body": "NVIDIA detailed how firms like LSEG and RavenPack are utilizing its hardware to accelerate research. LSEG is working to analyze historical tick data up to 10x faster using the Polars GPU engine, while RavenPack is using fine-tuned Nemotron models to automate the generation of backtest-ready datasets for market trend analysis."
+            }
+          ]
+        },
+        "es": {
+          "title": "Instituciones financieras europeas adoptan modelos abiertos de NVIDIA",
+          "dek": "Según NVIDIA. NVIDIA anuncia el uso de computación acelerada para inteligencia propietaria en el sector bancario.",
+          "takeaways": [
+            "Revolut escala su modelo PRAGMA utilizando la tecnología de NVIDIA Blackwell Ultra.",
+            "Stripe reporta una mejora de 42x en la velocidad de sus procesos de detección de fraude.",
+            "Las instituciones financieras buscan mayor control sobre sus datos mediante modelos abiertos."
+          ],
+          "sections": [
+            {
+              "heading": "Implementación de modelos a escala",
+              "body": "NVIDIA anunció que diversas organizaciones financieras europeas están implementando modelos de pesos abiertos sobre su infraestructura de computación acelerada. Revolut está reconstruyendo su arquitectura tecnológica sobre el modelo PRAGMA, aprovechando las GPUs Blackwell Ultra y el software cuDF para gestionar sus operaciones a gran escala."
+            },
+            {
+              "heading": "Eficiencia y reducción de costos",
+              "body": "Según el reporte de NVIDIA, el banco bunq ha logrado igualar la calidad de modelos cerrados líderes con un ahorro del 60% en costos por respuesta. Por su parte, Stripe ha optimizado sus procesos de aprendizaje automático para la detección de fraudes, logrando una reducción del 92% en costos operativos durante sus pruebas offline."
+            },
+            {
+              "heading": "Investigación y análisis financiero",
+              "body": "La compañía destacó colaboraciones con LSEG y RavenPack para acelerar la investigación financiera. LSEG utiliza el motor GPU Polars para analizar grandes volúmenes de datos históricos hasta 10 veces más rápido, mientras que RavenPack emplea modelos Nemotron ajustados para generar conjuntos de datos listos para pruebas retrospectivas de mercado."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/",
+            "title": "Leading European Financial Services Organizations Embrace Open Models to Build Proprietary Intelligence"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced that multiple European financial institutions are utilizing its accelerated computing platform to deploy open-weight models for proprietary intelligence.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "Revolut is scaling its PRAGMA foundation model using NVIDIA Blackwell Ultra GPUs and cuDF software to support its customer base.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "Stripe reported a 42x increase in data pipeline speed and 92% cost savings in offline testing for its fraud-detection platform using NVIDIA GPU-accelerated Ray Data.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-european-financial-ai-adoption.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Các tổ chức tài chính châu Âu áp dụng mô hình AI mở của NVIDIA",
+          "en": "European Financial Institutions Adopt NVIDIA Open Model Infrastructure",
+          "es": "Instituciones financieras europeas adoptan modelos abiertos de NVIDIA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-factory-operations-blueprint-launch",
       "reportingMode": "official-announcement",
