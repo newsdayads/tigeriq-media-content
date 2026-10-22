@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-21T22:22:23.133Z",
+  "updatedAt": "2026-10-22T04:47:48.127Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-factory-operations-blueprint-launch",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-factory-operations-blueprint-launch",
+      "clusterKey": "news:b14016f09d14ca99efed6e80aab7582476bda6967abccff5979dc455ffb1ca20",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-22T04:47:48.127Z",
+      "modifiedAt": "2026-10-22T04:47:48.127Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA ra mắt giải pháp Factory Operations Blueprint cho sản xuất công nghiệp",
+          "dek": "Theo công bố của NVIDIA. NVIDIA giới thiệu bộ công cụ FOX nhằm hỗ trợ các doanh nghiệp châu Âu xây dựng hệ thống đại lý AI quản lý nhà máy thông minh.",
+          "takeaways": [
+            "NVIDIA phát hành sớm bộ công cụ Factory Operations Blueprint (FOX) trên nền tảng GitHub.",
+            "Siemens áp dụng công nghệ này để tối ưu hóa quy trình kiểm tra và quản lý vận hành nhà máy.",
+            "Các đại lý AI có thể kết nối với các mô hình ngôn ngữ lớn như Cosmos và Nemotron để xử lý dữ liệu thực tế."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu giải pháp FOX",
+              "body": "NVIDIA vừa công bố sự sẵn có của Factory Operations Blueprint (FOX) dưới dạng truy cập sớm trên GitHub. Công cụ này cung cấp lộ trình cho các nhà phát triển trong việc xây dựng và triển khai các đại lý quản lý nhà máy luôn hoạt động, giúp điều phối công việc giữa các máy móc và thực hiện các nhiệm vụ chuyên biệt như kiểm tra trực quan, phân tích nguyên nhân gốc rễ và quản lý đội ngũ thiết bị."
+            },
+            {
+              "heading": "Ứng dụng thực tế tại Siemens",
+              "body": "Siemens đang tích hợp các đại lý được xây dựng từ FOX vào hệ thống doanh nghiệp Intelligence Center X của mình. Theo thông tin từ NVIDIA, việc áp dụng này giúp Siemens xác định nguyên nhân gốc rễ và điều phối vận hành nhà máy với mức tiết kiệm chi phí ước tính khoảng 20%. Ngoài ra, tại nhà máy điện tử Erlangen, Siemens đã giảm 40% thời gian hiệu chuẩn quy trình kiểm tra nhờ các công cụ dữ liệu từ NVIDIA."
+            },
+            {
+              "heading": "Khả năng mở rộng của mô hình",
+              "body": "Các đại lý AI được xây dựng trên nền tảng FOX có khả năng kết nối với các mô hình tiên phong như NVIDIA Cosmos và Nemotron. Chúng cũng có thể truy cập vào các kiến thức nền tảng bao gồm thiết kế hỗ trợ máy tính (CAD), quản lý vòng đời sản phẩm và các hệ thống công nghệ vận hành. Nhờ khả năng học theo ngữ cảnh của Cosmos, các đại lý này có thể thích nghi với các tài liệu và ví dụ cụ thể mà không cần tinh chỉnh phức tạp."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Announces Factory Operations Blueprint for Industrial AI",
+          "dek": "According to NVIDIA. NVIDIA introduces the FOX blueprint to help European industrial leaders deploy agentic systems for factory management and simulation.",
+          "takeaways": [
+            "NVIDIA released the Factory Operations Blueprint (FOX) in early access on GitHub for industrial developers.",
+            "Siemens is leveraging FOX-based agents to achieve estimated cost savings of 20% in factory operations.",
+            "The blueprint enables agents to connect with frontier models like Cosmos and Nemotron for real-time monitoring."
+          ],
+          "sections": [
+            {
+              "heading": "Launch of FOX Blueprint",
+              "body": "NVIDIA has made the Factory Operations Blueprint (FOX) available in early access on GitHub. This framework provides a path for developers to build and deploy always-on factory manager agents. These agents are designed to coordinate work across machines and focus on specific use cases such as visual inspection, root cause analysis, report generation, and fleet management within industrial environments."
+            },
+            {
+              "heading": "Integration and Efficiency Gains",
+              "body": "Siemens is currently integrating agents built using the FOX blueprint into its Intelligence Center X enterprise system. According to NVIDIA, this integration is designed to help identify root causes and coordinate factory operations, leading to estimated cost savings of 20%. Furthermore, Siemens reported a 40% reduction in calibration time for inspection processes at its Erlangen electronics factory using these new tools."
+            },
+            {
+              "heading": "Technical Capabilities",
+              "body": "These industrial agents can connect to frontier models, including NVIDIA Cosmos and Nemotron, as well as foundational knowledge systems like computer-aided design and product lifecycle management. By utilizing Cosmos in-context learning, these agents can adapt to specific factory environments using provided documentation and examples without the need for extensive fine-tuning, allowing for real-time correlation of visual findings and machine logs."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA presenta Factory Operations Blueprint para la industria",
+          "dek": "Según NVIDIA. NVIDIA lanza el blueprint FOX para facilitar el despliegue de agentes de IA en la gestión y simulación de plantas industriales en Europa.",
+          "takeaways": [
+            "NVIDIA ha lanzado el acceso anticipado al Factory Operations Blueprint (FOX) a través de GitHub.",
+            "Siemens utiliza agentes basados en FOX para optimizar la inspección y gestión, logrando ahorros del 20%.",
+            "Los agentes pueden integrarse con modelos como Cosmos y Nemotron para analizar datos de fábrica en tiempo real."
+          ],
+          "sections": [
+            {
+              "heading": "Lanzamiento de la plataforma FOX",
+              "body": "NVIDIA ha anunciado la disponibilidad en acceso anticipado de su Factory Operations Blueprint (FOX) en GitHub. Este recurso permite a los desarrolladores crear y desplegar agentes de gestión de fábrica que operan de forma continua. Estos agentes están diseñados para coordinar tareas entre máquinas y especializarse en funciones críticas como la inspección visual, el análisis de causas raíz y la gestión de flotas industriales."
+            },
+            {
+              "heading": "Resultados en la industria",
+              "body": "Siemens está integrando agentes desarrollados con FOX en su sistema empresarial Intelligence Center X. Según NVIDIA, esta implementación ayuda a identificar causas raíz y coordinar operaciones, con un ahorro de costes estimado del 20%. Además, en su fábrica de electrónica en Erlangen, Siemens logró reducir el tiempo de calibración de los procesos de inspección en un 40% utilizando estas nuevas herramientas de datos."
+            },
+            {
+              "heading": "Capacidades de los agentes",
+              "body": "Los agentes industriales pueden conectarse a modelos de vanguardia como NVIDIA Cosmos y Nemotron, además de integrar conocimientos fundamentales de diseño asistido por computadora y gestión del ciclo de vida del producto. Gracias al aprendizaje en contexto de Cosmos, estos agentes pueden adaptarse a ejemplos y documentación específica sin necesidad de realizar ajustes finos, permitiendo una respuesta coordinada ante problemas operativos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/europe-industrial-leaders-engineering-manufacturing/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-4",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/europe-industrial-leaders-engineering-manufacturing/",
+            "title": "Europe’s Industrial Leaders Reinvent Engineering and Manufacturing With NVIDIA"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA has released the Factory Operations Blueprint (FOX) in early access on GitHub to enable developers to build and deploy factory manager agents.",
+            "sourceIds": [
+              "nvidia-4"
+            ]
+          },
+          {
+            "text": "Siemens is integrating agents built with the FOX blueprint into its Intelligence Center X system, with estimated cost savings of 20%.",
+            "sourceIds": [
+              "nvidia-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-4",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/europe-industrial-leaders-engineering-manufacturing/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-factory-operations-blueprint-launch.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA ra mắt giải pháp Factory Operations Blueprint cho sản xuất công nghiệp",
+          "en": "NVIDIA Announces Factory Operations Blueprint for Industrial AI",
+          "es": "NVIDIA presenta Factory Operations Blueprint para la industria"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-expands-european-ai-cloud-infrastructure",
       "reportingMode": "official-announcement",
