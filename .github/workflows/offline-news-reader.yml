@@ -1,0 +1,20 @@
+name: Offline News Reader Verify
+on:
+  pull_request:
+    paths:
+      - "tools/news-reader/**"
+      - ".github/workflows/offline-news-reader.yml"
+permissions:
+  contents: read
+jobs:
+  news-reader-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Verify full offline article snapshot, locale coverage, script safety and syntax
+        run: node --test tools/news-reader/reader.test.mjs
