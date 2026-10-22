@@ -2383,3 +2383,25 @@ test("second cron in an already-published UTC hour ignores later upstream feed o
     "the next UTC hour still fails closed when no official feed is readable");
   assert.equal(networkCalls,2,"the next hour must attempt both configured feeds");
 }, {articles:[{slug:"verified-earlier-hour",publishedAt:now.toISOString()}]}));
+
+test("visual cover illustrates story subject instead of reusing the old title-only card",()=>{
+  const topics=[
+    ["NVIDIA expands European AI cloud infrastructure","cloud"],
+    ["GitHub CLI expiring OAuth tokens and authentication","security"],
+    ["Google launches AI model reasoning benchmark","research"],
+    ["New advanced GPU chip hardware unveiled","chip"],
+    ["Orbital satellite AI computation experiment","space"],
+    ["Robotic agent automation assistant","robot"],
+    ["Developer command line programming CLI release","code"]
+  ];
+  const art=new Set();
+  for(const [title,topic] of topics){
+    const svg=coverSvg(title);
+    assert.match(svg,new RegExp('data-topic="'+topic+'"'));
+    assert.match(svg,/<title id="title">[^<]+<\/title>/);
+    assert.match(svg,/1200" height="675"/);
+    assert.doesNotMatch(svg,/AI &amp; TECHNOLOGY|<text[^>]*>[^<]*\bOriginal news cover\b/);
+    art.add(svg);
+  }
+  assert.equal(art.size,topics.length,"each original headline must have its own artwork");
+});

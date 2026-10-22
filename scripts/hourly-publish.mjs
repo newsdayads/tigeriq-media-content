@@ -599,15 +599,62 @@ const svgEscape=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uD
   .replace(/&/g,"&amp;").replace(/</g,"&lt;")
   .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");
 export function coverSvg(title){
-  const text=svgEscape(String(title).slice(0,70));
-  return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">'
-    +'<rect width="1200" height="675" fill="#0b2548"/>'
-    +'<circle cx="935" cy="310" r="205" fill="#1b5286" stroke="#74d8ff" stroke-width="3"/>'
-    +'<circle cx="935" cy="310" r="124" fill="#227abd" stroke="#b0ebff" stroke-width="2"/>'
-    +'<text x="80" y="150" font-family="Arial,sans-serif" font-size="28" fill="#91d4ff">TIGERIQ GLOBAL AI NEWS</text>'
-    +'<text x="80" y="350" font-family="Arial,sans-serif" font-size="67" font-weight="bold" fill="#ffffff">AI &amp; TECHNOLOGY</text>'
-    +'<text x="80" y="420" font-family="Arial,sans-serif" font-size="23" fill="#e5f4ff">'+text+'</text>'
-    +'<text x="80" y="610" font-family="Arial,sans-serif" font-size="20" fill="#91d4ff">Original TigerIQ editorial illustration</text></svg>\n';
+  // Original subject-specific illustration: no stock media, no AI credits,
+  // no text-only headline rectangle; each scene reflects the story topic.
+  const text=svgEscape([...String(title)].slice(0,70).join(""));
+  const topicText=String(title).toLowerCase();
+  const topic=/satellite|orbital|suncatcher|spacecraft|space/.test(topicText)?"space":
+    /oauth|token|authenticat|security|vulnerab|secret|privacy|dependabot/.test(topicText)?"security":
+    /cloud|infrastructure|data.?center|server/.test(topicText)?"cloud":
+    /github|developer|code|coding|cli|api|copilot|repository/.test(topicText)?"code":
+    /chip|semiconductor|gpu|hardware|processor|rubin|blackwell|nvidia/.test(topicText)?"chip":
+    /device|glasses|headset|phone|wearable|gadget|smartphone/.test(topicText)?"device":
+    /robot|agent|automation|assistant/.test(topicText)?"robot":
+    /research|science|study|benchmark|evaluation|reasoning/.test(topicText)?"research":"network";
+  const palettes={
+    space:["#070f2b","#263e8c","#aad5ff"],
+    security:["#061b23","#10756f","#93ffe3"],
+    cloud:["#071c32","#1f79ab","#9ce8ff"],
+    code:["#071723","#23707d","#81efd3"],
+    chip:["#11122c","#6250ad","#c9b4ff"],
+    device:["#1e1532","#9a427b","#ffd3e4"],
+    robot:["#0b2630","#228990","#8bf7ec"],
+    research:["#1e1531","#7853aa","#ddc3ff"],
+    network:["#0b2130","#386aab","#a9d0ff"]
+  };
+  const [dark,mid,light]=palettes[topic];
+  const motifs={
+    space:'<g transform="translate(820 332) rotate(-19)" stroke="#c9edff" stroke-width="9" stroke-linejoin="round"><rect x="-150" y="-58" width="300" height="116" rx="16" fill="#224e86"/><rect x="-53" y="-49" width="106" height="98" rx="13" fill="#ecfaff" stroke="#a2defb"/><path d="M-150 -45h-126v90h126M150 -45h126v90H150" fill="#286eaa"/><path d="M-265 -31h101M-265 0h101M-265 31h101M164 -31h101M164 0h101M164 31h101" stroke="#b0e7ff" stroke-width="3"/><path d="M-10 -86v-84m0 84 50 -35" stroke="#b0e7ff" stroke-width="5"/><circle cx="-10" cy="-172" r="14" fill="#aff2ff"/></g><path d="M574 483Q864 602 1126 295" fill="none" stroke="#a8d5ff" stroke-width="4" stroke-dasharray="14 18"/>',
+    security:'<path d="M820 124 1064 216v146c0 150-103 232-244 303-141-71-244-153-244-303V216z" fill="#1c747c" stroke="#96ffe2" stroke-width="12"/><path d="M820 173 1017 249v114c0 119-81 180-197 241-116-61-197-122-197-241V249z" fill="#124451" stroke="#61d6bd" stroke-width="3"/><rect x="721" y="340" width="198" height="171" rx="29" fill="#d7fff0" stroke="#83ead6" stroke-width="10"/><path d="M760 340v-52c0-77 120-77 120 0v52" fill="none" stroke="#a2fff0" stroke-width="20"/><circle cx="820" cy="415" r="17" fill="#227a74"/><path d="M820 426v36" stroke="#227a74" stroke-width="16"/>',
+    cloud:'<g stroke="#a4e6ff" stroke-width="10" stroke-linejoin="round"><path d="M662 321c-19-88 84-166 163-123 37-88 174-57 175 45 115-12 149 146 37 179H679c-115-5-135-137-17-101z" fill="#caefff"/><path d="M684 467h112v121H684zM844 467h112v121H844z" fill="#164f83"/><path d="M711 492h58m-58 27h58m-58 27h58M870 492h60m-60 27h60m-60 27h60" stroke="#7edaff" stroke-width="5"/><path d="M820 424v31m-81 0v-31m162 31v-31" fill="none"/></g><circle cx="820" cy="429" r="17" fill="#fff"/>',
+    code:'<g stroke="#8feddb" stroke-width="10" stroke-linejoin="round"><rect x="535" y="167" width="575" height="356" rx="24" fill="#0d3441"/><path d="M577 226h489v251H577z" fill="#174e58" stroke-width="0"/><path d="m722 286-83 73 83 73m214-146 83 73-83 73m-82-160-80 182" fill="none" stroke="#c1fff3" stroke-width="18" stroke-linecap="round"/><path d="M505 531h638l-55 54H558z" fill="#508c9b"/></g><circle cx="584" cy="201" r="8" fill="#f7adad"/><circle cx="613" cy="201" r="8" fill="#f7e3a1"/><circle cx="642" cy="201" r="8" fill="#a1efba"/>',
+    chip:'<g stroke="#c7b9ff" stroke-width="9" stroke-linejoin="round"><rect x="645" y="196" width="361" height="361" rx="35" fill="#393679"/><rect x="704" y="257" width="243" height="239" rx="18" fill="#9a8ce7" stroke="#ddd6ff"/><rect x="746" y="300" width="160" height="153" rx="13" fill="#252857" stroke="#a8ffff" stroke-width="5"/><path d="M740 167v29m86-29v29m87-29v29m-173 361v29m86-29v29m87-29v29M612 272h33m-33 83h33m-33 84h33m361-167h33m-33 83h33m-33 84h33" stroke-width="15" stroke-linecap="round"/><path d="M778 329h95m-95 35h95m-95 35h95" stroke="#aeebff" stroke-width="6"/></g>',
+    device:'<g stroke="#ffc8e9" stroke-width="10"><rect x="647" y="135" width="269" height="462" rx="35" fill="#393168"/><rect x="683" y="190" width="197" height="335" rx="12" fill="#a365a4"/><circle cx="781" cy="558" r="17" fill="#d7b4e6"/><rect x="910" y="268" width="198" height="270" rx="27" fill="#62418a"/><rect x="940" y="308" width="139" height="170" rx="11" fill="#cb95bf"/><path d="m724 390 57-117 58 117-58-29z" fill="#e9ccff"/></g>',
+    robot:'<g stroke="#b7fff0" stroke-width="12" stroke-linejoin="round"><rect x="644" y="197" width="365" height="312" rx="69" fill="#237d83"/><rect x="707" y="286" width="92" height="76" rx="30" fill="#b7fff0"/><rect x="858" y="286" width="92" height="76" rx="30" fill="#b7fff0"/><path d="M727 418q95 80 195 0" fill="none" stroke-linecap="round"/><path d="M826 197v-85" stroke-linecap="round"/><circle cx="826" cy="105" r="21" fill="#c8ffee"/><path d="M644 355h-87m452 0h88" stroke-linecap="round"/><path d="M707 509v70m243-70v70" stroke-linecap="round"/></g>',
+    research:'<g fill="none" stroke="#e5caff" stroke-width="10"><circle cx="818" cy="353" r="170"/><ellipse cx="818" cy="353" rx="75" ry="170" transform="rotate(45 818 353)"/><ellipse cx="818" cy="353" rx="75" ry="170" transform="rotate(-45 818 353)"/><path d="M818 183v340M648 353h340"/></g><g fill="#cbb7ff" stroke="#f0dfff" stroke-width="3"><circle cx="818" cy="353" r="33"/><circle cx="693" cy="228" r="19"/><circle cx="947" cy="476" r="23"/><circle cx="944" cy="226" r="14"/><circle cx="689" cy="480" r="19"/></g>',
+    network:'<g stroke="#aee2ff" stroke-width="9"><path d="m625 270 195-110 227 148-98 209-283-30z" fill="none"/><path d="m625 270 324 247m-129-357 129 357m98-209-381 179" stroke-width="5"/></g><g fill="#b8ebff" stroke="#f0fcff" stroke-width="5"><circle cx="625" cy="270" r="28"/><circle cx="820" cy="160" r="32"/><circle cx="1047" cy="308" r="26"/><circle cx="949" cy="517" r="34"/><circle cx="666" cy="487" r="26"/></g>'
+  };
+  let hash=2166136261;
+  for(const char of String(title))hash=Math.imul(hash^char.codePointAt(0),16777619)>>>0;
+  let sparkle="";
+  for(let i=0;i<19;i++){
+    const x=50+((hash+i*317)*2654435761>>>0)%1090;
+    const y=52+((hash+i*127)*1597334677>>>0)%565;
+    sparkle+='<circle cx="'+x+'" cy="'+y+'" r="'+(i%3+2)+'" fill="'+light+'" opacity=".35"/>';
+  }
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc" data-topic="'+topic+'">'
+    +'<title id="title">'+text+'</title><desc id="desc">Original topic-specific editorial illustration by TigerIQ News.</desc>'
+    +'<defs><linearGradient id="b" x2=".93" y2="1"><stop stop-color="'+dark+'"/><stop offset="1" stop-color="'+mid+'"/></linearGradient>'
+    +'<radialGradient id="h"><stop stop-color="'+light+'" stop-opacity=".3"/><stop offset="1" stop-color="'+light+'" stop-opacity="0"/></radialGradient>'
+    +'<pattern id="g" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" stroke="#fff" stroke-opacity=".08" fill="none"/></pattern></defs>'
+    +'<rect width="1200" height="675" fill="url(#b)"/><rect width="1200" height="675" fill="url(#g)"/>'
+    +'<circle cx="850" cy="348" r="398" fill="url(#h)"/>'+sparkle
+    +'<path d="M0 603c232-98 351-72 495-123" stroke="'+light+'" stroke-opacity=".2" stroke-width="3" fill="none"/>'
+    +motifs[topic]
+    +'<path d="M48 94h333M48 104h229" stroke="'+light+'" stroke-width="4" stroke-opacity=".6"/>'
+    +'<text x="49" y="73" font-family="Arial,sans-serif" font-size="28" letter-spacing="4" font-weight="bold" fill="#ffffff">TIGERIQ</text>'
+    +'<text x="50" y="620" font-family="Arial,sans-serif" font-size="22" letter-spacing="2" fill="'+light+'">GLOBAL AI NEWS · ORIGINAL ILLUSTRATION</text>'
+    +'</svg>\n';
 }
 
 // Bound source context deterministically before invoking a metered model endpoint.
