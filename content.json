@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-22T07:17:49.108Z",
+  "updatedAt": "2026-10-22T17:17:56.194Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-launches-minerva-aiops-platform",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:nvidia-launches-minerva-aiops-platform",
+      "clusterKey": "news:15ab8f92c3097a465c2286643ad8ceef90a20cd9003c6e3b29109a9783af008b",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-22T17:17:56.194Z",
+      "modifiedAt": "2026-10-22T17:17:56.194Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA ra mắt nền tảng Minerva để tối ưu hóa vận hành nhà máy AI",
+          "dek": "Theo công bố của NVIDIA. Nền tảng AIOps mới giúp các doanh nghiệp giám sát toàn diện hạ tầng và hiệu suất công việc AI.",
+          "takeaways": [
+            "Minerva tích hợp dữ liệu từ GPU, mạng và lưu trữ để tạo cái nhìn thống nhất.",
+            "Sử dụng học máy để phát hiện sớm các lỗi tiềm ẩn và giảm thiểu thời gian gián đoạn.",
+            "Hỗ trợ giao diện ngôn ngữ tự nhiên giúp kỹ sư vận hành xử lý sự cố nhanh chóng."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu về nền tảng Minerva",
+              "body": "NVIDIA vừa công bố Minerva, một nền tảng AIOps được thiết kế để giải quyết sự phức tạp trong việc vận hành các nhà máy AI quy mô lớn. Hệ thống này thu thập dữ liệu từ hàng trăm nghìn GPU, thiết bị mạng và các tác vụ đang chạy để cung cấp cái nhìn toàn diện về hiệu suất hạ tầng."
+            },
+            {
+              "heading": "Cơ chế hoạt động và phân tích",
+              "body": "Bằng cách xây dựng một biểu đồ tri thức động, Minerva phân tích hàng tỷ điểm dữ liệu mỗi giờ để phát hiện các dấu hiệu bất thường. Thay vì gửi hàng loạt cảnh báo, nền tảng này nhóm các sự kiện liên quan thành các sự cố cụ thể, giúp đội ngũ kỹ thuật tập trung vào nguyên nhân gốc rễ thay vì xử lý nhiễu thông tin."
+            },
+            {
+              "heading": "Tối ưu hóa hiệu suất nhà máy",
+              "body": "Mục tiêu chính của Minerva là tối đa hóa năng suất của GPU thông qua việc dự đoán lỗi trước khi chúng xảy ra. Các đối tác như IREN, Tesla và IBM đã lên kế hoạch triển khai nền tảng này để cải thiện thời gian hoạt động của cụm máy chủ và đẩy nhanh quá trình sửa chữa khi có sự cố phát sinh."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Unveils Minerva AIOps Platform for AI Factory Observability",
+          "dek": "According to NVIDIA. The new platform integrates infrastructure and workload telemetry to improve AI factory productivity and uptime.",
+          "takeaways": [
+            "Minerva connects signals across GPUs, networking, and storage for a unified view.",
+            "The platform uses machine learning to predict failures and correlate event storms.",
+            "A native AI assistant allows operators to investigate cluster health via natural language."
+          ],
+          "sections": [
+            {
+              "heading": "Platform Overview",
+              "body": "NVIDIA has introduced Minerva, an AIOps platform built to provide end-to-end observability for complex AI factories. By aggregating telemetry from compute, networking, and storage, the platform aims to help teams identify performance bottlenecks and hardware degradation before they impact large-scale AI training jobs."
+            },
+            {
+              "heading": "Technical Capabilities",
+              "body": "Minerva constructs a dynamic knowledge graph that maps infrastructure components to active workloads. It employs both supervised and unsupervised machine learning to analyze billions of data points hourly, enabling the system to detect anomalies, predict emerging failures, and correlate related events into actionable insights."
+            },
+            {
+              "heading": "Operational Impact",
+              "body": "The platform includes an agentic AI assistant that provides a natural-language interface for operators to query cluster health and receive remediation recommendations. Several industry partners, including Tesla, IBM, and Lambda, are planning to deploy Minerva to maximize GPU uptime and streamline proactive maintenance workflows."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA presenta Minerva, plataforma AIOps para fábricas de IA",
+          "dek": "Según NVIDIA. La nueva solución integra telemetría de infraestructura y cargas de trabajo para optimizar la productividad de los centros de datos de IA.",
+          "takeaways": [
+            "Minerva centraliza la visibilidad de GPUs, redes y almacenamiento en una sola vista.",
+            "Utiliza modelos de aprendizaje automático para detectar anomalías y predecir fallos.",
+            "Incluye un asistente de IA para facilitar la investigación y resolución de problemas."
+          ],
+          "sections": [
+            {
+              "heading": "Descripción de la plataforma",
+              "body": "NVIDIA ha lanzado Minerva, una plataforma de AIOps diseñada para mejorar la observabilidad en fábricas de IA. La herramienta conecta señales de diversos componentes de infraestructura, permitiendo a los operadores rastrear el rendimiento de los trabajos de entrenamiento a través de sistemas complejos con cientos de miles de GPUs."
+            },
+            {
+              "heading": "Análisis y detección de fallos",
+              "body": "La plataforma utiliza un grafo de conocimiento dinámico para correlacionar eventos en toda la topología de la fábrica. Mediante el análisis de miles de millones de puntos de datos, Minerva puede identificar comportamientos inusuales y agrupar alertas dispersas en incidentes específicos con causas raíz probables."
+            },
+            {
+              "heading": "Resultados y adopción",
+              "body": "Minerva busca maximizar el rendimiento de las GPUs al permitir un mantenimiento proactivo en lugar de reactivo. Empresas como IREN, Tesla y IBM han anunciado planes para implementar esta tecnología, que también estará disponible a través de socios como Dell Technologies, Lenovo y Supermicro para mejorar la eficiencia operativa."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+            "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA has launched Minerva, an AIOps platform designed to provide end-to-end observability for AI data centers by integrating telemetry from infrastructure and AI workloads.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "The platform utilizes a dynamic knowledge graph and machine learning models to correlate infrastructure performance data with AI job execution to identify root causes of system degradation.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-launches-minerva-aiops-platform.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA ra mắt nền tảng Minerva để tối ưu hóa vận hành nhà máy AI",
+          "en": "NVIDIA Unveils Minerva AIOps Platform for AI Factory Observability",
+          "es": "NVIDIA presenta Minerva, plataforma AIOps para fábricas de IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-announces-dsx-ai-factory-platform",
       "reportingMode": "official-announcement",
