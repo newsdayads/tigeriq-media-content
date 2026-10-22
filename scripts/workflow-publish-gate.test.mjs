@@ -18,7 +18,7 @@ test('NOOP cannot report a newly verified public article', () => {
 
 test('publisher only executes on scheduled or manually dispatched runs', () => {
   assert.match(yaml, /publish:\n    if: github\.event_name != 'pull_request'/);
-  assert.match(yaml, /cron: "17,47 \* \* \* \*"/);
+  assert.match(yaml, /cron: "47 \* \* \* \*"/);
   assert.match(yaml, /^      - scripts\/workflow-publish-gate\.test\.mjs$/m);
   assert.match(yaml, /run: node --test [^\n]*scripts\/workflow-publish-gate\.test\.mjs/);
 });
@@ -30,11 +30,11 @@ test('PR checks cannot evict a pending scheduled or manually dispatched publishe
   assert.match(yaml, /^  workflow_dispatch:$/m);
 });
 
-// A semantic hourly schedule edit re-registers the GitHub Actions actor
-// without increasing the cadence or changing minute 17 UTC.
-test('refreshed schedule preserves two recovery windows per hour', () => {
+// Native GitHub at minute 47 is the once-hourly fallback to the
+// Cloudflare minute-17 cron, avoiding redundant provider requests.
+test('GitHub native backup runs once per UTC hour at minute 47', () => {
   const cronLines = yaml.split('\n').filter(line => line.trim().startsWith('- cron:'));
-  assert.deepEqual(cronLines, ['    - cron: "17,47 * * * *"']);
+  assert.deepEqual(cronLines, ['    - cron: "47 * * * *"']);
 });
 
 // Keep both jobs on a supported action runtime. GitHub Actions previously

@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
 import {scheduledHourUtc,dispatchNewsHour} from "./src/cron.mjs";
 import worker from "./src/cron.mjs";
 
@@ -19,7 +20,7 @@ test("external cron targets exact main workflow once with nonsecret receipt",asy
   });
   assert.equal(calls[0].init.headers.Authorization,"Bearer github-fine-grained-test-token");
 });
-test("secondary minute-47 delivery shares the exact UTC hour marker",async()=>{
+test("both synthetic timestamps preserve the same canonical UTC hour marker",async()=>{
  const packets=[];
  const env={GITHUB_ACTIONS_TOKEN:"github-fine-grained-test-token"};
  const fetchImpl=async (_url,options)=>{packets.push(JSON.parse(options.body));return {status:204};};
@@ -38,4 +39,13 @@ test("missing credentials and invalid scheduler inputs fail closed",async()=>{
 test("worker has only scheduled handler; no public request endpoint",()=>{
   assert.equal(typeof worker.scheduled,"function");
   assert.equal(worker.fetch,undefined);
+});
+
+test("each configured scheduler has one distinct UTC-minute trigger",()=>{
+  const wrangler=readFileSync(new URL("./wrangler.toml",import.meta.url),"utf8");
+  const workflow=readFileSync(new URL("../../.github/workflows/hourly-publisher.yml",import.meta.url),"utf8");
+  assert.equal(wrangler.split("\n").find(line=>line.startsWith("crons = ")),
+    'crons = ["17 * * * *"]');
+  assert.deepEqual([...workflow.matchAll(/^    - cron: "([^"]+)"$/gm)].map(x=>x[1]),
+    ["47 * * * *"]);
 });
