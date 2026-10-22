@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-22T06:07:57.947Z",
+  "updatedAt": "2026-10-22T07:17:49.108Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-announces-dsx-ai-factory-platform",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-announces-dsx-ai-factory-platform",
+      "clusterKey": "news:f1fea8bcb394e6afca05a63f8631a354dd68f27c5275ded95f125b5dc4ab4eae",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-22T07:17:49.108Z",
+      "modifiedAt": "2026-10-22T07:17:49.108Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA ra mắt nền tảng DSX để tối ưu hóa năng lượng cho nhà máy AI",
+          "dek": "Theo công bố của NVIDIA. NVIDIA giới thiệu giải pháp DSX nhằm giải quyết tình trạng thiếu hụt điện năng trong hạ tầng trung tâm dữ liệu.",
+          "takeaways": [
+            "Nền tảng NVIDIA DSX kết nối lưới điện, cơ sở hạ tầng và hệ thống tính toán.",
+            "Hợp tác với các đối tác năng lượng để xây dựng thiết kế tham chiếu cho nhà máy AI.",
+            "Công nghệ giúp tối ưu hóa hiệu suất sử dụng điện năng và tăng cường độ tin cậy của lưới điện."
+          ],
+          "sections": [
+            {
+              "heading": "Giải quyết nút thắt năng lượng",
+              "body": "NVIDIA cho biết năng lượng hiện là nút thắt lớn nhất trong hạ tầng AI, với hơn 300 tỷ USD thiết bị đang bị tồn đọng. Nền tảng DSX được thiết kế để hợp nhất các hệ thống vốn bị cô lập trước đây, giúp kỹ sư mô phỏng lưới điện và nhà máy AI cùng lúc trước khi triển khai thực tế."
+            },
+            {
+              "heading": "Hợp tác chiến lược với các đối tác",
+              "body": "NVIDIA đang phối hợp với các tập đoàn lớn như GE Vernova, Hitachi Energy, Schneider Electric và Siemens Energy. Các đối tác này đang phát triển các kiến trúc tham chiếu và giải pháp lưu trữ năng lượng để đảm bảo các nhà máy AI có thể hoạt động bền vững và linh hoạt hơn."
+            },
+            {
+              "heading": "Tối ưu hóa hiệu suất vận hành",
+              "body": "Thông qua các công cụ như DSX Flex và DSX Exchange, NVIDIA cho phép các nhà máy AI điều chỉnh nhu cầu điện năng theo điều kiện lưới điện. Phaidra đã tích hợp các giải pháp này để tối ưu hóa hệ thống làm mát, giúp tăng khoảng 10% năng lực tính toán trong cùng một hạn mức điện năng."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Introduces DSX AI Factory Platform to Address Power Bottlenecks",
+          "dek": "According to NVIDIA. NVIDIA unveils its new DSX platform designed to synchronize grid, facility, and compute infrastructure for AI factories.",
+          "takeaways": [
+            "The NVIDIA DSX platform integrates grid and compute systems to improve infrastructure efficiency.",
+            "Strategic partnerships with energy leaders aim to create grid-aware AI factory designs.",
+            "New simulation and management tools help optimize power allocation and increase compute output."
+          ],
+          "sections": [
+            {
+              "heading": "Addressing Infrastructure Constraints",
+              "body": "NVIDIA states that power is currently the primary bottleneck in AI infrastructure, with significant project backlogs in U.S. interconnection queues. The DSX platform aims to resolve this by allowing engineers to simulate the grid, substation, and AI factory as a unified system to prevent delays and stranded capacity."
+            },
+            {
+              "heading": "Industry Collaboration and Integration",
+              "body": "The company is working with partners including GE Vernova, Hitachi Energy, Schneider Electric, and Siemens Energy to develop reference architectures. These collaborations focus on creating resilient, scalable, and grid-aware power infrastructure that aligns with the requirements of the NVIDIA Vera Rubin AI factory design."
+            },
+            {
+              "heading": "Operational Optimization Tools",
+              "body": "NVIDIA DSX includes tools like DSX Flex and DSX Exchange, which allow AI factories to sync demand with grid conditions. According to NVIDIA, companies like Phaidra have utilized these integrations to optimize cooling and power allocation, reportedly delivering approximately 10% more compute within existing power envelopes."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA presenta la plataforma DSX para optimizar la energía en fábricas de IA",
+          "dek": "Según NVIDIA. NVIDIA lanza su plataforma DSX para sincronizar la red eléctrica, las instalaciones y la computación en centros de datos de IA.",
+          "takeaways": [
+            "La plataforma NVIDIA DSX integra la gestión de la red eléctrica con la infraestructura de computación.",
+            "Colaboraciones con líderes energéticos para estandarizar diseños de fábricas de IA resilientes.",
+            "Herramientas de simulación y optimización para mejorar la eficiencia energética y el rendimiento."
+          ],
+          "sections": [
+            {
+              "heading": "Superando los cuellos de botella energéticos",
+              "body": "NVIDIA afirma que la energía es el mayor obstáculo actual en la infraestructura de IA, con más de 300 mil millones de dólares en equipos pendientes. La plataforma DSX busca solucionar esto permitiendo a los ingenieros simular la red eléctrica y la fábrica de IA como un sistema único antes de iniciar cualquier construcción."
+            },
+            {
+              "heading": "Alianzas estratégicas en el sector energético",
+              "body": "La compañía está colaborando con empresas como GE Vernova, Hitachi Energy, Schneider Electric y Siemens Energy. Estas alianzas se centran en desarrollar arquitecturas de referencia que permitan a los centros de datos ser más flexibles y fiables, alineándose con los estándares de diseño de las fábricas de IA de NVIDIA."
+            },
+            {
+              "heading": "Optimización del rendimiento operativo",
+              "body": "A través de componentes como DSX Flex y DSX Exchange, NVIDIA permite que las fábricas de IA ajusten su demanda según las condiciones de la red. Según NVIDIA, la integración de estas tecnologías ha permitido a empresas como Phaidra optimizar la refrigeración y la asignación de energía, logrando un 10% más de cómputo."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/dsx-power/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-3",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/dsx-power/",
+            "title": "How Companies Are Using NVIDIA DSX to Break the Power Bottleneck"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced the DSX AI Factory Platform to integrate grid, facility, and compute systems into a single operational framework.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          },
+          {
+            "text": "NVIDIA reports that collaborations with companies like GE Vernova, Hitachi Energy, Schneider Electric, and Siemens Energy are underway to develop grid-aware power infrastructure.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-3",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/dsx-power/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-announces-dsx-ai-factory-platform.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA ra mắt nền tảng DSX để tối ưu hóa năng lượng cho nhà máy AI",
+          "en": "NVIDIA Introduces DSX AI Factory Platform to Address Power Bottlenecks",
+          "es": "NVIDIA presenta la plataforma DSX para optimizar la energía en fábricas de IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-expands-cosmos-platform-for-physical-ai",
       "reportingMode": "official-announcement",
