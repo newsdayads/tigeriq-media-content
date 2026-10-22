@@ -930,6 +930,25 @@ test("genuine RSS with BOM, XML declaration and leading comment still counts as 
  assert.equal(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles.length,1);
 }));
 
+test("completed UTC hour remains an idempotent NOOP even if AI configuration is unavailable",()=>tmp(async root=>{
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ let networkCalls=0;
+ const fetchImpl=async()=>{networkCalls++;throw Error("NETWORK_MUST_NOT_BE_CALLED");};
+ const result=await publish({
+   root,fetchImpl,env:{NEWS_HOURLY_PUBLISH_LIMIT:"true"},
+   now:new Date(now.getTime()+25*60*1000),feeds
+ });
+ assert.deepEqual(result,{status:"noop"});
+ assert.equal(networkCalls,0);
+ assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+ // A later hour must still reject an unconfigured provider without network calls.
+ await assert.rejects(()=>publish({
+   root,fetchImpl,env:{NEWS_HOURLY_PUBLISH_LIMIT:"true"},
+   now:new Date(now.getTime()+60*60*1000),feeds
+ }),/AI_PROVIDER_NOT_CONFIGURED/);
+ assert.equal(networkCalls,0);
+}, {articles:[{slug:"hourly-story-already-live",publishedAt:now.toISOString()}]}));
+
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
 }));
