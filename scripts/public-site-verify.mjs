@@ -6,6 +6,16 @@ const COVER_PREFIX = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media
 const LANGUAGES = ['vi', 'en', 'es'];
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// The current publisher places the first 70 Unicode code points of the English
+// headline in the SVG's first <title>. A valid SVG from an unrelated article
+// must not pass publication verification merely by being renamed to this slug.
+function expectedCoverTitle(title) {
+  return [...title].slice(0, 70).join('')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uD800-\uDFFF\uFFFE\uFFFF]/gu, '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+
 function matchesTitle(html, title) {
   const escaped = title.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
@@ -59,6 +69,10 @@ export async function verifyPublishedArticle(article, { fetcher = fetch, retries
   }
   const image = await checkedGet(cover, fetcher);
   if (!/^\s*<svg\b[\s\S]*<\/svg>\s*$/.test(image)) throw new Error('LIVE_VERIFY_COVER_INVALID_SVG');
+  const imageTitle = image.match(/^\s*<svg\b[^>]*><title id="title">([^<]*)<\/title>/)?.[1];
+  if (imageTitle !== expectedCoverTitle(article.editions.en.title)) {
+    throw new Error('LIVE_VERIFY_COVER_TITLE_MISMATCH');
+  }
   return { slug: article.slug, editions: output, cover, coverStatus: 200 };
 }
 
