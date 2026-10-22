@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { verifyPublishedArticle } from './public-site-verify.mjs';
+import { coverSvg } from './hourly-publish.mjs';
 
 const slug = 'example-ai-story';
 const cover = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/example-ai-story.svg';
@@ -9,7 +10,7 @@ const article = { slug, cover: { url: cover }, editions: {
 } };
 const htmlByLang = Object.fromEntries(Object.entries(article.editions).map(([lang, data]) =>
   [lang, `<html lang="${lang}"><main><h1>${data.title}</h1><img src="${cover}"></main></html>`]));
-function fakeFetch({ mutate = (x) => x, coverBody = '<svg width="20"></svg>', coverStatus = 200 } = {}) {
+function fakeFetch({ mutate = (x) => x, coverBody = coverSvg(article.editions.en.title), coverStatus = 200 } = {}) {
   return async (url) => {
     if (url === cover) return { status: coverStatus, text: async () => coverBody };
     const lang = new URL(url).pathname.split('/')[1];
@@ -47,4 +48,34 @@ test('rejects unsafe slug, noncanonical cover and partial translations', async (
 
 test('caps retries so no unbounded API or site polling is possible', async () => {
   await assert.rejects(verifyPublishedArticle(article, { fetcher: fakeFetch(), retries: 4 }), /RETRY_LIMIT/);
+});
+
+
+test('a 200 SVG from another article must fail even if its URL matches the slug', async () => {
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: fakeFetch({ coverBody: coverSvg('Entirely different article title') }), retries: 1
+  }), /LIVE_VERIFY_COVER_TITLE_MISMATCH/);
+});
+
+test('exact signed editorial headline with escaped XML matches real cover generator', async () => {
+  const named = { ...article, editions: {
+    ...article.editions, en: { title: 'AI & "Cloud" <Hardware> Launch - '+ 'a'.repeat(90) }
+  } };
+  const fetcher = async (url) => url === cover
+    ? { status: 200, text: async () => coverSvg(named.editions.en.title) }
+    : { status: 200, text: async () =>
+        '<html lang="'+new URL(url).pathname.split('/')[1]+'"><h1>'+
+        (named.editions[new URL(url).pathname.split('/')[1]].title)+'</h1>'+
+        cover+'</html>' };
+  const result = await verifyPublishedArticle(named, { fetcher, retries: 1 });
+  assert.equal(result.coverStatus, 200);
+});
+
+test('an XML comment containing the expected title cannot spoof SVG identity', async () => {
+  const actual = coverSvg('Another article');
+  const injected = actual.replace('<title id="title">',
+    '<!-- <title id="title">'+article.editions.en.title+'</title> -->'+'<title id="title">');
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: fakeFetch({ coverBody: injected }), retries: 1
+  }), /LIVE_VERIFY_COVER_TITLE_MISMATCH/);
 });
