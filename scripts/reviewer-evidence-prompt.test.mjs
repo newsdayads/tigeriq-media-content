@@ -21,7 +21,7 @@ test("verbatim instruction is part of the one reviewer prompt for both source mo
   assert.match(call, /prompt:\(attributed\?/);
   assert.match(call, /\)\+' '\+REVIEW_EXCERPT_INSTRUCTION\}\);/);
   assert.match(call, /' DRAFT='\+JSON\.stringify\(draft\)/);
-  assert.match(call, /' SOURCE='\+JSON\.stringify\(sources\)/);
+  assert.match(call, /SOURCE='\+JSON\.stringify\(sources\)/);
 });
 
 test("independent source excerpt verification remains fail closed", () => {
