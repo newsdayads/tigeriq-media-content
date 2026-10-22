@@ -1,3 +1,4 @@
+import {editorialCoverSvg} from "./editorial-cover.mjs";
 import fs from "node:fs/promises";
 import {randomUUID,createHash} from "node:crypto";
 import {join} from "node:path";
@@ -595,20 +596,8 @@ export function verifyReview(review,draft,sources){
   }
 }
 
-const svgEscape=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uD800-\uDFFF\uFFFE\uFFFF]/gu,"")
-  .replace(/&/g,"&amp;").replace(/</g,"&lt;")
-  .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");
-export function coverSvg(title){
-  const text=svgEscape(String(title).slice(0,70));
-  return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">'
-    +'<rect width="1200" height="675" fill="#0b2548"/>'
-    +'<circle cx="935" cy="310" r="205" fill="#1b5286" stroke="#74d8ff" stroke-width="3"/>'
-    +'<circle cx="935" cy="310" r="124" fill="#227abd" stroke="#b0ebff" stroke-width="2"/>'
-    +'<text x="80" y="150" font-family="Arial,sans-serif" font-size="28" fill="#91d4ff">TIGERIQ GLOBAL AI NEWS</text>'
-    +'<text x="80" y="350" font-family="Arial,sans-serif" font-size="67" font-weight="bold" fill="#ffffff">AI &amp; TECHNOLOGY</text>'
-    +'<text x="80" y="420" font-family="Arial,sans-serif" font-size="23" fill="#e5f4ff">'+text+'</text>'
-    +'<text x="80" y="610" font-family="Arial,sans-serif" font-size="20" fill="#91d4ff">Original TigerIQ editorial illustration</text></svg>\n';
-}
+// A named, topic-specific vector scene instead of the former generic circles.
+export function coverSvg(title,slug=""){return editorialCoverSvg(title,slug);}
 
 // Bound source context deterministically before invoking a metered model endpoint.
 // Character bounds reduce request size but are NOT a provider-specific token/quota proof.
@@ -845,7 +834,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
       alt:{vi:draft.editions.vi.title,en:draft.editions.en.title,es:draft.editions.es.title}},
     corrections:[]};
   await fs.mkdir(join(root,"covers"),{recursive:true});
-  await createCoverExclusively(coverPath,coverSvg(draft.editions.en.title));
+  await createCoverExclusively(coverPath,coverSvg(draft.editions.en.title,slug));
   store.updatedAt=nowIso;store.articles.unshift(story);
   try{await commitContentJsonAtomically(path,JSON.stringify(store,null,2)+"\n");}
   catch(e){await fs.unlink(coverPath);throw e;}
