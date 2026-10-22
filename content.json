@@ -1,11 +1,153 @@
 {
-  "updatedAt": "2026-10-22T05:17:48.799Z",
+  "updatedAt": "2026-10-22T06:07:57.947Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-expands-cosmos-platform-for-physical-ai",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-expands-cosmos-platform-for-physical-ai",
+      "clusterKey": "news:d10fc742b43514c7a629fffa27ff79e14afb7a16f6cd5c382a9d49a3a3346a31",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-22T06:07:57.947Z",
+      "modifiedAt": "2026-10-22T06:07:57.947Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA mở rộng nền tảng Cosmos cho AI vật lý",
+          "dek": "Theo công bố của NVIDIA. NVIDIA giới thiệu các công cụ mới và bản thiết kế dữ liệu để tăng tốc phát triển mô hình thế giới cho hệ thống AI vật lý.",
+          "takeaways": [
+            "Nền tảng Cosmos được bổ sung các công cụ đào tạo và bản thiết kế dữ liệu mới.",
+            "Các bản thiết kế mới hỗ trợ tạo dữ liệu tổng hợp cho xe tự lái và robot công nghiệp.",
+            "Dịch vụ vi mô Cosmos 3 NIM hứa hẹn cải thiện tốc độ suy luận lên gấp đôi."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng nền tảng Cosmos",
+              "body": "NVIDIA đã công bố việc mở rộng nền tảng Cosmos nhằm hỗ trợ các nhà phát triển xây dựng mô hình thế giới, giúp hệ thống AI vật lý hiểu và mô phỏng môi trường thực tế. Nền tảng này cung cấp các công cụ đào tạo, điểm kiểm tra mô phỏng và các bản thiết kế dữ liệu để tối ưu hóa hiệu suất trước khi triển khai."
+            },
+            {
+              "heading": "Công cụ Cosmos Data Factory",
+              "body": "Cosmos Data Factory hiện cung cấp năm bản thiết kế dựa trên đám mây để xử lý dữ liệu đa phương thức. Các công cụ này hỗ trợ tạo dữ liệu cho xe tự lái, tăng cường thuộc tính hình ảnh, tạo video sự kiện và tạo hình ảnh lỗi cho kiểm tra sản phẩm, giúp giảm bớt nhu cầu thử nghiệm vật lý thực tế."
+            },
+            {
+              "heading": "Tối ưu hóa và triển khai",
+              "body": "Các nhà phát triển có thể sử dụng khung Cosmos để tinh chỉnh và tối ưu hóa các mô hình mở như GR00T hoặc QWEN. Ngoài ra, các dịch vụ vi mô Cosmos 3 NIM mới được thiết kế để tăng tốc độ suy luận lên gấp đôi mà không làm giảm chất lượng, hỗ trợ các ứng dụng AI thị giác thời gian thực."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Expands Cosmos Platform for Physical AI Development",
+          "dek": "According to NVIDIA. NVIDIA introduces new training tools and data factory blueprints to accelerate the creation and deployment of world models for physical AI systems.",
+          "takeaways": [
+            "NVIDIA expanded the Cosmos platform with new training tools and simulation checkpoints.",
+            "Cosmos Data Factory offers five cloud-native blueprints for synthetic data generation.",
+            "Updated Cosmos 3 NIM microservices are designed to provide up to 2x faster inference."
+          ],
+          "sections": [
+            {
+              "heading": "Platform Expansion",
+              "body": "NVIDIA has expanded its Cosmos platform to provide developers with frontier open models, data tools, and training recipes. These resources are designed to help scale training data, adapt models, and optimize performance for physical AI systems that need to understand and simulate the real world."
+            },
+            {
+              "heading": "Data Factory Blueprints",
+              "body": "The Cosmos Data Factory now includes five cloud-native blueprints available through GitHub and major cloud providers. These tools facilitate autonomous vehicle dataset generation, image attribute augmentation, and the creation of synthetic video clips to train robots for industrial inspection and safety hazard detection."
+            },
+            {
+              "heading": "Inference and Deployment",
+              "body": "Developers can now utilize the Cosmos Framework to adapt open models through fine-tuning and reinforcement learning. Furthermore, the updated NVIDIA Cosmos 3 NIM microservices are stated to deliver up to 2x faster inference speeds, enabling more efficient video analysis and real-time safety monitoring."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA expande la plataforma Cosmos para IA física",
+          "dek": "Según NVIDIA. NVIDIA presenta nuevas herramientas de entrenamiento y planos de datos para acelerar el desarrollo de modelos mundiales para sistemas de IA física.",
+          "takeaways": [
+            "La plataforma Cosmos ahora incluye herramientas avanzadas de entrenamiento y simulación.",
+            "Se ofrecen cinco nuevos planos de datos para la generación de datos sintéticos.",
+            "Los microservicios Cosmos 3 NIM prometen duplicar la velocidad de inferencia."
+          ],
+          "sections": [
+            {
+              "heading": "Expansión de la plataforma",
+              "body": "NVIDIA ha ampliado su plataforma Cosmos para ofrecer a los desarrolladores herramientas de entrenamiento, puntos de control de simulación y recetas de optimización. Estas capacidades están diseñadas para ayudar a construir modelos mundiales que permitan a los sistemas de IA física comprender y simular el entorno del mundo real."
+            },
+            {
+              "heading": "Planos de Cosmos Data Factory",
+              "body": "Cosmos Data Factory ahora ofrece cinco planos nativos de la nube para tareas como la generación de conjuntos de datos para vehículos autónomos y la creación de videos sintéticos. Estas herramientas permiten a las empresas curar y aumentar datos a gran escala, reduciendo la necesidad de pruebas físicas costosas."
+            },
+            {
+              "heading": "Optimización y rendimiento",
+              "body": "Los desarrolladores pueden adaptar modelos abiertos mediante técnicas de ajuste fino y aprendizaje por refuerzo. Además, los microservicios actualizados NVIDIA Cosmos 3 NIM están diseñados para ofrecer una inferencia hasta 2 veces más rápida, facilitando el despliegue de aplicaciones de IA de visión con mayor eficiencia."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-2",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models/",
+            "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA has expanded its Cosmos platform with new training tools, simulation checkpoints, and data factory blueprints to assist developers in building world models for physical AI.",
+            "sourceIds": [
+              "nvidia-2"
+            ]
+          },
+          {
+            "text": "The Cosmos Data Factory provides five cloud-native blueprints for tasks including autonomous vehicle dataset generation, image attribute augmentation, and synthetic video generation.",
+            "sourceIds": [
+              "nvidia-2"
+            ]
+          },
+          {
+            "text": "NVIDIA claims that updated Cosmos 3 NIM microservices can deliver up to 2x faster inference performance in validated configurations.",
+            "sourceIds": [
+              "nvidia-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-2",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-expands-cosmos-platform-for-physical-ai.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA mở rộng nền tảng Cosmos cho AI vật lý",
+          "en": "NVIDIA Expands Cosmos Platform for Physical AI Development",
+          "es": "NVIDIA expande la plataforma Cosmos para IA física"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-european-financial-ai-adoption",
       "reportingMode": "official-announcement",
