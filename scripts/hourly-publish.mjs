@@ -714,6 +714,36 @@ export async function createCoverExclusively(path,svg,io=fs){
   }
 }
 
+
+/**
+ * Prefer a different verified official publisher only among nearly as fresh
+ * candidates when the last two accepted articles came from one publisher.
+ * This is a soft editorial tie-break, not a quota: an older/unsupported
+ * source never displaces a materially newer authentic announcement.
+ * The existing full-article fetch and independent AI review stay mandatory.
+ */
+export function prioritizeOfficialCandidates(items,articles){
+  const sorted=[...items].sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt));
+  if(sorted.length<2||!Array.isArray(articles)||articles.length<2)return sorted;
+  const prior=articles.slice(0,2).map(article=>{
+    const publishers=article?.factPack?.sources?.map(source=>source?.publisher)
+      .filter(publisher=>typeof publisher==="string"&&publisher.length>0);
+    return publishers?.length===1?publishers[0]:null;
+  });
+  if(!prior[0]||prior[0]!==prior[1]||prior[0]!==sorted[0].publisher)return sorted;
+  const newest=Date.parse(sorted[0].publishedAt);
+  if(!Number.isFinite(newest))return sorted;
+  const candidateIndex=sorted.findIndex((item,index)=>{
+    if(index===0||!item.publisher||item.publisher===prior[0])return false;
+    const published=Date.parse(item.publishedAt);
+    return Number.isFinite(published)&&newest-published>=0&&
+      newest-published<=30*60*1000;
+  });
+  if(candidateIndex<0)return sorted;
+  const [alternate]=sorted.splice(candidateIndex,1);
+  return [alternate,...sorted];
+}
+
 export function alreadyPublishedInUtcHour(articles,now){
   const hour=now.toISOString().slice(0,13);
   return Array.isArray(articles)&&articles.some(a=>typeof a?.publishedAt==="string"&&a.publishedAt.startsWith(hour));
@@ -829,7 +859,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   let packet=sourcePacket(unseenItems);
   if(attributed){
     packet=[];
-    for(const candidate of [...unseenItems].sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)).slice(0,5)){
+    for(const candidate of prioritizeOfficialCandidates(unseenItems,store.articles).slice(0,5)){
       try{packet=[await fullOfficialSource(candidate,fetchImpl)];break;}
       catch{console.warn("OFFICIAL_ARTICLE_UNAVAILABLE "+candidate.publisher);}
     }
