@@ -673,7 +673,6 @@ export function alreadyPublishedInUtcHour(articles,now){
 }
 
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
-  const provider=providerConfig(env);
   // Dedupe before any RSS/AI network call. A second native/cloud cron in an
   // already-published UTC hour must not be reported as a missed article
   // merely because upstream feeds became unavailable after the first post.
@@ -687,6 +686,9 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     console.log("NOOP_HOURLY_ARTICLE_ALREADY_PUBLISHED");
     return {status:"noop"};
   }
+  // An already-satisfied hour needs neither a configured AI provider nor an
+  // upstream request; still require provider validation for any new story.
+  const provider=providerConfig(env);
   // The approved attributed-announcement mode needs one complete official
   // article and a separate AI reviewer, not two independent RSS publishers.
   // Corroborated reporting keeps its strict two-publisher requirement.
