@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T08:17:48.636Z",
+  "updatedAt": "2026-10-23T09:17:50.148Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-actions-blob-storage-api-update",
+      "reportingMode": "official-announcement",
+      "category": "Developer Tools",
+      "storyId": "tigeriq:github-actions-blob-storage-api-update",
+      "clusterKey": "news:f1bf827a109c85097b17e7fbcc8de5c6037b085d180ed5f1db2767b9629538a1",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T09:17:50.148Z",
+      "modifiedAt": "2026-10-23T09:17:50.148Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật API meta cho lưu trữ blob của Actions",
+          "dek": "Theo công bố của GitHub. GitHub bổ sung các điểm cuối lưu trữ mới nhằm tăng cường độ tin cậy cho hệ thống Actions.",
+          "takeaways": [
+            "GitHub thêm các điểm cuối lưu trữ blob mới vào API meta.",
+            "Người dùng cần cập nhật danh sách cho phép mạng nếu sử dụng cấu hình thủ công.",
+            "Các dải máy chủ mới từ productionresultssa30 đến 49 và 100 đến 199 đã được thêm vào."
+          ],
+          "sections": [
+            {
+              "heading": "Cập nhật hạ tầng lưu trữ",
+              "body": "GitHub thông báo việc bổ sung các điểm cuối lưu trữ blob cho GitHub Actions trên nền tảng github.com. Thay đổi này là một phần trong nỗ lực liên tục của công ty nhằm cải thiện năng lực vận hành và độ tin cậy của hệ thống, cho phép quản lý dữ liệu hiệu quả hơn thông qua API meta."
+            },
+            {
+              "heading": "Hướng dẫn cấu hình mạng",
+              "body": "Đối với các tổ chức sử dụng danh sách cho phép mạng (network allowlist), GitHub yêu cầu kiểm tra và cập nhật cài đặt để bao gồm các dải máy chủ mới từ productionresultssa30 đến productionresultssa49 và từ productionresultssa100 đến productionresultssa199. Nếu tổ chức đã cho phép tất cả các máy chủ theo định dạng productionresultssa*.blob.core.windows.net, thì không cần thực hiện thêm bất kỳ thay đổi nào."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Updates Meta API for Actions Blob Storage",
+          "dek": "According to GitHub. New blob storage endpoints have been added to the GitHub Actions infrastructure to enhance capacity and reliability.",
+          "takeaways": [
+            "GitHub has introduced new blob storage endpoints to the meta API.",
+            "Organizations with network allowlists must update their settings to avoid service interruptions.",
+            "The update targets specific host ranges to ensure job summaries and logs remain accessible."
+          ],
+          "sections": [
+            {
+              "heading": "Infrastructure Capacity Improvements",
+              "body": "GitHub has officially updated its meta API to include new blob storage endpoints for GitHub Actions. This update is part of an ongoing initiative to improve the overall capacity and reliability of the platform's infrastructure, ensuring that job summaries and logs are handled more effectively."
+            },
+            {
+              "heading": "Network Access Requirements",
+              "body": "Organizations that utilize network allowlists to access GitHub Actions blob storage are advised to review their current settings. To prevent potential interruptions to job summaries and logs, administrators must ensure that the new host ranges—specifically productionresultssa30 through productionresultssa49 and productionresultssa100 through productionresultssa199—are included. Users who already allow the wildcard pattern productionresultssa*.blob.core.windows.net do not need to take further action."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub actualiza la API meta para el almacenamiento blob de Actions",
+          "dek": "Según GitHub. Se han añadido nuevos puntos de conexión de almacenamiento para mejorar la capacidad y fiabilidad de GitHub Actions.",
+          "takeaways": [
+            "GitHub ha integrado nuevos puntos de conexión de almacenamiento blob en su API meta.",
+            "Las organizaciones deben actualizar sus listas de permitidos de red para evitar interrupciones.",
+            "Los cambios afectan a rangos específicos de hosts en Azure blob storage."
+          ],
+          "sections": [
+            {
+              "heading": "Mejoras en la infraestructura",
+              "body": "GitHub ha anunciado la incorporación de nuevos puntos de conexión de almacenamiento blob para GitHub Actions en github.com. Esta actualización forma parte de los esfuerzos continuos de la plataforma para mejorar la capacidad y la fiabilidad de sus servicios, facilitando una gestión más robusta de los datos de los flujos de trabajo."
+            },
+            {
+              "heading": "Requisitos de configuración de red",
+              "body": "Las organizaciones que utilizan listas de permitidos de red para acceder al almacenamiento de GitHub Actions deben revisar su configuración. Es necesario añadir los nuevos rangos de hosts, que van desde productionresultssa30 hasta productionresultssa49 y desde productionresultssa100 hasta productionresultssa199, para evitar interrupciones en los resúmenes y registros de los trabajos. Aquellos que ya permitan el patrón comodín productionresultssa*.blob.core.windows.net no requieren cambios adicionales."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-meta-api-endpoints-updated-for-actions-blob-storage"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-4",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-meta-api-endpoints-updated-for-actions-blob-storage",
+            "title": "Meta API endpoints updated for Actions blob storage"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has updated its meta API to include new blob storage endpoints for GitHub Actions to improve capacity and reliability.",
+            "sourceIds": [
+              "github-4"
+            ]
+          },
+          {
+            "text": "Organizations using network allowlists must update their settings to include specific new host ranges to prevent potential interruptions to job summaries and logs.",
+            "sourceIds": [
+              "github-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-4",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-meta-api-endpoints-updated-for-actions-blob-storage"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-actions-blob-storage-api-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật API meta cho lưu trữ blob của Actions",
+          "en": "GitHub Updates Meta API for Actions Blob Storage",
+          "es": "GitHub actualiza la API meta para el almacenamiento blob de Actions"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-global-default-policy-rollout",
       "reportingMode": "official-announcement",
