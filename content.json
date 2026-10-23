@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T14:17:48.387Z",
+  "updatedAt": "2026-10-23T19:17:50.797Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-apps-enterprise-general-availability",
+      "reportingMode": "official-announcement",
+      "category": "Software Development Tools",
+      "storyId": "tigeriq:github-apps-enterprise-general-availability",
+      "clusterKey": "news:325a7b5d2193601325baba133a93008ebc75e320662ce706b43875d9fd7220c3",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T19:17:50.797Z",
+      "modifiedAt": "2026-10-23T19:17:50.797Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub công bố tính năng cài đặt GitHub Apps cho doanh nghiệp",
+          "dek": "Theo công bố của GitHub. GitHub chính thức mở rộng khả năng tự động hóa cho doanh nghiệp thông qua việc hỗ trợ API mới cho GitHub Apps.",
+          "takeaways": [
+            "GitHub Apps hiện đã sẵn sàng cho các cài đặt ở cấp độ doanh nghiệp.",
+            "Người dùng có thể thay thế các mã truy cập cá nhân (PAT) cũ bằng GitHub Apps.",
+            "Bổ sung quyền kiểm soát mới cho chính sách bảo mật và quản trị doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng khả năng tự động hóa",
+              "body": "GitHub thông báo rằng việc cài đặt GitHub Apps cho doanh nghiệp hiện đã chính thức khả dụng. Thay đổi này cho phép các tổ chức thay thế các mã truy cập cá nhân (PAT) truyền thống bằng GitHub Apps, giúp tăng cường khả năng tự động hóa thông qua các quyền truy cập được mở rộng và chi tiết hơn."
+            },
+            {
+              "heading": "Các tính năng quản trị và bảo mật mới",
+              "body": "Các quyền mới tập trung vào việc quản lý chính sách kho lưu trữ, cấu hình xác thực hai yếu tố, xác minh tên miền và quản lý danh sách IP cho phép. Ngoài ra, các quản trị viên có thể cập nhật hồ sơ doanh nghiệp và kiểm soát quyền truy cập của thành viên trên toàn hệ thống thông qua các API mới được hỗ trợ."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Announces General Availability of Enterprise GitHub Apps",
+          "dek": "According to GitHub. GitHub expands enterprise automation capabilities by enabling GitHub Apps to replace classic personal access tokens.",
+          "takeaways": [
+            "Enterprise installations for GitHub Apps are now generally available.",
+            "New API support enables granular control over enterprise governance and security.",
+            "Users can now manage repository rulesets and IP allowlists via GitHub Apps."
+          ],
+          "sections": [
+            {
+              "heading": "Transitioning from Classic PATs",
+              "body": "GitHub has officially announced that installing GitHub Apps on enterprise accounts is now generally available. This update is designed to allow organizations to replace classic personal access tokens (PATs) with GitHub Apps, providing more robust and secure automation workflows across enterprise and organization levels."
+            },
+            {
+              "heading": "Enhanced Governance and Administrative Control",
+              "body": "The release introduces expanded API coverage focused on governance, security, and administration. Enterprises can now manage repository policies, rulesets, two-factor authentication requirements, and IP allowlists directly through GitHub Apps. These updates are scheduled to be available in GHES 3.24."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub anuncia la disponibilidad general de GitHub Apps para empresas",
+          "dek": "Según GitHub. GitHub amplía las capacidades de automatización empresarial permitiendo el uso de GitHub Apps en lugar de tokens de acceso personal.",
+          "takeaways": [
+            "Las instalaciones de GitHub Apps ya están disponibles para entornos empresariales.",
+            "Se han añadido nuevas APIs para mejorar la gobernanza y la seguridad.",
+            "Los administradores pueden gestionar reglas de repositorios y listas de IP permitidas."
+          ],
+          "sections": [
+            {
+              "heading": "Automatización a nivel empresarial",
+              "body": "GitHub ha anunciado la disponibilidad general de las instalaciones de GitHub Apps para empresas. Esta actualización permite a las organizaciones reemplazar los tokens de acceso personal (PAT) clásicos por GitHub Apps, facilitando una automatización más segura y detallada en toda la infraestructura de la organización."
+            },
+            {
+              "heading": "Nuevas capacidades de gestión y seguridad",
+              "body": "La plataforma ha introducido nuevas autorizaciones y cobertura de API enfocadas en la gobernanza, la seguridad y la administración. Esto incluye la capacidad de gestionar políticas de repositorios, requisitos de autenticación de dos factores, dominios verificables y listas de IP permitidas, mejorando el control administrativo general."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-1",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available",
+            "title": "Enterprise installations for GitHub Apps generally available"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has announced the general availability of GitHub Apps for enterprise installations, allowing organizations to replace classic personal access tokens (PATs) with more granular app-based automation.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "The update introduces expanded API support for enterprise-level governance, security configurations, and administrative settings, including management of repository rulesets and IP allowlists.",
+            "sourceIds": [
+              "github-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-apps-enterprise-general-availability.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub công bố tính năng cài đặt GitHub Apps cho doanh nghiệp",
+          "en": "GitHub Announces General Availability of Enterprise GitHub Apps",
+          "es": "GitHub anuncia la disponibilidad general de GitHub Apps para empresas"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-geforce-now-call-of-duty-modern-warfare-4-launch",
       "reportingMode": "official-announcement",
