@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T07:17:52.187Z",
+  "updatedAt": "2026-10-23T08:17:48.636Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-copilot-global-default-policy-rollout",
+      "reportingMode": "official-announcement",
+      "category": "Software Development",
+      "storyId": "tigeriq:github-copilot-global-default-policy-rollout",
+      "clusterKey": "news:bf84ae36d894f0053bc37f565ff560a3ec5474fd9af11fba170ad1cda1306d63",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T08:17:48.636Z",
+      "modifiedAt": "2026-10-23T08:17:48.636Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub triển khai chính sách mặc định toàn cầu cho Copilot",
+          "dek": "Theo công bố của GitHub. Các tính năng Copilot sẽ tự động áp dụng cấu hình mặc định mới cho các gói doanh nghiệp.",
+          "takeaways": [
+            "Chính sách áp dụng cho các tính năng Copilot đã phát hành rộng rãi.",
+            "Quản trị viên có thể thay đổi cài đặt thủ công bất kỳ lúc nào.",
+            "Các lựa chọn cấu hình hiện có sẽ được bảo lưu và không bị ghi đè."
+          ],
+          "sections": [
+            {
+              "heading": "Chi tiết về việc triển khai",
+              "body": "GitHub thông báo bắt đầu quá trình triển khai chính sách mặc định toàn cầu cho các tính năng Copilot Business và Copilot Enterprise. Quá trình này diễn ra dần dần từ ngày 22 tháng 10 đến ngày 26 tháng 10, ảnh hưởng đến các tính năng chưa được cấu hình cụ thể bởi quản trị viên."
+            },
+            {
+              "heading": "Cơ chế hoạt động của chính sách",
+              "body": "Đối với các tính năng chưa được thiết lập, hệ thống sẽ tự động áp dụng trạng thái 'Bật', 'Tắt' hoặc 'Để tổ chức quyết định' dựa trên lựa chọn mặc định toàn cầu. GitHub nhấn mạnh rằng đây là thay đổi một lần và các cài đặt đã được quản trị viên thiết lập thủ công trước đó sẽ được giữ nguyên."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Rolls Out Global Default Policy for Copilot Features",
+          "dek": "According to GitHub. New default settings for generally available Copilot features are being applied to Business and Enterprise plans.",
+          "takeaways": [
+            "Global default policies apply to generally available Copilot features.",
+            "Rollout is occurring gradually through October 26 for all enterprises.",
+            "Existing manual configurations for features will remain unchanged."
+          ],
+          "sections": [
+            {
+              "heading": "Implementation Timeline",
+              "body": "GitHub has initiated the gradual rollout of a global default policy for generally available Copilot features within Business and Enterprise plans. The enforcement process began on October 22 and is expected to conclude by October 26, affecting settings that have been left in an unconfigured state."
+            },
+            {
+              "heading": "Impact on Existing Configurations",
+              "body": "The policy update will automatically set unconfigured features to a chosen global default of Enabled, Disabled, or Let organizations decide. GitHub confirms that this is a one-time change and that any explicit choices previously made by administrators for individual features will be preserved and not overwritten by this rollout."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub implementa política predeterminada global para Copilot",
+          "dek": "Según GitHub. Las nuevas configuraciones predeterminadas para funciones de Copilot se aplican a planes empresariales.",
+          "takeaways": [
+            "La política afecta a las funciones de Copilot disponibles de forma general.",
+            "El despliegue se realiza de forma gradual hasta el 26 de octubre.",
+            "Las configuraciones manuales previas se mantienen intactas."
+          ],
+          "sections": [
+            {
+              "heading": "Detalles del despliegue",
+              "body": "GitHub ha comenzado la implementación gradual de una política predeterminada global para las funciones de Copilot en los planes Business y Enterprise. Este proceso, que comenzó el 22 de octubre, se extenderá hasta el 26 de octubre para asegurar que las funciones sin configurar adopten los parámetros globales establecidos."
+            },
+            {
+              "heading": "Preservación de configuraciones",
+              "body": "Las funciones que no hayan sido configuradas individualmente se ajustarán automáticamente según la opción global seleccionada. GitHub aclara que este cambio es único y no afectará a las configuraciones que los administradores hayan definido explícitamente con anterioridad, garantizando la continuidad de las preferencias establecidas."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-3",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available",
+            "title": "Global default for Copilot features generally available"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub is implementing a global default policy for generally available Copilot features on Business and Enterprise plans.",
+            "sourceIds": [
+              "github-3"
+            ]
+          },
+          {
+            "text": "The rollout of this policy enforcement is scheduled to occur gradually between October 22 and October 26.",
+            "sourceIds": [
+              "github-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-3",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-global-default-policy-rollout.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub triển khai chính sách mặc định toàn cầu cho Copilot",
+          "en": "GitHub Rolls Out Global Default Policy for Copilot Features",
+          "es": "GitHub implementa política predeterminada global para Copilot"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-usage-metrics-update",
       "reportingMode": "official-announcement",
