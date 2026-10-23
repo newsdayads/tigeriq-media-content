@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-23T22:17:50.063Z",
+  "updatedAt": "2026-10-23T23:17:50.208Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-emu-deprovisioning-fix",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:github-emu-deprovisioning-fix",
+      "clusterKey": "news:cebe7f06db4931356de9ea0b51d28edbdf8a9dfc9ca96a9fa24cdd9ae422c4a0",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T23:17:50.208Z",
+      "modifiedAt": "2026-10-23T23:17:50.208Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub khắc phục sự cố xóa tài khoản người dùng doanh nghiệp",
+          "dek": "Theo công bố của GitHub. GitHub đã khôi phục hơn 12.000 tài khoản bị xóa nhầm do lỗi trong quy trình hủy cung cấp dịch vụ.",
+          "takeaways": [
+            "Hơn 12.000 tài khoản Enterprise Managed User đã bị xóa nhầm thay vì bị đình chỉ.",
+            "Sự cố xảy ra do lỗi định tuyến yêu cầu hủy cung cấp dịch vụ từ ngày 1 đến 13 tháng 6 năm 2026.",
+            "GitHub đã hoàn tất việc khôi phục các bản ghi người dùng vào tháng 10 năm 2026.",
+            "Chủ sở hữu doanh nghiệp không cần thực hiện bất kỳ hành động nào để khắc phục."
+          ],
+          "sections": [
+            {
+              "heading": "Chi tiết về sự cố kỹ thuật",
+              "body": "GitHub thông báo rằng từ ngày 1 tháng 6 đến ngày 13 tháng 6 năm 2026, một thay đổi trong quy trình hủy cung cấp dịch vụ đã khiến các tài khoản Enterprise Managed User bị xóa thay vì bị đình chỉ và làm mờ thông tin. Điều này dẫn đến việc các tài khoản này xuất hiện dưới dạng người dùng ảo trong các nhật ký kiểm toán và yêu cầu kéo."
+            },
+            {
+              "heading": "Biện pháp khắc phục và trạng thái hiện tại",
+              "body": "Để giải quyết vấn đề, GitHub đã vô hiệu hóa đường dẫn gây lỗi vào ngày 13 tháng 6 năm 2026 và thực hiện các thay đổi mã nguồn để ngăn chặn sự cố tái diễn. Công ty xác nhận đã khôi phục các bản ghi người dùng bị ảnh hưởng vào tháng 10 năm 2026, đảm bảo tính toàn vẹn của lịch sử kiểm toán mà không yêu cầu người dùng doanh nghiệp phải can thiệp."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Addresses Enterprise Managed User Deletion Error",
+          "dek": "According to GitHub. GitHub has restored over 12,000 accounts incorrectly deleted during a deprovisioning process error.",
+          "takeaways": [
+            "Approximately 12,285 Enterprise Managed User accounts were incorrectly deleted.",
+            "The issue stemmed from a routing error in the deprovisioning path between June 1 and June 13, 2026.",
+            "GitHub restored all affected user records in October 2026 to maintain audit history.",
+            "Enterprise owners are not required to take any action regarding this fix."
+          ],
+          "sections": [
+            {
+              "heading": "Overview of the Deletion Incident",
+              "body": "GitHub announced that between June 1 and June 13, 2026, a routing error in the deprovisioning process caused Enterprise Managed User accounts to be deleted instead of suspended and obfuscated. This resulted in affected users appearing as ghost users within issues, pull requests, and audit logs, impacting approximately 12,285 accounts."
+            },
+            {
+              "heading": "Resolution and System Restoration",
+              "body": "The company contained the issue by disabling the faulty routing path on June 13, 2026, and implemented code changes to prevent recurrence. GitHub confirmed that all affected user records were restored in October 2026, successfully returning them to their expected suspended state to preserve enterprise audit history and traceability."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub corrige error en la eliminación de usuarios empresariales",
+          "dek": "Según GitHub. GitHub ha restaurado más de 12,000 cuentas que fueron eliminadas incorrectamente debido a un error en el proceso de baja.",
+          "takeaways": [
+            "Cerca de 12,285 cuentas de usuarios empresariales fueron eliminadas por error.",
+            "El problema ocurrió debido a una falla en la ruta de desaprovisionamiento entre junio de 2026.",
+            "GitHub completó la restauración de los registros de usuario en octubre de 2026.",
+            "No se requiere ninguna acción por parte de los administradores de las empresas afectadas."
+          ],
+          "sections": [
+            {
+              "heading": "Detalles del incidente técnico",
+              "body": "GitHub informó que, entre el 1 y el 13 de junio de 2026, un cambio en el proceso de desaprovisionamiento causó que las cuentas de Enterprise Managed User fueran eliminadas en lugar de ser suspendidas y ofuscadas. Esto provocó que los usuarios afectados aparecieran como usuarios fantasma en los registros de auditoría y solicitudes de extracción."
+            },
+            {
+              "heading": "Acciones de corrección y estado actual",
+              "body": "La empresa desactivó la ruta de desaprovisionamiento defectuosa el 13 de junio de 2026 y realizó cambios en el código para evitar que el problema se repita. GitHub confirmó que todos los registros de usuario afectados fueron restaurados en octubre de 2026, asegurando que se mantenga la trazabilidad y el historial de auditoría dentro de las empresas afectadas."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-23-emu-deletions-fix"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-2",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-23-emu-deletions-fix",
+            "title": "EMU deletions fix"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub reported that approximately 12,285 Enterprise Managed User accounts were incorrectly deleted instead of being suspended between June 1 and June 13, 2026.",
+            "sourceIds": [
+              "github-2"
+            ]
+          },
+          {
+            "text": "The company confirmed that all affected user records were restored in October 2026 to ensure proper audit history and traceability.",
+            "sourceIds": [
+              "github-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-2",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-23-emu-deletions-fix"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-emu-deprovisioning-fix.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub khắc phục sự cố xóa tài khoản người dùng doanh nghiệp",
+          "en": "GitHub Addresses Enterprise Managed User Deletion Error",
+          "es": "GitHub corrige error en la eliminación de usuarios empresariales"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-microsoft-teams-integration",
       "reportingMode": "official-announcement",
