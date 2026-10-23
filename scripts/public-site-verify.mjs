@@ -5,8 +5,10 @@ const LIVE_ORIGIN = 'https://tigeriq-media.vercel.app';
 const COVER_PREFIX = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/';
 const LANGUAGES = ['vi', 'en', 'es'];
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const MAX_LIVE_VERIFY_ATTEMPTS = 20;
-const LIVE_PROPAGATION_WINDOW_MS = 90_000;
+const MAX_LIVE_VERIFY_ATTEMPTS = 64;
+// Public ISR may become visible several minutes after the source commit.
+// Keep verification bounded within the publisher job's 12-minute timeout.
+const LIVE_PROPAGATION_WINDOW_MS = 300_000;
 
 // A newly pushed article may briefly return 404 or an older cached page.
 // Permanent permission/identity failures must not trigger repeated requests.
