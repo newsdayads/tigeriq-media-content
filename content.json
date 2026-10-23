@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T01:17:51.738Z",
+  "updatedAt": "2026-10-23T05:17:49.365Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "kazakhstan-ai-infrastructure-expansion",
+      "reportingMode": "official-announcement",
+      "category": "AI Infrastructure",
+      "storyId": "tigeriq:kazakhstan-ai-infrastructure-expansion",
+      "clusterKey": "news:74dfcc78242cfe8dbabaf7361051295c6bb4b3274e68266c0ec493367a70a8d4",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T05:17:49.365Z",
+      "modifiedAt": "2026-10-23T05:17:49.365Z",
+      "editions": {
+        "vi": {
+          "title": "Kazakhstan mở rộng hạ tầng tính toán cho tương lai AI",
+          "dek": "Theo công bố của NVIDIA. Quốc gia này đang đẩy mạnh triển khai hạ tầng phần cứng và hệ sinh thái AI thông qua các dự án hợp tác với NVIDIA.",
+          "takeaways": [
+            "Firebird dự kiến triển khai 45.000 GPU NVIDIA Grace Blackwell tại Kazakhstan vào năm 2027.",
+            "Kazakhtelecom đang mở rộng năng lực tính toán với hàng nghìn GPU NVIDIA tại các trung tâm dữ liệu lớn.",
+            "Firebird Labs Kazakhstan sẽ được thành lập để hỗ trợ các startup và nghiên cứu AI tại địa phương."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng hạ tầng phần cứng",
+              "body": "Firebird đang triển khai dự án hạ tầng AI tại Kazakhstan với mục tiêu đạt công suất khoảng 500 megawatt. Giai đoạn đầu của dự án đang được xây dựng tại Data Center Valley với sự hợp tác của Kazakhtelecom, dự kiến ra mắt thương mại vào quý 3 năm 2027. Công ty này cũng có kế hoạch thành lập Firebird Labs để thúc đẩy phát triển tài năng và hỗ trợ các dự án khởi nghiệp AI thông qua việc cung cấp quyền truy cập vào tài nguyên tính toán."
+            },
+            {
+              "heading": "Năng lực tính toán của Kazakhtelecom",
+              "body": "Kazakhtelecom, nhà cung cấp viễn thông lớn nhất Kazakhstan, đã hoàn tất việc triển khai 400 GPU NVIDIA H200 và 480 GPU B300 tại Astana và Almaty. Trong năm tới, công ty dự định lắp đặt thêm hơn 1.000 GPU tại Data Center Valley và hơn 1.000 GPU NVIDIA Vera Rubin tại khu vực Ekibastuz nhằm phục vụ nhu cầu đa dạng của các doanh nghiệp và tổ chức nghiên cứu trong nước."
+            }
+          ]
+        },
+        "en": {
+          "title": "Kazakhstan Expands Compute Capacity for AI Development",
+          "dek": "According to NVIDIA. The nation is scaling its AI ecosystem through significant infrastructure investments and new GPU deployments.",
+          "takeaways": [
+            "Firebird plans to deploy 45,000 NVIDIA Grace Blackwell GPUs in Kazakhstan by 2027.",
+            "Kazakhtelecom is scaling its compute capacity with over 2,000 additional GPUs planned for next year.",
+            "New research labs are being established to support local AI startups and talent development."
+          ],
+          "sections": [
+            {
+              "heading": "Scaling AI Infrastructure",
+              "body": "Firebird is expanding its AI factory operations into Kazakhstan, securing a U.S. export license for 45,000 NVIDIA Grace Blackwell GPUs. The project, located at Data Center Valley in partnership with Kazakhtelecom, targets a commercial launch in the third quarter of 2027. The initiative also includes the creation of Firebird Labs Kazakhstan, which aims to provide local startups and researchers with necessary funding and access to high-performance compute resources."
+            },
+            {
+              "heading": "Deployment and Future Capacity",
+              "body": "Kazakhtelecom has already integrated 880 NVIDIA GPUs into its network across Astana and Almaty. Looking ahead to 2027, the company plans to deploy over 1,000 additional GPUs at Data Center Valley and another 1,000 NVIDIA Vera Rubin GPUs in the Ekibastuz region. These deployments are intended to provide scalable infrastructure for enterprises, developers, and institutions to train and serve advanced AI models."
+            }
+          ]
+        },
+        "es": {
+          "title": "Kazajistán expande su capacidad de cómputo para la IA",
+          "dek": "Según NVIDIA. El país está escalando su ecosistema de inteligencia artificial mediante nuevas inversiones en infraestructura y hardware.",
+          "takeaways": [
+            "Firebird planea desplegar 45,000 GPUs NVIDIA Grace Blackwell en Kazajistán para 2027.",
+            "Kazakhtelecom ampliará su capacidad con más de 2,000 GPUs adicionales el próximo año.",
+            "Se establecerán laboratorios locales para fomentar la investigación y el desarrollo de startups."
+          ],
+          "sections": [
+            {
+              "heading": "Expansión de la infraestructura",
+              "body": "Firebird está expandiendo sus operaciones de fábricas de IA hacia Kazajistán, tras obtener una licencia de exportación para 45,000 GPUs NVIDIA Grace Blackwell. El proyecto, desarrollado en conjunto con Kazakhtelecom en el Data Center Valley, tiene como objetivo un lanzamiento comercial para el tercer trimestre de 2027. Además, se creará Firebird Labs Kazakhstan para apoyar a las startups locales mediante acceso a cómputo y asociaciones de investigación."
+            },
+            {
+              "heading": "Despliegue de capacidad técnica",
+              "body": "Kazakhtelecom ha desplegado 880 GPUs NVIDIA en Astana y Almaty. Para el próximo año, la compañía planea instalar más de 1,000 GPUs adicionales en Data Center Valley y otras 1,000 unidades NVIDIA Vera Rubin en la región de Ekibastuz. Esta infraestructura está diseñada para permitir que empresas, desarrolladores e instituciones puedan entrenar y ejecutar modelos de inteligencia artificial a gran escala."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/",
+            "title": "Kazakhstan Expands Compute for Its AI Future"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Firebird is expanding into Kazakhstan with plans to secure 45,000 NVIDIA Grace Blackwell GPUs for a commercial launch in 2027.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "Kazakhtelecom has deployed 880 NVIDIA GPUs across Astana and Almaty, with plans to add over 2,000 additional units in 2027.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/kazakhstan-ai-infrastructure-expansion.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Kazakhstan mở rộng hạ tầng tính toán cho tương lai AI",
+          "en": "Kazakhstan Expands Compute Capacity for AI Development",
+          "es": "Kazajistán expande su capacidad de cómputo para la IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-visual-studio-september-2026-update",
       "reportingMode": "official-announcement",
