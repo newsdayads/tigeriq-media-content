@@ -46,8 +46,59 @@ test('rejects unsafe slug, noncanonical cover and partial translations', async (
   await assert.rejects(verifyPublishedArticle({ ...article, editions: { vi: article.editions.vi } }, { fetcher: fakeFetch() }), /MISSING_EDITION_en/);
 });
 
-test('caps retries so no unbounded API or site polling is possible', async () => {
-  await assert.rejects(verifyPublishedArticle(article, { fetcher: fakeFetch(), retries: 4 }), /RETRY_LIMIT/);
+test('caps attempts so no unbounded API or site polling is possible', async () => {
+  await assert.rejects(verifyPublishedArticle(article, { fetcher: fakeFetch(), retries: 21 }), /RETRY_LIMIT/);
+});
+
+test('a newly committed live story can pass after four temporary 404s without changing acceptance rules', async () => {
+  let viGets = 0;
+  const base = fakeFetch();
+  const fetcher = async (url, options) => {
+    if (new URL(url).pathname.startsWith('/vi/article/')) {
+      viGets++;
+      if (viGets <= 4) return { status: 404, text: async () => 'not yet deployed' };
+    }
+    return base(url, options);
+  };
+  const result = await verifyPublishedArticle(article, { fetcher, retries: 6, delayMs: 0 });
+  assert.equal(viGets, 5);
+  assert.deepEqual(result.editions.map(x => x.locale), ['vi', 'en', 'es']);
+  assert.equal(result.coverStatus, 200);
+});
+
+test('temporarily stale 200 article HTML must converge before it can pass', async () => {
+  let viGets = 0;
+  const base = fakeFetch();
+  const fetcher = async (url, options) => {
+    if (new URL(url).pathname.startsWith('/vi/article/') && ++viGets <= 4) {
+      return { status: 200, text: async () => '<html lang="vi"><h1>old cached story</h1></html>' };
+    }
+    return base(url, options);
+  };
+  await verifyPublishedArticle(article, { fetcher, retries: 6, delayMs: 0 });
+  assert.equal(viGets, 5);
+});
+
+test('permanent 403 must fail fast rather than polling until timeout', async () => {
+  let calls = 0;
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: async () => { calls++; return { status: 403, text: async () => 'forbidden' }; },
+    retries: 20, delayMs: 0
+  }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_HTTP_403/);
+  assert.equal(calls, 1);
+});
+
+test('post-commit propagation has a shared 90-second wait budget, not unlimited polling', async () => {
+  let now = 0;
+  let viGets = 0;
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: async () => { viGets++; return { status: 404, text: async () => 'not deployed' }; },
+    retries: 20, delayMs: 15_000,
+    nowImpl: () => now,
+    pauseImpl: async (ms) => { now += ms; }
+  }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_HTTP_404/);
+  assert.equal(now, 90_000);
+  assert.equal(viGets, 7);
 });
 
 
