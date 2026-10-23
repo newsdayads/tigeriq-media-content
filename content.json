@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T11:17:52.157Z",
+  "updatedAt": "2026-10-23T13:17:51.076Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-copilot-industry-benchmarking",
+      "reportingMode": "official-announcement",
+      "category": "Software Development Tools",
+      "storyId": "tigeriq:github-copilot-industry-benchmarking",
+      "clusterKey": "news:96ec21c836134bd9236247becd982fb9fb3dd881a90795eebccfdfbd5c931514",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T13:17:51.076Z",
+      "modifiedAt": "2026-10-23T13:17:51.076Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật tính năng so sánh ngành trên bảng điều khiển Copilot",
+          "dek": "Theo công bố của GitHub. Các doanh nghiệp hiện có thể đối chiếu hiệu suất sử dụng Copilot với các tiêu chuẩn ngành thông qua tính năng mới.",
+          "takeaways": [
+            "Người dùng có thể so sánh tỷ lệ áp dụng tác nhân AI với các doanh nghiệp cùng quy mô và ngành nghề.",
+            "Tính năng này yêu cầu người dùng tự nguyện tham gia và mặc định bị vô hiệu hóa.",
+            "Dữ liệu tổng hợp được làm mới hàng ngày và không chứa thông tin định danh cá nhân."
+          ],
+          "sections": [
+            {
+              "heading": "Tính năng so sánh ngành mới",
+              "body": "GitHub vừa bổ sung phần 'So sánh ngành' vào bảng điều khiển tác động Copilot. Tính năng này cho phép các doanh nghiệp và tổ chức đánh giá mức độ áp dụng tác nhân AI của họ dựa trên các tiêu chuẩn tổng hợp từ những đơn vị tham gia khác. Người dùng có thể lọc dữ liệu theo quy mô công ty và mười lĩnh vực ngành nghề khác nhau để có cái nhìn chính xác hơn về vị thế của mình."
+            },
+            {
+              "heading": "Chính sách bảo mật và tham gia",
+              "body": "Theo GitHub, việc tham gia chương trình này là hoàn toàn tự nguyện và bị vô hiệu hóa theo mặc định. Các tổ chức có thể chọn tham gia hoặc rút lui thông qua chính sách Copilot của doanh nghiệp. Dữ liệu tổng hợp không chứa thông tin định danh và sẽ bị xóa sau 30 ngày. Đối với các tài khoản có yêu cầu về lưu trữ dữ liệu, GitHub cam kết chỉ so sánh với các đơn vị trong cùng khu vực địa lý."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Adds Industry Benchmarking to Copilot Impact Dashboard",
+          "dek": "According to GitHub. Enterprises can now measure their agentic AI adoption against aggregated peer benchmarks to identify performance gaps.",
+          "takeaways": [
+            "Organizations can compare agentic adoption rates and pull request merge performance against industry peers.",
+            "The feature is opt-in only, ensuring that data sharing is controlled by the enterprise or organization owner.",
+            "Benchmarks are refreshed daily and provide context based on company size and specific industry sectors."
+          ],
+          "sections": [
+            {
+              "heading": "New Industry Comparison Capabilities",
+              "body": "GitHub has updated the Copilot impact dashboard to include an industry comparison section. This tool allows enterprise leaders to view how their organization's agentic adoption and leverage compare to aggregated benchmarks from participating peers. Users can filter these comparisons by company size and one of ten specific industries to ensure the peer group is relevant to their business context."
+            },
+            {
+              "heading": "Data Privacy and Participation Controls",
+              "body": "Participation in the benchmarking program is strictly opt-in and disabled by default. GitHub states that aggregated benchmarks contain no identifying data and are purged after 30 days. Organizations can opt out at any time, which immediately stops their data from contributing to the pool and removes access to comparison metrics. For enterprises with data residency requirements, comparisons are restricted to participants within the same region."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub añade comparativas de industria al panel de impacto de Copilot",
+          "dek": "Según GitHub. Las empresas ahora pueden medir su adopción de agentes de IA frente a puntos de referencia agregados de sus pares.",
+          "takeaways": [
+            "Los usuarios pueden comparar la adopción de agentes y la eficiencia en la fusión de solicitudes de extracción.",
+            "La función requiere una participación voluntaria y está desactivada de forma predeterminada.",
+            "Los datos se actualizan diariamente y se eliminan después de 30 días para garantizar la privacidad."
+          ],
+          "sections": [
+            {
+              "heading": "Nuevas funciones de comparación",
+              "body": "GitHub ha integrado una sección de 'Comparación de industria' en el panel de impacto de Copilot. Esta herramienta permite a las organizaciones evaluar su adopción de agentes de IA y su apalancamiento en comparación con puntos de referencia agregados de empresas similares. Los líderes pueden seleccionar el tamaño de su empresa y su sector industrial para obtener un contexto más preciso sobre su rendimiento actual."
+            },
+            {
+              "heading": "Control de datos y privacidad",
+              "body": "La participación en este programa es opcional y está desactivada por defecto. GitHub asegura que los puntos de referencia agregados no contienen datos identificativos y se eliminan automáticamente tras 30 días. Las organizaciones pueden optar por no participar en cualquier momento, lo que detiene inmediatamente la contribución de sus datos y el acceso a las métricas comparativas. Para empresas con requisitos de residencia de datos, las comparaciones se limitan a participantes de la misma región."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-industry-comparisons-in-the-copilot-impact-dashboard"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-7",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-industry-comparisons-in-the-copilot-impact-dashboard",
+            "title": "Industry comparisons in the Copilot impact dashboard"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has introduced an industry comparison feature to the Copilot impact dashboard, allowing organizations to benchmark their agentic adoption against peer groups.",
+            "sourceIds": [
+              "github-7"
+            ]
+          },
+          {
+            "text": "Participation in the benchmarking program is strictly opt-in, and organizations can disable data sharing at any time to immediately cease contributing to or viewing aggregated metrics.",
+            "sourceIds": [
+              "github-7"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-7",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-industry-comparisons-in-the-copilot-impact-dashboard"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-industry-benchmarking.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật tính năng so sánh ngành trên bảng điều khiển Copilot",
+          "en": "GitHub Adds Industry Benchmarking to Copilot Impact Dashboard",
+          "es": "GitHub añade comparativas de industria al panel de impacto de Copilot"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-pull-request-interface-updates",
       "reportingMode": "official-announcement",
