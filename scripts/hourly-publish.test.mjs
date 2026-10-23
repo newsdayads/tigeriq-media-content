@@ -491,7 +491,7 @@ test("persistent HTTP503 fails closed after bounded retries; quota/auth errors n
    assert.equal(calls,code===503?4:1,"no unauthorized retries");
    assert.equal(delays.length,code===503?3:0);
  }
- assert.deepEqual(warnings,["AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_1","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_2","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_3"]);
+ assert.deepEqual(warnings,["AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_1","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_2","AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_3","AI_PROVIDER_429_REASON_UNKNOWN"]);
 });
 
 test("Gemini 503 recovers on fourth bounded attempt and preserves identical prompt",async t=>{
