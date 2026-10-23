@@ -1,11 +1,153 @@
 {
-  "updatedAt": "2026-10-22T17:17:56.194Z",
+  "updatedAt": "2026-10-23T01:17:51.738Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-copilot-visual-studio-september-2026-update",
+      "reportingMode": "official-announcement",
+      "category": "Software Development",
+      "storyId": "tigeriq:github-copilot-visual-studio-september-2026-update",
+      "clusterKey": "news:f881d8f58a8d056e3cc0da4fc45cca1ed9a7022059943746f66201ca56b22daa",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T01:17:51.738Z",
+      "modifiedAt": "2026-10-23T01:17:51.738Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật Copilot cho Visual Studio tháng 9 năm 2026",
+          "dek": "Theo công bố của GitHub. Bản cập nhật mới mang đến khả năng quản lý pull request, tùy chỉnh mô hình AI và vá lỗi bảo mật NuGet trực tiếp trong môi trường phát triển.",
+          "takeaways": [
+            "Tích hợp Git agent cho phép tóm tắt và điều hướng pull request ngay trong Copilot Chat.",
+            "Tính năng BYOM hỗ trợ nhiều nhà cung cấp mô hình như OpenAI, Anthropic và Ollama.",
+            "Tự động hóa việc sửa lỗi bảo mật NuGet thông qua các đề xuất từ Copilot."
+          ],
+          "sections": [
+            {
+              "heading": "Tăng cường khả năng quản lý Git",
+              "body": "GitHub đã giới thiệu Git agent mới cho Visual Studio, cho phép các nhà phát triển khám phá các pull request mà không cần rời khỏi cửa sổ chat. Bằng cách kết nối với các máy chủ MCP của nhà cung cấp Git, người dùng có thể nhận tóm tắt chi tiết cùng các liên kết điều hướng đến tệp và bình luận cụ thể."
+            },
+            {
+              "heading": "Cập nhật tính năng tùy chỉnh mô hình AI",
+              "body": "Tính năng Bring Your Own Model (BYOM) hiện đã có sẵn ở bản xem trước, cho phép người dùng sử dụng các mô hình AI ưa thích từ Microsoft Foundry, OpenAI, Anthropic hoặc Ollama. GitHub lưu ý rằng thay đổi này yêu cầu sử dụng Agent (Preview) mới dựa trên SDK của Copilot, đồng thời yêu cầu người dùng cấu hình lại các mô hình Ollama đã thiết lập trước đó."
+            },
+            {
+              "heading": "Tự động hóa vá lỗi bảo mật",
+              "body": "Người dùng hiện có thể giải quyết các cảnh báo NuGet trực tiếp từ danh sách lỗi trong Visual Studio. Bằng cách kích hoạt máy chủ NuGet MCP, GitHub Copilot sẽ cung cấp các hành động sửa lỗi tự động, giúp giảm thiểu rủi ro từ các gói phần mềm dễ bị tổn thương trong dự án."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Announces September 2026 Updates for Copilot in Visual Studio",
+          "dek": "According to GitHub. The latest update introduces enhanced pull request exploration, expanded model support, and automated vulnerability remediation tools.",
+          "takeaways": [
+            "New Git agent enables direct pull request summaries and navigation within Copilot Chat.",
+            "BYOM feature now supports Microsoft Foundry, OpenAI, Anthropic, and Ollama models.",
+            "Integrated NuGet vulnerability fixes are now accessible directly from the Error List."
+          ],
+          "sections": [
+            {
+              "heading": "Git Agent Integration",
+              "body": "GitHub has launched a new Git agent for Visual Studio, designed to help developers explore pull requests without leaving the chat interface. By connecting to Git provider MCP servers, users can generate summaries and navigate directly to relevant comments and files, streamlining the code review process."
+            },
+            {
+              "heading": "Expanded Model Flexibility",
+              "body": "The Bring Your Own Model (BYOM) feature has been updated to support a wider range of providers, including Microsoft Foundry, OpenAI, Anthropic, and Ollama. This preview feature requires the new Agent (Preview) harness, and GitHub notes that previous configurations for Ollama models will need to be re-added following the update."
+            },
+            {
+              "heading": "Automated Security Fixes",
+              "body": "Visual Studio now provides a direct path to remediate NuGet vulnerabilities. When the Error List flags a vulnerable package, users can trigger a fix action that utilizes the NuGet MCP server and GitHub Copilot Chat to generate and apply necessary security patches."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub presenta las actualizaciones de septiembre de 2026 para Copilot en Visual Studio",
+          "dek": "Según GitHub. La nueva versión incluye herramientas para explorar solicitudes de extracción, integrar modelos personalizados y corregir vulnerabilidades de NuGet.",
+          "takeaways": [
+            "El nuevo agente Git permite resumir y navegar por solicitudes de extracción desde el chat.",
+            "La función BYOM ahora es compatible con modelos de OpenAI, Anthropic, Ollama y Microsoft Foundry.",
+            "Se ha implementado una función para corregir vulnerabilidades de NuGet directamente desde la lista de errores."
+          ],
+          "sections": [
+            {
+              "heading": "Mejoras en la gestión de Git",
+              "body": "GitHub ha introducido un agente Git para Visual Studio que permite a los desarrolladores explorar solicitudes de extracción sin abandonar el chat de Copilot. Al conectar los servidores MCP del proveedor de Git, los usuarios pueden obtener resúmenes y enlaces directos a los archivos y comentarios correspondientes."
+            },
+            {
+              "heading": "Flexibilidad con modelos personalizados",
+              "body": "La función Bring Your Own Model (BYOM) ahora permite utilizar modelos de Microsoft Foundry, OpenAI, Anthropic y Ollama. Esta actualización requiere el uso del nuevo Agent (Preview) basado en el SDK de Copilot, lo que implica que los usuarios deben volver a configurar sus modelos de Ollama previamente guardados."
+            },
+            {
+              "heading": "Corrección de vulnerabilidades",
+              "body": "Ahora es posible solucionar vulnerabilidades de NuGet directamente desde la lista de errores de Visual Studio. Al habilitar el servidor MCP de NuGet, GitHub Copilot puede sugerir y aplicar correcciones para los paquetes vulnerables, facilitando el mantenimiento de la seguridad en los proyectos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-1",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2",
+            "title": "GitHub Copilot in Visual Studio — September update"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has introduced a Git agent for Visual Studio that allows users to explore pull requests and receive summaries directly within the Copilot Chat interface.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "The Bring Your Own Model (BYOM) feature in GitHub Copilot now supports Microsoft Foundry, OpenAI, Anthropic, and Ollama, requiring the new Agent (Preview) harness.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "Visual Studio now enables users to fix NuGet vulnerabilities directly from the Error List by leveraging GitHub Copilot Chat and the NuGet MCP server.",
+            "sourceIds": [
+              "github-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-visual-studio-september-2026-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật Copilot cho Visual Studio tháng 9 năm 2026",
+          "en": "GitHub Announces September 2026 Updates for Copilot in Visual Studio",
+          "es": "GitHub presenta las actualizaciones de septiembre de 2026 para Copilot en Visual Studio"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-launches-minerva-aiops-platform",
       "reportingMode": "official-announcement",
