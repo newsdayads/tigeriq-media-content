@@ -130,3 +130,43 @@ test('an XML comment containing the expected title cannot spoof SVG identity', a
     fetcher: fakeFetch({ coverBody: injected }), retries: 1
   }), /LIVE_VERIFY_COVER_TITLE_MISMATCH/);
 });
+
+test('wrong displayed article never verifies just because sidebar or metadata mentions the expected headline', async () => {
+  const altered = (html) => html.replace(
+    '<h1>Tin AI mới</h1>',
+    '<h1>Stale cached story</h1><aside>Tin AI mới</aside><meta content="Tin AI mới">'
+  );
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: fakeFetch({ mutate: altered }), retries: 1
+  }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_STALE_OR_MISSING_CONTENT/);
+});
+
+test('HTML comment and script cannot spoof an H1 from a different article', async () => {
+  const altered = (html) => html.replace(
+    '<h1>Tin AI mới</h1>',
+    '<h1>Stale cached story</h1><!-- <h1>Tin AI mới</h1> -->' +
+    '<script>const fakeHeading = "<h1>Tin AI mới</h1>";</script>'
+  );
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: fakeFetch({ mutate: altered }), retries: 1
+  }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_STALE_OR_MISSING_CONTENT/);
+});
+
+test('genuine nested H1 with HTML-escaped headline still passes all live publication guards', async () => {
+  const named = { ...article, editions: { ...article.editions,
+    en: { title: 'AI & "Cloud" launches' }
+  }};
+  const fetcher = async (url) => {
+    if (url === cover) return { status: 200, text: async () => coverSvg(named.editions.en.title) };
+    const lang = new URL(url).pathname.split('/')[1];
+    const title = lang === 'en'
+      ? 'AI &amp; &quot;Cloud&quot; launches'
+      : named.editions[lang].title;
+    return { status: 200, text: async () =>
+      '<html lang="' + lang + '"><main><h1><span>' + title +
+      '</span></h1><img src="' + cover + '"></main></html>' };
+  };
+  const result = await verifyPublishedArticle(named, { fetcher, retries: 1 });
+  assert.deepEqual(result.editions.map(x => x.locale), ['vi', 'en', 'es']);
+  assert.equal(result.coverStatus, 200);
+});

@@ -27,10 +27,27 @@ function expectedCoverTitle(title) {
     .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
+// Publication identity must match the displayed headline, not an unrelated
+// recommendation, metadata tag, script or cached footer mentioning that title.
+// A 200 page with the requested cover URL alone is not proof of the right article.
 function matchesTitle(html, title) {
-  const escaped = title.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
-  return html.includes(title) || html.includes(escaped);
+  const visible = html.replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
+  const decodeHeadingText = (s) => s.replace(/&(?:amp|lt|gt|quot|apos|nbsp|#(?:x[0-9a-f]+|[0-9]+));/gi, (entity) => {
+    const key = entity.slice(1, -1).toLowerCase();
+    const named = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+    if (Object.hasOwn(named, key)) return named[key];
+    const point = key.startsWith('#x') ? Number.parseInt(key.slice(2), 16) :
+      Number.parseInt(key.slice(1), 10);
+    return point > 0 && point <= 0x10ffff && !(point >= 0xd800 && point <= 0xdfff)
+      ? String.fromCodePoint(point) : entity;
+  });
+  for (const [, heading] of visible.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/gi)) {
+    const raw = heading.trim();
+    const displayed = raw.replace(/<[^>]*>/g, '').trim();
+    if (raw === title || decodeHeadingText(displayed) === title) return true;
+  }
+  return false;
 }
 
 function checkInput(article) {
