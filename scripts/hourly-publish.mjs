@@ -437,12 +437,12 @@ export function classifyProvider429Reason(raw){
   const detail=Array.isArray(error.details)?error.details:[];
   const quota=detail.flatMap(item=>Array.isArray(item?.violations)?item.violations:[]).slice(0,24);
   const msg=typeof error.message==="string"?error.message.slice(0,2000):"";
-  if(/(?:prepay(?:ment)?\\s+(?:balance|credit)s?\\s+(?:depleted|exhausted)|(?:prepaid|prepay)\\s+credits?\\s+(?:depleted|exhausted))/i.test(msg))
+  if(/(?:prepay(?:ment)?\s+(?:balance|credit)s?\s+(?:depleted|exhausted)|(?:prepaid|prepay)\s+credits?\s+(?:depleted|exhausted))/i.test(msg))
     return "PREPAY_CREDIT_HINT_ACCOUNT_CHECK_REQUIRED";
-  if(quota.some(v=>/free[\\s_-]?tier/i.test(String(v?.quotaId||"").slice(0,128))||
-      /free[\\s_-]?tier/i.test(String(v?.quotaMetric||"").slice(0,128))))
+  if(quota.some(v=>/free[\s_-]?tier/i.test(String(v?.quotaId||"").slice(0,128))||
+      /free[\s_-]?tier/i.test(String(v?.quotaMetric||"").slice(0,128))))
     return "FREE_TIER_QUOTA";
-  if(quota.some(v=>/paid[\\s_-]?tier/i.test(String(v?.quotaId||"").slice(0,128))))
+  if(quota.some(v=>/paid[\s_-]?tier/i.test(String(v?.quotaId||"").slice(0,128))))
     return "PAID_TIER_QUOTA";
   if(quota.length)return "QUOTA_UNCLASSIFIED";
   return "RESOURCE_EXHAUSTED_UNCLASSIFIED";
