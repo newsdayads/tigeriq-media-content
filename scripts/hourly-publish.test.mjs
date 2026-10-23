@@ -2474,3 +2474,62 @@ test("five blocked newest publisher articles fall back to a fresh verified alter
   assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]},
     "a provider failure must never publish or corrupt content");
 }));
+
+
+test("verified AWS official AI RSS extends fresh primary-source coverage without an aggregator",()=>{
+  const official=FEEDS.find(feed=>feed.id==="aws");
+  assert.deepEqual(official,{id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"});
+  const at=new Date("2026-10-23T23:00:00Z");
+  const xml='<rss version="2.0"><channel><item><title>Amazon SageMaker AI multi-turn reinforcement learning guide and findings</title>'+
+    '<link>https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/</link>'+
+    '<pubDate>Fri, 23 Oct 2026 17:48:54 +0000</pubDate>'+
+    '<description>AWS describes a technical machine learning training workflow, methods, and limitations for production evaluation.</description>'+
+    '</item></channel></rss>';
+  const items=parseFeed(xml,"aws",at);
+  assert.equal(items.length,1);
+  assert.equal(items[0].publisher,"aws");
+  assert.equal(items[0].publishedAt,"2026-10-23T17:48:54.000Z");
+  assert.ok(items[0].url.startsWith("https://aws.amazon.com/blogs/machine-learning/"));
+});
+
+test("an AWS-labelled feed must reject unverified article hosts and old announcements",()=>{
+  const at=new Date("2026-10-23T23:00:00Z");
+  const xml=(link,date)=>'<rss><channel><item><title>AWS machine learning announcement with published research findings</title>'+
+    '<link>'+link+'</link><pubDate>'+date+'</pubDate>'+
+    '<description>Original AWS engineering report with verifiable findings and documented limitations.</description></item></channel></rss>';
+  const date="Fri, 23 Oct 2026 17:48:54 +0000";
+  for(const link of ["https://evil.example/blogs/machine-learning/not-aws",
+    "https://aws.amazon.com.evil.example/blogs/machine-learning/not-aws",
+    "http://aws.amazon.com/blogs/machine-learning/not-secure"]){
+    assert.equal(parseFeed(xml(link,date),"aws",at).length,0);
+  }
+  assert.equal(parseFeed(xml("https://aws.amazon.com/blogs/machine-learning/old",
+    "Fri, 16 Oct 2026 17:48:54 +0000"),"aws",at).length,0);
+});
+
+test("readable official AWS story reaches independent writer but an AI outage cannot publish",()=>tmp(async root=>{
+  const at=new Date("2026-10-23T23:00:00Z");
+  const feed=FEEDS.find(item=>item.id==="aws");
+  const url="https://aws.amazon.com/blogs/machine-learning/source-gated-verified-ml-announcement/";
+  const rss='<rss><channel><item><title>Validated machine learning model serving announcement from AWS</title>'+
+    '<link>'+url+'</link><pubDate>Fri, 23 Oct 2026 17:48:54 +0000</pubDate>'+
+    '<description>AWS documents a machine learning infrastructure release and its operational tradeoffs.</description>'+
+    '</item></channel></rss>';
+  let rssCalls=0,sourceCalls=0,aiCalls=0;
+  const fake=async requested=>{
+    if(requested===feed.url){rssCalls++;return rssResponse(rss,requested);}
+    if(requested===url){
+      sourceCalls++;
+      return new Response("<html><article>"+("Official publisher details about infrastructure changes and limitations. ").repeat(12)+
+        "</article></html>",{status:200,headers:{"content-type":"text/html;charset=UTF-8"}});
+    }
+    if(requested===env.AI_CHAT_COMPLETIONS_URL){aiCalls++;throw Error("EXPECTED_STOP_BEFORE_PAID_MODEL");}
+    throw Error("UNEXPECTED_NETWORK_REQUEST");
+  };
+  await assert.rejects(()=>publish({root,fetchImpl:fake,feeds:[feed],now:at,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"}}),/AI_PROVIDER_TRANSPORT_FAILED/);
+  assert.deepEqual([rssCalls,sourceCalls,aiCalls],[1,1,1]);
+  assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]},
+    "provider failure cannot create a fabricated article or publish a cover");
+  assert.deepEqual(await fs.readdir(root),["content.json"]);
+}));
