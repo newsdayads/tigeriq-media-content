@@ -784,6 +784,32 @@ export function prioritizeOfficialCandidates(items,articles){
   return [alternate,...sorted];
 }
 
+/**
+ * Keep the five freshest official articles first, but allow up to five bounded
+ * fallback attempts from other verified publishers when those pages block
+ * automated fetches (for example, a publisher returns HTTP 403).
+ * All candidates already passed the official feed origin and 72h freshness
+ * checks; full HTML validation and independent AI review are unchanged.
+ */
+export function officialFetchCandidates(items,articles){
+  const ranked=prioritizeOfficialCandidates(items,articles);
+  const primary=ranked.slice(0,5);
+  const selected=[...primary];
+  const seen=new Set(primary.map(item=>item.url));
+  const publishers=new Set(primary.map(item=>item.publisher));
+  for(const item of ranked.slice(5)){
+    if(selected.length>=10)break;
+    if(seen.has(item.url)||publishers.has(item.publisher))continue;
+    selected.push(item);seen.add(item.url);publishers.add(item.publisher);
+  }
+  for(const item of ranked.slice(5)){
+    if(selected.length>=10)break;
+    if(seen.has(item.url))continue;
+    selected.push(item);seen.add(item.url);
+  }
+  return selected;
+}
+
 export function alreadyPublishedInUtcHour(articles,now){
   const hour=now.toISOString().slice(0,13);
   return Array.isArray(articles)&&articles.some(a=>typeof a?.publishedAt==="string"&&a.publishedAt.startsWith(hour));
@@ -899,7 +925,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   let packet=sourcePacket(unseenItems);
   if(attributed){
     packet=[];
-    for(const candidate of prioritizeOfficialCandidates(unseenItems,store.articles).slice(0,5)){
+    for(const candidate of officialFetchCandidates(unseenItems,store.articles)){
       try{packet=[await fullOfficialSource(candidate,fetchImpl)];break;}
       catch{console.warn("OFFICIAL_ARTICLE_UNAVAILABLE "+candidate.publisher);}
     }

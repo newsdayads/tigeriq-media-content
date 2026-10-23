@@ -2438,3 +2438,39 @@ test("provider 429 logs only allowlisted classification, makes one request, and 
   assert.deepEqual(warns,["AI_PROVIDER_429_REASON_PREPAY_CREDIT_HINT_ACCOUNT_CHECK_REQUIRED"]);
   assert.ok(!warns.join(" ").includes("secret id"));
 });
+
+test("five blocked newest publisher articles fall back to a fresh verified alternate before AI",()=>tmp(async root=>{
+  const at=new Date("2026-10-23T21:00:00Z");
+  const feedList=[
+    {id:"openai",url:"https://openai.com/news/rss.xml"},
+    {id:"nvidia",url:"https://blogs.nvidia.com/feed/"}
+  ];
+  const entry=(url,minutes)=>"<item><title>Official AI systems announcement with technical findings</title>"+
+    "<link>"+url+"</link><pubDate>"+new Date(at.getTime()-minutes*60000).toUTCString()+
+    "</pubDate><description>Verified primary-source AI infrastructure announcement with deployment details and stated limitations.</description></item>";
+  const blocked=Array.from({length:5},(_,i)=>"https://openai.com/index/blocked-"+i);
+  const valid="https://blogs.nvidia.com/blog/verified-fallback/";
+  const rss=items=>"<rss><channel>"+items.join("")+"</channel></rss>";
+  const xmlOpenai=rss(blocked.map((url,i)=>entry(url,i+1)));
+  const xmlNvidia=rss([entry(valid,60)]);
+  let blockedFetches=0,alternateFetches=0,aiCalls=0;
+  const fetchImpl=async url=>{
+    if(url===feedList[0].url)return rssResponse(xmlOpenai,url);
+    if(url===feedList[1].url)return rssResponse(xmlNvidia,url);
+    if(blocked.includes(url)){blockedFetches++;return new Response("blocked",{status:403});}
+    if(url===valid){
+      alternateFetches++;
+      return new Response("<html><article>"+("Publisher-confirmed AI infrastructure details and documented limitations. ").repeat(9)+"</article></html>",
+        {status:200,headers:{"content-type":"text/html"}});
+    }
+    if(url===env.AI_CHAT_COMPLETIONS_URL){aiCalls++;throw Error("FIXTURE_AI_STOP");}
+    throw Error("UNEXPECTED_URL");
+  };
+  await assert.rejects(()=>publish({root,fetchImpl,now:at,feeds:feedList,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"}}),/AI_PROVIDER_TRANSPORT_FAILED/);
+  assert.equal(blockedFetches,5,"the newest five remain first");
+  assert.equal(alternateFetches,1,"the publisher-diverse official fallback is fetched");
+  assert.equal(aiCalls,1,"AI is called only after a readable official article exists");
+  assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]},
+    "a provider failure must never publish or corrupt content");
+}));
