@@ -47,7 +47,7 @@ test('rejects unsafe slug, noncanonical cover and partial translations', async (
 });
 
 test('caps attempts so no unbounded API or site polling is possible', async () => {
-  await assert.rejects(verifyPublishedArticle(article, { fetcher: fakeFetch(), retries: 21 }), /RETRY_LIMIT/);
+  await assert.rejects(verifyPublishedArticle(article, { fetcher: fakeFetch(), retries: 65 }), /RETRY_LIMIT/);
 });
 
 test('a newly committed live story can pass after four temporary 404s without changing acceptance rules', async () => {
@@ -88,19 +88,41 @@ test('permanent 403 must fail fast rather than polling until timeout', async () 
   assert.equal(calls, 1);
 });
 
-test('post-commit propagation has a shared 90-second wait budget, not unlimited polling', async () => {
+test('post-commit propagation has a shared five-minute wait budget, not unlimited polling', async () => {
   let now = 0;
   let viGets = 0;
   await assert.rejects(verifyPublishedArticle(article, {
     fetcher: async () => { viGets++; return { status: 404, text: async () => 'not deployed' }; },
-    retries: 20, delayMs: 15_000,
+    retries: 64, delayMs: 15_000,
     nowImpl: () => now,
     pauseImpl: async (ms) => { now += ms; }
   }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_HTTP_404/);
-  assert.equal(now, 90_000);
-  assert.equal(viGets, 7);
+  assert.equal(now, 300_000);
+  assert.equal(viGets, 21);
 });
 
+
+
+test('realistic delayed ISR publication can become visible after 285 seconds without a false failure', async () => {
+  let now = 0;
+  let viGets = 0;
+  const base = fakeFetch();
+  const fetcher = async (url, options) => {
+    if (new URL(url).pathname.startsWith('/vi/article/') && ++viGets <= 19) {
+      return { status: 404, text: async () => 'ISR not refreshed yet' };
+    }
+    return base(url, options);
+  };
+  const result = await verifyPublishedArticle(article, {
+    fetcher, retries: 64, delayMs: 15_000,
+    nowImpl: () => now,
+    pauseImpl: async (ms) => { now += ms; }
+  });
+  assert.equal(now, 285_000);
+  assert.equal(viGets, 20);
+  assert.deepEqual(result.editions.map(x => x.locale), ['vi', 'en', 'es']);
+  assert.equal(result.coverStatus, 200);
+});
 
 test('a 200 SVG from another article must fail even if its URL matches the slug', async () => {
   await assert.rejects(verifyPublishedArticle(article, {
