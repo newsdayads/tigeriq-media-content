@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T19:17:50.797Z",
+  "updatedAt": "2026-10-23T22:17:50.063Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-copilot-microsoft-teams-integration",
+      "reportingMode": "official-announcement",
+      "category": "Software Development",
+      "storyId": "tigeriq:github-copilot-microsoft-teams-integration",
+      "clusterKey": "news:8e3fa6c1055ec65788e54c728f544ff717a60806f7b9df9fd67cb70a7c1de118",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T22:17:50.063Z",
+      "modifiedAt": "2026-10-23T22:17:50.063Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub tích hợp Copilot vào Microsoft Teams",
+          "dek": "Theo công bố của GitHub. GitHub ra mắt ứng dụng mới cho phép người dùng chuyển đổi thông báo thành mã nguồn trực tiếp trong Teams.",
+          "takeaways": [
+            "Người dùng có thể sử dụng @GitHub để yêu cầu Copilot điều tra lỗi và tạo pull request.",
+            "Ứng dụng mới hợp nhất thông báo và khả năng lập trình của Copilot vào một giao diện duy nhất.",
+            "Ứng dụng GitHub cũ sẽ bị ngừng hỗ trợ vào ngày 16 tháng 11 năm 2026."
+          ],
+          "sections": [
+            {
+              "heading": "Khả năng tương tác mới",
+              "body": "Ứng dụng GitHub mới trên Microsoft Teams cho phép các nhóm nhận thông báo từ kho lưu trữ và phản hồi trực tiếp bằng cách nhắc @GitHub. Công cụ này sử dụng ngữ cảnh từ các vấn đề hoặc pull request được liên kết để hỗ trợ lập trình viên điều tra lỗi, chạy thử nghiệm và tạo các thay đổi mã nguồn ngay trong cuộc trò chuyện."
+            },
+            {
+              "heading": "Lộ trình chuyển đổi ứng dụng",
+              "body": "GitHub thông báo rằng ứng dụng cũ sẽ được đổi tên thành 'GitHub (deprecated)' và chính thức ngừng hoạt động vào ngày 16 tháng 11 năm 2026. Người dùng hiện tại được khuyến nghị cài đặt ứng dụng mới để duy trì các tính năng thông báo và tiếp tục sử dụng các khả năng hỗ trợ từ Copilot trong môi trường làm việc của Microsoft Teams."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Integrates Copilot into Microsoft Teams",
+          "dek": "According to GitHub. GitHub announces a new app for Microsoft Teams that enables developers to turn repository notifications into actionable code.",
+          "takeaways": [
+            "Users can mention @GitHub to investigate issues, fix bugs, and create pull requests directly in Teams.",
+            "The new app consolidates notification management and AI-powered coding assistance.",
+            "The legacy GitHub app will be retired on November 16, 2026."
+          ],
+          "sections": [
+            {
+              "heading": "New Workflow Capabilities",
+              "body": "The updated GitHub app for Microsoft Teams allows teams to receive repository notifications in channels or chats and interact with them using @GitHub. By leveraging the linked issue or pull request context, the integrated Copilot functionality can assist developers in investigating bugs, running tests, and drafting pull requests without leaving the Teams interface."
+            },
+            {
+              "heading": "Transition and Retirement",
+              "body": "GitHub has confirmed that the legacy application will be renamed to 'GitHub (deprecated)' and is scheduled for retirement on November 16, 2026. Users are advised to install the new consolidated app to ensure uninterrupted access to notification services and to utilize the new Copilot-powered features within their collaborative workflows."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub integra Copilot en Microsoft Teams",
+          "dek": "Según GitHub. GitHub lanza una nueva aplicación para Microsoft Teams que permite convertir notificaciones en código mediante Copilot.",
+          "takeaways": [
+            "Los usuarios pueden usar @GitHub para investigar problemas y crear pull requests directamente en Teams.",
+            "La nueva aplicación unifica las notificaciones de repositorios con la asistencia de codificación de Copilot.",
+            "La aplicación antigua de GitHub dejará de funcionar el 16 de noviembre de 2026."
+          ],
+          "sections": [
+            {
+              "heading": "Nuevas funciones de interacción",
+              "body": "La nueva aplicación de GitHub para Microsoft Teams permite a los equipos recibir notificaciones de repositorios y responder mencionando a @GitHub. Esta herramienta utiliza el contexto de los problemas o pull requests vinculados para ayudar a los desarrolladores a investigar errores, ejecutar pruebas y generar cambios en el código directamente desde el chat."
+            },
+            {
+              "heading": "Transición de la aplicación",
+              "body": "GitHub ha anunciado que la aplicación anterior será renombrada como 'GitHub (deprecated)' y será retirada oficialmente el 16 de noviembre de 2026. Se recomienda a los usuarios instalar la nueva versión consolidada para mantener las capacidades de notificación y aprovechar las funciones de Copilot integradas en la plataforma de Microsoft Teams."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-1",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+            "title": "Turn notifications into code with GitHub Copilot in Teams"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has launched a new Microsoft Teams application that integrates GitHub notifications with GitHub Copilot capabilities.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "The legacy GitHub app for Microsoft Teams is scheduled for retirement on November 16, 2026.",
+            "sourceIds": [
+              "github-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-microsoft-teams-integration.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub tích hợp Copilot vào Microsoft Teams",
+          "en": "GitHub Integrates Copilot into Microsoft Teams",
+          "es": "GitHub integra Copilot en Microsoft Teams"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-apps-enterprise-general-availability",
       "reportingMode": "official-announcement",
