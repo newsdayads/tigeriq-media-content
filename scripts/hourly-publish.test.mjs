@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -2404,4 +2404,37 @@ test("visual cover illustrates story subject instead of reusing the old title-on
     art.add(svg);
   }
   assert.equal(art.size,topics.length,"each original headline must have its own artwork");
+});
+
+
+test("provider 429 diagnostic differentiates quota from tentative payment without leaking source text",()=>{
+  const base={error:{code:429,status:"RESOURCE_EXHAUSTED",message:"project-private-id and sensitive-upstream-text"}};
+  const asText=v=>JSON.stringify(v);
+  assert.equal(classifyProvider429Reason(asText(base)),"RESOURCE_EXHAUSTED_UNCLASSIFIED");
+  assert.equal(classifyProvider429Reason(asText({error:{...base.error,details:[{
+    "@type":"type.googleapis.com/google.rpc.QuotaFailure",
+    violations:[{quotaId:"GenerateRequestsPerDayPerProjectPerModel-FreeTier",quotaMetric:"private-project"}]
+  }]}})),"FREE_TIER_QUOTA");
+  assert.equal(classifyProvider429Reason(asText({error:{...base.error,message:"Prepay balance depleted. Buy credits. project-private-id"}})),
+    "PREPAY_CREDIT_HINT_ACCOUNT_CHECK_REQUIRED");
+  assert.equal(classifyProvider429Reason("not json"),"UNKNOWN");
+  assert.equal(classifyProvider429Reason(asText({error:{code:403,status:"PERMISSION_DENIED"}})),"UNKNOWN");
+});
+
+test("provider 429 logs only allowlisted classification, makes one request, and fails closed",async t=>{
+  const warns=[];let requests=0;
+  t.mock.method(console,"warn",(...args)=>warns.push(args.join(" ")));
+  await assert.rejects(()=>modelJson({
+    provider:providerConfig(env),model:env.WRITER_MODEL,prompt:"bounded diagnostic",
+    fetchImpl:async()=>{
+      requests++;
+      return new Response(JSON.stringify({error:{
+        code:429,status:"RESOURCE_EXHAUSTED",message:"Prepay balance depleted. secret id and account"}}
+      ),{status:429,headers:{"content-type":"application/json"}});
+    },
+    sleepImpl:async()=>{throw Error("UNEXPECTED_RETRY");}
+  }),/AI_PROVIDER_HTTP_429/);
+  assert.equal(requests,1);
+  assert.deepEqual(warns,["AI_PROVIDER_429_REASON_PREPAY_CREDIT_HINT_ACCOUNT_CHECK_REQUIRED"]);
+  assert.ok(!warns.join(" ").includes("secret id"));
 });
