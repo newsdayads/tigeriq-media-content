@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T09:17:50.148Z",
+  "updatedAt": "2026-10-23T10:17:50.582Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-public-monitoring-data-residency",
+      "reportingMode": "official-announcement",
+      "category": "Cybersecurity",
+      "storyId": "tigeriq:github-public-monitoring-data-residency",
+      "clusterKey": "news:938a1fed993a156d7ac182562aaf7400456c273ed08ecd56a82fdd7b8c7f144a",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T10:17:50.582Z",
+      "modifiedAt": "2026-10-23T10:17:50.582Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub mở rộng tính năng giám sát công khai cho khách hàng lưu trữ dữ liệu",
+          "dek": "Theo công bố của GitHub. Tính năng mới cho phép các doanh nghiệp phát hiện thông tin xác thực bị lộ trên các kho lưu trữ công khai trong khi vẫn tuân thủ các quy định về lưu trữ dữ liệu.",
+          "takeaways": [
+            "Tính năng giám sát công khai hiện đã có sẵn ở bản xem trước cho GitHub Enterprise Cloud với lưu trữ dữ liệu.",
+            "Hệ thống sử dụng phương pháp khớp tên miền đã xác minh để gán thông tin xác thực bị lộ cho doanh nghiệp.",
+            "Dịch vụ này được bao gồm trong giấy phép GitHub Advanced Security hoặc GitHub Secret Protection mà không tính thêm phí."
+          ],
+          "sections": [
+            {
+              "heading": "Cơ chế hoạt động của giám sát công khai",
+              "body": "GitHub cho biết tính năng giám sát công khai mở rộng khả năng quét bí mật ra ngoài các kho lưu trữ nội bộ. Đối với các doanh nghiệp sử dụng lưu trữ dữ liệu, hệ thống sẽ thực hiện đối chiếu email của tác giả commit với các tên miền đã được doanh nghiệp xác minh. Khi phát hiện thông tin xác thực bị lộ, cảnh báo sẽ được mã hóa và gửi trực tiếp đến bảng điều khiển của doanh nghiệp, đảm bảo dữ liệu vẫn nằm trong khu vực địa lý đã chỉ định."
+            },
+            {
+              "heading": "Điều kiện sử dụng và triển khai",
+              "body": "Tính năng này hiện đang ở giai đoạn xem trước công khai dành cho khách hàng của GitHub Enterprise Cloud có lưu trữ dữ liệu. Để sử dụng, doanh nghiệp cần có giấy phép GitHub Advanced Security hoặc GitHub Secret Protection đang hoạt động. Các quản trị viên doanh nghiệp và quản lý bảo mật có thể kích hoạt tính năng này thông qua cài đặt bảo mật của doanh nghiệp mà không phát sinh thêm chi phí dịch vụ."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Expands Public Monitoring to Data Residency Customers",
+          "dek": "According to GitHub. New public preview feature allows enterprises to detect exposed credentials in public commits while maintaining strict data residency compliance.",
+          "takeaways": [
+            "Public monitoring is now available in public preview for GitHub Enterprise Cloud with data residency.",
+            "Attribution of exposed credentials is managed through verified domain matching to ensure tenant isolation.",
+            "The feature is included at no additional cost for users with GitHub Advanced Security or Secret Protection licenses."
+          ],
+          "sections": [
+            {
+              "heading": "Enhanced Security for Data Residency",
+              "body": "GitHub has introduced public monitoring to extend secret scanning capabilities beyond internal repositories. For enterprises hosted in data residency regions, the system uses verified domain matching to attribute exposed credentials. Because these environments maintain strict tenant isolation, the system encrypts alerts and delivers them directly to the enterprise dashboard, ensuring that sensitive data remains within the designated geographic boundaries."
+            },
+            {
+              "heading": "Eligibility and Access",
+              "body": "The feature is currently available in public preview for GitHub Enterprise Cloud customers who utilize data residency. Access requires an active GitHub Advanced Security or GitHub Secret Protection license. Enterprise administrators and security managers can enable the functionality directly through their enterprise security settings. GitHub confirms that this monitoring capability is included with existing licenses at no additional cost."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub expande la monitorización pública a clientes con residencia de datos",
+          "dek": "Según GitHub. La nueva función en vista previa permite a las empresas detectar credenciales expuestas en commits públicos manteniendo la soberanía de los datos.",
+          "takeaways": [
+            "La monitorización pública está disponible en vista previa para GitHub Enterprise Cloud con residencia de datos.",
+            "La atribución de credenciales se realiza mediante la coincidencia de dominios verificados por la empresa.",
+            "El servicio está incluido sin costo adicional para quienes poseen licencias de seguridad avanzada o protección de secretos."
+          ],
+          "sections": [
+            {
+              "heading": "Funcionamiento de la monitorización",
+              "body": "GitHub ha anunciado que la monitorización pública extiende el escaneo de secretos más allá de los repositorios internos. Para entornos con residencia de datos, el sistema utiliza la coincidencia de dominios verificados para atribuir las credenciales expuestas. Dado que estos entornos mantienen un aislamiento estricto, las alertas se cifran y se entregan directamente al panel de control de la empresa, garantizando que la información permanezca dentro de la geografía designada."
+            },
+            {
+              "heading": "Requisitos y disponibilidad",
+              "body": "Esta función se encuentra en fase de vista previa pública para clientes de GitHub Enterprise Cloud con residencia de datos. El uso de la herramienta requiere una licencia activa de GitHub Advanced Security o GitHub Secret Protection. Los administradores pueden habilitar esta capacidad desde la configuración de seguridad de la empresa, y GitHub ha confirmado que no se aplicarán cargos adicionales por el uso de esta nueva funcionalidad."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-public-monitoring-now-available-with-data-residency"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-5",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-public-monitoring-now-available-with-data-residency",
+            "title": "Public monitoring now available with data residency"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has launched public monitoring in public preview for GitHub Enterprise Cloud customers utilizing data residency.",
+            "sourceIds": [
+              "github-5"
+            ]
+          },
+          {
+            "text": "The feature identifies exposed credentials in public commits by matching them against verified enterprise domains.",
+            "sourceIds": [
+              "github-5"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-5",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-public-monitoring-now-available-with-data-residency"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-public-monitoring-data-residency.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub mở rộng tính năng giám sát công khai cho khách hàng lưu trữ dữ liệu",
+          "en": "GitHub Expands Public Monitoring to Data Residency Customers",
+          "es": "GitHub expande la monitorización pública a clientes con residencia de datos"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-actions-blob-storage-api-update",
       "reportingMode": "official-announcement",
