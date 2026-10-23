@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T05:17:49.365Z",
+  "updatedAt": "2026-10-23T07:17:52.187Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-copilot-usage-metrics-update",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:github-copilot-usage-metrics-update",
+      "clusterKey": "news:3d6fb2d650a0ca5d87fc44122033ba152de3285441d7717422230a0e67e267fc",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T07:17:52.187Z",
+      "modifiedAt": "2026-10-23T07:17:52.187Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật số liệu sử dụng Copilot",
+          "dek": "Theo công bố của GitHub. API số liệu sử dụng GitHub Copilot hiện hiển thị tên cụ thể cho các tác nhân và kỹ năng tùy chỉnh.",
+          "takeaways": [
+            "Hiển thị tên cụ thể cho các kỹ năng, tác nhân và máy chủ MCP tùy chỉnh thay vì nhóm chung.",
+            "Tăng giới hạn hiển thị từ 5 lên 25 mục cho mỗi danh mục tùy chỉnh trong báo cáo.",
+            "Dữ liệu được thu thập từ Copilot CLI, ứng dụng Copilot và các tích hợp SDK tương thích."
+          ],
+          "sections": [
+            {
+              "heading": "Cập nhật khả năng hiển thị dữ liệu",
+              "body": "GitHub thông báo rằng các báo cáo số liệu sử dụng Copilot cho doanh nghiệp và tổ chức hiện đã bao gồm tên cấu hình cho các kỹ năng, tác nhân tùy chỉnh, máy chủ MCP, lệnh gạch chéo và plugin. Thay vì phân loại tất cả dưới nhãn 'khác' hoặc 'tùy chỉnh', quản trị viên giờ đây có thể theo dõi chính xác các công cụ nội bộ mà nhà phát triển đang sử dụng."
+            },
+            {
+              "heading": "Mở rộng giới hạn báo cáo",
+              "body": "Để cung cấp cái nhìn chi tiết hơn về các tùy chỉnh, GitHub đã nâng giới hạn hiển thị trong các danh sách totals_by_* lên 25 mục cho mỗi bản ghi. Sự thay đổi này cho phép các tổ chức quan sát tốt hơn các tùy chỉnh ít phổ biến hơn trong danh sách dài, với bất kỳ hoạt động nào còn lại sẽ được gộp vào mục 'khác' ở cuối."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Enhances Copilot Usage Metrics API",
+          "dek": "According to GitHub. New updates allow organizations to track specific custom agents, skills, and MCP servers within usage reports.",
+          "takeaways": [
+            "Custom skills, agents, and MCP servers are now identified by name in usage reports.",
+            "Reporting capacity increased to 25 entries per category to capture more developer customizations.",
+            "Metrics are supported across Copilot CLI, the Copilot app, and compatible SDK integrations."
+          ],
+          "sections": [
+            {
+              "heading": "Granular Visibility for Customizations",
+              "body": "GitHub has updated its Copilot usage metrics API to provide specific names for customer-defined items. Previously, these were grouped under generic labels like 'other' or 'custom'. This update allows enterprise and organization administrators to better track the adoption of internal tools, including custom agents, skills, and Model Context Protocol (MCP) servers."
+            },
+            {
+              "heading": "Increased Reporting Capacity",
+              "body": "The API now supports up to 25 entries per record for each customization category, a significant increase from the previous limit of five. This change is designed to help organizations better understand the long tail of customizations used by their developers. Any activity beyond the top 25 entries will continue to be aggregated into a trailing 'other' entry."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub actualiza la API de métricas de Copilot",
+          "dek": "Según GitHub. Las nuevas métricas permiten a las organizaciones identificar nombres específicos de agentes y habilidades personalizadas.",
+          "takeaways": [
+            "Los informes ahora muestran nombres específicos para habilidades, agentes y servidores MCP personalizados.",
+            "Se aumentó el límite de visualización a 25 entradas por categoría para mejorar el seguimiento.",
+            "La función requiere versiones actualizadas de Copilot CLI y SDK para reportar correctamente los nombres."
+          ],
+          "sections": [
+            {
+              "heading": "Mejora en la visibilidad de métricas",
+              "body": "GitHub anunció que su API de métricas de uso de Copilot ahora muestra los nombres configurados de habilidades, agentes personalizados, servidores MCP, comandos de barra y complementos. Esta actualización permite a los administradores de organizaciones identificar qué herramientas internas están siendo utilizadas realmente por sus equipos de desarrollo."
+            },
+            {
+              "heading": "Ampliación de los límites de datos",
+              "body": "Cada lista de métricas ahora incluye hasta 25 entradas por registro, superando el límite anterior de cinco. Este cambio facilita la visualización de una mayor variedad de personalizaciones implementadas por los desarrolladores. GitHub señala que los nombres se reportan según su configuración y que las métricas deben usarse para identificar tendencias de adopción."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-2",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api",
+            "title": "Custom skills, agents, and MCP servers in usage metrics API"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has updated its Copilot usage metrics API to display specific names for custom skills, agents, MCP servers, slash commands, and plugins instead of generic labels.",
+            "sourceIds": [
+              "github-2"
+            ]
+          },
+          {
+            "text": "The API now supports up to 25 entries per record for each customization category, an increase from the previous limit of five.",
+            "sourceIds": [
+              "github-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-2",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-usage-metrics-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật số liệu sử dụng Copilot",
+          "en": "GitHub Enhances Copilot Usage Metrics API",
+          "es": "GitHub actualiza la API de métricas de Copilot"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "kazakhstan-ai-infrastructure-expansion",
       "reportingMode": "official-announcement",
