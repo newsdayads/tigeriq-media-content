@@ -170,3 +170,22 @@ test('genuine nested H1 with HTML-escaped headline still passes all live publica
   assert.deepEqual(result.editions.map(x => x.locale), ['vi', 'en', 'es']);
   assert.equal(result.coverStatus, 200);
 });
+
+test('wrong article H1 cannot be rescued by matching recommendation H1 in the sidebar', async () => {
+  const mutate = (html) => html.replace(
+    '<h1>Tin AI mới</h1>',
+    '<h1>Wrong cached article</h1>'
+  ).replace('</html>', '<aside><h1>Tin AI mới</h1></aside></html>');
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: fakeFetch({ mutate }), retries: 1
+  }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_STALE_OR_MISSING_CONTENT/);
+});
+
+test('duplicate H1 headings are ambiguous even when both match the expected article', async () => {
+  const mutate = (html) => html.replace(
+    '</html>', '<aside><h1>Tin AI mới</h1></aside></html>'
+  );
+  await assert.rejects(verifyPublishedArticle(article, {
+    fetcher: fakeFetch({ mutate }), retries: 1
+  }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_STALE_OR_MISSING_CONTENT/);
+});
