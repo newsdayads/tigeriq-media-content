@@ -422,6 +422,32 @@ function provider503RetryAfterMs(response){
   return null;
 }
 
+
+/**
+ * Convert a provider's HTTP 429 body into a fixed, privacy-safe diagnostic.
+ * The message and quota IDs are never logged. A billing hint is NOT a
+ * verified payment gate; only the provider account can confirm that.
+ */
+export function classifyProvider429Reason(raw){
+  if(typeof raw!=="string"||Buffer.byteLength(raw,"utf8")>16384)return "UNKNOWN";
+  let data;
+  try{data=JSON.parse(raw);}catch{return "UNKNOWN";}
+  const error=data?.error;
+  if(error?.code!==429||error?.status!=="RESOURCE_EXHAUSTED")return "UNKNOWN";
+  const detail=Array.isArray(error.details)?error.details:[];
+  const quota=detail.flatMap(item=>Array.isArray(item?.violations)?item.violations:[]).slice(0,24);
+  const msg=typeof error.message==="string"?error.message.slice(0,2000):"";
+  if(/(?:prepay(?:ment)?\s+(?:balance|credit)s?\s+(?:depleted|exhausted)|(?:prepaid|prepay)\s+credits?\s+(?:depleted|exhausted))/i.test(msg))
+    return "PREPAY_CREDIT_HINT_ACCOUNT_CHECK_REQUIRED";
+  if(quota.some(v=>/free[\s_-]?tier/i.test(String(v?.quotaId||"").slice(0,128))||
+      /free[\s_-]?tier/i.test(String(v?.quotaMetric||"").slice(0,128))))
+    return "FREE_TIER_QUOTA";
+  if(quota.some(v=>/paid[\s_-]?tier/i.test(String(v?.quotaId||"").slice(0,128))))
+    return "PAID_TIER_QUOTA";
+  if(quota.length)return "QUOTA_UNCLASSIFIED";
+  return "RESOURCE_EXHAUSTED_UNCLASSIFIED";
+}
+
 export async function modelJson({fetchImpl=fetch,provider,model,prompt,
   timeoutSignalFactory=ms=>AbortSignal.timeout(ms),
   sleepImpl=ms=>new Promise(resolve=>setTimeout(resolve,ms))}){
@@ -451,6 +477,16 @@ export async function modelJson({fetchImpl=fetch,provider,model,prompt,
     if(waitMs>MAX_PROVIDER_503_RETRY_DELAY_MS)break;
     console.warn("AI_PROVIDER_HTTP_503_BACKOFF_ATTEMPT_"+(attempt+1));
     await sleepImpl(waitMs);
+  }
+
+  // This is an already-failed response: inspect at most 16 KiB once, without
+  // another provider call or logging raw responses, tokens or project IDs.
+  if(r.status===429){
+    let reason="UNKNOWN";
+    try{reason=classifyProvider429Reason(await readBoundedHttpText(r,16384,
+      "AI_PROVIDER_429_DIAGNOSTIC_TOO_LARGE"));}
+    catch{} // Preserve original 429 failure if response is unreadable.
+    console.warn("AI_PROVIDER_429_REASON_"+reason);
   }
   if(!r.ok)throw Error("AI_PROVIDER_HTTP_"+r.status);
   // Only canonical JSON responses are valid. JSONP, NDJSON and other
