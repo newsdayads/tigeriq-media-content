@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T10:17:50.582Z",
+  "updatedAt": "2026-10-23T11:17:52.157Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-pull-request-interface-updates",
+      "reportingMode": "official-announcement",
+      "category": "Software Development Tools",
+      "storyId": "tigeriq:github-pull-request-interface-updates",
+      "clusterKey": "news:7050aae3d436356314014bd55250814b0482a4f4b5806df41313e9d0d0693545",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T11:17:52.157Z",
+      "modifiedAt": "2026-10-23T11:17:52.157Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật giao diện xem Pull Request",
+          "dek": "Theo công bố của GitHub. Cải thiện trải nghiệm xem mã nguồn với tùy chọn hiển thị khoảng trắng và giao diện split view mới.",
+          "takeaways": [
+            "Người dùng có thể lưu tùy chọn hiển thị khoảng trắng trên toàn bộ các pull request.",
+            "Giao diện split view hiện hỗ trợ hiển thị tệp mới và tệp bị xóa trên toàn bộ chiều rộng màn hình.",
+            "Các thống kê về diff và số lượng tệp sẽ tự động cập nhật dựa trên bộ lọc hiển thị."
+          ],
+          "sections": [
+            {
+              "heading": "Tùy chỉnh hiển thị khoảng trắng",
+              "body": "GitHub cho phép người dùng lưu cấu hình hiển thị khoảng trắng thông qua cài đặt cá nhân. Người dùng có thể chọn luôn hiển thị, luôn ẩn hoặc ẩn chỉ cho diff hiện tại. Cài đặt này sẽ được áp dụng nhất quán trên tất cả các pull request mà người dùng truy cập, giúp tối ưu hóa quy trình kiểm tra mã nguồn."
+            },
+            {
+              "heading": "Cải tiến giao diện Split View",
+              "body": "Trong bản cập nhật mới, các tệp mới và tệp bị xóa trong chế độ split view sẽ được mở rộng ra toàn bộ chiều rộng của trang. Thay đổi này giúp giảm thiểu tình trạng xuống dòng không mong muốn và cung cấp không gian làm việc rộng rãi hơn cho các nhà phát triển khi thực hiện đánh giá code."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Enhances Pull Request Review Interface",
+          "dek": "According to GitHub. New updates allow for persistent whitespace preferences and improved full-width split view layouts.",
+          "takeaways": [
+            "Users can now save whitespace visibility preferences that persist across all pull requests.",
+            "Split view now utilizes full-width display for new and deleted files to reduce line wrapping.",
+            "Diff statistics and file counts dynamically adjust based on the active whitespace filter."
+          ],
+          "sections": [
+            {
+              "heading": "Persistent Whitespace Configuration",
+              "body": "GitHub has implemented a new setting that allows developers to save their preferred whitespace visibility. By navigating to settings, users can choose to always show, always hide, or hide whitespace for specific diffs. This preference is saved to the user account and applies globally across all pull requests, with an option to temporarily toggle visibility via a filter."
+            },
+            {
+              "heading": "Full-Width Split View Updates",
+              "body": "The platform has updated the split view interface to ensure that new and deleted files span both columns. By utilizing the full width of the page, the interface provides more room for code review and minimizes the occurrence of line wrapping, aligning the split view experience with the existing unified view layout."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub actualiza la interfaz de revisión de Pull Requests",
+          "dek": "Según GitHub. Nuevas mejoras permiten guardar preferencias de espacios en blanco y optimizar la vista dividida.",
+          "takeaways": [
+            "Los usuarios pueden guardar sus preferencias de visibilidad de espacios en blanco de forma persistente.",
+            "La vista dividida ahora utiliza todo el ancho de la pantalla para archivos nuevos y eliminados.",
+            "Las estadísticas de diff se ajustan automáticamente según los filtros de visualización aplicados."
+          ],
+          "sections": [
+            {
+              "heading": "Configuración persistente de espacios en blanco",
+              "body": "GitHub ha introducido una función que permite a los desarrolladores guardar sus preferencias de visibilidad de espacios en blanco. A través de la configuración, los usuarios pueden definir si desean mostrar u ocultar estos caracteres de forma predeterminada. Esta configuración se aplica a todos los pull requests, facilitando una experiencia de revisión más personalizada y consistente."
+            },
+            {
+              "heading": "Mejoras en la vista dividida",
+              "body": "La plataforma ha optimizado la vista dividida para que los archivos nuevos y eliminados ocupen todo el ancho de la pantalla. Este cambio busca mejorar la legibilidad del código al reducir el ajuste de línea innecesario, proporcionando un espacio de trabajo más amplio y cómodo para los revisores durante el proceso de desarrollo."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-22-pull-requests-saved-whitespace-preferences-and-improved-split-view"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-6",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-22-pull-requests-saved-whitespace-preferences-and-improved-split-view",
+            "title": "Pull requests: Saved whitespace preferences and improved split view"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has introduced a feature allowing users to save their preferred whitespace visibility settings across all pull requests.",
+            "sourceIds": [
+              "github-6"
+            ]
+          },
+          {
+            "text": "The platform updated its split view interface to display new and deleted files across the full width of the page.",
+            "sourceIds": [
+              "github-6"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-6",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-22-pull-requests-saved-whitespace-preferences-and-improved-split-view"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-pull-request-interface-updates.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật giao diện xem Pull Request",
+          "en": "GitHub Enhances Pull Request Review Interface",
+          "es": "GitHub actualiza la interfaz de revisión de Pull Requests"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-public-monitoring-data-residency",
       "reportingMode": "official-announcement",
