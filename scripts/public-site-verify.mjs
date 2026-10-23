@@ -42,12 +42,14 @@ function matchesTitle(html, title) {
     return point > 0 && point <= 0x10ffff && !(point >= 0xd800 && point <= 0xdfff)
       ? String.fromCodePoint(point) : entity;
   });
-  for (const [, heading] of visible.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/gi)) {
-    const raw = heading.trim();
-    const displayed = raw.replace(/<[^>]*>/g, '').trim();
-    if (raw === title || decodeHeadingText(displayed) === title) return true;
-  }
-  return false;
+  // Do not accept a second H1 in a sidebar or hidden recommendation when
+  // the page's main article H1 belongs to another story. A valid publication
+  // must have one unambiguous article heading; otherwise fail closed.
+  const headings = [...visible.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/gi)];
+  if (headings.length !== 1) return false;
+  const raw = headings[0][1].trim();
+  const displayed = raw.replace(/<[^>]*>/g, '').trim();
+  return raw === title || decodeHeadingText(displayed) === title;
 }
 
 function checkInput(article) {
