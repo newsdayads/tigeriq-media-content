@@ -5,6 +5,17 @@ const LIVE_ORIGIN = 'https://tigeriq-media.vercel.app';
 const COVER_PREFIX = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/';
 const LANGUAGES = ['vi', 'en', 'es'];
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const MAX_LIVE_VERIFY_ATTEMPTS = 20;
+const LIVE_PROPAGATION_WINDOW_MS = 90_000;
+
+// A newly pushed article may briefly return 404 or an older cached page.
+// Permanent permission/identity failures must not trigger repeated requests.
+function isTransientLiveFailure(error) {
+  const message = String(error?.message || '');
+  return /^(?:LIVE_VERIFY_HTTP_(?:404|429|500|502|503|504)|LIVE_VERIFY_STALE_OR_MISSING_CONTENT)$/.test(message)
+    || error?.name === 'TimeoutError' || error?.name === 'AbortError'
+    || error?.name === 'TypeError';
+}
 
 // The current publisher places the first 70 Unicode code points of the English
 // headline in the SVG's first <title>. A valid SVG from an unrelated article
@@ -45,9 +56,17 @@ async function checkedGet(url, fetcher) {
   return response.text();
 }
 
-export async function verifyPublishedArticle(article, { fetcher = fetch, retries = 3, delayMs = 5000 } = {}) {
+export async function verifyPublishedArticle(article, {
+  fetcher = fetch, retries = MAX_LIVE_VERIFY_ATTEMPTS, delayMs = 5000,
+  pauseImpl = pause, nowImpl = Date.now
+} = {}) {
   const cover = checkInput(article);
-  if (!Number.isInteger(retries) || retries < 1 || retries > 3) throw new Error('LIVE_VERIFY_RETRY_LIMIT');
+  if (!Number.isInteger(retries) || retries < 1 || retries > MAX_LIVE_VERIFY_ATTEMPTS ||
+      !Number.isFinite(delayMs) || delayMs < 0 || delayMs > 15_000) {
+    throw new Error('LIVE_VERIFY_RETRY_LIMIT');
+  }
+  // One bounded wait budget covers all three languages: no infinite polling.
+  const deadline = nowImpl() + LIVE_PROPAGATION_WINDOW_MS;
   const output = [];
   for (const lang of LANGUAGES) {
     const url = `${LIVE_ORIGIN}/${lang}/article/${article.slug}`;
@@ -62,7 +81,9 @@ export async function verifyPublishedArticle(article, { fetcher = fetch, retries
         break;
       } catch (failure) {
         error = failure;
-        if (attempt < retries) await pause(delayMs);
+        if (attempt >= retries || !isTransientLiveFailure(failure) ||
+            nowImpl() + delayMs > deadline) break;
+        await pauseImpl(delayMs);
       }
     }
     if (error) throw new Error(`LIVE_VERIFY_${lang}_FAILED: ${error.message}`);
