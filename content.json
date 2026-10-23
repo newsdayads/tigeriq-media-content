@@ -1,11 +1,141 @@
 {
-  "updatedAt": "2026-10-23T13:17:51.076Z",
+  "updatedAt": "2026-10-23T14:17:48.387Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-geforce-now-call-of-duty-modern-warfare-4-launch",
+      "reportingMode": "official-announcement",
+      "category": "Cloud Gaming",
+      "storyId": "tigeriq:nvidia-geforce-now-call-of-duty-modern-warfare-4-launch",
+      "clusterKey": "news:d53ea6acfee67adc2f60e74b8cb7ce61eb667f6cf80ec54d1255b3bf4e9088da",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-23T14:17:48.387Z",
+      "modifiedAt": "2026-10-23T14:17:48.387Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA đưa Call of Duty: Modern Warfare 4 lên nền tảng đám mây GeForce NOW",
+          "dek": "Theo công bố của NVIDIA. Người dùng GeForce NOW hiện có thể trải nghiệm tựa game mới nhất với hiệu suất RTX 5080 và phương thức thanh toán mới trên Fire TV.",
+          "takeaways": [
+            "Call of Duty: Modern Warfare 4 chính thức ra mắt trên dịch vụ đám mây GeForce NOW.",
+            "Thành viên gói Ultimate được hỗ trợ hiệu suất RTX 5080 và công nghệ ray-tracing.",
+            "Người dùng Fire TV Stick có thể mua gói thành viên trực tiếp qua hệ thống thanh toán của Amazon."
+          ],
+          "sections": [
+            {
+              "heading": "Trải nghiệm chơi game trên đám mây",
+              "body": "NVIDIA thông báo rằng tựa game Call of Duty: Modern Warfare 4 đã có mặt trên GeForce NOW, cho phép người chơi tham gia vào các chiến dịch và chế độ nhiều người chơi mà không cần tải xuống tệp tin. Dịch vụ này giúp loại bỏ nhu cầu cài đặt, cập nhật hoặc vá lỗi thủ công, tập trung vào việc cung cấp quyền truy cập tức thì trên nhiều thiết bị khác nhau."
+            },
+            {
+              "heading": "Nâng cấp hiệu suất và thanh toán",
+              "body": "Đối với các thành viên gói Ultimate, NVIDIA cung cấp hiệu suất tương đương với card đồ họa GeForce RTX 5080, hỗ trợ các tính năng ray-tracing trong môi trường đám mây. Đồng thời, công ty cũng triển khai tính năng mua gói thành viên trực tiếp trong ứng dụng dành cho người dùng Fire TV Stick, giúp quy trình đăng ký trở nên liền mạch thông qua hệ thống thanh toán của Amazon."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Adds Call of Duty: Modern Warfare 4 to GeForce NOW Cloud Library",
+          "dek": "According to NVIDIA. The latest Call of Duty title arrives on GeForce NOW alongside new RTX 5080-class performance tiers and simplified Fire TV billing.",
+          "takeaways": [
+            "Call of Duty: Modern Warfare 4 is now available to stream via the GeForce NOW platform.",
+            "Ultimate members gain access to RTX 5080-class cloud performance with ray-tracing support.",
+            "Amazon Fire TV Stick users can now purchase memberships directly through the Amazon billing system."
+          ],
+          "sections": [
+            {
+              "heading": "Cloud Gaming Expansion",
+              "body": "NVIDIA has announced the arrival of Call of Duty: Modern Warfare 4 on its GeForce NOW service. The platform allows users to stream the game's campaign, multiplayer, and DMZ extraction mode without the need for local downloads or installations. This deployment is intended to provide immediate access to high-fidelity gaming across PCs, Macs, mobile devices, and supported smart TVs."
+            },
+            {
+              "heading": "Performance and Accessibility Updates",
+              "body": "Ultimate members can now utilize GeForce RTX 5080-class performance for their cloud gaming sessions, enabling advanced ray-tracing features. Additionally, NVIDIA is rolling out in-app membership purchases for existing Fire TV Stick users. By integrating with Amazon’s billing system, the company aims to create a more seamless transition from setup to gameplay for living room users."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA incorpora Call of Duty: Modern Warfare 4 a la biblioteca de GeForce NOW",
+          "dek": "Según NVIDIA. El nuevo título de Call of Duty llega a la nube con soporte para rendimiento RTX 5080 y nuevas opciones de pago en Fire TV.",
+          "takeaways": [
+            "Call of Duty: Modern Warfare 4 ya está disponible para jugar a través de la nube en GeForce NOW.",
+            "Los miembros Ultimate acceden a rendimiento de clase RTX 5080 con trazado de rayos en la nube.",
+            "Se habilita la compra de suscripciones de GeForce NOW directamente desde dispositivos Fire TV Stick."
+          ],
+          "sections": [
+            {
+              "heading": "Lanzamiento en la nube",
+              "body": "NVIDIA ha anunciado la disponibilidad de Call of Duty: Modern Warfare 4 en su plataforma GeForce NOW. El servicio permite a los usuarios acceder a la campaña y los modos multijugador sin necesidad de realizar descargas o instalaciones locales. Esta integración busca ofrecer una experiencia de juego inmediata en una amplia gama de dispositivos compatibles, desde computadoras hasta televisores."
+            },
+            {
+              "heading": "Mejoras de rendimiento y facturación",
+              "body": "Los miembros del nivel Ultimate ahora pueden disfrutar de un rendimiento equivalente a una tarjeta GeForce RTX 5080, incluyendo soporte para trazado de rayos. Asimismo, la compañía ha facilitado el acceso a sus servicios mediante la implementación de compras integradas en la aplicación para usuarios de Fire TV Stick, permitiendo gestionar la suscripción directamente a través del sistema de facturación de Amazon."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/geforce-now-thursday-call-of-duty-modern-warfare-4/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-3",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-call-of-duty-modern-warfare-4/",
+            "title": "Cloud Deployment Incoming: ‘Call of Duty: Modern Warfare 4’ Arrives on GeForce NOW"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced that Call of Duty: Modern Warfare 4 is now available on the GeForce NOW cloud gaming service.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          },
+          {
+            "text": "Ultimate members can access GeForce RTX 5080-class performance for cloud streaming, including ray-tracing support.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          },
+          {
+            "text": "GeForce NOW is introducing in-app membership purchases for Fire TV Stick users directly through Amazon's billing system.",
+            "sourceIds": [
+              "nvidia-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-3",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-call-of-duty-modern-warfare-4/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-geforce-now-call-of-duty-modern-warfare-4-launch.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA đưa Call of Duty: Modern Warfare 4 lên nền tảng đám mây GeForce NOW",
+          "en": "NVIDIA Adds Call of Duty: Modern Warfare 4 to GeForce NOW Cloud Library",
+          "es": "NVIDIA incorpora Call of Duty: Modern Warfare 4 a la biblioteca de GeForce NOW"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-industry-benchmarking",
       "reportingMode": "official-announcement",
