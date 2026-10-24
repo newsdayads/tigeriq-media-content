@@ -36,7 +36,7 @@ test("a real committed article in the same hour passes both scheduled routes",()
 
 test("two distinct stories in the same UTC hour must fail the exact-one gate for both scheduled routes",()=>{
   const duplicated={articles:[story("2026-10-23T22:17:50.063Z"),
-    {...story("2026-10-23T22:39:00.000Z"),slug:"another-verified-story"}]};
+    {...story("2026-10-23T22:19:00.000Z"),slug:"another-verified-story"}]};
   for(const route of [github,cloudflare]){
     const result=evaluateHourlyPublication({...route,store:duplicated});
     assert.equal(result.enforced,true);
