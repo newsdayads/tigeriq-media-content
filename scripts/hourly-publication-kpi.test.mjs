@@ -9,7 +9,8 @@ import {evaluateHourlyPublication} from "./hourly-publication-kpi.mjs";
 
 const at=new Date("2026-10-23T22:20:00.000Z");
 const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({slug:"verified-story",publishedAt});
-const github={eventName:"schedule",now:at};
+// Native backup fires at :47; 22:20Z precedes this hour’s cron tick.
+const github={eventName:"schedule",now:new Date("2026-10-23T22:47:00.000Z")};
 const cloudflare={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
   scheduledHourUtc:"2026-10-23T22:00:00Z",now:at};
 
