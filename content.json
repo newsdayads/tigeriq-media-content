@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T14:17:52.505Z",
+  "updatedAt": "2026-10-24T16:15:04.357Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-sagemaker-training-session-apis",
+      "reportingMode": "official-announcement",
+      "category": "Cloud Computing & AI Infrastructure",
+      "storyId": "tigeriq:aws-sagemaker-training-session-apis",
+      "clusterKey": "news:8ccdf4b6659dde06ab5e62f8c5dc3a3430dbf2e03fab055c8fa355fb2095fd58",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T16:15:04.357Z",
+      "modifiedAt": "2026-10-24T16:15:04.357Z",
+      "editions": {
+        "vi": {
+          "title": "AWS ra mắt API phiên đào tạo cho Amazon SageMaker",
+          "dek": "Theo công bố của AWS. Người dùng giờ đây có thể tùy chỉnh vòng lặp đào tạo mô hình AI mà không cần quản lý hạ tầng GPU phức tạp.",
+          "takeaways": [
+            "API mới cho phép kiểm soát thuật toán đào tạo mà không cần quản lý hạ tầng.",
+            "Mô hình tính phí dựa trên số lượng token thay vì thời gian thuê GPU theo giờ.",
+            "Hỗ trợ các kỹ thuật như SFT, RL và tối ưu hóa ưu tiên tùy chỉnh."
+          ],
+          "sections": [
+            {
+              "heading": "Cơ chế hoạt động của API",
+              "body": "Amazon SageMaker AI hiện cung cấp các API phiên đào tạo cho phép người dùng điều khiển các phiên làm việc dựa trên GPU từ máy cục bộ. Thay vì sử dụng các cấu hình cố định, người dùng có thể viết vòng lặp đào tạo bằng Python, gọi các hàm như forward_backward() và optim_step() để thực thi trên hạ tầng do AWS quản lý."
+            },
+            {
+              "heading": "Tối ưu hóa chi phí và hiệu suất",
+              "body": "Dịch vụ này được thiết kế để loại bỏ chi phí GPU nhàn rỗi. Người dùng chỉ bị tính phí dựa trên số lượng token được xử lý, giúp tiết kiệm ngân sách khi thực hiện các tác vụ tính toán cục bộ như xử lý dữ liệu hoặc logic phần thưởng mà không cần duy trì kết nối GPU liên tục."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Launches SageMaker Training Session APIs",
+          "dek": "According to AWS. New serverless APIs enable developers to build custom LLM training loops without the operational burden of managing GPU clusters.",
+          "takeaways": [
+            "Enables algorithmic freedom for custom loss functions and reinforcement learning.",
+            "Shifts billing model to per-token usage to eliminate idle GPU costs.",
+            "Provides an OpenAI-compatible endpoint for sampling during training sessions."
+          ],
+          "sections": [
+            {
+              "heading": "Decoupling Training Logic from Infrastructure",
+              "body": "Amazon SageMaker AI's new training session APIs allow developers to maintain control over training loops while offloading infrastructure tasks such as GPU allocation, fault recovery, and distributed execution to AWS. By drawing the abstraction boundary at the compute level, users can implement custom supervised fine-tuning or reinforcement learning procedures directly from their local Python environment."
+            },
+            {
+              "heading": "Economic Model and Use Cases",
+              "body": "The service is billed per token processed, which AWS states is designed to reduce costs for workloads involving heavy local computation. Because the system does not charge for idle GPU time, it is intended for researchers and engineers who require fast iteration cycles for complex alignment algorithms, agentic rollouts, or multi-stage training pipelines."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS presenta las API de sesión de entrenamiento para SageMaker",
+          "dek": "Según AWS. Las nuevas API permiten a los desarrolladores crear bucles de entrenamiento personalizados sin gestionar infraestructura de GPU.",
+          "takeaways": [
+            "Permite libertad algorítmica para funciones de pérdida y aprendizaje por refuerzo.",
+            "El modelo de facturación por token elimina los costos de GPU en reposo.",
+            "Incluye un endpoint compatible con OpenAI para facilitar el muestreo."
+          ],
+          "sections": [
+            {
+              "heading": "Control algorítmico sin gestión de servidores",
+              "body": "Las nuevas API de sesión de entrenamiento de Amazon SageMaker permiten a los usuarios ejecutar bucles de entrenamiento personalizados desde sus máquinas locales. AWS se encarga de la asignación de GPU, la carga de modelos y la recuperación de fallos, permitiendo que el desarrollador se enfoque exclusivamente en la lógica del algoritmo, el entrenamiento supervisado o el aprendizaje por refuerzo."
+            },
+            {
+              "heading": "Eficiencia en costos y ejecución",
+              "body": "A diferencia de la facturación por hora de GPU, este servicio cobra por token procesado. Esto permite que los ingenieros realicen tareas de computación local, como el procesamiento de recompensas o la carga de datos, sin incurrir en costos de infraestructura mientras el GPU no está realizando operaciones activas de gradiente o muestreo."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/write-your-own-training-loop-without-managing-gpus-with-amazon-sagemaker-training-sessions/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-8",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/write-your-own-training-loop-without-managing-gpus-with-amazon-sagemaker-training-sessions/",
+            "title": "Write your own training loop — without managing GPUs — with Amazon SageMaker training session APIs"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS has introduced Amazon SageMaker training session APIs, which allow users to write custom training loops while offloading GPU infrastructure management to the service.",
+            "sourceIds": [
+              "aws-8"
+            ]
+          },
+          {
+            "text": "The new service bills users per token processed rather than by hourly GPU usage, aiming to eliminate costs associated with idle GPU time during local computation.",
+            "sourceIds": [
+              "aws-8"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-8",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/write-your-own-training-loop-without-managing-gpus-with-amazon-sagemaker-training-sessions/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-sagemaker-training-session-apis.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS ra mắt API phiên đào tạo cho Amazon SageMaker",
+          "en": "AWS Launches SageMaker Training Session APIs",
+          "es": "AWS presenta las API de sesión de entrenamiento para SageMaker"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-launches-sagemaker-ai-serverless-training-sessions",
       "reportingMode": "official-announcement",
