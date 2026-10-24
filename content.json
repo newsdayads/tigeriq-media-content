@@ -1,11 +1,141 @@
 {
-  "updatedAt": "2026-10-24T16:15:04.357Z",
+  "updatedAt": "2026-10-24T17:17:48.076Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-announces-hipaa-eligible-amazon-quick",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:aws-announces-hipaa-eligible-amazon-quick",
+      "clusterKey": "news:f6ac9f1970fbc9aa640d50deca660d3c4dbda29609e497253d799405e25e73b6",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T17:17:48.076Z",
+      "modifiedAt": "2026-10-24T17:17:48.076Z",
+      "editions": {
+        "vi": {
+          "title": "AWS công bố Amazon Quick đạt tiêu chuẩn HIPAA",
+          "dek": "Theo công bố của AWS. Nền tảng AI Amazon Quick hiện hỗ trợ xử lý dữ liệu y tế nhạy cảm với các biện pháp bảo mật và quản trị mới.",
+          "takeaways": [
+            "Amazon Quick hiện là dịch vụ đủ điều kiện HIPAA để xử lý thông tin sức khỏe được bảo vệ.",
+            "Nền tảng hỗ trợ các tác nhân AI có khả năng truy xuất dữ liệu từ cả nguồn có cấu trúc và phi cấu trúc.",
+            "Người dùng vẫn chịu trách nhiệm thiết lập các biện pháp bảo vệ hành chính và kỹ thuật để đảm bảo tuân thủ HIPAA toàn diện."
+          ],
+          "sections": [
+            {
+              "heading": "Khả năng hỗ trợ HIPAA",
+              "body": "Amazon thông báo rằng Amazon Quick đã đạt trạng thái đủ điều kiện HIPAA, cho phép các tổ chức y tế sử dụng nền tảng này để xử lý, lưu trữ và truyền tải thông tin sức khỏe được bảo vệ (PHI). Trạng thái này áp dụng cho các phiên bản web, máy tính để bàn và di động của dịch vụ, với điều kiện khách hàng phải ký thỏa thuận cộng sự kinh doanh (BAA) với AWS."
+            },
+            {
+              "heading": "Cơ chế hoạt động của AI",
+              "body": "Amazon Quick sử dụng các tác nhân AI có khả năng làm việc với dữ liệu phi cấu trúc như ghi chú lâm sàng và dữ liệu có cấu trúc như hồ sơ yêu cầu bồi thường. Các tác nhân này có thể kết nối với các hệ thống bên ngoài thông qua các trình kết nối được ủy quyền, đồng thời cung cấp các tính năng quản trị như kiểm tra hành vi và kiểm soát truy cập để đảm bảo an toàn cho dữ liệu nhạy cảm."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Announces HIPAA-Eligible Status for Amazon Quick",
+          "dek": "According to AWS. Amazon introduces HIPAA-eligible capabilities for its agentic AI platform to support healthcare organizations handling sensitive data.",
+          "takeaways": [
+            "Amazon Quick is now a HIPAA-eligible service for processing Protected Health Information.",
+            "The platform utilizes agentic AI to interact with structured and unstructured healthcare data sources.",
+            "Customers must maintain their own administrative and physical safeguards to achieve full HIPAA compliance."
+          ],
+          "sections": [
+            {
+              "heading": "HIPAA Eligibility Framework",
+              "body": "Amazon has designated Amazon Quick as a HIPAA-eligible service, enabling healthcare entities to process, store, and transmit Protected Health Information (PHI). This eligibility is contingent upon the customer signing a Business Associate Addendum (BAA) with AWS and correctly configuring the service's security controls within their specific environment."
+            },
+            {
+              "heading": "Agentic AI and Data Governance",
+              "body": "Amazon Quick integrates agentic AI that can perform multi-step tasks across structured databases and unstructured clinical content. To support regulated environments, the platform provides governance features including ACL-aware retrieval, chat logging, and behavioral audit trails, ensuring that AI agents operate within defined organizational guardrails."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS anuncia la elegibilidad HIPAA para Amazon Quick",
+          "dek": "Según AWS. La plataforma de IA Amazon Quick ahora permite el procesamiento de información de salud protegida bajo normativas HIPAA.",
+          "takeaways": [
+            "Amazon Quick es ahora un servicio elegible para HIPAA para el manejo de información de salud protegida.",
+            "La plataforma permite el uso de agentes de IA para interactuar con datos clínicos estructurados y no estructurados.",
+            "La elegibilidad del servicio no garantiza automáticamente el cumplimiento total de HIPAA por parte del usuario."
+          ],
+          "sections": [
+            {
+              "heading": "Elegibilidad y cumplimiento",
+              "body": "Amazon ha confirmado que Amazon Quick es un servicio elegible para HIPAA, lo que permite a las organizaciones de salud procesar y almacenar información de salud protegida (PHI). AWS enfatiza que esta elegibilidad es un componente fundamental, pero los clientes deben implementar sus propias salvaguardas administrativas y técnicas para lograr un entorno totalmente conforme a la ley."
+            },
+            {
+              "heading": "Capacidades de los agentes de IA",
+              "body": "Los agentes de IA en Amazon Quick pueden acceder a fuentes de datos variadas, desde notas clínicas hasta registros de reclamaciones, mediante conectores autorizados. Para mantener la seguridad en entornos regulados, la plataforma incluye herramientas de auditoría de comportamiento y registros de retroalimentación, permitiendo una supervisión clara de las acciones realizadas por los agentes."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-9",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/",
+            "title": "Deploy AI in a HIPAA-eligible environment with Amazon Quick"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Amazon has designated Amazon Quick as a HIPAA-eligible service, allowing organizations to process, store, and transmit Protected Health Information (PHI) within the platform.",
+            "sourceIds": [
+              "aws-9"
+            ]
+          },
+          {
+            "text": "Amazon Quick features agentic AI capabilities that can interact with both unstructured clinical notes and structured claims data through authorized connectors.",
+            "sourceIds": [
+              "aws-9"
+            ]
+          },
+          {
+            "text": "AWS clarifies that HIPAA eligibility of a service is a building block and does not automatically render a customer's entire environment HIPAA compliant.",
+            "sourceIds": [
+              "aws-9"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-9",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-announces-hipaa-eligible-amazon-quick.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS công bố Amazon Quick đạt tiêu chuẩn HIPAA",
+          "en": "AWS Announces HIPAA-Eligible Status for Amazon Quick",
+          "es": "AWS anuncia la elegibilidad HIPAA para Amazon Quick"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-sagemaker-training-session-apis",
       "reportingMode": "official-announcement",
