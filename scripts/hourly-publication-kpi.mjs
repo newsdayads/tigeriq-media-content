@@ -7,6 +7,20 @@ import {pathToFileURL} from "node:url";
 const HOUR=/^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])T(?:[01]\d|2[0-3]):00:00Z$/;
 const PUBLISHED_AT=/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/;
 const NATIVE_PROOF="NOT_VERIFIED_BY_GITHUB_INPUT";
+const ORIGINAL_COVER_PREFIX="https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/";
+
+// A timestamp is not a published product. A counted hourly story must carry
+// all three native editions and its own original, canonical SVG cover.
+// This local gate cannot attest live HTTP or the Cloudflare trigger.
+function hasPublicationArtifacts(article){
+  const slug=article?.slug;
+  return typeof slug==="string"&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)&&
+    ["vi","en","es"].every(lang=>
+      typeof article?.editions?.[lang]?.title==="string"&&
+      article.editions[lang].title.trim().length>0)&&
+    article?.cover?.generated===true&&
+    article.cover.url===ORIGINAL_COVER_PREFIX+slug+".svg";
+}
 
 function validUtcHour(value){
   if(typeof value!=="string"||!HOUR.test(value))return null;
@@ -48,17 +62,20 @@ export function evaluateHourlyPublication({eventName,schedulerOrigin,scheduledHo
     code:"INVALID_EVALUATION_TIME",hourUtc,cloudflareNativeEvent:NATIVE_PROOF};
   // The product contract is EXACTLY one new article per UTC hour, not merely
   // at least one. A duplicate must fail CI even if one story is legitimate.
-  const committedStoryCount=Array.isArray(store?.articles)?store.articles.filter(article=>{
+  const inHour=Array.isArray(store?.articles)?store.articles.filter(article=>{
     const value=article?.publishedAt;
     if(typeof value!=="string"||!PUBLISHED_AT.test(value))return false;
     const time=Date.parse(value);
     return Number.isFinite(time)&&time<=evaluationTime&&
       new Date(time).toISOString().slice(0,19)===value.slice(0,19)&&
       new Date(time).toISOString().slice(0,13)===hourUtc.slice(0,13);
-  }).length:0;
-  const passed=committedStoryCount===1;
+  }):[];
+  const committedStoryCount=inHour.length;
+  const artifactComplete=committedStoryCount===1&&hasPublicationArtifacts(inHour[0]);
+  const passed=committedStoryCount===1&&artifactComplete;
   const code=committedStoryCount===0?"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY":
-    passed?"COMMITTED_STORY_PRESENT":"MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR";
+    committedStoryCount>1?"MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR":
+      artifactComplete?"COMMITTED_STORY_PRESENT":"INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION";
   return {enforced:true,passed,code,committedStoryCount,
     hourUtc,cloudflareNativeEvent:NATIVE_PROOF};
 }
