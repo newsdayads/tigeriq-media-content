@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T05:17:49.166Z",
+  "updatedAt": "2026-10-24T07:17:48.716Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-sagemaker-cdk-autoscaling-orchestration",
+      "reportingMode": "official-announcement",
+      "category": "Cloud Infrastructure",
+      "storyId": "tigeriq:aws-sagemaker-cdk-autoscaling-orchestration",
+      "clusterKey": "news:cdca73aa8110684158f9a244e21097a40758297226a4cf70ea2d7ccdac3e800e",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T07:17:48.716Z",
+      "modifiedAt": "2026-10-24T07:17:48.716Z",
+      "editions": {
+        "vi": {
+          "title": "AWS giới thiệu giải pháp tự động hóa mở rộng quy mô SageMaker AI",
+          "dek": "Theo công bố của AWS. AWS công bố cấu trúc CDK mới giúp quản lý tự động việc đăng ký và hủy đăng ký mục tiêu mở rộng quy mô cho các điểm cuối SageMaker AI.",
+          "takeaways": [
+            "Giải pháp sử dụng tài nguyên tùy chỉnh CloudFormation để xử lý các lỗi cập nhật điểm cuối.",
+            "Tự động hóa quy trình hủy đăng ký mục tiêu trước khi cập nhật cấu hình.",
+            "Đảm bảo tính nhất quán của chính sách mở rộng quy mô sau khi cập nhật thành công."
+          ],
+          "sections": [
+            {
+              "heading": "Giải quyết thách thức triển khai",
+              "body": "AWS cho biết việc cập nhật cấu hình điểm cuối SageMaker AI khi đang bật tính năng tự động mở rộng quy mô thường gây ra lỗi triển khai do xung đột với CloudFormation. Giải pháp mới sử dụng các tài nguyên tùy chỉnh để điều phối việc hủy đăng ký mục tiêu trước khi cập nhật và đăng ký lại sau khi điểm cuối đạt trạng thái InService."
+            },
+            {
+              "heading": "Cơ chế hoạt động của cấu trúc CDK",
+              "body": "Cấu trúc này thay thế các tài nguyên gốc bằng ba tài nguyên tùy chỉnh, sử dụng mô hình hoàn thành không đồng bộ của nhà cung cấp CDK. Hệ thống bao gồm các trình xử lý sự kiện và kiểm tra trạng thái để đảm bảo quy trình diễn ra theo đúng thứ tự, giúp loại bỏ nhu cầu can thiệp thủ công vào các điểm cuối."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Announces CDK Orchestration for SageMaker AI Auto Scaling",
+          "dek": "According to AWS. AWS introduces a new CDK construct to automate the deregistration and registration of auto scaling targets during SageMaker AI endpoint updates.",
+          "takeaways": [
+            "Automates the deregistration of scalable targets to prevent deployment failures.",
+            "Uses custom CloudFormation resources to manage complex dependency ordering.",
+            "Ensures auto scaling policies are correctly re-applied after endpoint configuration changes."
+          ],
+          "sections": [
+            {
+              "heading": "Addressing Deployment Failures",
+              "body": "AWS reports that updating SageMaker AI endpoints with active auto scaling via CloudFormation or CDK often results in failures because the service requires targets to be deregistered first. The new CDK construct orchestrates this process by automatically removing the scalable target before the update and re-registering it once the endpoint reaches an InService status."
+            },
+            {
+              "heading": "Technical Implementation",
+              "body": "The solution replaces native CloudFormation resources with three custom resources that enforce explicit dependency ordering. By utilizing the CDK provider’s asynchronous completion pattern, the construct manages the lifecycle of the endpoint update, including wait times for readiness checks, without requiring manual intervention from the user."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS anuncia orquestación con CDK para el autoescalado de SageMaker AI",
+          "dek": "Según AWS. AWS presenta un nuevo constructo de CDK para automatizar el registro y la eliminación de objetivos de autoescalado durante las actualizaciones de endpoints de SageMaker AI.",
+          "takeaways": [
+            "Automatiza la eliminación de objetivos escalables para evitar errores en el despliegue.",
+            "Utiliza recursos personalizados de CloudFormation para gestionar el orden de las dependencias.",
+            "Garantiza que las políticas de autoescalado se vuelvan a aplicar tras los cambios de configuración."
+          ],
+          "sections": [
+            {
+              "heading": "Solución a los fallos de despliegue",
+              "body": "AWS informa que las actualizaciones de endpoints de SageMaker AI con autoescalado activo suelen fallar debido a que el servicio requiere la eliminación previa del objetivo escalable. El nuevo constructo de CDK soluciona este problema mediante la orquestación automática de la eliminación antes de la actualización y el registro posterior una vez que el endpoint está operativo."
+            },
+            {
+              "heading": "Implementación técnica",
+              "body": "La solución reemplaza los recursos nativos de CloudFormation con tres recursos personalizados que fuerzan un orden de dependencia explícito. Mediante el uso del patrón de finalización asíncrona del proveedor de CDK, el constructo gestiona el ciclo de vida de la actualización del endpoint, incluyendo comprobaciones de estado, sin necesidad de intervención manual."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-2",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/",
+            "title": "Orchestrating SageMaker AI endpoint auto scaling with AWS CDK"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS has introduced a reusable CDK construct to automate the deregistration and registration of SageMaker AI auto scaling targets during endpoint configuration updates.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          },
+          {
+            "text": "The solution utilizes AWS CloudFormation custom resources to manage dependency ordering, preventing deployment failures that occur when updating endpoints with active auto scaling.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-2",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-sagemaker-cdk-autoscaling-orchestration.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS giới thiệu giải pháp tự động hóa mở rộng quy mô SageMaker AI",
+          "en": "AWS Announces CDK Orchestration for SageMaker AI Auto Scaling",
+          "es": "AWS anuncia orquestación con CDK para el autoescalado de SageMaker AI"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-public-monitoring-updates",
       "reportingMode": "official-announcement",
