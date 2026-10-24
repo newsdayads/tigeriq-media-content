@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T19:00:23.263Z",
+  "updatedAt": "2026-10-24T20:17:50.349Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-sagemaker-tts-auto-scaling-optimization",
+      "reportingMode": "official-announcement",
+      "category": "Cloud Infrastructure",
+      "storyId": "tigeriq:aws-sagemaker-tts-auto-scaling-optimization",
+      "clusterKey": "news:3d83e200a37da707fbadc4cf41e566d99a2167db5ab5225298dc7fba9fcc8bd7",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T20:17:50.349Z",
+      "modifiedAt": "2026-10-24T20:17:50.349Z",
+      "editions": {
+        "vi": {
+          "title": "AWS tối ưu hóa tự động mở rộng cho mô hình chuyển văn bản thành giọng nói",
+          "dek": "Theo công bố của AWS. AWS giới thiệu phương pháp đo lường thực tế để thay thế việc dự đoán thủ công các ngưỡng tự động mở rộng trên Amazon SageMaker AI.",
+          "takeaways": [
+            "Sử dụng phép đo Q_max và T_total để xác định chính xác ngưỡng mở rộng thay vì phỏng đoán.",
+            "Tận dụng chỉ số ConcurrentRequestsPerModel có sẵn từ Amazon SageMaker AI để quản lý tải.",
+            "Triển khai mô hình Kokoro-82M thông qua AWS CDK với các kiểm soát an toàn nghiêm ngặt."
+          ],
+          "sections": [
+            {
+              "heading": "Vấn đề với việc dự đoán ngưỡng",
+              "body": "Theo AWS, việc đặt ngưỡng tự động mở rộng dựa trên phỏng đoán thường dẫn đến hai rủi ro: lãng phí tài nguyên GPU khi đặt quá thấp hoặc không đáp ứng được yêu cầu về độ trễ (SLO) khi lưu lượng truy cập tăng đột biến. Các mô hình chuyển văn bản thành giọng nói (TTS) không tuân theo các mô hình lưu lượng thông thường của LLM, khiến việc thiết lập thủ công trở nên kém hiệu quả."
+            },
+            {
+              "heading": "Giải pháp đo lường thực tế",
+              "body": "AWS đề xuất thay thế phỏng đoán bằng hai phép đo thực tế: Q_max (số lượng yêu cầu đồng thời tối đa một phiên bản có thể xử lý trong giới hạn SLO) và T_total (thời gian cần thiết để hoàn thành quá trình mở rộng). Phương pháp này sử dụng chỉ số ConcurrentRequestsPerModel do Amazon SageMaker AI tự xuất bản, giúp loại bỏ các lỗi cấu hình liên quan đến chỉ số tùy chỉnh."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Introduces Data-Driven Auto Scaling for TTS on SageMaker AI",
+          "dek": "According to AWS. AWS provides a new framework to replace guessed auto-scaling targets with empirical measurements for text-to-speech deployments.",
+          "takeaways": [
+            "Replaces guesswork with Q_max and T_total measurements for precise scaling thresholds.",
+            "Leverages native ConcurrentRequestsPerModel metrics to ensure reliable auto-scaling behavior.",
+            "Uses AWS CDK to gate production deployments until performance measurements are verified."
+          ],
+          "sections": [
+            {
+              "heading": "The Challenge of TTS Scaling",
+              "body": "AWS states that traditional auto-scaling policies for text-to-speech (TTS) often rely on guessed target values, which can lead to silent failures. Because TTS requests hold connections open for several seconds without a token-generation loop, standard metrics used for LLMs are ineffective, often resulting in either idle GPU resources or breached service level objectives during traffic spikes."
+            },
+            {
+              "heading": "Measurement-Based Deployment",
+              "body": "The new solution deploys the Kokoro-82M model in a custom container, using two specific measurements—Q_max and T_total—to derive scaling thresholds. By utilizing the native ConcurrentRequestsPerModel metric published by Amazon SageMaker AI, the system avoids the complexity of custom metric instrumentation and ensures that scaling policies are only synthesized once a feasible performance plan is established."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS optimiza el escalado automático para modelos TTS en SageMaker AI",
+          "dek": "Según AWS. AWS presenta un método basado en mediciones reales para reemplazar las estimaciones manuales en el escalado automático de modelos de voz.",
+          "takeaways": [
+            "Utiliza mediciones de Q_max y T_total para establecer umbrales de escalado precisos.",
+            "Emplea la métrica nativa ConcurrentRequestsPerModel para evitar errores de instrumentación.",
+            "Implementa controles de seguridad mediante AWS CDK para validar el escalado antes de producción."
+          ],
+          "sections": [
+            {
+              "heading": "Limitaciones de las estimaciones manuales",
+              "body": "AWS señala que las políticas de escalado automático basadas en suposiciones para modelos de texto a voz (TTS) suelen fallar silenciosamente. Al no existir un bucle de generación de tokens, las métricas estándar no reflejan la carga real, lo que provoca que los recursos GPU permanezcan inactivos o que el sistema no cumpla con los objetivos de latencia durante picos de tráfico."
+            },
+            {
+              "heading": "Enfoque basado en datos",
+              "body": "La solución implementa el modelo Kokoro-82M en un contenedor personalizado, utilizando mediciones directas de Q_max y T_total para calcular los umbrales de escalado. Al basarse en la métrica nativa ConcurrentRequestsPerModel de Amazon SageMaker AI, el sistema garantiza que las políticas de escalado sean precisas y que los recursos de infraestructura solo se desplieguen tras una validación técnica del rendimiento."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/stop-guessing-auto-scaling-targets-for-tts-on-amazon-sagemaker-ai/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-11",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/stop-guessing-auto-scaling-targets-for-tts-on-amazon-sagemaker-ai/",
+            "title": "Stop guessing auto scaling targets for TTS on Amazon SageMaker AI"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS has introduced a methodology for Amazon SageMaker AI that replaces guessed auto-scaling targets for text-to-speech (TTS) models with values derived from empirical performance measurements.",
+            "sourceIds": [
+              "aws-11"
+            ]
+          },
+          {
+            "text": "The solution utilizes the native 'ConcurrentRequestsPerModel' metric published by Amazon SageMaker AI to manage scaling, avoiding the need for custom instrumentation.",
+            "sourceIds": [
+              "aws-11"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-11",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/stop-guessing-auto-scaling-targets-for-tts-on-amazon-sagemaker-ai/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-sagemaker-tts-auto-scaling-optimization.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS tối ưu hóa tự động mở rộng cho mô hình chuyển văn bản thành giọng nói",
+          "en": "AWS Introduces Data-Driven Auto Scaling for TTS on SageMaker AI",
+          "es": "AWS optimiza el escalado automático para modelos TTS en SageMaker AI"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-kokoro-tts-streaming-sagemaker",
       "reportingMode": "official-announcement",
