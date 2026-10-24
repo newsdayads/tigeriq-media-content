@@ -6,6 +6,11 @@ import {join} from "node:path";
 import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
+const completeHourlyStory=(slug,publishedAt)=>({
+  slug,publishedAt,
+  editions:{vi:{title:"Vietnamese headline"},en:{title:"English headline"},es:{title:"Spanish headline"}},
+  cover:{generated:true,url:"https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/"+slug+".svg"}
+});
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
 const feeds=[{id:"openai",url:"https://openai.com/news/rss.xml"},{id:"google",url:"https://blog.google/technology/ai/rss/"}];
 const item=(url)=>"<rss><item><title>Two-source inference evaluation announcement</title><link>"+url+
@@ -947,7 +952,7 @@ test("completed UTC hour remains an idempotent NOOP even if AI configuration is 
    now:new Date(now.getTime()+60*60*1000),feeds
  }),/AI_PROVIDER_NOT_CONFIGURED/);
  assert.equal(networkCalls,0);
-}, {articles:[{slug:"hourly-story-already-live",publishedAt:now.toISOString()}]}));
+}, {articles:[completeHourlyStory("hourly-story-already-live",now.toISOString())]}));
 
 test("missing provider blocks before any external request",()=>tmp(async root=>{
  await assert.rejects(()=>publish({root,fetchImpl:()=>{throw Error("must not request")},env:{},now,feeds}),/AI_PROVIDER_NOT_CONFIGURED/);
@@ -2367,6 +2372,39 @@ test("Hourly publisher guard recognizes one existing real publication per UTC ho
  assert.equal(alreadyPublishedInUtcHour([],new Date("2026-10-20T11:42:00Z")),false);
 });
 
+test("a timestamp-only same-hour record is never a successful NOOP or a reason to call AI",()=>tmp(async root=>{
+  const original=await fs.readFile(join(root,"content.json"),"utf8");
+  let calls=0;
+  await assert.rejects(()=>publish({root,feeds,now,
+    env:{NEWS_HOURLY_PUBLISH_LIMIT:"true"},
+    fetchImpl:async()=>{calls++;throw Error("NETWORK_MUST_NOT_BE_CALLED");}
+  }),/INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION/);
+  assert.equal(calls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+}, {articles:[{slug:"incomplete-published-record",publishedAt:now.toISOString()}]}));
+
+test("wrong cover, missing locale, and duplicate same-hour stories fail before provider calls",async()=>{
+  const complete=completeHourlyStory("real-story",now.toISOString());
+  const invalid=[
+    [{...complete,cover:{...complete.cover,url:complete.cover.url.replace("real-story.svg","wrong-story.svg")}}],
+    [{...complete,editions:{vi:complete.editions.vi,en:complete.editions.en}}],
+    [complete,completeHourlyStory("second-story",new Date(now.getTime()+1000).toISOString())]
+  ];
+  for(const articles of invalid){
+    await tmp(async root=>{
+      let calls=0;
+      const original=await fs.readFile(join(root,"content.json"),"utf8");
+      await assert.rejects(()=>publish({root,feeds,now:new Date(now.getTime()+120000),
+        env:{NEWS_HOURLY_PUBLISH_LIMIT:"true"},
+        fetchImpl:async()=>{calls++;throw Error("NETWORK_MUST_NOT_BE_CALLED");}
+      }),articles.length>1?/MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR/:
+        /INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION/);
+      assert.equal(calls,0);
+      assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),original);
+    },{articles});
+  }
+});
+
 test("second cron in an already-published UTC hour ignores later upstream feed outages",()=>tmp(async root=>{
   const before=await fs.readFile(join(root,"content.json"),"utf8");
   let networkCalls=0;
@@ -2382,7 +2420,7 @@ test("second cron in an already-published UTC hour ignores later upstream feed o
     /FEED_QUORUM_UNAVAILABLE/,
     "the next UTC hour still fails closed when no official feed is readable");
   assert.equal(networkCalls,2,"the next hour must attempt both configured feeds");
-}, {articles:[{slug:"verified-earlier-hour",publishedAt:now.toISOString()}]}));
+}, {articles:[completeHourlyStory("verified-earlier-hour",now.toISOString())]}));
 
 test("visual cover illustrates story subject instead of reusing the old title-only card",()=>{
   const topics=[
