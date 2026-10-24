@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T08:17:48.702Z",
+  "updatedAt": "2026-10-24T10:17:47.657Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "bayer-deploys-agentic-decision-engine-on-aws",
+      "reportingMode": "official-announcement",
+      "category": "Enterprise AI",
+      "storyId": "tigeriq:bayer-deploys-agentic-decision-engine-on-aws",
+      "clusterKey": "news:a22e6be86e2aa912014578f97a69b9a48ec8cad0c4399446203d0c1ab9a8266f",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T10:17:47.657Z",
+      "modifiedAt": "2026-10-24T10:17:47.657Z",
+      "editions": {
+        "vi": {
+          "title": "Bayer triển khai hệ thống AI đại lý trên nền tảng AWS",
+          "dek": "Theo công bố của AWS. Bayer Crop Science ra mắt Agentic Decision Engine để tối ưu hóa quy trình ra quyết định trong nghiên cứu cây trồng.",
+          "takeaways": [
+            "Hệ thống ADE giải quyết 80% câu hỏi của người dùng mà không cần kỹ sư can thiệp.",
+            "Sử dụng Amazon Bedrock AgentCore để quản lý các tác nhân AI chuyên biệt.",
+            "Tích hợp LangGraph để điều phối các quy trình làm việc phức tạp."
+          ],
+          "sections": [
+            {
+              "heading": "Giải pháp AI cho nông nghiệp",
+              "body": "Bayer Crop Science đã xây dựng Agentic Decision Engine (ADE) nhằm giải quyết các thách thức trong việc phân tích dữ liệu khổng lồ từ gen, thử nghiệm thực địa và hình ảnh. Hệ thống này cho phép các nhà nghiên cứu truy vấn thông tin thông qua giao diện ngôn ngữ tự nhiên thay vì phải điều hướng qua nhiều hệ thống kỹ thuật phức tạp."
+            },
+            {
+              "heading": "Kiến trúc và vận hành",
+              "body": "ADE vận hành dựa trên 22 tác nhân chuyên biệt được điều phối bởi một tác nhân giám sát. Hệ thống sử dụng Amazon Bedrock AgentCore để quản lý vòng đời của các tác nhân, đồng thời tích hợp LangGraph để kiểm soát luồng công việc. Việc triển khai này giúp giảm thời gian chẩn đoán lỗi hệ thống từ hơn một giờ xuống còn dưới 10 phút."
+            }
+          ]
+        },
+        "en": {
+          "title": "Bayer Launches Agentic Decision Engine on Amazon Bedrock",
+          "dek": "According to AWS. Bayer Crop Science utilizes AWS infrastructure to automate complex decision-making processes for its global plant breeding operations.",
+          "takeaways": [
+            "The ADE system resolves 80% of user queries without human engineer intervention.",
+            "Amazon Bedrock AgentCore provides the runtime and security framework for the agents.",
+            "The system utilizes 22 specialized agents to handle domain-specific data and tasks."
+          ],
+          "sections": [
+            {
+              "heading": "Automating Complex Workflows",
+              "body": "Bayer Crop Science has deployed an Agentic Decision Engine (ADE) to streamline data-heavy plant breeding decisions. By implementing a multi-agent architecture, the system allows researchers to retrieve insights from genomics, field trials, and environmental data without manually navigating disparate operational stacks."
+            },
+            {
+              "heading": "Technical Implementation",
+              "body": "The engine runs on Amazon Bedrock AgentCore, which provides managed runtime and session isolation. The architecture includes 22 specialized agents that perform tasks ranging from troubleshooting workflow failures to generating visualizations. According to Bayer, this automation has significantly reduced the time required for technical diagnostics."
+            }
+          ]
+        },
+        "es": {
+          "title": "Bayer implementa un motor de decisiones basado en agentes en AWS",
+          "dek": "Según AWS. Bayer Crop Science lanza una plataforma de IA para automatizar el análisis de datos en sus procesos de mejora genética vegetal.",
+          "takeaways": [
+            "El motor ADE resuelve el 80% de las consultas de los usuarios de forma autónoma.",
+            "La plataforma utiliza Amazon Bedrock AgentCore para la gestión de agentes a escala.",
+            "Se integran 22 agentes especializados para tareas de diagnóstico y análisis."
+          ],
+          "sections": [
+            {
+              "heading": "Optimización de la toma de decisiones",
+              "body": "Bayer Crop Science ha desarrollado el Agentic Decision Engine (ADE) para simplificar el acceso a datos complejos de investigación agrícola. A través de una interfaz de lenguaje natural, los usuarios pueden obtener respuestas sobre el estado de los modelos de aprendizaje automático y los resultados de los ensayos sin necesidad de intervención técnica manual."
+            },
+            {
+              "heading": "Arquitectura del sistema",
+              "body": "El sistema se basa en una arquitectura de cuatro capas que utiliza Amazon Bedrock AgentCore para el despliegue y la orquestación. Con 22 agentes especializados, el motor puede clasificar intenciones y recuperar información de diversas fuentes, logrando reducir el tiempo de diagnóstico de fallos operativos de más de una hora a menos de diez minutos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-4",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/",
+            "title": "How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Bayer Crop Science developed an Agentic Decision Engine (ADE) using Amazon Bedrock AgentCore to automate complex data analysis for plant breeding workflows.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "The company reports that the ADE system currently resolves approximately 80 percent of user inquiries without requiring manual intervention from engineers.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-4",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/bayer-deploys-agentic-decision-engine-on-aws.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Bayer triển khai hệ thống AI đại lý trên nền tảng AWS",
+          "en": "Bayer Launches Agentic Decision Engine on Amazon Bedrock",
+          "es": "Bayer implementa un motor de decisiones basado en agentes en AWS"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-quick-sight-geojson-update",
       "reportingMode": "official-announcement",
