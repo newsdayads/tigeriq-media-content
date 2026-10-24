@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import {randomUUID,createHash} from "node:crypto";
 import {join} from "node:path";
 import {pathToFileURL} from "node:url";
+import {hasPublicationArtifacts} from "./hourly-publication-kpi.mjs";
 
 export const FEEDS=[
   {id:"openai",url:"https://openai.com/news/rss.xml"},
@@ -813,10 +814,10 @@ export function officialFetchCandidates(items,articles){
   return selected;
 }
 
-export function alreadyPublishedInUtcHour(articles,now){
+export function publishedRecordsInUtcHour(articles,now){
   const hourStart=Date.parse(now.toISOString().slice(0,13)+":00:00.000Z");
   const currentTime=now.getTime();
-  return Array.isArray(articles)&&articles.some(article=>{
+  return Array.isArray(articles)?articles.filter(article=>{
     const value=article?.publishedAt;
     // Never let a malformed, impossible or future timestamp suppress the
     // actual hourly publisher. Prefix matching alone accepted 06:garbage.
@@ -826,7 +827,11 @@ export function alreadyPublishedInUtcHour(articles,now){
     const published=Date.parse(value);
     return Number.isFinite(published)&&published>=hourStart&&published<=currentTime&&
       new Date(published).toISOString().slice(0,19)===value.slice(0,19);
-  });
+  }):[];
+}
+
+export function alreadyPublishedInUtcHour(articles,now){
+  return publishedRecordsInUtcHour(articles,now).length>0;
 }
 
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
@@ -839,9 +844,19 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   // Both GitHub-native and external cron may dispatch in one hour.
   // In the production workflow, one accepted article ends that UTC hour.
   // NOOP here is not a missed hour: a public story already exists.
-  if(env.NEWS_HOURLY_PUBLISH_LIMIT==="true"&&alreadyPublishedInUtcHour(store.articles,now)){
-    console.log("NOOP_HOURLY_ARTICLE_ALREADY_PUBLISHED");
-    return {status:"noop"};
+  if(env.NEWS_HOURLY_PUBLISH_LIMIT==="true"){
+    const sameHour=publishedRecordsInUtcHour(store.articles,now);
+    if(sameHour.length>1)throw Error("MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR");
+    if(sameHour.length===1){
+      // Keep the publisher and post-commit KPI on the same product contract.
+      // A timestamp-only/partial record must not masquerade as a completed
+      // article; do not spend provider credits or create a second competing
+      // article in the same UTC hour while this corrupt record exists.
+      if(!hasPublicationArtifacts(sameHour[0]))
+        throw Error("INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION");
+      console.log("NOOP_HOURLY_ARTICLE_ALREADY_PUBLISHED");
+      return {status:"noop"};
+    }
   }
   // An already-satisfied hour needs neither a configured AI provider nor an
   // upstream request; still require provider validation for any new story.

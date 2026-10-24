@@ -12,7 +12,7 @@ const ORIGINAL_COVER_PREFIX="https://raw.githubusercontent.com/newsdayads/tigeri
 // A timestamp is not a published product. A counted hourly story must carry
 // all three native editions and its own original, canonical SVG cover.
 // This local gate cannot attest live HTTP or the Cloudflare trigger.
-function hasPublicationArtifacts(article){
+export function hasPublicationArtifacts(article){
   const slug=article?.slug;
   return typeof slug==="string"&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)&&
     ["vi","en","es"].every(lang=>
