@@ -36,7 +36,7 @@ test("a real committed article in the same hour passes both scheduled routes",()
 
 test("two distinct stories in the same UTC hour must fail the exact-one gate for both scheduled routes",()=>{
   const duplicated={articles:[story("2026-10-23T22:17:50.063Z"),
-    {...story("2026-10-23T22:39:00.000Z"),slug:"another-verified-story"}]};
+    {...story("2026-10-23T22:19:00.000Z"),slug:"another-verified-story"}]};
   for(const route of [github,cloudflare]){
     const result=evaluateHourlyPublication({...route,store:duplicated});
     assert.equal(result.enforced,true);
@@ -45,6 +45,49 @@ test("two distinct stories in the same UTC hour must fail the exact-one gate for
     assert.equal(result.committedStoryCount,2);
     assert.equal(result.cloudflareNativeEvent,"NOT_VERIFIED_BY_GITHUB_INPUT");
   }
+});
+
+test("normalized impossible February dates cannot fabricate a March publication",()=>{
+  // Node Date.parse historically accepts Feb 30 as March 2.
+  assert.equal(new Date(Date.parse("2026-02-30T22:17:50Z")).toISOString(),
+    "2026-03-02T22:17:50.000Z");
+  const input={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
+    scheduledHourUtc:"2026-03-02T22:00:00Z",now:new Date("2026-03-02T22:47:00Z")};
+  const fake=evaluateHourlyPublication({...input,store:{articles:[
+    story("2026-02-30T22:17:50Z")]}});
+  assert.equal(fake.passed,false);
+  assert.equal(fake.committedStoryCount,0);
+  assert.equal(fake.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+  const valid=evaluateHourlyPublication({...input,store:{articles:[
+    story("2026-03-02T22:17:50Z")]}});
+  assert.equal(valid.passed,true);
+  assert.equal(valid.committedStoryCount,1);
+});
+
+test("future articles in the target hour must not masquerade as already committed",()=>{
+  const claimed={articles:[story("2026-10-24T08:59:00Z")]};
+  const invalid={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
+    scheduledHourUtc:"2026-10-24T08:00:00Z",now:new Date("2026-10-24T08:25:00Z")};
+  const cloud=evaluateHourlyPublication({...invalid,store:claimed});
+  assert.equal(cloud.passed,false);
+  assert.equal(cloud.committedStoryCount,0);
+  assert.equal(cloud.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+  const backup=evaluateHourlyPublication({eventName:"schedule",
+    now:new Date("2026-10-24T08:48:00Z"),store:claimed});
+  assert.equal(backup.hourUtc,"2026-10-24T08:00:00Z");
+  assert.equal(backup.passed,false);
+  const after=evaluateHourlyPublication({...invalid,
+    now:new Date("2026-10-24T08:59:01Z"),store:claimed});
+  assert.equal(after.passed,true);
+});
+
+test("invalid current time cannot turn a valid Cloudflare-input story into KPI PASS",()=>{
+  const result=evaluateHourlyPublication({...cloudflare,now:new Date("bad-date"),
+    store:{articles:[story()]}});
+  assert.equal(result.enforced,true);
+  assert.equal(result.passed,false);
+  assert.equal(result.code,"INVALID_EVALUATION_TIME");
+  assert.equal(result.cloudflareNativeEvent,"NOT_VERIFIED_BY_GITHUB_INPUT");
 });
 
 test("off-hour stories and malformed timestamps cannot inflate the current-hour count",()=>{
