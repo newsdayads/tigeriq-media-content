@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-24T07:17:48.716Z",
+  "updatedAt": "2026-10-24T08:17:48.702Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-quick-sight-geojson-update",
+      "reportingMode": "official-announcement",
+      "category": "Business Intelligence",
+      "storyId": "tigeriq:aws-quick-sight-geojson-update",
+      "clusterKey": "news:3766e8dad4583ed660611aa339bc74397fd558fca11d7ee720da78675244dc4e",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T08:17:48.702Z",
+      "modifiedAt": "2026-10-24T08:17:48.702Z",
+      "editions": {
+        "vi": {
+          "title": "Amazon Quick Sight bổ sung hỗ trợ GeoJSON cho điểm và tuyến đường",
+          "dek": "Theo công bố của AWS. Người dùng hiện có thể trực quan hóa các vị trí cụ thể và lộ trình di chuyển trên bản đồ lớp trong Amazon Quick Sight.",
+          "takeaways": [
+            "Hỗ trợ thêm định dạng Point và LineString cho tệp GeoJSON.",
+            "Cho phép vẽ lộ trình di chuyển như chuyến bay hoặc tuyến giao hàng.",
+            "Yêu cầu tệp GeoJSON có kích thước tối đa 100 MB.",
+            "Cần khóa liên kết chung giữa tập dữ liệu Quick Sight và tệp GeoJSON."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng khả năng bản đồ",
+              "body": "Amazon Quick Sight đã nâng cấp tính năng bản đồ lớp (layer maps) để hỗ trợ hai loại hình học mới là Point (điểm) và LineString (đường thẳng). Trước đây, tính năng này chủ yếu tập trung vào các vùng địa lý thông qua tệp GeoJSON. Với cập nhật mới, người dùng có thể biểu diễn các vị trí cửa hàng cụ thể hoặc các tuyến đường kết nối giữa các điểm, giúp phân tích dữ liệu không gian chi tiết hơn."
+            },
+            {
+              "heading": "Yêu cầu kỹ thuật và cấu hình",
+              "body": "Để sử dụng tính năng này, người dùng cần chuẩn bị tệp GeoJSON với kích thước tối đa 100 MB và một tập dữ liệu Quick Sight tương ứng. Việc kết nối giữa hai nguồn dữ liệu được thực hiện thông qua một khóa chung (join key). Người dùng có thể tùy chỉnh màu sắc, độ rộng và độ mờ của các đường kẻ để tăng tính trực quan cho báo cáo kinh doanh."
+            }
+          ]
+        },
+        "en": {
+          "title": "Amazon Quick Sight Adds GeoJSON Support for Points and Routes",
+          "dek": "According to AWS. New geometry types enable users to plot specific locations and paths directly onto layer map visuals.",
+          "takeaways": [
+            "Layer maps now support Point and LineString GeoJSON geometry types.",
+            "Users can visualize specific paths like delivery routes or flight trajectories.",
+            "GeoJSON files are limited to a maximum size of 100 MB.",
+            "Data integration requires a shared join key between the dataset and GeoJSON file."
+          ],
+          "sections": [
+            {
+              "heading": "Expanded Geospatial Visualization",
+              "body": "Amazon Quick Sight has updated its layer map visuals to include support for Point and LineString geometries. While previous iterations focused on custom shape layers like sales territories, this update allows for the plotting of individual facility sites and the paths connecting them. This functionality is designed to help businesses identify patterns related to movement, such as shipping lanes or pipeline segments."
+            },
+            {
+              "heading": "Implementation and Configuration",
+              "body": "To implement these features, users must provide a GeoJSON file alongside a Quick Sight dataset, linked by a shared key. The system allows for precise control over the viewport and visual styling, including line width and opacity. While point maps offer automated geocoding, the new GeoJSON point layer provides explicit coordinate control, enabling users to lock maps to specific geographic regions."
+            }
+          ]
+        },
+        "es": {
+          "title": "Amazon Quick Sight añade soporte GeoJSON para puntos y rutas",
+          "dek": "Según AWS. Las nuevas capacidades permiten visualizar ubicaciones específicas y trayectorias en los mapas de capas.",
+          "takeaways": [
+            "Soporte añadido para geometrías Point y LineString en archivos GeoJSON.",
+            "Permite trazar rutas de entrega, vuelos y ubicaciones de instalaciones.",
+            "Los archivos GeoJSON deben tener un tamaño máximo de 100 MB.",
+            "Se requiere una clave de unión compartida para vincular datos y geometrías."
+          ],
+          "sections": [
+            {
+              "heading": "Nuevas capacidades de visualización",
+              "body": "Amazon Quick Sight ha ampliado sus mapas de capas para incluir soporte para geometrías de tipo Point y LineString. Esta actualización permite a los usuarios representar ubicaciones individuales y rutas conectadas, superando la limitación anterior que se centraba principalmente en áreas y distritos. Esta herramienta es útil para empresas que necesitan analizar patrones de movimiento y logística."
+            },
+            {
+              "heading": "Configuración de datos",
+              "body": "La configuración requiere un archivo GeoJSON de hasta 100 MB y un conjunto de datos de Quick Sight, unidos mediante una clave común. Los usuarios pueden personalizar la apariencia de las líneas, incluyendo el ancho y la opacidad, para mejorar la claridad visual. Además, esta función permite un control preciso sobre el visor, permitiendo bloquear regiones geográficas específicas según las necesidades del análisis."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-3",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/",
+            "title": "Visualize points and routes with GeoJSON in Amazon Quick Sight layer maps"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Amazon Quick Sight layer maps now support Point and LineString geometry types via GeoJSON files.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          },
+          {
+            "text": "The update allows users to visualize specific locations and routes, such as delivery paths or flight trajectories, alongside existing polygon support.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-3",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-quick-sight-geojson-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Amazon Quick Sight bổ sung hỗ trợ GeoJSON cho điểm và tuyến đường",
+          "en": "Amazon Quick Sight Adds GeoJSON Support for Points and Routes",
+          "es": "Amazon Quick Sight añade soporte GeoJSON para puntos y rutas"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-sagemaker-cdk-autoscaling-orchestration",
       "reportingMode": "official-announcement",
