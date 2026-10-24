@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T12:14:05.226Z",
+  "updatedAt": "2026-10-24T14:17:52.505Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-launches-sagemaker-ai-serverless-training-sessions",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:aws-launches-sagemaker-ai-serverless-training-sessions",
+      "clusterKey": "news:1a3bce00f073db85e21f3dcd37b29f56580944fb1e50d748be6953ff5be2896e",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T14:17:52.505Z",
+      "modifiedAt": "2026-10-24T14:17:52.505Z",
+      "editions": {
+        "vi": {
+          "title": "AWS ra mắt tính năng tùy chỉnh mô hình AI không cần quản lý GPU",
+          "dek": "Theo công bố của AWS. Amazon SageMaker AI giới thiệu các phiên đào tạo serverless giúp nhà phát triển tùy chỉnh mô hình mà không cần lo lắng về hạ tầng phần cứng.",
+          "takeaways": [
+            "Người dùng có thể tùy chỉnh mô hình bằng các kỹ thuật như SFT, DPO và RLVR mà không cần quản lý cụm GPU.",
+            "Nền tảng tự động xử lý việc phân bổ GPU, thực thi phân tán và lưu trữ các điểm kiểm tra (checkpoint).",
+            "Hỗ trợ các mô hình phổ biến như gpt-oss-20b, gemma-4-31B-it và dòng Qwen3."
+          ],
+          "sections": [
+            {
+              "heading": "Tùy chỉnh mô hình linh hoạt",
+              "body": "Amazon SageMaker AI hiện cung cấp các phiên đào tạo serverless cho phép nhà phát triển viết và điều phối vòng lặp đào tạo của riêng họ. Người dùng có quyền kiểm soát logic hậu đào tạo, bao gồm các hàm mất mát tùy chỉnh hoặc tín hiệu phần thưởng, trong khi AWS đảm nhận các tác vụ nặng về GPU như phân bổ tài nguyên và phục hồi lỗi."
+            },
+            {
+              "heading": "Hỗ trợ học tăng cường đa vòng",
+              "body": "Tính năng mới đặc biệt hỗ trợ các quy trình học tăng cường đa vòng (multi-turn RL), vốn thường phức tạp khi triển khai trên hạ tầng truyền thống. Người dùng có thể định nghĩa các hàm phần thưởng và giai đoạn RL trong một vòng lặp duy nhất, giúp tối ưu hóa hiệu suất cho các tác nhân AI thực hiện các nhiệm vụ phức tạp."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Announces Serverless Training Sessions for SageMaker AI",
+          "dek": "According to AWS. Amazon SageMaker AI introduces a new way to customize foundation models by offloading infrastructure management to the platform.",
+          "takeaways": [
+            "Users can now execute custom training loops and loss functions without managing underlying GPU clusters.",
+            "The platform automates GPU allocation, distributed execution, and fault recovery for model customization.",
+            "Supports multiple customization techniques including SFT, DPO, and multi-turn reinforcement learning."
+          ],
+          "sections": [
+            {
+              "heading": "Infrastructure-Free Customization",
+              "body": "Amazon SageMaker AI serverless training sessions allow developers to customize models without the need to select instance types or manage clusters. By offloading the GPU-heavy work to AWS, users can focus on writing their own training logic, including custom loss functions and reward signals, while the platform handles distributed execution and checkpoint storage."
+            },
+            {
+              "heading": "Advanced Reinforcement Learning Support",
+              "body": "The new capability is designed to simplify complex multi-turn reinforcement learning workflows. Developers can now define their own reward functions and RL stages within a single loop, enabling more precise control over agent behavior. The service is available today with support for models including gpt-oss-20b, gemma-4-31B-it, and Qwen3 variants."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS lanza sesiones de entrenamiento serverless para SageMaker AI",
+          "dek": "Según AWS. Amazon SageMaker AI presenta una nueva forma de personalizar modelos de IA sin la necesidad de gestionar infraestructura de GPU.",
+          "takeaways": [
+            "Los usuarios pueden ejecutar bucles de entrenamiento personalizados sin gestionar clústeres de hardware.",
+            "La plataforma automatiza la asignación de GPU y la recuperación de fallos durante el entrenamiento.",
+            "Compatible con técnicas avanzadas como SFT, DPO y aprendizaje por refuerzo de múltiples turnos."
+          ],
+          "sections": [
+            {
+              "heading": "Personalización sin gestión de infraestructura",
+              "body": "Las nuevas sesiones de entrenamiento serverless de Amazon SageMaker AI permiten a los desarrolladores personalizar modelos sin tener que elegir tipos de instancia o gestionar clústeres. AWS se encarga de la asignación de GPU y la ejecución distribuida, permitiendo que los usuarios se centren en definir su propia lógica de entrenamiento y funciones de pérdida."
+            },
+            {
+              "heading": "Soporte para aprendizaje por refuerzo",
+              "body": "Esta actualización facilita la implementación de flujos de trabajo de aprendizaje por refuerzo de múltiples turnos. Los desarrolladores pueden definir sus propias funciones de recompensa y etapas de entrenamiento en un solo bucle. El servicio ya está disponible y es compatible con modelos como gpt-oss-20b, gemma-4-31B-it y la serie Qwen3."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/announcing-new-ways-to-customize-models-with-sagemaker-ai-without-managing-gpus/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-7",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/announcing-new-ways-to-customize-models-with-sagemaker-ai-without-managing-gpus/",
+            "title": "Announcing new ways to customize models with SageMaker AI, without managing GPUs"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS has launched serverless training sessions for Amazon SageMaker AI, allowing users to customize models without managing GPU infrastructure.",
+            "sourceIds": [
+              "aws-7"
+            ]
+          },
+          {
+            "text": "The new training sessions support custom post-training logic, including user-defined loss functions and reinforcement learning loops.",
+            "sourceIds": [
+              "aws-7"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-7",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/announcing-new-ways-to-customize-models-with-sagemaker-ai-without-managing-gpus/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-launches-sagemaker-ai-serverless-training-sessions.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS ra mắt tính năng tùy chỉnh mô hình AI không cần quản lý GPU",
+          "en": "AWS Announces Serverless Training Sessions for SageMaker AI",
+          "es": "AWS lanza sesiones de entrenamiento serverless para SageMaker AI"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "iskaypet-deploys-amazon-bedrock-knowledge-bases",
       "reportingMode": "official-announcement",
