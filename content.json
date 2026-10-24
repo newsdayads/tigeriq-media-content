@@ -1,11 +1,144 @@
 {
-  "updatedAt": "2026-10-24T10:17:47.657Z",
+  "updatedAt": "2026-10-24T11:17:50.202Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "amazon-polly-generative-engine-upgrade",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:amazon-polly-generative-engine-upgrade",
+      "clusterKey": "news:519fc8ff99e7d097cb82dd5503f713d39ec56e2197d55de577fc1eb2faf91f4e",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T11:17:50.202Z",
+      "modifiedAt": "2026-10-24T11:17:50.202Z",
+      "editions": {
+        "vi": {
+          "title": "Amazon nâng cấp công cụ tạo giọng nói Generative cho dịch vụ Polly",
+          "dek": "Theo công bố của AWS. Amazon công bố bản cập nhật lớn cho công cụ Generative của Amazon Polly, bổ sung 14 giọng nói mới và hỗ trợ thêm tiếng Hindi và tiếng Phần Lan.",
+          "takeaways": [
+            "Bổ sung 14 giọng nói mới trên 9 ngôn ngữ và khu vực khác nhau.",
+            "Lần đầu tiên hỗ trợ tiếng Hindi và tiếng Phần Lan trong công cụ Generative.",
+            "Cập nhật tự động không yêu cầu thay đổi mã nguồn hoặc API hiện có.",
+            "Cải thiện độ chính xác khi đọc số, địa chỉ và các thông tin giao dịch."
+          ],
+          "sections": [
+            {
+              "heading": "Chi tiết về bản cập nhật",
+              "body": "Amazon thông báo rằng công cụ Generative của Amazon Polly đã được nâng cấp để mang lại giọng nói tự nhiên và biểu cảm hơn. Bản cập nhật này bao gồm 14 giọng nói mới, mở rộng danh mục lên tổng cộng 57 giọng nói trên 11 ngôn ngữ. Đặc biệt, đây là lần đầu tiên người dùng có thể tiếp cận các giọng nói tạo sinh bằng tiếng Hindi và tiếng Phần Lan thông qua dịch vụ này."
+            },
+            {
+              "heading": "Khả năng tương thích và triển khai",
+              "body": "Theo Amazon, bản nâng cấp này được thiết kế như một giải pháp thay thế trực tiếp cho các giọng nói hiện có. Các nhà phát triển không cần thay đổi mã nguồn, tên giọng nói hoặc các lệnh gọi API hiện tại để sử dụng phiên bản mới. Dịch vụ này tiếp tục hỗ trợ các luồng công việc sản xuất, bao gồm cả việc mở rộng khả năng sang AWS GovCloud (US-West)."
+            }
+          ]
+        },
+        "en": {
+          "title": "Amazon Announces Major Upgrade to Amazon Polly Generative Engine",
+          "dek": "According to AWS. Amazon has introduced an upgraded Generative engine for its Polly service, featuring 14 new voices and expanded language support for Hindi and Finnish.",
+          "takeaways": [
+            "Introduces 14 new voices across 9 locales for more expressive speech.",
+            "Adds Hindi and Finnish as new languages for the Generative engine.",
+            "Provides a drop-in upgrade with no required changes to existing API calls.",
+            "Maintains current pricing structure despite improved voice quality and accuracy."
+          ],
+          "sections": [
+            {
+              "heading": "Engine Enhancements and Language Support",
+              "body": "Amazon has released a significant update to the Amazon Polly Generative engine, aimed at providing more natural and accurate speech output. The update introduces 14 new voices across 9 locales, including the first-time availability of generative voices in Hindi and Finnish. The engine is designed to better reflect emotion and prosody based on textual context without requiring manual configuration."
+            },
+            {
+              "heading": "Integration and Production Readiness",
+              "body": "The company states that the upgrade is a drop-in replacement for existing generative voices, ensuring that current applications continue to function without code modifications. The service remains available via standard API calls, allowing developers to maintain existing AWS patterns. Amazon confirmed that these improvements are provided at no additional cost, maintaining the existing pay-as-you-go pricing model."
+            }
+          ]
+        },
+        "es": {
+          "title": "Amazon lanza una actualización importante para el motor generativo de Amazon Polly",
+          "dek": "Según AWS. Amazon ha anunciado una mejora en su motor generativo de Polly, añadiendo 14 voces nuevas y soporte para los idiomas hindi y finés.",
+          "takeaways": [
+            "Incorpora 14 nuevas voces en 9 idiomas y regiones diferentes.",
+            "Incluye por primera vez voces generativas en hindi y finés.",
+            "La actualización es transparente y no requiere cambios en el código existente.",
+            "Mejora la precisión en la lectura de números, divisas y direcciones."
+          ],
+          "sections": [
+            {
+              "heading": "Mejoras en el motor de voz",
+              "body": "Amazon ha anunciado una actualización significativa para el motor generativo de Amazon Polly, diseñada para ofrecer una salida de voz más natural, expresiva y precisa. Esta actualización añade 14 nuevas voces en 9 idiomas, destacando la disponibilidad general de voces generativas en hindi y finés por primera vez. El motor ahora es capaz de reflejar mejor la emoción y la prosodia según el contexto del texto."
+            },
+            {
+              "heading": "Compatibilidad y uso en producción",
+              "body": "Según la empresa, esta actualización funciona como una mejora directa para las voces generativas existentes. Los desarrolladores pueden seguir utilizando las mismas llamadas a la API y patrones de AWS sin necesidad de realizar cambios en sus aplicaciones actuales. La compañía asegura que estas mejoras se ofrecen sin aumentar los costos, manteniendo el modelo de precios de pago por uso."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-5",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/",
+            "title": "Amazon Polly delivers a major upgrade to its Generative engine"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Amazon has released an upgrade to its Polly Generative engine, introducing 14 new voices across 9 locales.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          },
+          {
+            "text": "The update includes the first-time availability of generative voices for the Hindi and Finnish languages.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          },
+          {
+            "text": "The upgrade is a drop-in replacement for existing generative voices, requiring no changes to API calls or application code.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-5",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/amazon-polly-generative-engine-upgrade.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Amazon nâng cấp công cụ tạo giọng nói Generative cho dịch vụ Polly",
+          "en": "Amazon Announces Major Upgrade to Amazon Polly Generative Engine",
+          "es": "Amazon lanza una actualización importante para el motor generativo de Amazon Polly"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "bayer-deploys-agentic-decision-engine-on-aws",
       "reportingMode": "official-announcement",
