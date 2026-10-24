@@ -34,6 +34,30 @@ test("a real committed article in the same hour passes both scheduled routes",()
   }
 });
 
+test("two distinct stories in the same UTC hour must fail the exact-one gate for both scheduled routes",()=>{
+  const duplicated={articles:[story("2026-10-23T22:17:50.063Z"),
+    {...story("2026-10-23T22:39:00.000Z"),slug:"another-verified-story"}]};
+  for(const route of [github,cloudflare]){
+    const result=evaluateHourlyPublication({...route,store:duplicated});
+    assert.equal(result.enforced,true);
+    assert.equal(result.passed,false);
+    assert.equal(result.code,"MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR");
+    assert.equal(result.committedStoryCount,2);
+    assert.equal(result.cloudflareNativeEvent,"NOT_VERIFIED_BY_GITHUB_INPUT");
+  }
+});
+
+test("off-hour stories and malformed timestamps cannot inflate the current-hour count",()=>{
+  const current=story();
+  const store={articles:[current,story("2026-10-23T21:17:00.000Z"),
+    story("2026-10-23T23:17:00.000Z"),story("2026-10-23T22:invalid")]};
+  for(const route of [github,cloudflare]){
+    const result=evaluateHourlyPublication({...route,store});
+    assert.equal(result.passed,true);
+    assert.equal(result.committedStoryCount,1);
+  }
+});
+
 test("late GitHub native backup cannot count the next hour as a successful previous-hour publish",()=>{
   // Real incident: schedule declared at :47, run began 07:35:41Z;
   // old implementation accepted a 07:17Z story and hid a missed 06Z hour.
@@ -93,6 +117,21 @@ test("manual dispatch and pull requests cannot create scheduled publication fail
 
 test("absent article data cannot be reported as a published article",()=>{
   assert.equal(evaluateHourlyPublication({...github,store:{articles:null}}).passed,false);
+});
+
+test("CLI exits nonzero when two articles were recorded in one scheduled hour",async()=>{
+  const root=await mkdtemp(join(tmpdir(),"news-exactly-one-"));
+  const bin=fileURLToPath(new URL("./hourly-publication-kpi.mjs",import.meta.url));
+  try{
+    await writeFile(join(root,"content.json"),JSON.stringify({articles:[story(),
+      {...story("2026-10-23T22:39:00Z"),slug:"second-story"}]}));
+    const env={...process.env,GITHUB_EVENT_NAME:"workflow_dispatch",
+      NEWS_SCHEDULER_ORIGIN:"cloudflare",NEWS_SCHEDULED_HOUR_UTC:"2026-10-23T22:00:00Z"};
+    const result=spawnSync(process.execPath,[bin],{cwd:root,env,encoding:"utf8"});
+    assert.equal(result.status,1);
+    assert.match(result.stderr,/MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR/);
+    assert.match(result.stdout,/"committedStoryCount":2/);
+  }finally{await rm(root,{recursive:true,force:true});}
 });
 
 test("CLI reports a missed scheduled hour as a failing job without API calls",async()=>{
