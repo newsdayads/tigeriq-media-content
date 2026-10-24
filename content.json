@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-24T00:17:49.961Z",
+  "updatedAt": "2026-10-24T01:17:49.066Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-launches-multi-turn-reinforcement-learning-on-sagemaker-ai",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:aws-launches-multi-turn-reinforcement-learning-on-sagemaker-ai",
+      "clusterKey": "news:4860c1ff0ae06b65988dd37ed630146e4d2404d38053a22679e82052a5ff6a3c",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T01:17:49.066Z",
+      "modifiedAt": "2026-10-24T01:17:49.066Z",
+      "editions": {
+        "vi": {
+          "title": "AWS ra mắt Multi-Turn Reinforcement Learning trên Amazon SageMaker AI",
+          "dek": "Theo công bố của AWS. Giải pháp mới cho phép huấn luyện mô hình AI thực hiện các tác vụ đa bước phức tạp thông qua học tăng cường.",
+          "takeaways": [
+            "Hỗ trợ huấn luyện mô hình cho các tác vụ cần chuỗi hành động liên tiếp.",
+            "Cung cấp kiến trúc serverless giúp đơn giản hóa việc quản lý hạ tầng.",
+            "Cho phép tùy chỉnh mô hình bằng kỹ thuật LoRA adapter.",
+            "Dữ liệu của người dùng được bảo mật trong tài khoản AWS."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu về MTRL",
+              "body": "Amazon SageMaker AI đã giới thiệu Multi-Turn Reinforcement Learning (MTRL), một phương pháp huấn luyện mô hình tập trung vào các tác vụ đại diện (agentic tasks). Khác với việc tinh chỉnh mô hình truyền thống, MTRL cho phép mô hình học từ các chuỗi hành động dài, nơi mỗi bước phụ thuộc vào kết quả của bước trước đó, giúp giải quyết các quy trình nghiệp vụ phức tạp."
+            },
+            {
+              "heading": "Cơ chế hoạt động và hỗ trợ",
+              "body": "Hệ thống MTRL hoạt động bằng cách kết hợp Amazon SageMaker AI để quản lý công việc huấn luyện và Amazon Bedrock AgentCore để lưu trữ môi trường tác vụ. Dịch vụ này hiện hỗ trợ các mô hình như Amazon Nova 2 Lite, GPT-OSS-20B, Gemma 4 31B và Qwen 3.6 27B, cho phép người dùng triển khai các adapter LoRA để tối ưu hóa hiệu suất cho các tác vụ cụ thể."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Announces Multi-Turn Reinforcement Learning on Amazon SageMaker AI",
+          "dek": "According to AWS. New serverless capability enables training models for complex, multi-step agentic workflows using reinforcement learning.",
+          "takeaways": [
+            "Enables training for models requiring sequential decision-making.",
+            "Serverless architecture removes the need for manual cluster sizing.",
+            "Supports LoRA adapter training for specific business workflows.",
+            "Ensures user data remains within the customer's AWS account."
+          ],
+          "sections": [
+            {
+              "heading": "Addressing Multi-Step Agentic Tasks",
+              "body": "AWS has introduced Multi-Turn Reinforcement Learning (MTRL) on Amazon SageMaker AI to address the limitations of supervised fine-tuning in agentic workflows. By allowing models to receive feedback only after a full sequence of actions is completed, MTRL enables agents to learn complex tasks such as triaging support tickets or managing internal business processes."
+            },
+            {
+              "heading": "Technical Implementation and Availability",
+              "body": "The MTRL service is serverless, allowing users to select a base model without managing underlying infrastructure. It currently supports models including Amazon Nova 2 Lite, GPT-OSS-20B, Gemma 4 31B, and Qwen 3.6 27B. The system utilizes Group Relative Policy Optimization (GRPO) to update LoRA adapters, ensuring that training remains efficient and specific to the user's environment."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS anuncia Multi-Turn Reinforcement Learning en Amazon SageMaker AI",
+          "dek": "Según AWS. Nueva capacidad sin servidor permite entrenar modelos para flujos de trabajo complejos de múltiples pasos mediante aprendizaje por refuerzo.",
+          "takeaways": [
+            "Facilita el entrenamiento para tareas que requieren toma de decisiones secuencial.",
+            "Arquitectura sin servidor que elimina la necesidad de gestionar clústeres.",
+            "Soporta el entrenamiento de adaptadores LoRA para flujos de trabajo específicos.",
+            "Garantiza que los datos del usuario permanezcan en su propia cuenta de AWS."
+          ],
+          "sections": [
+            {
+              "heading": "Enfoque en tareas de múltiples pasos",
+              "body": "AWS ha introducido Multi-Turn Reinforcement Learning (MTRL) en Amazon SageMaker AI para abordar las limitaciones del ajuste fino supervisado en tareas de agentes. Al permitir que los modelos reciban retroalimentación solo después de completar una secuencia de acciones, MTRL permite que los agentes aprendan procesos complejos como la gestión de tickets de soporte o flujos de trabajo internos."
+            },
+            {
+              "heading": "Implementación técnica y disponibilidad",
+              "body": "El servicio MTRL es sin servidor, lo que permite a los usuarios seleccionar un modelo base sin gestionar la infraestructura subyacente. Actualmente es compatible con modelos como Amazon Nova 2 Lite, GPT-OSS-20B, Gemma 4 31B y Qwen 3.6 27B. El sistema utiliza la optimización de políticas relativas de grupo (GRPO) para actualizar adaptadores LoRA, manteniendo el entrenamiento eficiente."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-1",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+            "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS has introduced Multi-Turn Reinforcement Learning (MTRL) on Amazon SageMaker AI to train models on sequences of actions where outcomes depend on multi-step decision-making.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          },
+          {
+            "text": "The MTRL service is serverless and currently supports base models including Amazon Nova 2 Lite, GPT-OSS-20B, Gemma 4 31B, and Qwen 3.6 27B.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-launches-multi-turn-reinforcement-learning-on-sagemaker-ai.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS ra mắt Multi-Turn Reinforcement Learning trên Amazon SageMaker AI",
+          "en": "AWS Announces Multi-Turn Reinforcement Learning on Amazon SageMaker AI",
+          "es": "AWS anuncia Multi-Turn Reinforcement Learning en Amazon SageMaker AI"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-metrics-api-update",
       "reportingMode": "official-announcement",
