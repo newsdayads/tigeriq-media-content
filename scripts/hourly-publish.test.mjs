@@ -2533,3 +2533,30 @@ test("readable official AWS story reaches independent writer but an AI outage ca
     "provider failure cannot create a fabricated article or publish a cover");
   assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));
+
+test("malformed timestamp cannot suppress a real hourly publication attempt",()=>{
+ const at=new Date("2026-10-24T06:20:00.000Z");
+ const bad=[
+   "2026-10-24T06:garbage",
+   "2026-10-24T06:99:00Z",
+   "2026-10-24T06:15:00+00:00",
+   "2026-10-24T06:21:00.000Z"
+ ];
+ for(const publishedAt of bad){
+   assert.equal(alreadyPublishedInUtcHour([{slug:"phantom",publishedAt}],at),false,
+     "must reject malformed, noncanonical or future timestamps: "+publishedAt);
+ }
+ assert.equal(alreadyPublishedInUtcHour(
+   [{slug:"real",publishedAt:"2026-10-24T06:15:00.123Z"}],at),true,
+   "a genuine previously published story still prevents duplicate provider calls");
+});
+
+test("invalid same-hour timestamp cannot falsely short-circuit the scheduled publisher",()=>tmp(async root=>{
+ let externalCalls=0;
+ await assert.rejects(()=>publish({
+   root,now:new Date("2026-10-24T06:20:00.000Z"),
+   env:{NEWS_HOURLY_PUBLISH_LIMIT:"true"},
+   feeds,fetchImpl:async()=>{externalCalls++;throw Error("NETWORK_MUST_NOT_BE_CALLED");}
+ }),/AI_PROVIDER_NOT_CONFIGURED/);
+ assert.equal(externalCalls,0,"source rejects missing provider before any billable call");
+}, {articles:[{slug:"phantom",publishedAt:"2026-10-24T06:garbage"}]}));

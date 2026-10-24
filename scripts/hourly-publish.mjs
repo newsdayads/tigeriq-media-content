@@ -814,8 +814,19 @@ export function officialFetchCandidates(items,articles){
 }
 
 export function alreadyPublishedInUtcHour(articles,now){
-  const hour=now.toISOString().slice(0,13);
-  return Array.isArray(articles)&&articles.some(a=>typeof a?.publishedAt==="string"&&a.publishedAt.startsWith(hour));
+  const hourStart=Date.parse(now.toISOString().slice(0,13)+":00:00.000Z");
+  const currentTime=now.getTime();
+  return Array.isArray(articles)&&articles.some(article=>{
+    const value=article?.publishedAt;
+    // Never let a malformed, impossible or future timestamp suppress the
+    // actual hourly publisher. Prefix matching alone accepted 06:garbage.
+    if(typeof value!=="string"||
+        !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(value))
+      return false;
+    const published=Date.parse(value);
+    return Number.isFinite(published)&&published>=hourStart&&published<=currentTime&&
+      new Date(published).toISOString().slice(0,19)===value.slice(0,19);
+  });
 }
 
 export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
