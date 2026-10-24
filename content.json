@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T01:17:49.066Z",
+  "updatedAt": "2026-10-24T05:17:49.166Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-public-monitoring-updates",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:github-public-monitoring-updates",
+      "clusterKey": "news:643e6404c77028e420b2f9866c72bf1b9a2bcc96637b465b2a2a62c11b9956cd",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T05:17:49.166Z",
+      "modifiedAt": "2026-10-24T05:17:49.166Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật tính năng giám sát công khai cho doanh nghiệp",
+          "dek": "Theo công bố của GitHub. Nền tảng bổ sung khả năng quản lý cảnh báo, kiểm tra tính hợp lệ tự động và tích hợp API cho người dùng Enterprise.",
+          "takeaways": [
+            "Giới thiệu bảng điều khiển bảo mật doanh nghiệp để quản lý và phân loại các cảnh báo rò rỉ bí mật.",
+            "Tự động kiểm tra trạng thái hoạt động của các token được phát hiện để ưu tiên xử lý.",
+            "Hỗ trợ API REST và webhook để tích hợp vào quy trình phản ứng sự cố tùy chỉnh."
+          ],
+          "sections": [
+            {
+              "heading": "Quản lý cảnh báo tập trung",
+              "body": "GitHub cho phép các doanh nghiệp quản lý trực tiếp các phát hiện từ bảng điều khiển bảo mật. Người dùng có thể đóng, mở lại cảnh báo, thêm bình luận giải thích và xem lịch sử hoạt động chi tiết. Lưu ý rằng việc đóng cảnh báo trên hệ thống chỉ thay đổi trạng thái quản lý, không tự động thu hồi thông tin xác thực hoặc xóa dữ liệu khỏi kho lưu trữ công khai."
+            },
+            {
+              "heading": "Tự động hóa và tích hợp",
+              "body": "Tính năng mới bao gồm kiểm tra tính hợp lệ liên tục cho các loại token được hỗ trợ, giúp đội ngũ bảo mật xác định nhanh chóng các thông tin xác thực đang hoạt động. Ngoài ra, quản trị viên có thể truy vấn dữ liệu qua API REST hoặc nhận thông báo thời gian thực thông qua webhook cấp doanh nghiệp để kết nối với các hệ thống phản ứng sự cố hiện có."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Enhances Public Monitoring for Enterprise Security",
+          "dek": "According to GitHub. New triage tools, automated validity checks, and API integrations arrive for GitHub Enterprise Cloud public monitoring.",
+          "takeaways": [
+            "Enterprise dashboards now support alert triage, including dismissal and audit trails.",
+            "Automated validity checks categorize tokens as Active, Inactive, or Unknown to prioritize response.",
+            "New REST API and webhook support enables programmatic integration with incident response pipelines."
+          ],
+          "sections": [
+            {
+              "heading": "Advanced Alert Management",
+              "body": "GitHub has expanded its public monitoring capabilities to allow enterprise security managers to triage findings directly from the enterprise security dashboard. Users can now dismiss or reopen alerts, provide contextual comments, and review an audit trail of all actions. The company clarifies that closing an alert updates the internal state but does not revoke the exposed credential or remove it from the public repository."
+            },
+            {
+              "heading": "Validity Checks and API Integration",
+              "body": "The platform now performs ongoing automatic validity checks for supported secret types, labeling credentials as Active, Inactive, or Unknown. To support custom workflows, GitHub has introduced REST API access for querying alert metadata and enterprise-level webhooks for real-time notifications. This feature is currently in public preview for GitHub Enterprise Cloud customers with Advanced Security or Secret Protection licenses."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub actualiza la monitorización pública para empresas",
+          "dek": "Según GitHub. Nuevas herramientas de gestión de alertas, comprobaciones de validez e integración de API para GitHub Enterprise Cloud.",
+          "takeaways": [
+            "Gestión centralizada de alertas con historial de auditoría y opciones de filtrado detalladas.",
+            "Verificación automática de la validez de los tokens para priorizar la respuesta de seguridad.",
+            "Integración programática mediante API REST y webhooks para flujos de trabajo personalizados."
+          ],
+          "sections": [
+            {
+              "heading": "Gestión y triaje de alertas",
+              "body": "GitHub permite ahora a los administradores de empresas gestionar las alertas de monitorización pública desde el panel de seguridad. Es posible descartar o reabrir alertas, añadir comentarios y consultar un historial de cambios. La empresa subraya que estas acciones son administrativas y no eliminan el secreto del repositorio público ni revocan las credenciales expuestas."
+            },
+            {
+              "heading": "Automatización y visibilidad",
+              "body": "La herramienta ahora verifica automáticamente si los tokens detectados están activos o inactivos, facilitando la priorización de riesgos. Además, se ha añadido soporte para API REST y webhooks, permitiendo que los equipos de seguridad integren los hallazgos directamente en sus sistemas de respuesta a incidentes. Esta funcionalidad está disponible en versión preliminar para clientes de GitHub Enterprise Cloud."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-4",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks",
+            "title": "Public monitoring adds triage, validity, API, and webhooks"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has introduced new alert management, validity checks, and API support for its public monitoring feature within GitHub Enterprise Cloud.",
+            "sourceIds": [
+              "github-4"
+            ]
+          },
+          {
+            "text": "The updated public monitoring tool allows enterprise administrators to programmatically access alert metadata and receive real-time notifications via webhooks.",
+            "sourceIds": [
+              "github-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-4",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-public-monitoring-updates.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật tính năng giám sát công khai cho doanh nghiệp",
+          "en": "GitHub Enhances Public Monitoring for Enterprise Security",
+          "es": "GitHub actualiza la monitorización pública para empresas"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-launches-multi-turn-reinforcement-learning-on-sagemaker-ai",
       "reportingMode": "official-announcement",
