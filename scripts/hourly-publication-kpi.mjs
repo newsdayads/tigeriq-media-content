@@ -40,13 +40,21 @@ export function evaluateHourlyPublication({eventName,schedulerOrigin,scheduledHo
     :validUtcHour(scheduledHourUtc);
   if(!hourUtc)return {enforced:true,passed:false,code:"INVALID_SCHEDULE_HOUR",
     hourUtc:null,cloudflareNativeEvent:NATIVE_PROOF};
+  // A forged Feb 30 timestamp can normalize to March 2 under Date.parse;
+  // an article dated later than this run also cannot already be published.
+  // Apply the same strict UTC roundtrip and no-future rule as the publisher.
+  const evaluationTime=new Date(now).getTime();
+  if(!Number.isFinite(evaluationTime))return {enforced:true,passed:false,
+    code:"INVALID_EVALUATION_TIME",hourUtc,cloudflareNativeEvent:NATIVE_PROOF};
   // The product contract is EXACTLY one new article per UTC hour, not merely
   // at least one. A duplicate must fail CI even if one story is legitimate.
   const committedStoryCount=Array.isArray(store?.articles)?store.articles.filter(article=>{
     const value=article?.publishedAt;
     if(typeof value!=="string"||!PUBLISHED_AT.test(value))return false;
     const time=Date.parse(value);
-    return Number.isFinite(time)&&new Date(time).toISOString().slice(0,13)===hourUtc.slice(0,13);
+    return Number.isFinite(time)&&time<=evaluationTime&&
+      new Date(time).toISOString().slice(0,19)===value.slice(0,19)&&
+      new Date(time).toISOString().slice(0,13)===hourUtc.slice(0,13);
   }).length:0;
   const passed=committedStoryCount===1;
   const code=committedStoryCount===0?"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY":
