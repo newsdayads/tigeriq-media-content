@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-24T17:17:48.076Z",
+  "updatedAt": "2026-10-24T19:00:23.263Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "aws-kokoro-tts-streaming-sagemaker",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:aws-kokoro-tts-streaming-sagemaker",
+      "clusterKey": "news:c5f5fa42e75ab4f7f6bfa83b9f6e11d868d0770e2b4364011c8bce564c510f86",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T19:00:23.263Z",
+      "modifiedAt": "2026-10-24T19:00:23.263Z",
+      "editions": {
+        "vi": {
+          "title": "AWS ra mắt giải pháp giảm độ trễ cho tác nhân giọng nói AI với Kokoro TTS",
+          "dek": "Theo công bố của AWS. Tối ưu hóa trải nghiệm người dùng bằng cách phát âm thanh ngay khi câu văn được tạo ra thay vì chờ đợi toàn bộ phản hồi.",
+          "takeaways": [
+            "Sử dụng mô hình Kokoro-82M để tổng hợp giọng nói theo thời gian thực.",
+            "Giảm độ trễ bằng cách truyền phát từng câu thay vì đợi toàn bộ đoạn văn.",
+            "Triển khai trên Amazon SageMaker AI bằng các container tùy chỉnh.",
+            "Hỗ trợ kết nối WebSocket hai chiều để duy trì phiên làm việc liên tục."
+          ],
+          "sections": [
+            {
+              "heading": "Giải pháp giảm độ trễ",
+              "body": "AWS giới thiệu phương pháp mới giúp khắc phục tình trạng người dùng phải chờ đợi lâu khi tương tác với các tác nhân giọng nói AI. Bằng cách truyền phát từng câu văn đến mô hình Kokoro-82M ngay khi tác nhân tạo ra chúng, hệ thống có thể bắt đầu tổng hợp âm thanh trước khi toàn bộ phản hồi hoàn tất, giúp rút ngắn đáng kể thời gian phản hồi thực tế."
+            },
+            {
+              "heading": "Triển khai kỹ thuật",
+              "body": "Giải pháp này sử dụng mô hình Kokoro-82M với 82 triệu tham số, được tối ưu hóa để chạy trên các instance GPU tầm trung như ml.g5.xlarge. AWS cung cấp hướng dẫn chi tiết về việc thiết lập các endpoint SageMaker AI hỗ trợ truyền phát hai chiều, giúp duy trì phiên kết nối liên tục giữa client và mô hình để tối ưu hóa hiệu suất."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Announces Low-Latency Speech Streaming for AI Agents Using Kokoro TTS",
+          "dek": "According to AWS. New integration enables real-time audio synthesis by streaming individual sentences from AI agents via Amazon SageMaker AI.",
+          "takeaways": [
+            "Stream individual sentences to Kokoro-82M for immediate audio synthesis.",
+            "Utilize bidirectional WebSocket connections to maintain session persistence.",
+            "Deploy Kokoro-82M on SageMaker AI using mid-tier GPU instances for cost efficiency.",
+            "Implement incremental chunking to process text fragments as they arrive from the agent."
+          ],
+          "sections": [
+            {
+              "heading": "Addressing Voice Agent Latency",
+              "body": "AWS has detailed a solution to mitigate the delay often experienced in AI voice interactions where users wait for full text generation before audio synthesis begins. By streaming sentences to the Kokoro-82M text-to-speech model as they are produced, the system enables audio playback to start before the agent finishes its complete response, significantly improving user experience."
+            },
+            {
+              "heading": "Technical Implementation Details",
+              "body": "The Kokoro-82M model, which contains 82 million parameters, is hosted on Amazon SageMaker AI real-time endpoints using ml.g5.xlarge GPU instances. The architecture supports bidirectional streaming, allowing for persistent sessions that handle multiple sentences sequentially without the overhead of reconnecting, thereby maintaining low latency throughout the conversation."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS presenta streaming de voz de baja latencia para agentes de IA con Kokoro TTS",
+          "dek": "Según AWS. Una nueva integración permite la síntesis de audio en tiempo real mediante la transmisión de oraciones individuales a través de Amazon SageMaker AI.",
+          "takeaways": [
+            "Transmisión de oraciones individuales al modelo Kokoro-82M para síntesis inmediata.",
+            "Uso de conexiones WebSocket bidireccionales para mantener sesiones persistentes.",
+            "Despliegue de Kokoro-82M en SageMaker AI para optimizar costos de inferencia.",
+            "Procesamiento incremental de fragmentos de texto a medida que son generados."
+          ],
+          "sections": [
+            {
+              "heading": "Reducción de la latencia en agentes de voz",
+              "body": "AWS ha presentado una solución para reducir los tiempos de espera en agentes de voz de IA, donde los usuarios suelen aguardar a que se genere todo el texto antes de escuchar una respuesta. Al transmitir cada oración al modelo Kokoro-82M a medida que se genera, el sistema permite que la reproducción de audio comience antes de que el agente termine su respuesta completa."
+            },
+            {
+              "heading": "Arquitectura y despliegue",
+              "body": "El modelo Kokoro-82M, con 82 millones de parámetros, se ejecuta en endpoints de Amazon SageMaker AI utilizando instancias GPU ml.g5.xlarge. La solución implementa un manejo de sesiones bidireccionales que evita la necesidad de reconexiones frecuentes, permitiendo que múltiples oraciones se procesen de manera secuencial y eficiente dentro de una misma sesión abierta."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-10",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/",
+            "title": "Stream low-latency speech from AI agents using Kokoro TTS on Amazon SageMaker AI"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS has introduced a solution to reduce latency in AI voice agents by streaming text-to-speech synthesis sentence-by-sentence using the Kokoro-82M model on Amazon SageMaker AI.",
+            "sourceIds": [
+              "aws-10"
+            ]
+          },
+          {
+            "text": "The Kokoro-82M model features 82 million parameters, allowing it to run on a single mid-tier GPU instance to maintain low inference costs.",
+            "sourceIds": [
+              "aws-10"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-10",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-kokoro-tts-streaming-sagemaker.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "AWS ra mắt giải pháp giảm độ trễ cho tác nhân giọng nói AI với Kokoro TTS",
+          "en": "AWS Announces Low-Latency Speech Streaming for AI Agents Using Kokoro TTS",
+          "es": "AWS presenta streaming de voz de baja latencia para agentes de IA con Kokoro TTS"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-announces-hipaa-eligible-amazon-quick",
       "reportingMode": "official-announcement",
