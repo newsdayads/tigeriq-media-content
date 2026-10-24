@@ -8,7 +8,16 @@ import {fileURLToPath} from "node:url";
 import {evaluateHourlyPublication} from "./hourly-publication-kpi.mjs";
 
 const at=new Date("2026-10-23T22:20:00.000Z");
-const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({slug:"verified-story",publishedAt});
+const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({
+  slug:"verified-story",publishedAt,
+  editions:{
+    vi:{title:"Tin tức tiếng Việt"},
+    en:{title:"Verified English story"},
+    es:{title:"Noticia verificada en español"}
+  },
+  cover:{generated:true,url:
+    "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/verified-story.svg"}
+});
 // Native backup fires at :47; 22:20Z precedes this hour’s cron tick.
 const github={eventName:"schedule",now:new Date("2026-10-23T22:47:00.000Z")};
 const cloudflare={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
@@ -31,6 +40,38 @@ test("a real committed article in the same hour passes both scheduled routes",()
     assert.equal(result.passed,true);
     assert.equal(result.code,"COMMITTED_STORY_PRESENT");
     assert.equal(result.hourUtc,"2026-10-23T22:00:00Z");
+  }
+});
+
+test("an hour with timestamp but without trilingual editions or its own original cover cannot PASS",()=>{
+  const valid=story();
+  const invalid=[
+    {slug:valid.slug,publishedAt:valid.publishedAt},
+    {...valid,editions:{...valid.editions,es:undefined}},
+    {...valid,editions:{...valid.editions,vi:{title:"   "}}},
+    {...valid,cover:undefined},
+    {...valid,cover:{...valid.cover,generated:false}},
+    {...valid,cover:{...valid.cover,url:valid.cover.url.replace("verified-story.svg","other-story.svg")}},
+    {...valid,slug:"other-story"}
+  ];
+  for(const route of [github,cloudflare]){
+    for(const bad of invalid){
+      const result=evaluateHourlyPublication({...route,store:{articles:[bad]}});
+      assert.equal(result.passed,false);
+      assert.equal(result.committedStoryCount,1);
+      assert.equal(result.code,"INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION");
+      assert.equal(result.cloudflareNativeEvent,"NOT_VERIFIED_BY_GITHUB_INPUT");
+    }
+  }
+});
+
+test("a complete trilingual story plus an incomplete duplicate still fails exactly-one policy",()=>{
+  const another={...story("2026-10-23T22:19:00.000Z"),slug:"another-story",cover:null};
+  for(const route of [github,cloudflare]){
+    const result=evaluateHourlyPublication({...route,store:{articles:[story(),another]}});
+    assert.equal(result.passed,false);
+    assert.equal(result.committedStoryCount,2);
+    assert.equal(result.code,"MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR");
   }
 });
 
