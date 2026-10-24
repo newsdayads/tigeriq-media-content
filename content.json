@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-23T23:17:50.208Z",
+  "updatedAt": "2026-10-24T00:17:49.961Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "github-copilot-metrics-api-update",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:github-copilot-metrics-api-update",
+      "clusterKey": "news:e4aacdb4a854e39d80fbd63034ebcca97603061dd5ee7bf981d979c71ef56abb",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T00:17:49.961Z",
+      "modifiedAt": "2026-10-24T00:17:49.961Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub cập nhật API số liệu sử dụng Copilot",
+          "dek": "Theo công bố của GitHub. GitHub mở rộng khả năng theo dõi dữ liệu sử dụng Copilot từ các công cụ bên ngoài thông qua API mới.",
+          "takeaways": [
+            "API Copilot hiện bao gồm dữ liệu từ các công cụ như OpenCode và Claude Code.",
+            "Người dùng có thể theo dõi số lượng yêu cầu và token theo từng ứng dụng khách cụ thể.",
+            "Dữ liệu mới giúp quản trị viên đưa ra quyết định quản trị dựa trên lưu lượng thực tế."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng khả năng giám sát",
+              "body": "GitHub thông báo rằng API số liệu sử dụng Copilot hiện đã hỗ trợ theo dõi lưu lượng từ nhiều công cụ bên ngoài hơn thay vì chỉ giới hạn trong môi trường IDE. Việc bổ sung mảng totals_by_client cho phép các tổ chức và doanh nghiệp nắm bắt được cách thức các công cụ như OpenCode, Zed hay các tác nhân đám mây tương tác với mô hình Copilot."
+            },
+            {
+              "heading": "Chi tiết về dữ liệu mới",
+              "body": "Các báo cáo mới cung cấp thông tin chi tiết bao gồm số lượng yêu cầu thành công, số phiên làm việc và mức tiêu thụ token. Ngoài ra, hệ thống còn phân loại cách thức lựa chọn mô hình, giúp người quản lý phân biệt giữa các yêu cầu do người dùng chọn hoặc do sản phẩm tự động chỉ định, từ đó tối ưu hóa việc quản lý tài nguyên."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Expands Copilot Usage Metrics API",
+          "dek": "According to GitHub. New updates to the Copilot metrics API now capture model usage from external tools and non-IDE integrations.",
+          "takeaways": [
+            "The API now tracks model usage from tools like OpenCode, Claude Code, and Zed.",
+            "New totals_by_client array provides granular request, session, and token metrics.",
+            "Metrics help administrators make informed governance decisions based on real tool usage."
+          ],
+          "sections": [
+            {
+              "heading": "Enhanced Visibility for External Tools",
+              "body": "GitHub has updated its Copilot usage metrics API to include data from tools that operate outside of standard IDE environments. By capturing requests on the server side, the platform aims to close the telemetry gap for tools like OpenCode and cloud agents that previously lacked editor-based reporting, allowing enterprise owners to see which tools are driving Copilot consumption."
+            },
+            {
+              "heading": "Granular Reporting Capabilities",
+              "body": "The update introduces the totals_by_client array, which breaks down usage by specific clients. Each entry includes request counts, session counts, and token usage, alongside model selection modes. This allows organizations to compare volume across different integrations and understand whether models were selected by the user, the product, or automated systems."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub actualiza la API de métricas de uso de Copilot",
+          "dek": "Según GitHub. La nueva actualización permite rastrear el uso del modelo desde herramientas externas y agentes fuera del IDE.",
+          "takeaways": [
+            "La API ahora incluye datos de herramientas como OpenCode, Claude Code y Zed.",
+            "Se añade el array totals_by_client para desglosar solicitudes, sesiones y tokens.",
+            "Los administradores pueden basar sus decisiones de gobernanza en datos de uso reales."
+          ],
+          "sections": [
+            {
+              "heading": "Mayor visibilidad en herramientas externas",
+              "body": "GitHub ha anunciado una actualización en su API de métricas de uso de Copilot para incluir el tráfico de herramientas que operan fuera de los entornos de desarrollo integrados (IDE). Esta mejora permite capturar datos de herramientas como OpenCode y agentes en la nube, cerrando la brecha de telemetría que existía anteriormente para estas aplicaciones."
+            },
+            {
+              "heading": "Detalles de los nuevos informes",
+              "body": "El nuevo array totals_by_client proporciona métricas detalladas por cliente, incluyendo el número de solicitudes exitosas, el conteo de sesiones y el uso de tokens. Además, el sistema reporta el modo de selección del modelo, permitiendo a los administradores identificar si el uso fue seleccionado por el usuario o por el producto, facilitando una mejor toma de decisiones."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-1",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
+            "title": "Usage metrics API adds usage from tools like OpenCode"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has updated its Copilot usage metrics API to include model usage data from external tools like OpenCode.",
+            "sourceIds": [
+              "github-1"
+            ]
+          },
+          {
+            "text": "The new totals_by_client array provides request counts, session counts, and token usage metrics for various integrated tools.",
+            "sourceIds": [
+              "github-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "github-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-metrics-api-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub cập nhật API số liệu sử dụng Copilot",
+          "en": "GitHub Expands Copilot Usage Metrics API",
+          "es": "GitHub actualiza la API de métricas de uso de Copilot"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-emu-deprovisioning-fix",
       "reportingMode": "official-announcement",
