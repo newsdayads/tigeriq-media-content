@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T11:17:50.202Z",
+  "updatedAt": "2026-10-24T12:14:05.226Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "iskaypet-deploys-amazon-bedrock-knowledge-bases",
+      "reportingMode": "official-announcement",
+      "category": "Enterprise AI",
+      "storyId": "tigeriq:iskaypet-deploys-amazon-bedrock-knowledge-bases",
+      "clusterKey": "news:dadfc474e82b36c5966fe9ff346a6db7cf1217f1aad0f493d124d2eb76522de3",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-24T12:14:05.226Z",
+      "modifiedAt": "2026-10-24T12:14:05.226Z",
+      "editions": {
+        "vi": {
+          "title": "IskayPet hợp nhất kiến thức doanh nghiệp với Amazon Bedrock",
+          "dek": "Theo công bố của AWS. Công ty bán lẻ thú cưng tại Iberia đã triển khai trợ lý AI để tự động hóa việc truy xuất thông tin từ tài liệu SharePoint.",
+          "takeaways": [
+            "IskayPet sử dụng Amazon Bedrock để quản lý RAG mà không cần vận hành cơ sở dữ liệu vector.",
+            "Hệ thống hỗ trợ bốn ngôn ngữ và ba quốc gia, tích hợp trực tiếp với SharePoint hiện có.",
+            "Đội ngũ phát triển đã sử dụng Kiro và Claude Haiku 4.5 để xây dựng toàn bộ giải pháp từ giao diện đến hạ tầng."
+          ],
+          "sections": [
+            {
+              "heading": "Giải quyết thách thức quản lý tri thức",
+              "body": "IskayPet, một công ty chăm sóc thú cưng hàng đầu tại Iberia, đã đối mặt với khó khăn trong việc tra cứu hàng trăm tài liệu SharePoint rải rác. Việc tìm kiếm thông tin thủ công cho các quy trình vận hành, thú y và nhân sự trở nên kém hiệu quả khi quy mô công ty mở rộng. Bằng cách áp dụng Amazon Bedrock Managed Knowledge Bases, công ty đã tạo ra một trợ lý AI có khả năng trả lời các câu hỏi bằng ngôn ngữ tự nhiên, trích dẫn nguồn tài liệu gốc và tuân thủ các quyền truy cập hiện có của nhân viên."
+            },
+            {
+              "heading": "Kiến trúc và triển khai kỹ thuật",
+              "body": "Giải pháp được xây dựng bằng cách sử dụng Kiro, một môi trường phát triển tác nhân, kết hợp với mô hình Claude Haiku 4.5. Thay vì di chuyển dữ liệu, IskayPet tận dụng trình kết nối SharePoint gốc của Amazon Bedrock để đồng bộ hóa tài liệu, bao gồm cả việc xử lý nội dung hình ảnh thông qua tính năng lập chỉ mục nâng cao. Hệ thống sử dụng tìm kiếm lai (hybrid search) kết hợp giữa ngữ nghĩa và từ khóa để đảm bảo độ chính xác cao khi truy xuất thông tin trong môi trường đa ngôn ngữ."
+            }
+          ]
+        },
+        "en": {
+          "title": "IskayPet Unifies Corporate Knowledge with Amazon Bedrock",
+          "dek": "According to AWS. The pet care company deployed a managed RAG solution to streamline access to operational documents across multiple countries.",
+          "takeaways": [
+            "IskayPet eliminated the need for manual RAG infrastructure by adopting Amazon Bedrock Managed Knowledge Bases.",
+            "The system integrates directly with existing SharePoint repositories to maintain document-level access controls.",
+            "Development was accelerated using Kiro and Claude Haiku 4.5 for both frontend and infrastructure deployment."
+          ],
+          "sections": [
+            {
+              "heading": "Overcoming Knowledge Silos",
+              "body": "IskayPet, a major pet care provider in Iberia, struggled with fragmented operational knowledge stored across hundreds of SharePoint documents in four languages. To improve efficiency, the company implemented Amazon Bedrock Managed Knowledge Bases to create an internal assistant. This solution allows employees to query policies and procedures in natural language, receiving grounded answers with source citations without requiring the company to manage vector databases or ingestion pipelines."
+            },
+            {
+              "heading": "Technical Implementation and Scaling",
+              "body": "The project team utilized Kiro, an agentic development environment, alongside Claude Haiku 4.5 to build the assistant's frontend and provision the necessary AWS infrastructure. By using the native SharePoint connector, IskayPet avoided costly data migrations and maintained existing permission models. The architecture supports multi-country operations by enabling hybrid search and managed reranking, ensuring that employees only access documents they are authorized to view."
+            }
+          ]
+        },
+        "es": {
+          "title": "IskayPet unifica su conocimiento corporativo con Amazon Bedrock",
+          "dek": "Según AWS. La empresa de cuidado de mascotas implementó una solución de RAG gestionada para optimizar el acceso a documentos operativos.",
+          "takeaways": [
+            "IskayPet eliminó la necesidad de gestionar infraestructura RAG compleja mediante Amazon Bedrock.",
+            "La solución se integra con SharePoint para respetar los permisos de acceso a documentos existentes.",
+            "El equipo utilizó Kiro y Claude Haiku 4.5 para acelerar el desarrollo de la interfaz y la infraestructura."
+          ],
+          "sections": [
+            {
+              "heading": "Desafíos en la gestión del conocimiento",
+              "body": "IskayPet, líder en el sector de cuidado de mascotas en Iberia, enfrentaba dificultades para gestionar información dispersa en cientos de documentos de SharePoint en cuatro idiomas. Para resolver esto, la empresa implementó Amazon Bedrock Managed Knowledge Bases, permitiendo a sus empleados realizar consultas en lenguaje natural sobre políticas y procedimientos. El sistema proporciona respuestas fundamentadas con citas de fuentes, eliminando la carga operativa de mantener bases de datos vectoriales propias."
+            },
+            {
+              "heading": "Arquitectura y desarrollo ágil",
+              "body": "El desarrollo de la solución se llevó a cabo mediante Kiro y el modelo Claude Haiku 4.5, lo que permitió al equipo crear tanto la interfaz de usuario como la infraestructura de AWS de manera eficiente. Gracias al conector nativo de SharePoint, IskayPet pudo indexar documentos existentes sin necesidad de migraciones costosas. La arquitectura implementada permite realizar búsquedas híbridas y reordenamiento de relevancia, garantizando que cada empleado acceda únicamente a la información permitida según su rol."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-iskaypet-unified-corporate-knowledge-with-amazon-bedrock-managed-knowledge-bases/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-6",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-iskaypet-unified-corporate-knowledge-with-amazon-bedrock-managed-knowledge-bases/",
+            "title": "How IskayPet unified corporate knowledge with Amazon Bedrock Managed Knowledge Bases"
+          }
+        ],
+        "claims": [
+          {
+            "text": "IskayPet implemented Amazon Bedrock Managed Knowledge Bases to centralize corporate knowledge across four languages and three countries without managing RAG infrastructure.",
+            "sourceIds": [
+              "aws-6"
+            ]
+          },
+          {
+            "text": "The company utilized Kiro and Claude Haiku 4.5 to develop both the frontend interface and the underlying AWS infrastructure for their internal assistant.",
+            "sourceIds": [
+              "aws-6"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-6",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-iskaypet-unified-corporate-knowledge-with-amazon-bedrock-managed-knowledge-bases/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/iskaypet-deploys-amazon-bedrock-knowledge-bases.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "IskayPet hợp nhất kiến thức doanh nghiệp với Amazon Bedrock",
+          "en": "IskayPet Unifies Corporate Knowledge with Amazon Bedrock",
+          "es": "IskayPet unifica su conocimiento corporativo con Amazon Bedrock"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "amazon-polly-generative-engine-upgrade",
       "reportingMode": "official-announcement",
