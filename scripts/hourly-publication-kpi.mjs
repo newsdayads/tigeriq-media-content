@@ -15,13 +15,28 @@ function validUtcHour(value){
     ?value:null;
 }
 
+// GitHub's scheduled Actions can start after the UTC hour boundary (a real
+// backup run scheduled for :47 began at 07:35Z). Using execution time's hour
+// would falsely accept a 07Z story for the missed 06Z backup. Attribute the
+// check to the latest :47 cron tick at/before execution, never future :47.
+// This is an inferred attribution, NOT an attested GitHub scheduled timestamp.
+const GITHUB_BACKUP_CRON_MINUTE=47;
+function expectedGithubBackupHour(now){
+  const execution=new Date(now);
+  if(!Number.isFinite(execution.getTime()))return null;
+  const due=new Date(execution.getTime());
+  due.setUTCMinutes(GITHUB_BACKUP_CRON_MINUTE,0,0);
+  if(due.getTime()>execution.getTime())due.setUTCHours(due.getUTCHours()-1);
+  return validUtcHour(due.toISOString().slice(0,13)+":00:00Z");
+}
+
 export function evaluateHourlyPublication({eventName,schedulerOrigin,scheduledHourUtc,now=new Date(),store}={}){
   const enforced=eventName==="schedule"||
     (eventName==="workflow_dispatch"&&schedulerOrigin==="cloudflare");
   if(!enforced)return {enforced:false,passed:null,code:"NOT_SCHEDULED",
     hourUtc:null,cloudflareNativeEvent:NATIVE_PROOF};
   const hourUtc=eventName==="schedule"
-    ?validUtcHour(new Date(now).toISOString().slice(0,13)+":00:00Z")
+    ?expectedGithubBackupHour(now)
     :validUtcHour(scheduledHourUtc);
   if(!hourUtc)return {enforced:true,passed:false,code:"INVALID_SCHEDULE_HOUR",
     hourUtc:null,cloudflareNativeEvent:NATIVE_PROOF};

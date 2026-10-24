@@ -9,7 +9,8 @@ import {evaluateHourlyPublication} from "./hourly-publication-kpi.mjs";
 
 const at=new Date("2026-10-23T22:20:00.000Z");
 const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({slug:"verified-story",publishedAt});
-const github={eventName:"schedule",now:at};
+// Native backup fires at :47; 22:20Z precedes this hour’s cron tick.
+const github={eventName:"schedule",now:new Date("2026-10-23T22:47:00.000Z")};
 const cloudflare={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
   scheduledHourUtc:"2026-10-23T22:00:00Z",now:at};
 
@@ -31,6 +32,32 @@ test("a real committed article in the same hour passes both scheduled routes",()
     assert.equal(result.code,"COMMITTED_STORY_PRESENT");
     assert.equal(result.hourUtc,"2026-10-23T22:00:00Z");
   }
+});
+
+test("late GitHub native backup cannot count the next hour as a successful previous-hour publish",()=>{
+  // Real incident: schedule declared at :47, run began 07:35:41Z;
+  // old implementation accepted a 07:17Z story and hid a missed 06Z hour.
+  const delayed={eventName:"schedule",now:new Date("2026-10-24T07:35:57Z")};
+  const nextHourOnly={articles:[story("2026-10-24T07:17:48.716Z")]};
+  const missed=evaluateHourlyPublication({...delayed,store:nextHourOnly});
+  assert.equal(missed.hourUtc,"2026-10-24T06:00:00Z");
+  assert.equal(missed.passed,false);
+  assert.equal(missed.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+  const actualPrevious={articles:[story("2026-10-24T06:17:48.716Z")]};
+  assert.equal(evaluateHourlyPublication({...delayed,store:actualPrevious}).passed,true);
+});
+
+test("on-time backup at :47 is checked against its own UTC hour including boundary rollover",()=>{
+  const inHour=evaluateHourlyPublication({eventName:"schedule",
+    now:new Date("2026-10-24T07:47:00Z"),store:{articles:[story("2026-10-24T07:17:48.716Z")]}});
+  assert.equal(inHour.hourUtc,"2026-10-24T07:00:00Z");
+  assert.equal(inHour.passed,true);
+  const beforeDue=evaluateHourlyPublication({eventName:"schedule",
+    now:new Date("2026-11-01T00:02:00Z"),store:{articles:[story("2026-10-31T23:47:01Z")]}});
+  assert.equal(beforeDue.hourUtc,"2026-10-31T23:00:00Z");
+  assert.equal(beforeDue.passed,true);
+  assert.equal(evaluateHourlyPublication({eventName:"schedule",now:new Date("invalid"),
+    store:{articles:[story()]}}).code,"INVALID_SCHEDULE_HOUR");
 });
 
 test("backup cron respects a published article and cannot create a second one",()=>{
