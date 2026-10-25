@@ -1,11 +1,144 @@
 {
-  "updatedAt": "2026-10-25T00:17:52.592Z",
+  "updatedAt": "2026-10-25T04:17:50.970Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-retail-ai-europe-announcements",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-retail-ai-europe-announcements",
+      "clusterKey": "news:89f806e09c262806866d80d9dc401bacc44ae75e0f1852867c6f4dbd015f922d",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-25T04:17:50.970Z",
+      "modifiedAt": "2026-10-25T04:17:50.970Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA công bố các giải pháp AI mới cho ngành bán lẻ tại châu Âu",
+          "dek": "Theo công bố của NVIDIA. NVIDIA giới thiệu các mô hình mở và công nghệ bản sao kỹ thuật số nhằm tối ưu hóa vận hành và trải nghiệm khách hàng cho các nhà bán lẻ.",
+          "takeaways": [
+            "Shopify giảm 90% chi phí vận hành nhờ mô hình Nemotron 3.5 Lightning.",
+            "L'Oréal sử dụng công cụ ALCHEMI để rút ngắn thời gian nghiên cứu thành phần.",
+            "NVIDIA ra mắt ba bản thiết kế (blueprints) mới hỗ trợ quản lý kho và nhân sự.",
+            "Các nhà bán lẻ ứng dụng bản sao kỹ thuật số để mô phỏng kho hàng."
+          ],
+          "sections": [
+            {
+              "heading": "Tối ưu hóa thương mại điện tử",
+              "body": "NVIDIA cho biết các nền tảng như Shopify đã áp dụng các mô hình mở để cải thiện hiệu suất của trợ lý AI. Bằng cách sử dụng thư viện NVIDIA Megatron Bridge và NeMo RL, Shopify đã đạt được độ chính xác cao hơn trong khi giảm đáng kể chi phí hạ tầng và tăng tốc độ phản hồi cho người dùng."
+            },
+            {
+              "heading": "Ứng dụng AI trong nghiên cứu và vận hành",
+              "body": "Trong lĩnh vực sản xuất, L'Oréal đang sử dụng NVIDIA ALCHEMI để sàng lọc các tổ hợp thành phần hóa học nhanh hơn so với phương pháp truyền thống. Đồng thời, các tập đoàn như Otto Group đang triển khai các bản sao kỹ thuật số (digital twins) để mô phỏng và tối ưu hóa quy trình vận hành kho bãi trước khi áp dụng thực tế."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Announces New AI and Digital Twin Solutions for European Retail",
+          "dek": "According to NVIDIA. NVIDIA highlights how European retailers are leveraging open models and physical AI to transform digital discovery and warehouse operations.",
+          "takeaways": [
+            "Shopify achieved a 90% reduction in inference costs using NVIDIA Nemotron 3.5.",
+            "L'Oréal is using NVIDIA ALCHEMI to accelerate molecular screening for product ingredients.",
+            "NVIDIA unveiled three new retail blueprints at GTC Berlin for inventory and agentic workflows.",
+            "Digital twin technology is being deployed to simulate and optimize warehouse logistics."
+          ],
+          "sections": [
+            {
+              "heading": "Advancing Agentic Commerce",
+              "body": "NVIDIA reported that European retailers are adopting open models to enhance agentic commerce. Shopify, for instance, post-trained the Nemotron 3.5 Lightning model to power its merchant assistant, achieving significant performance gains and cost reductions. Other companies like Zooplus are utilizing the Nemotron Retriever library to improve search accuracy within their product catalogs."
+            },
+            {
+              "heading": "Physical AI and Simulation",
+              "body": "The company highlighted the use of physical AI and digital twins to streamline retail operations. Otto Group is utilizing NVIDIA Omniverse libraries to design and test warehouse operations in a virtual environment. Additionally, new retail blueprints showcased at GTC Berlin aim to assist store managers with inventory optimization and task management through agentic workflows."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA presenta nuevas soluciones de IA para el sector minorista europeo",
+          "dek": "Según NVIDIA. NVIDIA detalla cómo los minoristas europeos están utilizando modelos abiertos y gemelos digitales para mejorar la eficiencia operativa y la experiencia del cliente.",
+          "takeaways": [
+            "Shopify redujo sus costos de inferencia en un 90% mediante modelos de NVIDIA.",
+            "L'Oréal acelera la investigación de ingredientes utilizando el kit de herramientas ALCHEMI.",
+            "NVIDIA presentó tres nuevos planos (blueprints) para la optimización de inventarios.",
+            "La tecnología de gemelos digitales permite simular operaciones de almacén antes de su ejecución."
+          ],
+          "sections": [
+            {
+              "heading": "Innovación en el comercio electrónico",
+              "body": "NVIDIA informó que diversas empresas europeas están integrando modelos abiertos para potenciar sus capacidades de IA. Shopify ha optimizado su asistente para comerciantes utilizando NVIDIA Nemotron 3.5 Lightning, logrando respuestas más rápidas y una reducción sustancial en los costos de servicio en comparación con modelos anteriores."
+            },
+            {
+              "heading": "Inteligencia física y simulación",
+              "body": "La compañía destacó el uso de gemelos digitales para transformar la logística minorista. A través de NVIDIA Omniverse, empresas como Otto Group pueden diseñar y probar la eficiencia de sus almacenes en entornos virtuales. Asimismo, los nuevos planos presentados en GTC Berlin ofrecen herramientas para la gestión de inventarios y la automatización de tareas operativas."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/european-retail-open-models-robotics/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-7",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/european-retail-open-models-robotics/",
+            "title": "NVIDIA Transforms European Retail, From Digital Discovery to Physical Operations"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced that Shopify utilized NVIDIA Nemotron 3.5 Lightning to improve its AI merchant assistant, resulting in a 90% reduction in serving costs and 7x faster response times.",
+            "sourceIds": [
+              "nvidia-7"
+            ]
+          },
+          {
+            "text": "L'Oréal is integrating the NVIDIA ALCHEMI toolkit and the OrbMol-v2 molecular simulation model to accelerate the identification of ingredient combinations for UV filters.",
+            "sourceIds": [
+              "nvidia-7"
+            ]
+          },
+          {
+            "text": "NVIDIA introduced three new retail blueprints at GTC Berlin, including tools for employee productivity, inventory simulation, and agentic fine-tuning.",
+            "sourceIds": [
+              "nvidia-7"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-7",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/european-retail-open-models-robotics/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-retail-ai-europe-announcements.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA công bố các giải pháp AI mới cho ngành bán lẻ tại châu Âu",
+          "en": "NVIDIA Announces New AI and Digital Twin Solutions for European Retail",
+          "es": "NVIDIA presenta nuevas soluciones de IA para el sector minorista europeo"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "rescale-deploys-ai-triage-agent-using-aws-ai-dlc",
       "reportingMode": "official-announcement",
