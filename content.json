@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-24T20:17:50.349Z",
+  "updatedAt": "2026-10-25T00:17:52.592Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "rescale-deploys-ai-triage-agent-using-aws-ai-dlc",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:rescale-deploys-ai-triage-agent-using-aws-ai-dlc",
+      "clusterKey": "news:77772140c899b7398fb4439042e93fa09cb217fdfabc7b38798d30b740ccef2f",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-25T00:17:52.592Z",
+      "modifiedAt": "2026-10-25T00:17:52.592Z",
+      "editions": {
+        "vi": {
+          "title": "Rescale triển khai tác nhân AI tự động phân loại lỗi thử nghiệm",
+          "dek": "Theo công bố của AWS. Rescale hợp tác với AWS để xây dựng hệ thống triage thông minh giúp giảm bớt gánh nặng vận hành cho kỹ sư.",
+          "takeaways": [
+            "Rescale đã phát triển tác nhân AI triage trong vòng năm ngày bằng khung AI-DLC.",
+            "Hệ thống sử dụng Claude Opus 4.8 trên Amazon Bedrock để phân loại lỗi tự động.",
+            "Tác nhân được tích hợp trực tiếp vào quy trình CI/CD trên Amazon EKS."
+          ],
+          "sections": [
+            {
+              "heading": "Giải quyết thách thức vận hành",
+              "body": "Rescale đối mặt với khối lượng công việc lớn trong việc phân loại các lỗi thử nghiệm tự động hàng đêm. Trước đây, các kỹ sư phải thủ công kiểm tra nhật ký và mã nguồn để xác định nguyên nhân gốc rễ, gây ảnh hưởng đến tiến độ triển khai sản phẩm. Tác nhân mới được thiết kế để tự động hóa quy trình này, giúp giảm thời gian phản hồi và điều phối giữa các nhóm."
+            },
+            {
+              "heading": "Quy trình phát triển AI-DLC",
+              "body": "Sử dụng phương pháp AI-Driven Development Lifecycle (AI-DLC), đội ngũ kỹ sư của Rescale đã thực hiện các phiên làm việc nhóm tập trung để xác định yêu cầu và xây dựng kiến trúc. Phương pháp này nhấn mạnh vào việc AI thực thi các tác vụ kỹ thuật trong khi con người giữ vai trò xác thực và đưa ra quyết định chiến lược tại mỗi giai đoạn phát triển."
+            }
+          ]
+        },
+        "en": {
+          "title": "Rescale Deploys AI Triage Agent Using AWS AI-DLC Framework",
+          "dek": "According to AWS. Rescale leverages Amazon Bedrock and AI-DLC methodology to automate the classification of nightly test suite failures.",
+          "takeaways": [
+            "Rescale built an intelligent triage agent in five days using the AI-DLC framework.",
+            "The agent utilizes Claude Opus 4.8 on Amazon Bedrock for failure classification.",
+            "The system integrates with Argo Workflows on Amazon EKS to streamline CI/CD operations."
+          ],
+          "sections": [
+            {
+              "heading": "Automating Engineering Triage",
+              "body": "Rescale developed an AI-powered agent to address the operational overhead of classifying nightly end-to-end test failures. By automating the identification of root causes—such as infrastructure issues or code bugs—the agent allows engineers to focus on higher-level architectural tasks rather than manual log analysis and routing."
+            },
+            {
+              "heading": "Implementation via AI-DLC",
+              "body": "The project followed the AI-Driven Development Lifecycle (AI-DLC), which emphasizes human-led validation of AI-generated work plans. During a five-day workshop, Rescale engineers and AWS architects co-built the solution, moving from initial requirements to a staging deployment by leveraging real-time mob elaboration and construction sessions."
+            }
+          ]
+        },
+        "es": {
+          "title": "Rescale implementa un agente de triaje con IA mediante el marco AI-DLC de AWS",
+          "dek": "Según AWS. Rescale utiliza Amazon Bedrock y la metodología AI-DLC para automatizar la clasificación de fallos en pruebas nocturnas.",
+          "takeaways": [
+            "Rescale desarrolló un agente de triaje inteligente en cinco días usando el marco AI-DLC.",
+            "El sistema emplea Claude Opus 4.8 en Amazon Bedrock para clasificar fallos automáticamente.",
+            "La solución se integra en el flujo de trabajo CI/CD existente sobre Amazon EKS."
+          ],
+          "sections": [
+            {
+              "heading": "Automatización del triaje técnico",
+              "body": "Rescale creó un agente basado en IA para gestionar la carga operativa de clasificar fallos en pruebas automatizadas. Al automatizar la identificación de causas raíz, como errores de código o problemas de infraestructura, el agente permite que los ingenieros se concentren en tareas de mayor valor en lugar de realizar análisis manuales de registros."
+            },
+            {
+              "heading": "Desarrollo mediante AI-DLC",
+              "body": "El proyecto se ejecutó bajo el marco AI-Driven Development Lifecycle (AI-DLC), que prioriza la validación humana de los planes generados por IA. A través de un taller de cinco días, los ingenieros de Rescale y AWS construyeron la solución, pasando de la definición de requisitos a la implementación en entorno de pruebas mediante sesiones colaborativas."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-12",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/",
+            "title": "How Rescale built an AI triage agent with Strands Agents and AI-DLC"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Rescale utilized the AI-Driven Development Lifecycle (AI-DLC) framework on AWS to develop and deploy an intelligent triage agent for automated test failures.",
+            "sourceIds": [
+              "aws-12"
+            ]
+          },
+          {
+            "text": "The triage agent integrates with Amazon Bedrock, using Claude Opus 4.8 to classify test failures and generate remediation reports.",
+            "sourceIds": [
+              "aws-12"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-12",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/rescale-deploys-ai-triage-agent-using-aws-ai-dlc.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Rescale triển khai tác nhân AI tự động phân loại lỗi thử nghiệm",
+          "en": "Rescale Deploys AI Triage Agent Using AWS AI-DLC Framework",
+          "es": "Rescale implementa un agente de triaje con IA mediante el marco AI-DLC de AWS"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-sagemaker-tts-auto-scaling-optimization",
       "reportingMode": "official-announcement",
