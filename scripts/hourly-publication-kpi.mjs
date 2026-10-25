@@ -10,14 +10,20 @@ const NATIVE_PROOF="NOT_VERIFIED_BY_GITHUB_INPUT";
 const ORIGINAL_COVER_PREFIX="https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/";
 
 // A timestamp is not a published product. A counted hourly story must carry
-// all three native editions and its own original, canonical SVG cover.
+// full, nonempty three-language article bodies and its own canonical SVG cover.
 // This local gate cannot attest live HTTP or the Cloudflare trigger.
 export function hasPublicationArtifacts(article){
   const slug=article?.slug;
   return typeof slug==="string"&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)&&
-    ["vi","en","es"].every(lang=>
-      typeof article?.editions?.[lang]?.title==="string"&&
-      article.editions[lang].title.trim().length>0)&&
+    ["vi","en","es"].every(lang=>{
+      const edition=article?.editions?.[lang];
+      return typeof edition?.title==="string"&&edition.title.trim().length>0&&
+        typeof edition?.dek==="string"&&edition.dek.trim().length>0&&
+        Array.isArray(edition.sections)&&edition.sections.length>0&&
+        edition.sections.every(section=>
+          typeof section?.heading==="string"&&section.heading.trim().length>0&&
+          typeof section?.body==="string"&&section.body.trim().length>0);
+    })&&
     article?.cover?.generated===true&&
     article.cover.url===ORIGINAL_COVER_PREFIX+slug+".svg";
 }
