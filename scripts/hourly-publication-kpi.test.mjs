@@ -11,9 +11,12 @@ const at=new Date("2026-10-23T22:20:00.000Z");
 const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({
   slug:"verified-story",publishedAt,
   editions:{
-    vi:{title:"Tin tức tiếng Việt"},
-    en:{title:"Verified English story"},
-    es:{title:"Noticia verificada en español"}
+    vi:{title:"Tin tức tiếng Việt",dek:"Bản tin có nội dung thật.",
+      sections:[{heading:"Thông tin chính",body:"Nội dung tiếng Việt đã được biên tập."}]},
+    en:{title:"Verified English story",dek:"A real published article.",
+      sections:[{heading:"Key findings",body:"Verified article body in English."}]},
+    es:{title:"Noticia verificada en español",dek:"Un artículo con contenido.",
+      sections:[{heading:"Hallazgos",body:"Texto verificado en español."}]}
   },
   cover:{generated:true,url:
     "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/verified-story.svg"}
@@ -40,6 +43,28 @@ test("a real committed article in the same hour passes both scheduled routes",()
     assert.equal(result.passed,true);
     assert.equal(result.code,"COMMITTED_STORY_PRESENT");
     assert.equal(result.hourUtc,"2026-10-23T22:00:00Z");
+  }
+});
+
+test("headline-only or blank-body edition cannot count as an hourly publication",()=>{
+  const complete=story();
+  const headlineOnly={...complete,editions:Object.fromEntries(
+    ["vi","en","es"].map(lang=>[lang,{title:complete.editions[lang].title}]))};
+  const blankSummary={...complete,editions:{...complete.editions,
+    en:{...complete.editions.en,dek:"   "}}};
+  const missingSections={...complete,editions:{...complete.editions,
+    vi:{...complete.editions.vi,sections:[]}}};
+  const blankBody={...complete,editions:{...complete.editions,
+    es:{...complete.editions.es,sections:[{heading:"Hallazgos",body:"   "}]}}};
+  const blankHeading={...complete,editions:{...complete.editions,
+    vi:{...complete.editions.vi,sections:[{heading:" ",body:"Real text"}]}}};
+  for(const route of [github,cloudflare]){
+    for(const invalid of [headlineOnly,blankSummary,missingSections,blankBody,blankHeading]){
+      const result=evaluateHourlyPublication({...route,store:{articles:[invalid]}});
+      assert.equal(result.passed,false);
+      assert.equal(result.committedStoryCount,1);
+      assert.equal(result.code,"INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION");
+    }
   }
 });
 

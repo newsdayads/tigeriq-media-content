@@ -8,7 +8,14 @@ import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyPro
 const now=new Date("2026-10-18T03:00:00.000Z");
 const completeHourlyStory=(slug,publishedAt)=>({
   slug,publishedAt,
-  editions:{vi:{title:"Vietnamese headline"},en:{title:"English headline"},es:{title:"Spanish headline"}},
+  editions:{
+    vi:{title:"Vietnamese headline",dek:"Tóm tắt bài báo.",
+      sections:[{heading:"Diễn biến",body:"Nội dung bài viết bằng tiếng Việt."}]},
+    en:{title:"English headline",dek:"A complete article summary.",
+      sections:[{heading:"What happened",body:"A real article body in English."}]},
+    es:{title:"Spanish headline",dek:"Resumen del artículo.",
+      sections:[{heading:"Qué ocurrió",body:"Contenido real del artículo en español."}]}
+  },
   cover:{generated:true,url:"https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/"+slug+".svg"}
 });
 const date="Sat, 17 Oct 2026 23:00:00 GMT";
@@ -2388,6 +2395,10 @@ test("wrong cover, missing locale, and duplicate same-hour stories fail before p
   const invalid=[
     [{...complete,cover:{...complete.cover,url:complete.cover.url.replace("real-story.svg","wrong-story.svg")}}],
     [{...complete,editions:{vi:complete.editions.vi,en:complete.editions.en}}],
+    [{...complete,editions:{...complete.editions,
+      en:{...complete.editions.en,sections:[{heading:"What happened",body:"  "}]}}}],
+    [{...complete,editions:{...complete.editions,
+      es:{title:"Solo titular"}}}],
     [complete,completeHourlyStory("second-story",new Date(now.getTime()+1000).toISOString())]
   ];
   for(const articles of invalid){
