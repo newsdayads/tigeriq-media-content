@@ -839,6 +839,12 @@ export function prioritizeOfficialCandidates(items,articles){
  * All candidates already passed the official feed origin and 72h freshness
  * checks; full HTML validation and independent AI review are unchanged.
  */
+export function officialAiTechnologyCandidate(item){
+  if(!item||typeof item!=="object")return false;
+  const text=(String(item.title||"")+" "+String(item.summary||"")).toLowerCase();
+  return /\b(?:ai|artificial intelligence|machine learning|ml|llm|large language model|foundation model|frontier model|model|models|agent|agents|agentic|robot|robotics|inference|training|neural|transformer|copilot|gemini|sagemaker|bedrock|tensorrt|cuda|gpu|computer vision|speech|reinforcement learning)\b/i.test(text);
+}
+
 export function officialFetchCandidates(items,articles){
   const ranked=prioritizeOfficialCandidates(items,articles);
   const primary=ranked.slice(0,5);
@@ -995,11 +1001,17 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   const publishedSources=new Set(store.articles.flatMap(a=>Array.isArray(a?.sources)?a.sources:[])
     .filter(url=>typeof url==="string").map(sourceIdentityUrl));
   const unseenItems=items.filter(item=>!publishedSources.has(sourceIdentityUrl(item.url)));
-  let packet=sourcePacket(unseenItems);
+  const eligibleItems=attributed?unseenItems.filter(officialAiTechnologyCandidate):unseenItems;
+  if(attributed&&eligibleItems.length===0){
+    console.log("NOOP_NO_AI_TECHNOLOGY_CANDIDATE");
+    reportMissedScheduledHour("NOOP_NO_AI_TECHNOLOGY_CANDIDATE");
+    return {status:"noop"};
+  }
+  let packet=sourcePacket(eligibleItems);
   if(attributed){
     packet=[];
     let forbiddenFallback=null;
-    for(const candidate of officialFetchCandidates(unseenItems,store.articles)){
+    for(const candidate of officialFetchCandidates(eligibleItems,store.articles)){
       try{packet=[await fullOfficialSource(candidate,fetchImpl)];break;}
       catch(error){
         if(error?.message==="OFFICIAL_ARTICLE_FORBIDDEN"&&!forbiddenFallback){
