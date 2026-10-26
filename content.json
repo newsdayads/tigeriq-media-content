@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-26T02:17:49.023Z",
+  "updatedAt": "2026-10-26T06:17:48.421Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "openai-frontier-model-security-update",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:openai-frontier-model-security-update",
+      "clusterKey": "news:7ec2e809fca05234a41f726de344d6360457a13e73f44f230b31a90d81fb388f",
+      "readTime": "2",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T06:17:48.421Z",
+      "modifiedAt": "2026-10-26T06:17:48.421Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI tăng cường bảo mật cho môi trường huấn luyện mô hình tiên phong",
+          "dek": "Theo công bố của OpenAI. OpenAI công bố các biện pháp mới nhằm bảo vệ quy trình huấn luyện và đánh giá các mô hình AI tiên tiến.",
+          "takeaways": [
+            "OpenAI đã củng cố hệ thống kiểm soát cho việc huấn luyện mô hình.",
+            "Các biện pháp bao gồm sử dụng môi trường ngoại tuyến và kiểm thử bảo mật.",
+            "Tập trung vào việc bảo vệ quá trình đánh giá các mô hình tiên phong."
+          ],
+          "sections": [
+            {
+              "heading": "Củng cố an ninh mô hình",
+              "body": "OpenAI đã chính thức giải thích về cách thức họ tăng cường khả năng kiểm soát đối với môi trường huấn luyện và đánh giá các mô hình tiên phong của mình. Những cải tiến này nhằm đảm bảo an toàn cho các quy trình phát triển công nghệ AI ở cấp độ cao nhất."
+            },
+            {
+              "heading": "Các biện pháp kỹ thuật",
+              "body": "Theo thông tin từ công ty, chiến lược bảo mật mới bao gồm việc triển khai các môi trường huấn luyện ngoại tuyến hoàn toàn. Ngoài ra, OpenAI cũng áp dụng quy trình kiểm thử bảo mật thông qua hình thức red-teaming với yêu cầu tính toán cao để phát hiện các lỗ hổng tiềm ẩn."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI Strengthens Security for Frontier Model Training",
+          "dek": "According to OpenAI. OpenAI details new containment strategies for the development and evaluation of its most advanced AI models.",
+          "takeaways": [
+            "OpenAI has enhanced containment protocols for frontier model training.",
+            "Security measures incorporate offline environments to isolate model development.",
+            "High-compute red-teaming is utilized to evaluate model safety and security."
+          ],
+          "sections": [
+            {
+              "heading": "Enhanced Containment Strategies",
+              "body": "OpenAI has provided an explanation regarding the steps taken to strengthen containment for the training and evaluation of its frontier models. These measures are designed to secure the infrastructure used for developing the company's most advanced artificial intelligence technologies."
+            },
+            {
+              "heading": "Technical Security Implementation",
+              "body": "The company's updated security framework includes the deployment of offline environments to manage model training. Furthermore, OpenAI is utilizing high-compute red-teaming as part of its evaluation process to ensure the robustness and security of its frontier models."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI refuerza la seguridad en el entrenamiento de modelos de frontera",
+          "dek": "Según OpenAI. OpenAI detalla nuevas estrategias de contención para el desarrollo y evaluación de sus modelos de IA más avanzados.",
+          "takeaways": [
+            "OpenAI ha mejorado los protocolos de contención para el entrenamiento de modelos.",
+            "Las medidas incluyen el uso de entornos fuera de línea para el desarrollo.",
+            "Se implementa red-teaming de alta capacidad computacional para la evaluación."
+          ],
+          "sections": [
+            {
+              "heading": "Estrategias de contención mejoradas",
+              "body": "OpenAI ha explicado cómo ha fortalecido la contención para el entrenamiento y la evaluación de sus modelos de frontera. Estas medidas están diseñadas para asegurar la infraestructura utilizada en el desarrollo de las tecnologías de inteligencia artificial más avanzadas de la compañía."
+            },
+            {
+              "heading": "Implementación de seguridad técnica",
+              "body": "El marco de seguridad actualizado de la empresa incluye el despliegue de entornos fuera de línea para gestionar el entrenamiento de los modelos. Además, OpenAI utiliza red-teaming de alta capacidad computacional como parte de su proceso de evaluación para garantizar la seguridad de sus modelos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/securing-our-frontier-model-training-environment"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "openai-2",
+            "publisher": "openai",
+            "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+            "title": "Securing our frontier model training environment"
+          }
+        ],
+        "claims": [
+          {
+            "text": "OpenAI has implemented strengthened containment measures for the training and evaluation of its frontier models.",
+            "sourceIds": [
+              "openai-2"
+            ]
+          },
+          {
+            "text": "The company's security strategy includes the use of offline environments and high-compute red-teaming.",
+            "sourceIds": [
+              "openai-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against validated official RSS title + description after same-origin article HTTP 403 by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "openai-2",
+            "tier": "A",
+            "url": "https://openai.com/index/securing-our-frontier-model-training-environment"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-frontier-model-security-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "OpenAI tăng cường bảo mật cho môi trường huấn luyện mô hình tiên phong",
+          "en": "OpenAI Strengthens Security for Frontier Model Training",
+          "es": "OpenAI refuerza la seguridad en el entrenamiento de modelos de frontera"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "openai-habitat-storage-scaling",
       "reportingMode": "official-announcement",
