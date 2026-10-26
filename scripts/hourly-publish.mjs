@@ -13,7 +13,7 @@ export const FEEDS=[
   // Additional verified primary sources; RSS and article URLs stay on publisher-owned origins.
   {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"},
   {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"},
-  {id:"vercel",url:"https://vercel.com/atom"}
+  {id:"vercel",url:"https://vercel.com/blog/feed"}
 ];
 const OFFICIAL_LINK_HOSTS={
   openai:["openai.com"],
