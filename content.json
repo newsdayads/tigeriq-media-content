@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-26T12:18:22.918Z",
+  "updatedAt": "2026-10-26T15:18:20.640Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-mission-control-2-5-autonomous-recovery-kubernetes",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-mission-control-2-5-autonomous-recovery-kubernetes",
+      "clusterKey": "news:af9060d2660aa02df189be2c7e19a53e26f37695db90155a04a21681299f080c",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T15:18:20.640Z",
+      "modifiedAt": "2026-10-26T15:18:20.640Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA Mission Control 2.5 Mang Khả Năng Phục Hồi Tự Động Lên Kubernetes",
+          "dek": "Theo công bố của NVIDIA Developer. Phiên bản mới nhất mở rộng động cơ phục hồi tự động sang các workload dựa trên Kubernetes được quản lý bởi NVIDIA Run:ai.",
+          "takeaways": [
+            "NVIDIA Mission Control 2.5 mở rộng động cơ phục hồi tự động sang Kubernetes.",
+            "Hệ thống vận hành như một vòng lặp điều khiển ba lớp kết hợp lập lịch, phục hồi công việc và phục hồi phần cứng.",
+            "Dịch vụ phục hồi phần cứng có thể cách ly nút bị lỗi và chạy chẩn đoán song song."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về phiên bản mới",
+              "body": "NVIDIA đã công bố Mission Control 2.5, mở rộng động cơ phục hồi tự động của mình sang các workload dựa trên Kubernetes được quản lý bởi NVIDIA Run:ai. Trước đây, động cơ phục hồi tự động này chỉ giới hạn ở các workload tính toán hiệu suất cao sử dụng Slurm."
+            },
+            {
+              "heading": "Cơ chế ba lớp",
+              "body": "Động cơ hoạt động như một vòng lặp điều khiển ba lớp: trình lập lịch Kubernetes đặt các workload, dịch vụ phục hồi công việc tự động phân loại lỗi bằng ngữ cảnh công việc, và dịch vụ phục hồi phần cứng tự động cách ly và chẩn đoán cơ sở hạ tầng bị lỗi."
+            }
+          ]
+        },
+        "en": {
+          "title": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+          "dek": "According to NVIDIA Developer. NVIDIA has extended its autonomous recovery engine to Kubernetes-based workloads managed by NVIDIA Run:ai in Mission Control 2.5.",
+          "takeaways": [
+            "Mission Control 2.5 extends autonomous recovery to Kubernetes workloads managed by NVIDIA Run:ai.",
+            "The system uses a three-layer control loop consisting of the scheduler, job recovery, and hardware recovery.",
+            "Hardware faults trigger parallel tracks where workloads restart while faulty nodes undergo diagnostics."
+          ],
+          "sections": [
+            {
+              "heading": "Extending Autonomous Recovery",
+              "body": "NVIDIA announced Mission Control 2.5, extending its autonomous recovery engine to Kubernetes-based workloads managed using NVIDIA Run:ai. Previously, this recovery engine was limited to high-performance computing workloads leveraging Slurm, helping move AI factory operations toward self-healing infrastructure."
+            },
+            {
+              "heading": "Three-Layer Control Loop",
+              "body": "The autonomous recovery engine operates through an integrated three-layer framework: the Kubernetes scheduler places workloads, the autonomous job recovery service classifies failures using job context, and the autonomous hardware recovery service isolates and diagnoses faulty infrastructure."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo NVIDIA Mission Control 2.5 Lleva la Recuperación Autónoma a Kubernetes",
+          "dek": "Según NVIDIA Developer. La nueva versión extiende el motor de recuperación autónoma a cargas de trabajo basadas en Kubernetes gestionadas con NVIDIA Run:ai.",
+          "takeaways": [
+            "NVIDIA Mission Control 2.5 amplía su motor de recuperación autónoma a Kubernetes.",
+            "El marco opera mediante un bucle de control de tres capas que coordina el programador y los servicios de recuperación.",
+            "Los fallos de hardware activan pistas paralelas para reiniciar las tareas mientras se aísla el nodo defectuoso."
+          ],
+          "sections": [
+            {
+              "heading": "Expansión a Kubernetes",
+              "body": "NVIDIA anunció Mission Control 2.5, extendiendo su motor de recuperación autónoma a cargas de trabajo basadas en Kubernetes gestionadas mediante NVIDIA Run:ai. Anteriormente, este servicio de recuperación estaba limitado a cargas de trabajo de computación de alto rendimiento que utilizaban Slurm."
+            },
+            {
+              "heading": "Arquitectura de Control",
+              "body": "El motor de recuperación autónoma funciona como un bucle de control de tres capas donde el programador de Kubernetes coloca las cargas de trabajo, el servicio de recuperación de trabajos clasifica los fallos usando el contexto, y el servicio de recuperación de hardware aísla y diagnostica la infraestructura."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/",
+            "title": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced Mission Control 2.5, extending its autonomous recovery engine to Kubernetes-based workloads managed by NVIDIA Run:ai.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "The autonomous recovery engine operates as a three-layer control loop involving the Kubernetes scheduler, the autonomous job recovery service, and the autonomous hardware recovery service.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-mission-control-2-5-autonomous-recovery-kubernetes.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA Mission Control 2.5 Mang Khả Năng Phục Hồi Tự Động Lên Kubernetes",
+          "en": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+          "es": "Cómo NVIDIA Mission Control 2.5 Lleva la Recuperación Autónoma a Kubernetes"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "scaling-nvidia-tensorrt-performance-optimization-global-performance-tuner",
       "reportingMode": "official-announcement",
