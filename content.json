@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-26T17:18:22.600Z",
+  "updatedAt": "2026-10-26T18:18:18.652Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield",
+      "clusterKey": "news:3662dd80357bcaeae246174f20a4b6b1d7d25ed06172953cebcfd1ba3c17f748",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T18:18:18.652Z",
+      "modifiedAt": "2026-10-26T18:18:18.652Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA Minerva Chuyển Hóa Sự Hỗn Lộn Về Đo Lược Thành Hiệu Suất GPU Tối Ưu",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA Minerva hợp nhất dữ liệu đo lược trên toàn bộ hệ thống GPU, mạng, lưu trữ và khối lượng công việc thành một đồ thị tri thức động.",
+          "takeaways": [
+            "NVIDIA Minerva hợp nhất dữ liệu đo lược trên toàn bộ hạ tầng thành một đồ thị tri thức động.",
+            "Các mô hình học máy giám sát và không giám sát phát hiện các lỗi ẩn ở phần cứng.",
+            "Trợ lý AI Sherlock cho phép người vận hành truy vấn bằng ngôn ngữ tự nhiên."
+          ],
+          "sections": [
+            {
+              "heading": "Hợp Nhất Dữ Liệu Đo Lược",
+              "body": "NVIDIA Minerva thu thập dữ liệu đo lược trên toàn bộ ngăn xếp, ánh xạ hạ tầng tới các công việc đang hoạt động trong một đồ thị tri thức động nhằm cập nhật các mối quan hệ khi môi trường thay đổi. Nền tảng này giúp kết nối thông tin giữa các nhóm mạng, máy tính và học máy để giải quyết các khoảng trống vận hành."
+            },
+            {
+              "heading": "Phát Hiện Lỗi Bằng Học Máy",
+              "body": "Nền tảng xử lý hàng tỷ điểm dữ liệu mỗi giờ bằng các mô hình có mục đích chuyên biệt để phát hiện các lỗi ẩn mà ngưỡng cảnh báo tĩnh có thể bỏ sót. Quá trình so sánh giữa các thiết bị tương đương giúp nhận diện các bất thường về nhiệt độ hoặc hiệu suất mạng."
+            }
+          ]
+        },
+        "en": {
+          "title": "How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield",
+          "dek": "According to NVIDIA Developer. NVIDIA Minerva unifies telemetry across GPUs, networking, storage, and workloads into a dynamic knowledge graph mapping infrastructure to active jobs.",
+          "takeaways": [
+            "NVIDIA Minerva unifies telemetry across infrastructure into a dynamic knowledge graph.",
+            "Supervised and unsupervised machine learning models detect gray failures across hardware.",
+            "An AI agent named Sherlock lets operators query live evidence using natural language."
+          ],
+          "sections": [
+            {
+              "heading": "Telemetry Unification",
+              "body": "NVIDIA Minerva collects telemetry across the stack and maps infrastructure to active jobs in a dynamic knowledge graph that updates relationships as the environment changes. The platform helps network, compute, and ML teams work from the same causal map instead of separate inventories."
+            },
+            {
+              "heading": "Machine Learning Detection",
+              "body": "The platform processes billions of metric and log data points per hour using purpose-built models to detect gray failures that absolute thresholds can miss. Peer comparisons help identify anomalous component behavior such as a GPU running hotter than sibling units under identical load."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo NVIDIA Minerva Convierte El Caos De Telemetría En Rendimiento De GPU",
+          "dek": "Según NVIDIA Developer. NVIDIA Minerva unifica la telemetría en GPUs, redes, almacenamiento y cargas de trabajo en un gráfico de conocimiento dinámico.",
+          "takeaways": [
+            "NVIDIA Minerva unifica la telemetría en todo el sistema en un gráfico de conocimiento dinámico.",
+            "Modelos de aprendizaje automático detectan fallos ocultos en el hardware y los componentes.",
+            "Un agente de inteligencia artificial llamado Sherlock permite consultar evidencias en lenguaje natural."
+          ],
+          "sections": [
+            {
+              "heading": "Unificación de Telemetría",
+              "body": "NVIDIA Minerva recopila telemetría en toda la pila tecnológica y mapea la infraestructura con los trabajos activos en un gráfico de conocimiento dinámico que actualiza sus relaciones. La plataforma permite que los equipos de red, computación y aprendizaje automático trabajen con un mapa causal común."
+            },
+            {
+              "heading": "Detección de Fallos",
+              "body": "La plataforma procesa miles de millones de puntos de datos de métricas y registros por hora utilizando modelos especializados para detectar fallos sutiles que los umbrales estáticos pasan por alto. Las comparaciones entre componentes similares ayudan a identificar comportamientos anómalos antes de que ocurran fallos mayores."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/",
+            "title": "How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA Minerva unifies telemetry across GPUs, networking, storage, and workloads into a dynamic knowledge graph that maps infrastructure to active jobs in real time.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "An AI agent named Sherlock and an MCP server let operators query live evidence in natural language and integrate operational context into external agentic workflows.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA Minerva Chuyển Hóa Sự Hỗn Lộn Về Đo Lược Thành Hiệu Suất GPU Tối Ưu",
+          "en": "How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield",
+          "es": "Cómo NVIDIA Minerva Convierte El Caos De Telemetría En Rendimiento De GPU"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk",
       "reportingMode": "official-announcement",
