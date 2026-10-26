@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate,officialAiTechnologyScore,officialAiFetchCandidates} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const completeHourlyStory=(slug,publishedAt)=>({
@@ -2930,4 +2930,38 @@ test("provider failure on first AI candidate does not fail over to another paid 
   assert.equal(modelCalls,4,"existing bounded 503 retry applies only to the first candidate; no second-candidate failover");
   assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]});
 }));
+
+test("AI candidate ranking prefers explicit agents and robotics over slightly newer generic TensorRT tuning",()=>{
+  const at=new Date("2026-10-26T12:00:00Z");
+  const items=[
+    {
+      id:"nvidiadev-1",publisher:"nvidiadev",
+      title:"Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route",
+      summary:"NVIDIA documents TensorRT performance tuning and inference optimization.",
+      url:"https://developer.nvidia.com/blog/tensorrt-performance/",
+      publishedAt:new Date(at.getTime()-60*60000).toISOString()
+    },
+    {
+      id:"nvidiadev-2",publisher:"nvidiadev",
+      title:"Using AI Agents to Teach Robots to Walk in Simulation",
+      summary:"NVIDIA documents AI agents, robotics simulation, reinforcement learning, and deployment.",
+      url:"https://developer.nvidia.com/blog/ai-agents-robots/",
+      publishedAt:new Date(at.getTime()-180*60000).toISOString()
+    }
+  ];
+  assert.ok(officialAiTechnologyScore(items[1])>officialAiTechnologyScore(items[0]));
+  const ranked=officialAiFetchCandidates(items,[]);
+  assert.equal(ranked[0].id,"nvidiadev-2");
+  assert.equal(ranked[1].id,"nvidiadev-1");
+});
+
+test("AI ranking keeps freshness as tie-break when relevance scores are equal",()=>{
+  const items=[
+    {id:"a",publisher:"nvidiadev",title:"NVIDIA AI agent update",summary:"AI agents and deployment details.",
+      url:"https://developer.nvidia.com/blog/a/",publishedAt:"2026-10-26T11:00:00.000Z"},
+    {id:"b",publisher:"nvidiadev",title:"NVIDIA AI agent update",summary:"AI agents and deployment details.",
+      url:"https://developer.nvidia.com/blog/b/",publishedAt:"2026-10-26T10:00:00.000Z"}
+  ];
+  assert.deepEqual(officialAiFetchCandidates(items,[]).map(item=>item.id),["a","b"]);
+});
 
