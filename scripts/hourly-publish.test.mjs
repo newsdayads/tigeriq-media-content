@@ -2748,3 +2748,39 @@ test("Cloudflare-labelled feed rejects unverified article hosts and stale announ
   ),"cloudflare",at).length,0);
 });
 
+test("verified NVIDIA Developer Atom feed extends fresh official AI coverage",()=>{
+  const official=FEEDS.find(feed=>feed.id==="nvidiadev");
+  assert.deepEqual(official,{id:"nvidiadev",url:"https://developer.nvidia.com/blog/feed/"});
+  const at=new Date("2026-10-26T11:30:00Z");
+  const xml='<?xml version="1.0"?><feed>'+
+    '<entry><title>Using AI Agents to Teach Robots to Walk in Simulation</title>'+
+    '<link rel="alternate" href="https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/"/>'+
+    '<published>2026-10-23T14:58:32Z</published>'+
+    '<summary>NVIDIA explains an AI-agent workflow that trains a robot in simulation with concrete robotics, reinforcement learning, and deployment details.</summary>'+
+    '</entry></feed>';
+  const items=parseFeed(xml,"nvidiadev",at);
+  assert.equal(items.length,1);
+  assert.equal(items[0].publisher,"nvidiadev");
+  assert.equal(items[0].publishedAt,"2026-10-23T14:58:32.000Z");
+  assert.ok(items[0].url.startsWith("https://developer.nvidia.com/blog/"));
+});
+
+test("NVIDIA Developer-labelled feed rejects unverified hosts and stale announcements",()=>{
+  const at=new Date("2026-10-26T11:30:00Z");
+  const xml=(link,date)=>'<rss><channel><item>'+
+    '<title>NVIDIA Developer AI platform announcement with technical details</title>'+
+    '<link>'+link+'</link><pubDate>'+date+'</pubDate>'+
+    '<description>NVIDIA documents an AI developer platform release with concrete capability, deployment, and operational details.</description>'+
+    '</item></channel></rss>';
+  const date="Fri, 23 Oct 2026 14:58:32 GMT";
+  for(const link of [
+    "https://developer.nvidia.com.evil.example/blog/fake",
+    "https://evil.example/blog/fake-nvidia",
+    "http://developer.nvidia.com/blog/not-secure"
+  ]) assert.equal(parseFeed(xml(link,date),"nvidiadev",at).length,0);
+  assert.equal(parseFeed(xml(
+    "https://developer.nvidia.com/blog/old-ai-update/",
+    "Wed, 21 Oct 2026 09:00:00 GMT"
+  ),"nvidiadev",at).length,0);
+});
+
