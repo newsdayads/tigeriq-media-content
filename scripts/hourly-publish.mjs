@@ -12,7 +12,7 @@ export const FEEDS=[
   {id:"nvidia",url:"https://blogs.nvidia.com/feed/"},
   // Additional verified primary sources; RSS and article URLs stay on publisher-owned origins.
   {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"},
-  {id:"cloudflare",url:"https://developers.cloudflare.com/changelog/rss/ai-gateway.xml"}
+  {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"}
 ];
 const OFFICIAL_LINK_HOSTS={
   openai:["openai.com"],
@@ -21,7 +21,7 @@ const OFFICIAL_LINK_HOSTS={
   meta:["engineering.fb.com","about.fb.com","ai.meta.com"],
   nvidia:["blogs.nvidia.com","nvidia.com"],
   aws:["aws.amazon.com"],
-  cloudflare:["developers.cloudflare.com"]
+  cloudflare:["blog.cloudflare.com"]
 };
 function officialPublisherLink(source,hostname){
   return Boolean(OFFICIAL_LINK_HOSTS[source]?.some(host=>
