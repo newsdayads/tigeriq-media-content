@@ -563,7 +563,7 @@ async function fullOfficialSource(item,fetchImpl){
       if(!location||redirects===3)throw Error("OFFICIAL_ARTICLE_REDIRECT_INVALID");
       target=new URL(location,url).href;continue;
     }
-    if(response.status===403)return officialFeedSummaryFallback(item);
+    if(response.status===403)throw Error("OFFICIAL_ARTICLE_FORBIDDEN");
     if(!response.ok||!/^text\/html(?:\s*;|$)/i.test(response.headers.get("content-type")||""))
       throw Error("OFFICIAL_ARTICLE_UNAVAILABLE");
     const html=await readBoundedHttpText(response,2000000,"OFFICIAL_ARTICLE_TOO_LARGE");
@@ -971,10 +971,20 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   let packet=sourcePacket(unseenItems);
   if(attributed){
     packet=[];
+    let forbiddenFallback=null;
     for(const candidate of officialFetchCandidates(unseenItems,store.articles)){
       try{packet=[await fullOfficialSource(candidate,fetchImpl)];break;}
-      catch{console.warn("OFFICIAL_ARTICLE_UNAVAILABLE "+candidate.publisher);}
+      catch(error){
+        if(error?.message==="OFFICIAL_ARTICLE_FORBIDDEN"&&!forbiddenFallback){
+          try{forbiddenFallback=officialFeedSummaryFallback(candidate);}catch{}
+        }
+        console.warn("OFFICIAL_ARTICLE_UNAVAILABLE "+candidate.publisher);
+      }
     }
+    // Prefer any readable full official article across the bounded candidate set.
+    // Use RSS fallback only when every full-article attempt failed and at least
+    // one same-origin HTTP 403 candidate carried substantive validated feed evidence.
+    if(!packet.length&&forbiddenFallback)packet=[forbiddenFallback];
     if(!packet.length){console.log("NOOP_NO_READABLE_OFFICIAL_ARTICLE");reportMissedScheduledHour("NOOP_NO_READABLE_OFFICIAL_ARTICLE");return {status:"noop"};}
   }
   const publisherCount=new Set(packet.map(i=>i.publisher)).size;
