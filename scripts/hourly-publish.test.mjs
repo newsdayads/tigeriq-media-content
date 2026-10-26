@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate} from "./hourly-publish.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const completeHourlyStory=(slug,publishedAt)=>({
@@ -2783,4 +2783,60 @@ test("NVIDIA Developer-labelled feed rejects unverified hosts and stale announce
     "Wed, 21 Oct 2026 09:00:00 GMT"
   ),"nvidiadev",at).length,0);
 });
+
+test("AI relevance gate rejects fresher generic tech and accepts verified AI candidates",()=>{
+  assert.equal(officialAiTechnologyCandidate({
+    title:"Origin Range Requests: serving large files",
+    summary:"A web caching and HTTP range request implementation update."
+  }),false);
+  assert.equal(officialAiTechnologyCandidate({
+    title:"Using AI Agents to Teach Robots to Walk in Simulation",
+    summary:"NVIDIA describes robotics training and reinforcement learning."
+  }),true);
+  assert.equal(officialAiTechnologyCandidate({
+    title:"Scaling TensorRT performance optimization",
+    summary:"NVIDIA documents inference optimization for deployed neural models."
+  }),true);
+});
+
+test("official announcement skips fresher non-AI readable page and reaches later AI candidate before model",()=>tmp(async root=>{
+  const at=new Date("2026-10-26T12:00:00Z");
+  const feedList=[
+    {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"},
+    {id:"nvidiadev",url:"https://developer.nvidia.com/blog/feed/"}
+  ];
+  const genericUrl="https://blog.cloudflare.com/origin-range-requests-large-files/";
+  const aiUrl="https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/";
+  const rss=(title,url,date,description)=>"<rss><channel><item><title>"+title+"</title><link>"+url+
+    "</link><pubDate>"+date+"</pubDate><description>"+description+"</description></item></channel></rss>";
+  const generic=rss("Origin Range Requests for large files",genericUrl,
+    "Sun, 26 Oct 2026 11:50:00 GMT",
+    "Cloudflare documents HTTP byte range request behavior, cache handling, and origin delivery.");
+  const ai=rss("Using AI Agents to Teach Robots to Walk in Simulation",aiUrl,
+    "Fri, 23 Oct 2026 14:58:32 GMT",
+    "NVIDIA documents AI agents, robotics simulation, reinforcement learning, and deployment details.");
+  let genericPageFetches=0,aiPageFetches=0,aiCalls=0;
+  const fetchImpl=async requested=>{
+    if(requested===feedList[0].url)return rssResponse(generic,requested);
+    if(requested===feedList[1].url)return rssResponse(ai,requested);
+    if(requested===genericUrl){
+      genericPageFetches++;
+      return new Response("<html><article>"+("Generic HTTP caching and byte range implementation details. ").repeat(12)+"</article></html>",
+        {status:200,headers:{"content-type":"text/html"}});
+    }
+    if(requested===aiUrl){
+      aiPageFetches++;
+      return new Response("<html><article>"+("NVIDIA explains AI agents, robotics simulation, reinforcement learning, policy training, and deployment behavior. ").repeat(12)+"</article></html>",
+        {status:200,headers:{"content-type":"text/html"}});
+    }
+    if(requested===env.AI_CHAT_COMPLETIONS_URL){aiCalls++;throw Error("EXPECTED_AI_STOP");}
+    throw Error("UNEXPECTED_URL "+requested);
+  };
+  await assert.rejects(()=>publish({root,fetchImpl,now:at,feeds:feedList,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"}}),/AI_PROVIDER_TRANSPORT_FAILED/);
+  assert.equal(genericPageFetches,0,"generic non-AI source must not consume the single writer opportunity");
+  assert.equal(aiPageFetches,1,"verified AI candidate is fetched even when slightly older");
+  assert.equal(aiCalls,1,"relevance filtering does not add paid model retries");
+  assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]});
+}));
 
