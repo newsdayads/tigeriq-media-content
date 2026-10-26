@@ -2690,7 +2690,7 @@ test("verified Cloudflare Blog RSS extends fresh official coverage",()=>{
   const at=new Date("2026-10-26T10:30:00Z");
   const xml='<rss version="2.0"><channel><item>'+
     '<title>Cloudflare Advanced Nameservers API representation update</title>'+
-    '<link>https://developers.cloudflare.com/changelog/2026-10-26-advanced-nameservers-api-update/</link>'+
+    '<link>https://blog.cloudflare.com/2026-ai-platform-update/</link>'+
     '<pubDate>Mon, 26 Oct 2026 09:10:00 GMT</pubDate>'+
     '<description>Cloudflare documents an API representation change for Advanced Nameservers with rollout details, compatibility guidance, and migration behavior.</description>'+
     '</item></channel></rss>';
@@ -2698,7 +2698,7 @@ test("verified Cloudflare Blog RSS extends fresh official coverage",()=>{
   assert.equal(items.length,1);
   assert.equal(items[0].publisher,"cloudflare");
   assert.equal(items[0].publishedAt,"2026-10-26T09:10:00.000Z");
-  assert.ok(items[0].url.startsWith("https://developers.cloudflare.com/changelog/"));
+  assert.ok(items[0].url.startsWith("https://blog.cloudflare.com/"));
 });
 
 test("Cloudflare-labelled feed rejects unverified article hosts and stale announcements",()=>{
@@ -2711,8 +2711,8 @@ test("Cloudflare-labelled feed rejects unverified article hosts and stale announ
   const date="Mon, 26 Oct 2026 09:10:00 GMT";
   for(const link of [
     "https://evil.example/changelog/fake-cloudflare",
-    "https://developers.cloudflare.com.evil.example/changelog/fake",
-    "http://developers.cloudflare.com/changelog/not-secure"
+    "https://blog.cloudflare.com.evil.example/fake",
+    "http://blog.cloudflare.com/not-secure"
   ]){
     assert.equal(parseFeed(xml(link,date),"cloudflare",at).length,0);
   }
