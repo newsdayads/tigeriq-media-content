@@ -12,7 +12,8 @@ export const FEEDS=[
   {id:"nvidia",url:"https://blogs.nvidia.com/feed/"},
   // Additional verified primary sources; RSS and article URLs stay on publisher-owned origins.
   {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"},
-  {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"}
+  {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"},
+  {id:"vercel",url:"https://vercel.com/atom"}
 ];
 const OFFICIAL_LINK_HOSTS={
   openai:["openai.com"],
@@ -21,7 +22,8 @@ const OFFICIAL_LINK_HOSTS={
   meta:["engineering.fb.com","about.fb.com","ai.meta.com"],
   nvidia:["blogs.nvidia.com","nvidia.com"],
   aws:["aws.amazon.com"],
-  cloudflare:["blog.cloudflare.com"]
+  cloudflare:["blog.cloudflare.com"],
+  vercel:["vercel.com"]
 };
 function officialPublisherLink(source,hostname){
   return Boolean(OFFICIAL_LINK_HOSTS[source]?.some(host=>
@@ -526,7 +528,7 @@ export function sourceIdentityUrl(value){
 }
 
 
-const PUBLISHER_NAMES={openai:"OpenAI",google:"Google",github:"GitHub",meta:"Meta",nvidia:"NVIDIA",aws:"AWS",cloudflare:"Cloudflare"};
+const PUBLISHER_NAMES={openai:"OpenAI",google:"Google",github:"GitHub",meta:"Meta",nvidia:"NVIDIA",aws:"AWS",cloudflare:"Cloudflare",vercel:"Vercel"};
 const attributionLabel=(publisher,lang)=>({
   vi:"Theo công bố của "+PUBLISHER_NAMES[publisher]+".",
   en:"According to "+PUBLISHER_NAMES[publisher]+".",
