@@ -2266,6 +2266,53 @@ test("Official announcement mode refuses missing full source text without AI or 
   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
 }));
 
+
+test("Official announcement mode safely falls back to substantive official RSS evidence when same-origin article returns 403",()=>tmp(async root=>{
+  const d=officialAnnouncement(),r=announcementReview();
+  const modelPrompts=[],calls=[];
+  const base=mockFetch({replyDraft:d,replyReview:r,modelPrompts});
+  const fetchImpl=async(url,opts)=>{
+    calls.push(url);
+    if(url===data[0].url)return new Response("publisher bot protection",{status:403});
+    return base(url,opts);
+  };
+  const result=await publish({root,fetchImpl,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds});
+  assert.equal(result.status,"staged");
+  assert.equal(calls.filter(url=>url===data[0].url).length,1,
+    "the blocked same-origin article is attempted once");
+  assert.equal(calls.filter(url=>url===env.AI_CHAT_COMPLETIONS_URL).length,2,
+    "verified RSS fallback still requires distinct writer and reviewer calls");
+  assert.equal(modelPrompts.length,2);
+  assert.match(modelPrompts[0],/verified official source evidence/i);
+  assert.match(modelPrompts[0],/official-feed-summary/);
+  assert.match(modelPrompts[1],/publisher RSS title \+ description fallback/i);
+  const story=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+  assert.equal(story.reportingMode,"official-announcement");
+  assert.deepEqual(story.sources,[data[0].url]);
+  for(const lang of ["vi","en","es"])assert.match(story.editions[lang].dek,/OpenAI/);
+}));
+
+test("HTTP 403 never turns a thin official feed description into headline-only publication",()=>tmp(async root=>{
+  const shortSummary="Official AI update with details.";
+  const shortRss="<rss><item><title>Substantive official AI platform announcement</title>"+
+    "<link>"+data[0].url+"</link><pubDate>"+date+"</pubDate>"+
+    "<description>"+shortSummary+"</description></item></rss>";
+  let aiCalls=0;
+  const before=await fs.readFile(join(root,"content.json"),"utf8");
+  const fetchImpl=async url=>{
+    if(url===feeds[0].url)return rssResponse(shortRss,url);
+    if(url===feeds[1].url)throw Error("SECOND_FEED_UNAVAILABLE");
+    if(url===data[0].url)return new Response("publisher bot protection",{status:403});
+    aiCalls++;throw Error("AI_MUST_NOT_RUN_FOR_THIN_RSS");
+  };
+  const result=await publish({root,fetchImpl,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds});
+  assert.deepEqual(result,{status:"noop"});
+  assert.equal(aiCalls,0);
+  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+}));
+
 test("Actions incident diagnostic identifies provider, feed and cover failure without leaking raw errors",()=>{
   assert.deepEqual(summarizePublishResult(null,new Error("AI_PROVIDER_HTTP_503")),
     {status:"FAILURE",area:"AI_PROVIDER",code:"AI_PROVIDER_HTTP_503"});
