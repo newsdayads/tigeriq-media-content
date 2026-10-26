@@ -2681,11 +2681,11 @@ test("invalid same-hour timestamp cannot falsely short-circuit the scheduled pub
  assert.equal(externalCalls,0,"source rejects missing provider before any billable call");
 }, {articles:[{slug:"phantom",publishedAt:"2026-10-24T06:garbage"}]}));
 
-test("verified Cloudflare Workers AI RSS extends fresh official coverage",()=>{
+test("verified Cloudflare AI Gateway RSS extends fresh official coverage",()=>{
   const official=FEEDS.find(feed=>feed.id==="cloudflare");
   assert.deepEqual(official,{
     id:"cloudflare",
-    url:"https://developers.cloudflare.com/changelog/rss/workers-ai.xml"
+    url:"https://developers.cloudflare.com/changelog/rss/ai-gateway.xml"
   });
   const at=new Date("2026-10-26T10:30:00Z");
   const xml='<rss version="2.0"><channel><item>'+
