@@ -2848,7 +2848,7 @@ test("official announcement tries a second distinct AI source after editorial no
   const evidence="NVIDIA documents verified AI agent training, robotics simulation, inference behavior, and deployment constraints.";
   const rss="<rss><channel>"+
     "<item><title>First NVIDIA AI model candidate</title><link>"+firstUrl+"</link><pubDate>Sun, 26 Oct 2026 11:40:00 GMT</pubDate><description>"+evidence+"</description></item>"+
-    "<item><title>Second NVIDIA AI robotics candidate</title><link>"+secondUrl+"</link><pubDate>Sun, 26 Oct 2026 11:30:00 GMT</pubDate><description>"+evidence+"</description></item>"+
+    "<item><title>Second NVIDIA AI model candidate</title><link>"+secondUrl+"</link><pubDate>Sun, 26 Oct 2026 11:30:00 GMT</pubDate><description>"+evidence+"</description></item>"+
     "</channel></rss>";
   const nativeEdition=lang=>({
     title:lang+" NVIDIA AI robotics deployment update",
