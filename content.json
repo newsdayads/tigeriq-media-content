@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-10-26T18:18:18.652Z",
+  "updatedAt": "2026-10-26T20:18:21.360Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "openai-models-prompt-caching-amazon-bedrock",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:openai-models-prompt-caching-amazon-bedrock",
+      "clusterKey": "news:38cfa3f599ba52aafee05a4f5b1e1e279d876da505a504402e347adc482b50ed",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T20:18:21.360Z",
+      "modifiedAt": "2026-10-26T20:18:21.360Z",
+      "editions": {
+        "vi": {
+          "title": "Mẫu bộ nhớ đệm nhắc lệnh cho các mô hình OpenAI trên Amazon Bedrock",
+          "dek": "Theo công bố của AWS. Khám phá cách sử dụng bộ nhớ đệm nhắc lệnh để tối ưu hóa chi phí và hiệu suất cho các tác nhân AI trên Amazon Bedrock.",
+          "takeaways": [
+            "Các tác nhân AI phải liên tục đọc lại toàn bộ ngữ cảnh trong mỗi lượt tương tác.",
+            "Bộ nhớ đệm nhắc lệnh lưu trữ trạng thái đầu vào để tái sử dụng trong các yêu cầu tiếp theo.",
+            "Nền tảng hỗ trợ cả chế độ bộ nhớ đệm tường minh và ngầm định.",
+            "Việc kết hợp cả hai chế độ giúp duy trì điểm khởi đầu có thể tái sử dụng."
+          ],
+          "sections": [
+            {
+              "heading": "Vấn đề lặp lại",
+              "body": "Mỗi khi một tác nhân AI thực hiện một bước hành động, hệ thống phải gửi toàn bộ lịch sử bao gồm định nghĩa công cụ, hướng dẫn và kết quả trước đó để duy trì tính liên tục. Điều này khiến mô hình phải đọc lại từ đầu trong mỗi lượt tương tác và người dùng phải chi trả chi phí cho toàn bộ mã thông báo đó."
+            },
+            {
+              "heading": "Cơ chế bộ nhớ đệm",
+              "body": "Bộ nhớ đệm nhắc lệnh phá vỡ chu kỳ lặp lại bằng cách lưu trữ phần nhắc lệnh đầu vào và tái sử dụng nó ở yêu cầu tiếp theo với mức giá thấp hơn nhiều so với giá đầu vào ban đầu. Dịch vụ lưu trữ trạng thái làm việc của mô hình để xử lý các phần dữ liệu mới xuất hiện trong payload tiếp theo."
+            },
+            {
+              "heading": "Chế độ kết hợp",
+              "body": "Amazon Bedrock hỗ trợ cả phương pháp bộ nhớ đệm ngầm định khi dịch vụ tự động chọn điểm kết thúc tiền tố có thể tái sử dụng và phương pháp tường minh khi mã nguồn đánh dấu điểm kết điểm cụ thể. Việc kết hợp hai cách tiếp cận này mang lại điểm khởi đầu có thể tái sử dụng trong khi dịch vụ tự động quản lý lịch sử hội thoại."
+            }
+          ]
+        },
+        "en": {
+          "title": "Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+          "dek": "According to AWS. Learn how prompt caching patterns help AI agents maintain continuity and reduce token costs when using OpenAI models on Amazon Bedrock.",
+          "takeaways": [
+            "AI agents repeatedly process their entire interaction history on every single turn.",
+            "Prompt caching stores input prompts to reuse them at a fraction of standard input pricing.",
+            "Amazon Bedrock supports both implicit and explicit caching mechanisms.",
+            "Combining both modes provides a reusable starting point while managing growing conversations."
+          ],
+          "sections": [
+            {
+              "heading": "The Agentic Loop",
+              "body": "Every time an AI agent takes a step, it has to send the model its entire story so far to maintain continuity, including tool definitions, instructions, and previous results. Because the model lacks internal memory between requests, it reads all prior data repeatedly on every turn, incurring repeated token costs for every interaction."
+            },
+            {
+              "heading": "Caching Mechanism",
+              "body": "Prompt caching breaks this cycle by storing the input prompt and reusing it on subsequent requests at a fraction of the input price. During the prefill stage, the model processes input tokens and builds its working state, which the caching service then saves to avoid recomputing identical prefixes."
+            },
+            {
+              "heading": "Implicit and Explicit Modes",
+              "body": "Implicit caching lets Amazon Bedrock choose what to cache as conversations grow, whereas explicit caching allows developers to mark shared content using prompt_cache_breakpoint. Using both approaches together delivers a reliable shared starting point while the service automatically handles the expanding conversation history."
+            }
+          ]
+        },
+        "es": {
+          "title": "Patrones de caché de avisos para modelos de OpenAI en Amazon Bedrock",
+          "dek": "Según AWS. Conozca cómo los patrones de caché de avisos ayudan a los agentes de IA a mantener la continuidad y reducir los costos de tokens.",
+          "takeaways": [
+            "Los agentes de IA deben releer todo su historial en cada paso operativo.",
+            "El almacenamiento en caché de avisos reutiliza las entradas a una fracción del costo.",
+            "Amazon Bedrock admite mecanismos de caché tanto implícitos como explícitos.",
+            "La combinación de ambos enfoques optimiza el punto de inicio compartido."
+          ],
+          "sections": [
+            {
+              "heading": "El ciclo del agente",
+              "body": "Cada vez que un agente de IA realiza una acción, debe enviar toda su historia hasta el momento para mantener la continuidad, lo que incluye definiciones de herramientas, instrucciones y resultados anteriores. El modelo no posee memoria interna entre solicitudes, por lo que debe leer todo nuevamente en cada turno."
+            },
+            {
+              "heading": "Funcionamiento del caché",
+              "body": "El almacenamiento en caché de avisos rompe este ciclo al guardar el aviso de entrada y reutilizarlo en la siguiente solicitud a un precio inferior. El servicio procesa los tokens de entrada y guarda el estado de trabajo para evitar tener que calcularlo nuevamente desde cero."
+            },
+            {
+              "heading": "Modos de uso",
+              "body": "El modo implícito permite que Amazon Bedrock elija qué almacenar a medida que crece la conversación, mientras que el modo explícito permite marcar contenido compartido mediante puntos de interrupción específicos. Se pueden utilizar ambos enfoques de manera conjunta para equilibrar el contenido estático y el historial en crecimiento."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-2",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/",
+            "title": "Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS announced prompt caching patterns for using OpenAI models on Amazon Bedrock to help manage agentic workflow costs and context length.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          },
+          {
+            "text": "Prompt caching saves input state such as system prompts, tools, content, and history to reuse on subsequent requests at a fraction of the input price.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-2",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-models-prompt-caching-amazon-bedrock.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Mẫu bộ nhớ đệm nhắc lệnh cho các mô hình OpenAI trên Amazon Bedrock",
+          "en": "Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+          "es": "Patrones de caché de avisos para modelos de OpenAI en Amazon Bedrock"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield",
       "reportingMode": "official-announcement",
