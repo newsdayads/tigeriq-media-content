@@ -839,10 +839,21 @@ export function prioritizeOfficialCandidates(items,articles){
  * All candidates already passed the official feed origin and 72h freshness
  * checks; full HTML validation and independent AI review are unchanged.
  */
+export function officialAiTechnologyScore(item){
+  if(!item||typeof item!=="object")return 0;
+  const scoreText=(value,weight)=>{
+    const text=String(value||"").toLowerCase();
+    let score=0;
+    if(/\b(?:ai|artificial intelligence)\b/.test(text))score+=12*weight;
+    if(/\b(?:machine learning|ml|llm|large language model|foundation model|frontier model|agent|agents|agentic|robot|robots|robotics|generative|reinforcement learning)\b/.test(text))score+=8*weight;
+    if(/\b(?:model|models|inference|training|neural|transformer|copilot|gemini|sagemaker|bedrock|tensorrt|cuda|gpu|computer vision|speech)\b/.test(text))score+=4*weight;
+    return score;
+  };
+  return scoreText(item.title,2)+scoreText(item.summary,1);
+}
+
 export function officialAiTechnologyCandidate(item){
-  if(!item||typeof item!=="object")return false;
-  const text=(String(item.title||"")+" "+String(item.summary||"")).toLowerCase();
-  return /\b(?:ai|artificial intelligence|machine learning|ml|llm|large language model|foundation model|frontier model|model|models|agent|agents|agentic|robot|robotics|inference|training|neural|transformer|copilot|gemini|sagemaker|bedrock|tensorrt|cuda|gpu|computer vision|speech|reinforcement learning)\b/i.test(text);
+  return officialAiTechnologyScore(item)>0;
 }
 
 export function officialFetchCandidates(items,articles){
@@ -862,6 +873,14 @@ export function officialFetchCandidates(items,articles){
     selected.push(item);seen.add(item.url);
   }
   return selected;
+}
+
+export function officialAiFetchCandidates(items,articles){
+  return officialFetchCandidates(items,articles).sort((a,b)=>{
+    const score=officialAiTechnologyScore(b)-officialAiTechnologyScore(a);
+    if(score!==0)return score;
+    return Date.parse(b.publishedAt)-Date.parse(a.publishedAt);
+  });
 }
 
 export function publishedRecordsInUtcHour(articles,now){
@@ -1012,7 +1031,7 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
   if(attributed){
     candidatePackets=[];
     let forbiddenFallback=null;
-    for(const candidate of officialFetchCandidates(eligibleItems,store.articles)){
+    for(const candidate of officialAiFetchCandidates(eligibleItems,store.articles)){
       try{
         candidatePackets.push([await fullOfficialSource(candidate,fetchImpl)]);
         if(candidatePackets.length>=MAX_ATTRIBUTED_WRITER_CANDIDATES)break;
