@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-26T15:18:20.640Z",
+  "updatedAt": "2026-10-26T16:18:49.329Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "polar-peaks-ai-quest-mapping-human-brain",
+      "reportingMode": "official-announcement",
+      "category": "education",
+      "storyId": "tigeriq:polar-peaks-ai-quest-mapping-human-brain",
+      "clusterKey": "news:dd5bdbbc60ab996097b9090ee5d9d1067a743c90347a89ab8ea0834cff7db15e",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T16:18:49.329Z",
+      "modifiedAt": "2026-10-26T16:18:49.329Z",
+      "editions": {
+        "vi": {
+          "title": "Google ra mắt Polar Peaks để giảng dạy học sinh về lập bản đồ não bộ bằng AI",
+          "dek": "Theo công bố của Google. Chương trình mới thuộc chuỗi AI Quests giúp học sinh thực hành làm sạch dữ liệu và kiểm thử mô hình.",
+          "takeaways": [
+            "Google Research và Stanford Accelerator for Learning công bố Polar Peaks.",
+            "Trò chơi hướng đến học sinh từ 11 đến 14 tuổi.",
+            "Học sinh thực hiện các nhiệm vụ như làm sạch dữ liệu và kiểm thử mô hình."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu Polar Peaks",
+              "body": "Google Research và Stanford Accelerator for Learning vừa ra mắt Polar Peaks, nhiệm vụ thứ ba trong chuỗi AI Quests. Chương trình này nhằm mục đích hướng dẫn học sinh cách thức hoạt động của trí tuệ nhân tạo và cách sử dụng công nghệ này một cách có trách nhiệm."
+            },
+            {
+              "heading": "Nội dung và kỹ năng",
+              "body": "Trong nhiệm vụ này, học sinh từ 11 đến 14 tuổi đóng vai trò nhà nghiên cứu để khám phá thần kinh học. Các em thực hiện các công việc bao gồm làm sạch dữ liệu và kiểm thử mô hình, đồng thời nhận ra rằng AI đòi hỏi sự giám sát cẩn thận của con người."
+            },
+            {
+              "heading": "Hỗ trợ giáo viên",
+              "body": "Google đang phát hành các mô-đun đào tạo giáo viên chuyên dụng mới trong chuỗi Google AI Educator Series. Các tài nguyên này hỗ trợ giáo viên tích hợp các bài học trí tuệ nhân tạo vào chương trình giảng dạy trên lớp."
+            }
+          ]
+        },
+        "en": {
+          "title": "Google Launches Polar Peaks AI Quest to Teach Students Brain Mapping",
+          "dek": "According to Google. The new interactive program helps students ages 11 to 14 practice data cleaning and model testing.",
+          "takeaways": [
+            "Google Research and the Stanford Accelerator for Learning launched Polar Peaks.",
+            "The quest targets students ages 11 to 14 to teach AI literacy.",
+            "New teacher training modules are releasing in the Google AI Educator Series."
+          ],
+          "sections": [
+            {
+              "heading": "New AI Quest Details",
+              "body": "Google Research and the Stanford Accelerator for Learning launched Polar Peaks, their third quest in the AI Quests series. The program invites students ages 11 to 14 to step into the shoes of researchers and explore neuroscience using artificial intelligence."
+            },
+            {
+              "heading": "Tasks and Oversight",
+              "body": "Students complete tasks like data cleaning and model testing while learning that artificial intelligence requires careful human oversight and critical thinking. The curriculum draws inspiration from over a decade of research in connectomics."
+            },
+            {
+              "heading": "Educator Resources",
+              "body": "To support classroom integration, Google is rolling out new dedicated teacher training modules within the Google AI Educator Series. These tools help educators reinforce key AI literacy concepts and facilitate classroom discussions."
+            }
+          ]
+        },
+        "es": {
+          "title": "Google lanza Polar Peaks para enseñar a los estudiantes mapeo cerebral con IA",
+          "dek": "Según Google. El nuevo programa interactivo ayuda a los estudiantes de 11 a 14 años a practicar la limpieza de datos.",
+          "takeaways": [
+            "Google Research y Stanford Accelerator for Learning lanzaron Polar Peaks.",
+            "El programa está dirigido a estudiantes de 11 a 14 años.",
+            "Nuevos módulos de capacitación para docentes se lanzarán próximamente."
+          ],
+          "sections": [
+            {
+              "heading": "Lanzamiento de Polar Peaks",
+              "body": "Google Research y Stanford Accelerator for Learning lanzaron Polar Peaks, su tercera misión en la serie AI Quests. La iniciativa enseña a los estudiantes cómo funciona la inteligencia artificial y cómo utilizarla de manera responsable mediante el mapeo del cerebro humano."
+            },
+            {
+              "heading": "Actividades de los estudiantes",
+              "body": "Los estudiantes de 11 a 14 años actúan como investigadores para escanear y mapear neuronas. Completan tareas como la limpieza de datos y la prueba de modelos, comprendiendo la necesidad de la supervisión humana y el pensamiento crítico."
+            },
+            {
+              "heading": "Módulos de capacitación",
+              "body": "Google está implementando nuevos módulos dedicados a la formación de docentes dentro de la Google AI Educator Series. Estos materiales ayudan a los educadores a reforzar los conceptos clave de alfabetización en inteligencia artificial en el aula."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "google-1",
+            "publisher": "google",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+            "title": "Our newest AI Quest: Mapping the human brain"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Google Research and the Stanford Accelerator for Learning launched Polar Peaks, an interactive quest that teaches students ages 11 to 14 how to map the human brain using artificial intelligence.",
+            "sourceIds": [
+              "google-1"
+            ]
+          },
+          {
+            "text": "Google is releasing dedicated teacher training modules within the Google AI Educator Series to help educators reinforce key AI literacy concepts.",
+            "sourceIds": [
+              "google-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "google-1",
+            "tier": "A",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/polar-peaks-ai-quest-mapping-human-brain.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Google ra mắt Polar Peaks để giảng dạy học sinh về lập bản đồ não bộ bằng AI",
+          "en": "Google Launches Polar Peaks AI Quest to Teach Students Brain Mapping",
+          "es": "Google lanza Polar Peaks para enseñar a los estudiantes mapeo cerebral con IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-mission-control-2-5-autonomous-recovery-kubernetes",
       "reportingMode": "official-announcement",
