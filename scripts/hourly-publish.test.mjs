@@ -2722,3 +2722,34 @@ test("Cloudflare-labelled feed rejects unverified article hosts and stale announ
   ),"cloudflare",at).length,0);
 });
 
+test("verified Vercel Atom feed extends official technology coverage",()=>{
+  const official=FEEDS.find(feed=>feed.id==="vercel");
+  assert.deepEqual(official,{id:"vercel",url:"https://vercel.com/atom"});
+  const at=new Date("2026-10-26T10:30:00Z");
+  const xml='<?xml version="1.0" encoding="UTF-8"?><feed>'+
+    '<entry><title>Kimi K3.1 Pro is available in Vercel AI Gateway</title>'+
+    '<link rel="alternate" href="https://vercel.com/changelog/kimi-k3-1-pro-and-highspeed-are-available-now-in-ai-gateway"/>'+
+    '<published>2026-10-23T18:00:00Z</published>'+
+    '<summary>Vercel announces Kimi K3.1 Pro and K3.1 Pro Highspeed availability in AI Gateway with gateway access, usage tracking, and request tracing.</summary>'+
+    '</entry></feed>';
+  const items=parseFeed(xml,"vercel",at);
+  assert.equal(items.length,1);
+  assert.equal(items[0].publisher,"vercel");
+  assert.ok(items[0].url.startsWith("https://vercel.com/changelog/"));
+});
+
+test("Vercel-labelled feed rejects lookalike and insecure article hosts",()=>{
+  const at=new Date("2026-10-26T10:30:00Z");
+  const xml=link=>'<?xml version="1.0"?><feed><entry>'+
+    '<title>Vercel AI Gateway platform update with technical details</title>'+
+    '<link rel="alternate" href="'+link+'"/>'+
+    '<published>2026-10-23T18:00:00Z</published>'+
+    '<summary>Vercel documents an AI Gateway platform update with concrete product behavior, availability details, and operational guidance.</summary>'+
+    '</entry></feed>';
+  for(const link of [
+    "https://vercel.com.evil.example/changelog/fake",
+    "https://evil.example/changelog/fake-vercel",
+    "http://vercel.com/changelog/not-secure"
+  ]) assert.equal(parseFeed(xml(link),"vercel",at).length,0);
+});
+
