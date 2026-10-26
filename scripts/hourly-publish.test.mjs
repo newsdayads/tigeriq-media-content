@@ -2225,8 +2225,12 @@ test("Attributed official announcement accepts one authentic publisher while leg
     const missing=structuredClone(d);missing.editions[l].dek=edition(l).dek;
     assert.throws(()=>validateDraft(missing,data),/OFFICIAL_ATTRIBUTION_MISSING/);
   }
-  const rejected=announcementReview();rejected.attributionValid=false;
-  assert.throws(()=>verifyReview(rejected,d,[data[0]]),/REVIEW_ATTRIBUTION_UNVERIFIED/);
+  const reviewerDisagrees=announcementReview();reviewerDisagrees.attributionValid=false;
+  assert.doesNotThrow(()=>verifyReview(reviewerDisagrees,d,[data[0]]),
+    "deterministic local attribution must not fail on a redundant model boolean");
+  const missingAtReview=structuredClone(d);missingAtReview.editions.es.dek=edition("es").dek;
+  assert.throws(()=>verifyReview(announcementReview(),missingAtReview,[data[0]]),
+    /REVIEW_ATTRIBUTION_UNVERIFIED/);
   const forged=announcementReview();forged.claimSourceEvidence[0].excerpts[0].text="Fabricated quotation unrelated to the official article text";
   assert.throws(()=>verifyReview(forged,d,[data[0]]),/REVIEW_EXCERPTS_UNVERIFIED/);
 });
