@@ -10,8 +10,9 @@ export const FEEDS=[
   {id:"github",url:"https://github.blog/changelog/feed/"},
   {id:"meta",url:"https://engineering.fb.com/feed/"},
   {id:"nvidia",url:"https://blogs.nvidia.com/feed/"},
-  // Additional verified primary source; RSS and article URLs are same-origin.
-  {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"}
+  // Additional verified primary sources; RSS and article URLs stay on publisher-owned origins.
+  {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"},
+  {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"}
 ];
 const OFFICIAL_LINK_HOSTS={
   openai:["openai.com"],
@@ -19,7 +20,8 @@ const OFFICIAL_LINK_HOSTS={
   github:["github.blog","github.com"],
   meta:["engineering.fb.com","about.fb.com","ai.meta.com"],
   nvidia:["blogs.nvidia.com","nvidia.com"],
-  aws:["aws.amazon.com"]
+  aws:["aws.amazon.com"],
+  cloudflare:["blog.cloudflare.com"]
 };
 function officialPublisherLink(source,hostname){
   return Boolean(OFFICIAL_LINK_HOSTS[source]?.some(host=>
@@ -524,7 +526,7 @@ export function sourceIdentityUrl(value){
 }
 
 
-const PUBLISHER_NAMES={openai:"OpenAI",google:"Google",github:"GitHub",meta:"Meta",nvidia:"NVIDIA",aws:"AWS"};
+const PUBLISHER_NAMES={openai:"OpenAI",google:"Google",github:"GitHub",meta:"Meta",nvidia:"NVIDIA",aws:"AWS",cloudflare:"Cloudflare"};
 const attributionLabel=(publisher,lang)=>({
   vi:"Theo công bố của "+PUBLISHER_NAMES[publisher]+".",
   en:"According to "+PUBLISHER_NAMES[publisher]+".",
