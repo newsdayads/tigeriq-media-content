@@ -2840,3 +2840,94 @@ test("official announcement skips fresher non-AI readable page and reaches later
   assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]});
 }));
 
+test("official announcement tries a second distinct AI source after editorial noQualifiedStory",()=>tmp(async root=>{
+  const at=new Date("2026-10-26T12:00:00Z");
+  const feed={id:"nvidiadev",url:"https://developer.nvidia.com/blog/feed/"};
+  const firstUrl="https://developer.nvidia.com/blog/first-ai-candidate/";
+  const secondUrl="https://developer.nvidia.com/blog/second-ai-candidate/";
+  const evidence="NVIDIA documents verified AI agent training, robotics simulation, inference behavior, and deployment constraints.";
+  const rss="<rss><channel>"+
+    "<item><title>First NVIDIA AI model candidate</title><link>"+firstUrl+"</link><pubDate>Sun, 26 Oct 2026 11:40:00 GMT</pubDate><description>"+evidence+"</description></item>"+
+    "<item><title>Second NVIDIA AI robotics candidate</title><link>"+secondUrl+"</link><pubDate>Sun, 26 Oct 2026 11:30:00 GMT</pubDate><description>"+evidence+"</description></item>"+
+    "</channel></rss>";
+  const nativeEdition=lang=>({
+    title:lang+" NVIDIA AI robotics deployment update",
+    dek:({vi:"Theo công bố của NVIDIA Developer.",en:"According to NVIDIA Developer.",es:"Según NVIDIA Developer."})[lang]+" "+lang+" verified summary of the official announcement.",
+    takeaways:["Verified AI training details","Documented deployment constraints"],
+    sections:[
+      {heading:"AI training",body:"The official source documents AI agent training and robotics simulation behavior with concrete deployment constraints."},
+      {heading:"Deployment",body:"The report stays within the verified source evidence and describes deployment details without adding unsupported claims."}
+    ]
+  });
+  const acceptedDraft={
+    reportingMode:"official-announcement",slug:"nvidia-second-ai-candidate",category:"AI",readTime:5,
+    sourceIds:["nvidiadev-2"],
+    claims:[
+      {text:"NVIDIA documents verified AI agent training.",sourceIds:["nvidiadev-2"]},
+      {text:"NVIDIA documents robotics simulation and deployment constraints.",sourceIds:["nvidiadev-2"]}
+    ],
+    editions:{vi:nativeEdition("vi"),en:nativeEdition("en"),es:nativeEdition("es")}
+  };
+  const acceptedReview={
+    pass:true,claimsSupported:true,localesValid:true,attributionValid:true,
+    supportedSourceIds:["nvidiadev-2"],supportedClaims:[0,1],
+    claimSourceEvidence:[0,1].map(index=>({index,sourceIds:["nvidiadev-2"],
+      excerpts:[{sourceId:"nvidiadev-2",text:evidence}]}))
+  };
+  let modelCalls=0,firstFetches=0,secondFetches=0;
+  const fetchImpl=async (requested,options)=>{
+    if(requested===feed.url)return rssResponse(rss,requested);
+    if(requested===firstUrl){
+      firstFetches++;
+      return new Response("<html><article>"+evidence.repeat(8)+"</article></html>",
+        {status:200,headers:{"content-type":"text/html"}});
+    }
+    if(requested===secondUrl){
+      secondFetches++;
+      return new Response("<html><article>"+evidence.repeat(8)+"</article></html>",
+        {status:200,headers:{"content-type":"text/html"}});
+    }
+    if(requested===env.AI_CHAT_COMPLETIONS_URL){
+      modelCalls++;
+      const payload=modelCalls===1?{noQualifiedStory:true}:modelCalls===2?acceptedDraft:acceptedReview;
+      return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify(payload)}}]}),
+        {status:200,headers:{"content-type":"application/json"}});
+    }
+    throw Error("UNEXPECTED_URL "+requested);
+  };
+  const result=await publish({root,fetchImpl,now:at,feeds:[feed],
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"}});
+  assert.equal(result.status,"staged");
+  assert.deepEqual([firstFetches,secondFetches],[1,1]);
+  assert.equal(modelCalls,3,"two distinct writer candidates plus one independent reviewer");
+  const story=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+  assert.equal(story.slug,"nvidia-second-ai-candidate");
+  assert.deepEqual(story.sources,[secondUrl]);
+}));
+
+test("provider failure on first AI candidate does not fail over to another paid writer call",()=>tmp(async root=>{
+  const at=new Date("2026-10-26T12:00:00Z");
+  const feed={id:"nvidiadev",url:"https://developer.nvidia.com/blog/feed/"};
+  const urls=["https://developer.nvidia.com/blog/provider-stop-1/","https://developer.nvidia.com/blog/provider-stop-2/"];
+  const evidence="NVIDIA documents AI model inference, robotics training, deployment details, and operational constraints.";
+  const rss="<rss><channel>"+urls.map((url,index)=>
+    "<item><title>NVIDIA AI model candidate "+index+"</title><link>"+url+"</link><pubDate>"+
+    new Date(at.getTime()-(index+1)*60000).toUTCString()+"</pubDate><description>"+evidence+"</description></item>"
+  ).join("")+"</channel></rss>";
+  let modelCalls=0;
+  const fetchImpl=async requested=>{
+    if(requested===feed.url)return rssResponse(rss,requested);
+    if(urls.includes(requested))return new Response("<html><article>"+evidence.repeat(8)+"</article></html>",
+      {status:200,headers:{"content-type":"text/html"}});
+    if(requested===env.AI_CHAT_COMPLETIONS_URL){
+      modelCalls++;
+      return new Response("provider unavailable",{status:503});
+    }
+    throw Error("UNEXPECTED_URL "+requested);
+  };
+  await assert.rejects(()=>publish({root,fetchImpl,now:at,feeds:[feed],
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement"}}),/AI_PROVIDER_HTTP_503/);
+  assert.equal(modelCalls,4,"existing bounded 503 retry applies only to the first candidate; no second-candidate failover");
+  assert.deepEqual(JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")),{articles:[]});
+}));
+
