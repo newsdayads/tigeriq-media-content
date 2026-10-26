@@ -2722,34 +2722,49 @@ test("Cloudflare-labelled feed rejects unverified article hosts and stale announ
   ),"cloudflare",at).length,0);
 });
 
-test("verified Vercel Blog feed extends official technology coverage",()=>{
-  const official=FEEDS.find(feed=>feed.id==="vercel");
-  assert.deepEqual(official,{id:"vercel",url:"https://vercel.com/blog/feed"});
+test("verified DeepMind RSS extends official AI coverage",()=>{
+  const official=FEEDS.find(feed=>feed.id==="deepmind");
+  assert.deepEqual(official,{id:"deepmind",url:"https://deepmind.google/blog/rss.xml"});
   const at=new Date("2026-10-26T10:30:00Z");
-  const xml='<?xml version="1.0" encoding="UTF-8"?><feed>'+
-    '<entry><title>Kimi K3.1 Pro is available in Vercel AI Gateway</title>'+
-    '<link rel="alternate" href="https://vercel.com/changelog/kimi-k3-1-pro-and-highspeed-are-available-now-in-ai-gateway"/>'+
-    '<published>2026-10-23T18:00:00Z</published>'+
-    '<summary>Vercel announces Kimi K3.1 Pro and K3.1 Pro Highspeed availability in AI Gateway with gateway access, usage tracking, and request tracing.</summary>'+
-    '</entry></feed>';
-  const items=parseFeed(xml,"vercel",at);
+  const xml='<rss><channel><item>'+
+    '<title>Gemini robotics model update with technical details</title>'+
+    '<link>https://deepmind.google/blog/gemini-robotics-update/</link>'+
+    '<pubDate>Mon, 26 Oct 2026 09:10:00 GMT</pubDate>'+
+    '<description>Google DeepMind announces an AI model update with concrete research, capability, and deployment details.</description>'+
+    '</item></channel></rss>';
+  const items=parseFeed(xml,"deepmind",at);
   assert.equal(items.length,1);
-  assert.equal(items[0].publisher,"vercel");
-  assert.ok(items[0].url.startsWith("https://vercel.com/changelog/"));
+  assert.equal(items[0].publisher,"deepmind");
+  assert.ok(items[0].url.startsWith("https://deepmind.google/"));
 });
 
-test("Vercel-labelled feed rejects lookalike and insecure article hosts",()=>{
+test("verified Mistral RSS extends official AI coverage",()=>{
+  const official=FEEDS.find(feed=>feed.id==="mistral");
+  assert.deepEqual(official,{id:"mistral",url:"https://mistral.ai/news/rss"});
   const at=new Date("2026-10-26T10:30:00Z");
-  const xml=link=>'<?xml version="1.0"?><feed><entry>'+
-    '<title>Vercel AI Gateway platform update with technical details</title>'+
-    '<link rel="alternate" href="'+link+'"/>'+
-    '<published>2026-10-23T18:00:00Z</published>'+
-    '<summary>Vercel documents an AI Gateway platform update with concrete product behavior, availability details, and operational guidance.</summary>'+
-    '</entry></feed>';
-  for(const link of [
-    "https://vercel.com.evil.example/changelog/fake",
-    "https://evil.example/changelog/fake-vercel",
-    "http://vercel.com/changelog/not-secure"
-  ]) assert.equal(parseFeed(xml(link),"vercel",at).length,0);
+  const xml='<rss><channel><item>'+
+    '<title>Mistral AI model and agent platform update</title>'+
+    '<link>https://mistral.ai/news/model-agent-platform-update/</link>'+
+    '<pubDate>Mon, 26 Oct 2026 09:10:00 GMT</pubDate>'+
+    '<description>Mistral AI announces a model and agent platform update with concrete capability, availability, and deployment details.</description>'+
+    '</item></channel></rss>';
+  const items=parseFeed(xml,"mistral",at);
+  assert.equal(items.length,1);
+  assert.equal(items[0].publisher,"mistral");
+  assert.ok(items[0].url.startsWith("https://mistral.ai/"));
+});
+
+test("DeepMind and Mistral labels reject lookalike and insecure article hosts",()=>{
+  const at=new Date("2026-10-26T10:30:00Z");
+  const xml=(title,link)=>'<rss><channel><item><title>'+title+'</title><link>'+link+
+    '</link><pubDate>Mon, 26 Oct 2026 09:10:00 GMT</pubDate>'+
+    '<description>Official AI release notes with concrete technical capability, availability, deployment, and operational details.</description>'+
+    '</item></channel></rss>';
+  for(const [source,title,links] of [
+    ["deepmind","Google DeepMind AI release with technical details",[
+      "https://deepmind.google.evil.example/blog/fake","https://evil.example/blog/fake-deepmind","http://deepmind.google/blog/not-secure"]],
+    ["mistral","Mistral AI release with technical details",[
+      "https://mistral.ai.evil.example/news/fake","https://evil.example/news/fake-mistral","http://mistral.ai/news/not-secure"]]
+  ]) for(const link of links) assert.equal(parseFeed(xml(title,link),source,at).length,0);
 });
 
