@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-26T16:18:49.329Z",
+  "updatedAt": "2026-10-26T17:18:22.600Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk",
+      "clusterKey": "news:08f2cafd15dbcb11c02b6c401eff0cca239e86be456604891badb0aea48aad6a",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T17:18:22.600Z",
+      "modifiedAt": "2026-10-26T17:18:22.600Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng truy xuất tác nhân trên Nền tảng Tri thức Amazon Bedrock được quản lý bằng CDK",
+          "dek": "Theo công bố của AWS. AWS công bố hướng dẫn xây dựng truy xuất tác nhân cấp doanh nghiệp sử dụng Nền tảng Tri thức Amazon Bedrock được quản lý.",
+          "takeaways": [
+            "Truy xuất tác nhân đặt một tác nhân suy luận vào vòng lặp để lập kế hoạch nhiều lượt.",
+            "Nền tảng Tri thức Quản lý mới tự động hóa việc lưu trữ, lập chỉ mục và truy xuất.",
+            "API AgenticRetrieveStream cung cấp khả năng truy xuất tác nhân trực tiếp.",
+            "Ứng dụng đi kèm khả năng giám sát qua Amazon CloudWatch và đánh giá tích hợp."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về truy xuất tác nhân",
+              "body": "Truy xuất thế tăng cường cổ điển thực hiện một lần truy xuất và một lần tạo. Truy xuất tác nhân doanh nghiệp đặt một tác nhân suy luận vào vòng lặp để quyết định có truy xuất hay không, lựa chọn nền tảng tri thức phù hợp và tổng hợp câu trả lời có trích dẫn."
+            },
+            {
+              "heading": "So sánh loại nền tảng tri thức",
+              "body": "Nền tảng Tri thức Quản lý Amazon Bedrock quản lý việc nạp dữ liệu, lưu trữ, lập chỉ mục và truy xuất cho bạn. Điều này khác biệt so với Nền tảng Tri thức do khách hàng quản lý, nơi bạn phải tự cấu hình và duy trì kho lưu trữ vector."
+            }
+          ]
+        },
+        "en": {
+          "title": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
+          "dek": "According to AWS. AWS published a guide on building enterprise agentic retrieval using a Managed Amazon Bedrock Knowledge Base and AWS CDK.",
+          "takeaways": [
+            "Enterprise agentic retrieval places a reasoning agent in the retrieval loop.",
+            "Amazon Bedrock now offers a Managed Knowledge Base that owns ingestion and retrieval.",
+            "The AgenticRetrieveStream API provides multi-turn planning and cited answers.",
+            "The solution includes CloudWatch dashboards and built-in evaluation features."
+          ],
+          "sections": [
+            {
+              "heading": "From RAG to Agentic Retrieval",
+              "body": "Classic Retrieval Augmented Generation does one retrieval and one generation. Enterprise agentic retrieval puts a reasoning agent in the loop to decide whether and what to retrieve, choose relevant knowledge bases, and compose a grounded answer."
+            },
+            {
+              "heading": "Managed vs. Do-It-Yourself Knowledge Bases",
+              "body": "Amazon Bedrock manages ingestion, storage, indexing, and retrieval for you on the Managed Knowledge Base, eliminating the need to provision a vector database. The customer-managed option remains available when you want to operate your own vector store."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construir recuperación agéntica en una Base de Conocimiento de Amazon Bedrock administrada con CDK",
+          "dek": "Según AWS. AWS publicó una guía sobre cómo construir recuperación agéntica empresarial utilizando una Base de Conocimiento administrada.",
+          "takeaways": [
+            "La recuperación agéntica empresarial coloca un agente de razonamiento en el bucle.",
+            "Amazon Bedrock ofrece una Base de Conocimiento administrada para la ingestión y recuperación.",
+            "La API AgenticRetrieveStream ofrece planificación de múltiples turnos y respuestas citadas.",
+            "La solución incluye paneles de CloudWatch y características de evaluación integradas."
+          ],
+          "sections": [
+            {
+              "heading": "De RAG a la recuperación agéntica",
+              "body": "La generación aumentada por recuperación clásica realiza una recuperación y una generación. La recuperación agéntica empresarial coloca un agente de razonamiento en el bucle para decidir si debe recuperar y qué base de conocimiento consultar."
+            },
+            {
+              "heading": "Bases de conocimiento administradas frente a gestionadas por el usuario",
+              "body": "Amazon Bedrock administra la ingestión, almacenamiento, indexación y recuperación por usted en la Base de Conocimiento administrada, eliminando la necesidad de aprovisionar una base de datos vectorial por su cuenta."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-1",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/",
+            "title": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS announced a post explaining how to build enterprise agentic retrieval on a Managed Amazon Bedrock Knowledge Base using the AWS Cloud Development Kit.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          },
+          {
+            "text": "The Managed Knowledge Base introduces agentic retrieval capabilities like multi-turn planning, tool-driven retrieval, and grounded answers through the AgenticRetrieveStream API.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng truy xuất tác nhân trên Nền tảng Tri thức Amazon Bedrock được quản lý bằng CDK",
+          "en": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
+          "es": "Construir recuperación agéntica en una Base de Conocimiento de Amazon Bedrock administrada con CDK"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "polar-peaks-ai-quest-mapping-human-brain",
       "reportingMode": "official-announcement",
