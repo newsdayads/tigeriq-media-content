@@ -2681,11 +2681,11 @@ test("invalid same-hour timestamp cannot falsely short-circuit the scheduled pub
  assert.equal(externalCalls,0,"source rejects missing provider before any billable call");
 }, {articles:[{slug:"phantom",publishedAt:"2026-10-24T06:garbage"}]}));
 
-test("verified Cloudflare AI Gateway RSS extends fresh official coverage",()=>{
+test("verified Cloudflare Blog RSS extends fresh official coverage",()=>{
   const official=FEEDS.find(feed=>feed.id==="cloudflare");
   assert.deepEqual(official,{
     id:"cloudflare",
-    url:"https://developers.cloudflare.com/changelog/rss/ai-gateway.xml"
+    url:"https://blog.cloudflare.com/rss/"
   });
   const at=new Date("2026-10-26T10:30:00Z");
   const xml='<rss version="2.0"><channel><item>'+
@@ -2717,7 +2717,7 @@ test("Cloudflare-labelled feed rejects unverified article hosts and stale announ
     assert.equal(parseFeed(xml(link,date),"cloudflare",at).length,0);
   }
   assert.equal(parseFeed(xml(
-    "https://developers.cloudflare.com/changelog/old-platform-update/",
+    "https://blog.cloudflare.com/old-platform-update/",
     "Thu, 22 Oct 2026 09:10:00 GMT"
   ),"cloudflare",at).length,0);
 });
