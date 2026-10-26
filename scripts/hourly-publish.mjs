@@ -359,13 +359,30 @@ export function parseFeed(xml,source,now=new Date()){
   }).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)).slice(0,20);
 }
 
+const GOOGLE_GEMINI_MODEL_MIGRATIONS=Object.freeze({
+  "gemini-3.1-flash-lite":"gemini-3.5-flash-lite",
+  "gemini-3.5-flash":"gemini-3.6-flash"
+});
+
 export function providerConfig(env=process.env){
-  const {AI_CHAT_COMPLETIONS_URL:base,AI_API_KEY:key,WRITER_MODEL:writer,REVIEWER_MODEL:reviewer}=env;
-  if(!base||!key||!writer||!reviewer)throw Error("AI_PROVIDER_NOT_CONFIGURED");
+  const {
+    AI_CHAT_COMPLETIONS_URL:base,AI_API_KEY:key,
+    WRITER_MODEL:configuredWriter,REVIEWER_MODEL:configuredReviewer
+  }=env;
+  if(!base||!key||!configuredWriter||!configuredReviewer)throw Error("AI_PROVIDER_NOT_CONFIGURED");
   let u;
   try{u=new URL(base);}catch{throw Error("AI_PROVIDER_ENDPOINT_INVALID");}
   if(u.protocol!=="https:"||u.username||u.password)throw Error("AI_PROVIDER_ENDPOINT_INVALID");
   if(u.hostname==="models.github.ai")throw Error("GITHUB_MODELS_RETIRED");
+  const googleGemini=u.hostname==="generativelanguage.googleapis.com";
+  const writer=googleGemini
+    ? GOOGLE_GEMINI_MODEL_MIGRATIONS[configuredWriter]||configuredWriter
+    : configuredWriter;
+  const reviewer=googleGemini
+    ? GOOGLE_GEMINI_MODEL_MIGRATIONS[configuredReviewer]||configuredReviewer
+    : configuredReviewer;
+  // Independence is checked after migration so two legacy aliases cannot
+  // silently collapse onto the same effective model.
   if(writer===reviewer)throw Error("INDEPENDENT_REVIEWER_MODEL_REQUIRED");
   return {url:u.href,key,writer,reviewer};
 }
