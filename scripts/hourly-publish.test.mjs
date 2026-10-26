@@ -2286,7 +2286,12 @@ test("Official announcement mode safely falls back to substantive official RSS e
   assert.equal(modelPrompts.length,2);
   assert.match(modelPrompts[0],/verified official source evidence/i);
   assert.match(modelPrompts[0],/official-feed-summary/);
+  assert.match(modelPrompts[0],/Every factual sentence in claims, dek, takeaways and sections/);
+  assert.match(modelPrompts[0],/one contiguous 24 to 500 character span/);
+  assert.match(modelPrompts[0],/do not add mechanisms, scale, impact, context, comparisons, limitations or causal language/);
   assert.match(modelPrompts[1],/publisher RSS title \+ description fallback/i);
+  assert.match(modelPrompts[1],/Do NOT require the publisher name to be repeated in every later sentence/);
+  assert.match(modelPrompts[1],/Use pass:false or claimsSupported:false/);
   const story=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
   assert.equal(story.reportingMode,"official-announcement");
   assert.deepEqual(story.sources,[data[0].url]);
