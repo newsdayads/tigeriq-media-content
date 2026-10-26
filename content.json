@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-26T06:17:48.421Z",
+  "updatedAt": "2026-10-26T12:18:22.918Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "scaling-nvidia-tensorrt-performance-optimization-global-performance-tuner",
+      "reportingMode": "official-announcement",
+      "category": "Technology News",
+      "storyId": "tigeriq:scaling-nvidia-tensorrt-performance-optimization-global-performance-tuner",
+      "clusterKey": "news:22d976226ad3d105c0955f2a992232caf03b60793f214b58ab98cc904f9cc483",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T12:18:22.918Z",
+      "modifiedAt": "2026-10-26T12:18:22.918Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA giới thiệu Global Performance Tuner trong TensorRT 11.1 nhằm tối ưu hóa hiệu suất",
+          "dek": "Theo công bố của NVIDIA Developer. Tính năng Global Performance Tuner mới mở rộng không gian giải pháp và xác thực từng ứng dụng theo độ chính xác và hiệu suất tổng thể.",
+          "takeaways": [
+            "Global Performance Tuner được phát hành trong TensorRT 11.1 với các tuyến xây dựng tùy chỉnh.",
+            "NVIDIA TensorRT xây dựng các công cụ suy luận thông qua các quyết định lập lịch phụ thuộc lẫn nhau.",
+            "Khung toán học mô hình hóa quá trình biên dịch như một thuật toán xây dựng và tìm kiếm."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu Global Performance Tuner",
+              "body": "The Global Performance Tuner, released in TensorRT 11.1 , introduces customizable build routes that expand the solution space and validate each candidate against end-to-end accuracy and performance."
+            },
+            {
+              "heading": "Quá trình biên dịch và lập lịch",
+              "body": "NVIDIA TensorRT builds inference engines by making interdependent scheduling decisions across graph transformations, fusion, implementation selection, memory placement, and quantization."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Announces Global Performance Tuner in TensorRT 11.1 for Performance Optimization",
+          "dek": "According to NVIDIA Developer. The new Global Performance Tuner feature introduces customizable build routes that expand the solution space and validate candidates against accuracy and performance.",
+          "takeaways": [
+            "The Global Performance Tuner is released in TensorRT 11.1 to provide customizable build routes.",
+            "TensorRT builds inference engines through interdependent scheduling decisions across graph transformations and quantization.",
+            "A mathematical framework models compilation using a builder algorithm and a searching algorithm."
+          ],
+          "sections": [
+            {
+              "heading": "Global Performance Tuner Feature",
+              "body": "The Global Performance Tuner, released in TensorRT 11.1 , introduces customizable build routes that expand the solution space and validate each candidate against end-to-end accuracy and performance."
+            },
+            {
+              "heading": "Compilation and Scheduling",
+              "body": "NVIDIA TensorRT builds inference engines by making interdependent scheduling decisions across graph transformations, fusion, implementation selection, memory placement, and quantization."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA Lanza Global Performance Tuner en TensorRT 11.1 para Optimización",
+          "dek": "Según NVIDIA Developer. La nueva característica Global Performance Tuner introduce rutas de compilación personalizables que amplían el espacio de soluciones.",
+          "takeaways": [
+            "El Global Performance Tuner se lanzó en TensorRT 11.1 con rutas de compilación personalizables.",
+            "NVIDIA TensorRT construye motores de inferencia tomando decisiones de programación interdependientes.",
+            "Un marco matemático modela la compilación como un algoritmo constructor y un algoritmo de búsqueda."
+          ],
+          "sections": [
+            {
+              "heading": "Característica Tuner",
+              "body": "The Global Performance Tuner, released in TensorRT 11.1 , introduces customizable build routes that expand the solution space and validate each candidate against end-to-end accuracy and performance."
+            },
+            {
+              "heading": "Proceso de Compilación",
+              "body": "NVIDIA TensorRT builds inference engines by making interdependent scheduling decisions across graph transformations, fusion, implementation selection, memory placement, and quantization."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-2",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
+            "title": "Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1"
+          }
+        ],
+        "claims": [
+          {
+            "text": "The Global Performance Tuner, released in TensorRT 11.1, introduces customizable build routes that expand the solution space and validate each candidate against end-to-end accuracy and performance.",
+            "sourceIds": [
+              "nvidiadev-2"
+            ]
+          },
+          {
+            "text": "NVIDIA TensorRT builds inference engines by making interdependent scheduling decisions across graph transformations, fusion, implementation selection, memory placement, and quantization.",
+            "sourceIds": [
+              "nvidiadev-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-2",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/scaling-nvidia-tensorrt-performance-optimization-global-performance-tuner.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA giới thiệu Global Performance Tuner trong TensorRT 11.1 nhằm tối ưu hóa hiệu suất",
+          "en": "NVIDIA Announces Global Performance Tuner in TensorRT 11.1 for Performance Optimization",
+          "es": "NVIDIA Lanza Global Performance Tuner en TensorRT 11.1 para Optimización"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "openai-frontier-model-security-update",
       "reportingMode": "official-announcement",
