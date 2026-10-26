@@ -2680,3 +2680,45 @@ test("invalid same-hour timestamp cannot falsely short-circuit the scheduled pub
  }),/AI_PROVIDER_NOT_CONFIGURED/);
  assert.equal(externalCalls,0,"source rejects missing provider before any billable call");
 }, {articles:[{slug:"phantom",publishedAt:"2026-10-24T06:garbage"}]}));
+
+test("verified Cloudflare Developer Platform RSS extends fresh official coverage",()=>{
+  const official=FEEDS.find(feed=>feed.id==="cloudflare");
+  assert.deepEqual(official,{
+    id:"cloudflare",
+    url:"https://developers.cloudflare.com/changelog/rss/developer-platform.xml"
+  });
+  const at=new Date("2026-10-26T10:30:00Z");
+  const xml='<rss version="2.0"><channel><item>'+
+    '<title>Cloudflare Workers AI announces a developer platform capability update</title>'+
+    '<link>https://developers.cloudflare.com/changelog/2026-10-26-workers-ai-platform-update/</link>'+
+    '<pubDate>Mon, 26 Oct 2026 09:10:00 GMT</pubDate>'+
+    '<description>Cloudflare documents a new developer platform capability for AI workloads with deployment details and operational guidance.</description>'+
+    '</item></channel></rss>';
+  const items=parseFeed(xml,"cloudflare",at);
+  assert.equal(items.length,1);
+  assert.equal(items[0].publisher,"cloudflare");
+  assert.equal(items[0].publishedAt,"2026-10-26T09:10:00.000Z");
+  assert.ok(items[0].url.startsWith("https://developers.cloudflare.com/changelog/"));
+});
+
+test("Cloudflare-labelled feed rejects unverified article hosts and stale announcements",()=>{
+  const at=new Date("2026-10-26T10:30:00Z");
+  const xml=(link,date)=>'<rss><channel><item>'+
+    '<title>Cloudflare developer platform announcement with technical release details</title>'+
+    '<link>'+link+'</link><pubDate>'+date+'</pubDate>'+
+    '<description>Cloudflare documents a developer platform release with concrete behavior, deployment details, and operational constraints.</description>'+
+    '</item></channel></rss>';
+  const date="Mon, 26 Oct 2026 09:10:00 GMT";
+  for(const link of [
+    "https://evil.example/changelog/fake-cloudflare",
+    "https://developers.cloudflare.com.evil.example/changelog/fake",
+    "http://developers.cloudflare.com/changelog/not-secure"
+  ]){
+    assert.equal(parseFeed(xml(link,date),"cloudflare",at).length,0);
+  }
+  assert.equal(parseFeed(xml(
+    "https://developers.cloudflare.com/changelog/old-platform-update/",
+    "Thu, 22 Oct 2026 09:10:00 GMT"
+  ),"cloudflare",at).length,0);
+});
+
