@@ -617,7 +617,13 @@ export const REVIEW_EXCERPT_INSTRUCTION =
 
 export function verifyReview(review,draft,sources){
   const minimum=officialMode(draft)?1:2;
-  if(officialMode(draft)&&review?.attributionValid!==true)throw Error("REVIEW_ATTRIBUTION_UNVERIFIED");
+  if(officialMode(draft)){
+    const source=sources[0];
+    for(const lang of LANGS){
+      if(!source||!draft.editions?.[lang]?.dek?.startsWith(attributionLabel(source.publisher,lang)))
+        throw Error("REVIEW_ATTRIBUTION_UNVERIFIED");
+    }
+  }
   if(review?.pass!==true||review?.claimsSupported!==true||review?.localesValid!==true)throw Error("REVIEW_REJECTED");
   const ids=review.supportedSourceIds;
   if(!Array.isArray(ids)||ids.length!==sources.length||new Set(ids).size!==sources.length||
