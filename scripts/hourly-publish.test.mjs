@@ -2689,10 +2689,10 @@ test("verified Cloudflare AI Gateway RSS extends fresh official coverage",()=>{
   });
   const at=new Date("2026-10-26T10:30:00Z");
   const xml='<rss version="2.0"><channel><item>'+
-    '<title>Cloudflare Workers AI announces a developer platform capability update</title>'+
-    '<link>https://developers.cloudflare.com/changelog/2026-10-26-workers-ai-platform-update/</link>'+
+    '<title>Cloudflare Advanced Nameservers API representation update</title>'+
+    '<link>https://developers.cloudflare.com/changelog/2026-10-26-advanced-nameservers-api-update/</link>'+
     '<pubDate>Mon, 26 Oct 2026 09:10:00 GMT</pubDate>'+
-    '<description>Cloudflare documents a new developer platform capability for AI workloads with deployment details and operational guidance.</description>'+
+    '<description>Cloudflare documents an API representation change for Advanced Nameservers with rollout details, compatibility guidance, and migration behavior.</description>'+
     '</item></channel></rss>';
   const items=parseFeed(xml,"cloudflare",at);
   assert.equal(items.length,1);
