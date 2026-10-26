@@ -13,7 +13,8 @@ export const FEEDS=[
   // Additional verified primary sources; RSS and article URLs stay on publisher-owned origins.
   {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"},
   {id:"cloudflare",url:"https://blog.cloudflare.com/rss/"},
-  {id:"vercel",url:"https://vercel.com/blog/feed"}
+  {id:"deepmind",url:"https://deepmind.google/blog/rss.xml"},
+  {id:"mistral",url:"https://mistral.ai/news/rss"}
 ];
 const OFFICIAL_LINK_HOSTS={
   openai:["openai.com"],
@@ -23,7 +24,8 @@ const OFFICIAL_LINK_HOSTS={
   nvidia:["blogs.nvidia.com","nvidia.com"],
   aws:["aws.amazon.com"],
   cloudflare:["blog.cloudflare.com"],
-  vercel:["vercel.com"]
+  deepmind:["deepmind.google"],
+  mistral:["mistral.ai"]
 };
 function officialPublisherLink(source,hostname){
   return Boolean(OFFICIAL_LINK_HOSTS[source]?.some(host=>
@@ -528,7 +530,7 @@ export function sourceIdentityUrl(value){
 }
 
 
-const PUBLISHER_NAMES={openai:"OpenAI",google:"Google",github:"GitHub",meta:"Meta",nvidia:"NVIDIA",aws:"AWS",cloudflare:"Cloudflare",vercel:"Vercel"};
+const PUBLISHER_NAMES={openai:"OpenAI",google:"Google",github:"GitHub",meta:"Meta",nvidia:"NVIDIA",aws:"AWS",cloudflare:"Cloudflare",deepmind:"Google DeepMind",mistral:"Mistral AI"};
 const attributionLabel=(publisher,lang)=>({
   vi:"Theo công bố của "+PUBLISHER_NAMES[publisher]+".",
   en:"According to "+PUBLISHER_NAMES[publisher]+".",
