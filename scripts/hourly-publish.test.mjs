@@ -403,6 +403,32 @@ test("retired GitHub Models, missing provider and reviewer reuse are blocked",()
  assert.throws(()=>providerConfig({...env,AI_CHAT_COMPLETIONS_URL:"https://models.github.ai/inference/chat/completions"}),/RETIRED/);
  assert.throws(()=>providerConfig({...env,REVIEWER_MODEL:env.WRITER_MODEL}),/INDEPENDENT/);
 });
+test("Google Gemini legacy production models migrate to active stable replacements",()=>{
+ const provider=providerConfig({
+   AI_CHAT_COMPLETIONS_URL:"https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+   AI_API_KEY:"FAKE_TEST_TOKEN",
+   WRITER_MODEL:"gemini-3.1-flash-lite",
+   REVIEWER_MODEL:"gemini-3.5-flash"
+ });
+ assert.equal(provider.writer,"gemini-3.5-flash-lite");
+ assert.equal(provider.reviewer,"gemini-3.6-flash");
+});
+test("Gemini migration is endpoint-scoped and preserves post-migration reviewer independence",()=>{
+ const thirdParty=providerConfig({
+   AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",
+   AI_API_KEY:"FAKE_TEST_TOKEN",
+   WRITER_MODEL:"gemini-3.1-flash-lite",
+   REVIEWER_MODEL:"gemini-3.5-flash"
+ });
+ assert.equal(thirdParty.writer,"gemini-3.1-flash-lite");
+ assert.equal(thirdParty.reviewer,"gemini-3.5-flash");
+ assert.throws(()=>providerConfig({
+   AI_CHAT_COMPLETIONS_URL:"https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+   AI_API_KEY:"FAKE_TEST_TOKEN",
+   WRITER_MODEL:"gemini-3.1-flash-lite",
+   REVIEWER_MODEL:"gemini-3.5-flash-lite"
+ }),/INDEPENDENT_REVIEWER_MODEL_REQUIRED/);
+});
 test("HTTP 200 plain OK is NOT a valid AI JSON response",async()=>{
  const provider=providerConfig(env);
  await assert.rejects(()=>modelJson({fetchImpl:mockFetch({nonJson:true}),provider,model:provider.writer,prompt:"test"}),/INVALID_JSON_ENVELOPE/);
