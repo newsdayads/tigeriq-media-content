@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-25T04:17:50.970Z",
+  "updatedAt": "2026-10-26T02:17:49.023Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "openai-habitat-storage-scaling",
+      "reportingMode": "official-announcement",
+      "category": "Technology Infrastructure",
+      "storyId": "tigeriq:openai-habitat-storage-scaling",
+      "clusterKey": "news:a1eab77e621de8c39e4595cfafda8523acae44c3d88b5f549c371295d900c768",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-26T02:17:49.023Z",
+      "modifiedAt": "2026-10-26T02:17:49.023Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI tối ưu hóa lưu trữ cho hơn 1 tỷ người dùng ChatGPT",
+          "dek": "Theo công bố của OpenAI. Hệ thống Habitat được nâng cấp với Azure Cosmos DB và bộ nhớ đệm toàn cầu để tăng tốc độ truy xuất dữ liệu.",
+          "takeaways": [
+            "Hệ thống Habitat đạt tốc độ đọc nhanh gấp 12 lần nhờ các cải tiến kỹ thuật mới.",
+            "OpenAI áp dụng kiến trúc đa người thuê (multi-tenancy) để phục vụ quy mô 1 tỷ người dùng.",
+            "Việc tích hợp Azure Cosmos DB đóng vai trò quan trọng trong việc mở rộng hạ tầng lưu trữ."
+          ],
+          "sections": [
+            {
+              "heading": "Nâng cấp hạ tầng lưu trữ",
+              "body": "OpenAI đã công bố những chi tiết kỹ thuật về việc mở rộng hệ thống lưu trữ Habitat. Bằng cách triển khai kiến trúc đa người thuê đáng tin cậy và hệ thống bộ nhớ đệm toàn cầu, công ty đã giải quyết được các thách thức về hiệu suất khi phục vụ lượng người dùng khổng lồ trên nền tảng ChatGPT."
+            },
+            {
+              "heading": "Hiệu suất và kết quả đạt được",
+              "body": "Thông qua việc tối ưu hóa hạ tầng và tận dụng Azure Cosmos DB, OpenAI xác nhận rằng tốc độ đọc dữ liệu đã được cải thiện đáng kể, đạt mức nhanh gấp 12 lần so với trước đây. Những cải tiến này giúp duy trì sự ổn định và tốc độ phản hồi cần thiết cho hơn 1 tỷ người dùng trên toàn cầu."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI Scales Habitat Storage for Over 1 Billion ChatGPT Users",
+          "dek": "According to OpenAI. The company details infrastructure improvements including global caching and Azure Cosmos DB integration to boost read performance.",
+          "takeaways": [
+            "Habitat storage system achieves 12x faster read speeds through new optimizations.",
+            "Reliable multi-tenancy architecture supports the scale of over 1 billion users.",
+            "Global caching and Azure Cosmos DB are central to the updated storage strategy."
+          ],
+          "sections": [
+            {
+              "heading": "Scaling the Habitat Infrastructure",
+              "body": "OpenAI has released technical insights into the scaling of its Habitat storage system. By implementing a reliable multi-tenancy architecture and a robust global caching layer, the company has successfully addressed the performance demands required to serve more than 1 billion ChatGPT users effectively."
+            },
+            {
+              "heading": "Performance Gains and Technical Implementation",
+              "body": "The integration of Azure Cosmos DB alongside refined caching strategies has resulted in a significant performance boost. OpenAI reports that these infrastructure updates have enabled read speeds that are 12 times faster than previous configurations, ensuring a more responsive experience for the platform's massive user base."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI escala el almacenamiento Habitat para más de mil millones de usuarios",
+          "dek": "Según OpenAI. La empresa detalla mejoras en su infraestructura, incluyendo caché global e integración con Azure Cosmos DB para acelerar el rendimiento.",
+          "takeaways": [
+            "El sistema de almacenamiento Habitat logra velocidades de lectura 12 veces más rápidas.",
+            "La arquitectura multi-inquilino permite soportar a más de mil millones de usuarios.",
+            "El uso de caché global y Azure Cosmos DB es fundamental para la nueva estrategia de datos."
+          ],
+          "sections": [
+            {
+              "heading": "Escalamiento de la infraestructura Habitat",
+              "body": "OpenAI ha compartido detalles técnicos sobre cómo ha escalado su sistema de almacenamiento Habitat. Mediante la implementación de una arquitectura multi-inquilino confiable y una capa de caché global, la compañía ha logrado gestionar las demandas de rendimiento necesarias para atender a más de mil millones de usuarios de ChatGPT."
+            },
+            {
+              "heading": "Mejoras de rendimiento y resultados",
+              "body": "La integración de Azure Cosmos DB junto con estrategias de caché optimizadas ha generado un aumento significativo en el rendimiento. OpenAI informa que estas actualizaciones de infraestructura han permitido alcanzar velocidades de lectura 12 veces más rápidas, garantizando una experiencia más fluida para su base de usuarios global."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "openai-1",
+            "publisher": "openai",
+            "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+            "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)"
+          }
+        ],
+        "claims": [
+          {
+            "text": "OpenAI has implemented a multi-tenancy architecture and global caching strategy to support over 1 billion ChatGPT users.",
+            "sourceIds": [
+              "openai-1"
+            ]
+          },
+          {
+            "text": "The technical optimizations applied to the Habitat storage system resulted in read speeds that are 12 times faster than previous iterations.",
+            "sourceIds": [
+              "openai-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.1-flash-lite / gemini-3.5-flash",
+        "evidence": [
+          {
+            "sourceId": "openai-1",
+            "tier": "A",
+            "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-habitat-storage-scaling.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "OpenAI tối ưu hóa lưu trữ cho hơn 1 tỷ người dùng ChatGPT",
+          "en": "OpenAI Scales Habitat Storage for Over 1 Billion ChatGPT Users",
+          "es": "OpenAI escala el almacenamiento Habitat para más de mil millones de usuarios"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-retail-ai-europe-announcements",
       "reportingMode": "official-announcement",
