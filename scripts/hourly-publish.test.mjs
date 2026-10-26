@@ -2302,6 +2302,21 @@ test("Official announcement mode safely falls back to substantive official RSS e
   for(const lang of ["vi","en","es"])assert.match(story.editions[lang].dek,/OpenAI/);
 }));
 
+test("RSS 403 fallback records RSS provenance instead of falsely claiming full-article verification",()=>tmp(async root=>{
+  const d=officialAnnouncement(),r=announcementReview();
+  const base=mockFetch({replyDraft:d,replyReview:r});
+  const fetchImpl=async(url,opts)=>{
+    if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+    if(url===data[0].url)return new Response("forbidden",{status:403});
+    return base(url,opts);
+  };
+  const result=await publish({root,fetchImpl,env:{...env,NEWS_REPORTING_MODE:"official-announcement"},now,feeds:[feeds[0]]});
+  assert.equal(result.status,"staged");
+  const story=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+  assert.match(story.verification.basis,/official RSS title \+ description/);
+  assert.doesNotMatch(story.verification.basis,/checked against full primary article/);
+}));
+
 test("HTTP 403 never turns a thin official feed description into headline-only publication",()=>tmp(async root=>{
   const shortSummary="Official AI update with details.";
   const shortRss="<rss><item><title>Substantive official AI platform announcement</title>"+
