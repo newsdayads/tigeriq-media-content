@@ -1042,7 +1042,11 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     readTime:String(parseInt(draft.readTime,10)||5),accent:"blue",publishedAt:nowIso,modifiedAt:nowIso,
     editions:draft.editions,sources:sources.map(s=>s.url),
     factPack:{status:"reviewed",sources:sources.map(s=>({sourceId:s.id,publisher:s.publisher,url:s.url,title:s.title})),claims:draft.claims},
-    verification:{status:"verified",basis:(attributed?"Attributed official announcement checked against full primary article by distinct AI models: ":"Official feed evidence reviewed by distinct AI models: ")+provider.writer+" / "+provider.reviewer,
+    verification:{status:"verified",basis:(attributed?
+      (sources.every(s=>s.evidenceMode==="official-full-article")
+        ?"Attributed official announcement checked against full primary article by distinct AI models: "
+        :"Attributed official announcement checked against validated official RSS title + description after same-origin article HTTP 403 by distinct AI models: ")
+      :"Official feed evidence reviewed by distinct AI models: ")+provider.writer+" / "+provider.reviewer,
       evidence:sources.map(s=>({sourceId:s.id,tier:"A",url:s.url}))},
     cover:{url:"https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/"+slug+".svg",
       width:1200,height:675,generated:true,generator:"TigerIQ original SVG illustration",
