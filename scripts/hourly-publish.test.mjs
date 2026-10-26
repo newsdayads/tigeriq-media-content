@@ -2722,9 +2722,9 @@ test("Cloudflare-labelled feed rejects unverified article hosts and stale announ
   ),"cloudflare",at).length,0);
 });
 
-test("verified Vercel Atom feed extends official technology coverage",()=>{
+test("verified Vercel Blog feed extends official technology coverage",()=>{
   const official=FEEDS.find(feed=>feed.id==="vercel");
-  assert.deepEqual(official,{id:"vercel",url:"https://vercel.com/atom"});
+  assert.deepEqual(official,{id:"vercel",url:"https://vercel.com/blog/feed"});
   const at=new Date("2026-10-26T10:30:00Z");
   const xml='<?xml version="1.0" encoding="UTF-8"?><feed>'+
     '<entry><title>Kimi K3.1 Pro is available in Vercel AI Gateway</title>'+
