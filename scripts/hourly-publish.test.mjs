@@ -1359,9 +1359,9 @@ test("reject non-whitespace bytes outside the official single XML root",()=>{
 });
 
 
-test("opt-in real official public-feed quorum on the scoped GitHub PR, never AI or publish",{skip:!(
+test("real official public-feed quorum on every GitHub PR, never AI or publish",{skip:!(
   process.env.GITHUB_ACTIONS==="true"&&
-  process.env.GITHUB_HEAD_REF==="fix/gh4456-truncated-official-feed-root-20261019-nv02")},async()=>{
+  process.env.GITHUB_EVENT_NAME==="pull_request")},async()=>{
   // Only read official public feeds. Bounded bytes/timeout, no tokens, writes or
   // third-party redirects. External reachability is a preflight observation,
   // not approval to merge, use a metered model, or publish.
