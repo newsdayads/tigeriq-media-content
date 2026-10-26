@@ -12,7 +12,7 @@ export const FEEDS=[
   {id:"nvidia",url:"https://blogs.nvidia.com/feed/"},
   // Additional verified primary sources; RSS and article URLs stay on publisher-owned origins.
   {id:"aws",url:"https://aws.amazon.com/blogs/machine-learning/feed/"},
-  {id:"cloudflare",url:"https://developers.cloudflare.com/changelog/rss/developer-platform.xml"}
+  {id:"cloudflare",url:"https://developers.cloudflare.com/changelog/rss/workers-ai.xml"}
 ];
 const OFFICIAL_LINK_HOSTS={
   openai:["openai.com"],
