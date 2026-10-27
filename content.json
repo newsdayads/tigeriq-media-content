@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-27T16:18:27.128Z",
+  "updatedAt": "2026-10-27T17:18:22.063Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "soci-indexed-images-sagemaker-ai",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:soci-indexed-images-sagemaker-ai",
+      "clusterKey": "news:6d9618232e3d0dd50d7c4a7910f85d927328437cbbc575adcd17857276492608",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-27T17:18:22.063Z",
+      "modifiedAt": "2026-10-27T17:18:22.063Z",
+      "editions": {
+        "vi": {
+          "title": "Thông báo hình ảnh được lập chỉ mục SOCI cho các tác vụ SageMaker AI nhanh hơn",
+          "dek": "Theo công bố của AWS. Amazon Web Services đã công bố tính năng lập chỉ mục Seekable OCI cho các tác vụ Đào tạo và Xử lý Amazon SageMaker AI nhằm giảm thời gian tải xuống hình ảnh vùng chứa.",
+          "takeaways": [
+            "SOCI indexing giúp các tác vụ khởi động trong vài giây thay vì vài phút bằng cách tải lười hình ảnh vùng chứa.",
+            "Việc áp dụng có thể được thực hiện bằng cách chỉ định AWS Deep Learning Container được lập chỉ mục sẵn hoặc thêm chỉ mục vào hình ảnh của riêng bạn.",
+            "Các thử nghiệm cho thấy thời gian tải xuống giảm từ vài phút xuống còn vài giây trên các kích thước hình ảnh khác nhau."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về SOCI Indexing",
+              "body": "Amazon Web Services đã công bố tính năng lập chỉ mục Seekable OCI (SOCI) cho các tác vụ Đào tạo và Xử lý Amazon SageMaker AI nhằm loại bỏ thời gian tải xuống hình ảnh vùng chứa khỏi đường dẫn quan trọng của mỗi tác vụ. Với tính năng này, SageMaker AI sẽ tải lười hình ảnh vùng chứa của bạn, chỉ nạp các tệp cần thiết để khởi động vùng chứa và truyền phần còn lại trong nền."
+            },
+            {
+              "heading": "Kết quả đo lường hiệu suất",
+              "body": "Các kết quả đo lường trên các hình ảnh nén từ 1,8 GB đến 35,4 GB cho thấy thời gian tải xuống giảm từ vài phút xuống còn khoảng 3 đến 11 giây. Thời gian huấn luyện từ kỷ nguyên thứ hai trở đi vẫn giữ nguyên, mặc dù có thể phát sinh một khoản chi phí nhỏ ở kỷ nguyên đầu tiên khi các tệp được nạp."
+            }
+          ]
+        },
+        "en": {
+          "title": "Announcing SOCI-indexed images for faster SageMaker AI jobs",
+          "dek": "According to AWS. Amazon Web Services announced Seekable OCI (SOCI) indexing for Amazon SageMaker AI Training and processing jobs to lazy-load container images.",
+          "takeaways": [
+            "SOCI indexing takes full container image download off the critical path of every Amazon SageMaker AI job.",
+            "SageMaker AI lazy-loads the container image by fetching only the files needed to start and streaming the rest in the background.",
+            "Benchmarks showed download times dropping from several minutes to 3-11 seconds across multiple image sizes."
+          ],
+          "sections": [
+            {
+              "heading": "Overview of SOCI Indexing",
+              "body": "Amazon Web Services announced Seekable OCI (SOCI) indexing for Amazon SageMaker AI Training and processing jobs. The technology takes full container image download off the critical path by using a SOCI index to lazy-load container images, allowing jobs to begin in seconds instead of minutes."
+            },
+            {
+              "heading": "Measured Performance and Adoption",
+              "body": "Benchmarks across compressed image sizes ranging from 1.8 GB to 35.4 GB showed that download times dropped significantly while maintaining training performance after a minor first-epoch cost. Users can adopt the feature by pointing to a pre-indexed AWS Deep Learning Container or adding an index to their own image without modifying job definitions."
+            }
+          ]
+        },
+        "es": {
+          "title": "Anuncio de imágenes indexadas con SOCI para trabajos de SageMaker AI más rápidos",
+          "dek": "Según AWS. Amazon Web Services anunció la indexación Seekable OCI (SOCI) para los trabajos de entrenamiento y procesamiento de Amazon SageMaker AI.",
+          "takeaways": [
+            "La indexación SOCI carga de forma diferida las imágenes de contenedores para iniciar los trabajos en segundos.",
+            "El servicio recupera solo los archivos necesarios para iniciar el contenedor y transmite el resto en segundo plano.",
+            "Las pruebas demostraron reducciones sustanciales en el tiempo de descarga en varios tamaños de imagen."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de la indexación SOCI",
+              "body": "Amazon Web Services anunció la indexación Seekable OCI (SOCI) para los trabajos de entrenamiento y procesamiento de Amazon SageMaker AI. Esta tecnología elimina la descarga completa de la imagen del contenedor del camino crítico, permitiendo que los trabajos comiencen en segundos en lugar de minutos mediante la carga diferida."
+            },
+            {
+              "heading": "Resultados de rendimiento medidos",
+              "body": "Las mediciones en imágenes comprimidas de 1.8 GB a 35.4 GB mostraron que el tiempo de descarga se redujo drásticamente a entre 3 y 11 segundos. El rendimiento del entrenamiento se mantuvo sin afetaciones más allá de un costo menor en la primera época."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/announcing-soci-indexed-images-for-faster-sagemaker-ai-jobs/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-1",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/announcing-soci-indexed-images-for-faster-sagemaker-ai-jobs/",
+            "title": "Announcing SOCI-indexed images for faster SageMaker AI jobs"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS announced Seekable OCI (SOCI) indexing for Amazon SageMaker AI Training and processing jobs to lazy-load container images.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          },
+          {
+            "text": "SOCI indexing reduces container image download times from minutes to seconds by fetching only the files needed to launch the container immediately.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/announcing-soci-indexed-images-for-faster-sagemaker-ai-jobs/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/soci-indexed-images-sagemaker-ai.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Thông báo hình ảnh được lập chỉ mục SOCI cho các tác vụ SageMaker AI nhanh hơn",
+          "en": "Announcing SOCI-indexed images for faster SageMaker AI jobs",
+          "es": "Anuncio de imágenes indexadas con SOCI para trabajos de SageMaker AI más rápidos"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "python-typing-survey-2026-ai-tools-and-checker-landscape",
       "reportingMode": "official-announcement",
