@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-27T17:18:22.063Z",
+  "updatedAt": "2026-10-27T19:18:20.434Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-rtx-spark-neural-rendering-ai-characters",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-rtx-spark-neural-rendering-ai-characters",
+      "clusterKey": "news:1e10434c8911272fea20bc47ed1a864065d1a2f2278e9b4dea39b1ff8e8ae0b1",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-27T19:18:20.434Z",
+      "modifiedAt": "2026-10-27T19:18:20.434Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA RTX Spark Cung Cấp Năng Lực Kết Xuất Thần Kinh và Nhân Vật AI Cho Trò Chơi",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA công bố nền tảng PC Windows RTX Spark mới cùng các bản cập nhật cho kết xuất thần kinh và nhân vật trò chơi.",
+          "takeaways": [
+            "NVIDIA giới thiệu nền tảng RTX Spark dành cho phát triển AI, sáng tạo và chơi game trên máy tính xách tay mỏng và máy để bàn nhỏ gọn.",
+            "DLSS 5 với 3D-Guided Neural Rendering chạy trên RTX Spark, bắt đầu với trò chơi NBA 2K27.",
+            "Nemotron 3.5 Bolt E4B 4GB mang lại chất lượng trung bình cao hơn khoảng 40% so với mô hình trước đó trên các tiêu chuẩn liên quan."
+          ],
+          "sections": [
+            {
+              "heading": "Nền tảng RTX Spark",
+              "body": "NVIDIA RTX Spark là một nền tảng PC Windows mới dành cho phát triển AI, sáng tạo và chơi game trong các máy tính xách tay mỏng và máy tính để bàn nhỏ gọn, kết hợp bộ nhớ thống nhất lên đến 128 GB với toàn bộ ngăn xếp NVIDIA CUDA và các công nghệ RTX bao gồm dò tia và DLSS 5."
+            },
+            {
+              "heading": "Cập nhật DLSS 5",
+              "body": "DLSS 5 với 3D-Guided Neural Rendering chạy trên RTX Spark, bắt đầu với NBA 2K27 và bản cập nhật mô hình tháng 10 chạy nhanh gấp 2 lần so với phiên bản tháng 9, đồng thời giảm một nửa chi phí GPU và giảm mức sử dụng VRAM ở độ phân giải 4K đi 20%."
+            },
+            {
+              "heading": "Nhân vật AI với Nemotron",
+              "body": "Nemotron 3.5 Bolt E4B 4GB cung cấp chất lượng trung bình cao hơn khoảng 40% so với mô hình trước đó trên các điểm chuẩn có liên quan và xuất ra ít hơn tới khoảng 80% mã thông báo so với các bên tương đương, cho phép tương tác nhân vật AI cục bộ phản hồi nhanh."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games",
+          "dek": "According to NVIDIA Developer. NVIDIA announces the RTX Spark Windows PC platform alongside updates for neural rendering and in-game AI characters.",
+          "takeaways": [
+            "NVIDIA unveiled RTX Spark as a new Windows PC platform for AI development, creation, and gaming in slim laptops and compact desktops.",
+            "DLSS 5 with 3D-Guided Neural Rendering runs on RTX Spark, starting with NBA 2K27.",
+            "Nemotron 3.5 Bolt E4B 4GB delivers roughly 40% higher average quality against the prior model on relevant benchmarks."
+          ],
+          "sections": [
+            {
+              "heading": "RTX Spark Platform",
+              "body": "NVIDIA RTX Spark is a new Windows PC platform for AI development, creation, and gaming in slim laptops and compact desktops, combining up to 128 GB of unified memory with the full NVIDIA CUDA stack and RTX technologies including ray tracing and DLSS 5."
+            },
+            {
+              "heading": "DLSS 5 and Neural Rendering",
+              "body": "DLSS 5 with 3D-Guided Neural Rendering runs on RTX Spark, starting with NBA 2K27, and an October model update runs 2x faster than the September version while halving GPU overhead and reducing VRAM use at 4K by 20%."
+            },
+            {
+              "heading": "Nemotron 3.5 Bolt AI Characters",
+              "body": "Nemotron 3.5 Bolt E4B 4GB offers roughly 40% higher average quality against the prior model on relevant benchmarks and outputs up to roughly 80% fewer tokens versus peers, enabling responsive local AI character interactions on GeForce RTX and RTX Spark."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA RTX Spark Impulsa el Renderizado Neuronal y los Personajes de IA en Juegos",
+          "dek": "Según NVIDIA Developer. NVIDIA anuncia la plataforma de PC con Windows RTX Spark junto con actualizaciones de renderizado neuronal y personajes de IA.",
+          "takeaways": [
+            "NVIDIA presentó RTX Spark como una nueva plataforma de PC con Windows para el desarrollo de IA, creación y juegos.",
+            "DLSS 5 con renderizado neuronal guiado en 3D se ejecuta en RTX Spark, comenzando con NBA 2K27.",
+            "Nemotron 3.5 Bolt E4B 4GB ofrece una calidad promedio aproximadamente un 40% mayor en comparación con el modelo anterior."
+          ],
+          "sections": [
+            {
+              "heading": "Plataforma RTX Spark",
+              "body": "NVIDIA RTX Spark es una nueva plataforma de PC con Windows para el desarrollo de IA, creación y juegos en computadoras portátiles delgadas y escritorios compactos, combinando hasta 128 GB de memoria unificada con la pila completa de NVIDIA CUDA y tecnologías RTX."
+            },
+            {
+              "heading": "Actualizaciones de DLSS 5",
+              "body": "DLSS 5 con renderizado neuronal guiado en 3D se ejecuta en RTX Spark, comenzando con NBA 2K27, y una actualización del modelo de octubre se ejecuta 2 veces más rápido que la versión de septiembre mientras reduce a la mitad la sobrecarga de la GPU."
+            },
+            {
+              "heading": "Personajes de IA Nemotron",
+              "body": "Nemotron 3.5 Bolt E4B 4GB ofrece una calidad promedio aproximadamente un 40% mayor en comparación con el modelo anterior en puntos de referencia relevantes y genera hasta un 80% menos de tokens en comparación con sus pares."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/",
+            "title": "NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced RTX Spark, a new Windows PC platform for AI development, creation, and gaming in slim laptops and compact desktops.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "NVIDIA introduced Nemotron 3.5 Bolt E4B 4GB to power local in-game character interactions on GeForce RTX and RTX Spark hardware.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-rtx-spark-neural-rendering-ai-characters.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA RTX Spark Cung Cấp Năng Lực Kết Xuất Thần Kinh và Nhân Vật AI Cho Trò Chơi",
+          "en": "NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games",
+          "es": "NVIDIA RTX Spark Impulsa el Renderizado Neuronal y los Personajes de IA en Juegos"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "soci-indexed-images-sagemaker-ai",
       "reportingMode": "official-announcement",
