@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-10-26T20:18:21.360Z",
+  "updatedAt": "2026-10-27T14:18:22.747Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "cloudflare-glm-5-3-kv-cache-exposure-remediation",
+      "reportingMode": "official-announcement",
+      "category": "security",
+      "storyId": "tigeriq:cloudflare-glm-5-3-kv-cache-exposure-remediation",
+      "clusterKey": "news:2340ca3094500a4ad53465ad3b538518e68277aff8d3325bf0af9a7aa7826161",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-27T14:18:22.747Z",
+      "modifiedAt": "2026-10-27T14:18:22.747Z",
+      "editions": {
+        "vi": {
+          "title": "Cloudflare Khắc Phục Lỗi Phơi Nhiễm Bộ Nhớ Đệm KV Trên Mô Hình GLM-5.3",
+          "dek": "Theo công bố của Cloudflare. Cloudflare công bố chi tiết về sự cố cách ly khách hàng trên mô hình GLM-5.3 Workers AI và các biện pháp khắc phục phối hợp cùng SGLang.",
+          "takeaways": [
+            "Sự cố ảnh hưởng đến mô hình GLM-5.3 trên Workers AI từ ngày 27 tháng 8 đến ngày 9 tháng 9 năm 2026.",
+            "Tổng cộng có 155 phản hồi bị ảnh hưởng, tất cả đều đối với các prompt dài hơn 681.280 token.",
+            "Cloudflare xác định không có bằng chứng về việc khai thác có chủ đích từ bên ngoài.",
+            "Sự cố xuất phát từ việc cấu hình sai kết hợp với lỗi trong công cụ suy luận mở SGLang."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng Quan Sự Cố",
+              "body": "Vào ngày 8 tháng 9 năm 2026, Cloudflare nhận được cảnh báo từ nhà nghiên cứu bảo mật Gadi Evron thuộc Knostic về vấn đề cách ly khách hàng ảnh hưởng đến mô hình GLM-5.3 Workers AI. Cloudflare đã khắc phục vấn đề và khôi phục mô hình vào ngày 9 tháng 9, xác nhận rằng không có mô hình nào khác trên Workers AI bị ảnh hưởng. Trong khoảng thời gian này, một số ít khách hàng đã nhận được phản hồi chứa dữ liệu từ các yêu cầu trước đó của người dùng khác."
+            },
+            {
+              "heading": "Nguyên Nhân Kỹ Thuật",
+              "body": "Sự cố phơi nhiễm bộ nhớ đệm KV này là kết quả của hai vấn đề chồng chéo. Thứ nhất là sự sai lệch cấu hình của công cụ suy luận mã nguồn mở SGLang khi dung lượng bộ nhớ đệm KV trên GPU tiền xử lý không khớp với độ dài ngữ cảnh của mô hình. Thứ hai là lỗi trong cách SGLang xử lý các yêu cầu quá dài ở chế độ tiền xử lý và giải mã phân tách."
+            },
+            {
+              "heading": "Biện Pháp Khắc Phục",
+              "body": "Cloudflare đã vô hiệu hóa mô hình, điều chỉnh cấu hình bộ nhớ đệm để chứa toàn bộ ngữ cảnh và vá công cụ suy luận nhằm loại bỏ các đường dẫn lỗi tiềm ẩn. Các thay đổi đã được kiểm tra kỹ lưỡng bằng tập lệnh tái tạo của nhà nghiên cứu trước khi khôi phục quyền truy cập công khai cho mô hình."
+            }
+          ]
+        },
+        "en": {
+          "title": "Cloudflare Addresses Cross-Request KV Cache Exposure in GLM-5.3 Workers AI Model",
+          "dek": "According to Cloudflare. Cloudflare details a tenant isolation issue affecting the GLM-5.3 Workers AI model and its coordinated remediation with SGLang.",
+          "takeaways": [
+            "A tenant isolation issue affected the GLM-5.3 Workers AI model starting on August 27, 2026.",
+            "Cloudflare remediated the issue and restored the model on September 9, 2026.",
+            "A total of 155 responses were affected, limited to prompts longer than 681,280 tokens.",
+            "The vulnerability stemmed from a configuration mismatch combined with an SGLang inference engine bug."
+          ],
+          "sections": [
+            {
+              "heading": "Incident Overview",
+              "body": "On September 8, 2026, Cloudflare was alerted by security researcher Gadi Evron to a tenant isolation issue affecting the GLM-5.3 Workers AI model. Cloudflare remediated the issue and restored the model on September 9, confirming that no other models hosted on Workers AI were affected. Between August 27 and September 9, a small number of customers received responses containing data from other customer requests made shortly before theirs."
+            },
+            {
+              "heading": "Root Causes",
+              "body": "This specific report of cross-request KV cache exposure resulted from two overlapping issues. The first was a misconfiguration of the open-source inference engine SGLang, where the KV cache pool on prefill GPUs was smaller than the model context window. The second was a bug in how SGLang handled resulting over-length requests in disaggregated prefill and decode mode, leading the decode node to generate responses while attending over stale cache pages."
+            },
+            {
+              "heading": "Remediation Actions",
+              "body": "After disabling the model, Cloudflare adjusted the pool configuration to hold the full context and patched the inference engine so that pending rejections are retired at the admission queue before any KV transfer occurs. Both changes were validated against the researcher's reproduction script and canary-marker tests before public access was restored."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cloudflare Remedia la Exposición de Caché KV en el Modelo GLM-5.3 de Workers AI",
+          "dek": "Según Cloudflare. Cloudflare detalla un problema de aislamiento de inquilinos que afectó al modelo GLM-5.3 Workers AI y su mitigación coordinada.",
+          "takeaways": [
+            "Un problema de aislamiento afectó al modelo GLM-5.3 Workers AI a partir del 27 de agosto de 2026.",
+            "Cloudflare solucionó el problema y restauró el modelo el 9 de septiembre de 2026.",
+            "Un total de 155 respuestas se vieron afectadas, todas en prompts de más de 681,280 tokens.",
+            "El problema surgió de una discrepancia de configuración combinada con un error en el motor SGLang."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen del Incidente",
+              "body": "El 8 de septiembre de 2026, Cloudflare recibió una alerta sobre un problema de aislamiento de inquilinos que afectaba al modelo GLM-5.3 Workers AI. Cloudflare mitigó el problema y restauró el modelo el 9 de septiembre, confirmando que ningú otro modelo alojado en Workers AI se vio afectado. Un pequeño número de clientes recibió respuestas que contenían datos de solicitudes de otros usuarios realizadas poco antes."
+            },
+            {
+              "heading": "Causas Raíz",
+              "body": "Esta exposición de caché KV cruzada fue el resultado de dos problemas superpuestos. El primero fue una configuración errónea del motor de inferencia SGLang de código abierto, donde el grupo de caché KV en las GPU de prellenado era más pequeño que la ventana de contexto. El segundo fue un error en la gestión de solicitudes excesivamente largas en el modo de prellenado y decodificación desaggregado."
+            },
+            {
+              "heading": "Acciones de Remediación",
+              "body": "Tras deshabilitar el modelo, Cloudflare ajustó la configuración del grupo para albergar todo el contexto y parcheó el motor de inferencia para que las solicitudes rechazadas se retiren en la cola de admisión antes de cualquier transferencia de caché. Los cambios se validaron con pruebas rigurosas antes de restaurar el acceso público."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "cloudflare-3",
+            "publisher": "cloudflare",
+            "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+            "title": "Cross-request KV cache exposure in the GLM-5.3 Workers AI model, and our remediation with SGLang"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Cloudflare reported a tenant isolation issue affecting the GLM-5.3 Workers AI model between August 27 and September 9, 2026, which exposed data from other customer requests in 155 responses.",
+            "sourceIds": [
+              "cloudflare-3"
+            ]
+          },
+          {
+            "text": "The issue was caused by a configuration mismatch and a bug in the SGLang inference engine, which Cloudflare has since remediated through configuration adjustments and engine patches.",
+            "sourceIds": [
+              "cloudflare-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "cloudflare-3",
+            "tier": "A",
+            "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/cloudflare-glm-5-3-kv-cache-exposure-remediation.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Cloudflare Khắc Phục Lỗi Phơi Nhiễm Bộ Nhớ Đệm KV Trên Mô Hình GLM-5.3",
+          "en": "Cloudflare Addresses Cross-Request KV Cache Exposure in GLM-5.3 Workers AI Model",
+          "es": "Cloudflare Remedia la Exposición de Caché KV en el Modelo GLM-5.3 de Workers AI"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "openai-models-prompt-caching-amazon-bedrock",
       "reportingMode": "official-announcement",
