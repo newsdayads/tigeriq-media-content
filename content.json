@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-10-27T14:18:22.747Z",
+  "updatedAt": "2026-10-27T16:18:27.128Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "python-typing-survey-2026-ai-tools-and-checker-landscape",
+      "reportingMode": "official-announcement",
+      "category": "Developer Tools",
+      "storyId": "tigeriq:python-typing-survey-2026-ai-tools-and-checker-landscape",
+      "clusterKey": "news:2856d9797e044357f4db410d6531bbf8f7485f1f95c134719d12b9c5fcaa8049",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-27T16:18:27.128Z",
+      "modifiedAt": "2026-10-27T16:18:27.128Z",
+      "editions": {
+        "vi": {
+          "title": "Khảo sát Định kiểu Python 2026: Công cụ AI và Bối cảnh Trình kiểm tra",
+          "dek": "Theo công bố của Meta. Khảo sát Định kiểu Python 2026 cho thấy 1.794 phản hồi, làm nổi bật sự thay đổi trong việc lựa chọn trình kiểm tra và việc tích hợp các công cụ AI.",
+          "takeaways": [
+            "Khảo sát năm 2026 đã nhận được tổng cộng 1.794 phản hồi từ cộng đồng lập trình viên.",
+            "Tỷ lệ sử dụng gợi ý kiểu dữ liệu duy trì ổn định qua nhiều năm khảo sát.",
+            "Sự lựa chọn trình kiểm tra của lập trình viên đã có sự thay đổi rõ rệt và sắc nét.",
+            "Các công cụ AI ngày càng tham gia nhiều hơn vào việc viết kiểu và xử lý lỗi."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan Khảo sát",
+              "body": "Khảo sát Định kiểu Python 2026 đã thu về 1,794 phản hồi từ cộng đồng lập trình viên. Hầu hết những người tham gia đều là các nhà phát triển Python có kinh nghiệm, với 76.4% đã sử dụng Python trong ít nhất năm năm. Mặc dù việc sử dụng gợi ý kiểu dữ liệu ít thay đổi qua ba năm, sự lựa chọn trình kiểm tra lại thay đổi đáng kể, trong đó một nửa số người dùng chọn nhiều hơn một côngกร cụ."
+            },
+            {
+              "heading": "Sự gia tăng của AI",
+              "body": "Vai trò của các công cụ AI trong việc định kiểu đang đặt ra nhiều câu hỏi mở và thu hút sự chú ý. Tỷ lệ người tham gia chọn phát biểu công cụ AI giúp mã do AI tạo ra chính xác và đáng tin cậy hơn đã tăng từ 18.5% vào năm 2025 lên đến 38.4% trong năm 2026. Các nhà phát triển đã sử dụng AI để viết gợi ý kiểu, sửa lỗi kiểm tra và giải quyết các vấn đề liên quan."
+            },
+            {
+              "heading": "Thách thức từ thư viện",
+              "body": "Thiếu thông tin về kiểu dữ liệu trong các thư viện của bên thứ ba vẫn là khó khăn hàng đầu, được chọn bởi 65.1% trong tổng số 1,486 người trả lời. Một số lượng lớn nhà phát triển cũng cho biết hệ thống kiểu không thể diễn tả hết mọi hành vi trong mã nguồn của họ, đặc biệt là với các framework động và các gói khoa học dữ liệu."
+            }
+          ]
+        },
+        "en": {
+          "title": "Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape",
+          "dek": "According to Meta. The 2026 Python Typing Survey gathered 1,794 responses, highlighting shifting checker selections and growing AI involvement in type hints.",
+          "takeaways": [
+            "The 2026 Python Typing Survey received 1,794 total responses from developers.",
+            "Type hint usage remained stable across recent years while checker choices shifted.",
+            "The percentage of respondents noting AI improves code reliability rose to 38.4%.",
+            "Missing third-party library type information remains a leading reported difficulty."
+          ],
+          "sections": [
+            {
+              "heading": "Survey Overview",
+              "body": "The 2026 Python Typing Survey received 1,794 responses from experienced developers, where 76.4% had used Python for at least five years. While type hint use changed little across three years, checker selection changed sharply. Among respondents reporting which checkers they use, half selected more than one."
+            },
+            {
+              "heading": "AI Tool Integration",
+              "body": "AI tools now actively write types and respond to checker errors within development workflows. The share of respondents who selected that AI makes generated code more accurate or reliable rose from 18.5% in 2025 to 38.4% in 2026. Developers also utilized AI to fix or explain type errors and invoke checkers."
+            },
+            {
+              "heading": "Library Difficulties",
+              "body": "Missing type information in third-party libraries stood out as the leading difficulty, selected by 65.1% of 1,486 respondents. Additionally, 44.6% reported that the type system could not fully describe everything their code executes, noting complexities across dynamic frameworks and scientific packages."
+            }
+          ]
+        },
+        "es": {
+          "title": "Encuesta de Tipado en Python 2026: Herramientas de IA y el Cambio de Comprobadores",
+          "dek": "Según Meta. La Encuesta de Tipado en Python 2026 recopiló 1,794 respuestas, destacando cambios en la selección de comprobadores y el uso de IA.",
+          "takeaways": [
+            "La encuesta de tipado de Python 2026 recibió un total de 1,794 respuestas.",
+            "El uso de pistas de tipos se mantuvo estable mientras cambiaban los comprobadores.",
+            "El porcentaje de encuestados que indicó que la IA mejora la fiabilidad subió al 38.4%.",
+            "La falta de información de tipos en bibliotecas de terceros sigue siendo un reto."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de la Encuesta",
+              "body": "La Encuesta de Tipado en Python 2026 recibió 1,794 respuestas de desarrolladores experimentados, donde el 76.4% llevaba al menos cinco años usando Python. Aunque el uso de pistas de tipo cambió poco en tres años, la selección de comprobadores varió drásticamente y la mitad de los encuestados seleccionó más de uno."
+            },
+            {
+              "heading": "Herramientas de IA",
+              "body": "Las herramientas de inteligencia artificial ahora escriben tipos y responden a errores de comprobación. La proporción de encuestados que seleccionó que la IA hace que el código generado sea más preciso o confiable aumentó del 18.5% en 2025 al 38.4% en 2026, utilizándose también para solucionar errores de tipo."
+            },
+            {
+              "heading": "Dificultades en Bibliotecas",
+              "body": "La falta de información sobre tipos en bibliotecas de terceros fue la principal dificultad, seleccionada por el 65.1% de 1,486 encuestados. Otro 44.6% indicó que el sistema de tipos no podía describir todo lo que hace su código, mencionando frameworks dinámicos y paquetes científicos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "meta-2",
+            "publisher": "meta",
+            "url": "https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/",
+            "title": "Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape"
+          }
+        ],
+        "claims": [
+          {
+            "text": "The 2026 Python Typing Survey received 1,794 responses from experienced Python developers, showing that type hint use remained steady while checker selection shifted sharply.",
+            "sourceIds": [
+              "meta-2"
+            ]
+          },
+          {
+            "text": "The share of respondents who stated AI-generated code becomes more accurate or reliable rose to 38.4% in 2026, up from 18.5% in 2025.",
+            "sourceIds": [
+              "meta-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "meta-2",
+            "tier": "A",
+            "url": "https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/python-typing-survey-2026-ai-tools-and-checker-landscape.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Khảo sát Định kiểu Python 2026: Công cụ AI và Bối cảnh Trình kiểm tra",
+          "en": "Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape",
+          "es": "Encuesta de Tipado en Python 2026: Herramientas de IA y el Cambio de Comprobadores"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "cloudflare-glm-5-3-kv-cache-exposure-remediation",
       "reportingMode": "official-announcement",
