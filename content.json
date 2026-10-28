@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-27T19:18:20.434Z",
+  "updatedAt": "2026-10-28T00:45:06.696Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "nvidia-cbrain-ai-dementia-research",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:nvidia-cbrain-ai-dementia-research",
+      "clusterKey": "news:2d89b74eba8840fb8b0fb3ae7d2a848a28aaaa333931da6850a79d69808da0b2",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T00:45:06.696Z",
+      "modifiedAt": "2026-10-28T00:45:06.696Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA hợp tác với C-BRAIN ứng dụng AI thúc đẩy nghiên cứu bệnh mất trí nhớ",
+          "dek": "Theo công bố của NVIDIA. Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN) đang hợp tác cùng NVIDIA để giải quyết các thách thức dữ liệu và tăng tốc độ nghiên cứu Alzheimer.",
+          "takeaways": [
+            "C-BRAIN làm việc với NVIDIA để ứng dụng AI giải quyết dữ liệu nghiên cứu Alzheimer.",
+            "Consortium này kết hợp hạ tầng GPU NVIDIA và công nghệ đám mây Microsoft Azure.",
+            "Các công cụ OpenScientist và InsightEngine được phát triển để hỗ trợ phân tích và kiểm tra giả thuyết."
+          ],
+          "sections": [
+            {
+              "heading": "Hợp tác nghiên cứu",
+              "body": "The Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN), làm việc cùng NVIDIA, đang sử dụng trí tuệ nhân tạo để thay đổi tốc độ khám phá cho hàng triệu người sống chung với chứng mất trí nhớ. Alzheimer là một trong những thách thức y tế toàn cầu hàng đầu hiện nay với hơn 10 triệu ca mắc mới mỗi được chẩn đoán hàng năm, nhưng chưa tìm ra phương pháp điều trị ngăn chặn hoặc đảo ngược bệnh."
+            },
+            {
+              "heading": "Công nghệ và công cụ AI",
+              "body": "C-BRAIN hiện vận hành 64 GPU trung tâm dữ liệu NVIDIA tại chỗ cùng với các nút dựa trên đám mây trên Microsoft Azure. Các nhà nghiên cứu tại đây đã xây dựng hai công cụ gồm OpenScientist — một đồng khoa học gia AI tự trị — và InsightEngine, một nền tảng nghiên cứu mã nguồn mở sử dụng AI để kiểm tra giả thuyết dựa trên tài liệu khoa học."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA and C-BRAIN Apply AI to Accelerate Dementia and Alzheimer's Research",
+          "dek": "According to NVIDIA. The Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN) is collaborating with NVIDIA to use artificial intelligence to speed up scientific discoveries.",
+          "takeaways": [
+            "C-BRAIN partners with NVIDIA to utilize artificial intelligence in overcoming biomedical research bottlenecks.",
+            "The consortium runs 64 NVIDIA data center GPUs on premises along with Microsoft Azure cloud nodes.",
+            "Researchers have developed tools like OpenScientist and InsightEngine to automate analyses and test hypotheses."
+          ],
+          "sections": [
+            {
+              "heading": "Accelerating Discovery",
+              "body": "The Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN), working with NVIDIA, is using AI to change the pace of discovery for millions living with dementia. Alzheimer’s disease remains a leading global health challenge with over 10 million new dementia cases diagnosed each year, while bottlenecks involve too much data and too slow a pace of synthesis."
+            },
+            {
+              "heading": "Infrastructure and Tools",
+              "body": "C-BRAIN currently runs 64 NVIDIA data center GPUs on premises alongside cloud-based nodes on Microsoft Azure, with plans for additional NVIDIA GPU capacity including NVIDIA Blackwell systems. Researchers have built OpenScientist, an open-source agentic AI co-scientist, and InsightEngine, a research platform that uses agentic AI to test hypotheses against scientific literature."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA y C-BRAIN colaboran para acelerar la investigación sobre la demencia con IA",
+          "dek": "Según NVIDIA. El Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN) trabaja junto a NVIDIA para emplear inteligencia artificial en la superación de obstáculos científicos.",
+          "takeaways": [
+            "C-BRAIN colabora con NVIDIA para utilizar inteligencia artificial en la investigación del Alzheimer.",
+            "La iniciativa utiliza 64 GPU de centros de datos de NVIDIA en las instalaciones junto con Microsoft Azure.",
+            "Se han desarrollado herramientas como OpenScientist e InsightEngine para agilizar el análisis de datos."
+          ],
+          "sections": [
+            {
+              "heading": "Desafíos de la investigación",
+              "body": "The Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN), trabajando con NVIDIA, utiliza inteligencia artificial para cambiar el ritmo de los descubrimientos para millones de personas que viven con demencia. La enfermedad de Alzheimer es uno de los principales desafíos de salud global con más de 10 millones de nuevos casos diagnosticados cada año."
+            },
+            {
+              "heading": "Infraestructura tecnológica",
+              "body": "C-BRAIN opera actualmente 64 GPU de centros de datos de NVIDIA en sus instalaciones junto con nodos basados en la nube en Microsoft Azure, con capacidad adicional de GPU de NVIDIA prevista. Los investigadores han creado herramientas como OpenScientist e InsightEngine para generar hipótesis y verificar afirmaciones frente a la evidencia científica."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/",
+            "title": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia"
+          }
+        ],
+        "claims": [
+          {
+            "text": "The Consortium for Biomedical Research and AI in Neurodegeneration (C-BRAIN) is working with NVIDIA to use artificial intelligence to accelerate Alzheimer's and dementia research.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "C-BRAIN has built tools including OpenScientist and InsightEngine to help scientists analyze datasets, generate hypotheses, and check claims against evidence.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-cbrain-ai-dementia-research.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA hợp tác với C-BRAIN ứng dụng AI thúc đẩy nghiên cứu bệnh mất trí nhớ",
+          "en": "NVIDIA and C-BRAIN Apply AI to Accelerate Dementia and Alzheimer's Research",
+          "es": "NVIDIA y C-BRAIN colaboran para acelerar la investigación sobre la demencia con IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-rtx-spark-neural-rendering-ai-characters",
       "reportingMode": "official-announcement",
