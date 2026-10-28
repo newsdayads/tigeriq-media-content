@@ -1,11 +1,107 @@
 {
-  "updatedAt": "2026-10-28T11:10:17.149Z",
+  "updatedAt": "2026-10-28T14:34:37.644Z",
   "breaking": {
-    "vi": "Bảo mật môi trường huấn luyện mô hình nền tảng trong kỷ nguyên AI",
-    "en": "Securing Our Frontier Model Training Environment",
-    "es": "Asegurando nuestro entorno de entrenamiento de modelos frontera"
+    "vi": "Định hình tương lai ngành thời trang thông qua sự hợp tác cùng Google",
+    "en": "Co-creating the future of fashion with Google",
+    "es": "Co-creando el futuro de la moda con Google"
   },
   "articles": [
+    {
+      "slug": "co-creating-the-future-of-fashion-with-google",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T14:34:37.644Z",
+      "modifiedAt": "2026-10-28T14:34:37.644Z",
+      "editions": {
+        "vi": {
+          "title": "Định hình tương lai ngành thời trang thông qua sự hợp tác cùng Google",
+          "dek": "Khám phá cách công nghệ trí tuệ nhân tạo từ Google đang mở ra những hướng đi mới và thúc đẩy sự sáng tạo trong ngành công nghiệp thời trang.",
+          "takeaways": [
+            "Ứng dụng trí tuệ nhân tạo trong thiết kế và sản xuất thời trang.",
+            "Sự kết hợp giữa công nghệ tiên tiến và tư duy sáng tạo truyền thống.",
+            "Tầm nhìn dài hạn về một ngành thời trang bền vững và cá nhân hóa."
+          ],
+          "sections": [
+            {
+              "heading": "Kỷ nguyên số hóa ngành thời trang",
+              "body": "Sự hợp tác chiến lược với các tập đoàn công nghệ lớn như Google đang giúp các nhà thiết kế vượt qua giới hạn truyền thống. Trí tuệ nhân tạo không chỉ hỗ trợ tối ưu hóa quy trình vận hành mà còn mang lại những góc nhìn mới mẻ trong việc nắm bắt xu hướng thị trường."
+            },
+            {
+              "heading": "Đổi mới sáng tạo cùng công nghệ AI",
+              "body": "Thông qua các công cụ phân tích dữ liệu và học máy, các thương hiệu thời trang có thể dự đoán chính xác hơn thị hiếu người tiêu dùng, từ đó cá nhân hóa trải nghiệm mua sắm và tạo ra các bộ sưu tập mang tính đột phá cao."
+            }
+          ]
+        },
+        "en": {
+          "title": "Co-creating the future of fashion with Google",
+          "dek": "Exploring how artificial intelligence technology from Google is pioneering new pathways and driving creativity in the fashion industry.",
+          "takeaways": [
+            "Integrating artificial intelligence into fashion design and production.",
+            "The synergy between advanced technology and traditional creative thinking.",
+            "A long-term vision for a sustainable and personalized fashion industry."
+          ],
+          "sections": [
+            {
+              "heading": "The Digital Era of Fashion",
+              "body": "Strategic partnerships with tech giants like Google are helping designers break through traditional boundaries. Artificial intelligence not only optimizes operational processes but also brings fresh perspectives in capturing market trends."
+            },
+            {
+              "heading": "Driving Innovation with AI",
+              "body": "Through data analytics and machine learning tools, fashion brands can better predict consumer preferences, thereby personalizing the shopping experience and creating highly breakthrough collections."
+            }
+          ]
+        },
+        "es": {
+          "title": "Co-creando el futuro de la moda con Google",
+          "dek": "Explorando cómo la tecnología de inteligencia artificial de Google está abriendo nuevos caminos y potenciando la creatividad en la industria de la moda.",
+          "takeaways": [
+            "Aplicación de la inteligencia artificial en el diseño y producción de moda.",
+            "La sinergia entre la tecnología avanzada y el pensamiento creativo tradicional.",
+            "Una visión a largo plazo para una industria de la moda sostenible y personalizada."
+          ],
+          "sections": [
+            {
+              "heading": "La era digital de la moda",
+              "body": "Las alianzas estratégicas con gigantes tecnológicos como Google están ayudando a los diseñadores a superar las barreras tradicionales. La inteligencia artificial no solo optimiza los procesos operativos, sino que también aporta nuevas perspectivas para captar las tendencias del mercado."
+            },
+            {
+              "heading": "Impulsando la innovación con IA",
+              "body": "A través de herramientas de análisis de datos y aprendizaje automático, las marcas de moda pueden predecir con mayor precisión las preferencias de los consumidores, personalizando así la experiencia de compra y creando colecciones altamente innovadoras."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/retell-ai",
+        "https://openai.com/index/openai-models-google-cloud",
+        "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
+        "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028143409_0d70bc7f)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/retell-ai"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/co-creating-the-future-of-fashion-with-google.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Định hình tương lai ngành thời trang thông qua sự hợp tác cùng Google",
+          "en": "TigerIQ-generated illustration for: Co-creating the future of fashion with Google",
+          "es": "Ilustración generada por TigerIQ para: Co-creando el futuro de la moda con Google"
+        }
+      }
+    },
     {
       "slug": "securing-our-frontier-model-training-environment",
       "category": "Models",
