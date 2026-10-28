@@ -1,11 +1,105 @@
 {
-  "updatedAt": "2026-10-28T17:48:27.440Z",
+  "updatedAt": "2026-10-28T18:04:33.052Z",
   "breaking": {
-    "vi": "Retell ứng dụng mô hình OpenAI để vận hành 100 triệu cuộc gọi mỗi tháng",
-    "en": "Retell uses OpenAI models to help power 100M monthly calls",
-    "es": "Retell utiliza modelos de OpenAI para impulsar 100 millones de llamadas al mes"
+    "vi": "Xây dựng ứng dụng phản hồi nhanh hơn với Decisions API",
+    "en": "Build more responsive apps with the Decisions API",
+    "es": "Construye aplicaciones más responsivas con la API Decisions"
   },
   "articles": [
+    {
+      "slug": "build-more-responsive-apps-with-the-decisions-api",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T18:04:33.052Z",
+      "modifiedAt": "2026-10-28T18:04:33.052Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng ứng dụng phản hồi nhanh hơn với Decisions API",
+          "dek": "Khám phá cách Decisions API giúp các nhà phát triển tối ưu hóa hiệu suất và tạo ra các ứng dụng thông minh, linh hoạt hơn.",
+          "takeaways": [
+            "Tối ưu hóa thời gian phản hồi cho các ứng dụng hiện đại.",
+            "Tích hợp liền mạch khả năng ra quyết định dựa trên dữ liệu.",
+            "Nâng cao trải nghiệm người dùng thông qua tốc độ xử lý vượt trội."
+          ],
+          "sections": [
+            {
+              "heading": "Cuộc cách mạng về tốc độ phản hồi",
+              "body": "Trong bối cảnh công nghệ hiện đại, người dùng đòi hỏi các ứng dụng phải phản hồi ngay lập tức. Decisions API ra đời nhằm giải quyết bài toán này, cho phép hệ thống xử lý các logic phức tạp và đưa ra quyết định trong thời gian thực mà không làm giảm hiệu suất."
+            },
+            {
+              "heading": "Lợi ích đối với nhà phát triển",
+              "body": "Bằng cách tận dụng Decisions API, các nhóm phát triển có thể giảm bớt gánh nặng viết mã tùy chỉnh cho các luồng quyết định phức tạp. Điều này không chỉ giúp tiết kiệm thời gian mà còn đảm bảo tính nhất quán và khả năng mở rộng cho toàn bộ hệ thống ứng dụng."
+            }
+          ]
+        },
+        "en": {
+          "title": "Build more responsive apps with the Decisions API",
+          "dek": "Discover how the Decisions API empowers developers to optimize performance and build smarter, more agile applications.",
+          "takeaways": [
+            "Optimize response times for modern applications.",
+            "Seamlessly integrate data-driven decision-making capabilities.",
+            "Enhance user experience through superior processing speed."
+          ],
+          "sections": [
+            {
+              "heading": "The Revolution in Response Time",
+              "body": "In today's fast-paced digital landscape, users demand instant application responsiveness. The Decisions API addresses this need by allowing systems to process complex logic and make real-time decisions without sacrificing performance."
+            },
+            {
+              "heading": "Benefits for Developers",
+              "body": "By leveraging the Decisions API, development teams can offload the burden of writing custom code for complex decision workflows. This not only saves valuable development time but also ensures consistency and scalability across the entire application ecosystem."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construye aplicaciones más responsivas con la API Decisions",
+          "dek": "Descubre cómo la API Decisions ayuda a los desarrolladores a optimizar el rendimiento y crear aplicaciones más inteligentes y ágiles.",
+          "takeaways": [
+            "Optimiza los tiempos de respuesta para aplicaciones modernas.",
+            "Integra sin problemas capacidades de toma de decisiones basadas en datos.",
+            "Mejora la experiencia del usuario a través de una velocidad de procesamiento superior."
+          ],
+          "sections": [
+            {
+              "heading": "La revolución en el tiempo de respuesta",
+              "body": "En el panorama tecnológico actual, los usuarios exigen una capacidad de respuesta instantánea en las aplicaciones. La API Decisions llega para resolver este desafío, permitiendo que los sistemas procesen lógica compleja y tomen decisiones en tiempo real sin comprometer el rendimiento."
+            },
+            {
+              "heading": "Beneficios para los desarrolladores",
+              "body": "Al aprovechar la API Decisions, los equipos de desarrollo pueden reducir la carga de escribir código personalizado para flujos de decisión complejos. Esto no solo ahorra tiempo, sino que también garantiza la consistencia y escalabilidad en todo el ecosistema de la aplicación."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/decisions-api",
+        "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028180332_c901a99f)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/decisions-api"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/build-more-responsive-apps-with-the-decisions-api.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Xây dựng ứng dụng phản hồi nhanh hơn với Decisions API",
+          "en": "TigerIQ-generated illustration for: Build more responsive apps with the Decisions API",
+          "es": "Ilustración generada por TigerIQ para: Construye aplicaciones más responsivas con la API Decisions"
+        }
+      }
+    },
     {
       "slug": "retell-uses-openai-models-to-help-power-100m-monthly-calls",
       "category": "Models",
