@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-28T16:56:14.582Z",
+  "updatedAt": "2026-10-28T17:18:25.328Z",
   "breaking": {
     "vi": "Greptile nâng tầm phát hiện lỗi vượt khỏi phạm vi đánh giá mã nguồn với GPT-6 Astra",
     "en": "Greptile Takes Bug Detection Beyond Code Review with GPT-6 Astra",
     "es": "Greptile lleva la detección de errores más allá de la revisión de código con GPT-6 Astra"
   },
   "articles": [
+    {
+      "slug": "github-copilot-automations-shared-workflows",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:github-copilot-automations-shared-workflows",
+      "clusterKey": "news:7bdc2d4208a0cdbdc029e3140b37dd058be81b33d1d47fc0ea3f8d2bfab02eda",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T17:18:25.328Z",
+      "modifiedAt": "2026-10-28T17:18:25.328Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub ra mắt tính năng tự động hóa Copilot chia sẻ cho các nhóm",
+          "dek": "Theo công bố của GitHub. GitHub thông báo triển khai các Tự động hóa Copilot được chia sẻ, cho phép các nhóm xây dựng và duy trì quy trình làm việc tích hợp AI cùng nhau.",
+          "takeaways": [
+            "Các Tự động hóa Copilot chia sẻ đang được triển khai cho các nhóm.",
+            "Mọi người có quyền đọc kho lưu trữ có thể xem tự động hóa chia sẻ.",
+            "Tín dụng AI cho các tự động hóa chia sẻ được tính phí cho chủ sở hữu kho lưu trữ.",
+            "Tính năng này khả dụng cho các gói Copilot Pro, Pro+, Max, Business và Enterprise."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về tính năng tự động hóa",
+              "body": "GitHub thông báo rằng các Tự động hóa Copilot chia sẻ đang được triển khai, cho phép các nhóm xây dựng và duy trì các quy trình làm việc được hỗ trợ bởi AI cùng nhau. Với Copilot Automations, người dùng có thể kết hợp các lời nhắc, trình kích hoạt và công cụ để thiết kế quy trình làm việc phù hợp với cách làm việc của nhóm. Copilot chạy tự động trên đám mây bằng cách sử dụng các công cụ được cho phép."
+            },
+            {
+              "heading": "Cách thức hoạt động và tính khả dụng",
+              "body": "Mọi người có quyền đọc kho lưu trữ có thể nhìn thấy tự động hóa chia sẻ và bất kỳ ai có quyền ghi đều có thể chỉnh sửa nó. Tín dụng AI được tính phí cho tổ chức hoặc người dùng sở hữu kho lưu trữ thay vì người tạo ra tự động hóa. Các tự động hóa chia sẻ hiện đang được triển khai cho người dùng trên các gói Copilot Pro, Pro+, Max, Business và Enterprise."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Announces Shared Copilot Automations for Teams",
+          "dek": "According to GitHub. GitHub announces the rollout of shared Copilot Automations, enabling teams to build and maintain AI-powered workflows together.",
+          "takeaways": [
+            "Shared Copilot Automations are rolling out to enable team collaboration.",
+            "Everyone with read access to the repository can see a shared automation.",
+            "AI credits for shared automations are billed to the repository owner.",
+            "The feature is rolling out to Copilot Pro, Pro+, Max, Business, and Enterprise plans."
+          ],
+          "sections": [
+            {
+              "heading": "Building Shared Workflows",
+              "body": "GitHub announced that shared Copilot Automations are rolling out, enabling teams to build and maintain AI-powered workflows together. With Copilot Automations, you can combine prompts, triggers, and tools to design workflows around the way your team works. Copilot runs autonomously in the cloud, using only the tools you have allowed, to handle tasks such as reproducing bugs or capturing screenshots."
+            },
+            {
+              "heading": "Visibility and Billing Details",
+              "body": "Everyone with read access to the repository can see a shared automation, and anyone with write access can edit it. AI credits are billed to the organization or user that owns the repository, rather than the person who created the automation. Shared Copilot Automations are rolling out to users on Copilot Pro, Pro+, Max, Business, and Enterprise plans."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub anuncia automatizaciones de Copilot compartidas para equipos",
+          "dek": "Según GitHub. GitHub anuncia el lanzamiento de automatizaciones de Copilot compartidas, lo que permite a los equipos crear y mantener flujos de trabajo impulsados por IA.",
+          "takeaways": [
+            "Las automatizaciones de Copilot compartidas se están desplegando para los equipos.",
+            "Cualquier persona con acceso de lectura puede ver una automatización compartida.",
+            "Los créditos de IA se facturan al propietario del repositorio.",
+            "La disponibilidad incluye los planes Copilot Pro, Pro+, Max, Business y Enterprise."
+          ],
+          "sections": [
+            {
+              "heading": "Flujos de trabajo compartidos",
+              "body": "GitHub anunció que las automatizaciones de Copilot compartidas se están implementando, lo que permite a los equipos crear y mantener flujos de trabajo impulsados por IA juntos. Con las automatizaciones de Copilot, puede combinar indicaciones, activadores y herramientas para diseñar flujos de trabajo según la forma en que trabaja su equipo. Copilot se ejecuta de forma autónoma en la nube utilizando solo las herramientas permitidas."
+            },
+            {
+              "heading": "Funcionamiento y disponibilidad",
+              "body": "Cualquier persona con acceso de lectura al repositorio puede ver una automatización compartida, y quienes tengan acceso de escritura pueden editarla. Los créditos de IA se facturan a la organización o usuario propietario del repositorio. Las automatizaciones compartidas se están implementando para usuarios en los planes Copilot Pro, Pro+, Max, Business y Enterprise."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-6",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations",
+            "title": "Build shared workflows for your team with Copilot Automations"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has announced the rollout of shared Copilot Automations, allowing teams to build and maintain AI-powered workflows together.",
+            "sourceIds": [
+              "github-6"
+            ]
+          },
+          {
+            "text": "Shared automations are rolling out to users on Copilot Pro, Pro+, Max, Business, and Enterprise plans.",
+            "sourceIds": [
+              "github-6"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "github-6",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-automations-shared-workflows.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub ra mắt tính năng tự động hóa Copilot chia sẻ cho các nhóm",
+          "en": "GitHub Announces Shared Copilot Automations for Teams",
+          "es": "GitHub anuncia automatizaciones de Copilot compartidas para equipos"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "greptile-takes-bug-detection-beyond-code-review-with-gpt-6-astra",
       "category": "Models",
