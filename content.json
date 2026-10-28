@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T20:53:19.228Z",
+  "updatedAt": "2026-10-28T21:08:37.615Z",
   "breaking": {
-    "vi": "Patch the Planet: Phối hợp toàn cầu khi các tác nhân AI phát hiện lỗ hổng nghiêm trọng",
-    "en": "Patch the Planet: Global Response Coordination as Agents Uncover Critical Vulnerabilities",
-    "es": "Patch the Planet: Coordinación de respuesta global mientras los agentes descubren vulnerabilidades críticas"
+    "vi": "Huấn luyện phân tán với Ray Train DLCs và EFA trên EKS",
+    "en": "Distributed training with Ray Train DLCs and EFA on EKS",
+    "es": "Entrenamiento distribuido con Ray Train DLCs y EFA en EKS"
   },
   "articles": [
+    {
+      "slug": "distributed-training-with-ray-train-dlcs-and-efa-on-eks",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T21:08:37.615Z",
+      "modifiedAt": "2026-10-28T21:08:37.615Z",
+      "editions": {
+        "vi": {
+          "title": "Huấn luyện phân tán với Ray Train DLCs và EFA trên EKS",
+          "dek": "Khám phá cách tối ưu hóa hiệu suất huấn luyện mô hình trí tuệ nhân tạo quy mô lớn bằng Ray Train, Deep Learning Containers và Elastic Fabric Adapter trên Amazon EKS.",
+          "takeaways": [
+            "Tận dụng Ray Train trên Amazon EKS để mở rộng quy mô huấn luyện AI một cách liền mạch.",
+            "Sử dụng Deep Learning Containers (DLCs) để đơn giản hóa việc thiết lập môi trường.",
+            "Tích hợp Elastic Fabric Adapter (EFA) nhằm đạt được thông lượng cao và độ trễ thấp cho giao tiếp giữa các node."
+          ],
+          "sections": [
+            {
+              "heading": "Tối ưu hóa hạ tầng AI với Ray Train và EKS",
+              "body": "Việc huấn luyện các mô hình học máy và trí tuệ nhân tạo tạo sinh có kích thước lớn đòi hỏi cơ sở hạ tầng có khả năng mở rộng cao. Bằng cách kết hợp Ray Train với Amazon Elastic Kubernetes Service (EKS), các tổ chức có thể quản lý khối lượng công việc phân tán một cách linh hoạt, tự động hóa việc cấp phát tài nguyên và giảm thiểu độ phức tạp trong vận hành."
+            },
+            {
+              "heading": "Tăng tốc mạng với EFA và Deep Learning Containers",
+              "body": "Hiệu suất của huấn luyện phân tán phụ thuộc rất lớn vào tốc độ truyền dữ liệu giữa các node. Sự kiện tích hợp Elastic Fabric Adapter (EFA) cùng các Deep Learning Containers (DLCs) được tối ưu hóa sẵn cung cấp kết nối mạng hiệu suất cao, giúp loại bỏ các nút thắt cổ chai và tăng tốc đáng kể thời gian hoàn thành quá trình huấn luyện mô hình."
+            }
+          ]
+        },
+        "en": {
+          "title": "Distributed training with Ray Train DLCs and EFA on EKS",
+          "dek": "Discover how to optimize large-scale AI model training performance using Ray Train, Deep Learning Containers, and Elastic Fabric Adapter on Amazon EKS.",
+          "takeaways": [
+            "Leverage Ray Train on Amazon EKS to scale AI training workloads seamlessly.",
+            "Utilize Deep Learning Containers (DLCs) to simplify environment setup and ensure consistency.",
+            "Integrate Elastic Fabric Adapter (EFA) to achieve high throughput and low latency for node-to-node communication."
+          ],
+          "sections": [
+            {
+              "heading": "Optimizing AI Infrastructure with Ray Train and EKS",
+              "body": "Training massive machine learning and generative AI models requires highly scalable infrastructure. By combining Ray Train with Amazon Elastic Kubernetes Service (EKS), organizations can efficiently manage distributed workloads, automate resource provisioning, and reduce operational complexity."
+            },
+            {
+              "heading": "Accelerating Network Performance with EFA and DLCs",
+              "body": "The performance of distributed training heavily relies on inter-node communication speed. The integration of Elastic Fabric Adapter (EFA) alongside pre-optimized Deep Learning Containers (DLCs) delivers high-performance networking, eliminating bottlenecks and drastically reducing model training times."
+            }
+          ]
+        },
+        "es": {
+          "title": "Entrenamiento distribuido con Ray Train DLCs y EFA en EKS",
+          "dek": "Descubra cómo optimizar el rendimiento del entrenamiento de modelos de IA a gran escala utilizando Ray Train, contenedores de aprendizaje profundo y Elastic Fabric Adapter en Amazon EKS.",
+          "takeaways": [
+            "Aproveche Ray Train en Amazon EKS para escalar las cargas de trabajo de entrenamiento de IA sin problemas.",
+            "Utilice contenedores de aprendizaje profundo (DLCs) para simplificar la configuración del entorno.",
+            "Integre Elastic Fabric Adapter (EFA) para lograr un alto rendimiento y baja latencia en la comunicación entre nodos."
+          ],
+          "sections": [
+            {
+              "heading": "Optimización de la infraestructura de IA con Ray Train y EKS",
+              "body": "El entrenamiento de modelos masivos de aprendizaje automático e IA generativa requiere una infraestructura altamente escalable. Al combinar Ray Train con Amazon Elastic Kubernetes Service (EKS), las organizaciones pueden gestionar cargas de trabajo distribuidas de forma flexible y automatizar el aprovisionamiento de recursos."
+            },
+            {
+              "heading": "Aceleración de redes con EFA y contenedores de aprendizaje profundo",
+              "body": "El rendimiento del entrenamiento distribuido depende en gran medida de la velocidad de transferencia de datos entre nodos. La integración de Elastic Fabric Adapter (EFA) junto con los DLCs optimizados ofrece redes de alto rendimiento, eliminando cuellos de botella y acelerando drásticamente el entrenamiento de los modelos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/distributed-training-with-ray-train-dlcs-and-efa-on-eks/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028210824_09b299f4)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/distributed-training-with-ray-train-dlcs-and-efa-on-eks/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/distributed-training-with-ray-train-dlcs-and-efa-on-eks.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Huấn luyện phân tán với Ray Train DLCs và EFA trên EKS",
+          "en": "TigerIQ-generated illustration for: Distributed training with Ray Train DLCs and EFA on EKS",
+          "es": "Ilustración generada por TigerIQ para: Entrenamiento distribuido con Ray Train DLCs y EFA en EKS"
+        }
+      }
+    },
     {
       "slug": "patch-the-planet-global-response-coordination-as-agents-uncover-critical-vulnerabilities",
       "category": "Models",
