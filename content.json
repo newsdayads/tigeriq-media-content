@@ -1,11 +1,110 @@
 {
-  "updatedAt": "2026-10-28T15:36:18.779Z",
+  "updatedAt": "2026-10-28T15:37:40.386Z",
   "breaking": {
-    "vi": "Nền Tảng Giám Sát Công Khai Bổ Sung Tính Năng Phân Loại, Xác Minh Dữ Liệu, API và Webhook",
-    "en": "Public Monitoring Enhances Platform with Triage, Data Validity Checks, APIs, and Webhooks",
-    "es": "El Monitoreo Público Añade Clasificación, Validez de Datos, API y Webhooks"
+    "vi": "Bayer Crop Science xây dựng công cụ quyết định tự trị trên Amazon Bedrock AgentCore và AWS",
+    "en": "How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations",
+    "es": "Cómo Bayer Crop Science construyó un motor de decisiones autónomo en Amazon Bedrock AgentCore con AWS Unified Operations"
   },
   "articles": [
+    {
+      "slug": "how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T15:37:40.386Z",
+      "modifiedAt": "2026-10-28T15:37:40.386Z",
+      "editions": {
+        "vi": {
+          "title": "Bayer Crop Science xây dựng công cụ quyết định tự trị trên Amazon Bedrock AgentCore và AWS",
+          "dek": "Bayer Crop Science đã phát triển thành công một công cụ ra quyết định mang tính tự trị dựa trên Amazon Bedrock AgentCore kết hợp cùng nền tảng AWS Unified Operations.",
+          "takeaways": [
+            "Ứng dụng công nghệ AI tạo sinh và agentic vào ngành nông nghiệp quy mô lớn.",
+            "Tận dụng Amazon Bedrock AgentCore để tối ưu hóa quy trình tự động hóa.",
+            "Nâng cao hiệu quả vận hành nhờ sự tích hợp chặt chẽ với AWS Unified Operations."
+          ],
+          "sections": [
+            {
+              "heading": "Đột phá công nghệ trong ngành nông nghiệp",
+              "body": "Bayer Crop Science vừa đánh dấu một bước tiến lớn trong việc chuyển đổi số ngành nông nghiệp bằng cách tích hợp trí tuệ nhân tạo vào hệ thống vận hành. Công cụ quyết định tự trị (agentic decision engine) mới được phát triển cho phép tự động hóa các quy trình phân tích phức tạp, giúp đưa ra các quyết định dựa trên dữ liệu nhanh chóng và chính xác hơn."
+            },
+            {
+              "heading": "Sức mạnh từ nền tảng AWS",
+              "body": "Được xây dựng trên Amazon Bedrock AgentCore và kết hợp cùng AWS Unified Operations, hệ thống này mang lại khả năng mở rộng mạnh mẽ và độ bảo mật cao. Giải pháp này không chỉ giúp Bayer tối ưu hóa chuỗi cung ứng và nghiên cứu phát triển mà còn đặt ra tiêu chuẩn mới cho việc ứng dụng công nghệ đám mây và AI trong lĩnh vực khoa học cây trồng."
+            }
+          ]
+        },
+        "en": {
+          "title": "How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations",
+          "dek": "Bayer Crop Science has successfully developed an autonomous decision-making engine leveraging Amazon Bedrock AgentCore and AWS Unified Operations.",
+          "takeaways": [
+            "Implementing generative AI and agentic workflows in large-scale agriculture.",
+            "Utilizing Amazon Bedrock AgentCore to drive advanced automation.",
+            "Enhancing operational efficiency through deep integration with AWS Unified Operations."
+          ],
+          "sections": [
+            {
+              "heading": "Technological Breakthrough in Agriculture",
+              "body": "Bayer Crop Science has marked a major milestone in agricultural digital transformation by integrating artificial intelligence into its core operations. The newly developed agentic decision engine automates complex analytical workflows, enabling faster and more accurate data-driven decisions."
+            },
+            {
+              "heading": "The Power of the AWS Platform",
+              "body": "Built on Amazon Bedrock AgentCore and combined with AWS Unified Operations, the system delivers robust scalability and enterprise-grade security. This solution not only helps Bayer optimize its supply chain and R&D processes but also sets a new benchmark for cloud and AI adoption in crop science."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo Bayer Crop Science construyó un motor de decisiones autónomo en Amazon Bedrock AgentCore con AWS Unified Operations",
+          "dek": "Bayer Crop Science ha desarrollado con éxito un motor de toma de decisiones autónomo aprovechando Amazon Bedrock AgentCore y AWS Unified Operations.",
+          "takeaways": [
+            "Implementación de IA generativa y flujos de trabajo autónomos en la agricultura a gran escala.",
+            "Utilización de Amazon Bedrock AgentCore para impulsar la automatización avanzada.",
+            "Mejora de la eficiencia operativa mediante una profunda integración con AWS Unified Operations."
+          ],
+          "sections": [
+            {
+              "heading": "Avance tecnológico en la agricultura",
+              "body": "Bayer Crop Science ha marcado un hito importante en la transformación digital agrícola al integrar la inteligencia artificial en sus operaciones principales. El nuevo motor de decisiones autónomo automatiza flujos de trabajo analíticos complejos, permitiendo tomar decisiones basadas en datos de forma más rápida y precisa."
+            },
+            {
+              "heading": "El poder de la plataforma AWS",
+              "body": "Construido sobre Amazon Bedrock AgentCore y combinado con AWS Unified Operations, el sistema ofrece una sólida escalabilidad y seguridad de nivel empresarial. Esta solución no solo ayuda a Bayer a optimizar su cadena de suministro y sus procesos de I+D, sino que también establece un nuevo estándar para la adopción de la nube y la IA en la ciencia de cultivos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/",
+        "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/",
+        "https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/",
+        "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/",
+        "https://aws.amazon.com/blogs/machine-learning/how-iskaypet-unified-corporate-knowledge-with-amazon-bedrock-managed-knowledge-bases/",
+        "https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/",
+        "https://www.kdnuggets.com/access-multiple-ai-models-in-your-python-apps-using-openrouter"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028153649_215c3c67)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Bayer Crop Science xây dựng công cụ quyết định tự trị trên Amazon Bedrock AgentCore và AWS",
+          "en": "TigerIQ-generated illustration for: How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations",
+          "es": "Ilustración generada por TigerIQ para: Cómo Bayer Crop Science construyó un motor de decisiones autónomo en Amazon Bedrock AgentCore con AWS Unified Operations"
+        }
+      }
+    },
     {
       "slug": "public-monitoring-adds-triage-validity-api-and-webhooks",
       "category": "Models",
