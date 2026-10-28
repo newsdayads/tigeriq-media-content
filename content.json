@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T19:21:28.927Z",
+  "updatedAt": "2026-10-28T19:36:47.457Z",
   "breaking": {
-    "vi": "Fanatics và OpenAI hợp tác đổi mới trải nghiệm của người hâm mộ thể thao",
-    "en": "How Fanatics and OpenAI streamline the fan experience",
-    "es": "Cómo Fanatics y OpenAI optimizan la experiencia de los aficionados"
+    "vi": "Ra mắt GPT-6.1 Terra: Kỷ nguyên mới của trí tuệ nhân tạo",
+    "en": "Introducing GPT-6.1 Terra: A New Era for Artificial Intelligence",
+    "es": "Presentación de GPT-6.1 Terra: Una nueva era para la inteligencia artificial"
   },
   "articles": [
+    {
+      "slug": "introducing-gpt-6-1-terra",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T19:36:47.457Z",
+      "modifiedAt": "2026-10-28T19:36:47.457Z",
+      "editions": {
+        "vi": {
+          "title": "Ra mắt GPT-6.1 Terra: Kỷ nguyên mới của trí tuệ nhân tạo",
+          "dek": "Mô hình ngôn ngữ lớn mới nhất mang tên GPT-6.1 Terra chính thức được giới thiệu, hứa hẹn đem lại những cải tiến vượt trội về khả năng suy luận và xử lý dữ liệu.",
+          "takeaways": [
+            "GPT-6.1 Terra thiết lập các tiêu chuẩn hiệu năng mới trong ngành công nghiệp AI.",
+            "Tích hợp các kiến trúc mạng thần kinh tiên tiến giúp tối ưu hóa tốc độ phản hồi.",
+            "Mở rộng khả năng ứng dụng đa lĩnh vực từ nghiên cứu khoa học đến tự động hóa doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Bước nhảy vọt về công nghệ",
+              "body": "GPT-6.1 Terra đại diện cho một cột mốc quan trọng trong quá trình phát triển trí tuệ nhân tạo, tập trung vào độ chính xác và khả năng hiểu ngữ cảnh phức tạp. Các chuyên gia đánh giá phiên bản này mang lại sự thay đổi đáng kể trong cách con người tương tác với máy móc."
+            },
+            {
+              "heading": "Tác động đến hệ sinh thái công nghệ",
+              "body": "Sự xuất hiện của GPT-6.1 Terra dự kiến sẽ tạo ra sức ép cạnh tranh lớn trên thị trường, đồng thời thúc đẩy các nhà phát triển ứng dụng tích hợp những tính năng thông minh hơn vào sản phẩm của mình."
+            }
+          ]
+        },
+        "en": {
+          "title": "Introducing GPT-6.1 Terra: A New Era for Artificial Intelligence",
+          "dek": "The latest large language model, GPT-6.1 Terra, has officially been unveiled, promising breakthrough enhancements in reasoning and data processing capabilities.",
+          "takeaways": [
+            "GPT-6.1 Terra establishes unprecedented performance benchmarks in the AI industry.",
+            "Integration of advanced neural network architectures optimizes response latency.",
+            "Expands cross-domain applications from scientific research to enterprise automation."
+          ],
+          "sections": [
+            {
+              "heading": "A Technological Leap Forward",
+              "body": "GPT-6.1 Terra represents a major milestone in artificial intelligence development, focusing on precision and complex contextual understanding. Industry experts view this release as a transformative shift in human-computer interaction."
+            },
+            {
+              "heading": "Impact on the Tech Ecosystem",
+              "body": "The introduction of GPT-6.1 Terra is expected to drive intense market competition while encouraging application developers to integrate smarter features into their products."
+            }
+          ]
+        },
+        "es": {
+          "title": "Presentación de GPT-6.1 Terra: Una nueva era para la inteligencia artificial",
+          "dek": "El nuevo modelo de lenguaje grande, GPT-6.1 Terra, ha sido presentado oficialmente, prometiendo mejoras revolucionarias en razonamiento y procesamiento de datos.",
+          "takeaways": [
+            "GPT-6.1 Terra establece nuevos estándares de rendimiento en la industria de la IA.",
+            "La integración de arquitecturas neuronales avanzadas optimiza la velocidad de respuesta.",
+            "Amplía las aplicaciones multiplataforma desde la investigación científica hasta la automatización empresarial."
+          ],
+          "sections": [
+            {
+              "heading": "Un salto tecnológico sin precedentes",
+              "body": "GPT-6.1 Terra representa un hito importante en el desarrollo de la inteligencia artificial, centrándose en la precisión y la comprensión contextual compleja. Los expertos de la industria consideran que este lanzamiento marca un cambio transformador en la interacción humano-máquina."
+            },
+            {
+              "heading": "Impacto en el ecosistema tecnológico",
+              "body": "Se espera que la llegada de GPT-6.1 Terra genere una intensa competencia en el mercado y motive a los desarrolladores de aplicaciones a integrar características más inteligentes en sus productos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/introducing-gpt-6-1-terra"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028193634_6a30cc57)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/introducing-gpt-6-1-terra.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Ra mắt GPT-6.1 Terra: Kỷ nguyên mới của trí tuệ nhân tạo",
+          "en": "TigerIQ-generated illustration for: Introducing GPT-6.1 Terra: A New Era for Artificial Intelligence",
+          "es": "Ilustración generada por TigerIQ para: Presentación de GPT-6.1 Terra: Una nueva era para la inteligencia artificial"
+        }
+      }
+    },
     {
       "slug": "how-fanatics-and-openai-streamline-the-fan-experience",
       "category": "Models",
