@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-28T03:18:21.610Z",
+  "updatedAt": "2026-10-28T08:18:29.633Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "fix-evaluation-bias-amazon-bedrock",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:fix-evaluation-bias-amazon-bedrock",
+      "clusterKey": "news:94b138155687457c848a2eef931ca502defa05acc5d426885c19680e19ce87b0",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T08:18:29.633Z",
+      "modifiedAt": "2026-10-28T08:18:29.633Z",
+      "editions": {
+        "vi": {
+          "title": "Khắc phục độ lệch đánh giá để mở khóa các mô hình tốt hơn trên Amazon Bedrock",
+          "dek": "Theo công bố của AWS. Nhóm kỹ thuật tại Property Finder phát hiện ra rằng độ lệch trong phương pháp đánh giá đã cản trở việc so sánh mô hình khách quan.",
+          "takeaways": [
+            "96,8% nhãn đánh giá của Property Finder được kế thừa từ dự đoán của một mô hình duy nhất.",
+            "Nhóm đã xây dựng tập dữ liệu chuẩn khách quan bằng cách sử dụng các chuyên gia con người.",
+            "Quy trình tối ưu hóa prompt lặp đi lặp lại đã giúp đạt được độ chính xác cao hơn với chi phí thấp hơn 86%."
+          ],
+          "sections": [
+            {
+              "heading": "Phát hiện độ lệch đánh giá",
+              "body": "Đội ngũ kỹ thuật tại Property Finder, một ứng dụng bất động sản kỹ thuật số, đã phát hiện ra rằng 96.8 phần trăm nhãn đánh giá của họ được kế thừa trực tiếp từ dự đoán của một mô hình duy nhất thay vì được xác minh bởi các chuyên gia con người. Nền tảng này xử lý hàng chục nghìn hình ảnh bất động sản mỗi ngày trên khắp Trung Đông và Bắc Phi, đánh giá 11 thuộc tính chất lượng cho mỗi hình ảnh."
+            },
+            {
+              "heading": "Xây dựng sự thật mặt đất đáng tin cậy",
+              "body": "Để phá vỡ chu kỳ này, các chuyên gia con người có kiến thức chuyên môn thực sự về lĩnh vực đã thực hiện các chú thích mới một cách độc lập mà không tham khảo các đầu ra của mô hình trước đó. Nhóm đã chú thích thủ công 356 hình ảnh ở UAE và một tập hợp riêng biệt gồm các hình ảnh ở Ai Cập, trong đó 256 hình ảnh UAE đầu tiên tạo thành tập phát triển để tinh chỉnh."
+            }
+          ]
+        },
+        "en": {
+          "title": "Fix evaluation bias to unlock better models on Amazon Bedrock",
+          "dek": "According to AWS. Property Finder engineering teams discovered that evaluation methodology bias blocked objective model comparison.",
+          "takeaways": [
+            "96.8 percent of evaluation labels were inherited directly from a single model's predictions.",
+            "Property Finder hand-annotated new images to build an unbiased ground truth dataset.",
+            "Prompt optimization achieved higher accuracy at an 86 percent lower cost on Amazon Bedrock."
+          ],
+          "sections": [
+            {
+              "heading": "Uncovering Evaluation Bias",
+              "body": "The engineering team at Property Finder, a digital real estate application, discovered that 96.8 percent of their evaluation labels had been inherited directly from a single model’s predictions rather than verified by human experts. Their ground truth was systematically skewed toward the incumbent model, making every alternative appear to underperform and blocking objective model comparison."
+            },
+            {
+              "heading": "Building Trusted Ground Truth",
+              "body": "To break the cycle, human experts with real domain knowledge performed fresh annotations independently without reference to previous model outputs. The team hand-annotated 356 UAE images and a separate set of Egypt images, utilizing the first 256 UAE images as a development set for tuning while using Micro F1 as the primary metric."
+            }
+          ]
+        },
+        "es": {
+          "title": "Corregir el sesgo de evaluación para desbloquear mejores modelos en Amazon Bedrock",
+          "dek": "Según AWS. El equipo de ingeniería de Property Finder descubrió que el sesgo en la metodología de evaluación bloqueaba la comparación objetiva de modelos.",
+          "takeaways": [
+            "El 96.8 por ciento de las etiquetas de evaluación se heredaron directamente de las predicciones de un solo modelo.",
+            "Property Finder anotó a mano nuevas imágenes para construir un conjunto de datos de verdad fundamental imparcial.",
+            "La optimización de prompts logró mayor precisión con un costo 86 por ciento menor en Amazon Bedrock."
+          ],
+          "sections": [
+            {
+              "heading": "Descubrimiento del sesgo",
+              "body": "El equipo de ingeniería de Property Finder, una aplicación inmobiliaria digital, descubrió que el 96.8 por ciento de sus etiquetas de evaluación se habían heredado directamente de las predicciones de un solo modelo en lugar de ser verificadas por expertos humanos. Su verdad fundamental estaba sesgada sistemáticamente hacia el modelo titular, haciendo que cualquier alternativa pareciera tener un rendimiento inferior."
+            },
+            {
+              "heading": "Construcción de verdad fundamental",
+              "body": "Para romper el ciclo, expertos humanos con conocimiento real del dominio realizaron anotaciones nuevas de manera independiente sin hacer referencia a salidas anteriores del modelo. El equipo anotó a mano 356 imágenes de los EAU y un conjunto separado de imágenes de Egipto, utilizando las primeras 256 imágenes de los EAU como conjunto de desarrollo para el ajuste."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-3",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/",
+            "title": "Fix evaluation bias to unlock better models on Amazon Bedrock"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Property Finder discovered that 96.8 percent of their evaluation labels had been inherited directly from a single model’s predictions rather than verified by human experts.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          },
+          {
+            "text": "Property Finder identified evaluation bias, built unbiased ground truth, and applied evolutionary prompt optimization to select the right model on Amazon Bedrock, achieving higher accuracy at 86 percent lower cost.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-3",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/fix-evaluation-bias-amazon-bedrock.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Khắc phục độ lệch đánh giá để mở khóa các mô hình tốt hơn trên Amazon Bedrock",
+          "en": "Fix evaluation bias to unlock better models on Amazon Bedrock",
+          "es": "Corregir el sesgo de evaluación para desbloquear mejores modelos en Amazon Bedrock"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "memory-enforced-gpu-sharing-kubernetes-cuda-13-4",
       "reportingMode": "official-announcement",
