@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-10-28T08:18:29.633Z",
+  "updatedAt": "2026-10-28T09:18:27.357Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "boost-moe-inference-nvidia-dgx-spark",
+      "reportingMode": "official-announcement",
+      "category": "developer-tools",
+      "storyId": "tigeriq:boost-moe-inference-nvidia-dgx-spark",
+      "clusterKey": "news:a33d5c0778154641ad671a6c43948525d6e7415b8ee2f0bf169e755c54efb542",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T09:18:27.357Z",
+      "modifiedAt": "2026-10-28T09:18:27.357Z",
+      "editions": {
+        "vi": {
+          "title": "3 Cách Cải Thiện Hiệu Suất Suy Luận MoE Trên NVIDIA DGX Spark",
+          "dek": "Theo công bố của NVIDIA Developer. Khám phá ba kỹ thuật tối ưu hóa giúp tăng tốc độ suy luận mô hình hỗn hợp chuyên gia Ling-3.0-flash trên nền tảng phần cứng NVIDIA DGX Spark.",
+          "takeaways": [
+            "Thay thế backend MoE FlashInfer MXFP4 bằng thư viện kernel Humming giúp cải thiện 9.3% thông lượng.",
+            "Áp dụng lượng tử hóa FP8 trực tuyến cho lớp LM head làm giảm một nửa thể tích đọc trọng số.",
+            "Giải mã suy đoán MTP sử dụng lớp NEXTN tích hợp giúp đạt trung bình 3.90 token được chấp nhận mỗi vòng.",
+            "Ba biện pháp tối ưu hóa kết hợp làm tăng 42.5% thông lượng giải mã và giảm 24.5% độ trễ trung bình trên bộ kiểm thử GSM8K."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan",
+              "body": "Ling-3.0-flash là một mô hình hỗn hợp chuyên gia gồm 124 tỷ tham số với 5.1 tỷ tham số hoạt động mỗi token, được đánh giá trên NVIDIA DGX Spark ở kích thước lô 1. Quá trình lập hồ sơ cho thấy quá trình giải mã bị giới hạn bởi bộ nhớ, với tính toán MoE và phép chiếu lớp đầu ra thúc đẩy thời gian thực thi."
+            },
+            {
+              "heading": "Tối ưu hóa Kernel Humming và LM Head",
+              "body": "Việc thay thế backend FlashInfer MXFP4 MoE bằng thư viện kernel Humming đã làm giảm thời gian cho mỗi token đầu ra từ 27.71 ms xuống 25.35 ms, mang lại mức tăng thông lượng 9.3%. Lượng tử hóa FP8 trực tuyến của lớp LM head đã cắt giảm một nửa thể tích đọc trọng số của nó, và khi kết hợp với Humming, đã cải thiện thông lượng giải mã 21.7% so với mức cơ sở."
+            },
+            {
+              "heading": "Giải mã suy đoán MTP",
+              "body": "Giải mã suy đoán dự đoán đa token sử dụng lớp NEXTN tích hợp sẵn của mô hình đã đạt 3.90 token được chấp nhận mỗi vòng trên một khối lượng công việc tổng hợp, nâng thông lượng lên 185.1% so với mức cơ sở. Trên toàn bộ tập kiểm tra GSM8K, cả ba tối ưu hóa kết hợp đã tăng thông lượng giải mã 42.5% và giảm 24.5% độ trễ trung bình mà không có thay đổi độ chính xác nào có thể phát hiện được về mặt thống kê."
+            }
+          ]
+        },
+        "en": {
+          "title": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
+          "dek": "According to NVIDIA Developer. Learn how developer techniques and kernel replacements optimize Mixture-of-Experts inference performance for the Ling-3.0-flash model on NVIDIA DGX Spark.",
+          "takeaways": [
+            "Replacing the FlashInfer MXFP4 MoE backend with the Humming kernel library yielded a 9.3% throughput gain.",
+            "Online FP8 quantization of the LM head halved its weight-read volume and improved decode throughput.",
+            "Multi-token prediction speculative decoding using the NEXTN layer achieved 3.90 accepted tokens per round on a synthetic workload.",
+            "Combining all three optimizations increased decode throughput by 42.5% and reduced mean latency by 24.5% on the GSM8K test set."
+          ],
+          "sections": [
+            {
+              "heading": "Evaluation Overview",
+              "body": "Ling-3.0-flash is a 124-billion-parameter mixture-of-experts model with 5.1 billion active parameters per token, evaluated on NVIDIA DGX Spark at batch size 1. Profiling showed that decoding was memory-bound, with the mixture-of-experts computation and output-layer projection driving execution time."
+            },
+            {
+              "heading": "Humming Backend and FP8 Quantization",
+              "body": "Replacing the FlashInfer MXFP4 MoE backend with the Humming kernel library reduced time per output token from 27.71 ms to 25.35 ms, a 9.3% throughput gain. Online FP8 quantization of the LM head halved its weight-read volume, which, combined with Humming, improved decode throughput by 21.7% over the baseline."
+            },
+            {
+              "heading": "Speculative Decoding and Combined Results",
+              "body": "Multi-token prediction speculative decoding using the model's built-in NEXTN layer achieved 3.90 accepted tokens per round on a synthetic workload, raising throughput 185.1% over the baseline. On the full GSM8K test set, the three optimizations together increased decode throughput by 42.5% and reduced mean latency by 24.5% with no statistically detectable accuracy change."
+            }
+          ]
+        },
+        "es": {
+          "title": "3 Formas de Potenciar la Inferencia MoE en NVIDIA DGX Spark",
+          "dek": "Según NVIDIA Developer. Descubra técnicas de desarrollador para optimizar el rendimiento de inferencia de mezcla de expertos en hardware NVIDIA DGX Spark.",
+          "takeaways": [
+            "Reemplazar el backend MoE FlashInfer MXFP4 con la biblioteca de núcleos Humming redujo el tiempo por token de salida.",
+            "La cuantización FP8 en línea de la cabeza LM redujo a la mitad su volumen de lectura de peso.",
+            "La decodificación especulativa de predicción de múltiples tokens utilizando la capa NEXTN alcanzó 3.90 tokens aceptados por ronda.",
+            "Las tres optimizaciones juntas aumentaron el rendimiento de decodificación en 42.5% y redujeron la latencia media en 24.5%."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de Evaluación",
+              "body": "Ling-3.0-flash es un modelo de mezcla de expertos de 124 mil millones de parámetros con 5.1 mil millones de parámetros activos por token, evaluado en NVIDIA DGX Spark con tamaño de lote 1. La perfilación mostró que la decodificación estaba limitada por la memoria, impulsada por el cálculo MoE y la proyección de la capa de salida."
+            },
+            {
+              "heading": "Backend Humming y Cuantización FP8",
+              "body": "Reemplazar el backend MoE FlashInfer MXFP4 con la biblioteca de núcleos Humming redujo el tiempo por token de salida de 27.71 ms a 25.35 ms, logrando una ganancia de rendimiento del 9.3%. La cuantización FP8 en línea de la cabeza LM redujo a la mitad su volumen de lectura de peso y, combinada con Humming, mejoró el rendimiento de decodificación un 21.7% sobre la línea base."
+            },
+            {
+              "heading": "Decodificación Especulativa y Resultados",
+              "body": "La decodificación especulativa de predicción de múltiples tokens utilizando la capa NEXTN integrada del modelo logró 3.90 tokens aceptados por ronda en una carga de trabajo sintética, elevando el rendimiento un 185.1% sobre la línea base. En el conjunto de prueba GSM8K completo, las tres optimizaciones aumentaron el rendimiento de decodificación un 42.5% y redujeron la latencia media un 24.5% sin cambios de precisión detectables estadísticamente."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-4",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/",
+            "title": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Replacing the FlashInfer MXFP4 MoE backend with the Humming kernel library reduced time per output token from 27.71 ms to 25.35 ms, a 9.3% throughput gain.",
+            "sourceIds": [
+              "nvidiadev-4"
+            ]
+          },
+          {
+            "text": "On the full GSM8K test set, the three optimizations together increased decode throughput 42.5% and reduced mean latency 24.5% with no statistically detectable accuracy change.",
+            "sourceIds": [
+              "nvidiadev-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-4",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/boost-moe-inference-nvidia-dgx-spark.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "3 Cách Cải Thiện Hiệu Suất Suy Luận MoE Trên NVIDIA DGX Spark",
+          "en": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
+          "es": "3 Formas de Potenciar la Inferencia MoE en NVIDIA DGX Spark"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "fix-evaluation-bias-amazon-bedrock",
       "reportingMode": "official-announcement",
