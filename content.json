@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T19:36:47.457Z",
+  "updatedAt": "2026-10-28T19:52:06.266Z",
   "breaking": {
-    "vi": "Ra mắt GPT-6.1 Terra: Kỷ nguyên mới của trí tuệ nhân tạo",
-    "en": "Introducing GPT-6.1 Terra: A New Era for Artificial Intelligence",
-    "es": "Presentación de GPT-6.1 Terra: Una nueva era para la inteligencia artificial"
+    "vi": "Mở rộng quy mô lưu trữ trực tuyến để phục vụ hơn 1 tỷ người dùng ChatGPT (Phần II)",
+    "en": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+    "es": "Ampliar rápidamente el almacenamiento en línea para servir a más de 1.000 millones de usuarios de ChatGPT (Parte II)"
   },
   "articles": [
+    {
+      "slug": "rapidly-scaling-online-storage-to-serve-over-1-billion-chatgpt-users-part-ii",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T19:52:06.266Z",
+      "modifiedAt": "2026-10-28T19:52:06.266Z",
+      "editions": {
+        "vi": {
+          "title": "Mở rộng quy mô lưu trữ trực tuyến để phục vụ hơn 1 tỷ người dùng ChatGPT (Phần II)",
+          "dek": "Khám phá các giải pháp kỹ thuật tiên tiến giúp hạ tầng lưu trữ của OpenAI đáp ứng nhu cầu bùng nổ của hơn một tỷ người dùng toàn cầu.",
+          "takeaways": [
+            "Hạ tầng lưu trữ đối mặt với thử thách chưa từng có khi số lượng người dùng ChatGPT vượt mốc 1 tỷ.",
+            "Các kỹ thuật tối ưu hóa dung lượng và phân phối dữ liệu thế hệ mới đã được áp dụng.",
+            "Bài học kinh nghiệm trong việc xây dựng hệ thống AI có khả năng mở rộng cực lớn."
+          ],
+          "sections": [
+            {
+              "heading": "Thách thức hạ tầng trong kỷ nguyên 1 tỷ người dùng",
+              "body": "Sự phát triển chóng mặt của ChatGPT đòi hỏi một hệ thống lưu trữ trực tuyến không chỉ lớn về quy mô mà còn phải đảm bảo độ trễ cực thấp. Phần II của loạt bài này đào sâu vào các giải pháp kiến trúc mà đội ngũ kỹ thuật đã triển khai để giải quyết bài toán băng thông và dung lượng khổng lồ."
+            },
+            {
+              "heading": "Giải pháp kỹ thuật và hướng đi tương lai",
+              "body": "Bằng cách tận dụng các mô hình phân vùng dữ liệu thông minh kết hợp với công nghệ đám mây lai, hệ thống giờ đây có thể tự động co giãn theo thời gian thực. Điều này không chỉ giúp tối ưu hóa chi phí vận hành mà còn đảm bảo trải nghiệm liền mạch cho hàng trăm triệu yêu cầu đồng thời mỗi ngày."
+            }
+          ]
+        },
+        "en": {
+          "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+          "dek": "An in-depth look at the advanced engineering strategies OpenAI employs to scale online storage for over a billion global users.",
+          "takeaways": [
+            "Online storage infrastructure faces unprecedented scaling challenges as ChatGPT surpasses 1 billion users.",
+            "Next-generation data partitioning and caching techniques are deployed to maintain ultra-low latency.",
+            "Key architectural lessons learned in building hyperscale AI infrastructure for the masses."
+          ],
+          "sections": [
+            {
+              "heading": "Infrastructure challenges in the billion-user era",
+              "body": "The explosive growth of ChatGPT demands an online storage architecture that is not only massive in capacity but also engineered for minimal latency. Part II of this series delves into the technical solutions implemented by the engineering team to handle unprecedented data throughput and storage volume."
+            },
+            {
+              "heading": "Technical solutions and future roadmap",
+              "body": "By leveraging intelligent data sharding combined with hybrid cloud technologies, the infrastructure can now dynamically scale in real time. This optimization significantly reduces operational costs while guaranteeing a seamless experience for hundreds of millions of concurrent requests daily."
+            }
+          ]
+        },
+        "es": {
+          "title": "Ampliar rápidamente el almacenamiento en línea para servir a más de 1.000 millones de usuarios de ChatGPT (Parte II)",
+          "dek": "Una mirada profunda a las soluciones de ingeniería avanzadas que permiten a la infraestructura de OpenAI soportar la demanda masiva de más de mil millones de usuarios.",
+          "takeaways": [
+            "La infraestructura de almacenamiento enfrenta desafíos sin precedentes al superar los mil millones de usuarios de ChatGPT.",
+            "Se han implementado técnicas de particionamiento de datos y distribución de última generación.",
+            "Lecciones arquitectónicas clave sobre cómo construir sistemas de IA altamente escalables."
+          ],
+          "sections": [
+            {
+              "heading": "Desafíos de infraestructura en la era de los mil millones de usuarios",
+              "body": "El crecimiento exponencial de ChatGPT exige una arquitectura de almacenamiento en línea que no solo sea masiva en capacidad, sino que también garantice una latencia ultrabaja. La Parte II de esta serie profundiza en las soluciones técnicas implementadas por el equipo de ingeniería para gestionar un volumen de datos sin precedentes."
+            },
+            {
+              "heading": "Soluciones técnicas y hoja de ruta futura",
+              "body": "Al aprovechar la fragmentación inteligente de datos combinada con tecnologías de nube híbrida, la infraestructura ahora puede escalarse dinámicamente en tiempo real. Esta optimización reduce significativamente los costos operativos y garantiza una experiencia fluida para cientos de millones de solicitudes concurrentes diarias."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028195153_217cf237)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/rapidly-scaling-online-storage-to-serve-over-1-billion-chatgpt-users-part-ii.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Mở rộng quy mô lưu trữ trực tuyến để phục vụ hơn 1 tỷ người dùng ChatGPT (Phần II)",
+          "en": "TigerIQ-generated illustration for: Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+          "es": "Ilustración generada por TigerIQ para: Ampliar rápidamente el almacenamiento en línea para servir a más de 1.000 millones de usuarios de ChatGPT (Parte II)"
+        }
+      }
+    },
     {
       "slug": "introducing-gpt-6-1-terra",
       "category": "Models",
