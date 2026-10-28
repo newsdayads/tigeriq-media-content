@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-28T00:45:06.696Z",
+  "updatedAt": "2026-10-28T03:18:21.610Z",
   "breaking": {
     "vi": "Cuộc đua AI bước vào bài toán hoàn vốn nghìn tỷ USD; TigerIQ mở rộng bản tin với phân tích sâu về mô hình, agent, bảo mật, hạ tầng và kinh doanh AI.",
     "en": "The AI race enters a trillion-dollar returns test as TigerIQ expands deeper coverage of models, agents, security, infrastructure and AI business.",
     "es": "La carrera de la IA entra en una prueba de rentabilidad de billones mientras TigerIQ amplía su cobertura de modelos, agentes, seguridad e infraestructura."
   },
   "articles": [
+    {
+      "slug": "memory-enforced-gpu-sharing-kubernetes-cuda-13-4",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:memory-enforced-gpu-sharing-kubernetes-cuda-13-4",
+      "clusterKey": "news:cd31299116b80918597598d6bb149351459b5693939878c72e58f9b9037ee4b9",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T03:18:21.610Z",
+      "modifiedAt": "2026-10-28T03:18:21.610Z",
+      "editions": {
+        "vi": {
+          "title": "Chia sẻ GPU được thực thi bộ nhớ trong Kubernetes với NVIDIA CUDA 13.4",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA công bố CUDA 13.4 và toán tử mã nguồn mở GPU Fractioning Operator giúp thực thi giới hạn bộ nhớ cho từng khối lượng công việc trên Kubernetes.",
+          "takeaways": [
+            "CUDA 13.4 mang lại khả năng thực thi ranh giới bộ nhớ minh bạch cho ứng dụng.",
+            "GPU Fractioning Operator là toán tử Kubernetes mã nguồn mở mới giúp quản lý MPS.",
+            "KAI Scheduler v0.18.0 tích hợp chế độ NvFractions để hỗ trợ phân bổ phân đoạn GPU."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu CUDA 13.4 và Quản lý Bộ nhớ",
+              "body": "NVIDIA CUDA 13.4 giới thiệu khả năng thực thi ranh giới bộ nhớ minh bạch đối với các ứng dụng, cung cấp lượng bộ nhớ chính xác, mức tối thiểu được đảm bảo cùng giới hạn tối đa có thể bùng nổ, và lựa chọn giữa chế độ tính toán chia sẻ thời gian hoặc chia sẻ sm."
+            },
+            {
+              "heading": "Toán tử Phân đoạn GPU Mã nguồn mở",
+              "body": "GPU Fractioning Operator mới được lưu trữ dưới tổ chức KAI Scheduler trên GitHub. Nó hoạt động cùng với NVIDIA GPU Operator để thiết lập và giám sát MPS trên mọi nút GPU, đồng thời áp dụng các giới hạn bộ nhớ và chế độ tính toán cho từng khối lượng công việc."
+            },
+            {
+              "heading": "Tích hợp KAI Scheduler v0.18.0",
+              "body": "KAI Scheduler tích hợp với GPU Fractioning thông qua chế độ chia sẻ GPU NvFractions, cho phép viết các chú thích Pod cho từng vùng chứa để chỉ định yêu cầu bộ nhớ, giới hạn, chế độ tính toán và các phân bổ thiết bị GPU."
+            }
+          ]
+        },
+        "en": {
+          "title": "Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4",
+          "dek": "According to NVIDIA Developer. NVIDIA introduces CUDA 13.4 alongside an open-source GPU Fractioning Operator to enforce per-workload memory limits in Kubernetes environments.",
+          "takeaways": [
+            "CUDA 13.4 delivers application-transparent memory boundary enforcement for GPUs.",
+            "The open-source GPU Fractioning Operator supervises Multi-Process Service on every GPU node.",
+            "KAI Scheduler v0.18.0 integrates via its NvFractions GPU-sharing mode using pod annotations."
+          ],
+          "sections": [
+            {
+              "heading": "CUDA 13.4 Memory Enforcement",
+              "body": "CUDA 13.4 introduces a memory boundary enforcement that is transparent to applications, offering exact memory amounts, guaranteed minimums with burstable maximums, and a choice between time-slicing and sm-sharing compute modes."
+            },
+            {
+              "heading": "GPU Fractioning Operator",
+              "body": "A new open-source Kubernetes operator called gpu-fractioning is hosted under the KAI Scheduler organization on GitHub. It runs next to the NVIDIA GPU Operator to set up and run MPS on every GPU node, apply workload memory limits, and measure usage per fraction."
+            },
+            {
+              "heading": "KAI Scheduler Integration",
+              "body": "Starting with v0.18.0, KAI Scheduler features a GPU-sharing mode called NvFractions. The scheduler selects which slice of a GPU a workload gets and writes per-container Pod annotations, which the fractioning operator then enforces on the node."
+            }
+          ]
+        },
+        "es": {
+          "title": "Compartición de GPU con memoria reforzada en Kubernetes con NVIDIA CUDA 13.4",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta CUDA 13.4 junto con un operador de fraccionamiento de GPU de código abierto para aplicar límites de memoria por carga de trabajo.",
+          "takeaways": [
+            "CUDA 13.4 ofrece cumplimiento de límites de memoria transparente para las aplicaciones.",
+            "El operador de fraccionamiento de GPU de código abierto supervisa el servicio de múltiples procesos.",
+            "KAI Scheduler v0.18.0 se integra mediante su modo de compartición NvFractions."
+          ],
+          "sections": [
+            {
+              "heading": "Reforzamiento de memoria en CUDA 13.4",
+              "body": "CUDA 13.4 introduce el cumplimiento de los límites de memoria de forma transparente para las aplicaciones, ofreciendo cantidades exactas de memoria, mínimos garantizados con máximos de ráfaga y opciones entre los modos de cálculo de tiempo compartidos y sm-sharing."
+            },
+            {
+              "heading": "Operador de Fraccionamiento de GPU",
+              "body": "Un nuevo operador de Kubernetes de código abierto se aloja bajo la organización KAI Scheduler en GitHub. Funciona junto con NVIDIA GPU Operator para configurar y ejecutar MPS en cada nodo de GPU y aplicar límites de memoria por carga de trabajo."
+            },
+            {
+              "heading": "Integración con KAI Scheduler",
+              "body": "A partir de la versión v0.18.0, KAI Scheduler incluye un modo de compartición de GPU llamado NvFractions. El programador elige qué porción de GPU recibe cada carga de trabajo y escribe anotaciones en los Pods que el operador aplica en el nodo."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/",
+            "title": "Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA CUDA 13.4 introduces memory boundary enforcement for GPUs, offering exact memory amounts, guaranteed minimums with burstable maximums, and choices between time-slicing and sm-sharing compute modes.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "The open-source GPU Fractioning Operator runs alongside the NVIDIA GPU Operator to supervise Multi-Process Service on every GPU node and apply per-workload memory limits and compute modes based on Kubernetes pod annotations.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/memory-enforced-gpu-sharing-kubernetes-cuda-13-4.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Chia sẻ GPU được thực thi bộ nhớ trong Kubernetes với NVIDIA CUDA 13.4",
+          "en": "Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4",
+          "es": "Compartición de GPU con memoria reforzada en Kubernetes con NVIDIA CUDA 13.4"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-cbrain-ai-dementia-research",
       "reportingMode": "official-announcement",
