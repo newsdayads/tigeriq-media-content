@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-28T14:35:28.418Z",
+  "updatedAt": "2026-10-28T15:18:29.757Z",
   "breaking": {
     "vi": "Bản cập nhật tháng 9 của GitHub Copilot trong Visual Studio mang đến nhiều cải tiến",
     "en": "GitHub Copilot in Visual Studio — September Update Released",
     "es": "Actualización de septiembre de GitHub Copilot en Visual Studio"
   },
   "articles": [
+    {
+      "slug": "nvidia-rtx-spark-laptops-and-ai-updates",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-rtx-spark-laptops-and-ai-updates",
+      "clusterKey": "news:1d159ddab5a3e51eb38bdfc93c2a892c4a0a1bcf61dff957808d49e48e75483e",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T15:18:29.757Z",
+      "modifiedAt": "2026-10-28T15:18:29.757Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA Giới Thiệu Laptop RTX Spark và Cập Nhật Mô Hình AI Mới",
+          "dek": "Theo công bố của NVIDIA. NVIDIA công bố dòng máy tính xách tay RTX Spark trang bị siêu chip tích hợp GPU Blackwell RTX và CPU Grace, cùng với các công cụ AI và bản cập nhật phần mềm mới.",
+          "takeaways": [
+            "Laptop RTX Spark kết hợp GPU Blackwell RTX và CPU Grace trong một siêu chip duy nhất.",
+            "Mô hình giọng nói mở NVIDIA Nemotron 3.5 Transcribe xử lý ghi âm, gán nhãn người nói và dịch thuật.",
+            "Tính năng quản lý tài nguyên mới trong NVIDIA App cho phép người dùng phân bổ tài nguyên GPU giữa ứng dụng và tác vụ nền."
+          ],
+          "sections": [
+            {
+              "heading": "Phần Cứng RTX Spark",
+              "body": "NVIDIA RTX Spark cung cấp năng lượng cho các dòng máy tính xách tay mỏng nhẹ được thiết kế dành cho nhà phát triển, người sáng tạo nội dung và game thủ. Các hệ thống này kết hợp GPU NVIDIA Blackwell RTX và CPU NVIDIA Grace trong một siêu chip duy nhất với bộ nhớ thống nhất lên tới 128GB và hiệu suất AI FP4 đạt tới 1 petaflop. Laptop RTX Spark hiện có sẵn từ các đối tác bao gồm ASUS, Dell, HP, Lenovo, Microsoft và MSI với giá khởi điểm từ 2.599 USD."
+            },
+            {
+              "heading": "Mô Hình Giọng Nói Mới",
+              "body": "NVIDIA Nemotron 3.5 Transcribe là một mô hình giọng nói trọng số mở mới biến các cuộc trò chuyện được ghi lại thành thông tin hữu ích. Thay vì cần nhiều mô hình cho việc ghi âm, gán nhãn người nói và dịch thuật, nhà phát triển có thể sử dụng một mô hình duy nhất hỗ trợ 40 ngôn ngữ. Mô hình này đạt xếp hạng số 1 trên Hugging Face Open ASR với khoảng 4,3 tỷ tham số hoạt động, mang lại độ chính xác cao trên phần cứng cục bộ."
+            },
+            {
+              "heading": "Quản Lý Tài Nguyên GPU",
+              "body": "Trên các hệ thống RTX Spark, người dùng có thể chạy các tác nhân dài hạn cùng với các ứng dụng yêu thích của họ. Với tính năng quản lý tài nguyên mới trong NVIDIA App, người dùng có thể chọn cách chia sẻ tài nguyên GPU giữa ứng dụng đang chạy ở nền trước hoặc ưu tiên cho tác nhân chạy ngầm để hoàn thành công việc nhanh hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Announces RTX Spark Laptops and New AI Model Updates",
+          "dek": "According to NVIDIA. NVIDIA unveiled RTX Spark Windows laptops featuring an integrated superchip with up to 128GB of unified memory, alongside new speech models, resource controls, and gaming updates.",
+          "takeaways": [
+            "RTX Spark laptops combine an NVIDIA Blackwell RTX GPU and Grace CPU into a single superchip.",
+            "NVIDIA Nemotron 3.5 Transcribe is an open weight speech model supporting transcription, speaker attribution, and translation.",
+            "New resource management controls in the NVIDIA App allow users to allocate GPU resources between apps and background agents."
+          ],
+          "sections": [
+            {
+              "heading": "RTX Spark Hardware",
+              "body": "NVIDIA RTX Spark powers thin and light laptops built for developers, creators, and gamers. These systems combine an NVIDIA Blackwell RTX GPU and an NVIDIA Grace CPU in a single superchip with up to 128GB of unified memory and up to 1 petaflop of FP4 AI performance. RTX Spark laptops are now available from ASUS, Dell, HP, Lenovo, Microsoft, and MSI, starting at $2,599."
+            },
+            {
+              "heading": "Nemotron 3.5 Transcribe",
+              "body": "Introduced by NVIDIA, Nemotron 3.5 Transcribe is a new, open weight speech model that turns recorded conversations into useful information. Instead of needing multiple models for transcription, speaker labels, and translation, developers can use one promptable model that handles all three across 40 languages. It features approximately 4.3 billion active parameters and is available today on Hugging Face."
+            },
+            {
+              "heading": "GPU Resource Controls",
+              "body": "On RTX Spark, users can have long-running agents working alongside their favorite applications while sharing system GPU compute. With the new resource management feature in NVIDIA App, users can choose how GPU resources are shared by prioritizing their foreground application for best performance or giving background agents more resources to work faster."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA Anuncia Laptops RTX Spark y Nuevas Actualizaciones de IA",
+          "dek": "Según NVIDIA. NVIDIA presentó las computadoras portátiles RTX Spark con un superchip integrado, junto con nuevos modelos de voz, controles de recursos y mejoras para juegos.",
+          "takeaways": [
+            "Las laptops RTX Spark combinan una GPU NVIDIA Blackwell RTX y una CPU Grace en un solo superchip.",
+            "NVIDIA Nemotron 3.5 Transcribe es un modelo de voz de peso abierto para transcripción, atribución de hablantes y traducción.",
+            "Los nuevos controles de gestión de recursos en NVIDIA App permiten asignar potencia de GPU entre aplicaciones y agentes en segundo plano."
+          ],
+          "sections": [
+            {
+              "heading": "Hardware RTX Spark",
+              "body": "NVIDIA RTX Spark potencia laptops delgadas y ligeras construidas para desarrolladores, creadores y jugadores. Estos sistemas combinan una GPU NVIDIA Blackwell RTX y una CPU NVIDIA Grace en un solo superchip con hasta 128 GB de memoria unificada y hasta 1 petaflop de rendimiento de IA FP4. Las laptops RTX Spark ya están disponibles a través de ASUS, Dell, HP, Lenovo, Microsoft y MSI desde $2,599."
+            },
+            {
+              "heading": "Modelo Nemotron 3.5",
+              "body": "NVIDIA Nemotron 3.5 Transcribe es un nuevo modelo de voz de peso abierto que convierte conversaciones grabadas en información útil. En lugar de necesitar múltiples modelos para la transcripción, etiquetas de hablantes y traducción, los desarrolladores pueden utilizar un solo modelo que maneja las tres tareas en 40 idiomas con aproximadamente 4.3 mil millones de parámetros activos."
+            },
+            {
+              "heading": "Gestión de Recursos",
+              "body": "En RTX Spark, los usuarios pueden mantener agentes de larga duración trabajando junto con sus aplicaciones favoritas. Con la nueva función de gestión de recursos en NVIDIA App, los usuarios pueden elegir cómo se comparten los recursos de la GPU para priorizar la aplicación en primer plano o acelerar el trabajo de los agentes en segundo plano."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+            "title": "NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA introduced RTX Spark Windows laptops combining an NVIDIA Blackwell RTX GPU and an NVIDIA Grace CPU in a single superchip with up to 128GB of unified memory.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "NVIDIA Nemotron 3.5 Transcribe was released as a new open weight speech model that handles transcription, speaker attribution, and translation using a single promptable model.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-rtx-spark-laptops-and-ai-updates.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA Giới Thiệu Laptop RTX Spark và Cập Nhật Mô Hình AI Mới",
+          "en": "NVIDIA Announces RTX Spark Laptops and New AI Model Updates",
+          "es": "NVIDIA Anuncia Laptops RTX Spark y Nuevas Actualizaciones de IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-copilot-in-visual-studio-september-update",
       "category": "Models",
