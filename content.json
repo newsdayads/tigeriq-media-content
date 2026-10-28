@@ -1,11 +1,106 @@
 {
-  "updatedAt": "2026-10-28T19:06:09.667Z",
+  "updatedAt": "2026-10-28T19:21:28.927Z",
   "breaking": {
-    "vi": "Thế giới công việc không ngừng mở rộng của ChatGPT",
-    "en": "ChatGPT’s Expanding World of Work",
-    "es": "El mundo laboral en expansión de ChatGPT"
+    "vi": "Fanatics và OpenAI hợp tác đổi mới trải nghiệm của người hâm mộ thể thao",
+    "en": "How Fanatics and OpenAI streamline the fan experience",
+    "es": "Cómo Fanatics y OpenAI optimizan la experiencia de los aficionados"
   },
   "articles": [
+    {
+      "slug": "how-fanatics-and-openai-streamline-the-fan-experience",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T19:21:28.927Z",
+      "modifiedAt": "2026-10-28T19:21:28.927Z",
+      "editions": {
+        "vi": {
+          "title": "Fanatics và OpenAI hợp tác đổi mới trải nghiệm của người hâm mộ thể thao",
+          "dek": "Sự kết hợp giữa nhà bán lẻ thể thao hàng đầu Fanatics và công nghệ trí tuệ nhân tạo tiên tiến từ OpenAI hứa hẹn mang đến những trải nghiệm cá nhân hóa và mượt mà hơn cho người hâm mộ.",
+          "takeaways": [
+            "Fanatics đang tích hợp các giải pháp AI tiên tiến từ OpenAI.",
+            "Mục tiêu là cá nhân hóa trải nghiệm mua sắm và tương tác cho người hâm mộ thể thao.",
+            "Sự hợp tác này đánh dấu bước tiến mới trong việc ứng dụng công nghệ vào ngành công nghiệp thể thao."
+          ],
+          "sections": [
+            {
+              "heading": "Kỷ nguyên mới cho trải nghiệm thể thao",
+              "body": "Sự hợp tác chiến lược giữa Fanatics và OpenAI đang định hình lại cách người hâm mộ tương tác với các thương hiệu thể thao và mua sắm đồ lưu niệm. Bằng cách tận dụng các mô hình ngôn ngữ lớn và công cụ AI tạo sinh, hệ thống có thể hiểu rõ hơn về sở thích cá nhân, từ đó đưa ra các gợi ý sản phẩm và nội dung phù hợp nhất cho từng khách hàng."
+            },
+            {
+              "heading": "Tác động đến thị trường bán lẻ và tương lai",
+              "body": "Việc ứng dụng AI không chỉ dừng lại ở việc tối ưu hóa quy trình mua sắm trực tuyến mà còn mở rộng ra các dịch vụ chăm sóc khách hàng tự động, nhanh chóng và chính xác. Các chuyên gia nhận định rằng bước đi này sẽ đặt ra một tiêu chuẩn mới cho ngành thương mại điện tử thể thao, thúc đẩy các đối thủ cạnh tranh khác phải nhanh chóng chuyển đổi số."
+            }
+          ]
+        },
+        "en": {
+          "title": "How Fanatics and OpenAI streamline the fan experience",
+          "dek": "Sports merchandise giant Fanatics is teaming up with OpenAI to revolutionize how fans interact, shop, and experience their favorite sports through advanced artificial intelligence.",
+          "takeaways": [
+            "Fanatics is integrating cutting-edge AI solutions from OpenAI.",
+            "The primary goal is to personalize the shopping and engagement experience for sports fans.",
+            "This partnership highlights a major leap in applying generative AI to the sports retail industry."
+          ],
+          "sections": [
+            {
+              "heading": "A New Era for Fan Engagement",
+              "body": "The strategic collaboration between Fanatics and OpenAI is reshaping how supporters connect with sports brands and purchase memorabilia. By leveraging advanced language models and generative AI tools, the platform can better comprehend individual preferences, delivering tailored product recommendations and relevant content to every customer."
+            },
+            {
+              "heading": "Retail Impact and Future Outlook",
+              "body": "Integrating AI goes beyond optimizing online shopping journeys; it also extends to fast, accurate, and automated customer service operations. Industry experts believe this move establishes a new benchmark for sports e-commerce, compelling competitors to accelerate their own digital transformation efforts."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo Fanatics y OpenAI optimizan la experiencia de los aficionados",
+          "dek": "La alianza entre el gigante minorista deportivo Fanatics y la avanzada tecnología de OpenAI promete transformar la forma en que los aficionados interactúan y compran.",
+          "takeaways": [
+            "Fanatics está integrando soluciones de inteligencia artificial de vanguardia de OpenAI.",
+            "El objetivo es personalizar la experiencia de compra y compromiso para los aficionados al deporte.",
+            "Esta colaboración marca un hito importante en la aplicación de la IA en la industria del deporte."
+          ],
+          "sections": [
+            {
+              "heading": "Una nueva era para la experiencia de los aficionados",
+              "body": "La colaboración estratégica entre Fanatics y OpenAI está redefiniendo la manera en que los seguidores se conectan con las marcas deportivas y adquieren productos oficiales. Al aprovechar modelos de lenguaje avanzados y herramientas de IA generativa, el sistema puede comprender mejor las preferencias individuales para ofrecer recomendaciones personalizadas."
+            },
+            {
+              "heading": "Impacto en el comercio minorista y perspectivas futuras",
+              "body": "La implementación de la inteligencia artificial no solo optimiza las compras en línea, sino que también mejora la atención al cliente automatizada y rápida. Los expertos señalan que esta iniciativa establece un nuevo estándar en el comercio electrónico deportivo, impulsando la transformación digital en todo el sector."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/fanatics-streamline-fan-experience",
+        "https://openai.com/index/openai-cut-incident-investigation",
+        "https://openai.com/index/att-legal"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028192115_a0247e5b)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/fanatics-streamline-fan-experience"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/how-fanatics-and-openai-streamline-the-fan-experience.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Fanatics và OpenAI hợp tác đổi mới trải nghiệm của người hâm mộ thể thao",
+          "en": "TigerIQ-generated illustration for: How Fanatics and OpenAI streamline the fan experience",
+          "es": "Ilustración generada por TigerIQ para: Cómo Fanatics y OpenAI optimizan la experiencia de los aficionados"
+        }
+      }
+    },
     {
       "slug": "chatgpt-s-expanding-world-of-work",
       "category": "Models",
