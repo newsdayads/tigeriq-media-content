@@ -1,11 +1,106 @@
 {
-  "updatedAt": "2026-10-28T18:20:01.834Z",
+  "updatedAt": "2026-10-28T18:35:25.058Z",
   "breaking": {
-    "vi": "Anima giúp các phòng khám giảm 75% thời gian chờ điện thoại nhờ GPT-6 và GPT-Live",
-    "en": "Anima helps clinics cut call waits by 75% with GPT-6 and GPT-Live",
-    "es": "Anima ayuda a las clínicas a reducir las espera telefónicas en un 75% con GPT-6 y GPT-Live"
+    "vi": "OpenAI Mở Rộng Hợp Tác Với Oracle Để Đưa Ứng Dụng Doanh Nghiệp Vào ChatGPT",
+    "en": "OpenAI Expands Partnership with Oracle to Bring Enterprise Apps to ChatGPT",
+    "es": "OpenAI Amplía su Alianza con Oracle para Integrar Aplicaciones Empresariales en ChatGPT"
   },
   "articles": [
+    {
+      "slug": "openai-expands-partnership-with-oracle-to-bring-its-apps-to-chatgpt",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T18:35:25.058Z",
+      "modifiedAt": "2026-10-28T18:35:25.058Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI Mở Rộng Hợp Tác Với Oracle Để Đưa Ứng Dụng Doanh Nghiệp Vào ChatGPT",
+          "dek": "OpenAI đang mở rộng mối quan hệ hợp tác chiến lược với Oracle nhằm tích hợp trực tiếp các ứng dụng đám mây và dữ liệu doanh nghiệp vào ChatGPT.",
+          "takeaways": [
+            "OpenAI tăng cường hợp tác với Oracle để kết nối các ứng dụng kinh doanh doanh nghiệp trực tiếp với ChatGPT.",
+            "Thỏa thuận cho phép người dùng doanh nghiệp truy cập hạ tầng Oracle Cloud và dữ liệu thông qua giao diện AI tự nhiên.",
+            "Động thái này phản ánh xu hướng tích hợp AI tạo sinh sâu hơn vào quy trình làm việc của các tập đoàn lớn."
+          ],
+          "sections": [
+            {
+              "heading": "Kết Nối AI Tạo Sinh Với Phần Mềm Doanh Nghiệp",
+              "body": "OpenAI và Oracle đang mở rộng mối quan hệ hợp tác chiến lược nhằm đưa các ứng dụng doanh nghiệp vào hệ sinh thái ChatGPT. Tận dụng hạ tầng đám mây Oracle Cloud Infrastructure (OCI), sáng kiến này giúp các khách hàng tổ chức dễ dàng truy vấn cơ sở dữ liệu phức tạp, quản lý quy trình công việc và tự động hóa tác vụ chỉ bằng tương tác ngôn ngữ tự nhiên."
+            },
+            {
+              "heading": "Tối Ưu Hạ Tầng Và Gia Tăng Giá Trị Doanh Nghiệp",
+              "body": "Việc mở rộng hợp tác dựa trên các thỏa thuận hạ tầng tính toán trước đó, mang lại cho OpenAI quy mô đám mây cần thiết đồng thời cung cấp cho cơ sở khách hàng doanh nghiệp rộng lớn của Oracle khả năng tiếp cận trực tiếp các mô hình AI tiên tiến. Sự tích hợp này được kỳ vọng sẽ thúc đẩy tốc độ ứng dụng AI trong môi trường doanh nghiệp."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI Expands Partnership with Oracle to Bring Enterprise Apps to ChatGPT",
+          "dek": "OpenAI is expanding its collaboration with Oracle to bring enterprise cloud applications and data capabilities directly into ChatGPT.",
+          "takeaways": [
+            "OpenAI is strengthening its ties with Oracle to integrate enterprise business applications directly into ChatGPT.",
+            "The collaboration aims to enable enterprise users to seamlessly access Oracle Cloud Infrastructure and business tools through AI prompts.",
+            "This move highlights a growing trend of embedding generative AI directly into enterprise software workflows."
+          ],
+          "sections": [
+            {
+              "heading": "Bridging Generative AI and Enterprise Software",
+              "body": "OpenAI and Oracle are broadening their strategic partnership to connect enterprise applications with ChatGPT. By leveraging Oracle Cloud Infrastructure (OCI), the initiative seeks to allow corporate clients to query complex business databases, manage workflows, and automate tasks through ChatGPT's natural language interface."
+            },
+            {
+              "heading": "Scaling Infrastructure and Business Value",
+              "body": "The expanded relationship builds on previous compute infrastructure agreements, providing OpenAI with additional infrastructure scale while offering Oracle's massive enterprise customer base direct access to advanced AI models. This integration is expected to accelerate AI adoption across corporate environments."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI Amplía su Alianza con Oracle para Integrar Aplicaciones Empresariales en ChatGPT",
+          "dek": "OpenAI expande su colaboración con Oracle para llevar las aplicaciones empresariales en la nube y la gestión de datos directamente a ChatGPT.",
+          "takeaways": [
+            "OpenAI refuerza su alianza con Oracle para conectar aplicaciones empresariales directamente en ChatGPT.",
+            "La colaboración permitirá a los usuarios corporativos acceder a la infraestructura de Oracle Cloud mediante comandos en lenguaje natural.",
+            "Este movimiento destaca la tendencia de integrar la IA generativa en los flujos de trabajo de grandes empresas."
+          ],
+          "sections": [
+            {
+              "heading": "Conectando la IA Generativa con el Software Empresarial",
+              "body": "OpenAI y Oracle están ampliando su asociación estratégica para integrar aplicaciones corporativas con ChatGPT. Utilizando Oracle Cloud Infrastructure (OCI), esta iniciativa busca permitir a los clientes corporativos consultar bases de datos complejas, gestionar flujos de trabajo y automatizar tareas a través de la interfaz de ChatGPT."
+            },
+            {
+              "heading": "Escala de Infraestructura y Valor para el Negocio",
+              "body": "La ampliación de esta relación se basa en acuerdos previos de infraestructura de cálculo, proporcionando a OpenAI mayor capacidad en la nube y ofreciendo a los clientes corporativos de Oracle un acceso directo a modelos de IA avanzados para acelerar su transformación digital."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/oracle-apps-in-chatgpt",
+        "https://techcrunch.com/2026/10/26/how-openai-turned-its-coding-tools-into-dots-an-always-on-personal-assistant/",
+        "https://www.theverge.com/ai-artificial-intelligence/1019921/openai-breakthrough-math-computer-science-physics"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028183507_0ed964ee)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/oracle-apps-in-chatgpt"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-expands-partnership-with-oracle-to-bring-its-apps-to-chatgpt.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI Mở Rộng Hợp Tác Với Oracle Để Đưa Ứng Dụng Doanh Nghiệp Vào ChatGPT",
+          "en": "TigerIQ-generated illustration for: OpenAI Expands Partnership with Oracle to Bring Enterprise Apps to ChatGPT",
+          "es": "Ilustración generada por TigerIQ para: OpenAI Amplía su Alianza con Oracle para Integrar Aplicaciones Empresariales en ChatGPT"
+        }
+      }
+    },
     {
       "slug": "anima-helps-clinics-cut-call-waits-by-75-with-gpt-6-and-gpt-live",
       "category": "Models",
