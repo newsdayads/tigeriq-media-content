@@ -1,11 +1,107 @@
 {
-  "updatedAt": "2026-10-28T14:34:37.644Z",
+  "updatedAt": "2026-10-28T14:35:28.418Z",
   "breaking": {
-    "vi": "Định hình tương lai ngành thời trang thông qua sự hợp tác cùng Google",
-    "en": "Co-creating the future of fashion with Google",
-    "es": "Co-creando el futuro de la moda con Google"
+    "vi": "Bản cập nhật tháng 9 của GitHub Copilot trong Visual Studio mang đến nhiều cải tiến",
+    "en": "GitHub Copilot in Visual Studio — September Update Released",
+    "es": "Actualización de septiembre de GitHub Copilot en Visual Studio"
   },
   "articles": [
+    {
+      "slug": "github-copilot-in-visual-studio-september-update",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T14:35:28.418Z",
+      "modifiedAt": "2026-10-28T14:35:28.418Z",
+      "editions": {
+        "vi": {
+          "title": "Bản cập nhật tháng 9 của GitHub Copilot trong Visual Studio mang đến nhiều cải tiến",
+          "dek": "Microsoft phát hành bản cập nhật tháng 9 cho GitHub Copilot trong Visual Studio, bổ sung nhiều tính năng hỗ trợ lập trình thông minh hơn.",
+          "takeaways": [
+            "Tích hợp sâu hơn các mô hình AI mới nhất vào môi trường Visual Studio.",
+            "Cải thiện hiệu suất gợi ý mã nguồn và tự động hóa tác vụ.",
+            "Nâng cao trải nghiệm người dùng với giao diện tinh chỉnh."
+          ],
+          "sections": [
+            {
+              "heading": "Những điểm mới trong bản cập nhật tháng 9",
+              "body": "Bản cập nhật tháng 9 đánh dấu một bước tiến mới trong việc hỗ trợ các nhà phát triển sử dụng Visual Studio. GitHub Copilot giờ đây hoạt động mượt mà hơn, đưa ra các gợi ý mã chính xác dựa trên ngữ cảnh toàn diện của dự án."
+            },
+            {
+              "heading": "Tác động đến năng suất lập trình",
+              "body": "Với các tính năng tự động hóa và khả năng hiểu mã nguồn tốt hơn, các lập trình viên có thể giảm thiểu thời gian viết mã lặp đi lặp lại, từ đó tập trung nhiều hơn vào việc thiết kế logic và giải quyết các bài toán phức tạp."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Copilot in Visual Studio — September Update Released",
+          "dek": "Microsoft rolls out the September update for GitHub Copilot in Visual Studio, bringing smarter coding assistance and enhanced features.",
+          "takeaways": [
+            "Deep integration of the latest AI models within the Visual Studio environment.",
+            "Improved code suggestion accuracy and workflow automation.",
+            "Enhanced user experience with refined interface elements."
+          ],
+          "sections": [
+            {
+              "heading": "What's New in the September Update",
+              "body": "The September update marks a significant milestone in supporting developers using Visual Studio. GitHub Copilot now operates more smoothly, delivering precise code completions based on comprehensive project context."
+            },
+            {
+              "heading": "Impact on Developer Productivity",
+              "body": "With advanced automation features and better code comprehension, developers can minimize repetitive coding tasks, allowing them to focus more on architecture design and solving complex logic."
+            }
+          ]
+        },
+        "es": {
+          "title": "Actualización de septiembre de GitHub Copilot en Visual Studio",
+          "dek": "Microsoft lanza la actualización de septiembre para GitHub Copilot en Visual Studio, ofreciendo asistencia de programación más inteligente.",
+          "takeaways": [
+            "Integración profunda de los modelos de IA más recientes en el entorno de Visual Studio.",
+            "Mejora en la precisión de sugerencias de código y automatización de tareas.",
+            "Experiencia de usuario mejorada con elementos de interfaz refinados."
+          ],
+          "sections": [
+            {
+              "heading": "Novedades en la actualización de septiembre",
+              "body": "La actualización de septiembre marca un avance significativo en el apoyo a los desarrolladores que utilizan Visual Studio. GitHub Copilot ahora opera con mayor fluidez, ofreciendo autocompletados de código precisos basados en el contexto completo del proyecto."
+            },
+            {
+              "heading": "Impacto en la productividad del desarrollador",
+              "body": "Con funciones de automatización avanzadas y una mejor comprensión del código, los desarrolladores pueden minimizar las tareas repetitivas de programación, permitiéndoles centrarse más en el diseño de arquitectura y la resolución de lógica compleja."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/introducing-gpt-6-1-terra",
+        "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+        "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+        "https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028143455_8f7b7b1b)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-in-visual-studio-september-update.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Bản cập nhật tháng 9 của GitHub Copilot trong Visual Studio mang đến nhiều cải tiến",
+          "en": "TigerIQ-generated illustration for: GitHub Copilot in Visual Studio — September Update Released",
+          "es": "Ilustración generada por TigerIQ para: Actualización de septiembre de GitHub Copilot en Visual Studio"
+        }
+      }
+    },
     {
       "slug": "co-creating-the-future-of-fashion-with-google",
       "category": "Models",
