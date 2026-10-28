@@ -1,11 +1,106 @@
 {
-  "updatedAt": "2026-10-28T17:32:34.968Z",
+  "updatedAt": "2026-10-28T17:48:27.440Z",
   "breaking": {
-    "vi": "Hợp tác với cộng đồng học thuật để nâng cao hiểu biết khoa học về trí tuệ nhân tạo",
-    "en": "Working with academic communities to build scientific understanding of AI",
-    "es": "Colaboración con comunidades académicas para construir comprensión científica sobre la IA"
+    "vi": "Retell ứng dụng mô hình OpenAI để vận hành 100 triệu cuộc gọi mỗi tháng",
+    "en": "Retell uses OpenAI models to help power 100M monthly calls",
+    "es": "Retell utiliza modelos de OpenAI para impulsar 100 millones de llamadas al mes"
   },
   "articles": [
+    {
+      "slug": "retell-uses-openai-models-to-help-power-100m-monthly-calls",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T17:48:27.440Z",
+      "modifiedAt": "2026-10-28T17:48:27.440Z",
+      "editions": {
+        "vi": {
+          "title": "Retell ứng dụng mô hình OpenAI để vận hành 100 triệu cuộc gọi mỗi tháng",
+          "dek": "Startup công nghệ Retell đang tận dụng sức mạnh của các mô hình trí tuệ nhân tạo từ OpenAI để xử lý quy mô khổng lồ lên tới 100 triệu cuộc gọi hàng tháng.",
+          "takeaways": [
+            "Retell đạt cột mốc ấn tượng với 100 triệu cuộc gọi hàng tháng nhờ tích hợp công nghệ AI.",
+            "Việc sử dụng các mô hình của OpenAI giúp cải thiện đáng kể độ chính xác và tốc độ phản hồi.",
+            "Sự kiện này đánh dấu bước tiến lớn trong việc ứng dụng AI đàm phán tự động vào doanh nghiệp."
+          ],
+          "sections": [
+            {
+              "heading": "Cột mốc ấn tượng trong công nghệ đàm phán AI",
+              "body": "Retell đã chứng minh khả năng mở rộng mạnh mẽ của nền tảng khi đạt mốc 100 triệu cuộc gọi mỗi tháng. Thành tựu này có sự đóng góp lớn từ việc tích hợp các mô hình ngôn ngữ lớn tiên tiến của OpenAI, giúp hệ thống hiểu và phản hồi giọng nói của con người một cách tự nhiên và mượt mà hơn bao giờ hết."
+            },
+            {
+              "heading": "Tương lai của dịch vụ chăm sóc khách hàng tự động",
+              "body": "Việc áp dụng công nghệ AI ở quy mô lớn không chỉ giúp các doanh nghiệp tiết kiệm chi phí vận hành mà còn nâng cao trải nghiệm khách hàng nhờ thời gian chờ bằng không. Sự thành công của Retell mở ra hướng đi mới cho thị trường tự động hóa tổng đài và dịch vụ khách hàng trên toàn cầu."
+            }
+          ]
+        },
+        "en": {
+          "title": "Retell uses OpenAI models to help power 100M monthly calls",
+          "dek": "AI startup Retell is leveraging OpenAI's advanced models to handle a massive scale of 100 million voice calls every month.",
+          "takeaways": [
+            "Retell reaches a milestone of 100 million monthly calls powered by AI integrations.",
+            "Utilizing OpenAI's models significantly enhances response accuracy and conversational speed.",
+            "This achievement highlights the rapid adoption of conversational AI in business operations."
+          ],
+          "sections": [
+            {
+              "heading": "A Major Milestone in Conversational AI",
+              "body": "Retell has demonstrated remarkable platform scalability by processing 100 million calls per month. This milestone is largely driven by the integration of OpenAI's cutting-edge language models, allowing the system to understand and respond to human speech with unprecedented naturalness and fluidity."
+            },
+            {
+              "heading": "The Future of Automated Customer Service",
+              "body": "Scaling AI technology to this level not only helps businesses drastically reduce operational costs but also elevates customer experience through zero wait times. Retell's success paves the way for a new era in call center and customer service automation worldwide."
+            }
+          ]
+        },
+        "es": {
+          "title": "Retell utiliza modelos de OpenAI para impulsar 100 millones de llamadas al mes",
+          "dek": "La startup tecnológica Retell aprovecha los modelos avanzados de OpenAI para gestionar una escala masiva de 100 millones de llamadas de voz cada mes.",
+          "takeaways": [
+            "Retell alcanza un hito de 100 millones de llamadas mensuales impulsadas por IA.",
+            "El uso de los modelos de OpenAI mejora significativamente la precisión y velocidad de respuesta.",
+            "Este evento marca un gran avance en la adopción de IA conversacional para empresas."
+          ],
+          "sections": [
+            {
+              "heading": "Un hito importante en la IA conversacional",
+              "body": "Retell ha demostrado una notable escalabilidad en su plataforma al procesar 100 millones de llamadas al mes. Este logro se debe en gran medida a la integración de los modelos de lenguaje de vanguardia de OpenAI, lo que permite al sistema comprender y responder a la voz humana con una naturalidad y fluidez sin precedentes."
+            },
+            {
+              "heading": "El futuro del servicio de atención al cliente automatizado",
+              "body": "Escalar la tecnología de IA a este nivel no solo ayuda a las empresas a reducir drásticamente los costos operativos, sino que también eleva la experiencia del cliente gracias a tiempos de espera nulos. El éxito de Retell abre un nuevo camino para la automatización de centros de llamadas a nivel mundial."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/retell-ai",
+        "https://openai.com/index/openai-models-google-cloud",
+        "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028174741_e4f2e5fa)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/retell-ai"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/retell-uses-openai-models-to-help-power-100m-monthly-calls.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Retell ứng dụng mô hình OpenAI để vận hành 100 triệu cuộc gọi mỗi tháng",
+          "en": "TigerIQ-generated illustration for: Retell uses OpenAI models to help power 100M monthly calls",
+          "es": "Ilustración generada por TigerIQ para: Retell utiliza modelos de OpenAI para impulsar 100 millones de llamadas al mes"
+        }
+      }
+    },
     {
       "slug": "working-with-academic-communities-to-build-scientific-understanding",
       "category": "Models",
