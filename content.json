@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T16:09:36.033Z",
+  "updatedAt": "2026-10-28T16:24:59.595Z",
   "breaking": {
-    "vi": "Legora đang xây dựng hệ điều hành tác vụ thông minh cho ngành luật",
-    "en": "Legora is building the agentic operating system for legal work",
-    "es": "Legora está construyendo el sistema operativo agéntico para el trabajo legal"
+    "vi": "Cách Check Point tăng tốc nghiên cứu lỗ hổng bảo mật với Daybreak",
+    "en": "How Check Point Accelerates Vulnerability Research with Daybreak",
+    "es": "Cómo Check Point acelera la investigación de vulnerabilidades con Daybreak"
   },
   "articles": [
+    {
+      "slug": "how-check-point-accelerates-vulnerability-research-with-daybreak",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T16:24:59.595Z",
+      "modifiedAt": "2026-10-28T16:24:59.595Z",
+      "editions": {
+        "vi": {
+          "title": "Cách Check Point tăng tốc nghiên cứu lỗ hổng bảo mật với Daybreak",
+          "dek": "Check Point Software ứng dụng Daybreak để tự động hóa quá trình kỹ thuật đảo ngược và đẩy nhanh tốc độ phát hiện các lỗ hổng phần mềm nghiêm trọng.",
+          "takeaways": [
+            "Daybreak tận dụng AI tiên tiến để tự động hóa các bước then chốt trong nghiên cứu lỗ hổng.",
+            "Nền tảng giúp giảm đáng kể thời gian phân tích các cơ sở mã nguồn phức tạp.",
+            "Check Point hướng tới việc đi trước các mối đe dọa mạng bằng cách nhanh chóng đưa ra các khuyến nghị vá lỗi."
+          ],
+          "sections": [
+            {
+              "heading": "Tự động hóa phân tích phức tạp với Daybreak",
+              "body": "Tập đoàn an ninh mạng Check Point Software đã tích hợp Daybreak, một công cụ đột phá dựa trên AI nhằm tối ưu hóa quy trình nghiên cứu lỗ hổng bảo mật. Bằng cách tự động hóa công đoạn kỹ thuật đảo ngược tốn nhiều thời gian, Daybreak cho phép các chuyên gia phân tích kiến trúc phần mềm và phát hiện những điểm yếu ẩn sâu chỉ trong một khoảng thời gian ngắn."
+            },
+            {
+              "heading": "Củng cố khả năng phòng thủ chủ động",
+              "body": "Khi các mối đe dọa mạng ngày càng tinh vi, việc phát hiện nhanh các lỗ hổng là yếu tố then chốt để bảo vệ an ninh toàn cầu. Daybreak giúp các đội ngũ nghiên cứu sớm nhận diện các lỗ hổng zero-day, tạo điều kiện cho các nhà phát triển phát hành bản vá trước khi kẻ xấu kịp khai thác. Việc tích hợp này khẳng định vai trò ngày càng quan trọng của AI trong chiến lược tình báo an ninh mạng hiện đại."
+            }
+          ]
+        },
+        "en": {
+          "title": "How Check Point Accelerates Vulnerability Research with Daybreak",
+          "dek": "Check Point Software incorporates Daybreak to automate reverse engineering and speed up the identification of critical software vulnerabilities.",
+          "takeaways": [
+            "Daybreak leverages advanced AI to automate key steps in vulnerability research.",
+            "The platform significantly reduces the time required to analyze complex codebases.",
+            "Check Point aims to stay ahead of cyber threats by delivering faster patch advisories and defense updates."
+          ],
+          "sections": [
+            {
+              "heading": "Automating Complex Analysis with Daybreak",
+              "body": "Cybersecurity leader Check Point Software has integrated Daybreak, an innovative AI-driven tool designed to streamline vulnerability research. By automating the labor-intensive process of reverse engineering, Daybreak enables security analysts to dissect software architectures and spot hidden flaws in a fraction of the traditional time."
+            },
+            {
+              "heading": "Strengthening Proactive Defense Capabilities",
+              "body": "As cyber threats grow increasingly sophisticated, rapid vulnerability discovery is essential to global security. Daybreak empowers research teams to identify zero-day vulnerabilities early, allowing vendors to issue patches before malicious actors can exploit them. This integration highlights the rising reliance on AI in modern threat intelligence strategies."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo Check Point acelera la investigación de vulnerabilidades con Daybreak",
+          "dek": "Check Point Software integra Daybreak para automatizar la ingeniería inversa y agilizar la detección de fallos de seguridad críticos.",
+          "takeaways": [
+            "Daybreak utiliza inteligencia artificial avanzada para automatizar pasos clave en la investigación de vulnerabilidades.",
+            "La plataforma reduce significativamente el tiempo necesario para analizar código complejo.",
+            "Check Point busca anticiparse a las ciberamenazas ofreciendo recomendaciones de parcheo más rápidas."
+          ],
+          "sections": [
+            {
+              "heading": "Automatización del análisis complejo con Daybreak",
+              "body": "El líder en ciberseguridad Check Point Software ha integrado Daybreak, una innovadora herramienta impulsada por IA diseñada para optimizar la investigación de vulnerabilidades. Al automatizar el laborioso proceso de ingeniería inversa, Daybreak permite a los analistas examinar arquitecturas de software y detectar fallos ocultos en una fracción del tiempo habitual."
+            },
+            {
+              "heading": "Fortalecimiento de la defensa proactiva",
+              "body": "A medida que las ciberamenazas se vuelven más sofisticadas, la rápida identificación de vulnerabilidades resulta fundamental para la seguridad global. Daybreak capacita a los equipos de investigación para detectar fallos de día cero antes de que los ciberdelincuentes puedan explotarlos, destacando el papel crucial de la IA en las estrategias modernas de ciberinteligencia."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/check-point-daybreak"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028162441_c309f448)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/check-point-daybreak"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/how-check-point-accelerates-vulnerability-research-with-daybreak.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Cách Check Point tăng tốc nghiên cứu lỗ hổng bảo mật với Daybreak",
+          "en": "TigerIQ-generated illustration for: How Check Point Accelerates Vulnerability Research with Daybreak",
+          "es": "Ilustración generada por TigerIQ para: Cómo Check Point acelera la investigación de vulnerabilidades con Daybreak"
+        }
+      }
+    },
     {
       "slug": "legora-is-building-the-agentic-operating-system-for-legal-work",
       "category": "Models",
