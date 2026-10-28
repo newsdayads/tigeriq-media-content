@@ -1,11 +1,105 @@
 {
-  "updatedAt": "2026-10-28T15:37:40.386Z",
+  "updatedAt": "2026-10-28T15:53:52.692Z",
   "breaking": {
-    "vi": "Bayer Crop Science xây dựng công cụ quyết định tự trị trên Amazon Bedrock AgentCore và AWS",
-    "en": "How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations",
-    "es": "Cómo Bayer Crop Science construyó un motor de decisiones autónomo en Amazon Bedrock AgentCore con AWS Unified Operations"
+    "vi": "Bảo mật kết nối nhanh từ mạng doanh nghiệp bằng AWS PrivateLink",
+    "en": "Securing Quick Access from Corporate Networks with AWS PrivateLink",
+    "es": "Garantizando un acceso rápido y seguro desde redes corporativas con AWS PrivateLink"
   },
   "articles": [
+    {
+      "slug": "securing-quick-access-from-corporate-networks-with-aws-privatelink",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T15:53:52.692Z",
+      "modifiedAt": "2026-10-28T15:53:52.692Z",
+      "editions": {
+        "vi": {
+          "title": "Bảo mật kết nối nhanh từ mạng doanh nghiệp bằng AWS PrivateLink",
+          "dek": "Các tổ chức hiện có thể tận dụng AWS PrivateLink để thiết lập kết nối riêng tư, bảo mật giữa mạng doanh nghiệp và các dịch vụ đám mây mà không cần thông qua internet công cộng.",
+          "takeaways": [
+            "AWS PrivateLink loại bỏ nguy cơ lộ dữ liệu trên internet công cộng cho lưu lượng truy cập từ doanh nghiệp.",
+            "Đơn giản hóa kiến trúc mạng bằng cách giảm thiểu các cấu hình VPN phức tạp và quy tắc tường lửa.",
+            "Tăng cường tính tuân thủ và bảo mật dữ liệu nhờ giữ toàn bộ lưu lượng trong hạ tầng mạng riêng của AWS."
+          ],
+          "sections": [
+            {
+              "heading": "Tối ưu hóa kết nối đám mây cho doanh nghiệp",
+              "body": "Khi các doanh nghiệp ngày càng chuyển nhiều khối lượng dữ liệu nhạy cảm và công cụ quản trị thông minh lên đám mây, việc bảo mật kết nối từ mạng nội bộ trở nên cực kỳ quan trọng. AWS PrivateLink cung cấp giải pháp mạnh mẽ bằng cách cho phép các điểm cuối riêng tư kết nối trực tiếp với các dịch vụ trên AWS. Kiến trúc này đảm bảo luồng truyền tải dữ liệu hoàn toàn tách biệt khỏi internet công cộng, giảm thiểu tối đa rủi ro từ các mối đe dọa mạng."
+            },
+            {
+              "heading": "Lợi ích kiến trúc và đơn giản hóa bảo mật",
+              "body": "Các phương pháp truyền thống kết nối mạng doanh nghiệp với đám mây thường đòi hỏi cấu hình tường lửa phức tạp, định tuyến IP và lưu lượng phải đi qua internet. Bằng cách kết hợp AWS PrivateLink với Direct Connect hoặc Site-to-Site VPN, các tổ chức có thể thiết lập các điểm cuối VPC interface. Mô hình này giúp truy cập mượt mà, độ trễ thấp vào các ứng dụng quan trọng mà vẫn đáp ứng nghiêm ngặt các tiêu chuẩn tuân thủ an toàn thông tin."
+            }
+          ]
+        },
+        "en": {
+          "title": "Securing Quick Access from Corporate Networks with AWS PrivateLink",
+          "dek": "Organizations can leverage AWS PrivateLink to establish secure, private connectivity between corporate networks and cloud services without traversing the public internet.",
+          "takeaways": [
+            "AWS PrivateLink eliminates public internet exposure for corporate traffic connecting to cloud applications.",
+            "Simplifies network architecture by reducing complex VPN configurations, NAT devices, and firewall rules.",
+            "Enhances compliance and data security by maintaining all traffic strictly within the AWS private network backbone."
+          ],
+          "sections": [
+            {
+              "heading": "Streamlining Corporate Cloud Connectivity",
+              "body": "As enterprises increasingly migrate sensitive data workloads and business intelligence tools to the cloud, securing connectivity from local corporate networks becomes paramount. AWS PrivateLink provides a robust solution by allowing private endpoints to connect directly to services hosted on AWS. This architecture ensures that data transfers remain completely isolated from the public internet, drastically reducing the attack surface for potential cyber threats."
+            },
+            {
+              "heading": "Architectural Benefits and Simplified Security",
+              "body": "Traditional methods for connecting corporate networks to cloud environments often required complex firewall setups, IP routing, and public internet transit. By using AWS PrivateLink alongside AWS Direct Connect or Site-to-Site VPN, organizations can establish interface VPC endpoints. This setup enables seamless, low-latency access to critical enterprise tools while meeting strict regulatory compliance requirements and operational security standards."
+            }
+          ]
+        },
+        "es": {
+          "title": "Garantizando un acceso rápido y seguro desde redes corporativas con AWS PrivateLink",
+          "dek": "Las organizaciones pueden aprovechar AWS PrivateLink para establecer una conectividad privada y segura entre las redes corporativas y los servicios en la nube sin transitar por la internet pública.",
+          "takeaways": [
+            "AWS PrivateLink elimina la exposición a la internet pública para el tráfico corporativo hacia aplicaciones en la nube.",
+            "Simplifica la arquitectura de red al reducir configuraciones complejas de VPN, dispositivos NAT y reglas de firewall.",
+            "Mejora la seguridad y el cumplimiento normativo al mantener todo el tráfico dentro de la red privada de AWS."
+          ],
+          "sections": [
+            {
+              "heading": "Optimización de la conectividad en la nube para empresas",
+              "body": "A medida que las empresas transfieren cargas de trabajo confidenciales y herramientas de inteligencia empresarial a la nube, proteger la conectividad desde las redes locales resulta fundamental. AWS PrivateLink ofrece una solución sólida al permitir que puntos de enlace privados se conecten directamente a los servicios alojados en AWS. Esta arquitectura garantiza que la transferencia de datos permanezca completamente aislada de la internet pública, reduciendo drásticamente la superficie de ataque frente a ciberamenazas."
+            },
+            {
+              "heading": "Beneficios arquitectónicos y seguridad simplificada",
+              "body": "Los métodos tradicionales para conectar redes corporativas con entornos en la nube a menudo requerían configuraciones complejas de firewall, enrutamiento IP y tránsito por internet. Al utilizar AWS PrivateLink junto con AWS Direct Connect o VPN Site-to-Site, las organizaciones pueden establecer puntos de enlace VPC de interfaz. Esta configuración permite un acceso fluido y de baja latencia a herramientas empresariales críticas mientras se cumplen los más estrictos requisitos de seguridad y cumplimiento normativo."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/securing-quick-access-from-corporate-networks-with-aws-privatelink/",
+        "https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028155245_0541e923)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/securing-quick-access-from-corporate-networks-with-aws-privatelink/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/securing-quick-access-from-corporate-networks-with-aws-privatelink.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Bảo mật kết nối nhanh từ mạng doanh nghiệp bằng AWS PrivateLink",
+          "en": "TigerIQ-generated illustration for: Securing Quick Access from Corporate Networks with AWS PrivateLink",
+          "es": "Ilustración generada por TigerIQ para: Garantizando un acceso rápido y seguro desde redes corporativas con AWS PrivateLink"
+        }
+      }
+    },
     {
       "slug": "how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations",
       "category": "Models",
