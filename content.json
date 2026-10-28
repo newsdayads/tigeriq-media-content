@@ -7,6 +7,118 @@
   },
   "articles": [
     {
+      "slug": "openai-expands-oracle-partnership-chatgpt-enterprise",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T10:50:48.653Z",
+      "modifiedAt": "2026-10-28T10:50:48.653Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI mở rộng hợp tác với Oracle mang ứng dụng doanh nghiệp lên ChatGPT",
+          "dek": "Khách hàng doanh nghiệp giờ đây có thể tương tác với cơ sở hạ tầng và ứng dụng của Oracle trực tiếp thông qua quy trình làm việc hội thoại trên ChatGPT.",
+          "takeaways": [
+            "OpenAI và Oracle chính thức mở rộng hợp tác chiến lược.",
+            "Tích hợp cho phép tương tác an toàn với cơ sở hạ tầng đám mây và cơ sở dữ liệu Oracle.",
+            "Đảm bảo tiêu chuẩn bảo mật doanh nghiệp nghiêm ngặt và cách ly người thuê."
+          ],
+          "sections": [
+            {
+              "heading": "Mở rộng quan hệ đối tác",
+              "body": "OpenAI và Oracle đã chính thức mở rộng sự hợp tác nhằm mang các ứng dụng doanh nghiệp trực tiếp vào ChatGPT, giúp tối ưu hóa quy trình làm việc cho các tổ chức."
+            },
+            {
+              "heading": "Tương tác doanh nghiệp an toàn",
+              "body": "Khách hàng doanh nghiệp có thể tương tác an toàn với cơ sở hạ tầng đám mây Oracle, cơ sở dữ liệu và các ứng dụng doanh nghiệp thông qua các quy trình làm việc mang tính hội thoại của ChatGPT."
+            },
+            {
+              "heading": "Bảo mật và Tuân thủ",
+              "body": "Việc tích hợp duy trì các tiêu chuẩn bảo mật doanh nghiệp nghiêm ngặt, cách ly người thuê và tuân thủ các quy định đối với dữ liệu doanh nghiệp."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI Expands Partnership with Oracle to Bring Enterprise Applications to ChatGPT",
+          "dek": "Enterprise customers can now interact with Oracle Cloud infrastructure and databases directly through ChatGPT conversational workflows.",
+          "takeaways": [
+            "OpenAI and Oracle officially expanded their collaboration.",
+            "Integration enables secure interaction with Oracle Cloud infrastructure and databases.",
+            "Maintains strict enterprise security, tenant isolation, and compliance standards."
+          ],
+          "sections": [
+            {
+              "heading": "Partnership Expansion",
+              "body": "OpenAI and Oracle have officially expanded their collaboration to bring enterprise applications directly into ChatGPT, streamlining organizational workflows."
+            },
+            {
+              "heading": "Secure Enterprise Interaction",
+              "body": "Enterprise customers can securely interact with Oracle Cloud infrastructure, databases, and enterprise apps through ChatGPT conversational workflows."
+            },
+            {
+              "heading": "Security and Compliance",
+              "body": "The integration maintains strict enterprise security, tenant isolation, and compliance standards for corporate data."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI amplía su alianza con Oracle para llevar aplicaciones empresariales a ChatGPT",
+          "dek": "Los clientes empresariales ahora pueden interactuar con la infraestructura y bases de datos de Oracle Cloud directamente a través de flujos de trabajo conversacionales en ChatGPT.",
+          "takeaways": [
+            "OpenAI y Oracle ampliaron oficialmente su colaboración.",
+            "La integración permite la interacción segura con la infraestructura de Oracle Cloud y bases de datos.",
+            "Mantiene estrictos estándares de seguridad empresarial, aislamiento de inquilinos y cumplimiento."
+          ],
+          "sections": [
+            {
+              "heading": "Expansión de la asociación",
+              "body": "OpenAI y Oracle ampliaron oficialmente su colaboración para incorporar aplicaciones empresariales directamente en ChatGPT."
+            },
+            {
+              "heading": "Interacción empresarial segura",
+              "body": "Los clientes empresariales pueden interactuar de forma segura con la infraestructura de Oracle Cloud, bases de datos y aplicaciones empresariales a través de flujos de trabajo conversacionales de ChatGPT."
+            },
+            {
+              "heading": "Seguridad y cumplimiento",
+              "body": "La integración mantiene estrictos estándares de seguridad empresarial, aislamiento de inquilinos y cumplimiento para los datos corporativos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/oracle-apps-in-chatgpt",
+        "https://techcrunch.com/2026/10/26/how-openai-turned-its-coding-tools-into-dots-an-always-on-personal-assistant/"
+      ],
+      "corrections": [],
+      "verification": {
+        "status": "verified",
+        "basis": "primary_source_openai_plus_independent_review_pass",
+        "evidence": [
+          {
+            "sourceId": "openai-official",
+            "tier": "A",
+            "url": "https://openai.com/index/oracle-apps-in-chatgpt"
+          },
+          {
+            "sourceId": "techcrunch-ai",
+            "tier": "B",
+            "url": "https://techcrunch.com/2026/10/26/how-openai-turned-its-coding-tools-into-dots-an-always-on-personal-assistant/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-expands-oracle-partnership-chatgpt-enterprise.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI mở rộng hợp tác với Oracle mang ứng dụng doanh nghiệp lên ChatGPT",
+          "en": "TigerIQ-generated illustration for: OpenAI Expands Partnership with Oracle to Bring Enterprise Applications to ChatGPT",
+          "es": "Ilustración generada por TigerIQ para: OpenAI amplía su alianza con Oracle para llevar aplicaciones empresariales a ChatGPT"
+        }
+      }
+    },
+    {
       "slug": "boost-moe-inference-nvidia-dgx-spark",
       "reportingMode": "official-announcement",
       "category": "developer-tools",
@@ -133,14 +245,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/boost-moe-inference-nvidia-dgx-spark.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "3 Cách Cải Thiện Hiệu Suất Suy Luận MoE Trên NVIDIA DGX Spark",
-          "en": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
-          "es": "3 Formas de Potenciar la Inferencia MoE en NVIDIA DGX Spark"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: 3 Cách Cải Thiện Hiệu Suất Suy Luận MoE Trên NVIDIA DGX Spark",
+          "en": "TigerIQ-generated illustration for: 3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
+          "es": "Ilustración generada por TigerIQ para: 3 Formas de Potenciar la Inferencia MoE en NVIDIA DGX Spark"
         }
       },
       "corrections": []
@@ -257,14 +367,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/fix-evaluation-bias-amazon-bedrock.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Khắc phục độ lệch đánh giá để mở khóa các mô hình tốt hơn trên Amazon Bedrock",
-          "en": "Fix evaluation bias to unlock better models on Amazon Bedrock",
-          "es": "Corregir el sesgo de evaluación para desbloquear mejores modelos en Amazon Bedrock"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Khắc phục độ lệch đánh giá để mở khóa các mô hình tốt hơn trên Amazon Bedrock",
+          "en": "TigerIQ-generated illustration for: Fix evaluation bias to unlock better models on Amazon Bedrock",
+          "es": "Ilustración generada por TigerIQ para: Corregir el sesgo de evaluación para desbloquear mejores modelos en Amazon Bedrock"
         }
       },
       "corrections": []
@@ -393,14 +501,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/memory-enforced-gpu-sharing-kubernetes-cuda-13-4.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Chia sẻ GPU được thực thi bộ nhớ trong Kubernetes với NVIDIA CUDA 13.4",
-          "en": "Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4",
-          "es": "Compartición de GPU con memoria reforzada en Kubernetes con NVIDIA CUDA 13.4"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Chia sẻ GPU được thực thi bộ nhớ trong Kubernetes với NVIDIA CUDA 13.4",
+          "en": "TigerIQ-generated illustration for: Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4",
+          "es": "Ilustración generada por TigerIQ para: Compartición de GPU con memoria reforzada en Kubernetes con NVIDIA CUDA 13.4"
         }
       },
       "corrections": []
@@ -517,14 +623,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-cbrain-ai-dementia-research.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA hợp tác với C-BRAIN ứng dụng AI thúc đẩy nghiên cứu bệnh mất trí nhớ",
-          "en": "NVIDIA and C-BRAIN Apply AI to Accelerate Dementia and Alzheimer's Research",
-          "es": "NVIDIA y C-BRAIN colaboran para acelerar la investigación sobre la demencia con IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA hợp tác với C-BRAIN ứng dụng AI thúc đẩy nghiên cứu bệnh mất trí nhớ",
+          "en": "TigerIQ-generated illustration for: NVIDIA and C-BRAIN Apply AI to Accelerate Dementia and Alzheimer's Research",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA y C-BRAIN colaboran para acelerar la investigación sobre la demencia con IA"
         }
       },
       "corrections": []
@@ -653,14 +757,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-rtx-spark-neural-rendering-ai-characters.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA RTX Spark Cung Cấp Năng Lực Kết Xuất Thần Kinh và Nhân Vật AI Cho Trò Chơi",
-          "en": "NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games",
-          "es": "NVIDIA RTX Spark Impulsa el Renderizado Neuronal y los Personajes de IA en Juegos"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA RTX Spark Cung Cấp Năng Lực Kết Xuất Thần Kinh và Nhân Vật AI Cho Trò Chơi",
+          "en": "TigerIQ-generated illustration for: NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA RTX Spark Impulsa el Renderizado Neuronal y los Personajes de IA en Juegos"
         }
       },
       "corrections": []
@@ -777,14 +879,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/soci-indexed-images-sagemaker-ai.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Thông báo hình ảnh được lập chỉ mục SOCI cho các tác vụ SageMaker AI nhanh hơn",
-          "en": "Announcing SOCI-indexed images for faster SageMaker AI jobs",
-          "es": "Anuncio de imágenes indexadas con SOCI para trabajos de SageMaker AI más rápidos"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Thông báo hình ảnh được lập chỉ mục SOCI cho các tác vụ SageMaker AI nhanh hơn",
+          "en": "TigerIQ-generated illustration for: Announcing SOCI-indexed images for faster SageMaker AI jobs",
+          "es": "Ilustración generada por TigerIQ para: Anuncio de imágenes indexadas con SOCI para trabajos de SageMaker AI más rápidos"
         }
       },
       "corrections": []
@@ -916,14 +1016,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/python-typing-survey-2026-ai-tools-and-checker-landscape.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Khảo sát Định kiểu Python 2026: Công cụ AI và Bối cảnh Trình kiểm tra",
-          "en": "Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape",
-          "es": "Encuesta de Tipado en Python 2026: Herramientas de IA y el Cambio de Comprobadores"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Khảo sát Định kiểu Python 2026: Công cụ AI và Bối cảnh Trình kiểm tra",
+          "en": "TigerIQ-generated illustration for: Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape",
+          "es": "Ilustración generada por TigerIQ para: Encuesta de Tipado en Python 2026: Herramientas de IA y el Cambio de Comprobadores"
         }
       },
       "corrections": []
@@ -1055,14 +1153,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/cloudflare-glm-5-3-kv-cache-exposure-remediation.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Cloudflare Khắc Phục Lỗi Phơi Nhiễm Bộ Nhớ Đệm KV Trên Mô Hình GLM-5.3",
-          "en": "Cloudflare Addresses Cross-Request KV Cache Exposure in GLM-5.3 Workers AI Model",
-          "es": "Cloudflare Remedia la Exposición de Caché KV en el Modelo GLM-5.3 de Workers AI"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Cloudflare Khắc Phục Lỗi Phơi Nhiễm Bộ Nhớ Đệm KV Trên Mô Hình GLM-5.3",
+          "en": "TigerIQ-generated illustration for: Cloudflare Addresses Cross-Request KV Cache Exposure in GLM-5.3 Workers AI Model",
+          "es": "Ilustración generada por TigerIQ para: Cloudflare Remedia la Exposición de Caché KV en el Modelo GLM-5.3 de Workers AI"
         }
       },
       "corrections": []
@@ -1194,14 +1290,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-models-prompt-caching-amazon-bedrock.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Mẫu bộ nhớ đệm nhắc lệnh cho các mô hình OpenAI trên Amazon Bedrock",
-          "en": "Prompt caching patterns for using OpenAI models on Amazon Bedrock",
-          "es": "Patrones de caché de avisos para modelos de OpenAI en Amazon Bedrock"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Mẫu bộ nhớ đệm nhắc lệnh cho các mô hình OpenAI trên Amazon Bedrock",
+          "en": "TigerIQ-generated illustration for: Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+          "es": "Ilustración generada por TigerIQ para: Patrones de caché de avisos para modelos de OpenAI en Amazon Bedrock"
         }
       },
       "corrections": []
@@ -1318,14 +1412,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA Minerva Chuyển Hóa Sự Hỗn Lộn Về Đo Lược Thành Hiệu Suất GPU Tối Ưu",
-          "en": "How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield",
-          "es": "Cómo NVIDIA Minerva Convierte El Caos De Telemetría En Rendimiento De GPU"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA Minerva Chuyển Hóa Sự Hỗn Lộn Về Đo Lược Thành Hiệu Suất GPU Tối Ưu",
+          "en": "TigerIQ-generated illustration for: How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield",
+          "es": "Ilustración generada por TigerIQ para: Cómo NVIDIA Minerva Convierte El Caos De Telemetría En Rendimiento De GPU"
         }
       },
       "corrections": []
@@ -1445,14 +1537,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Xây dựng truy xuất tác nhân trên Nền tảng Tri thức Amazon Bedrock được quản lý bằng CDK",
-          "en": "Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
-          "es": "Construir recuperación agéntica en una Base de Conocimiento de Amazon Bedrock administrada con CDK"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Xây dựng truy xuất tác nhân trên Nền tảng Tri thức Amazon Bedrock được quản lý bằng CDK",
+          "en": "TigerIQ-generated illustration for: Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK",
+          "es": "Ilustración generada por TigerIQ para: Construir recuperación agéntica en una Base de Conocimiento de Amazon Bedrock administrada con CDK"
         }
       },
       "corrections": []
@@ -1581,14 +1671,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/polar-peaks-ai-quest-mapping-human-brain.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Google ra mắt Polar Peaks để giảng dạy học sinh về lập bản đồ não bộ bằng AI",
-          "en": "Google Launches Polar Peaks AI Quest to Teach Students Brain Mapping",
-          "es": "Google lanza Polar Peaks para enseñar a los estudiantes mapeo cerebral con IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Google ra mắt Polar Peaks để giảng dạy học sinh về lập bản đồ não bộ bằng AI",
+          "en": "TigerIQ-generated illustration for: Google Launches Polar Peaks AI Quest to Teach Students Brain Mapping",
+          "es": "Ilustración generada por TigerIQ para: Google lanza Polar Peaks para enseñar a los estudiantes mapeo cerebral con IA"
         }
       },
       "corrections": []
@@ -1705,14 +1793,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-mission-control-2-5-autonomous-recovery-kubernetes.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA Mission Control 2.5 Mang Khả Năng Phục Hồi Tự Động Lên Kubernetes",
-          "en": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
-          "es": "Cómo NVIDIA Mission Control 2.5 Lleva la Recuperación Autónoma a Kubernetes"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA Mission Control 2.5 Mang Khả Năng Phục Hồi Tự Động Lên Kubernetes",
+          "en": "TigerIQ-generated illustration for: How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+          "es": "Ilustración generada por TigerIQ para: Cómo NVIDIA Mission Control 2.5 Lleva la Recuperación Autónoma a Kubernetes"
         }
       },
       "corrections": []
@@ -1829,14 +1915,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/scaling-nvidia-tensorrt-performance-optimization-global-performance-tuner.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA giới thiệu Global Performance Tuner trong TensorRT 11.1 nhằm tối ưu hóa hiệu suất",
-          "en": "NVIDIA Announces Global Performance Tuner in TensorRT 11.1 for Performance Optimization",
-          "es": "NVIDIA Lanza Global Performance Tuner en TensorRT 11.1 para Optimización"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA giới thiệu Global Performance Tuner trong TensorRT 11.1 nhằm tối ưu hóa hiệu suất",
+          "en": "TigerIQ-generated illustration for: NVIDIA Announces Global Performance Tuner in TensorRT 11.1 for Performance Optimization",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA Lanza Global Performance Tuner en TensorRT 11.1 para Optimización"
         }
       },
       "corrections": []
@@ -1953,14 +2037,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-frontier-model-security-update.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "OpenAI tăng cường bảo mật cho môi trường huấn luyện mô hình tiên phong",
-          "en": "OpenAI Strengthens Security for Frontier Model Training",
-          "es": "OpenAI refuerza la seguridad en el entrenamiento de modelos de frontera"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI tăng cường bảo mật cho môi trường huấn luyện mô hình tiên phong",
+          "en": "TigerIQ-generated illustration for: OpenAI Strengthens Security for Frontier Model Training",
+          "es": "Ilustración generada por TigerIQ para: OpenAI refuerza la seguridad en el entrenamiento de modelos de frontera"
         }
       },
       "corrections": []
@@ -2077,14 +2159,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-habitat-storage-scaling.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "OpenAI tối ưu hóa lưu trữ cho hơn 1 tỷ người dùng ChatGPT",
-          "en": "OpenAI Scales Habitat Storage for Over 1 Billion ChatGPT Users",
-          "es": "OpenAI escala el almacenamiento Habitat para más de mil millones de usuarios"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI tối ưu hóa lưu trữ cho hơn 1 tỷ người dùng ChatGPT",
+          "en": "TigerIQ-generated illustration for: OpenAI Scales Habitat Storage for Over 1 Billion ChatGPT Users",
+          "es": "Ilustración generada por TigerIQ para: OpenAI escala el almacenamiento Habitat para más de mil millones de usuarios"
         }
       },
       "corrections": []
@@ -2210,14 +2290,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-retail-ai-europe-announcements.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA công bố các giải pháp AI mới cho ngành bán lẻ tại châu Âu",
-          "en": "NVIDIA Announces New AI and Digital Twin Solutions for European Retail",
-          "es": "NVIDIA presenta nuevas soluciones de IA para el sector minorista europeo"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA công bố các giải pháp AI mới cho ngành bán lẻ tại châu Âu",
+          "en": "TigerIQ-generated illustration for: NVIDIA Announces New AI and Digital Twin Solutions for European Retail",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA presenta nuevas soluciones de IA para el sector minorista europeo"
         }
       },
       "corrections": []
@@ -2334,14 +2412,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/rescale-deploys-ai-triage-agent-using-aws-ai-dlc.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Rescale triển khai tác nhân AI tự động phân loại lỗi thử nghiệm",
-          "en": "Rescale Deploys AI Triage Agent Using AWS AI-DLC Framework",
-          "es": "Rescale implementa un agente de triaje con IA mediante el marco AI-DLC de AWS"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Rescale triển khai tác nhân AI tự động phân loại lỗi thử nghiệm",
+          "en": "TigerIQ-generated illustration for: Rescale Deploys AI Triage Agent Using AWS AI-DLC Framework",
+          "es": "Ilustración generada por TigerIQ para: Rescale implementa un agente de triaje con IA mediante el marco AI-DLC de AWS"
         }
       },
       "corrections": []
@@ -2458,14 +2534,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-sagemaker-tts-auto-scaling-optimization.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS tối ưu hóa tự động mở rộng cho mô hình chuyển văn bản thành giọng nói",
-          "en": "AWS Introduces Data-Driven Auto Scaling for TTS on SageMaker AI",
-          "es": "AWS optimiza el escalado automático para modelos TTS en SageMaker AI"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS tối ưu hóa tự động mở rộng cho mô hình chuyển văn bản thành giọng nói",
+          "en": "TigerIQ-generated illustration for: AWS Introduces Data-Driven Auto Scaling for TTS on SageMaker AI",
+          "es": "Ilustración generada por TigerIQ para: AWS optimiza el escalado automático para modelos TTS en SageMaker AI"
         }
       },
       "corrections": []
@@ -2585,14 +2659,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-kokoro-tts-streaming-sagemaker.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS ra mắt giải pháp giảm độ trễ cho tác nhân giọng nói AI với Kokoro TTS",
-          "en": "AWS Announces Low-Latency Speech Streaming for AI Agents Using Kokoro TTS",
-          "es": "AWS presenta streaming de voz de baja latencia para agentes de IA con Kokoro TTS"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS ra mắt giải pháp giảm độ trễ cho tác nhân giọng nói AI với Kokoro TTS",
+          "en": "TigerIQ-generated illustration for: AWS Announces Low-Latency Speech Streaming for AI Agents Using Kokoro TTS",
+          "es": "Ilustración generada por TigerIQ para: AWS presenta streaming de voz de baja latencia para agentes de IA con Kokoro TTS"
         }
       },
       "corrections": []
@@ -2715,14 +2787,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-announces-hipaa-eligible-amazon-quick.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS công bố Amazon Quick đạt tiêu chuẩn HIPAA",
-          "en": "AWS Announces HIPAA-Eligible Status for Amazon Quick",
-          "es": "AWS anuncia la elegibilidad HIPAA para Amazon Quick"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS công bố Amazon Quick đạt tiêu chuẩn HIPAA",
+          "en": "TigerIQ-generated illustration for: AWS Announces HIPAA-Eligible Status for Amazon Quick",
+          "es": "Ilustración generada por TigerIQ para: AWS anuncia la elegibilidad HIPAA para Amazon Quick"
         }
       },
       "corrections": []
@@ -2839,14 +2909,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-sagemaker-training-session-apis.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS ra mắt API phiên đào tạo cho Amazon SageMaker",
-          "en": "AWS Launches SageMaker Training Session APIs",
-          "es": "AWS presenta las API de sesión de entrenamiento para SageMaker"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS ra mắt API phiên đào tạo cho Amazon SageMaker",
+          "en": "TigerIQ-generated illustration for: AWS Launches SageMaker Training Session APIs",
+          "es": "Ilustración generada por TigerIQ para: AWS presenta las API de sesión de entrenamiento para SageMaker"
         }
       },
       "corrections": []
@@ -2963,14 +3031,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-launches-sagemaker-ai-serverless-training-sessions.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS ra mắt tính năng tùy chỉnh mô hình AI không cần quản lý GPU",
-          "en": "AWS Announces Serverless Training Sessions for SageMaker AI",
-          "es": "AWS lanza sesiones de entrenamiento serverless para SageMaker AI"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS ra mắt tính năng tùy chỉnh mô hình AI không cần quản lý GPU",
+          "en": "TigerIQ-generated illustration for: AWS Announces Serverless Training Sessions for SageMaker AI",
+          "es": "Ilustración generada por TigerIQ para: AWS lanza sesiones de entrenamiento serverless para SageMaker AI"
         }
       },
       "corrections": []
@@ -3087,14 +3153,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/iskaypet-deploys-amazon-bedrock-knowledge-bases.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "IskayPet hợp nhất kiến thức doanh nghiệp với Amazon Bedrock",
-          "en": "IskayPet Unifies Corporate Knowledge with Amazon Bedrock",
-          "es": "IskayPet unifica su conocimiento corporativo con Amazon Bedrock"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: IskayPet hợp nhất kiến thức doanh nghiệp với Amazon Bedrock",
+          "en": "TigerIQ-generated illustration for: IskayPet Unifies Corporate Knowledge with Amazon Bedrock",
+          "es": "Ilustración generada por TigerIQ para: IskayPet unifica su conocimiento corporativo con Amazon Bedrock"
         }
       },
       "corrections": []
@@ -3220,14 +3284,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/amazon-polly-generative-engine-upgrade.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Amazon nâng cấp công cụ tạo giọng nói Generative cho dịch vụ Polly",
-          "en": "Amazon Announces Major Upgrade to Amazon Polly Generative Engine",
-          "es": "Amazon lanza una actualización importante para el motor generativo de Amazon Polly"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Amazon nâng cấp công cụ tạo giọng nói Generative cho dịch vụ Polly",
+          "en": "TigerIQ-generated illustration for: Amazon Announces Major Upgrade to Amazon Polly Generative Engine",
+          "es": "Ilustración generada por TigerIQ para: Amazon lanza una actualización importante para el motor generativo de Amazon Polly"
         }
       },
       "corrections": []
@@ -3344,14 +3406,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/bayer-deploys-agentic-decision-engine-on-aws.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Bayer triển khai hệ thống AI đại lý trên nền tảng AWS",
-          "en": "Bayer Launches Agentic Decision Engine on Amazon Bedrock",
-          "es": "Bayer implementa un motor de decisiones basado en agentes en AWS"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Bayer triển khai hệ thống AI đại lý trên nền tảng AWS",
+          "en": "TigerIQ-generated illustration for: Bayer Launches Agentic Decision Engine on Amazon Bedrock",
+          "es": "Ilustración generada por TigerIQ para: Bayer implementa un motor de decisiones basado en agentes en AWS"
         }
       },
       "corrections": []
@@ -3471,14 +3531,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-quick-sight-geojson-update.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Amazon Quick Sight bổ sung hỗ trợ GeoJSON cho điểm và tuyến đường",
-          "en": "Amazon Quick Sight Adds GeoJSON Support for Points and Routes",
-          "es": "Amazon Quick Sight añade soporte GeoJSON para puntos y rutas"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Amazon Quick Sight bổ sung hỗ trợ GeoJSON cho điểm và tuyến đường",
+          "en": "TigerIQ-generated illustration for: Amazon Quick Sight Adds GeoJSON Support for Points and Routes",
+          "es": "Ilustración generada por TigerIQ para: Amazon Quick Sight añade soporte GeoJSON para puntos y rutas"
         }
       },
       "corrections": []
@@ -3595,14 +3653,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-sagemaker-cdk-autoscaling-orchestration.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS giới thiệu giải pháp tự động hóa mở rộng quy mô SageMaker AI",
-          "en": "AWS Announces CDK Orchestration for SageMaker AI Auto Scaling",
-          "es": "AWS anuncia orquestación con CDK para el autoescalado de SageMaker AI"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS giới thiệu giải pháp tự động hóa mở rộng quy mô SageMaker AI",
+          "en": "TigerIQ-generated illustration for: AWS Announces CDK Orchestration for SageMaker AI Auto Scaling",
+          "es": "Ilustración generada por TigerIQ para: AWS anuncia orquestación con CDK para el autoescalado de SageMaker AI"
         }
       },
       "corrections": []
@@ -3719,14 +3775,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-public-monitoring-updates.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật tính năng giám sát công khai cho doanh nghiệp",
-          "en": "GitHub Enhances Public Monitoring for Enterprise Security",
-          "es": "GitHub actualiza la monitorización pública para empresas"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật tính năng giám sát công khai cho doanh nghiệp",
+          "en": "TigerIQ-generated illustration for: GitHub Enhances Public Monitoring for Enterprise Security",
+          "es": "Ilustración generada por TigerIQ para: GitHub actualiza la monitorización pública para empresas"
         }
       },
       "corrections": []
@@ -3846,14 +3900,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-launches-multi-turn-reinforcement-learning-on-sagemaker-ai.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "AWS ra mắt Multi-Turn Reinforcement Learning trên Amazon SageMaker AI",
-          "en": "AWS Announces Multi-Turn Reinforcement Learning on Amazon SageMaker AI",
-          "es": "AWS anuncia Multi-Turn Reinforcement Learning en Amazon SageMaker AI"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AWS ra mắt Multi-Turn Reinforcement Learning trên Amazon SageMaker AI",
+          "en": "TigerIQ-generated illustration for: AWS Announces Multi-Turn Reinforcement Learning on Amazon SageMaker AI",
+          "es": "Ilustración generada por TigerIQ para: AWS anuncia Multi-Turn Reinforcement Learning en Amazon SageMaker AI"
         }
       },
       "corrections": []
@@ -3970,14 +4022,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-metrics-api-update.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật API số liệu sử dụng Copilot",
-          "en": "GitHub Expands Copilot Usage Metrics API",
-          "es": "GitHub actualiza la API de métricas de uso de Copilot"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật API số liệu sử dụng Copilot",
+          "en": "TigerIQ-generated illustration for: GitHub Expands Copilot Usage Metrics API",
+          "es": "Ilustración generada por TigerIQ para: GitHub actualiza la API de métricas de uso de Copilot"
         }
       },
       "corrections": []
@@ -4097,14 +4147,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-emu-deprovisioning-fix.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub khắc phục sự cố xóa tài khoản người dùng doanh nghiệp",
-          "en": "GitHub Addresses Enterprise Managed User Deletion Error",
-          "es": "GitHub corrige error en la eliminación de usuarios empresariales"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub khắc phục sự cố xóa tài khoản người dùng doanh nghiệp",
+          "en": "TigerIQ-generated illustration for: GitHub Addresses Enterprise Managed User Deletion Error",
+          "es": "Ilustración generada por TigerIQ para: GitHub corrige error en la eliminación de usuarios empresariales"
         }
       },
       "corrections": []
@@ -4221,14 +4269,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-microsoft-teams-integration.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub tích hợp Copilot vào Microsoft Teams",
-          "en": "GitHub Integrates Copilot into Microsoft Teams",
-          "es": "GitHub integra Copilot en Microsoft Teams"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub tích hợp Copilot vào Microsoft Teams",
+          "en": "TigerIQ-generated illustration for: GitHub Integrates Copilot into Microsoft Teams",
+          "es": "Ilustración generada por TigerIQ para: GitHub integra Copilot en Microsoft Teams"
         }
       },
       "corrections": []
@@ -4345,14 +4391,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-apps-enterprise-general-availability.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub công bố tính năng cài đặt GitHub Apps cho doanh nghiệp",
-          "en": "GitHub Announces General Availability of Enterprise GitHub Apps",
-          "es": "GitHub anuncia la disponibilidad general de GitHub Apps para empresas"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub công bố tính năng cài đặt GitHub Apps cho doanh nghiệp",
+          "en": "TigerIQ-generated illustration for: GitHub Announces General Availability of Enterprise GitHub Apps",
+          "es": "Ilustración generada por TigerIQ para: GitHub anuncia la disponibilidad general de GitHub Apps para empresas"
         }
       },
       "corrections": []
@@ -4475,14 +4519,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-geforce-now-call-of-duty-modern-warfare-4-launch.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA đưa Call of Duty: Modern Warfare 4 lên nền tảng đám mây GeForce NOW",
-          "en": "NVIDIA Adds Call of Duty: Modern Warfare 4 to GeForce NOW Cloud Library",
-          "es": "NVIDIA incorpora Call of Duty: Modern Warfare 4 a la biblioteca de GeForce NOW"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA đưa Call of Duty: Modern Warfare 4 lên nền tảng đám mây GeForce NOW",
+          "en": "TigerIQ-generated illustration for: NVIDIA Adds Call of Duty: Modern Warfare 4 to GeForce NOW Cloud Library",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA incorpora Call of Duty: Modern Warfare 4 a la biblioteca de GeForce NOW"
         }
       },
       "corrections": []
@@ -4599,14 +4641,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-industry-benchmarking.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật tính năng so sánh ngành trên bảng điều khiển Copilot",
-          "en": "GitHub Adds Industry Benchmarking to Copilot Impact Dashboard",
-          "es": "GitHub añade comparativas de industria al panel de impacto de Copilot"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật tính năng so sánh ngành trên bảng điều khiển Copilot",
+          "en": "TigerIQ-generated illustration for: GitHub Adds Industry Benchmarking to Copilot Impact Dashboard",
+          "es": "Ilustración generada por TigerIQ para: GitHub añade comparativas de industria al panel de impacto de Copilot"
         }
       },
       "corrections": []
@@ -4723,14 +4763,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-pull-request-interface-updates.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật giao diện xem Pull Request",
-          "en": "GitHub Enhances Pull Request Review Interface",
-          "es": "GitHub actualiza la interfaz de revisión de Pull Requests"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật giao diện xem Pull Request",
+          "en": "TigerIQ-generated illustration for: GitHub Enhances Pull Request Review Interface",
+          "es": "Ilustración generada por TigerIQ para: GitHub actualiza la interfaz de revisión de Pull Requests"
         }
       },
       "corrections": []
@@ -4847,14 +4885,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-public-monitoring-data-residency.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub mở rộng tính năng giám sát công khai cho khách hàng lưu trữ dữ liệu",
-          "en": "GitHub Expands Public Monitoring to Data Residency Customers",
-          "es": "GitHub expande la monitorización pública a clientes con residencia de datos"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub mở rộng tính năng giám sát công khai cho khách hàng lưu trữ dữ liệu",
+          "en": "TigerIQ-generated illustration for: GitHub Expands Public Monitoring to Data Residency Customers",
+          "es": "Ilustración generada por TigerIQ para: GitHub expande la monitorización pública a clientes con residencia de datos"
         }
       },
       "corrections": []
@@ -4971,14 +5007,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-actions-blob-storage-api-update.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật API meta cho lưu trữ blob của Actions",
-          "en": "GitHub Updates Meta API for Actions Blob Storage",
-          "es": "GitHub actualiza la API meta para el almacenamiento blob de Actions"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật API meta cho lưu trữ blob của Actions",
+          "en": "TigerIQ-generated illustration for: GitHub Updates Meta API for Actions Blob Storage",
+          "es": "Ilustración generada por TigerIQ para: GitHub actualiza la API meta para el almacenamiento blob de Actions"
         }
       },
       "corrections": []
@@ -5095,14 +5129,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-global-default-policy-rollout.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub triển khai chính sách mặc định toàn cầu cho Copilot",
-          "en": "GitHub Rolls Out Global Default Policy for Copilot Features",
-          "es": "GitHub implementa política predeterminada global para Copilot"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub triển khai chính sách mặc định toàn cầu cho Copilot",
+          "en": "TigerIQ-generated illustration for: GitHub Rolls Out Global Default Policy for Copilot Features",
+          "es": "Ilustración generada por TigerIQ para: GitHub implementa política predeterminada global para Copilot"
         }
       },
       "corrections": []
@@ -5219,14 +5251,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-usage-metrics-update.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật số liệu sử dụng Copilot",
-          "en": "GitHub Enhances Copilot Usage Metrics API",
-          "es": "GitHub actualiza la API de métricas de Copilot"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật số liệu sử dụng Copilot",
+          "en": "TigerIQ-generated illustration for: GitHub Enhances Copilot Usage Metrics API",
+          "es": "Ilustración generada por TigerIQ para: GitHub actualiza la API de métricas de Copilot"
         }
       },
       "corrections": []
@@ -5343,14 +5373,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/kazakhstan-ai-infrastructure-expansion.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Kazakhstan mở rộng hạ tầng tính toán cho tương lai AI",
-          "en": "Kazakhstan Expands Compute Capacity for AI Development",
-          "es": "Kazajistán expande su capacidad de cómputo para la IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Kazakhstan mở rộng hạ tầng tính toán cho tương lai AI",
+          "en": "TigerIQ-generated illustration for: Kazakhstan Expands Compute Capacity for AI Development",
+          "es": "Ilustración generada por TigerIQ para: Kazajistán expande su capacidad de cómputo para la IA"
         }
       },
       "corrections": []
@@ -5485,14 +5513,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-visual-studio-september-2026-update.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật Copilot cho Visual Studio tháng 9 năm 2026",
-          "en": "GitHub Announces September 2026 Updates for Copilot in Visual Studio",
-          "es": "GitHub presenta las actualizaciones de septiembre de 2026 para Copilot en Visual Studio"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật Copilot cho Visual Studio tháng 9 năm 2026",
+          "en": "TigerIQ-generated illustration for: GitHub Announces September 2026 Updates for Copilot in Visual Studio",
+          "es": "Ilustración generada por TigerIQ para: GitHub presenta las actualizaciones de septiembre de 2026 para Copilot en Visual Studio"
         }
       },
       "corrections": []
@@ -5621,14 +5647,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-launches-minerva-aiops-platform.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA ra mắt nền tảng Minerva để tối ưu hóa vận hành nhà máy AI",
-          "en": "NVIDIA Unveils Minerva AIOps Platform for AI Factory Observability",
-          "es": "NVIDIA presenta Minerva, plataforma AIOps para fábricas de IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA ra mắt nền tảng Minerva để tối ưu hóa vận hành nhà máy AI",
+          "en": "TigerIQ-generated illustration for: NVIDIA Unveils Minerva AIOps Platform for AI Factory Observability",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA presenta Minerva, plataforma AIOps para fábricas de IA"
         }
       },
       "corrections": []
@@ -5757,14 +5781,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-announces-dsx-ai-factory-platform.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA ra mắt nền tảng DSX để tối ưu hóa năng lượng cho nhà máy AI",
-          "en": "NVIDIA Introduces DSX AI Factory Platform to Address Power Bottlenecks",
-          "es": "NVIDIA presenta la plataforma DSX para optimizar la energía en fábricas de IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA ra mắt nền tảng DSX để tối ưu hóa năng lượng cho nhà máy AI",
+          "en": "TigerIQ-generated illustration for: NVIDIA Introduces DSX AI Factory Platform to Address Power Bottlenecks",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA presenta la plataforma DSX para optimizar la energía en fábricas de IA"
         }
       },
       "corrections": []
@@ -5899,14 +5921,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-expands-cosmos-platform-for-physical-ai.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA mở rộng nền tảng Cosmos cho AI vật lý",
-          "en": "NVIDIA Expands Cosmos Platform for Physical AI Development",
-          "es": "NVIDIA expande la plataforma Cosmos para IA física"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA mở rộng nền tảng Cosmos cho AI vật lý",
+          "en": "TigerIQ-generated illustration for: NVIDIA Expands Cosmos Platform for Physical AI Development",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA expande la plataforma Cosmos para IA física"
         }
       },
       "corrections": []
@@ -6041,14 +6061,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-european-financial-ai-adoption.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Các tổ chức tài chính châu Âu áp dụng mô hình AI mở của NVIDIA",
-          "en": "European Financial Institutions Adopt NVIDIA Open Model Infrastructure",
-          "es": "Instituciones financieras europeas adoptan modelos abiertos de NVIDIA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Các tổ chức tài chính châu Âu áp dụng mô hình AI mở của NVIDIA",
+          "en": "TigerIQ-generated illustration for: European Financial Institutions Adopt NVIDIA Open Model Infrastructure",
+          "es": "Ilustración generada por TigerIQ para: Instituciones financieras europeas adoptan modelos abiertos de NVIDIA"
         }
       },
       "corrections": []
@@ -6177,14 +6195,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-factory-operations-blueprint-launch.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA ra mắt giải pháp Factory Operations Blueprint cho sản xuất công nghiệp",
-          "en": "NVIDIA Announces Factory Operations Blueprint for Industrial AI",
-          "es": "NVIDIA presenta Factory Operations Blueprint para la industria"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA ra mắt giải pháp Factory Operations Blueprint cho sản xuất công nghiệp",
+          "en": "TigerIQ-generated illustration for: NVIDIA Announces Factory Operations Blueprint for Industrial AI",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA presenta Factory Operations Blueprint para la industria"
         }
       },
       "corrections": []
@@ -6313,14 +6329,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-expands-european-ai-cloud-infrastructure.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA mở rộng hạ tầng đám mây AI tại châu Âu",
-          "en": "NVIDIA Expands European AI Cloud Infrastructure and Security",
-          "es": "NVIDIA expande su infraestructura de nube de IA en Europa"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA mở rộng hạ tầng đám mây AI tại châu Âu",
+          "en": "TigerIQ-generated illustration for: NVIDIA Expands European AI Cloud Infrastructure and Security",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA expande su infraestructura de nube de IA en Europa"
         }
       },
       "corrections": []
@@ -6449,14 +6463,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-cli-expiring-oauth-tokens.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub CLI giới thiệu mã thông báo OAuth tự động làm mới",
-          "en": "GitHub CLI Introduces Expiring and Auto-Refreshing OAuth Tokens",
-          "es": "GitHub CLI presenta tokens OAuth que expiran y se actualizan automáticamente"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub CLI giới thiệu mã thông báo OAuth tự động làm mới",
+          "en": "TigerIQ-generated illustration for: GitHub CLI Introduces Expiring and Auto-Refreshing OAuth Tokens",
+          "es": "Ilustración generada por TigerIQ para: GitHub CLI presenta tokens OAuth que expiran y se actualizan automáticamente"
         }
       },
       "corrections": []
@@ -6585,14 +6597,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/google-cloud-nvidia-vera-rubin-availability.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Google Cloud và NVIDIA công bố hạ tầng Vera Rubin",
-          "en": "Google Cloud and NVIDIA Announce Vera Rubin Infrastructure",
-          "es": "Google Cloud y NVIDIA anuncian infraestructura Vera Rubin"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Google Cloud và NVIDIA công bố hạ tầng Vera Rubin",
+          "en": "TigerIQ-generated illustration for: Google Cloud and NVIDIA Announce Vera Rubin Infrastructure",
+          "es": "Ilustración generada por TigerIQ para: Google Cloud y NVIDIA anuncian infraestructura Vera Rubin"
         }
       },
       "corrections": []
@@ -6721,14 +6731,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-gtc-berlin-local-ai-hardware-announcements.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA công bố loạt phần cứng AI cục bộ mới tại GTC Berlin",
-          "en": "NVIDIA Unveils Expanded Local AI Hardware Portfolio at GTC Berlin",
-          "es": "NVIDIA presenta su nueva cartera de hardware de IA local en GTC Berlin"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA công bố loạt phần cứng AI cục bộ mới tại GTC Berlin",
+          "en": "TigerIQ-generated illustration for: NVIDIA Unveils Expanded Local AI Hardware Portfolio at GTC Berlin",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA presenta su nueva cartera de hardware de IA local en GTC Berlin"
         }
       },
       "corrections": []
@@ -6857,14 +6865,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-dependabot-rest-api-version-updates.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật API Dependabot với thông tin phiên bản phụ thuộc",
-          "en": "GitHub Enhances Dependabot REST API with Dependency Version Data",
-          "es": "GitHub actualiza la API de Dependabot con datos de versiones"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật API Dependabot với thông tin phiên bản phụ thuộc",
+          "en": "TigerIQ-generated illustration for: GitHub Enhances Dependabot REST API with Dependency Version Data",
+          "es": "Ilustración generada por TigerIQ para: GitHub actualiza la API de Dependabot con datos de versiones"
         }
       },
       "corrections": []
@@ -6993,14 +6999,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-secret-scanning-updates-october-2026.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub cập nhật tính năng quét bí mật",
-          "en": "GitHub Announces Updates to Secret Scanning",
-          "es": "GitHub anuncia actualizaciones en el escaneo de secretos"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub cập nhật tính năng quét bí mật",
+          "en": "TigerIQ-generated illustration for: GitHub Announces Updates to Secret Scanning",
+          "es": "Ilustración generada por TigerIQ para: GitHub anuncia actualizaciones en el escaneo de secretos"
         }
       },
       "corrections": []
@@ -7129,14 +7133,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-bulk-migrate-branch-protections-to-rulesets.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "GitHub ra mắt tính năng chuyển đổi hàng loạt quy tắc bảo vệ nhánh sang Rulesets",
-          "en": "GitHub Introduces Bulk Migration of Branch Protections to Rulesets",
-          "es": "GitHub lanza la migración masiva de protecciones de rama a Rulesets"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub ra mắt tính năng chuyển đổi hàng loạt quy tắc bảo vệ nhánh sang Rulesets",
+          "en": "TigerIQ-generated illustration for: GitHub Introduces Bulk Migration of Branch Protections to Rulesets",
+          "es": "Ilustración generada por TigerIQ para: GitHub lanza la migración masiva de protecciones de rama a Rulesets"
         }
       },
       "corrections": []
@@ -7265,14 +7267,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/southeast-asia-digital-economy-ai-growth.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "Nền kinh tế số Đông Nam Á dự kiến đạt 368 tỷ USD",
-          "en": "Southeast Asia Digital Economy Projected to Hit $368 Billion",
-          "es": "La economía digital del Sudeste Asiático alcanzará los 368 mil millones"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Nền kinh tế số Đông Nam Á dự kiến đạt 368 tỷ USD",
+          "en": "TigerIQ-generated illustration for: Southeast Asia Digital Economy Projected to Hit $368 Billion",
+          "es": "Ilustración generada por TigerIQ para: La economía digital del Sudeste Asiático alcanzará los 368 mil millones"
         }
       },
       "corrections": []
@@ -7401,14 +7401,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-bsc-ai-factory-collaboration.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
         "generated": true,
-        "generator": "TigerIQ original SVG illustration",
-        "source": "TigerIQ newsroom",
-        "rights": "Original TigerIQ illustration, no third-party imagery",
         "alt": {
-          "vi": "NVIDIA và BSC hợp tác thúc đẩy các startup AI tại Tây Ban Nha",
-          "en": "NVIDIA and BSC Partner to Advance AI Startups in Spain",
-          "es": "NVIDIA y BSC colaboran para impulsar startups de IA en España"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA và BSC hợp tác thúc đẩy các startup AI tại Tây Ban Nha",
+          "en": "TigerIQ-generated illustration for: NVIDIA and BSC Partner to Advance AI Startups in Spain",
+          "es": "Ilustración generada por TigerIQ para: NVIDIA y BSC colaboran para impulsar startups de IA en España"
         }
       },
       "corrections": []
@@ -7557,12 +7555,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-muse-spark-open-math-research-2026.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-original-editorial-svg-v1",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Minh họa gốc TigerIQ về sáu bài nghiên cứu toán học sử dụng Muse Spark trong quy trình hợp tác người và AI",
-          "en": "Original TigerIQ illustration of six Muse Spark mathematics research papers connected through human-AI collaboration",
-          "es": "Ilustración original de TigerIQ de seis artículos de investigación matemática con Muse Spark y colaboración entre personas e IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Muse Spark bước vào toán học mở: 6 bài nghiên cứu cho thấy AI đang đổi vai từ “giải bài” sang cộng tác nghiên cứu",
+          "en": "TigerIQ-generated illustration for: Muse Spark moves into open mathematics: six papers show AI shifting from problem-solving to research collaboration",
+          "es": "Ilustración generada por TigerIQ para: Muse Spark entra en las matemáticas abiertas: seis artículos muestran el paso de resolver problemas a colaborar en investigación"
         }
       }
     },
@@ -7660,13 +7658,15 @@
       },
       "corrections": [],
       "cover": {
-        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/suncatcher.width-1300.jpg",
-        "generated": false,
-        "generator": "Google official editorial image",
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/google-project-suncatcher-satellite-ai-2026.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
         "alt": {
-          "vi": "Project Suncatcher của Google",
-          "en": "Google Project Suncatcher",
-          "es": "Project Suncatcher de Google"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Project Suncatcher đã lên quỹ đạo: Google đưa thử nghiệm hạ tầng AI ra không gian",
+          "en": "TigerIQ-generated illustration for: Project Suncatcher reaches orbit as Google tests a new frontier for AI infrastructure",
+          "es": "Ilustración generada por TigerIQ para: Project Suncatcher llega a órbita mientras Google prueba una nueva frontera para la infraestructura de IA"
         }
       }
     },
@@ -7782,16 +7782,16 @@
         ]
       },
       "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/google-september-ai-roundup-gemini4.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
         "alt": {
-          "vi": "Google gom một tháng AI vào một bản tổng kết — và bức tranh lớn hơn Gemini 4",
-          "en": "Google packs a month of AI into one roundup — and the picture is bigger than Gemini 4",
-          "es": "Google resume un mes de IA — y el panorama es más grande que Gemini 4"
-        },
-        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/google-september-ai-roundup-gemini4.svg",
-        "generator": "tigeriq-editorial-visual-v2",
-        "generated": true
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Google gom một tháng AI vào một bản tổng kết — và bức tranh lớn hơn Gemini 4",
+          "en": "TigerIQ-generated illustration for: Google packs a month of AI into one roundup — and the picture is bigger than Gemini 4",
+          "es": "Ilustración generada por TigerIQ para: Google resume un mes de IA — y el panorama es más grande que Gemini 4"
+        }
       }
     },
     {
@@ -7906,16 +7906,16 @@
         ]
       },
       "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/anthropic-100m-ai-engineer-training.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
         "alt": {
-          "vi": "Anthropic bỏ 100 triệu USD để đào tạo 10.000 kỹ sư: nút thắt AI có thể không còn nằm ở model",
-          "en": "Anthropic puts $100 million into training 10,000 engineers: the AI bottleneck may no longer be the model",
-          "es": "Anthropic invierte 100 millones de dólares en formar a 10.000 ingenieros"
-        },
-        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/anthropic-100m-ai-engineer-training.svg",
-        "generator": "tigeriq-editorial-visual-v2",
-        "generated": true
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Anthropic bỏ 100 triệu USD để đào tạo 10.000 kỹ sư: nút thắt AI có thể không còn nằm ở model",
+          "en": "TigerIQ-generated illustration for: Anthropic puts $100 million into training 10,000 engineers: the AI bottleneck may no longer be the model",
+          "es": "Ilustración generada por TigerIQ para: Anthropic invierte 100 millones de dólares en formar a 10.000 ingenieros"
+        }
       }
     },
     {
@@ -8030,16 +8030,16 @@
         ]
       },
       "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt6-builders-guide.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
         "alt": {
-          "vi": "GPT-6 không còn chỉ là chuyện chọn model: OpenAI đang dạy developer cách dùng cả một “gia đình” AI",
-          "en": "GPT-6 is no longer just about picking a model: OpenAI teaches developers to use an AI family",
-          "es": "GPT-6 ya no consiste solo en elegir un modelo: OpenAI enseña a usar una familia de IA"
-        },
-        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt6-builders-guide.svg",
-        "generator": "tigeriq-editorial-visual-v2",
-        "generated": true
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GPT-6 không còn chỉ là chuyện chọn model: OpenAI đang dạy developer cách dùng cả một “gia đình” AI",
+          "en": "TigerIQ-generated illustration for: GPT-6 is no longer just about picking a model: OpenAI teaches developers to use an AI family",
+          "es": "Ilustración generada por TigerIQ para: GPT-6 ya no consiste solo en elegir un modelo: OpenAI enseña a usar una familia de IA"
+        }
       }
     },
     {
@@ -8162,16 +8162,16 @@
         ]
       },
       "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/ai-investment-race-returns-test-30-trillion.svg",
         "width": 1200,
         "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
         "alt": {
-          "vi": "AI đang đốt một núi tiền. Câu hỏi là: bao giờ nó kiếm lại được?",
-          "en": "AI's trillion-dollar race faces its returns test",
-          "es": "La carrera billonaria de la IA afronta la prueba de rentabilidad"
-        },
-        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/ai-investment-race-returns-test-30-trillion.svg",
-        "generator": "tigeriq-editorial-visual-v2",
-        "generated": true
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: AI đang đốt một núi tiền. Câu hỏi là: bao giờ nó kiếm lại được?",
+          "en": "TigerIQ-generated illustration for: AI's trillion-dollar race faces its returns test",
+          "es": "Ilustración generada por TigerIQ para: La carrera billonaria de la IA afronta la prueba de rentabilidad"
+        }
       }
     },
     {
@@ -8815,12 +8815,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/anthropic-frontier-academy-100m.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-visual-v2",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: Anthropic đầu tư 100 triệu USD để đào tạo 10.000 kỹ sư triển khai AI",
-          "en": "Editorial illustration for: Anthropic commits $100M to train 10,000 frontier deployment engineers",
-          "es": "Ilustración editorial para: Anthropic invertirá 100 millones de dólares para formar 10.000 ingenieros de IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Anthropic đầu tư 100 triệu USD để đào tạo 10.000 kỹ sư triển khai AI",
+          "en": "TigerIQ-generated illustration for: Anthropic commits $100M to train 10,000 frontier deployment engineers",
+          "es": "Ilustración generada por TigerIQ para: Anthropic invertirá 100 millones de dólares para formar 10.000 ingenieros de IA"
         }
       }
     },
@@ -8948,12 +8948,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-dgx-spark-64gb-local-ai.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-visual-v2",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: NVIDIA ra bản DGX Spark 64GB cho AI chạy cục bộ",
-          "en": "Editorial illustration for: NVIDIA adds a 64GB DGX Spark for local AI",
-          "es": "Ilustración editorial para: NVIDIA lanza DGX Spark de 64 GB para IA local"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: NVIDIA ra bản DGX Spark 64GB cho AI chạy cục bộ",
+          "en": "TigerIQ-generated illustration for: Powerful AI is leaving the data center: NVIDIA wants an AI machine on the developer's desk",
+          "es": "Ilustración generada por TigerIQ para: La IA potente sale del centro de datos: NVIDIA quiere una máquina de IA en el escritorio"
         }
       }
     },
@@ -9073,12 +9073,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-models-deprecated-oct-2026.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-visual-v2",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: GitHub Copilot ngừng một số mô hình cũ và chuyển sang thế hệ mới",
-          "en": "Editorial illustration for: GitHub Copilot deprecates several older models",
-          "es": "Ilustración editorial para: GitHub Copilot retira varios modelos antiguos"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub Copilot ngừng một số mô hình cũ và chuyển sang thế hệ mới",
+          "en": "TigerIQ-generated illustration for: GitHub Copilot deprecates several older models",
+          "es": "Ilustración generada por TigerIQ para: GitHub Copilot retira varios modelos antiguos"
         }
       }
     },
@@ -9198,12 +9198,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-computer-use-desktop.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-visual-v2",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: GitHub Copilot có thể điều khiển ứng dụng desktop bằng Computer Use",
-          "en": "Editorial illustration for: GitHub Copilot can now control desktop apps with computer use",
-          "es": "Ilustración editorial para: GitHub Copilot ya puede controlar aplicaciones de escritorio"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub Copilot có thể điều khiển ứng dụng desktop bằng Computer Use",
+          "en": "TigerIQ-generated illustration for: GitHub Copilot can now control desktop apps with computer use",
+          "es": "Ilustración generada por TigerIQ para: GitHub Copilot ya puede controlar aplicaciones de escritorio"
         }
       }
     },
@@ -9323,12 +9323,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-copilot-dynamic-workflows.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-photo-v1",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: GitHub Copilot thêm Dynamic Workflows để điều phối quy trình nhiều tác nhân",
-          "en": "Editorial illustration for: GitHub Copilot adds Dynamic Workflows for multi-agent orchestration",
-          "es": "Ilustración editorial para: GitHub Copilot añade Dynamic Workflows para orquestación multiagente"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub Copilot thêm Dynamic Workflows để điều phối quy trình nhiều tác nhân",
+          "en": "TigerIQ-generated illustration for: GitHub Copilot adds Dynamic Workflows for multi-agent orchestration",
+          "es": "Ilustración generada por TigerIQ para: GitHub Copilot añade Dynamic Workflows para orquestación multiagente"
         }
       }
     },
@@ -9448,12 +9448,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/google-synthid-bio-protein-watermark.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-photo-v1",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: Google DeepMind thử watermark cho protein do AI thiết kế với SynthID Bio",
-          "en": "Editorial illustration for: Google DeepMind introduces SynthID Bio for watermarking AI-designed proteins",
-          "es": "Ilustración editorial para: Google DeepMind presenta SynthID Bio para marcar proteínas diseñadas por IA"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Google DeepMind thử watermark cho protein do AI thiết kế với SynthID Bio",
+          "en": "TigerIQ-generated illustration for: Google DeepMind introduces SynthID Bio for watermarking AI-designed proteins",
+          "es": "Ilustración generada por TigerIQ para: Google DeepMind presenta SynthID Bio para marcar proteínas diseñadas por IA"
         }
       }
     },
@@ -9574,12 +9574,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-devday-2026-agents-ultrafast.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-photo-v1",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: OpenAI DevDay 2026 đẩy mạnh agent luôn hoạt động và chế độ Ultrafast",
-          "en": "Editorial illustration for: OpenAI DevDay 2026 pushes always-on agents and Ultrafast inference",
-          "es": "Ilustración editorial para: OpenAI DevDay 2026 impulsa agentes permanentes y el modo Ultrafast"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI DevDay 2026 đẩy mạnh agent luôn hoạt động và chế độ Ultrafast",
+          "en": "TigerIQ-generated illustration for: OpenAI DevDay 2026 pushes always-on agents and Ultrafast inference",
+          "es": "Ilustración generada por TigerIQ para: OpenAI DevDay 2026 impulsa agentes permanentes y el modo Ultrafast"
         }
       }
     },
@@ -9699,12 +9699,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-gpt-6-1-sol-launch.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-photo-v1",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: OpenAI ra GPT-6.1 Sol, nhắm tới coding tác nhân và công việc chuyên môn",
-          "en": "Editorial illustration for: OpenAI launches GPT-6.1 Sol for agentic coding and professional work",
-          "es": "Ilustración editorial para: OpenAI lanza GPT-6.1 Sol para programación agéntica y trabajo profesional"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI ra GPT-6.1 Sol, nhắm tới coding tác nhân và công việc chuyên môn",
+          "en": "TigerIQ-generated illustration for: OpenAI launches GPT-6.1 Sol for agentic coding and professional work",
+          "es": "Ilustración generada por TigerIQ para: OpenAI lanza GPT-6.1 Sol para programación agéntica y trabajo profesional"
         }
       }
     },
@@ -9824,12 +9824,12 @@
         "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/anthropic-claude-sonnet-5-5.svg",
         "width": 1200,
         "height": 675,
-        "generator": "tigeriq-editorial-photo-v1",
+        "generator": "tigeriq-cover-v1",
         "generated": true,
         "alt": {
-          "vi": "Ảnh minh họa cho bài: Anthropic giới thiệu Claude Sonnet 5.5, nhanh hơn và rẻ hơn Sonnet 5",
-          "en": "Editorial illustration for: Anthropic introduces Claude Sonnet 5.5 with higher speed and lower cost",
-          "es": "Ilustración editorial para: Anthropic presenta Claude Sonnet 5.5 con más velocidad y menor costo"
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Anthropic giới thiệu Claude Sonnet 5.5, nhanh hơn và rẻ hơn Sonnet 5",
+          "en": "TigerIQ-generated illustration for: Anthropic introduces Claude Sonnet 5.5 with higher speed and lower cost",
+          "es": "Ilustración generada por TigerIQ para: Anthropic presenta Claude Sonnet 5.5 con más velocidad y menor costo"
         }
       }
     }
