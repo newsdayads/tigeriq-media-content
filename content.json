@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T19:52:06.266Z",
+  "updatedAt": "2026-10-28T20:07:24.821Z",
   "breaking": {
-    "vi": "Mở rộng quy mô lưu trữ trực tuyến để phục vụ hơn 1 tỷ người dùng ChatGPT (Phần II)",
-    "en": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
-    "es": "Ampliar rápidamente el almacenamiento en línea para servir a más de 1.000 millones de usuarios de ChatGPT (Parte II)"
+    "vi": "OpenAI và NASK của Ba Lan hợp tác thúc đẩy an toàn và bảo mật trí tuệ nhân tạo",
+    "en": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+    "es": "OpenAI y la institución polaca NASK se asocian para promover la seguridad en la IA"
   },
   "articles": [
+    {
+      "slug": "openai-and-poland-s-nask-partner-to-advance-ai-safety-and-security",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T20:07:24.821Z",
+      "modifiedAt": "2026-10-28T20:07:24.821Z",
+      "editions": {
+        "vi": {
+          "title": "OpenAI và NASK của Ba Lan hợp tác thúc đẩy an toàn và bảo mật trí tuệ nhân tạo",
+          "dek": "OpenAI đã công bố thỏa thuận hợp tác chiến lược với Viện Nghiên cứu NASK của Ba Lan nhằm nâng cao tiêu chuẩn an toàn và bảo mật cho các hệ thống trí tuệ nhân tạo.",
+          "takeaways": [
+            "OpenAI hợp tác cùng cơ quan nghiên cứu NASK của Ba Lan.",
+            "Mục tiêu cốt lõi là nâng cao mức độ an toàn và bảo mật của công nghệ AI.",
+            "Sự kiện đánh dấu bước tiến mới trong việc hợp tác quốc tế quản Lev quản lý rủi ro AI."
+          ],
+          "sections": [
+            {
+              "heading": "Hợp tác chiến lược vì an toàn AI",
+              "body": "OpenAI và Viện Nghiên cứu Quốc gia Ba Lan (NASK) vừa chính thức ký kết thỏa thuận hợp tác nhằm tập trung nghiên cứu, phát triển các giải pháp đảm bảo an toàn và bảo mật cho các ứng dụng trí tuệ nhân tạo. Sự hợp tác này diễn ra trong bối cảnh cộng đồng quốc tế đang đẩy mạnh việc kiểm soát rủi ro từ các mô hình ngôn ngữ lớn và công nghệ tự động hóa."
+            },
+            {
+              "heading": "Tác động đến hệ sinh thái công nghệ châu Âu",
+              "body": "Thông qua việc bắt tay với NASK, OpenAI không chỉ củng cố sự hiện diện tại khu vực Trung và Đông Âu mà còn phối hợp cùng các chuyên gia địa phương để nghiên cứu sâu hơn về các mối đe dọa an ninh mạng liên quan đến AI. Điều này giúp định hình các tiêu chuẩn tuân thủ quy định ngặt nghèo của Liên minh Châu Âu trong thời gian tới."
+            }
+          ]
+        },
+        "en": {
+          "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+          "dek": "OpenAI has announced a strategic partnership with Poland's NASK research institute to enhance the safety and security standards of artificial intelligence systems.",
+          "takeaways": [
+            "OpenAI teams up with Poland's NASK research institute.",
+            "The primary focus is on advancing AI safety and security measures.",
+            "The partnership highlights growing international cooperation in managing AI risks."
+          ],
+          "sections": [
+            {
+              "heading": "Strategic Partnership for AI Safety",
+              "body": "OpenAI and Poland's NASK (National Academic Computer Network) have officially announced a partnership aimed at researching and developing solutions to ensure the safety and security of artificial intelligence applications. This collaboration comes as the global community increases its focus on mitigating risks associated with large language models and automation technologies."
+            },
+            {
+              "heading": "Impact on the European Tech Ecosystem",
+              "body": "By joining forces with NASK, OpenAI is strengthening its footprint in Central and Eastern Europe while collaborating with local experts to better understand cybersecurity threats related to AI. This initiative will also help shape compliance standards aligned with upcoming European Union regulations."
+            }
+          ]
+        },
+        "es": {
+          "title": "OpenAI y la institución polaca NASK se asocian para promover la seguridad en la IA",
+          "dek": "OpenAI ha anunciado una alianza estratégica con el instituto de investigación polaco NASK para mejorar los estándares de seguridad en los sistemas de inteligencia artificial.",
+          "takeaways": [
+            "OpenAI se une al instituto de investigación NASK de Polonia.",
+            "El objetivo principal es avanzar en la seguridad y protección de la IA.",
+            "La asociación destaca la creciente cooperación internacional en la gestión de riesgos tecnológicos."
+          ],
+          "sections": [
+            {
+              "heading": "Alianza estratégica por la seguridad de la IA",
+              "body": "OpenAI y el instituto de investigación polaco NASK han anunciado formalmente una colaboración destinada a investigar y desarrollar soluciones para garantizar la seguridad de las aplicaciones de inteligencia artificial. Esta alianza surge en un momento en que la comunidad global intensifica sus esfuerzos para mitigar los riesgos de los modelos de lenguaje avanzado."
+            },
+            {
+              "heading": "Impacto en el ecosistema tecnológico europeo",
+              "body": "A través de esta alianza con NASK, OpenAI fortalece su presencia en Europa Central y Oriental, colaborando con expertos locales para abordar las amenazas de ciberseguridad vinculadas a la inteligencia artificial y cumplir con los futuros marcos regulatorios de la Unión Europea."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/openai-nask-ai-safety-security-partnership"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028200711_ee6825eb)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/openai-and-poland-s-nask-partner-to-advance-ai-safety-and-security.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: OpenAI và NASK của Ba Lan hợp tác thúc đẩy an toàn và bảo mật trí tuệ nhân tạo",
+          "en": "TigerIQ-generated illustration for: OpenAI and Poland’s NASK partner to advance AI safety and security",
+          "es": "Ilustración generada por TigerIQ para: OpenAI y la institución polaca NASK se asocian para promover la seguridad en la IA"
+        }
+      }
+    },
     {
       "slug": "rapidly-scaling-online-storage-to-serve-over-1-billion-chatgpt-users-part-ii",
       "category": "Models",
