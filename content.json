@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T21:23:55.308Z",
+  "updatedAt": "2026-10-28T21:39:14.694Z",
   "breaking": {
-    "vi": "ChatGPT Ads mở rộng sang 26 quốc gia mới với hơn 100.000 nhà quảng cáo tham gia",
-    "en": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
-    "es": "ChatGPT Ads se expande a 26 nuevos países tras superar los 100.000 anunciantes"
+    "vi": "Hành trình trí tuệ nhân tạo mới nhất của chúng tôi: Lập bản đồ bộ não con người",
+    "en": "Our newest AI Quest: Mapping the human brain",
+    "es": "Nuestra nueva misión de IA: Mapear el cerebro humano"
   },
   "articles": [
+    {
+      "slug": "our-newest-ai-quest-mapping-the-human-brain",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T21:39:14.694Z",
+      "modifiedAt": "2026-10-28T21:39:14.694Z",
+      "editions": {
+        "vi": {
+          "title": "Hành trình trí tuệ nhân tạo mới nhất của chúng tôi: Lập bản đồ bộ não con người",
+          "dek": "Khám phá cách công nghệ AI tiên tiến đang cách mạng hóa lĩnh vực thần kinh học thông qua việc lập bản đồ chi tiết cấu trúc não bộ con người.",
+          "takeaways": [
+            "AI đóng vai trò cốt lõi trong việc giải mã sự phức tạp của hệ thần kinh.",
+            "Dự án này mở ra tiềm năng lớn trong việc điều trị các bệnh lý về não.",
+            "Sự kết hợp giữa thần kinh học và máy học định hình tương lai y học."
+          ],
+          "sections": [
+            {
+              "heading": "Cuộc cách mạng lập bản đồ thần kinh",
+              "body": "Bộ não con người từ lâu vẫn là ẩn số lớn nhất của khoa học tự nhiên. Với sự hỗ trợ của các thuật toán trí tuệ nhân tạo thế hệ mới, các nhà khoa học giờ đây có thể xử lý lượng dữ liệu khổng lồ về các kết nối thần kinh với độ chính xác chưa từng có."
+            },
+            {
+              "heading": "Tương lai của y học và công nghệ",
+              "body": "Việc giải mã thành công bản đồ não bộ không chỉ mang lại bước đột phá trong nghiên cứu nhận thức mà còn đặt nền móng cho các phương pháp điều trị mới đối với các rối loạn thần kinh phức tạp, đánh dấu một kỷ nguyên hợp tác mới giữa AI và y học."
+            }
+          ]
+        },
+        "en": {
+          "title": "Our newest AI Quest: Mapping the human brain",
+          "dek": "Discover how cutting-edge artificial intelligence is revolutionizing neuroscience by mapping the intricate structures of the human brain.",
+          "takeaways": [
+            "AI plays a pivotal role in decoding the immense complexity of the human nervous system.",
+            "This ambitious project unlocks vast potential for treating neurological disorders.",
+            "The synergy between neuroscience and machine learning is shaping the future of modern medicine."
+          ],
+          "sections": [
+            {
+              "heading": "The neural mapping revolution",
+              "body": "The human brain has long remained science's greatest frontier. Powered by next-generation artificial intelligence algorithms, researchers can now process unprecedented volumes of neural connection data with absolute precision."
+            },
+            {
+              "heading": "The future of medicine and technology",
+              "body": "Successfully decoding the brain's connectome not only drives cognitive research forward but also lays the groundwork for novel treatments targeting complex neurological disorders, ushering in a new era of AI-driven healthcare."
+            }
+          ]
+        },
+        "es": {
+          "title": "Nuestra nueva misión de IA: Mapear el cerebro humano",
+          "dek": "Descubra cómo la inteligencia artificial de vanguardia está revolucionando la neurociencia mediante el mapeo de las intrincadas estructuras del cerebro humano.",
+          "takeaways": [
+            "La IA desempeña un papel fundamental en la decodificación de la complejidad del sistema nervioso.",
+            "Este proyecto abre un gran potencial para el tratamiento de trastornos neurológicos.",
+            "La sinergia entre la neurociencia y el aprendizaje automático da forma al futuro de la medicina."
+          ],
+          "sections": [
+            {
+              "heading": "La revolución del mapeo neural",
+              "body": "El cerebro humano ha sido durante mucho tiempo el mayor misterio de la ciencia. Impulsados por algoritmos de inteligencia artificial de última generación, los investigadores ahora pueden procesar volúmenes masivos de datos de conexiones neuronales con una precisión sin precedentes."
+            },
+            {
+              "heading": "El futuro de la medicina y la tecnología",
+              "body": "La decodificación exitosa del cerebro no solo impulsa la investigación cognitiva, sino que también sienta las bases para nuevos tratamientos contra trastornos neurológicos complejos, marcando el inicio de una nueva era en la salud."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028213901_bb17ad87)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/our-newest-ai-quest-mapping-the-human-brain.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Hành trình trí tuệ nhân tạo mới nhất của chúng tôi: Lập bản đồ bộ não con người",
+          "en": "TigerIQ-generated illustration for: Our newest AI Quest: Mapping the human brain",
+          "es": "Ilustración generada por TigerIQ para: Nuestra nueva misión de IA: Mapear el cerebro humano"
+        }
+      }
+    },
     {
       "slug": "chatgpt-ads-expands-to-26-new-countries-as-over-100-000-advertisers-have-used-the-platform",
       "category": "Models",
