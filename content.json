@@ -1,11 +1,112 @@
 {
-  "updatedAt": "2026-10-28T18:35:25.058Z",
+  "updatedAt": "2026-10-28T18:50:51.667Z",
   "breaking": {
-    "vi": "OpenAI Mở Rộng Hợp Tác Với Oracle Để Đưa Ứng Dụng Doanh Nghiệp Vào ChatGPT",
-    "en": "OpenAI Expands Partnership with Oracle to Bring Enterprise Apps to ChatGPT",
-    "es": "OpenAI Amplía su Alianza con Oracle para Integrar Aplicaciones Empresariales en ChatGPT"
+    "vi": "GitHub chính thức ra mắt tính năng Agentic Workflows cho toàn bộ người dùng",
+    "en": "GitHub Agentic Workflows Now Generally Available",
+    "es": "GitHub lanza oficialmente los flujos de trabajo de agentes de manera general"
   },
   "articles": [
+    {
+      "slug": "github-agentic-workflows-generally-available",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T18:50:51.667Z",
+      "modifiedAt": "2026-10-28T18:50:51.667Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub chính thức ra mắt tính năng Agentic Workflows cho toàn bộ người dùng",
+          "dek": "Nền tảng phát triển phần mềm GitHub đã chính thức phát hành rộng rãi các quy trình làm việc tự động hóa dựa trên tác nhân AI (Agentic Workflows), đánh dấu bước tiến mới trong việc tự động hóa các tác vụ lập trình.",
+          "takeaways": [
+            "GitHub Agentic Workflows đã chính thức chuyển sang giai đoạn khả dụng chung (Generally Available).",
+            "Công nghệ này tích hợp các tác nhân AI thông minh để tự động hóa quy trình phát triển và kiểm thử phần mềm.",
+            "Giúp các nhà phát triển tiết kiệm thời gian và nâng cao độ chính xác trong suốt vòng đời dự án."
+          ],
+          "sections": [
+            {
+              "heading": "Kỷ nguyên mới của tự động hóa lập trình",
+              "body": "Việc đưa GitHub Agentic Workflows vào trạng thái khả dụng chung mang đến cho cộng đồng lập trình viên một công cụ mạnh mẽ chưa từng có. Thay vì chỉ thực thi các lệnh có sẵn, các tác nhân AI giờ đây có khả năng tự động phân tích bối cảnh, đề xuất giải pháp, và thực hiện các chuỗi tác vụ phức tạp từ việc viết mã đến sửa lỗi một cách liền mạch."
+            },
+            {
+              "heading": "Tác động đến năng suất của nhà phát triển",
+              "body": "Với khả năng phối hợp thông minh, các nhóm phát triển phần mềm có thể giảm thiểu đáng kể thời gian dành cho các công việc lặp đi lặp lại hàng ngày. Tính năng này không chỉ tăng tốc độ phát hành sản phẩm mà còn giúp chuẩn hóa quy trình làm việc trên quy mô lớn, mở ra tiêu chuẩn mới cho ngành công nghệ."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub Agentic Workflows Now Generally Available",
+          "dek": "GitHub has officially launched Agentic Workflows for general availability, bringing advanced AI-driven automation to software development pipelines worldwide.",
+          "takeaways": [
+            "GitHub Agentic Workflows are now officially generally available (GA) for all users.",
+            "The release introduces smart AI agents capable of automating complex development and testing pipelines.",
+            "Designed to significantly boost developer productivity and streamline the software lifecycle."
+          ],
+          "sections": [
+            {
+              "heading": "A New Era of Developer Automation",
+              "body": "The general availability of GitHub Agentic Workflows marks a major milestone in AI-assisted software engineering. Moving beyond simple script execution, these intelligent agents can understand context, propose solutions, and autonomously manage multi-step workflows from code generation to debugging."
+            },
+            {
+              "heading": "Impact on Engineering Productivity",
+              "body": "By delegating repetitive and routine tasks to autonomous workflows, engineering teams can refocus on high-value problem solving and innovation. This release sets a new benchmark for how development pipelines operate at scale, driving both speed and code quality."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub lanza oficialmente los flujos de trabajo de agentes de manera general",
+          "dek": "GitHub ha anunciado la disponibilidad general de Agentic Workflows, marcando un avance significativo en la automatización impulsada por IA para desarrolladores.",
+          "takeaways": [
+            "Los flujos de trabajo de agentes de GitHub ya están disponibles de forma general (GA).",
+            "La herramienta integra agentes de IA inteligentes para automatizar complejos procesos de desarrollo y pruebas.",
+            "Su objetivo es potenciar la productividad de los desarrolladores y optimizar todo el ciclo de vida del software."
+          ],
+          "sections": [
+            {
+              "heading": "Una nueva era para la automatización del desarrollo",
+              "body": "La llegada de GitHub Agentic Workflows a su disponibilidad general ofrece a la comunidad de desarrollo una potente capacidad de automatización. A diferencia de la ejecución de scripts tradicionales, estos agentes inteligentes pueden analizar contextos, sugerir soluciones y ejecutar tareas complejas de programación y depuración de forma autónoma."
+            },
+            {
+              "heading": "Impacto en la productividad de la ingeniería",
+              "body": "Al delegar tareas rutinarias en flujos de trabajo autónomos, los equipos de ingeniería pueden centrarse en la innovación y la resolución de problemas complejos. Este lanzamiento establece un nuevo estándar sobre cómo operan los ciclos de desarrollo a gran escala, mejorando tanto la velocidad como la calidad del código."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+        "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases",
+        "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot",
+        "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app",
+        "https://github.blog/changelog/2026-10-28-github-copilot-in-vs-code-universe-releases",
+        "https://github.blog/changelog/2026-10-28-generate-and-edit-images-directly-in-copilot",
+        "https://github.blog/changelog/2026-10-28-github-copilot-fusion-now-supports-selection-of-local-models",
+        "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available",
+        "https://nats.io/blog/nats-native-protocol-for-ai-agents/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028185030_d1f11665)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-agentic-workflows-generally-available.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: GitHub chính thức ra mắt tính năng Agentic Workflows cho toàn bộ người dùng",
+          "en": "TigerIQ-generated illustration for: GitHub Agentic Workflows Now Generally Available",
+          "es": "Ilustración generada por TigerIQ para: GitHub lanza oficialmente los flujos de trabajo de agentes de manera general"
+        }
+      }
+    },
     {
       "slug": "openai-expands-partnership-with-oracle-to-bring-its-apps-to-chatgpt",
       "category": "Models",
