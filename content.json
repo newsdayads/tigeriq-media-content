@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T16:24:59.595Z",
+  "updatedAt": "2026-10-28T16:56:14.582Z",
   "breaking": {
-    "vi": "Cách Check Point tăng tốc nghiên cứu lỗ hổng bảo mật với Daybreak",
-    "en": "How Check Point Accelerates Vulnerability Research with Daybreak",
-    "es": "Cómo Check Point acelera la investigación de vulnerabilidades con Daybreak"
+    "vi": "Greptile nâng tầm phát hiện lỗi vượt khỏi phạm vi đánh giá mã nguồn với GPT-6 Astra",
+    "en": "Greptile Takes Bug Detection Beyond Code Review with GPT-6 Astra",
+    "es": "Greptile lleva la detección de errores más allá de la revisión de código con GPT-6 Astra"
   },
   "articles": [
+    {
+      "slug": "greptile-takes-bug-detection-beyond-code-review-with-gpt-6-astra",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T16:56:14.582Z",
+      "modifiedAt": "2026-10-28T16:56:14.582Z",
+      "editions": {
+        "vi": {
+          "title": "Greptile nâng tầm phát hiện lỗi vượt khỏi phạm vi đánh giá mã nguồn với GPT-6 Astra",
+          "dek": "Greptile mở rộng khả năng tự động tìm lỗi phần mềm bằng cách tích hợp mô hình thế hệ mới GPT-6 Astra để phát hiện các lỗi kiến trúc phức tạp trong toàn bộ codebase.",
+          "takeaways": [
+            "Greptile tích hợp GPT-6 Astra để phân tích toàn diện kho mã nguồn thay vì chỉ xem xét các Pull Request riêng lẻ.",
+            "Hệ thống vượt qua việc kiểm tra cú pháp thông thường, giúp phát hiện sự cố phụ thuộc chéo và lỗ hổng kiến trúc.",
+            "Các nhà phát triển có thể chủ động phát hiện lỗi thời gian chạy phức tạp trước khi mã nguồn được triển khai sản xuất."
+          ],
+          "sections": [
+            {
+              "heading": "Định nghĩa lại chất lượng mã nguồn tự động",
+              "body": "Greptile vừa công bố nâng cấp lớn cho nền tảng phát hiện lỗi của mình bằng việc tích hợp mô hình GPT-6 Astra. Thay vì giới hạn phân tích AI ở các thay đổi mã nguồn nhỏ trong các Pull Request, sự tích hợp mới cho phép nền tảng duy trì ngữ cảnh sâu và liên tục trên toàn bộ kho lưu trữ phần mềm quy mô lớn."
+            },
+            {
+              "heading": "Bứt phá khỏi các bài đánh giá mã nguồn bề mặt",
+              "body": "Các công cụ đánh giá mã bằng AI truyền thống thường bỏ sót các lỗi ngữ cảnh trải dài qua nhiều dịch vụ hoặc chuỗi phụ thuộc phức tạp. Với GPT-6 Astra, Greptile theo dõi các luồng thực thi qua hàng triệu dòng mã, làm bộc lộ các trường hợp biên tiềm ẩn, hiện tượng tắc nghẽn đồng thời và các lỗ hổng bảo mật vi mô trước khi phần mềm chính thức phát hành."
+            }
+          ]
+        },
+        "en": {
+          "title": "Greptile Takes Bug Detection Beyond Code Review with GPT-6 Astra",
+          "dek": "Greptile expands its automated debugging capabilities by integrating the next-generation GPT-6 Astra model to detect deep architectural bugs across massive codebases.",
+          "takeaways": [
+            "Greptile incorporates GPT-6 Astra to analyze entire software repositories comprehensively rather than reviewing isolated pull requests.",
+            "The system moves beyond syntax and basic logic checks, identifying complex cross-file dependency issues and architectural flaws.",
+            "Developers can proactively catch intricate runtime bugs and security edge cases before code reaches production environments."
+          ],
+          "sections": [
+            {
+              "heading": "Redefining Automated Code Quality",
+              "body": "Greptile has announced a major upgrade to its bug detection platform through the integration of GPT-6 Astra. Rather than limiting AI analysis to localized code diffs during pull request reviews, the new integration allows the platform to maintain a continuous, high-fidelity context map across entire software codebases."
+            },
+            {
+              "heading": "Beyond Surface-Level Pull Requests",
+              "body": "Traditional AI code reviewers often miss contextual bugs that span multiple microservices or complex dependency chains. Powered by GPT-6 Astra, Greptile traces execution paths across millions of lines of code, surfacing hidden edge cases, concurrency deadlocks, and subtle architectural vulnerabilities long before deployment."
+            }
+          ]
+        },
+        "es": {
+          "title": "Greptile lleva la detección de errores más allá de la revisión de código con GPT-6 Astra",
+          "dek": "Greptile amplía sus capacidades de depuración automatizada al integrar el modelo de última generación GPT-6 Astra para detectar errores arquitectónicos profundos en bases de código completas.",
+          "takeaways": [
+            "Greptile integra GPT-6 Astra para analizar repositorios de código completos en lugar de limitarse a revisiones de pull requests aisladas.",
+            "El sistema va más allá de la sintaxis y la lógica básica, identificando problemas de dependencias cruzadas y vulnerabilidades arquitectónicas.",
+            "Los desarrolladores pueden detectar de forma proactiva errores complejos de tiempo de ejecución antes de llegar a producción."
+          ],
+          "sections": [
+            {
+              "heading": "Redefiniendo la calidad de código automatizada",
+              "body": "Greptile ha anunciado una actualización mayor en su plataforma de detección de errores mediante la integración de GPT-6 Astra. En lugar de limitar el análisis de IA a pequeñas diferencias de código durante las revisiones de pull request, esta integración permite mantener un mapa de contexto continuo y profundo de repositorios enteros."
+            },
+            {
+              "heading": "Más allá de las revisiones superficiales",
+              "body": "Los revisores de código tradicionales basados en IA a menudo pasan por alto errores contextuales que abarcan múltiples servicios o cadenas de dependencias complejas. Con GPT-6 Astra, Greptile rastrea rutas de ejecución a través de millones de líneas de código, identificando casos límite ocultos y vulnerabilidades antes del despliegue."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/greptile-code-review-codex-astra"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028165554_c50964c3)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/greptile-code-review-codex-astra"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/greptile-takes-bug-detection-beyond-code-review-with-gpt-6-astra.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Greptile nâng tầm phát hiện lỗi vượt khỏi phạm vi đánh giá mã nguồn với GPT-6 Astra",
+          "en": "TigerIQ-generated illustration for: Greptile Takes Bug Detection Beyond Code Review with GPT-6 Astra",
+          "es": "Ilustración generada por TigerIQ para: Greptile lleva la detección de errores más allá de la revisión de código con GPT-6 Astra"
+        }
+      }
+    },
     {
       "slug": "how-check-point-accelerates-vulnerability-research-with-daybreak",
       "category": "Models",
