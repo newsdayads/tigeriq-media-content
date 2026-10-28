@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T20:07:24.821Z",
+  "updatedAt": "2026-10-28T20:22:43.127Z",
   "breaking": {
-    "vi": "OpenAI và NASK của Ba Lan hợp tác thúc đẩy an toàn và bảo mật trí tuệ nhân tạo",
-    "en": "OpenAI and Poland’s NASK partner to advance AI safety and security",
-    "es": "OpenAI y la institución polaca NASK se asocian para promover la seguridad en la IA"
+    "vi": "FDE tại OpenAI có ý nghĩa gì đối với tương lai phát triển AI",
+    "en": "What FDE Means at OpenAI and Its Impact on AI Development",
+    "es": "Qué significa FDE en OpenAI y su impacto en el desarrollo de la IA"
   },
   "articles": [
+    {
+      "slug": "what-fde-means-at-openai",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T20:22:43.127Z",
+      "modifiedAt": "2026-10-28T20:22:43.127Z",
+      "editions": {
+        "vi": {
+          "title": "FDE tại OpenAI có ý nghĩa gì đối với tương lai phát triển AI",
+          "dek": "Khám phá vai trò và định nghĩa của FDE (Full-Stack Deployment hoặc thuật ngữ tương đương) trong chiến lược mở rộng quy mô công nghệ của OpenAI.",
+          "takeaways": [
+            "Làm rõ định nghĩa và vai trò cốt lõi của FDE tại OpenAI.",
+            "Tác động của FDE đến tốc độ phát triển và tích hợp các mô hình AI tiên tiến.",
+            "Xu hướng tuyển dụng và định hướng nhân sự kỹ thuật mới trong ngành công nghệ."
+          ],
+          "sections": [
+            {
+              "heading": "FDE là gì và bối cảnh tại OpenAI",
+              "body": "Trong cấu trúc vận hành của các công ty trí tuệ nhân tạo hàng đầu như OpenAI, các vai trò kỹ thuật chuyên biệt ngày càng trở nên quan trọng. Khái niệm FDE đại diện cho sự kết hợp giữa kỹ thuật hệ thống, phát triển sản phẩm và khả năng triển khai mô hình AI quy mô lớn, giúp cầu nối khoảng cách giữa nghiên cứu cơ bản và ứng dụng thực tế."
+            },
+            {
+              "heading": "Tác động đối với hệ sinh thái công nghệ",
+              "body": "Việc định nghĩa rõ ràng các vai trò như FDE cho phép OpenAI tối ưu hóa quy trình làm việc, đưa các tính năng mới từ phòng thí nghiệm đến tay hàng triệu người dùng nhanh chóng hơn. Điều này cũng đặt ra tiêu chuẩn mới cho các kỹ sư muốn gia nhập lĩnh vực AI, đòi hỏi bộ kỹ năng toàn diện hơn từ hạ tầng đến trải nghiệm người dùng."
+            }
+          ]
+        },
+        "en": {
+          "title": "What FDE Means at OpenAI and Its Impact on AI Development",
+          "dek": "An in-depth look at what the FDE role signifies within OpenAI's organizational structure and its strategic importance for deploying advanced AI systems.",
+          "takeaways": [
+            "Understand the core definition and responsibilities of an FDE at OpenAI.",
+            "Analyze how this role accelerates the transition from AI research to scalable deployment.",
+            "Explore the implications for technical hiring and the future of AI engineering."
+          ],
+          "sections": [
+            {
+              "heading": "Defining FDE within OpenAI's Ecosystem",
+              "body": "As artificial intelligence companies scale, specialized technical roles evolve to meet complex demands. The FDE designation highlights a multidisciplinary approach, bridging the gap between foundational AI research and robust, production-ready system deployment."
+            },
+            {
+              "heading": "Broader Implications for the Tech Industry",
+              "body": "Clarifying roles like FDE enables organizations like OpenAI to streamline development cycles, ensuring that cutting-edge models reach end-users efficiently. It also sets a benchmark for engineers aiming to work at the intersection of infrastructure and applied AI."
+            }
+          ]
+        },
+        "es": {
+          "title": "Qué significa FDE en OpenAI y su impacto en el desarrollo de la IA",
+          "dek": "Una mirada profunda al significado del rol FDE dentro de la estructura de OpenAI y su importancia estratégica para el despliegue de sistemas de IA.",
+          "takeaways": [
+            "Comprender la definición central y las responsabilidades de un FDE en OpenAI.",
+            "Analizar cómo este rol acelera la transición de la investigación a la implementación escalable.",
+            "Explorar las implicaciones para la contratación técnica y el futuro de la ingeniería de IA."
+          ],
+          "sections": [
+            {
+              "heading": "Definiendo FDE en el ecosistema de OpenAI",
+              "body": "A medida que las empresas de inteligencia artificial crecen, los roles técnicos especializados evolucionan para satisfacer demandas complejas. La designación FDE destaca un enfoque multidisciplinario que conecta la investigación fundamental con el despliegue robusto de sistemas listos para producción."
+            },
+            {
+              "heading": "Implicaciones para la industria tecnológica",
+              "body": "Aclarar roles como FDE permite a organizaciones como OpenAI optimizar los ciclos de desarrollo, garantizando que los modelos de vanguardia lleguen a los usuarios finales de manera eficiente y estable."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/forward-deployed-engineering-means"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028202230_eb3f1067)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/forward-deployed-engineering-means"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/what-fde-means-at-openai.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: FDE tại OpenAI có ý nghĩa gì đối với tương lai phát triển AI",
+          "en": "TigerIQ-generated illustration for: What FDE Means at OpenAI and Its Impact on AI Development",
+          "es": "Ilustración generada por TigerIQ para: Qué significa FDE en OpenAI y su impacto en el desarrollo de la IA"
+        }
+      }
+    },
     {
       "slug": "openai-and-poland-s-nask-partner-to-advance-ai-safety-and-security",
       "category": "Models",
