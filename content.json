@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T15:53:52.692Z",
+  "updatedAt": "2026-10-28T16:09:36.033Z",
   "breaking": {
-    "vi": "Bảo mật kết nối nhanh từ mạng doanh nghiệp bằng AWS PrivateLink",
-    "en": "Securing Quick Access from Corporate Networks with AWS PrivateLink",
-    "es": "Garantizando un acceso rápido y seguro desde redes corporativas con AWS PrivateLink"
+    "vi": "Legora đang xây dựng hệ điều hành tác vụ thông minh cho ngành luật",
+    "en": "Legora is building the agentic operating system for legal work",
+    "es": "Legora está construyendo el sistema operativo agéntico para el trabajo legal"
   },
   "articles": [
+    {
+      "slug": "legora-is-building-the-agentic-operating-system-for-legal-work",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T16:09:36.033Z",
+      "modifiedAt": "2026-10-28T16:09:36.033Z",
+      "editions": {
+        "vi": {
+          "title": "Legora đang xây dựng hệ điều hành tác vụ thông minh cho ngành luật",
+          "dek": "Công ty khởi nghiệp Legora đang phát triển một hệ điều hành mang tính cách mạng tích hợp trí tuệ nhân tạo nhằm tự động hóa và tối ưu hóa các quy trình pháp lý phức tạp.",
+          "takeaways": [
+            "Legora tập trung phát triển hệ điều hành chuyên biệt cho công việc pháp lý.",
+            "Ứng dụng trí tuệ nhân tạo tác vụ (agentic AI) giúp tự động hóa các tác vụ lặp đi lặp lại.",
+            "Sản phẩm hứa hẹn nâng cao năng suất và giảm thiểu sai sót cho các hãng luật."
+          ],
+          "sections": [
+            {
+              "heading": "Kỷ nguyên mới của tự động hóa pháp lý",
+              "body": "Ngành công nghiệp pháp lý từ lâu đã nổi tiếng với khối lượng giấy tờ khổng lồ và các quy trình nghiên cứu tốn nhiều thời gian. Sự ra đời của Legora đánh dấu một bước tiến quan trọng trong việc ứng dụng công nghệ, vượt ra ngoài các công cụ tra cứu thông thường để tiến tới hệ điều hành tác vụ toàn diện, nơi AI có thể chủ động thực hiện các nhiệm vụ phức tạp thay cho con người."
+            },
+            {
+              "heading": "Tác động tiềm năng đến thị trường dịch vụ pháp lý",
+              "body": "Bằng cách cung cấp một nền tảng tập trung cho các luật sư và chuyên gia pháp lý, Legora không chỉ giúp tiết kiệm chi phí vận hành mà còn thay đổi cách thức cung cấp dịch vụ. Các hãng luật áp dụng sớm công nghệ này sẽ có lợi thế cạnh tranh lớn trong việc xử lý khối lượng công việc lớn với độ chính xác cao hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "Legora is building the agentic operating system for legal work",
+          "dek": "Legora is developing a revolutionary AI-powered operating system designed to automate and streamline complex legal workflows.",
+          "takeaways": [
+            "Legora is building a specialized operating system tailored for legal professionals.",
+            "The platform leverages agentic AI to automate tedious and repetitive legal tasks.",
+            "The solution aims to significantly boost productivity and minimize errors across law firms."
+          ],
+          "sections": [
+            {
+              "heading": "A New Era for Legal Automation",
+              "body": "The legal industry has long been characterized by heavy paperwork and time-consuming research processes. Legora's initiative represents a major leap forward, moving beyond basic search tools into a comprehensive agentic operating system where AI can autonomously handle intricate legal tasks."
+            },
+            {
+              "heading": "Potential Impact on Legal Services",
+              "body": "By providing a centralized platform for lawyers and legal professionals, Legora aims to reduce operational costs and transform service delivery. Law firms that adopt this technology early stand to gain a competitive edge in processing large volumes of work with greater precision."
+            }
+          ]
+        },
+        "es": {
+          "title": "Legora está construyendo el sistema operativo agéntico para el trabajo legal",
+          "dek": "La startup Legora está desarrollando un sistema operativo impulsado por inteligencia artificial diseñado para automatizar y optimizar flujos de trabajo legales complejos.",
+          "takeaways": [
+            "Legora se centra en crear un sistema operativo especializado para profesionales del derecho.",
+            "La plataforma utiliza IA agéntica para automatizar tareas repetitivas y complejas.",
+            "El producto promete aumentar significativamente la productividad y reducir errores en los bufetes de abogados."
+          ],
+          "sections": [
+            {
+              "heading": "Una nueva era para la automatización legal",
+              "body": "La industria legal se ha caracterizado históricamente por una gran cantidad de trámites y procesos de investigación que consumen mucho tiempo. La propuesta de Legora marca un avance crucial al ir más allá de las herramientas de búsqueda tradicionales hacia un sistema operativo integral donde la IA puede ejecutar tareas complejas de forma autónoma."
+            },
+            {
+              "heading": "Impacto potencial en los servicios legales",
+              "body": "Al ofrecer una plataforma centralizada para abogados y expertos legales, Legora busca reducir los costos operativos y transformar la prestación de servicios. Los bufetes que adopten esta tecnología de manera temprana obtendrán una ventaja competitiva significativa en el manejo de grandes volúmenes de trabajo."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/legora-agentic-operating-system-for-legal-work"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028160858_678956ca)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/legora-agentic-operating-system-for-legal-work"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/legora-is-building-the-agentic-operating-system-for-legal-work.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Legora đang xây dựng hệ điều hành tác vụ thông minh cho ngành luật",
+          "en": "TigerIQ-generated illustration for: Legora is building the agentic operating system for legal work",
+          "es": "Ilustración generada por TigerIQ para: Legora está construyendo el sistema operativo agéntico para el trabajo legal"
+        }
+      }
+    },
     {
       "slug": "securing-quick-access-from-corporate-networks-with-aws-privatelink",
       "category": "Models",
