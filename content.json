@@ -1,11 +1,107 @@
 {
-  "updatedAt": "2026-10-28T15:18:29.757Z",
+  "updatedAt": "2026-10-28T15:36:18.779Z",
   "breaking": {
-    "vi": "Bản cập nhật tháng 9 của GitHub Copilot trong Visual Studio mang đến nhiều cải tiến",
-    "en": "GitHub Copilot in Visual Studio — September Update Released",
-    "es": "Actualización de septiembre de GitHub Copilot en Visual Studio"
+    "vi": "Nền Tảng Giám Sát Công Khai Bổ Sung Tính Năng Phân Loại, Xác Minh Dữ Liệu, API và Webhook",
+    "en": "Public Monitoring Enhances Platform with Triage, Data Validity Checks, APIs, and Webhooks",
+    "es": "El Monitoreo Público Añade Clasificación, Validez de Datos, API y Webhooks"
   },
   "articles": [
+    {
+      "slug": "public-monitoring-adds-triage-validity-api-and-webhooks",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T15:36:18.779Z",
+      "modifiedAt": "2026-10-28T15:36:18.779Z",
+      "editions": {
+        "vi": {
+          "title": "Nền Tảng Giám Sát Công Khai Bổ Sung Tính Năng Phân Loại, Xác Minh Dữ Liệu, API và Webhook",
+          "dek": "Bản cập nhật mới giới thiệu khả năng phân loại sự cố nâng cao, kiểm soát độ chính xác của dữ liệu, truy cập API và thông báo webhook thời gian thực.",
+          "takeaways": [
+            "Tính năng phân loại tự động giúp các đội ngũ ưu tiên xử lý các cảnh báo quan trọng và giảm bớt nhiễu thông tin.",
+            "Kiểm tra tính hợp lệ đảm bảo dữ liệu đầu vào luôn đáng tin cậy và chính xác.",
+            "API và Webhook mới cho phép tích hợp mượt mà với các công cụ DevOps và quản lý sự cố hiện có."
+          ],
+          "sections": [
+            {
+              "heading": "Tối Ưu Hóa Tốc Độ Xử Lý Sự Cố Với Phân Loại Tự Động Và Xác Minh Dữ Liệu",
+              "body": "Khi độ phức tạp của các hệ thống công nghệ tăng lên, việc lọc bỏ các cảnh báo giả trở nên then chốt để duy trì hiệu suất vận hành. Quy trình phân loại sự cố mới cho phép các kỹ sư tự động sắp xếp và phân luồng sự cố dựa trên mức độ nghiêm trọng. Đồng thời, tính năng kiểm tra tính hợp lệ tích hợp giúp phát hiện sớm các sai lệch hoặc bất thường trong luồng dữ liệu, đảm bảo cảnh báo chỉ được kích hoạt từ nguồn thông tin chuẩn xác."
+            },
+            {
+              "heading": "Mở Rộng Khả Năng Tích Hợp Hệ Thống Qua API Và Webhook",
+              "body": "Nhằm hỗ trợ các quy trình phát triển hiện đại, nền tảng hiện cung cấp các API REST mạnh mẽ cùng hệ thống webhook có thể tùy chỉnh. Lập trình viên có thể điều khiển cấu hình giám sát bằng mã lập trình, truy xuất trạng thái vận hành và đẩy dữ liệu sự kiện theo thời gian thực tới các ứng dụng như Slack, PagerDuty hoặc bảng điều khiển nội bộ, giúp giảm thiểu đáng kể thời gian ứng phó sự cố."
+            }
+          ]
+        },
+        "en": {
+          "title": "Public Monitoring Enhances Platform with Triage, Data Validity Checks, APIs, and Webhooks",
+          "dek": "The latest platform update introduces advanced triage capabilities, strict data validity controls, programmatic API access, and real-time webhook notifications.",
+          "takeaways": [
+            "Automated triage features help engineering teams prioritize critical alerts and eliminate noise.",
+            "Validity checks ensure incoming telemetry and system data streams remain accurate and dependable.",
+            "New APIs and webhooks facilitate seamless integration with existing DevOps pipelines and incident management software."
+          ],
+          "sections": [
+            {
+              "heading": "Streamlining Incident Response via Automated Triage and Data Validity",
+              "body": "As modern system architectures become increasingly complex, filtering out false positives is critical for operational efficiency. The addition of automated triage workflows allows operators to categorize and route issues based on severity instantly. Simultaneously, built-in validity verification screens incoming telemetry for data corruption or anomalies, ensuring that alert triggers rely solely on trusted information."
+            },
+            {
+              "heading": "Expanding Ecosystem Integrations with APIs and Webhooks",
+              "body": "To support enterprise workflows, the platform now offers robust REST APIs and highly configurable webhooks. Developers can programmatically manage monitoring configurations, query platform status, and stream real-time event payloads directly to incident response tools such as PagerDuty, Slack, or custom dashboards, drastically reducing time-to-resolution."
+            }
+          ]
+        },
+        "es": {
+          "title": "El Monitoreo Público Añade Clasificación, Validez de Datos, API y Webhooks",
+          "dek": "La última actualización de la plataforma introduce capacidades avanzadas de triaje, controles de validez de datos, acceso por API y notificaciones por webhooks en tiempo real.",
+          "takeaways": [
+            "Las funciones de triaje automatizado ayudan a los equipos a priorizar alertas críticas y reducir el ruido innecesario.",
+            "Las comprobaciones de validez garantizan que la telemetría y los datos del sistema sean precisos y confiables.",
+            "Las nuevas API y webhooks permiten una integración fluida con las herramientas existentes de DevOps y gestión de incidentes."
+          ],
+          "sections": [
+            {
+              "heading": "Optimización de la Respuesta a Incidentes con Triaje Automatizado y Validez",
+              "body": "A medida que aumenta la complejidad de los sistemas tecnológicos, filtrar los falsos positivos se vuelve fundamental para la eficiencia operativa. La incorporación de flujos de trabajo de triaje automatizado permite a los ingenieros categorizar y redirigir problemas al instante. Al mismo tiempo, la verificación de validez integrada examina los datos entrantes en busca de anomalías, asegurando que las alertas se basen en información completamente veraz."
+            },
+            {
+              "heading": "Ampliación de Integraciones Mediante API y Webhooks",
+              "body": "Para respaldar los entornos de desarrollo modernos, la plataforma ahora ofrece API REST sólidas y webhooks configurables. Los desarrolladores pueden gestionar las configuraciones de monitoreo de forma programática, consultar el estado operativo y enviar alertas en tiempo real directamente a herramientas como PagerDuty, Slack o paneles de control personalizados, reduciendo significativamente el tiempo de resolución."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
+        "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks",
+        "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api",
+        "https://www.theverge.com/ai-artificial-intelligence/1019551/firefox-smart-window-ai-fill-forms"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028153558_0ffda4b0)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/public-monitoring-adds-triage-validity-api-and-webhooks.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Nền Tảng Giám Sát Công Khai Bổ Sung Tính Năng Phân Loại, Xác Minh Dữ Liệu, API và Webhook",
+          "en": "TigerIQ-generated illustration for: Public Monitoring Enhances Platform with Triage, Data Validity Checks, APIs, and Webhooks",
+          "es": "Ilustración generada por TigerIQ para: El Monitoreo Público Añade Clasificación, Validez de Datos, API y Webhooks"
+        }
+      }
+    },
     {
       "slug": "nvidia-rtx-spark-laptops-and-ai-updates",
       "reportingMode": "official-announcement",
