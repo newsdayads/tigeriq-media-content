@@ -1,11 +1,105 @@
 {
-  "updatedAt": "2026-10-28T18:04:33.052Z",
+  "updatedAt": "2026-10-28T18:20:01.834Z",
   "breaking": {
-    "vi": "Xây dựng ứng dụng phản hồi nhanh hơn với Decisions API",
-    "en": "Build more responsive apps with the Decisions API",
-    "es": "Construye aplicaciones más responsivas con la API Decisions"
+    "vi": "Anima giúp các phòng khám giảm 75% thời gian chờ điện thoại nhờ GPT-6 và GPT-Live",
+    "en": "Anima helps clinics cut call waits by 75% with GPT-6 and GPT-Live",
+    "es": "Anima ayuda a las clínicas a reducir las espera telefónicas en un 75% con GPT-6 y GPT-Live"
   },
   "articles": [
+    {
+      "slug": "anima-helps-clinics-cut-call-waits-by-75-with-gpt-6-and-gpt-live",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T18:20:01.834Z",
+      "modifiedAt": "2026-10-28T18:20:01.834Z",
+      "editions": {
+        "vi": {
+          "title": "Anima giúp các phòng khám giảm 75% thời gian chờ điện thoại nhờ GPT-6 và GPT-Live",
+          "dek": "Nền tảng y tế Anima đã tích hợp các công nghệ trí tuệ nhân tạo tiên tiến để tối ưu hóa quy trình liên lạc và giảm bớt gánh nặng cho các cơ sở y tế.",
+          "takeaways": [
+            "Thời gian chờ cuộc gọi tại các phòng khám giảm đáng kể 75%.",
+            "Ứng dụng công nghệ GPT-6 và GPT-Live tiên tiến trong ngành y tế.",
+            "Cải thiện trải nghiệm của bệnh nhân khi tiếp cận dịch vụ chăm sóc sức khỏe."
+          ],
+          "sections": [
+            {
+              "heading": "Cuộc cách mạng công nghệ tại các phòng khám",
+              "body": "Anima vừa công bố bước đột phá trong việc ứng dụng trí tuệ nhân tạo nhằm giải quyết một trong những vấn đề lớn nhất của các cơ sở y tế: thời gian chờ điện thoại kéo dài của bệnh nhân. Bằng cách tận dụng sức mạnh của GPT-6 và GPT-Live, hệ thống có thể xử lý các cuộc gọi và yêu cầu một cách tự động, nhanh chóng và chính xác."
+            },
+            {
+              "heading": "Tác động đến hiệu quả vận hành và bệnh nhân",
+              "body": "Việc giảm 75% thời gian chờ đợi không chỉ giúp giảm áp lực cho đội ngũ nhân viên lễ tân và điều dưỡng mà còn đảm bảo bệnh nhân nhận được sự hỗ trợ y tế kịp thời hơn. Giải pháp này đánh dấu một bước tiến quan trọng trong việc số hóa ngành y tế, mang lại lợi ích thiết thực cho cả người bệnh và nhà cung cấp dịch vụ."
+            }
+          ]
+        },
+        "en": {
+          "title": "Anima helps clinics cut call waits by 75% with GPT-6 and GPT-Live",
+          "dek": "Healthcare platform Anima has integrated advanced artificial intelligence technologies to optimize communication workflows and relieve pressure on medical facilities.",
+          "takeaways": [
+            "Clinic call wait times have been significantly reduced by 75%.",
+            "Implementation of cutting-edge GPT-6 and GPT-Live technologies in healthcare.",
+            "Enhanced patient experience when accessing healthcare services."
+          ],
+          "sections": [
+            {
+              "heading": "A Technological Revolution in Clinics",
+              "body": "Anima has announced a breakthrough in applying artificial intelligence to solve one of the biggest challenges faced by medical facilities: lengthy patient call wait times. By leveraging the power of GPT-6 and GPT-Live, the system can handle calls and inquiries automatically, swiftly, and accurately."
+            },
+            {
+              "heading": "Impact on Operational Efficiency and Patients",
+              "body": "Cutting wait times by 75% not only relieves pressure on reception and nursing staff but also ensures patients receive timely medical support. This solution marks a crucial milestone in healthcare digitization, delivering practical benefits to both patients and service providers."
+            }
+          ]
+        },
+        "es": {
+          "title": "Anima ayuda a las clínicas a reducir las espera telefónicas en un 75% con GPT-6 y GPT-Live",
+          "dek": "La plataforma médica Anima ha integrado tecnologías avanzadas de inteligencia artificial para optimizar los flujos de comunicación y aliviar la carga de los centros de salud.",
+          "takeaways": [
+            "Los tiempos de espera de llamadas en las clínicas se redujeron drásticamente en un 75%.",
+            "Implementación de tecnologías de vanguardia GPT-6 y GPT-Live en el sector salud.",
+            "Mejora significativa en la experiencia del paciente al acceder a los servicios médicos."
+          ],
+          "sections": [
+            {
+              "heading": "Una revolución tecnológica en las clínicas",
+              "body": "Anima ha anunciado un avance clave en la aplicación de la inteligencia artificial para resolver uno de los mayores problemas de los centros médicos: los largos tiempos de espera telefónica para los pacientes. Aprovechando el poder de GPT-6 y GPT-Live, el sistema puede gestionar llamadas y solicitudes de manera automática, rápida y precisa."
+            },
+            {
+              "heading": "Impacto en la eficiencia operativa y los pacientes",
+              "body": "Reducir el tiempo de espera en un 75% no solo disminuye la presión sobre el personal de recepción y enfermería, sino que también garantiza que los pacientes reciban asistencia médica oportuna. Esta solución marca un hito importante en la digitalización de la salud, ofreciendo beneficios prácticos tanto para los pacientes como para los proveedores."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+        "https://openai.com/index/anima"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028181939_9f63da1c)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/anima-helps-clinics-cut-call-waits-by-75-with-gpt-6-and-gpt-live.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Anima giúp các phòng khám giảm 75% thời gian chờ điện thoại nhờ GPT-6 và GPT-Live",
+          "en": "TigerIQ-generated illustration for: Anima helps clinics cut call waits by 75% with GPT-6 and GPT-Live",
+          "es": "Ilustración generada por TigerIQ para: Anima ayuda a las clínicas a reducir las espera telefónicas en un 75% con GPT-6 y GPT-Live"
+        }
+      }
+    },
     {
       "slug": "build-more-responsive-apps-with-the-decisions-api",
       "category": "Models",
