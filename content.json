@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T17:18:25.328Z",
+  "updatedAt": "2026-10-28T17:32:34.968Z",
   "breaking": {
-    "vi": "Greptile nâng tầm phát hiện lỗi vượt khỏi phạm vi đánh giá mã nguồn với GPT-6 Astra",
-    "en": "Greptile Takes Bug Detection Beyond Code Review with GPT-6 Astra",
-    "es": "Greptile lleva la detección de errores más allá de la revisión de código con GPT-6 Astra"
+    "vi": "Hợp tác với cộng đồng học thuật để nâng cao hiểu biết khoa học về trí tuệ nhân tạo",
+    "en": "Working with academic communities to build scientific understanding of AI",
+    "es": "Colaboración con comunidades académicas para construir comprensión científica sobre la IA"
   },
   "articles": [
+    {
+      "slug": "working-with-academic-communities-to-build-scientific-understanding",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T17:32:34.968Z",
+      "modifiedAt": "2026-10-28T17:32:34.968Z",
+      "editions": {
+        "vi": {
+          "title": "Hợp tác với cộng đồng học thuật để nâng cao hiểu biết khoa học về trí tuệ nhân tạo",
+          "dek": "Sự kết hợp giữa ngành công nghệ và giới nghiên cứu học thuật đang mở ra những bước tiến mới trong việc thấu hiểu và phát triển các hệ thống AI.",
+          "takeaways": [
+            "Thúc đẩy hợp tác chặt chẽ giữa các công ty công nghệ và trường đại học.",
+            "Xây dựng nền tảng khoa học vững chắc cho sự phát triển của trí tuệ nhân tạo.",
+            "Chia sẻ kiến thức và tài nguyên nhằm giải quyết các thách thức công nghệ phức tạp."
+          ],
+          "sections": [
+            {
+              "heading": "Vai trò của cộng đồng học thuật",
+              "body": "Các viện nghiên cứu và trường đại học đóng vai trò cốt lõi trong việc cung cấp góc nhìn phản biện, nghiên cứu chiều sâu và kiểm định tính an toàn cũng như hiệu quả của các mô hình công nghệ mới."
+            },
+            {
+              "heading": "Hướng đi tương lai cho công nghệ AI",
+              "body": "Việc kết hợp nguồn lực từ khu vực tư nhân và tri thức từ giới hàn lâm sẽ tạo ra hệ sinh thái công nghệ bền vững, minh bạch và mang lại giá trị thiết thực cho toàn xã hội."
+            }
+          ]
+        },
+        "en": {
+          "title": "Working with academic communities to build scientific understanding of AI",
+          "dek": "Bridging the gap between the tech industry and academic researchers is essential for advancing the scientific foundation of artificial intelligence.",
+          "takeaways": [
+            "Fostering deep collaboration between tech enterprises and universities.",
+            "Building a robust scientific framework for artificial intelligence development.",
+            "Sharing knowledge and resources to address complex technological challenges."
+          ],
+          "sections": [
+            {
+              "heading": "The Vital Role of Academia",
+              "body": "Academic institutions and researchers provide critical perspectives, deep empirical studies, and rigorous validation regarding the safety, ethics, and capabilities of emerging technologies."
+            },
+            {
+              "heading": "Future Directions for AI Development",
+              "body": "Combining industry-scale resources with academic rigor creates a sustainable, transparent technological ecosystem that delivers meaningful benefits to society."
+            }
+          ]
+        },
+        "es": {
+          "title": "Colaboración con comunidades académicas para construir comprensión científica sobre la IA",
+          "dek": "La asociación entre la industria tecnológica y los investigadores académicos es clave para avanzar en la base científica de la inteligencia artificial.",
+          "takeaways": [
+            "Fomentar una colaboración estrecha entre empresas tecnológicas y universidades.",
+            "Construir un marco científico sólido para el desarrollo de la inteligencia artificial.",
+            "Compartir conocimientos y recursos para abordar desafíos tecnológicos complejos."
+          ],
+          "sections": [
+            {
+              "heading": "El papel fundamental de la academia",
+              "body": "Las instituciones académicas y los investigadores proporcionan perspectivas críticas, estudios empíricos profundos y validación rigurosa sobre la seguridad y el impacto de las nuevas tecnologías."
+            },
+            {
+              "heading": "Futuro del desarrollo tecnológico",
+              "body": "La combinación de recursos de la industria y el rigor académico crea un ecosistema tecnológico sostenible y transparente que beneficia a toda la sociedad."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/building-scientific-understanding-with-academic-communities"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028173147_20bb7403)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/working-with-academic-communities-to-build-scientific-understanding.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Hợp tác với cộng đồng học thuật để nâng cao hiểu biết khoa học về trí tuệ nhân tạo",
+          "en": "TigerIQ-generated illustration for: Working with academic communities to build scientific understanding of AI",
+          "es": "Ilustración generada por TigerIQ para: Colaboración con comunidades académicas para construir comprensión científica sobre la IA"
+        }
+      }
+    },
     {
       "slug": "github-copilot-automations-shared-workflows",
       "reportingMode": "official-announcement",
