@@ -1,11 +1,105 @@
 {
-  "updatedAt": "2026-10-28T18:50:51.667Z",
+  "updatedAt": "2026-10-28T19:06:09.667Z",
   "breaking": {
-    "vi": "GitHub chính thức ra mắt tính năng Agentic Workflows cho toàn bộ người dùng",
-    "en": "GitHub Agentic Workflows Now Generally Available",
-    "es": "GitHub lanza oficialmente los flujos de trabajo de agentes de manera general"
+    "vi": "Thế giới công việc không ngừng mở rộng của ChatGPT",
+    "en": "ChatGPT’s Expanding World of Work",
+    "es": "El mundo laboral en expansión de ChatGPT"
   },
   "articles": [
+    {
+      "slug": "chatgpt-s-expanding-world-of-work",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T19:06:09.667Z",
+      "modifiedAt": "2026-10-28T19:06:09.667Z",
+      "editions": {
+        "vi": {
+          "title": "Thế giới công việc không ngừng mở rộng của ChatGPT",
+          "dek": "Sự tiến hóa của ChatGPT đang định hình lại cách thức hoạt động và tương tác trong môi trường công sở hiện đại.",
+          "takeaways": [
+            "ChatGPT ngày càng tích hợp sâu rộng vào các quy trình làm việc doanh nghiệp.",
+            "Công nghệ AI đang chuyển đổi từ công cụ hỗ trợ đơn thuần thành tác nhân tự động hóa.",
+            "Thách thức và cơ hội mới đồng thời xuất hiện đối với lực lượng lao động toàn cầu."
+          ],
+          "sections": [
+            {
+              "heading": "Sự chuyển dịch trong môi trường công sở",
+              "body": "Sự hiện diện của ChatGPT trong các mô hình kinh doanh không chỉ dừng lại ở việc soạn thảo văn bản hay trả lời câu hỏi đơn giản. Các tổ chức đang áp dụng công nghệ này để tối ưu hóa chuỗi cung ứng, phân tích dữ liệu phức tạp và tự động hóa các tác vụ lặp đi lặp lại."
+            },
+            {
+              "heading": "Tương lai của năng suất và kỹ năng nhân sự",
+              "body": "Khi các công cụ AI ngày càng trở nên tinh vi, người lao động buộc phải thích nghi bằng cách phát triển các kỹ năng bổ trợ, tập trung vào tư duy phản biện, sáng tạo và quản lý hệ thống thay vì chỉ thực hiện các công việc thủ công."
+            }
+          ]
+        },
+        "en": {
+          "title": "ChatGPT’s Expanding World of Work",
+          "dek": "The continuous evolution of ChatGPT is actively reshaping professional environments and workflows across modern industries.",
+          "takeaways": [
+            "ChatGPT is integrating deeper into enterprise workflows and daily operations.",
+            "AI technology is shifting from a basic support tool to an automation agent.",
+            "New challenges and opportunities are emerging simultaneously for the global workforce."
+          ],
+          "sections": [
+            {
+              "heading": "The Shift in the Modern Workplace",
+              "body": "The presence of ChatGPT in business models goes far beyond drafting text or answering simple queries. Organizations are leveraging this technology to optimize supply chains, analyze complex datasets, and automate repetitive tasks."
+            },
+            {
+              "heading": "The Future of Productivity and Human Skills",
+              "body": "As AI tools become increasingly sophisticated, workers must adapt by developing complementary skills, focusing on critical thinking, creativity, and systems management rather than manual execution."
+            }
+          ]
+        },
+        "es": {
+          "title": "El mundo laboral en expansión de ChatGPT",
+          "dek": "La evolución continua de ChatGPT está remodelando activamente los entornos profesionales y los flujos de trabajo en las industrias modernas.",
+          "takeaways": [
+            "ChatGPT se integra cada vez más profundamente en los flujos de trabajo empresariales.",
+            "La tecnología de IA está pasando de ser una simple herramienta de apoyo a un agente de automatización.",
+            "Surgen simultáneamente nuevos desafíos y oportunidades para la fuerza laboral global."
+          ],
+          "sections": [
+            {
+              "heading": "El cambio en el lugar de trabajo moderno",
+              "body": "La presencia de ChatGPT en los modelos comerciales va mucho más allá de redactar textos o responder consultas simples. Las organizaciones están aprovechando esta tecnología para optimizar cadenas de suministro, analizar conjuntos de datos complejos y automatizar tareas repetitivas."
+            },
+            {
+              "heading": "El futuro de la productividad y las habilidades humanas",
+              "body": "A medida que las herramientas de IA se vuelven más sofisticadas, los trabajadores deben adaptarse desarrollando habilidades complementarias, centrándose en el pensamiento crítico, la creatividad y la gestión de sistemas en lugar de la ejecución manual."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/chatgpt-expanding-world-of-work",
+        "https://openai.com/index/uber-chatgpt-work-rollout"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028190557_f1c5b7e8)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/chatgpt-expanding-world-of-work"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/chatgpt-s-expanding-world-of-work.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Thế giới công việc không ngừng mở rộng của ChatGPT",
+          "en": "TigerIQ-generated illustration for: ChatGPT’s Expanding World of Work",
+          "es": "Ilustración generada por TigerIQ para: El mundo laboral en expansión de ChatGPT"
+        }
+      }
+    },
     {
       "slug": "github-agentic-workflows-generally-available",
       "category": "Models",
