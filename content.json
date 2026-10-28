@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T20:38:00.483Z",
+  "updatedAt": "2026-10-28T20:53:19.228Z",
   "breaking": {
-    "vi": "Mở rộng khả năng tiếp cận thông qua các tiêu chuẩn đồng nhất trong công nghệ AI",
-    "en": "Broad access through consistent standards in AI technology",
-    "es": "Amplio acceso a través de estándares consistentes en la tecnología de IA"
+    "vi": "Patch the Planet: Phối hợp toàn cầu khi các tác nhân AI phát hiện lỗ hổng nghiêm trọng",
+    "en": "Patch the Planet: Global Response Coordination as Agents Uncover Critical Vulnerabilities",
+    "es": "Patch the Planet: Coordinación de respuesta global mientras los agentes descubren vulnerabilidades críticas"
   },
   "articles": [
+    {
+      "slug": "patch-the-planet-global-response-coordination-as-agents-uncover-critical-vulnerabilities",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T20:53:19.228Z",
+      "modifiedAt": "2026-10-28T20:53:19.228Z",
+      "editions": {
+        "vi": {
+          "title": "Patch the Planet: Phối hợp toàn cầu khi các tác nhân AI phát hiện lỗ hổng nghiêm trọng",
+          "dek": "Cộng đồng công nghệ toàn cầu đang phải huy động nguồn lực chưa từng có để vá các lỗ hổng hệ thống quan trọng do các tác nhân thông minh phát hiện.",
+          "takeaways": [
+            "Các tác nhân AI đang thay đổi cách thức phát hiện và khai thác lỗ hổng bảo mật.",
+            "Sự phối hợp toàn cầu trở nên cấp thiết để ngăn chặn các cuộc tấn công quy mô lớn.",
+            "Ngành công nghệ đang chuyển dịch sang chiến lược phòng thủ chủ động và tự động hóa."
+          ],
+          "sections": [
+            {
+              "heading": "Kỷ nguyên mới của bảo mật mạng",
+              "body": "Sự xuất hiện của các hệ thống AI tiên tiến không chỉ mang lại hiệu quả vận hành mà còn đặt ra những thách thức lớn về an ninh. Khi các tác nhân tự động bắt đầu quét và định vị các điểm yếu trong hạ tầng kỹ thuật số toàn cầu, tốc độ phát hiện lỗ hổng đã vượt xa khả năng ứng phó truyền thống của con người."
+            },
+            {
+              "heading": "Chiến lược 'Patch the Planet'",
+              "body": "Chiến dịch mang tên 'Patch the Planet' đánh dấu nỗ lực hợp tác chưa từng có giữa các chính phủ, tổ chức nghiên cứu và các tập đoàn công nghệ lớn. Mục tiêu là thiết lập một mạng lưới ứng phó toàn cầu, cho phép chia sẻ thông tin tình báo đe dọa theo thời gian thực và tự động hóa quá trình vá lỗi trước khi chúng bị khai thác ác ý."
+            }
+          ]
+        },
+        "en": {
+          "title": "Patch the Planet: Global Response Coordination as Agents Uncover Critical Vulnerabilities",
+          "dek": "The global tech community is mobilizing an unprecedented response as autonomous agents uncover critical system vulnerabilities at scale.",
+          "takeaways": [
+            "AI agents are fundamentally transforming how security vulnerabilities are discovered and evaluated.",
+            "Global coordination has become imperative to outpace potential large-scale exploitation.",
+            "The tech industry is rapidly shifting toward proactive, automated defense strategies."
+          ],
+          "sections": [
+            {
+              "heading": "A New Frontier in Cybersecurity",
+              "body": "The rapid advancement of autonomous AI systems has introduced both unprecedented capabilities and profound security risks. As sophisticated agents begin scanning and pinpointing architectural flaws across global digital infrastructure, the velocity of vulnerability discovery has far outpaced traditional human response capabilities."
+            },
+            {
+              "heading": "The 'Patch the Planet' Initiative",
+              "body": "Dubbed 'Patch the Planet,' this new collaborative framework unites governments, research institutions, and major tech enterprises in a synchronized defense effort. The initiative focuses on establishing real-time threat intelligence sharing and deploying automated patching mechanisms before malicious actors can weaponize the discovered flaws."
+            }
+          ]
+        },
+        "es": {
+          "title": "Patch the Planet: Coordinación de respuesta global mientras los agentes descubren vulnerabilidades críticas",
+          "dek": "La comunidad tecnológica mundial moviliza una respuesta sin precedentes ante el hallazgo de fallas críticas por parte de agentes autónomos.",
+          "takeaways": [
+            "Los agentes de IA están transformando radicalmente la detección y evaluación de vulnerabilidades.",
+            "La coordinación global es ahora imperativa para adelantarse a posibles ataques a gran escala.",
+            "La industria tecnológica transita rápidamente hacia estrategias de defensa proactivas y automatizadas."
+          ],
+          "sections": [
+            {
+              "heading": "Una nueva era en la ciberseguridad",
+              "body": "El avance acelerado de los sistemas inteligentes ha generado tanto eficiencias operativas como riesgos de seguridad sin precedentes. A medida que agentes sofisticados exploran e identifican puntos débiles en la infraestructura digital global, la velocidad de descubrimiento supera con creces la capacidad de respuesta humana tradicional."
+            },
+            {
+              "heading": "La iniciativa 'Patch the Planet'",
+              "body": "Bautizada como 'Patch the Planet', esta iniciativa marca un esfuerzo de colaboración sin precedentes entre gobiernos, centros de investigación y gigantes tecnológicos. Su objetivo central es crear una red global de intercambio de inteligencia de amenazas en tiempo real y automatizar los parches de seguridad antes de que puedan ser explotados maliciosamente."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028205306_c70cda9b)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/patch-the-planet-global-response-coordination-as-agents-uncover-critical-vulnerabilities.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Patch the Planet: Phối hợp toàn cầu khi các tác nhân AI phát hiện lỗ hổng nghiêm trọng",
+          "en": "TigerIQ-generated illustration for: Patch the Planet: Global Response Coordination as Agents Uncover Critical Vulnerabilities",
+          "es": "Ilustración generada por TigerIQ para: Patch the Planet: Coordinación de respuesta global mientras los agentes descubren vulnerabilidades críticas"
+        }
+      }
+    },
     {
       "slug": "broad-access-through-consistent-standards",
       "category": "Models",
