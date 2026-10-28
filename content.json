@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T20:22:43.127Z",
+  "updatedAt": "2026-10-28T20:38:00.483Z",
   "breaking": {
-    "vi": "FDE tại OpenAI có ý nghĩa gì đối với tương lai phát triển AI",
-    "en": "What FDE Means at OpenAI and Its Impact on AI Development",
-    "es": "Qué significa FDE en OpenAI y su impacto en el desarrollo de la IA"
+    "vi": "Mở rộng khả năng tiếp cận thông qua các tiêu chuẩn đồng nhất trong công nghệ AI",
+    "en": "Broad access through consistent standards in AI technology",
+    "es": "Amplio acceso a través de estándares consistentes en la tecnología de IA"
   },
   "articles": [
+    {
+      "slug": "broad-access-through-consistent-standards",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T20:38:00.483Z",
+      "modifiedAt": "2026-10-28T20:38:00.483Z",
+      "editions": {
+        "vi": {
+          "title": "Mở rộng khả năng tiếp cận thông qua các tiêu chuẩn đồng nhất trong công nghệ AI",
+          "dek": "Việc thiết lập các tiêu chuẩn đồng nhất đóng vai trò cốt lõi trong việc phổ cập công nghệ trí tuệ nhân tạo một cách rộng rãi và công bằng.",
+          "takeaways": [
+            "Tiêu chuẩn đồng nhất giúp loại bỏ rào cản kỹ thuật.",
+            "Mở rộng khả năng tiếp cận cho các cộng đồng chưa được phục vụ đầy đủ.",
+            "Thúc đẩy hệ sinh thái công nghệ phát triển minh bạch và bền vững."
+          ],
+          "sections": [
+            {
+              "heading": "Vai trò của tiêu chuẩn đồng nhất",
+              "body": "Trong kỷ nguyên phát triển bùng nổ của trí tuệ nhân tạo, các tiêu chuẩn đồng nhất không chỉ đảm bảo khả năng tương thích mà còn tạo nền tảng vững chắc để công nghệ tiếp cận đông đảo người dùng mà không gặp rào cản kỹ thuật."
+            },
+            {
+              "heading": "Hướng tới tương lai công nghệ bao trùm",
+              "body": "Bằng cách áp dụng các khung tiêu chuẩn chung, các nhà phát triển có thể xây dựng các giải pháp AI dễ tiếp cận hơn, an toàn hơn và mang lại giá trị thiết thực cho toàn xã hội."
+            }
+          ]
+        },
+        "en": {
+          "title": "Broad access through consistent standards in AI technology",
+          "dek": "Establishing consistent standards is crucial for democratizing artificial intelligence technology widely and equitably.",
+          "takeaways": [
+            "Consistent standards help eliminate technical barriers.",
+            "Expanding accessibility for underserved communities.",
+            "Fostering a transparent and sustainable technology ecosystem."
+          ],
+          "sections": [
+            {
+              "heading": "The role of consistent standards",
+              "body": "In the era of booming artificial intelligence development, consistent standards not only ensure interoperability but also create a solid foundation for technology to reach a broad user base without technical hurdles."
+            },
+            {
+              "heading": "Toward an inclusive technology future",
+              "body": "By adopting common standard frameworks, developers can build more accessible, safer AI solutions that deliver practical value to society as a whole."
+            }
+          ]
+        },
+        "es": {
+          "title": "Amplio acceso a través de estándares consistentes en la tecnología de IA",
+          "dek": "El establecimiento de estándares consistentes es fundamental para democratizar la tecnología de inteligencia artificial de manera amplia y equitativa.",
+          "takeaways": [
+            "Los estándares consistentes ayudan a eliminar barreras técnicas.",
+            "Ampliar la accesibilidad para comunidades desatendidas.",
+            "Fomentar un ecosistema tecnológico transparente y sostenible."
+          ],
+          "sections": [
+            {
+              "heading": "El papel de los estándares consistentes",
+              "body": "En la era del auge de la inteligencia artificial, los estándares consistentes no solo garantizan la interoperabilidad, sino que también crean una base sólida para que la tecnología llegue a una amplia base de usuarios sin obstáculos técnicos."
+            },
+            {
+              "heading": "Hacia un futuro tecnológico inclusivo",
+              "body": "Al adoptar marcos de estándares comunes, los desarrolladores pueden construir soluciones de IA más accesibles y seguras que aporten valor práctico a toda la sociedad."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/broad-access-through-consistent-standards"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028203748_daf38145)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/broad-access-through-consistent-standards"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/broad-access-through-consistent-standards.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Mở rộng khả năng tiếp cận thông qua các tiêu chuẩn đồng nhất trong công nghệ AI",
+          "en": "TigerIQ-generated illustration for: Broad access through consistent standards in AI technology",
+          "es": "Ilustración generada por TigerIQ para: Amplio acceso a través de estándares consistentes en la tecnología de IA"
+        }
+      }
+    },
     {
       "slug": "what-fde-means-at-openai",
       "category": "Models",
