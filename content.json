@@ -1,11 +1,116 @@
 {
-  "updatedAt": "2026-10-28T21:39:14.694Z",
+  "updatedAt": "2026-10-28T21:49:36.009Z",
   "breaking": {
-    "vi": "Hành trình trí tuệ nhân tạo mới nhất của chúng tôi: Lập bản đồ bộ não con người",
-    "en": "Our newest AI Quest: Mapping the human brain",
-    "es": "Nuestra nueva misión de IA: Mapear el cerebro humano"
+    "vi": "Nền kinh tế số Đông Nam Á chạm mốc 368 tỷ USD: Khi AI và hạ tầng dữ liệu định hình lại ván cờ công nghệ khu vực",
+    "en": "Southeast Asia’s Digital Economy Hits $368 Billion as AI Redefines Regional Tech Infrastructure",
+    "es": "La economía digital del Sudeste Asiático alcanza los 368.000 millones de dólares impulsada por la infraestructura de IA"
   },
   "articles": [
+    {
+      "slug": "southeast-asia-s-digital-economy-to-hit-368-billion",
+      "category": "Models",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T21:49:36.009Z",
+      "modifiedAt": "2026-10-28T21:49:36.009Z",
+      "editions": {
+        "vi": {
+          "title": "Nền kinh tế số Đông Nam Á chạm mốc 368 tỷ USD: Khi AI và hạ tầng dữ liệu định hình lại ván cờ công nghệ khu vực",
+          "dek": "Báo cáo e-Conomy SEA mới nhất chỉ ra cột mốc 368 tỷ USD của nền kinh tế số khu vực, được thúc đẩy bởi sự bùng nổ của trí tuệ nhân tạo và dòng vốn đầu tư hạ tầng hạ lưu đang chuyển dịch mạnh mẽ.",
+          "takeaways": [
+            "Tổng giá trị hàng hóa (GMV) của nền kinh tế số Đông Nam Á dự kiến đạt 368 tỷ USD, phản ánh tốc độ trưởng thành của hệ sinh thái công nghệ khu vực.",
+            "Trí tuệ nhân tạo (AI) đã chuyển dịch từ giai đoạn thử nghiệm sang việc tích hợp sâu vào các mô hình vận hành thương mại điện tử và fintech với khối lượng dữ liệu xử lý theo thời gian thực khổng lồ.",
+            "Sự dịch chuyển dòng vốn đầu tư mạo hiểm và hạ tầng trung tâm dữ liệu tập trung vào các thị trường trọng điểm như Indonesia, Singapore và Việt Nam."
+          ],
+          "sections": [
+            {
+              "heading": "Kiến trúc dữ liệu hạ tầng và bước ngoặt chuyển đổi số",
+              "body": "Sự gia tăng quy mô lên 368 tỷ USD không đơn thuần là con số tăng trưởng doanh thu thương mại điện tử, mà là kết quả của việc nâng cấp toàn diện hạ tầng tính toán. Các tập đoàn công nghệ lớn và nhà cung cấp dịch vụ đám mây (cloud hyperscalers) đang tái cấu trúc các đường ống dữ liệu (data pipelines), đưa khả năng xử lý AI tạo sinh sát hơn với biên mạng (edge computing). Điều này giúp giảm độ trễ trong các giao dịch tài chính số và tối ưu hóa chuỗi cung ứng logistics xuyên biên giới.\n\nViệc ứng dụng các mô hình ngôn ngữ lớn (LLM) được tinh chỉnh cho các ngôn ngữ địa phương như tiếng Bahasa, tiếng Việt và tiếng Thái đang tạo ra một tầng tương tác người dùng hoàn toàn mới. Các doanh nghiệp vừa và nhỏ (SME) trong khu vực không chỉ tiêu thụ công nghệ mà bắt đầu tham gia sâu vào chuỗi giá trị phân tích dữ liệu, biến lượng thông tin giao dịch khổng lồ thành tài sản chiến lược."
+            },
+            {
+              "heading": "Động lực cạnh tranh và bài toán tối ưu chi phí - hiệu năng",
+              "body": "Cuộc đua giành thị phần giữa các 'ông lớn' công nghệ toàn cầu như Google, AWS, Microsoft và các kỳ lân khu vực như Grab, GoTo, Sea Group đang bước vào giai đoạn khốc liệt. Trong bối cảnh áp lực tài chính đòi hỏi biên lợi nhuận rõ ràng thay vì tăng trưởng bằng mọi giá, chiến lược của các bên xoay quanh việc tối ưu hóa chi phí tính toán trên mỗi token AI. Các giải pháp hạ tầng lai (hybrid cloud) và mô hình mã nguồn mở đang được ưu tiên để giảm sự phụ thuộc vào các dịch vụ độc quyền đắt đỏ.\n\nSự tham gia của các đối tác phần cứng như NVIDIA cùng các nhà cung cấp năng lượng trung tâm dữ liệu tại Đông Nam Á đang tạo ra một hệ sinh thái hạ tầng cạnh tranh trực tiếp. Các doanh nghiệp buộc phải cân đối giữa việc tự xây dựng năng lực tính toán lõi và việc thuê ngoài các API trí tuệ nhân tạo để duy trì biên lợi nhuận trong phân khúc fintech và siêu ứng dụng vốn có cạnh tranh khốc liệt."
+            },
+            {
+              "heading": "Điểm nghẽn kỹ thuật, khung pháp lý và tầm nhìn chiến lược tương lai",
+              "body": "Dù tiềm năng tăng trưởng rất lớn, hệ sinh thái công nghệ Đông Nam Á vẫn đối mặt với những rào cản cấu trúc nghiêm trọng. Các quy định về chủ quyền dữ liệu (data localization) ngày càng khắt khe tại Indonesia và Việt Nam đòi hỏi các doanh nghiệp công nghệ phải thiết lập kiến trúc lưu trữ phi tập trung, làm gia tăng chi phí vận hành tuân thủ. Thêm vào đó, việc thiếu hụt nguồn nhân lực kỹ thuật cao chuyên sâu về hạ tầng AI và bảo mật dữ liệu là nút thắt cổ chai lớn nhất.\n\nTrong thời gian tới, khả năng tích hợp các tiêu chuẩn bảo mật xuyên biên giới và việc giải quyết bài toán tiêu thụ năng lượng của các trung tâm dữ liệu quy mô lớn sẽ quyết định tốc độ bứt phá của khu vực. Các nhà đầu tư chiến lược sẽ theo dõi sát sao cách các chính phủ Đông Nam Á cân bằng giữa việc thúc đẩy đổi mới sáng tạo công nghệ và bảo vệ an ninh mạng không gian số."
+            }
+          ]
+        },
+        "en": {
+          "title": "Southeast Asia’s Digital Economy Hits $368 Billion as AI Redefines Regional Tech Infrastructure",
+          "dek": "The latest e-Conomy SEA findings reveal a $368 billion milestone driven by structural AI integration and a massive reallocation of downstream digital infrastructure capital.",
+          "takeaways": [
+            "Southeast Asia's digital economy gross merchandise value (GMV) is projected to reach $368 billion, signaling a mature and resilient regional tech ecosystem.",
+            "Artificial intelligence has transitioned from proof-of-concept experimentation to core operational integration within e-commerce and fintech pipelines.",
+            "Venture capital and data center infrastructure deployment are heavily concentrating in tier-one markets including Indonesia, Singapore, and Vietnam."
+          ],
+          "sections": [
+            {
+              "heading": "Core Architectural Breakthrough and Infrastructure Realignment",
+              "body": "The expansion toward a $368 billion digital economy is not merely a reflection of top-line e-commerce growth, but the direct result of a structural upgrade in regional compute capabilities. Cloud hyperscalers are actively re-engineering data pipelines to push generative AI inference closer to network edges, drastically reducing latency for high-frequency financial transactions and cross-border logistics supply chains.\n\nThe deployment of fine-tuned Large Language Models (LLMs) tailored for regional languages—such as Bahasa, Vietnamese, and Thai—has unlocked a new paradigm of localized user engagement. Regional small and medium enterprises (SMEs) are evolving from passive technology consumers into active data contributors, transforming vast transactional datasets into core strategic assets."
+            },
+            {
+              "heading": "Competitive Dynamics and Cost-Performance Economics",
+              "body": "The race for market dominance among global giants like Google, AWS, Microsoft, and regional heavyweights such as Grab, GoTo, and Sea Group has entered a disciplined phase. Pressured by investors to demonstrate clear path-to-profitability rather than growth-at-all-costs, corporate strategies now hinge on optimizing compute cost per AI token. Hybrid cloud architectures and open-weight models are increasingly favored to mitigate vendor lock-in and high proprietary API overheads.\n\nThe influx of advanced silicon providers and specialized data center operators is fostering a highly competitive hardware ecosystem across Southeast Asia. Enterprises must constantly re-evaluate the trade-off between building proprietary in-house machine learning pipelines and leveraging third-party managed infrastructure to preserve margins in hyper-competitive fintech and super-app verticals."
+            },
+            {
+              "heading": "Engineering Friction, Governance, and the Strategic Horizon",
+              "body": "Despite robust macro indicators, the regional technology landscape grapples with formidable structural bottlenecks. Evolving data localization mandates in key markets like Indonesia and Vietnam require distributed storage architectures, driving up compliance overheads. Furthermore, a severe shortage of specialized engineering talent capable of managing large-scale AI infrastructure and advanced cybersecurity remains a critical vulnerability.\n\nLooking ahead, the ability to harmonize cross-border data governance frameworks while solving the immense energy demands of next-generation data centers will dictate the region's long-term trajectory. Institutional investors will closely monitor how Southeast Asian markets balance the aggressive pursuit of AI innovation with stringent digital sovereignty requirements."
+            }
+          ]
+        },
+        "es": {
+          "title": "La economía digital del Sudeste Asiático alcanza los 368.000 millones de dólares impulsada por la infraestructura de IA",
+          "dek": "El nuevo informe e-Conomy SEA revela un hito de 368.000 millones de dólares impulsado por la integración estructural de la inteligencia artificial y la inversión en infraestructura digital.",
+          "takeaways": [
+            "El valor bruto de mercancías (GMV) de la economía digital del Sudeste Asiático proyecta alcanzar los 368.000 millones de dólares, reflejando un ecosistema tecnológico maduro.",
+            "La inteligencia artificial ha pasado de la fase experimental a integrarse de forma operativa en los flujos de comercio electrónico y tecnología financiera.",
+            "La inversión de capital de riesgo y el despliegue de centros de datos se concentran fuertemente en mercados clave como Indonesia, Singapur y Vietnam."
+          ],
+          "sections": [
+            {
+              "heading": "Avance arquitectónico central y reestructuración de infraestructura",
+              "body": "La expansión hacia una economía digital de 368.000 millones de dólares no es solo un reflejo del crecimiento del comercio electrónico, sino el resultado directo de una actualización estructural en las capacidades de cálculo regional. Los principales proveedores de la nube están reconfigurando sus tuberías de datos para acercar la inferencia de inteligencia artificial generativa al borde de la red, reduciendo drásticamente la latencia en transacciones financieras y cadenas de suministro.\n\nEl despliegue de modelos de lenguaje grande ajustados para idiomas locales, como el bahasa, el vietnamita y el tailandés, ha abierto un nuevo paradigma de interacción de usuarios. Las pequeñas y medianas empresas de la región están transitando de ser consumidoras pasivas a convertirse en participantes activos del ecosistema de análisis de datos."
+            },
+            {
+              "heading": "Dinámica competitiva y economía de costes y rendimiento",
+              "body": "La competencia por el dominio del mercado entre gigantes globales como Google, AWS, Microsoft y actores regionales como Grab, GoTo y Sea Group ha entrado en una fase disciplinada. Presionados por demostrar rentabilidad, las estrategias corporativas se centran en optimizar el coste de computación por token de IA. Las arquitecturas de nube híbrida y los modelos de peso abierto se priorizan para mitigar la dependencia de proveedores cerrados.\n\nLa llegada de nuevos proveedores de hardware y operadores especializados en centros de datos está creando un ecosistema competitivo en el Sudeste Asiático. Las empresas deben equilibrar el desarrollo interno de modelos de aprendizaje automático con el uso de infraestructura gestionada de terceros para proteger sus márgenes."
+            },
+            {
+              "heading": "Fricción de ingeniería, gobernanza y horizonte estratégico",
+              "body": "A pesar de los sólidos indicadores macroeconómicos, el panorama tecnológico regional enfrenta cuellos de botella estructurales. Las estrictas normativas de localización de datos en mercados como Indonesia y Vietnam exigen arquitecturas de almacenamiento descentralizadas, encareciendo el cumplimiento normativo. Asimismo, la escasez de talento técnico especializado en infraestructura de IA y ciberseguridad sigue siendo un desafío crítico.\n\nEn el futuro, la capacidad de armonizar los marcos de gobernanza de datos transfronterizos mientras se resuelven las demandas energéticas de los centros de datos determinará la trayectoria a largo plazo de la región. Los inversores vigilarán de cerca cómo los mercados equilibran la innovación tecnológica con la seguridad digital."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028214859_b397f2f8)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/southeast-asia-s-digital-economy-to-hit-368-billion.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-realistic-flux-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: Nền kinh tế số Đông Nam Á chạm mốc 368 tỷ USD: Khi AI và hạ tầng dữ liệu định hình lại ván cờ công nghệ khu vực",
+          "en": "TigerIQ-generated illustration for: Southeast Asia’s Digital Economy Hits $368 Billion as AI Redefines Regional Tech Infrastructure",
+          "es": "Ilustración generada por TigerIQ para: La economía digital del Sudeste Asiático alcanza los 368.000 millones de dólares impulsada por la infraestructura de IA"
+        }
+      }
+    },
     {
       "slug": "our-newest-ai-quest-mapping-the-human-brain",
       "category": "Models",
