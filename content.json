@@ -1,11 +1,104 @@
 {
-  "updatedAt": "2026-10-28T21:08:37.615Z",
+  "updatedAt": "2026-10-28T21:23:55.308Z",
   "breaking": {
-    "vi": "Huấn luyện phân tán với Ray Train DLCs và EFA trên EKS",
-    "en": "Distributed training with Ray Train DLCs and EFA on EKS",
-    "es": "Entrenamiento distribuido con Ray Train DLCs y EFA en EKS"
+    "vi": "ChatGPT Ads mở rộng sang 26 quốc gia mới với hơn 100.000 nhà quảng cáo tham gia",
+    "en": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+    "es": "ChatGPT Ads se expande a 26 nuevos países tras superar los 100.000 anunciantes"
   },
   "articles": [
+    {
+      "slug": "chatgpt-ads-expands-to-26-new-countries-as-over-100-000-advertisers-have-used-the-platform",
+      "category": "Models",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-28T21:23:55.308Z",
+      "modifiedAt": "2026-10-28T21:23:55.308Z",
+      "editions": {
+        "vi": {
+          "title": "ChatGPT Ads mở rộng sang 26 quốc gia mới với hơn 100.000 nhà quảng cáo tham gia",
+          "dek": "Nền tảng quảng cáo của ChatGPT tiếp tục đà tăng trưởng mạnh mẽ, mở rộng tầm ảnh hưởng toàn cầu khi thu hút hơn một trăm nghìn thương hiệu thử nghiệm.",
+          "takeaways": [
+            "ChatGPT Ads chính thức phủ sóng thêm 26 quốc gia mới trên toàn thế giới.",
+            "Hơn 100.000 nhà quảng cáo đã tận dụng nền tảng này cho các chiến dịch tiếp thị.",
+            "Đánh dấu bước ngoặt lớn trong việc thương mại hóa các công cụ trí tuệ nhân tạo tạo sinh."
+          ],
+          "sections": [
+            {
+              "heading": "Sự bùng nổ của quảng cáo trên nền tảng AI",
+              "body": "Việc mở rộng nhanh chóng của ChatGPT Ads cho thấy nhu cầu khổng lồ từ các doanh nghiệp trong việc tiếp cận người dùng thông qua các giao diện trò chuyện thông minh. Với hơn 100.000 nhà quảng cáo đã tham gia, mô hình kiếm tiền mới này đang chứng minh hiệu quả và tiềm năng doanh thu khổng lồ cho các công ty công nghệ lớn."
+            },
+            {
+              "heading": "Chiến lược toàn cầu hóa và tương lai ngành tiếp thị",
+              "body": "Việc bổ sung 26 quốc gia mới không chỉ giúp mở rộng thị phần mà còn tạo ra một sân chơi cạnh tranh mới cho các nhà quảng cáo toàn cầu. Các thương hiệu buộc phải thích ứng với cách người tiêu dùng tương tác với AI để tối ưu hóa hiệu quả chiến dịch trong kỷ nguyên số."
+            }
+          ]
+        },
+        "en": {
+          "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+          "dek": "OpenAI's advertising ecosystem reaches new global milestones, welcoming a massive influx of brands seeking to leverage conversational AI.",
+          "takeaways": [
+            "ChatGPT Ads has officially rolled out to 26 additional countries globally.",
+            "Over 100,000 unique advertisers have utilized the platform for their campaigns.",
+            "This expansion highlights the rapid commercialization of generative AI interfaces."
+          ],
+          "sections": [
+            {
+              "heading": "A Major Milestone for AI Monetization",
+              "body": "The rapid rollout of ChatGPT Ads underscores the immense appetite among brands to engage consumers through intelligent conversational interfaces. Surpassing 100,000 advertisers proves that AI-driven advertising is quickly transitioning from an experimental phase to a core pillar of modern digital marketing strategies."
+            },
+            {
+              "heading": "Global Reach and Market Implications",
+              "body": "By opening the platform to 26 new regions, tech developers are scaling their monetization models to match the massive user adoption of generative AI. Advertisers worldwide must now adapt to how users discover products and services directly within AI chat environments."
+            }
+          ]
+        },
+        "es": {
+          "title": "ChatGPT Ads se expande a 26 nuevos países tras superar los 100.000 anunciantes",
+          "dek": "La plataforma de publicidad de ChatGPT acelera su crecimiento global y atrae a miles de marcas que buscan innovar en el marketing de IA.",
+          "takeaways": [
+            "ChatGPT Ads está disponible oficialmente en 26 nuevos mercados internacionales.",
+            "Más de 100.000 anunciantes ya han probado y utilizado la plataforma.",
+            "Refleja la rápida evolución y comercialización de los asistentes de inteligencia artificial."
+          ],
+          "sections": [
+            {
+              "heading": "Crecimiento acelerado en la publicidad con IA",
+              "body": "La expansión masiva de ChatGPT Ads demuestra el fuerte interés del sector empresarial por conectar con los usuarios a través de interfaces conversacionales avanzadas. Con más de 100.000 anunciantes a bordo, el modelo se consolida como una alternativa sólida en el ecosistema digital."
+            },
+            {
+              "heading": "Impacto global y el futuro del marketing",
+              "body": "La llegada a 26 nuevos países abre nuevas oportunidades para marcas de todos los tamaños en el ámbito internacional. Los profesionales del marketing se enfrentan al reto de integrar sus estrategias en los hábitos de consumo impulsados por la inteligencia artificial."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://openai.com/index/chatgpt-ads-expands-26-new-countries"
+      ],
+      "verification": {
+        "status": "verified",
+        "basis": "Được thẩm định độc lập bởi Ban biên tập AI Agents City (delib_20261028212342_f92dcb52)",
+        "evidence": [
+          {
+            "sourceId": "src-1",
+            "tier": "A",
+            "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/chatgpt-ads-expands-to-26-new-countries-as-over-100-000-advertisers-have-used-the-platform.svg",
+        "width": 1200,
+        "height": 675,
+        "generator": "tigeriq-cover-v1",
+        "generated": true,
+        "alt": {
+          "vi": "Ảnh minh họa do TigerIQ tạo cho bài: ChatGPT Ads mở rộng sang 26 quốc gia mới với hơn 100.000 nhà quảng cáo tham gia",
+          "en": "TigerIQ-generated illustration for: ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+          "es": "Ilustración generada por TigerIQ para: ChatGPT Ads se expande a 26 nuevos países tras superar los 100.000 anunciantes"
+        }
+      }
+    },
     {
       "slug": "distributed-training-with-ray-train-dlcs-and-efa-on-eks",
       "category": "Models",
