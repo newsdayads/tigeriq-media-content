@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-28T22:10:44.282Z",
+  "updatedAt": "2026-10-29T13:18:21.852Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "meta-networking-2026-ocp-global-summit",
+      "reportingMode": "official-announcement",
+      "category": "technology",
+      "storyId": "tigeriq:meta-networking-2026-ocp-global-summit",
+      "clusterKey": "news:d8390b5d821d1fd7cecfcb9c6bf3b5ab8e6c670af853f8fbced8518eb7262cae",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-29T13:18:21.852Z",
+      "modifiedAt": "2026-10-29T13:18:21.852Z",
+      "editions": {
+        "vi": {
+          "title": "Meta Chia Sẻ Các Đổi Mới Mạng Tại Hội Nghị Thượng Đỉnh OCP Global 2026",
+          "dek": "Theo công bố của Meta. Meta công bố các kiến trúc mạng, phần cứng làm mát bằng chất lỏng và các sáng kiến nguồn mở tại Hội nghị Thượng đỉnh OCP Global 2026.",
+          "takeaways": [
+            "Meta giới thiệu IcePack và IceCube, rack mạng làm mát bằng chất lỏng đầu tiên với các lưỡi chuyển mạch 102.4T.",
+            "Meta chia sẻ về Flattened Planar Fabric cho scale-out và mạng scale-across BAG cho cụm Prometheus.",
+            "Sáng kiến OSPA mới được đồng lãnh đạo bởi Meta, Microsoft và Alibaba để tiêu chuẩn hóa lớp nền tảng chuyển mạch.",
+            "MetaRoCE, giao thức vận chuyển RDMA của Meta dành cho mạng AI, hiện đang được chuyển thành mã nguồn mở."
+          ],
+          "sections": [
+            {
+              "heading": "Đổi Mới Phần Cứng và Làm Mát",
+              "body": "Tại Hội nghị Thượng đỉnh OCP Global 2026, Meta đã chia sẻ các đổi mới mạng hỗ trợ trực tiếp cho các mô hình AI mới nhất của mình, bao gồm Muse Wonder, Muse Spark và cụm Prometheus quy mô gigawatt. Điểm nổi bật là IcePack và IceCube, rack mạng làm mát bằng chất lỏng đầu tiên của Meta với các lưỡi chuyển mạch 102.4T chạy FBOSS."
+            },
+            {
+              "heading": "Kiến Trúc Mạng và Mã Nguồn Mở",
+              "body": "Meta đã trình bày chi tiết về Flattened Planar Fabric cho scale-out, cùng với BAG, một siêu sống lưng quy mô petabit kết nối các tòa nhà, cơ sở và khu vực trong cụm Prometheus gigawatt. Ngoài ra, Meta đã công bố OSPA, một Sáng kiến Nền tảng Chuyển mạch Mở mới được đồng lãnh đạo bởi Meta, Microsoft và Alibaba."
+            }
+          ]
+        },
+        "en": {
+          "title": "Meta Shares Networking Innovations at the 2026 OCP Global Summit",
+          "dek": "According to Meta. Meta details its latest data center networking advancements, liquid-cooled network racks, and open-source contributions at the 2026 Open Compute Project Global Summit.",
+          "takeaways": [
+            "Meta showcased IcePack and IceCube, its first liquid-cooled network rack equipped with 102.4T switch blades.",
+            "The company detailed its Flattened Planar Fabric for scale-out and BAG for scale-across connectivity.",
+            "Meta, Microsoft, and Alibaba co-led the Open Switch Platform Architecture initiative, submitting its v1.0 spec to OCP.",
+            "MetaRoCE, Meta's RDMA transport for AI networks, is officially going open source."
+          ],
+          "sections": [
+            {
+              "heading": "Hardware and Infrastructure Highlights",
+              "body": "At the 2026 Open Compute Project Global Summit, Meta shared the networking innovations supporting its latest AI models, including Muse Wonder and Muse Spark, alongside its gigawatt-scale Prometheus cluster. Key hardware highlights include IcePack and IceCube, Meta's first liquid-cooled network rack featuring 102.4T switch blades running FBOSS."
+            },
+            {
+              "heading": "Open Ecosystem and Standards",
+              "body": "Meta introduced OSPA, a new Open Compute Project initiative co-led by Meta, Microsoft, and Alibaba to standardize the switch platform layer, submitting its v1.0 specification to OCP. Additionally, Meta announced that MetaRoCE, its proprietary RDMA transport for AI networks, is now going open source."
+            }
+          ]
+        },
+        "es": {
+          "title": "Meta Comparte Innovaciones de Redes en la Cumbre Global OCP 2026",
+          "dek": "Según Meta. Meta detalla sus avances en redes de centros de datos, bastidores refrigerados por líquido y contribuciones de código abierto en la Cumbre Global OCP 2026.",
+          "takeaways": [
+            "Meta presentó IcePack e IceCube, su primer bastidor de red refrigerado por líquido con cuchillas de conmutación de 102.4T.",
+            "La compañía detalló su tejido plano aplastado para scale-out y BAG para conectividad scale-across.",
+            "Meta, Microsoft y Alibaba co-lideran la iniciativa OSPA para estandarizar la capa de plataforma de conmutación.",
+            "MetaRoCE, el transporte RDMA de Meta para redes de inteligencia artificial, se está convirtiendo en código abierto."
+          ],
+          "sections": [
+            {
+              "heading": "Aspectos Destacados de Hardware",
+              "body": "En la Cumbre Global OCP 2026, Meta compartió las innovaciones de redes que respaldan directamente sus modelos de inteligencia artificial más recientes, incluidos Muse Wonder y Muse Spark, y su clúster Prometheus a escala de gigavatios. Entre los puntos destacados se encuentran IcePack e IceCube, el primer bastidor de red refrigerado por líquido de Meta."
+            },
+            {
+              "heading": "Ecosistema Abierto y Estandarización",
+              "body": "Meta presentó OSPA, una nueva iniciativa del Open Compute Project co-liderada por Meta, Microsoft y Alibaba para estandarizar la capa de plataforma de conmutación, enviando su especificación v1.0 a OCP. Asimismo, Meta anunció que MetaRoCE, su transporte RDMA para redes de IA, ahora es de código abierto."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "meta-4",
+            "publisher": "meta",
+            "url": "https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/",
+            "title": "Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Scale-Out, and Scale-Across AI Networks"
+          }
+        ],
+        "claims": [
+          {
+            "text": "At the 2026 Open Compute Project Global Summit, Meta shared networking innovations directly supporting its latest AI models, including Muse Wonder and Muse Spark, and its gigawatt-scale Prometheus cluster.",
+            "sourceIds": [
+              "meta-4"
+            ]
+          },
+          {
+            "text": "Meta introduced IcePack and IceCube, its first liquid-cooled network rack featuring 102.4T switch blades running FBOSS.",
+            "sourceIds": [
+              "meta-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "meta-4",
+            "tier": "A",
+            "url": "https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-networking-2026-ocp-global-summit.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Meta Chia Sẻ Các Đổi Mới Mạng Tại Hội Nghị Thượng Đỉnh OCP Global 2026",
+          "en": "Meta Shares Networking Innovations at the 2026 OCP Global Summit",
+          "es": "Meta Comparte Innovaciones de Redes en la Cumbre Global OCP 2026"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "new-experts-join-google-s-ai-economy-team",
       "category": "Models",
