@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-29T13:18:21.852Z",
+  "updatedAt": "2026-10-29T14:18:22.181Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "fine-tuning-nvidia-nemotron-local-rules",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:fine-tuning-nvidia-nemotron-local-rules",
+      "clusterKey": "news:6678985df0999953aade747d636b331024fc17669c882f3f9628ef2f888a5856",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-29T14:18:22.181Z",
+      "modifiedAt": "2026-10-29T14:18:22.181Z",
+      "editions": {
+        "vi": {
+          "title": "Tinh chỉnh NVIDIA Nemotron để hiểu các quy tắc cục bộ",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA phát hành các tập dữ liệu Nemotron-Personas cho Pháp và Bỉ nhằm cải thiện khả năng thích ứng của mô hình cho thị trường địa phương.",
+          "takeaways": [
+            "NVIDIA xây dựng các tập dữ liệu Nemotron-Personas cho Pháp và Bỉ.",
+            "Quy trình hậu huấn luyện kết hợp các nhân vật này với hợp đồng hành vi và văn bản thủ tục.",
+            "Kho lưu trữ Nemotron cung cấp các bước có thể tái sử dụng cho việc tạo dữ liệu và huấn luyện.",
+            "Startup Pleias sử dụng các tập dữ liệu này trong trợ lý chăm sóc cột sống Lamina."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về dữ liệu Nemotron-Personas",
+              "body": "NVIDIA xây dựng Nemotron-Personas-France với startup AI Pleias của Pháp và Nemotron-Personas-Belgium với Pleias cùng trường đại học KU Leuven của Bỉ. Cả hai đều là một phần của chương trình dữ liệu mở NVIDIA Nemotron, bao gồm các tập dữ liệu nhân vật có cơ sở địa phương cho 12 quốc gia để các nhà phát triển thích ứng mô hình."
+            },
+            {
+              "heading": "Quy trình và công cụ hỗ trợ",
+              "body": "Kho lưu trữ Nemotron cung cấp các bước có thể tái sử dụng để tạo dữ liệu, huấn luyện và đánh giá, cùng với các kỹ năng tác nhân giúp các tác nhân mã hóa lắp ráp quy trình làm việc. Pleias áp dụng các tập dữ liệu này trong trợ lý chăm sóc cột sống Lamina để mở rộng phạm vi phủ sóng."
+            }
+          ]
+        },
+        "en": {
+          "title": "Fine-Tuning NVIDIA Nemotron to Know Local Rules",
+          "dek": "According to NVIDIA Developer. NVIDIA releases Nemotron-Personas datasets for France and Belgium to improve model adaptation for local markets.",
+          "takeaways": [
+            "NVIDIA built Nemotron-Personas-France with Pleias and Nemotron-Personas-Belgium with Pleias and KU Leuven.",
+            "Datasets provide synthetic residents grounded in regional demographics, geography, language, and culture.",
+            "The Nemotron repository supplies reusable steps for data generation, training, and evaluation.",
+            "Pleias applies the persona datasets in its Lamina spine-care assistant to expand coverage."
+          ],
+          "sections": [
+            {
+              "heading": "Introduction to Nemotron-Personas",
+              "body": "NVIDIA built Nemotron-Personas-France with French AI startup Pleias, and Nemotron-Personas-Belgium with Pleias and Belgian university KU Leuven. Both are part of the open NVIDIA Nemotron data program, which includes locale-grounded persona datasets for 12 countries that developers can use to adapt open models market by market."
+            },
+            {
+              "heading": "Workflow and Application",
+              "body": "The Nemotron repository supplies reusable steps for data generation, training, and evaluation, plus agent skills that help coding agents assemble the workflow. Pleias applies the France and Belgium persona datasets in its Lamina spine-care assistant to expand coverage from limited real patient cases and test across diverse patient profiles."
+            }
+          ]
+        },
+        "es": {
+          "title": "Ajuste fino de NVIDIA Nemotron para conocer reglas locales",
+          "dek": "Según NVIDIA Developer. NVIDIA lanza conjuntos de datos Nemotron-Personas para Francia y Bélgica para mejorar la adaptación de modelos.",
+          "takeaways": [
+            "NVIDIA construyó Nemotron-Personas-France con Pleias y Nemotron-Personas-Belgium con Pleias y KU Leuven.",
+            "Los conjuntos de datos ofrecen residentes sintéticos fundamentados en datos demográficos y culturales.",
+            "El repositorio de Nemotron suministra pasos reutilizables para la generación de datos y entrenamiento.",
+            "Pleias aplica los conjuntos de datos de personas en su asistente de columna Lamina."
+          ],
+          "sections": [
+            {
+              "heading": "Conjuntos de datos Nemotron-Personas",
+              "body": "NVIDIA construyó Nemotron-Personas-France con la startup de IA francesa Pleias, y Nemotron-Personas-Belgium con Pleias y la universidad belga KU Leuven. Ambos forman parte del programa de datos abiertos de NVIDIA Nemotron, que incluye conjuntos de datos de personas fundamentados en la localidad para 12 países."
+            },
+            {
+              "heading": "Flujo de trabajo y herramientas",
+              "body": "El repositorio de Nemotron suministra pasos reutilizables para la generación de datos, entrenamiento y evaluación, además de habilidades de agentes que ayudan a ensamblar el flujo de trabajo. Pleias utiliza los conjuntos de datos en su asistente Lamina para ampliar la cobertura a partir de casos de pacientes reales limitados."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-3",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/",
+            "title": "Fine-Tuning NVIDIA Nemotron to Know Local Rules, Not Just Local Languages"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA built Nemotron-Personas-France with French AI startup Pleias, and Nemotron-Personas-Belgium with Pleias and Belgian university KU Leuven.",
+            "sourceIds": [
+              "nvidiadev-3"
+            ]
+          },
+          {
+            "text": "The Nemotron repository supplies reusable steps for data generation, training, and evaluation, plus agent skills that help coding agents assemble the workflow.",
+            "sourceIds": [
+              "nvidiadev-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-3",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/fine-tuning-nvidia-nemotron-local-rules.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Tinh chỉnh NVIDIA Nemotron để hiểu các quy tắc cục bộ",
+          "en": "Fine-Tuning NVIDIA Nemotron to Know Local Rules",
+          "es": "Ajuste fino de NVIDIA Nemotron para conocer reglas locales"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "meta-networking-2026-ocp-global-summit",
       "reportingMode": "official-announcement",
