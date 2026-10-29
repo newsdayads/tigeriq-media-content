@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-29T18:18:23.271Z",
+  "updatedAt": "2026-10-29T21:18:22.060Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "moengage-agentcore-gateway",
+      "reportingMode": "official-announcement",
+      "category": "technology",
+      "storyId": "tigeriq:moengage-agentcore-gateway",
+      "clusterKey": "news:64db93e88726def5309474da763aa3bfe55340c32ff5d650f37401cadc48bcce",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-29T21:18:22.060Z",
+      "modifiedAt": "2026-10-29T21:18:22.060Z",
+      "editions": {
+        "vi": {
+          "title": "MoEngage chuyển đổi hơn 400 API thành công cụ tác nhân với AgentCore Gateway",
+          "dek": "Theo công bố của AWS. Khám phá cách MoEngage tận dụng Amazon Bedrock AgentCore Gateway để tích hợp hàng trăm API nội bộ một cách an toàn.",
+          "takeaways": [
+            "MoEngage chuyển đổi hơn 400 API thành công cụ tác nhân thông qua AgentCore Gateway.",
+            "Giải pháp giúp tiết kiệm ước tính sáu tháng công sức kỹ thuật nền tảng.",
+            "Quá trình tích hợp một API mới giờ đây chỉ mất vài giờ thay vì vài ngày."
+          ],
+          "sections": [
+            {
+              "heading": "Thách thức tích hợp API",
+              "body": "MoEngage vận hành khoảng 400 REST API nội bộ chạy trong các mạng riêng ảo trên bảy vùng AWS. Việc làm cho các API này có thể truy cập an toàn bởi các tác nhân AI mà không cần phơi bày ra Internet công cộng là một bài toán khó khăn cho đội ngũ kỹ thuật."
+            },
+            {
+              "heading": "Lợi ích của AgentCore Gateway",
+              "body": "Việc sử dụng AgentCore Gateway giúp tiết kiệm khoảng sáu tháng công sức kỹ thuật nền tảng cho MoEngage. Quá trình tích hợp một API mới hiện chỉ mất vài giờ thay vì vài ngày, đồng thời không có điểm cuối công cộng nào được tạo ra trong hệ thống."
+            }
+          ]
+        },
+        "en": {
+          "title": "How MoEngage turned over 400 APIs into agent tools with AgentCore Gateway",
+          "dek": "According to AWS. MoEngage details how it utilized Amazon Bedrock AgentCore Gateway to convert internal private REST APIs into secure agent tools.",
+          "takeaways": [
+            "MoEngage utilized AgentCore Gateway to convert over 400 internal REST APIs into permission-scoped agent tools.",
+            "The implementation saved an estimated six months of platform engineering effort.",
+            "Onboarding a new API now takes hours instead of days without writing custom Model Context Protocol server code."
+          ],
+          "sections": [
+            {
+              "heading": "Architectural Challenges",
+              "body": "MoEngage runs approximately 400 internal REST APIs built by 25 engineering teams across seven AWS Regions in private virtual private clouds. The primary challenge was making these private APIs safely reachable by AI agents without exposing them to the public internet or flooding context windows."
+            },
+            {
+              "heading": "Implementation and Results",
+              "body": "By utilizing Amazon Bedrock AgentCore Gateway, MoEngage turned its private APIs into permission-scoped agent tools. This approach saved an estimated six months of platform engineering effort, allowing teams to onboard a new API in hours instead of days without writing custom MCP server code."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo MoEngage convirtió más de 400 API en herramientas de agentes con AgentCore Gateway",
+          "dek": "Según AWS. MoEngage explica el uso de AgentCore Gateway para convertir API privadas en herramientas seguras para agentes de inteligencia artificial.",
+          "takeaways": [
+            "MoEngage convirtió más de 400 API en herramientas de agentes utilizando AgentCore Gateway.",
+            "El enfoque ahorró un estimado de seis meses de esfuerzo en ingeniería de plataforma.",
+            "Incorporar una nueva API ahora toma horas en lugar de días sin escribir código de servidor MCP personalizado."
+          ],
+          "sections": [
+            {
+              "heading": "Desafíos de la arquitectura",
+              "body": "MoEngage opera alrededor de 400 API REST internas en nubes privadas virtuales a través de siete regiones de AWS. El desafío principal consistía en hacer que estas API privadas fueran accesibles de manera segura para los agentes sin exponerlas a Internet."
+            },
+            {
+              "heading": "Resultados obtenidos",
+              "body": "El uso de AgentCore Gateway permitió a MoEngage ahorrar un estimado de seis meses de esfuerzo en ingeniería de plataforma. La incorporación de una nueva API ahora toma horas en lugar de días, sin necesidad de escribir código de servidor MCP personalizado ni aprovisionar redes adicionales."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-5",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/",
+            "title": "How MoEngage turned over 400 APIs into agent tools with AgentCore Gateway"
+          }
+        ],
+        "claims": [
+          {
+            "text": "MoEngage used AgentCore Gateway to turn over 400 internal REST APIs into permission-scoped agent tools.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          },
+          {
+            "text": "The approach saved MoEngage an estimated six months of platform engineering effort and reduced onboarding time to hours.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-5",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-moengage-turned-over-400-apis-into-agent-tools-with-agentcore-gateway/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/moengage-agentcore-gateway.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "MoEngage chuyển đổi hơn 400 API thành công cụ tác nhân với AgentCore Gateway",
+          "en": "How MoEngage turned over 400 APIs into agent tools with AgentCore Gateway",
+          "es": "Cómo MoEngage convirtió más de 400 API en herramientas de agentes con AgentCore Gateway"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-nemotron-3-5-super-vl-amazon-eks-sagemaker",
       "reportingMode": "official-announcement",
