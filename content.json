@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-29T16:18:20.956Z",
+  "updatedAt": "2026-10-29T17:18:20.174Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "building-agentic-ai-platform-amazon-bedrock-agentcore",
+      "reportingMode": "official-announcement",
+      "category": "Technology Announcement",
+      "storyId": "tigeriq:building-agentic-ai-platform-amazon-bedrock-agentcore",
+      "clusterKey": "news:9ad89b33a8f9acf1ffa812df84bf7681582f9182f8c97fa875de36d44a4eabd8",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-29T17:18:20.174Z",
+      "modifiedAt": "2026-10-29T17:18:20.174Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng Nền tảng AI Tác nhân trên Amazon Bedrock AgentCore",
+          "dek": "Theo công bố của AWS. Khám phá kiến trúc và phương án triển khai mẫu cho Nền tảng AI Tác nhân doanh nghiệp trên Amazon Bedrock và Amazon Bedrock AgentCore từ AWS.",
+          "takeaways": [
+            "AWS giới thiệu kiến trúc và phương án triển khai mẫu cho Nền tảng AI Tác nhân doanh nghiệp.",
+            "Nền tảng này giải quyết các thách thức vận hành thông qua bốn mặt phẳng kết nối.",
+            "Mô hình liên kết giúp cân bằng quyền tự chủ của nhóm với các tiêu chuẩn bảo mật chung."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan giải pháp",
+              "body": "Giải pháp này cung cấp Nền tảng AI Tác nhân đa tài khoản được quản lý do các nhóm nền tảng vận hành và các nhóm luồng công việc tiêu thụ thông qua giao diện tự phục vụ có phiên bản. Sơ đồ thiết kế cung cấp các mẫu tham khảo cho nhiều framework khác nhau để duy trì cổng suy luận, cổng công cụ, định danh và chính sách nhất quán."
+            },
+            {
+              "heading": "Nguyên lý kiến trúc",
+              "body": "Các thách thức phổ biến từ khách hàng bao gồm quyền truy cập mô hình được quản lý, quyền truy cập công cụ được quản lý, việc phân phối được ủy quyền, vận hành đội ngũ cùng chi phí, cũng như bằng chứng và vòng đời bị giới hạn. Giải pháp kết nối các nhu cầu này thông qua bốn mặt phẳng bao gồm trải nghiệm nhà phát triển, điều khiển nền tảng, thực thi luồng công việc và đảm bảo vận hành."
+            }
+          ]
+        },
+        "en": {
+          "title": "Building an Agentic AI Platform on Amazon Bedrock AgentCore",
+          "dek": "According to AWS. AWS details the architecture and reference implementation for an enterprise Agentic AI Platform built on Amazon Bedrock and Amazon Bedrock AgentCore.",
+          "takeaways": [
+            "AWS outlined an enterprise Agentic AI Platform blueprint built on Amazon Bedrock and Amazon Bedrock AgentCore.",
+            "The architecture addresses five core organizational needs including governed model and tool access.",
+            "The blueprint implements a federated operating model balancing team autonomy with shared controls."
+          ],
+          "sections": [
+            {
+              "heading": "Solution Overview",
+              "body": "This solution delivers a governed, multi-account Agentic AI Platform that platform teams operate, and workstream teams consume through versioned, self-service interfaces. The blueprint ships reference templates for Strands, LangGraph, and CrewAI while preserving consistent inference gateway, tool gateway, identity, policy, evaluation, and delivery contracts."
+            },
+            {
+              "heading": "Architectural Principles",
+              "body": "Customer challenges fall into five categories: governed model access, governed tool access, delegated delivery, fleet operations and cost, and bounded evidence and lifecycle. The blueprint addresses these needs through four connected planes spanning developer experience, platform control, Workstream execution, and assurance and operations."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construcción de una Plataforma de IA Agéntica en Amazon Bedrock AgentCore",
+          "dek": "Según AWS. AWS presenta la arquitectura y la implementación de referencia para una Plataforma de IA Agéntica empresarial en Amazon Bedrock y Amazon Bedrock AgentCore.",
+          "takeaways": [
+            "AWS detalla una plataforma de IA agéntica empresarial construida sobre Amazon Bedrock y Amazon Bedrock AgentCore.",
+            "La arquitectura aborda necesidades organizacionales como el acceso gobernado a modelos y herramientas.",
+            "El modelo operativo federado equilibra la autonomía de los equipos con controles y salvaguardas consistentes."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de la solución",
+              "body": "Esta solución ofrece una Plataforma de IA Agéntica multi-cuenta y gobernada que los equipos de plataforma operan y los equipos de flujo de trabajo consumen mediante interfaces de autoservicio versionadas. El plano incluye plantillas de referencia y contratos estables de pasarela de inferencia, herramientas, identidad y políticas."
+            },
+            {
+              "heading": "Principios arquitectónicos",
+              "body": "Los desafíos comunes de los clientes se agrupan en cinco categorías que abarcan el acceso gobernado a modelos y herramientas, la entrega delegada, las operaciones de flota junto con los costos, y la evidencia delimitada del ciclo de vida a través de cuatro planos conectados."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-platform-on-amazon-bedrock-agentcore/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-4",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-platform-on-amazon-bedrock-agentcore/",
+            "title": "Building an Agentic AI Platform on Amazon Bedrock AgentCore"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS published an architecture and reference implementation for an enterprise Agentic AI Platform on Amazon Bedrock and Amazon Bedrock AgentCore.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "The enterprise Agentic AI Platform blueprint addresses organizational needs through four connected planes: developer experience, platform control, Workstream execution, and assurance and operations.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-4",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-platform-on-amazon-bedrock-agentcore/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/building-agentic-ai-platform-amazon-bedrock-agentcore.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng Nền tảng AI Tác nhân trên Amazon Bedrock AgentCore",
+          "en": "Building an Agentic AI Platform on Amazon Bedrock AgentCore",
+          "es": "Construcción de una Plataforma de IA Agéntica en Amazon Bedrock AgentCore"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "developers-turn-ideas-into-simulations-with-frontier-ai-agents",
       "reportingMode": "official-announcement",
