@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-29T14:18:22.181Z",
+  "updatedAt": "2026-10-29T16:18:20.956Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "developers-turn-ideas-into-simulations-with-frontier-ai-agents",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:developers-turn-ideas-into-simulations-with-frontier-ai-agents",
+      "clusterKey": "news:ea3f764ceaf99d041f5c4e82052ee80c283c71b74558502edcbe90b05944a597",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-29T16:18:20.956Z",
+      "modifiedAt": "2026-10-29T16:18:20.956Z",
+      "editions": {
+        "vi": {
+          "title": "NVIDIA giới thiệu cách nhà phát triển dùng tác nhân AI và Omniverse để xây dựng mô phỏng",
+          "dek": "Theo công bố của NVIDIA. Các nhà phát triển đang kết hợp các mô hình AI tiên tiến với thư viện NVIDIA Omniverse để xây dựng ứng dụng mô phỏng.",
+          "takeaways": [
+            "Nhà phát triển kết hợp mô hình AI với thư viện NVIDIA Omniverse thông qua hướng dẫn bằng ngôn ngữ tự nhiên.",
+            "Thư viện trung tâm SimReady cung cấp hơn 2.000 tài nguyên USD sẵn sàng mô phỏng từ các nhà sản xuất thiết bị.",
+            "Nhóm nghiên cứu đã tạo ra các ứng dụng thử nghiệm kịch bản tua-bin khí, tự động hóa kho hàng và điều khiển cáp robot."
+          ],
+          "sections": [
+            {
+              "heading": "Kết hợp AI và Omniverse",
+              "body": "Nhà phát triển đang kết hợp các mô hình AI tiên tiến với thư viện NVIDIA Omniverse để thực hiện công việc xây dựng ứng dụng khám phá kịch bản, điều tra lỗi và cải tiến thiết kế. Các nhà phát triển trực tiếp điều khiển tác nhân AI thông qua các hướng dẫn bằng ngôn ngữ tự nhiên, xem xét kết quả và hướng dẫn các thay đổi."
+            },
+            {
+              "heading": "Thư viện SimReady",
+              "body": "Với SimReady Central Library, các nhà phát triển có thể truy cập hơn 2.000 tài nguyên USD sẵn sàng mô phỏng từ các nhà sản xuất thiết bị và nhà cung cấp tài nguyên cho mô phỏng robot và quy trình bản sao kỹ thuật số nhà máy AI."
+            }
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Developers Turn Ideas Into Simulations With Frontier AI Agents",
+          "dek": "According to NVIDIA. Developers are combining frontier AI models with NVIDIA Omniverse libraries to build applications for exploring scenarios and improving designs.",
+          "takeaways": [
+            "Developers combine frontier AI models with NVIDIA Omniverse libraries using natural-language instructions.",
+            "The SimReady Central Library provides over 2,000 simulation-ready USD assets from equipment manufacturers and asset providers.",
+            "Projects include warehouse automation models, gas-turbine digital twins, and cable-routing robot simulations."
+          ],
+          "sections": [
+            {
+              "heading": "Building Simulations With AI",
+              "body": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended. Developers are combining frontier AI models with NVIDIA Omniverse libraries to help carry out that work — building applications for exploring scenarios, investigating failures and improving designs."
+            },
+            {
+              "heading": "SimReady Asset Library",
+              "body": "With SimReady Central Library, announced at GTC Berlin, developers can access more than 2,000 simulation-ready USD assets from equipment manufacturers and asset providers for robotics simulations and AI factory digital twins workflows."
+            }
+          ]
+        },
+        "es": {
+          "title": "NVIDIA muestra cómo los desarrolladores crean simulaciones con agentes de IA",
+          "dek": "Según NVIDIA. Los desarrolladores combinan modelos de IA de frontera con bibliotecas de NVIDIA Omniverse para crear aplicaciones de simulación.",
+          "takeaways": [
+            "Los desarrolladores combinan modelos de IA con bibliotecas de NVIDIA Omniverse mediante instrucciones en lenguaje natural.",
+            "La SimReady Central Library ofrece más de 2,000 activos USD listos para simulación de fabricantes de equipos.",
+            "Los proyectos incluyen modelos de almacenes, gemelos digitales de turbinas de gas y simulaciones de robots."
+          ],
+          "sections": [
+            {
+              "heading": "Creación de simulaciones con IA",
+              "body": "Convertir una idea de simulación en una aplicación funcional implica ensamblar activos, conectar la física y el renderizado, y verificar que la escena se comporte según lo previsto. Los desarrolladores combinan modelos de IA de frontera con bibliotecas de NVIDIA Omniverse."
+            },
+            {
+              "heading": "Biblioteca de activos SimReady",
+              "body": "Con SimReady Central Library, anunciada en GTC Berlin, los desarrolladores pueden acceder a más de 2,000 activos USD listos para simulación de fabricantes de equipos y proveedores de activos para simulaciones de robótica y flujos de trabajo de gemelos digitales."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
+            "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Developers are combining frontier AI models with NVIDIA Omniverse libraries to build applications for exploring scenarios, investigating failures and improving designs.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "The SimReady Central Library offers more than 2,000 simulation-ready USD assets from equipment manufacturers and asset providers for robotics simulations and AI factory digital twins workflows.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/developers-turn-ideas-into-simulations-with-frontier-ai-agents.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "NVIDIA giới thiệu cách nhà phát triển dùng tác nhân AI và Omniverse để xây dựng mô phỏng",
+          "en": "NVIDIA Developers Turn Ideas Into Simulations With Frontier AI Agents",
+          "es": "NVIDIA muestra cómo los desarrolladores crean simulaciones con agentes de IA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "fine-tuning-nvidia-nemotron-local-rules",
       "reportingMode": "official-announcement",
