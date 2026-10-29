@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-29T17:18:20.174Z",
+  "updatedAt": "2026-10-29T18:18:23.271Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "nvidia-nemotron-3-5-super-vl-amazon-eks-sagemaker",
+      "reportingMode": "official-announcement",
+      "category": "artificial-intelligence",
+      "storyId": "tigeriq:nvidia-nemotron-3-5-super-vl-amazon-eks-sagemaker",
+      "clusterKey": "news:e323d1d5f0338c12526ef0ef5b77f83bb9c6609467c2822746929489a3308246",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-29T18:18:23.271Z",
+      "modifiedAt": "2026-10-29T18:18:23.271Z",
+      "editions": {
+        "vi": {
+          "title": "Tăng tốc AI tác nhân với các mô hình NVIDIA Nemotron trên Amazon EKS và SageMaker HyperPod EKS",
+          "dek": "Theo công bố của AWS. Amazon Web Services giới thiệu khả năng triển khai mô hình đa phương thức NVIDIA Nemotron 3.5 Super VL trên Amazon EKS và SageMaker HyperPod EKS.",
+          "takeaways": [
+            "NVIDIA Nemotron 3.5 Super VL gia nhập danh mục mô hình Nemotron trên AWS.",
+            "Mô hình có tổng cộng 120 tỷ tham số và kích hoạt 12 tỷ tham số cho mỗi token.",
+            "Hỗ trợ các tác vụ xử lý văn bản, hình ảnh, tài liệu và video.",
+            "Có thể triển khai trên Amazon EKS, EKS Auto Mode và SageMaker HyperPod EKS."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về mô hình",
+              "body": "NVIDIA Nemotron 3.5 Super VL là một mô hình đa phương thức mở được chưng cất từ Nemotron 3 Ultra, có tổng cộng 120 tỷ tham số và kích hoạt 12 tỷ tham số cho mỗi token. Mô hình sử dụng kiến trúc hỗn hợp Mamba-Transformer MoE, kết hợp các lớp Mamba-2, chú ý và chuyên gia với bộ mã hóa tầm nhìn RADIO để xử lý văn bản, hình ảnh, tài liệu và video."
+            },
+            {
+              "heading": "Triển khai trên hạ tầng AWS",
+              "body": "Quá trình triển khai có thể được thực hiện trên Amazon Elastic Kubernetes Service, Amazon EKS Auto Mode và Amazon SageMaker HyperPod EKS. Kiến trúc tham chiếu sử dụng NVIDIA Dynamo và vLLM, đồng thời đã được xác thực trên các phiên bản máy chủ hiệu năng cao của AWS để đảm bảo khả năng mở rộng và hiệu suất tối ưu cho các tác vụ AI."
+            }
+          ]
+        },
+        "en": {
+          "title": "Accelerate agentic AI with NVIDIA Nemotron models on Amazon EKS and SageMaker HyperPod EKS",
+          "dek": "According to AWS. AWS details the deployment and architecture of the NVIDIA Nemotron 3.5 Super VL multimodal model on Amazon EKS and SageMaker HyperPod EKS.",
+          "takeaways": [
+            "NVIDIA Nemotron 3.5 Super VL joins the existing Nemotron models available on AWS.",
+            "The model features 120B total parameters with 12B active parameters per token.",
+            "It supports text, image, document, and video understanding for agentic workflows.",
+            "Deployments are supported on Amazon EKS, EKS Auto Mode, and SageMaker HyperPod EKS."
+          ],
+          "sections": [
+            {
+              "heading": "Model architecture and capabilities",
+              "body": "NVIDIA Nemotron 3.5 Super VL is an open multimodal model distilled from Nemotron 3 Ultra. It features 120 billion total parameters and activates 12 billion parameters per token using a hybrid Mamba-Transformer mixture-of-experts architecture. The model combines reasoning and tool use with text, image, document, and video understanding, allowing a single model to handle both text and visual tasks."
+            },
+            {
+              "heading": "Deployment on Amazon EKS and SageMaker",
+              "body": "The reference implementation runs on standard Amazon EKS, EKS Auto Mode, and SageMaker HyperPod EKS using NVIDIA Dynamo and vLLM. AWS provides guidance on cluster creation, model weights download, deployment, and performance benchmarking using tools like aiperf to measure metrics such as time to first token and throughput."
+            }
+          ]
+        },
+        "es": {
+          "title": "Acelere la IA de agentes con los modelos NVIDIA Nemotron en Amazon EKS y SageMaker HyperPod EKS",
+          "dek": "Según AWS. Amazon Web Services anuncia la disponibilidad y despliegue del modelo multimodal NVIDIA Nemotron 3.5 Super VL en Amazon EKS y SageMaker HyperPod EKS.",
+          "takeaways": [
+            "NVIDIA Nemotron 3.5 Super VL se incorpora a los modelos Nemotron disponibles en AWS.",
+            "El modelo cuenta con 120 mil millones de parámetros totales y 12 mil millones activos por token.",
+            "Procesa texto, imágenes, documentos y vídeo para flujos de trabajo de agentes.",
+            "Es compatible con Amazon EKS, EKS Auto Mode y SageMaker HyperPod EKS."
+          ],
+          "sections": [
+            {
+              "heading": "Características del modelo",
+              "body": "NVIDIA Nemotron 3.5 Super VL es un modelo multimodal abierto destilado de Nemotron 3 Ultra. Utiliza una arquitectura híbrida Mamba-Transformer de mezcla de expertos que activa 12 mil millones de sus 120 mil millones de parámetros por token, combinando el razonamiento con la comprensión de texto, imágenes, documentos y vídeo."
+            },
+            {
+              "heading": "Implementación en infraestructura AWS",
+              "body": "La implementación de referencia se ejecuta en Amazon EKS, EKS Auto Mode y SageMaker HyperPod EKS utilizando NVIDIA Dynamo y vLLM. La arquitectura ha sido validada en instancias optimizadas para IA en AWS, permitiendo medir indicadores clave de rendimiento como la latencia y el rendimiento por token."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-ai-with-nvidia-nemotron-models-on-amazon-eks-and-sagemaker-hyperpod-eks/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-4",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-ai-with-nvidia-nemotron-models-on-amazon-eks-and-sagemaker-hyperpod-eks/",
+            "title": "Accelerate agentic AI with NVIDIA Nemotron models on Amazon EKS and SageMaker HyperPod EKS"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA Nemotron 3.5 Super VL is now available on AWS, bringing a 120B-parameter mixture-of-experts multimodal model to Amazon EKS, Amazon EKS Auto Mode, and Amazon SageMaker HyperPod EKS.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "The model features a hybrid Mamba-Transformer MoE architecture, activates 12B parameters per token, and supports text, image, document, and video understanding.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-4",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-agentic-ai-with-nvidia-nemotron-models-on-amazon-eks-and-sagemaker-hyperpod-eks/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-nemotron-3-5-super-vl-amazon-eks-sagemaker.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Tăng tốc AI tác nhân với các mô hình NVIDIA Nemotron trên Amazon EKS và SageMaker HyperPod EKS",
+          "en": "Accelerate agentic AI with NVIDIA Nemotron models on Amazon EKS and SageMaker HyperPod EKS",
+          "es": "Acelere la IA de agentes con los modelos NVIDIA Nemotron en Amazon EKS y SageMaker HyperPod EKS"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "building-agentic-ai-platform-amazon-bedrock-agentcore",
       "reportingMode": "official-announcement",
