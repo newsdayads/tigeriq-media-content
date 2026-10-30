@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-30T21:03:13.643Z",
+  "updatedAt": "2026-10-30T23:18:23.361Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "amazon-bedrock-agentcore-runtime-session-endpoints",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:amazon-bedrock-agentcore-runtime-session-endpoints",
+      "clusterKey": "news:dfc11cc0be301295cad1f2862713c4b9c2050b1c1918b0f88c2cdd90a07b0911",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T23:18:23.361Z",
+      "modifiedAt": "2026-10-30T23:18:23.361Z",
+      "editions": {
+        "vi": {
+          "title": "Xem trước ứng dụng web trực tiếp khi tác nhân lập trình xây dựng với Amazon Bedrock AgentCore runtime",
+          "dek": "Theo công bố của AWS. Amazon Bedrock AgentCore giới thiệu khả năng chạy phiên làm việc cô lập với Session endpoints giúp xem trước ứng dụng trực tiếp.",
+          "takeaways": [
+            "Amazon Bedrock AgentCore runtime chạy mỗi phiên tác nhân trong một microVM cô lập riêng biệt.",
+            "Session endpoints cung cấp URL được xác thực để chuyển tiếp các phương thức HTTP và kết nối WebSocket.",
+            "Người dùng có thể xem trang web cập nhật khi tác nhân lưu từng tệp mà không cần tải lại.",
+            "Mỗi yêu cầu qua Session endpoint đều được xác thực bằng chữ ký IAM hoặc mã thông báo JWT."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về Session endpoints",
+              "body": "Amazon Bedrock AgentCore là nền tảng để xây dựng, kết nối và tối ưu hóa các tác nhân ở quy mô lớn với khung tác nhân và mô hình nền tảng tùy chọn. Runtime của AgentCore chạy mỗi phiên tác nhân trong một microVM cô lập riêng biệt, cho phép mở ứng dụng chạy trong phiên đó trực tiếp từ trình duyệt thông qua Session endpoints."
+            },
+            {
+              "heading": "Cách thức hoạt động và bảo mật",
+              "body": "Mỗi phiên nhận được một Session endpoint duy nhất với các chi tiết định hình cách sử dụng bao gồm cổng cho phép, URL đi kèm phiên và cơ chế xác thực mọi yêu cầu. Đối với runtime sử dụng IAM, mỗi yêu cầu mang chữ ký Signature Version 4, trong khi runtime có bộ ủy quyền JWT mang mã thông báo mang theo."
+            }
+          ]
+        },
+        "en": {
+          "title": "Preview web apps live as your coding agent builds them with Amazon Bedrock AgentCore runtime",
+          "dek": "According to AWS. Amazon Bedrock AgentCore runtime enables live application previews through isolated microVM sessions and authenticated Session endpoints.",
+          "takeaways": [
+            "Coding agents can now build working web apps while users review work inside the browser within seconds.",
+            "Amazon Bedrock AgentCore runtime runs each agent session in its own isolated microVM.",
+            "Session endpoints provide an authenticated URL that forwards requests and WebSocket connections to allowed ports.",
+            "Requests to Session endpoints are secured using either AWS IAM signatures or inbound JWT authorizers."
+          ],
+          "sections": [
+            {
+              "heading": "Introduction to AgentCore Runtime",
+              "body": "Amazon Bedrock AgentCore is a platform to build, connect, and optimize agents at scale, with your choice of agent framework and foundation model. AgentCore runtime runs each agent session in its own isolated microVM, allowing development teams to review agent work rapidly without waiting for traditional deployments."
+            },
+            {
+              "heading": "Session Endpoint Capabilities",
+              "body": "With Session endpoints, you can open an app running in an active session directly from your browser. Each session receives an authenticated URL that forwards HTTP methods, query parameters, bodies, and WebSocket connections to designated allowed ports while enforcing security through IAM signatures or JWT bearer tokens."
+            }
+          ]
+        },
+        "es": {
+          "title": "Previsualice aplicaciones web en vivo mientras su agente de programación las construye con Amazon Bedrock AgentCore runtime",
+          "dek": "Según AWS. Amazon Bedrock AgentCore runtime permite previsualizaciones de aplicaciones en vivo mediante sesiones microVM aisladas.",
+          "takeaways": [
+            "Los agentes de programación ahora pueden construir aplicaciones web funcionales con revisión rápida en el navegador.",
+            "Amazon Bedrock AgentCore runtime ejecuta cada sesión de agente en su propia microVM aislada.",
+            "Los puntos de conexión de sesión proporcionan una URL autenticada que reenvía solicitudes y conexiones WebSocket.",
+            "Cada solicitud requiere autenticación mediante firmas IAM o un autorizador de tokens JWT entrantes."
+          ],
+          "sections": [
+            {
+              "heading": "Información general de AgentCore",
+              "body": "Amazon Bedrock AgentCore es una plataforma para construir, conectar y optimizar agentes a escala con su elección de marco de agente y modelo de fundación. AgentCore runtime ejecuta cada sesión de agente en su propia microVM aislada para optimizar el flujo de trabajo de desarrollo."
+            },
+            {
+              "heading": "Funcionamiento de los extremos de sesión",
+              "body": "Cada sesión obtiene su propio extremo de sesión con detalles específicos que configuran los puertos permitidos y el manejo de solicitudes. Las conexiones se autentican mediante firmas de AWS Identity and Access Management o mediante un autorizador de tokens JWT entrantes."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/preview-web-apps-live-as-your-coding-agent-builds-them-with-amazon-bedrock-agentcore-runtime/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-2",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/preview-web-apps-live-as-your-coding-agent-builds-them-with-amazon-bedrock-agentcore-runtime/",
+            "title": "Preview web apps live as your coding agent builds them with Amazon Bedrock AgentCore runtime"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Amazon Bedrock AgentCore runtime introduces Session endpoints to let users preview web apps live as coding agents build them.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          },
+          {
+            "text": "Session endpoints provide each session with an authenticated URL that securely forwards requests and WebSocket connections to allowed ports.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-2",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/preview-web-apps-live-as-your-coding-agent-builds-them-with-amazon-bedrock-agentcore-runtime/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/amazon-bedrock-agentcore-runtime-session-endpoints.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xem trước ứng dụng web trực tiếp khi tác nhân lập trình xây dựng với Amazon Bedrock AgentCore runtime",
+          "en": "Preview web apps live as your coding agent builds them with Amazon Bedrock AgentCore runtime",
+          "es": "Previsualice aplicaciones web en vivo mientras su agente de programación las construye con Amazon Bedrock AgentCore runtime"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "run-ai-models-for-edge-application-development-with-tensorrt-edge-llm",
       "reportingMode": "official-announcement",
