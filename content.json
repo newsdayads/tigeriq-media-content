@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-30T07:18:20.699Z",
+  "updatedAt": "2026-10-30T08:18:27.470Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "amazon-nova-act-epsilon-ui-testing",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:amazon-nova-act-epsilon-ui-testing",
+      "clusterKey": "news:1f0ef13d2458cda1829390f6ee85748b6dcf53ac25059e38d647d1aba713e388",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T08:18:27.470Z",
+      "modifiedAt": "2026-10-30T08:18:27.470Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng kiểm thử giao diện điều khiển bằng ý định với Amazon Nova Act",
+          "dek": "Theo công bố của AWS. Epsilon đã áp dụng Amazon Nova Act và Amazon Bedrock AgentCore Browser để mở rộng quy mô kiểm thử giao diện người dùng dựa trên ý định.",
+          "takeaways": [
+            "Epsilon triển khai Amazon Nova Act để giải quyết các thay đổi giao diện làm hỏng kiểm thử Playwright truyền thống.",
+            "Nền tảng này cung cấp khả năng kiểm thử dạng văn bản tự nhiên thông qua Amazon Bedrock AgentCore Browser Tool.",
+            "Kiến trúc sử dụng các phiên trình duyệt quản lý qua AWS nhằm loại bỏ gánh nặng vận hành cơ sở hạ tầng."
+          ],
+          "sections": [
+            {
+              "heading": "Thách thức kiểm thử",
+              "body": "Các bài kiểm thử Playwright kịch bản có hiệu quả cho việc kiểm tra hồi quy xác định, nhưng chúng gắn kết chặt chẽ với các bộ chọn và cấu trúc trang. Các thay đổi giao diện mỹ thuật có thể làm hỏng chúng ngay cả khi chức năng cơ bản vẫn hoạt động tốt."
+            },
+            {
+              "heading": "Giải pháp tích hợp",
+              "body": "Giải pháp kết hợp Amazon Nova Act với Amazon Bedrock AgentCore Browser Tool để cung cấp các bước kiểm thử bằng ngôn ngữ tự nhiên và các phiên trình duyệt được quản lý, cô lập trên nền tảng AWS mà không cần quản lý máy chủ hiển thị."
+            }
+          ]
+        },
+        "en": {
+          "title": "Building intent-driven UI testing with Amazon Nova Act",
+          "dek": "According to AWS. Epsilon turned to Amazon Nova Act to scale intent-driven UI testing across its product teams.",
+          "takeaways": [
+            "Epsilon implemented Amazon Nova Act to complement its existing Playwright regression suite.",
+            "The platform utilizes Amazon Bedrock AgentCore Browser Tool to provide managed, ephemeral browser sessions.",
+            "Product teams can author tests using plain-English instructions that are resilient to cosmetic UI changes."
+          ],
+          "sections": [
+            {
+              "heading": "The Testing Challenge",
+              "body": "Scripted Playwright tests are effective for deterministic regression checks, but they are tightly coupled to selectors and page structure. Cosmetic UI changes can break them even when the underlying functionality is sound."
+            },
+            {
+              "heading": "Solution Architecture",
+              "body": "Epsilon's UI testing capability combines Amazon Nova Act and Amazon Bedrock AgentCore Browser Tool, allowing teams to execute natural-language test instructions across isolated, AWS-managed browser sessions."
+            }
+          ]
+        },
+        "es": {
+          "title": "Creación de pruebas de interfaz de usuario con Amazon Nova Act",
+          "dek": "Según AWS. Epsilon utilizó Amazon Nova Act para escalar las pruebas de interfaz de usuario impulsadas por intenciones.",
+          "takeaways": [
+            "Epsilon adoptó Amazon Nova Act para complementar su conjunto de pruebas de regresión Playwright.",
+            "La solución utiliza Amazon Bedrock AgentCore Browser Tool para ofrecer sesiones de navegador efímeras y gestionadas.",
+            "Los equipos pueden redactar pruebas utilizando instrucciones en lenguaje natural resistentes a cambios cosméticos."
+          ],
+          "sections": [
+            {
+              "heading": "El desafío de las pruebas",
+              "body": "Las pruebas de Playwright con guion son efectivas para revisiones de regresión deterministas, pero están estrechamente acopladas a los selectores y la estructura de la página, lo que puede romperlas ante cambios cosméticos."
+            },
+            {
+              "heading": "Arquitectura de la solución",
+              "body": "La arquitectura combina Amazon Nova Act y Amazon Bedrock AgentCore Browser Tool para ejecutar instrucciones de prueba en lenguaje natural sobre sesiones de navegador administradas por AWS."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-2",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+            "title": "Building intent-driven UI testing with Amazon Nova Act"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Epsilon adopted Amazon Nova Act and Amazon Bedrock AgentCore Browser to scale intent-driven UI testing across its product teams.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          },
+          {
+            "text": "The integration allows product teams to run natural-language test steps and eliminates the operational burden of managing browser infrastructure.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-2",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/amazon-nova-act-epsilon-ui-testing.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng kiểm thử giao diện điều khiển bằng ý định với Amazon Nova Act",
+          "en": "Building intent-driven UI testing with Amazon Nova Act",
+          "es": "Creación de pruebas de interfaz de usuario con Amazon Nova Act"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
       "reportingMode": "official-announcement",
