@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-29T21:18:22.060Z",
+  "updatedAt": "2026-10-30T07:18:20.699Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials",
+      "clusterKey": "news:b39d3c2c4a5632474ede8f7be3d5479c429ae6ff95d598a7ad18bb31f0436145",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T07:18:20.699Z",
+      "modifiedAt": "2026-10-30T07:18:20.699Z",
+      "editions": {
+        "vi": {
+          "title": "Mở khóa hiệu năng Tensor Core cho tiềm năng tương tác nguyên tử học máy",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA công bố cách sử dụng phương pháp Tensor Core FP32 để tăng tốc các mô hình học máy tương tác nguyên tử mà vẫn duy trì độ chính xác cao.",
+          "takeaways": [
+            "BF16x9 trên GPU NVIDIA Blackwell tăng tốc các phép toán GEMM lớn lên 2,2–2,5 lần cho hệ thống 17.280 nguyên tử.",
+            "TF32x3 trên GPU NVIDIA Ampere tăng tốc các GEMM chính lên 1,7–1,9 lần và bước động lực học phân tử lên tới 1,5 lần.",
+            "TF32x3 duy trì độ mượt của năng lượng thế năng và bảo toàn năng lượng trong các quỹ đạo NVE.",
+            "Quá trình thư giãn cấu trúc của tấm Cantor-alloy 539 nguyên tử hội tụ trong 218–222 bước với TF32x3."
+          ],
+          "sections": [
+            {
+              "heading": "Hiệu năng Tensor Core",
+              "body": "Mô phỏng nguyên tử giúp các nhà nghiên cứu hiểu rõ cách các phân tử và vật liệu hành xử từ phản ứng hóa học đến chuyển pha hoặc cơ học phá hủy. Phương pháp Tensor Core FP32 giúp thu hẹp khoảng cách thông lượng giữa độ chính xác thấp và yêu cầu tính toán khoa học bằng cách phân tách các toán hạng FP32 thành các thành phần có độ chính xác thấp hơn, đánh giá trên Tensor Core và kết hợp lại với độ tích lũy FP32."
+            },
+            {
+              "heading": "Kết quả đánh giá",
+              "body": "BF16x9 trên GPU NVIDIA Blackwell gia tốc các GEMM lớn trong mô hình Point Edge Transformer lên 2,2–2,5 lần cho hệ thống 17.280 nguyên tử và 1,2–1,4 lần cho hệ thống 192 nguyên tử. Trong khi đó, TF32x3 trên GPU NVIDIA Ampere tăng tốc các GEMM chính lên 1,7–1,9 lần và toàn bộ bước động lực học phân tử lên tới 1,5 lần mà giữ nguyên sai số lực gần sát với mức cơ sở FP32."
+            }
+          ]
+        },
+        "en": {
+          "title": "Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials",
+          "dek": "According to NVIDIA Developer. NVIDIA details how Tensor Core FP32 methods accelerate machine learning interatomic potentials on Blackwell and Ampere GPUs while preserving baseline accuracy.",
+          "takeaways": [
+            "BF16x9 on NVIDIA Blackwell GPUs accelerates large GEMMs in the Point Edge Transformer by 2.2–2.5x for a 17,280-atom system.",
+            "TF32x3 on NVIDIA Ampere GPUs speeds up major GEMMs by 1.7–1.9x and the full molecular dynamics step by up to 1.5x.",
+            "TF32x3 preserves potential-energy smoothness and energy conservation in NVE trajectories, matching FP32 behavior.",
+            "Structural relaxation of a 539-atom Cantor-alloy slab converges in 218–222 steps with a 1.5x per-step speedup under TF32x3."
+          ],
+          "sections": [
+            {
+              "heading": "Tensor Core Performance",
+              "body": "Atomistic simulations help researchers understand molecular and material behavior across chemical reactions and phase transitions, though they face trade-offs between quantum-mechanical accuracy and computational cost. Machine learning interatomic potentials bridge this gap using neural networks. Tensor Core FP32 methods decompose FP32 operands into lower-precision components, evaluate cross-products on Tensor Cores, and recombine results in FP32 to boost matrix-multiplication throughput."
+            },
+            {
+              "heading": "Benchmark Evaluation",
+              "body": "BF16x9 on NVIDIA Blackwell GPUs accelerates large GEMMs in the Point Edge Transformer by 2.2–2.5x for a 17,280-atom system and 1.2–1.4x for a 192-atom system with error below model non-determinism. Meanwhile, TF32x3 on NVIDIA Ampere GPUs speeds up major GEMMs by 1.7–1.9x and full molecular dynamics steps by up to 1.5x while keeping force error near the FP32 baseline and preserving potential energy smoothness."
+            }
+          ]
+        },
+        "es": {
+          "title": "Desbloqueo del rendimiento de Tensor Core para potenciales interatómicos de aprendizaje automático",
+          "dek": "Según NVIDIA Developer. NVIDIA detalla cómo los métodos Tensor Core FP32 aceleran los potenciales interatómicos de aprendizaje automático manteniendo la precisión base.",
+          "takeaways": [
+            "BF16x9 en GPUs NVIDIA Blackwell acelera los GEMM grandes en Point Edge Transformer de 2,2 a 2,5 veces para sistemas de 17.280 átomos.",
+            "TF32x3 en GPUs NVIDIA Ampere acelera los GEMM principales de 1,7 a 1,9 veces y el paso de dinámica molecular hasta 1,5 veces.",
+            "TF32x3 preserva la suavidad de la energía potencial y la conservación de la energía en trayectorias NVE.",
+            "La relajación estructural de una losa de aleación Cantor de 539 átomos converge en 218-222 pasos con TF32x3."
+          ],
+          "sections": [
+            {
+              "heading": "Rendimiento de Tensor Core",
+              "body": "Las simulaciones atomísticas ayudan a los investigadores a comprender el comportamiento de moléculas y materiales, pero enfrentan compromisos entre el coste computacional y la precisión. Los potenciales interatómicos de aprendizaje automático ayudan a superar esta brecha utilizando redes neuronales. Los métodos Tensor Core FP32 descomponen operandos FP32 en componentes de menor precisión para aumentar el rendimiento de multiplicación de matrices."
+            },
+            {
+              "heading": "Evaluación de Pruebas",
+              "body": "BF16x9 en GPUs NVIDIA Blackwell acelera GEMM grandes en el modelo Point Edge Transformer por 2,2–2,5x para un sistema de 17.280 átomos y 1,2–1,4x para un sistema de 192 átomos. Por su parte, TF32x3 en GPUs NVIDIA Ampere acelera los GEMM principales de 1,7 a 1,9 veces y el paso completo de dinámica molecular hasta 1,5 veces, manteniendo el error de fuerza cerca de la línea base de FP32."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/",
+            "title": "Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials"
+          }
+        ],
+        "claims": [
+          {
+            "text": "BF16x9 on NVIDIA Blackwell GPUs accelerates large GEMMs in the Point Edge Transformer by 2.2–2.5x for a 17,280-atom system and 1.2–1.4x for a 192-atom system.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "TF32x3 on NVIDIA Ampere GPUs speeds up major GEMMs by 1.7–1.9x and the full molecular dynamics step by up to 1.5x while keeping force error near the FP32 baseline.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Mở khóa hiệu năng Tensor Core cho tiềm năng tương tác nguyên tử học máy",
+          "en": "Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials",
+          "es": "Desbloqueo del rendimiento de Tensor Core para potenciales interatómicos de aprendizaje automático"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "moengage-agentcore-gateway",
       "reportingMode": "official-announcement",
