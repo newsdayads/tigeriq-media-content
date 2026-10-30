@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-30T18:18:20.856Z",
+  "updatedAt": "2026-10-30T19:18:20.309Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "uk-amazon-quick-user-group-2026-roundup",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence & Cloud Community",
+      "storyId": "tigeriq:uk-amazon-quick-user-group-2026-roundup",
+      "clusterKey": "news:b9a4ee67d52a89fb3142b39c76f61b4fbdd6e343b505fab8d425b81409fc425d",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T19:18:20.309Z",
+      "modifiedAt": "2026-10-30T19:18:20.309Z",
+      "editions": {
+        "vi": {
+          "title": "Tổng kết hoạt động năm 2026 của Nhóm người dùng Amazon Quick tại Vương quốc Anh",
+          "dek": "Theo công bố của AWS. Khám phá cách Nhóm người dùng Amazon Quick Vương quốc Anh phát triển trong năm 2026 thông qua các buổi gặp mặt hàng quý, nơi các thành viên thảo luận về AI tác nhân và phân tích dữ liệu.",
+          "takeaways": [
+            "Hơn 150 người tham dự đã tham gia ba buổi gặp mặt hàng quý diễn ra tại Văn phòng Công ty Amazon ở Shoreditch, London.",
+            "Các thành viên thực hành xây dựng bằng Amazon Quick, từ việc tạo tác nhân trò chuyện tùy chỉnh không cần mã cho đến sử dụng Amazon Quick Desktop.",
+            "Khách hàng từ Arriva UK Trains, Carsa và Propulse Lab đã chia sẻ các trường hợp sử dụng thực tế về cách họ áp dụng Amazon Quick để cải thiện quy trình vận hành."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan sự kiện",
+              "body": "Trong ba buổi gặp mặt hàng quý trong năm nay, cộng đồng tại Vương quốc Anh đã dành thời gian thực tế để làm việc với Amazon Quick thay vì chỉ xem các bản trình bày slide. Những người tham gia đã tạo các tác nhân trò chuyện tùy chỉnh mà không cần viết mã, thử nghiệm Amazon Quick Desktop trên máy tính xách tay của họ và sử dụng Amazon Quick Apps để biến mô tả ngôn ngữ thông thường thành ứng dụng web hoạt động hiệu quả."
+            },
+            {
+              "heading": "Câu chuyện từ khách hàng",
+              "body": "Các câu chuyện từ khách hàng đã đóng vai trò là một phần của cộng đồng từ những ngày đầu. Tại Arriva UK Trains, đội ngũ của Sofia Bourika đã xây dựng các bảng điều khiển động, thân thiện với thiết bị di động và báo cáo chính xác đến từng pixel được gửi tự động qua email định kỳ. Trong khi đó, tại Carsa, đội ngũ của Tobi Daramola đã khắc phục sự cố định nghĩa bằng cách xây dựng một lớp dữ liệu được quản lý đơn lẻ, giúp loại bỏ 50 phần trăm bảng điều khiển trong khi vẫn hiển thị nhiều dữ liệu hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "How the UK Amazon Quick User Group grew in 2026",
+          "dek": "According to AWS. Amazon highlights the growth and quarterly meetups of the Amazon Quick User Group in the United Kingdom, showcasing community collaboration, agentic AI, and practical workshops.",
+          "takeaways": [
+            "The events drew more than 150 attendees across three quarterly meetups held at the Amazon UK Corporate Office in Shoreditch, London.",
+            "Attendees built custom chat agents without writing code, tested Amazon Quick Desktop, and used Amazon Quick Apps to generate working web applications.",
+            "Customer organizations such as Arriva UK Trains, Carsa, and Propulse Lab shared real-world use cases involving governed data layers and multi-agent AI pipelines."
+          ],
+          "sections": [
+            {
+              "heading": "Community growth and event overview",
+              "body": "The Amazon Quick User Group – United Kingdom brings together users quarterly to exchange knowledge, share best practices, and learn through hands-on sessions. Over three quarterly meetups this year, the community drew more than 150 attendees who spent time building with Amazon Quick in sandbox accounts. Sessions evolved from introductions and demos in Q1 to interactive workshops and specialist panels by Q3."
+            },
+            {
+              "heading": "Customer implementations and insights",
+              "body": "Customer speakers shared practical applications across different business environments. Arriva UK Trains implemented dynamic, role-based dashboards and automated reports to improve incident management for mobile managers. Carsa established a single governed data layer that eliminated 50 percent of redundant dashboards, raised customer satisfaction scores, and reduced recurring tasks. Additionally, Propulse Lab deployed a multi-agent AI pipeline in Amazon Quick Automate to streamline support ticket handling and automate routine workflows."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo creció el Grupo de Usuarios de Amazon Quick en el Reino Unido en 2026",
+          "dek": "Según AWS. Un repaso a las reuniones trimestrales y al crecimiento del Grupo de Usuarios de Amazon Quick en el Reino Unido, destacando talleres prácticos y casos de éxito de clientes.",
+          "takeaways": [
+            "Los eventos reunieron a más de 150 asistentes en tres encuentros trimestrales celebrados en la Oficina Corporativa de Amazon en Shoreditch, Londres.",
+            "Los participantes crearon agentes de chat personalizados sin escribir código y probaron aplicaciones y flujos de trabajo de Amazon Quick.",
+            "Empresas como Arriva UK Trains, Carsa y Propulse Lab compartieron cómo resolvieron problemas de datos, informes y automatización de soporte."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de los encuentros trimestrales",
+              "body": "A lo largo de tres reuniones trimestrales este año, la comunidad del Reino Unido dedicó tiempo a construir directamente con Amazon Quick. Las personas crearon agentes de chat personalizados para sus equipos sin escribir código, probaron Amazon Quick Desktop en sus propias laptops y utilizaron Amazon Quick Apps para convertir descripciones en lenguaje sencillo en aplicaciones web funcionales."
+            },
+            {
+              "heading": "Casos prácticos de los clientes",
+              "body": "Las historias de los clientes mostraron cómo se aplica Quick en diferentes entornos empresariales. En Arriva UK Trains, el equipo construyó paneles dinámicos y adaptados a dispositivos móviles para mejorar la visibilidad de los incidentes. Por su parte, en Carsa crearon una capa de datos gobernada para solucionar problemas de definiciones, mientras que Propulse Lab implementó una tubería de IA multiagente en Amazon Quick Automate para gestionar tickets de soporte."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-the-uk-amazon-quick-user-group-grew-in-2026/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-3",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-the-uk-amazon-quick-user-group-grew-in-2026/",
+            "title": "How the UK Amazon Quick User Group grew in 2026"
+          }
+        ],
+        "claims": [
+          {
+            "text": "The UK Amazon Quick User Group hosted three quarterly meetups drawing more than 150 attendees to exchange knowledge and build with Amazon Quick.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          },
+          {
+            "text": "Customers utilized Amazon Quick for various applications including real-time incident management, eliminating dashboard sprawl, and automating support workflows with AI.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-3",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-the-uk-amazon-quick-user-group-grew-in-2026/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/uk-amazon-quick-user-group-2026-roundup.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Tổng kết hoạt động năm 2026 của Nhóm người dùng Amazon Quick tại Vương quốc Anh",
+          "en": "How the UK Amazon Quick User Group grew in 2026",
+          "es": "Cómo creció el Grupo de Usuarios de Amazon Quick en el Reino Unido en 2026"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "worldwide-express-amazon-bedrock-freight-exceptions",
       "reportingMode": "official-announcement",
