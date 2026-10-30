@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-30T08:18:27.470Z",
+  "updatedAt": "2026-10-30T14:18:22.138Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "aws-batch-quota-management-sagemaker",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:aws-batch-quota-management-sagemaker",
+      "clusterKey": "news:b93e21447ee1f43df9c004b4a7ab44b4a64e9d272d22f3f3f206e8b809cb4387",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T14:18:22.138Z",
+      "modifiedAt": "2026-10-30T14:18:22.138Z",
+      "editions": {
+        "vi": {
+          "title": "Quản lý hạn mức của AWS Batch cho các tác vụ Đào tạo SageMaker",
+          "dek": "Theo công bố của AWS. AWS công bố tính năng quản lý hạn mức mới cho AWS Batch để hỗ trợ các tác vụ Đào tạo Amazon SageMaker.",
+          "takeaways": [
+            "AWS Batch hỗ trợ quản lý hạn mức cho các tác vụ Đào tạo Amazon SageMaker.",
+            "Quản trị viên có thể chia năng lực tính toán thành các phần hạn mức cho từng đội ngũ.",
+            "Các chiến lược chia sẻ tài nguyên giúp tối đa hóa việc sử dụng GPU."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan tính năng",
+              "body": "Với việc ra mắt hỗ trợ AWS Batch cho các tác vụ Đào tạo Amazon SageMaker, khách hàng có một phương thức được quản lý toàn diện để xếp hàng, lên lịch và thử lại khối lượng công việc đào tạo máy học mà không cần tự xây dựng cơ sở hạ tầng."
+            },
+            {
+              "heading": "Chia sẻ hạn mức",
+              "body": "Quản trị viên có thể sử dụng tính năng quản lý hạn mức để chia năng lực tính toán thành các phần hạn mức, được tổ chức theo nhóm, dự án hoặc khối lượng công việc để quản lý tài nguyên hiệu quả hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Batch Quota Management for SageMaker Training Jobs",
+          "dek": "According to AWS. AWS introduces quota management in AWS Batch to support Amazon SageMaker Training jobs across multi-team environments.",
+          "takeaways": [
+            "AWS Batch now supports quota management for Amazon SageMaker Training jobs.",
+            "Administrators can organize compute capacity into quota shares by team or project.",
+            "Resource-sharing strategies include reserve, lend, and borrow options for idle compute."
+          ],
+          "sections": [
+            {
+              "heading": "Overview and Architecture",
+              "body": "With the launch of AWS Batch support for Amazon SageMaker Training jobs, customers gained a new fully managed way to queue, schedule, and retry machine learning training workloads without building their own infrastructure. As organizations scale their artificial intelligence and machine learning operations, coordinating access to shared GPU capacity can introduce additional configuration overhead."
+            },
+            {
+              "heading": "Quota Shares and Preemption",
+              "body": "Administrators can divide compute capacity into quota shares organized by team, project, or workload. Each quota share uses configurable resource-sharing strategies that maximize GPU utilization while honoring each team's allocation when it matters most, utilizing features such as cross-share and in-share preemption."
+            }
+          ]
+        },
+        "es": {
+          "title": "Gestión de cuotas de AWS Batch para trabajos de entrenamiento de SageMaker",
+          "dek": "Según AWS. AWS lanza la gestión de cuotas de AWS Batch para los trabajos de entrenamiento de Amazon SageMaker.",
+          "takeaways": [
+            "AWS Batch incluye soporte para la gestión de cuotas en trabajos de entrenamiento de SageMaker.",
+            "Los administradores pueden dividir la capacidad de cómputo en cuotas organizadas por equipos o proyectos.",
+            "Las estrategias de uso compartido maximizan la utilización de GPU entre diferentes cargas de trabajo."
+          ],
+          "sections": [
+            {
+              "heading": "Introducción al sistema",
+              "body": "Con el lanzamiento del soporte de AWS Batch para los trabajos de entrenamiento de Amazon SageMaker, los clientes obtuvieron una nueva forma totalmente administrada de poner en cola, programar y reintentar cargas de trabajo de entrenamiento de aprendizaje automático sin construir su propia infraestructura."
+            },
+            {
+              "heading": "Estrategias de recursos",
+              "body": "Los administradores pueden utilizar la gestión de cuotas para dividir la capacidad de cómputo en partes organizadas por equipo, proyecto o carga de trabajo, configurando estrategias para prestar y pedir prestado recursos inactivos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/lend-and-borrow-resources-across-teams-with-aws-batchs-quota-management-for-sagemaker-training-jobs/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-4",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/lend-and-borrow-resources-across-teams-with-aws-batchs-quota-management-for-sagemaker-training-jobs/",
+            "title": "Lend and borrow resources across teams with AWS Batch’s quota management for SageMaker Training jobs"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS Batch has launched quota management support for Amazon SageMaker Training jobs to help customers queue, schedule, and retry machine learning training workloads.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "Administrators can divide compute capacity into quota shares organized by team, project, or workload using configurable resource-sharing strategies.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-4",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/lend-and-borrow-resources-across-teams-with-aws-batchs-quota-management-for-sagemaker-training-jobs/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-batch-quota-management-sagemaker.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Quản lý hạn mức của AWS Batch cho các tác vụ Đào tạo SageMaker",
+          "en": "AWS Batch Quota Management for SageMaker Training Jobs",
+          "es": "Gestión de cuotas de AWS Batch para trabajos de entrenamiento de SageMaker"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "amazon-nova-act-epsilon-ui-testing",
       "reportingMode": "official-announcement",
