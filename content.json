@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-30T15:18:19.772Z",
+  "updatedAt": "2026-10-30T16:14:50.968Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "nvidia-nemoclaw-agent-stack",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:nvidia-nemoclaw-agent-stack",
+      "clusterKey": "news:fb200c38a517cfa9593aa299cc76ee5ffc0d07abadd3187337171c3d139ce3f4",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T16:14:50.968Z",
+      "modifiedAt": "2026-10-30T16:14:50.968Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng các tác nhân chuyên biệt trên ngăn xếp kiểm soát với NVIDIA NemoClaw",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu NemoClaw cung cấp các bản thiết kế mở kết hợp trình điều khiển, mô hình Nemotron và thời gian chạy bảo mật OpenShell.",
+          "takeaways": [
+            "NemoClaw kết hợp trình điều khiển tác nhân, mô hình Nemotron và công cụ tối ưu hóa NeMo.",
+            "LangChain đã tối ưu hóa trình điều khiển Deep Agents cho Nemotron 3 Ultra với chi phí thấp hơn khoảng 10 lần.",
+            "OpenShell quản lý quyền truy cập tệp, mạng và thông tin xác thực của tác nhân theo chính sách."
+          ],
+          "sections": [
+            {
+              "heading": "Nền tảng NemoClaw",
+              "body": "NVIDIA NemoClaw cung cấp các bản thiết kế mở kết hợp trình điều khiển tác nhân đã được tinh chỉnh, các mô hình Nemotron, công cụ tối ưu hóa NeMo và thời gian chạy bảo mật OpenShell thành một nền tảng tác nhân toàn diện. Các bản thiết kế hiện hỗ trợ OpenClaw, Hermes Agent và LangChain Deep Agents làm lớp điều phối, cho phép các nhà phát triển giữ lại trình điều khiển hiện có của họ."
+            },
+            {
+              "heading": "Hiệu suất và Tối ưu hóa",
+              "body": "LangChain đã tinh chỉnh trình điều khiển Deep Agents cho mô hình Nemotron 3 Ultra, đạt hiệu suất gần tương đương cấp độ biên với chi phí trên mỗi lần chạy thấp hơn khoảng 10 lần. Cấu hình mô hình đã tinh chỉnh này hiện có sẵn trên GitHub để các nhà phát triển có thể tiếp cận mà không cần lặp lại công việc tối ưu hóa."
+            },
+            {
+              "heading": "Quản trị và Bảo mật",
+              "body": "OpenShell quản lý quyền truy cập của tác nhân vào các tệp, mạng, thông tin xác thực và công cụ, giữ cho các tác nhân tuân thủ chính sách ngay cả khi bộ nhớ hoặc ngữ cảnh gợi ý các hành động không mong muốn. Các tham chiếu NemoClaw bao gồm các chính sách bảo mật như ngăn chặn việc rò rỉ dữ liệu ra bên ngoài."
+            }
+          ]
+        },
+        "en": {
+          "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+          "dek": "According to NVIDIA Developer. NVIDIA announces NemoClaw open blueprints combining a tuned agent harness, Nemotron models, NeMo optimization tools, and the OpenShell secure runtime.",
+          "takeaways": [
+            "NemoClaw open blueprints assemble an open agent stack combining a tuned harness, models, optimization, and runtime controls.",
+            "LangChain tuned its Deep Agents harness for Nemotron 3 Ultra, achieving near-frontier performance at roughly 10x lower cost per run.",
+            "OpenShell governs agent access to files, networks, credentials, and tools to enforce security policies during execution."
+          ],
+          "sections": [
+            {
+              "heading": "Introduction to NemoClaw",
+              "body": "NVIDIA NemoClaw provides open blueprints that combine a tuned agent harness, Nemotron models, NeMo optimization tools, and the OpenShell secure runtime into a full-stack agent platform. The blueprints currently support OpenClaw, Hermes Agent, and LangChain Deep Agents as the orchestration layer, letting developers keep their existing harness while adding optimization, telemetry, and governance."
+            },
+            {
+              "heading": "Performance and Tuning",
+              "body": "LangChain tuned its Deep Agents harness for Nemotron 3 Ultra by adjusting prompts, tools, and middleware without retraining the model. This tuning brought Nemotron 3 Ultra to near-frontier performance at approximately 10x lower cost per run compared with leading closed models, and the tuned profile is available on GitHub."
+            },
+            {
+              "heading": "Runtime Governance",
+              "body": "OpenShell governs agent access to files, networks, credentials, and tools, keeping agents bound by policy even when memory or retrieved context suggests unintended actions. The OpenShell tutorial covers how to create policies such as preventing data exfiltration to GitHub."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construya agentes especializados en una pila que usted controla con NVIDIA NemoClaw",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta NemoClaw con planos abiertos que combinan un arnés de agentes optimizado, modelos Nemotron y tiempo de ejecución OpenShell.",
+          "takeaways": [
+            "NemoClaw ofrece planos abiertos que combinan un arnés optimizado, modelos Nemotron, herramientas NeMo y tiempo de ejecución OpenShell.",
+            "LangChain optimizó su arnés Deep Agents para Nemotron 3 Ultra, logrando un rendimiento cercano a la frontera con menor costo por ejecución.",
+            "OpenShell gobierna el acceso de los agentes a archivos, redes y credenciales para mantenerlos vinculados a las políticas."
+          ],
+          "sections": [
+            {
+              "heading": "Plataforma NemoClaw",
+              "body": "NVIDIA NemoClaw proporciona planos abiertos que combinan un arnés de agentes optimizado, modelos Nemotron, herramientas de optimización NeMo y el tiempo de ejecución seguro OpenShell en una plataforma de agentes de pila completa. Los planos admiten actualmente OpenClaw, Hermes Agent y LangChain Deep Agents como capa de orquestación."
+            },
+            {
+              "heading": "Rendimiento y Optimización",
+              "body": "LangChain optimizó su arnés Deep Agents para Nemotron 3 Ultra ajustando indicaciones, herramientas y middleware sin reentrenar el modelo. Esta optimización logró un rendimiento cercano a la frontera a un costo aproximadamente 10 veces menor por ejecución en comparación con modelos cerrados líderes."
+            },
+            {
+              "heading": "Gobernanza y Seguridad",
+              "body": "OpenShell gobierna el acceso del agente a archivos, redes, credenciales y herramientas, manteniendo a los agentes sujetos a las políticas incluso cuando la memoria o el contexto recuperado sugieren acciones no deseadas. Los tutoriales de OpenShell detallan cómo crear políticas para prevenir la exfiltración de datos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
+            "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA NemoClaw provides open blueprints combining a tuned agent harness, Nemotron models, NeMo optimization tools, and the OpenShell secure runtime.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "LangChain tuned its Deep Agents harness for Nemotron 3 Ultra, achieving near-frontier performance at approximately 10x lower cost per run.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-nemoclaw-agent-stack.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng các tác nhân chuyên biệt trên ngăn xếp kiểm soát với NVIDIA NemoClaw",
+          "en": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+          "es": "Construya agentes especializados en una pila que usted controla con NVIDIA NemoClaw"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "agentic-ai-seti-search",
       "reportingMode": "official-announcement",
