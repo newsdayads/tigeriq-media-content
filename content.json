@@ -1,11 +1,153 @@
 {
-  "updatedAt": "2026-10-30T19:18:20.309Z",
+  "updatedAt": "2026-10-30T21:03:13.643Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "run-ai-models-for-edge-application-development-with-tensorrt-edge-llm",
+      "reportingMode": "official-announcement",
+      "category": "developer-tools",
+      "storyId": "tigeriq:run-ai-models-for-edge-application-development-with-tensorrt-edge-llm",
+      "clusterKey": "news:3aaef0dc0354f2fcaa2a5f08d4fd8fbca11de6a7cfc4f23e0dfcc8ed690ab15c",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T21:03:13.643Z",
+      "modifiedAt": "2026-10-30T21:03:13.643Z",
+      "editions": {
+        "vi": {
+          "title": "Chạy mô hình AI cho ứng dụng biên với NVIDIA TensorRT Edge-LLM",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu các công cụ dành cho nhà phát triển nhằm chạy mô hình AI và thử nghiệm trên thiết bị nhúng bằng NVIDIA DGX Spark 64GB.",
+          "takeaways": [
+            "NVIDIA TensorRT Edge-LLM cung cấp runtime suy luận C++ nhẹ cho khối lượng công việc nhúng.",
+            "Giao diện dòng lệnh trtedge cho phép tải mô hình và xây dựng các engine TensorRT được tối ưu hóa.",
+            "DSpark giúp tăng tốc độ tạo mã thông báo trên các prompt HumanEval."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về TensorRT Edge-LLM",
+              "body": "NVIDIA TensorRT Edge-LLM cung cấp một runtime suy luận C++ nhẹ được thiết kế cho các khối lượng công việc nhúng, mang lại cùng một framework suy luận cho việc phát triển trên DGX Spark và triển khai trên các nền tảng như NVIDIA Jetson Thor, NVIDIA DRIVE AGX Thor và NVIDIA IGX Thor."
+            },
+            {
+              "heading": "Thiết lập môi trường và công cụ dòng lệnh",
+              "body": "Bạn có thể bắt đầu chỉ với vài lệnh bằng giao diện dòng lệnh trtedge. Công cụ này tải xuống mô hình bạn chọn và xây dựng các engine TensorRT được tối ưu hóa để suy luận trên DGX Spark, đồng thời hỗ trợ phục vụ mô hình thông qua API tương thích với OpenAI để tạo mẫu ứng dụng."
+            },
+            {
+              "heading": "Giải mã suy đoán DSpark",
+              "body": "Giải mã suy đoán DSpark sử dụng mô hình dự thảo để đề xuất một số mã thông báo cho mô hình chính xác nhận trong một lần chuyển duy nhất. Cấu hình này giúp tăng tốc độ tạo trung bình trên các prompt HumanEval trong khi mức sử dụng bộ nhớ hệ thống tổng thể đạt 27.9GB."
+            }
+          ]
+        },
+        "en": {
+          "title": "Run AI Models for Edge Application Development with TensorRT Edge-LLM",
+          "dek": "According to NVIDIA Developer. NVIDIA details new developer tools and workflows for prototyping, fine-tuning, and testing AI models and agents on embedded devices using the NVIDIA DGX Spark 64GB.",
+          "takeaways": [
+            "TensorRT Edge-LLM delivers a lightweight C++ inference runtime spanning development and deployment.",
+            "The trtedge CLI downloads models and builds optimized TensorRT engines in a few commands.",
+            "DSpark speculative decoding increases mean generation speed during model inference testing."
+          ],
+          "sections": [
+            {
+              "heading": "Edge Application Development Platform",
+              "body": "NVIDIA DGX Spark, now available in a 64GB configuration, gives embedded developers a platform to prototype, fine-tune, and test models and agents. NVIDIA TensorRT Edge-LLM provides a lightweight C++ inference runtime designed for embedded workloads, bringing the same inference framework to development on Spark and deployment on platforms such as NVIDIA Jetson Thor, NVIDIA DRIVE AGX Thor, and NVIDIA IGX Thor."
+            },
+            {
+              "heading": "Getting Started with trtedge CLI",
+              "body": "You can get started in just a few commands with the trtedge command-line interface. It downloads your selected model and builds TensorRT engines optimized for inference on Spark. Developers can run NVIDIA Nemotron-3.5 Lightning, test prompts in the terminal, and serve the model through a local OpenAI-compatible API on Spark for application prototyping."
+            },
+            {
+              "heading": "Performance and Speculative Decoding",
+              "body": "You can speed up generation with DSpark speculative decoding, which uses a draft model to propose several tokens for the main model to verify in a single pass. DSpark speculative decoding with three draft tokens increases mean generation speed from 73.4 to 126.9 tokens per second on HumanEval prompts while peak total system memory use during inference remains 27.9GB."
+            }
+          ]
+        },
+        "es": {
+          "title": "Ejecute modelos de IA para desarrollo en el borde con TensorRT Edge-LLM",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta herramientas para desarrolladores orientadas a prototipar y probar modelos de IA en dispositivos embebidos utilizando NVIDIA DGX Spark 64GB.",
+          "takeaways": [
+            "TensorRT Edge-LLM ofrece un entorno de ejecución de inferencia C++ ligero para cargas de trabajo embebidas.",
+            "La interfaz de comandos trtedge descarga modelos y compila motores TensorRT optimizados.",
+            "La decodificación especulativa DSpark incrementa la velocidad de generación media en pruebas."
+          ],
+          "sections": [
+            {
+              "heading": "Desarrollo de aplicaciones en el borde",
+              "body": "NVIDIA DGX Spark en su configuración de 64GB proporciona una plataforma para que los desarrolladores embebidos puedan prototipar, ajustar y probar modelos y agentes. NVIDIA TensorRT Edge-LLM ofrece un entorno de ejecución de inferencia C++ ligero diseñado para cargas de trabajo embebidas."
+            },
+            {
+              "heading": "Uso de la interfaz trtedge",
+              "body": "Puede comenzar en pocos comandos con la interfaz de línea de comandos trtedge, la cual descarga el modelo seleccionado y construye motores TensorRT optimizados para la inferencia en Spark, permitiendo probar prompts y servir el modelo a través de una API compatible con OpenAI."
+            },
+            {
+              "heading": "Rendimiento y decodificación especulativa",
+              "body": "Puede acelerar la generación con la decodificación especulativa DSpark, la cual utiliza un modelo borrador para proponer varios tokens para que el modelo principal los verifique en un solo paso, aumentando la velocidad de generación media en prompts HumanEval con un uso máximo de memoria de 27.9GB."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/",
+            "title": "Run AI Models for Edge Application Development with Just a Few Commands"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA TensorRT Edge-LLM provides a lightweight C++ inference runtime designed for embedded workloads.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "The trtedge command-line interface downloads selected models and builds TensorRT engines optimized for inference on the NVIDIA DGX Spark 64GB.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "DSpark speculative decoding increases mean generation speed on HumanEval prompts while peak memory use remains 27.9GB.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/run-ai-models-for-edge-application-development-with-tensorrt-edge-llm.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Chạy mô hình AI cho ứng dụng biên với NVIDIA TensorRT Edge-LLM",
+          "en": "Run AI Models for Edge Application Development with TensorRT Edge-LLM",
+          "es": "Ejecute modelos de IA para desarrollo en el borde con TensorRT Edge-LLM"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "uk-amazon-quick-user-group-2026-roundup",
       "reportingMode": "official-announcement",
