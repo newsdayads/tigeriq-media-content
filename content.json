@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-10-30T14:18:22.138Z",
+  "updatedAt": "2026-10-30T15:18:19.772Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "agentic-ai-seti-search",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:agentic-ai-seti-search",
+      "clusterKey": "news:cfd1f1ef012c61e18c30a40b85e1adb59d8c94ea54b22187275b884090b8092d",
+      "readTime": "3",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T15:18:19.772Z",
+      "modifiedAt": "2026-10-30T15:18:19.772Z",
+      "editions": {
+        "vi": {
+          "title": "Trí tuệ nhân tạo tác nhân tham gia tìm kiếm tín hiệu ngoài Trái Đất",
+          "dek": "Theo công bố của NVIDIA. Breakthrough Listen và Viện SETI ứng dụng AI tác nhân vào việc tìm kiếm trí tuệ ngoài Trái Đất tại Mảng Kính thiên văn Allen.",
+          "takeaways": [
+            "Ứng dụng AI tác nhân trong việc tìm kiếm thông minh ngoài Trái Đất.",
+            "Nền tảng NVIDIA Holoscan xử lý các luồng dữ liệu cảm biến lớn.",
+            "Hệ thống đạt được phát hiện AI theo thời gian thực về một sao xung."
+          ],
+          "sections": [
+            {
+              "heading": "Tìm kiếm ngoài Trái Đất",
+              "body": "Breakthrough Listen và Viện SETI đang đưa AI tác nhân vào việc tìm kiếm hàng ngày các dấu hiệu trí tuệ ngoài Trái Đất. Tại Mảng Kính thiên văn Allen ở miền bắc California, các tác nhân giờ đây có thể điều khiển thiết bị, tăng cường và sửa chữa dữ liệu đến từ một yêu cầu ngôn ngữ tự nhiên duy nhất."
+            },
+            {
+              "heading": "Xử lý dữ liệu",
+              "body": "Nền tảng NVIDIA Holoscan xử lý các luồng dữ liệu cảm biến khổng lồ, cung cấp cho các tác nhân dữ liệu trực tiếp để hoạt động. Kết quả là quá trình tìm kiếm các tín hiệu tiềm năng từ sự sống và công nghệ ngoài Trái Đất trở nên nhanh hơn và dễ thích ứng hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "Agentic AI Joins the Search for Extraterrestrial Signals",
+          "dek": "According to NVIDIA. Breakthrough Listen and the SETI Institute are bringing agentic AI into the daily search for extraterrestrial intelligence at the Allen Telescope Array.",
+          "takeaways": [
+            "Agentic AI is now part of the daily search for extraterrestrial intelligence.",
+            "The NVIDIA Holoscan platform processes massive streams of sensor data for live action.",
+            "The pipeline achieved the first real-time AI detection of a pulsar in the Crab Nebula."
+          ],
+          "sections": [
+            {
+              "heading": "Extraterrestrial Search",
+              "body": "Breakthrough Listen and the SETI Institute are bringing agentic AI into the daily search for extraterrestrial intelligence. At the Allen Telescope Array in Northern California, agents can now steer the instrument, enhance and correct incoming data, and apply AI models to the incoming stream from a single natural language request."
+            },
+            {
+              "heading": "Data Processing",
+              "body": "The NVIDIA Holoscan platform processes the massive streams of sensor data, giving agents live data to act on. The result is a faster, more adaptable search for potential signals from extraterrestrial life and technologies, while DAQIRI enables the telescope to pull terabits per second of sensor data straight into GPU memory."
+            }
+          ]
+        },
+        "es": {
+          "title": "La IA agéntica se une a la búsqueda de señales extraterrestres",
+          "dek": "Según NVIDIA. Breakthrough Listen y el Instituto SETI incorporan la inteligencia artificial agéntica en la búsqueda diaria de inteligencia extraterrestre.",
+          "takeaways": [
+            "La IA agéntica se integra en la búsqueda diaria de inteligencia extraterrestre.",
+            "La plataforma NVIDIA Holoscan procesa flujos masivos de datos de sensores.",
+            "El sistema logró la primera detección de un púlsar en tiempo real mediante IA."
+          ],
+          "sections": [
+            {
+              "heading": "Búsqueda extraterrestre",
+              "body": "Breakthrough Listen y el Instituto SETI están incorporando la inteligencia artificial agéntica en la búsqueda diaria de inteligencia extraterrestre. En el Allen Telescope Array, en el norte de California, los agentes ahora pueden dirigir el instrumento y aplicar modelos de inteligencia artificial a partir de una simple solicitud en lenguaje natural."
+            },
+            {
+              "heading": "Procesamiento de datos",
+              "body": "La plataforma NVIDIA Holoscan procesa los flujos masivos de datos de sensores, proporcionando a los agentes datos en vivo para actuar. El resultado es una búsqueda más rápida y adaptable de posibles señales de vida y tecnologías extraterrestres."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/",
+            "title": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Breakthrough Listen and the SETI Institute are bringing agentic AI into the daily search for extraterrestrial intelligence at the Allen Telescope Array.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "The NVIDIA Holoscan platform processes massive streams of sensor data, giving agents live data to act on for a faster and more adaptable search.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/agentic-ai-seti-search.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Trí tuệ nhân tạo tác nhân tham gia tìm kiếm tín hiệu ngoài Trái Đất",
+          "en": "Agentic AI Joins the Search for Extraterrestrial Signals",
+          "es": "La IA agéntica se une a la búsqueda de señales extraterrestres"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-batch-quota-management-sagemaker",
       "reportingMode": "official-announcement",
