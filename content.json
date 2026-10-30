@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-30T16:14:50.968Z",
+  "updatedAt": "2026-10-30T18:18:20.856Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "worldwide-express-amazon-bedrock-freight-exceptions",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:worldwide-express-amazon-bedrock-freight-exceptions",
+      "clusterKey": "news:7ba5836a5a34191139b033ededa688356c0eabcc35ec1a6224613b3fd0c7da8c",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-30T18:18:20.856Z",
+      "modifiedAt": "2026-10-30T18:18:20.856Z",
+      "editions": {
+        "vi": {
+          "title": "Worldwide Express tự động hóa ngoại lệ vận chuyển bằng Amazon Bedrock",
+          "dek": "Theo công bố của AWS. Công ty hậu cần đã hợp tác với AWS để xây dựng giải pháp AI đa tác nhân nhằm giải quyết các ngoại lệ thanh toán vận chuyển.",
+          "takeaways": [
+            "Worldwide Express đã hợp tác với AWS để triển khai giải pháp AI đa tác nhân sử dụng Amazon Bedrock.",
+            "Hệ thống định tuyến các ngoại lệ lập hóa đơn đến ba tác nhân AI chuyên biệt để xử lý các loại tranh chấp khác nhau.",
+            "Giải pháp đã giúp giảm 75% lượng ngoại lệ hoạt động và cải thiện thời gian thu hồi tiền mặt thêm 4 tuần."
+          ],
+          "sections": [
+            {
+              "heading": "Thách thức",
+              "body": "Trong vận tải hàng hóa ít hơn tải trọng xe tải, khoảng 14% hóa đơn không vượt qua được bước đối chiếu ba chiều tiêu chuẩn. Các ngoại lệ này bao gồm sự không khớp về dòng sản phẩm, chênh lệch giá cả và các khoản phí phụ thu bất ngờ, tiêu tốn phần lớn băng thông của nhóm tài chính."
+            },
+            {
+              "heading": "Giải pháp",
+              "body": "Worldwide Express đã phối hợp cùng đội ngũ Tư vấn Giá trị & Chuyển đổi Doanh nghiệp của AWS để thiết kế một giải pháp đa tác nhân chạy trên Amazon Bedrock và Amazon EC2. Hệ thống định tuyến các ngoại lệ hóa đơn đến ba tác nhân chuyên biệt: Tác nhân Đối chiếu Hóa đơn, Tác nhân Chênh lệch Giá và Tác nhân Xác thực Phụ thu."
+            },
+            {
+              "heading": "Kết quả",
+              "body": "Sáu tháng sau khi ra mắt, công ty ghi nhận mức giảm 75% đối với các ngoại lệ đang hoạt động, cải thiện 4 tuần về thời gian thu tiền mặt, tiết kiệm 1 triệu USD hàng năm và dòng tiền tự do tăng thêm 10 triệu USD."
+            }
+          ]
+        },
+        "en": {
+          "title": "How Worldwide Express automated freight exceptions with Amazon Bedrock",
+          "dek": "According to AWS. Worldwide Express collaborated with AWS to deploy a multi-agentic AI solution integrated into its transportation management system.",
+          "takeaways": [
+            "Worldwide Express built a multi-agentic AI solution using Amazon Bedrock that integrates directly into the SpeedShip transportation management system.",
+            "The system routes billing exceptions to three specialized AI agents handling invoice matching, pricing variances, and accessorial validations.",
+            "After six months, the company achieved a 75 percent reduction in active exceptions, $1M in annual savings, and a $10M free cash flow infusion."
+          ],
+          "sections": [
+            {
+              "heading": "The Challenge",
+              "body": "In LTL freight, roughly 14 percent of invoices fail the standard three-way match between the purchase order, the goods receipt, and the carrier invoice. For Worldwide Express, exceptions fell into line-item mismatches, pricing variances, and unexpected accessorial charges, consuming significant FinOps bandwidth."
+            },
+            {
+              "heading": "System Design",
+              "body": "The solution runs on AWS, utilizing Amazon Bedrock for AI reasoning and Amazon Elastic Compute Cloud as the engine. When an exception is detected, the system routes it to one of three specialized agents that pull carrier billing rules and policies before making a recommendation."
+            },
+            {
+              "heading": "Reported Results",
+              "body": "Six months after implementation across more than 40 LTL carriers, Worldwide Express reported a 75 percent reduction in active exceptions, a four-week improvement in time-to-cash, $1 million in annual savings, and a one-time $10 million free cash flow infusion."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo Worldwide Express automatizó excepciones de fletes con Amazon Bedrock",
+          "dek": "Según AWS. La empresa implementó una solución de inteligencia artificial multi-agente en AWS para gestionar las excepciones de facturación.",
+          "takeaways": [
+            "Worldwide Express desarrolló una solución de IA multi-agente utilizando Amazon Bedrock integrada en su sistema de gestión de transporte.",
+            "Las excepciones se dirigen a tres agentes especializados que evalúan coincidencias de facturas, variaciones de precios y cargos accesorios.",
+            "La empresa reportó una reducción del 75 por ciento en excepciones activas y una mejora de cuatro semanas en el tiempo de cobro tras seis meses."
+          ],
+          "sections": [
+            {
+              "heading": "El desafío",
+              "body": "En el transporte de carga LTL, aproximadamente el 14 por ciento de las facturas fallan en la coincidencia estándar de tres vías. Estas excepciones incluían discrepancias en líneas de artículos, variaciones de precios y cargos accesorios inesperados que requerían un costoso proceso manual."
+            },
+            {
+              "heading": "Funcionamiento",
+              "body": "La solución opera en AWS, empleando Amazon Bedrock para el razonamiento de IA y Amazon EC2 como motor. El sistema utiliza agentes especializados dotados de bases de conocimiento específicas de cada transportista para procesar las excepciones y generar notas explicativas."
+            },
+            {
+              "heading": "Resultados obtenidos",
+              "body": "Seis meses después del lanzamiento, la compañía informó una reducción del 75 por ciento en las excepciones activas, una mejora de cuatro semanas en el tiempo de efectivo, un millón de dólares en ahorros anuales y una inyección de diez millones de dólares en flujo de caja libre."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-worldwide-express-automated-freight-exceptions-with-amazon-bedrock/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-1",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-worldwide-express-automated-freight-exceptions-with-amazon-bedrock/",
+            "title": "How Worldwide Express automated freight exceptions with Amazon Bedrock"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Worldwide Express worked with AWS and LTM to build a multi-agentic AI solution with Amazon Bedrock that plugs directly into their transportation management system, SpeedShip.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          },
+          {
+            "text": "Six months after launch, the company reported a 75 percent reduction in active exceptions, a 4-week improvement in time-to-cash, $1M annual savings, and a one-time $10M free cash flow infusion.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-worldwide-express-automated-freight-exceptions-with-amazon-bedrock/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/worldwide-express-amazon-bedrock-freight-exceptions.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Worldwide Express tự động hóa ngoại lệ vận chuyển bằng Amazon Bedrock",
+          "en": "How Worldwide Express automated freight exceptions with Amazon Bedrock",
+          "es": "Cómo Worldwide Express automatizó excepciones de fletes con Amazon Bedrock"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-nemoclaw-agent-stack",
       "reportingMode": "official-announcement",
