@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-10-31T08:18:20.894Z",
+  "updatedAt": "2026-10-31T09:18:19.476Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "github-intelligence-code-context-history",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:github-intelligence-code-context-history",
+      "clusterKey": "news:bcb6c385ecfffadcea98a4bc43de55ecac573b523f5ceb6013d4d9fce29ef112",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T09:18:19.476Z",
+      "modifiedAt": "2026-10-31T09:18:19.476Z",
+      "editions": {
+        "vi": {
+          "title": "GitHub intelligence đưa mã nguồn, ngữ cảnh và lịch sử vào hoạt động của tác vụ AI",
+          "dek": "Theo công bố của GitHub. GitHub giới thiệu lớp ngữ cảnh và học tập mang tên GitHub intelligence nhằm giúp các tác vụ AI hiểu rõ hơn về mã nguồn, sở thích và quy ước của nhóm.",
+          "takeaways": [
+            "GitHub intelligence kết nối dữ liệu từ kho lưu trữ để giúp các tác vụ AI ghi nhớ cách làm việc.",
+            "Copilot Memory hiện đã được cung cấp rộng rãi trên các gói Copilot trả phí.",
+            "Tính năng Copilot dreaming đang ở chế độ xem trước công khai để liên tục cải thiện ngữ cảnh.",
+            "GitHub code search cho phép tìm kiếm mã nguồn và tài liệu trên nhiều dự án mà không cần bản sao cục bộ."
+          ],
+          "sections": [
+            {
+              "heading": "Lớp ngữ cảnh và học tập từ dữ liệu GitHub",
+              "body": "GitHub intelligence hoạt động như một lớp ngữ cảnh và học tập được lấy từ biểu đồ dữ liệu GitHub. Mục tiêu của tính năng này là giúp các tác vụ AI hiểu rõ hơn về mã nguồn, sở thích, quy ước kho lưu trữ và lịch sử phát triển của nhóm mà không cần phải bắt đầu lại từ đầu trong mỗi phiên làm việc."
+            },
+            {
+              "heading": "Copilot Memory và Dreaming",
+              "body": "Copilot Memory mang lại khả năng ghi nhớ các tùy chọn cá nhân và quy ước kho lưu trữ trên nhiều phiên làm việc và ứng dụng, hiện đã được phát hành chung cho các gói trả phí. Trong khi đó, Copilot dreaming đang ở dạng xem trước công khai, cho phép hệ thống tự động suy ngẫm về công việc trước đó để cải thiện các phiên làm việc của tác vụ AI trong tương lai."
+            },
+            {
+              "heading": "Mở rộng tìm kiếm mã nguồn qua các dự án",
+              "body": "Công cụ tìm kiếm mã nguồn GitHub code search giúp Copilot tìm kiếm các đoạn mã, cấu hình, lược đồ và tài liệu có liên quan trên các dự án và phụ thuộc khác nhau mà không cần phải tạo bản sao cục bộ. Tính năng này hỗ trợ tìm kiếm bằng văn bản chính xác, biểu thức chính quy và tìm kiếm ngữ nghĩa theo chức năng của mã."
+            }
+          ]
+        },
+        "en": {
+          "title": "GitHub intelligence puts your code, context, and history to work",
+          "dek": "According to GitHub. GitHub announces a new intelligence layer designed to bring code context, repository conventions, and developer history into agent workflows.",
+          "takeaways": [
+            "GitHub intelligence serves as a context and learning layer sourced from GitHub data.",
+            "Copilot Memory is now generally available on paid Copilot plans across various apps and tools.",
+            "Copilot dreaming is introduced in public preview to continuously improve agentic sessions.",
+            "GitHub code search enables Copilot to find relevant code and documentation without a local clone."
+          ],
+          "sections": [
+            {
+              "heading": "Context and learning for developer agents",
+              "body": "GitHub intelligence functions as a context and learning layer sourced from the graph of GitHub data. By leveraging team preferences, repository conventions, and development history, the system aims to help agents remember past work and adhere to developer standards across sessions."
+            },
+            {
+              "heading": "Memory and dreaming capabilities",
+              "body": "Copilot Memory is now generally available on paid Copilot plans, enabling agents to remember personal preferences and repository conventions. Additionally, Copilot dreaming is available in public preview to continuously reflect on past work and curate personal or repository memories."
+            },
+            {
+              "heading": "Searching beyond the local checkout",
+              "body": "GitHub code search allows Copilot to reach beyond a local checkout to find relevant code, configurations, schemas, and documentation across related projects and dependencies. It supports exact text matching, regular expressions, and semantic search based on what code actually does."
+            }
+          ]
+        },
+        "es": {
+          "title": "GitHub intelligence pone en marcha su código, contexto e historial",
+          "dek": "Según GitHub. GitHub presenta una capa de contexto y aprendizaje diseñada para integrar el historial de desarrollo y las convenciones de los repositorios en las tareas de los agentes.",
+          "takeaways": [
+            "GitHub intelligence actúa como una capa de contexto y aprendizaje obtenida de los datos de GitHub.",
+            "Copilot Memory ya está disponible de forma general en los planes de pago de Copilot.",
+            "Copilot dreaming se encuentra en vista previa pública para mejorar de forma continua las sesiones de los agentes.",
+            "GitHub code search permite buscar código y documentación relevante en proyectos relacionados sin un clon local."
+          ],
+          "sections": [
+            {
+              "heading": "Una capa de contexto y aprendizaje para los agentes",
+              "body": "GitHub intelligence introduce una capa de contexto y aprendizaje obtenida a partir del gráfico de datos de GitHub. Su objetivo es ayudar a los agentes a comprender las preferencias, las convenciones de los repositorios y el historial de desarrollo del equipo para evitar empezar cada sesión desde cero."
+            },
+            {
+              "heading": "Memoria y mejora continua del contexto",
+              "body": "Copilot Memory ya se encuentra disponible de forma general en los planes de pago de Copilot para recordar preferencias y convenciones entre sesiones. Por su parte, Copilot dreaming se ofrece en vista previa pública para reflexionar sobre el trabajo pasado y proponer actualizaciones en las instrucciones y memorias del repositorio."
+            },
+            {
+              "heading": "Búsqueda de código más allá del repositorio local",
+              "body": "La función de búsqueda de código de GitHub ayuda a Copilot a encontrar código, configuraciones y documentación relevante en proyectos y dependencias relacionados sin necesidad de contar con un clon local. Permite realizar búsquedas mediante texto exacto, expresiones regulares y descripciones en lenguaje natural."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "github-6",
+            "publisher": "github",
+            "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work",
+            "title": "GitHub intelligence puts your code, context, and history to work"
+          }
+        ],
+        "claims": [
+          {
+            "text": "GitHub has introduced GitHub intelligence as a context and learning layer sourced from GitHub data to help agents remember workflows and development history.",
+            "sourceIds": [
+              "github-6"
+            ]
+          },
+          {
+            "text": "The release includes three main capabilities: Copilot Memory, Copilot dreaming, and GitHub code search across related projects and dependencies.",
+            "sourceIds": [
+              "github-6"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "github-6",
+            "tier": "A",
+            "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/github-intelligence-code-context-history.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "GitHub intelligence đưa mã nguồn, ngữ cảnh và lịch sử vào hoạt động của tác vụ AI",
+          "en": "GitHub intelligence puts your code, context, and history to work",
+          "es": "GitHub intelligence pone en marcha su código, contexto e historial"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "meta-andromeda-next-gen-ads-retrieval",
       "reportingMode": "official-announcement",
