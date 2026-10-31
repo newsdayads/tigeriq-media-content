@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-10-31T13:18:19.368Z",
+  "updatedAt": "2026-10-31T14:18:19.666Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "meta-jittests-ai-bug-detection",
+      "reportingMode": "official-announcement",
+      "category": "AI & Software Testing",
+      "storyId": "tigeriq:meta-jittests-ai-bug-detection",
+      "clusterKey": "news:fcd794030fc399b91508c2ff5b8ccb408e3bfba66c9976f370b69d2088460292",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T14:18:19.666Z",
+      "modifiedAt": "2026-10-31T14:18:19.666Z",
+      "editions": {
+        "vi": {
+          "title": "Meta Triển Khai Phương Pháp Kiểm Thử JiTTests Sử Dụng AI Để Phát Hiện Lỗi Trước Khi Đưa Vào Sản Xuất",
+          "dek": "Theo công bố của Meta. Meta chia sẻ kết quả và tác động tích cực từ việc triển khai phương pháp Catching Just-in-Time Tests (JiTTests) sử dụng mô hình ngôn ngữ lớn để phát hiện lỗi mã nguồn.",
+          "takeaways": [
+            "Meta đã đưa phương pháp Catching JiTTests vào hệ thống sản xuất thực tế.",
+            "Hệ thống kết hợp quy trình nhận diện ý định và quy trình 'dodgy diff' để sinh mã kiểm thử.",
+            "Sự kết hợp giữa 'LLM-as-Judge' và công cụ dựa trên quy luật RubFake giúp lọc bỏ các kết quả dương tính giả.",
+            "Cách tiếp cận con người trong vòng lặp (human-on-the-loop) giúp giảm tải công sức rà soát cho kỹ sư."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng Quan Về JiTTests",
+              "body": "Meta đã chia sẻ kết quả và tác động tích cực khi triển khai phương pháp Catching Just-in-Time Tests (JiTTests) vào môi trường sản xuất. Trong bối cảnh hàng trăm triệu dòng mã liên tục phát triển, các phương pháp kiểm thử truyền thống không thể bắt kịp tốc độ. Catching JiTTests tận dụng các mô hình ngôn ngữ lớn để tạo ra các bài kiểm thử thực thi được, nhằm phát hiện những lỗi mà phương pháp kiểm tra mã nguồn dựa trên AI thông thường có thể bỏ sót."
+            },
+            {
+              "heading": "Quy Trình Hoạt Động Năm Giai Đoạn",
+              "body": "Hệ thống hoạt động qua năm giai đoạn bao gồm: nhắm mục tiêu và kích hoạt dựa trên điểm rủi ro, hai quy trình tạo bài kiểm thử nhận biết sự khác biệt (dodgy diff và intent-aware), đánh giá tự động bằng tổ hợp LLM-as-Judge, bộ đánh giá dựa trên quy luật RubFake, và cách tiếp cận human-on-the-loop nơi các kỹ sư thiết lập tiêu chí và xem xét kết quả ở mức độ tổng hợp thay vì giám sát mọi đầu ra."
+            },
+            {
+              "heading": "Tác Động Thực Tế Tại Meta",
+              "body": "Tính đến thời điểm công bố, 589 kỹ sư tại Meta đã tương tác với kết quả từ JiTTests và ghi nhận tỷ lệ chính xác 60% đối với các phát hiện có thể hành động. Trong nửa đầu năm 2026, phương pháp này đã đóng vai trò quan trọng trong việc phát hiện 74 lỗi quyền Riêng tư nghiêm trọng ở giai đoạn tạo mã khác biệt trước khi đưa vào sản xuất, đồng thời làm giảm 20% sự cố quyền riêng tư nghiêm trọng tổng thể trong giai đoạn đó."
+            }
+          ]
+        },
+        "en": {
+          "title": "Meta Deploys AI-Driven JiTTests to Catch Code Bugs Before Production",
+          "dek": "According to Meta. Meta details the production deployment and positive impacts of its Catching Just-in-Time Tests (JiTTests) approach, leveraging large language models to generate executable tests.",
+          "takeaways": [
+            "Meta has transitioned Catching JiTTests from a research prototype into core production infrastructure.",
+            "The system utilizes an intent-aware workflow and a dodgy diff workflow to automatically generate tests.",
+            "False positives are filtered using an LLM-as-Judge ensemble combined with a rule-based assessor named RubFake.",
+            "Meta reports that 589 engineers have engaged with the system, noting a 60% true-positive rate for actionable findings."
+          ],
+          "sections": [
+            {
+              "heading": "Introduction to Catching JiTTests",
+              "body": "Meta has shared the results and positive impact of deploying its Catching Just-in-Time Tests (JiTTests) approach into production. With hundreds of millions of lines of code constantly evolving, traditional testing cannot keep pace. Catching JiTTests leverages large language models to generate executable tests that demonstrate concrete behavioral differences, allowing Meta to catch bugs on the fly before code lands in production."
+            },
+            {
+              "heading": "Five-Stage System Workflow",
+              "body": "The system workflow operates in five stages: targeting and triggering risky diffs overnight, running two diff-aware test-generation workflows (dodgy diff and intent-aware), executing an automated assessment via an LLM-as-Judge ensemble, applying a rule-based assessor called RubFake for deterministic judgments, and utilizing a human-on-the-loop approach where engineers review outcomes at an aggregate level."
+            },
+            {
+              "heading": "Impact and Results at Meta",
+              "body": "According to Meta, 589 engineers have engaged with the testing system's results, reporting a 60% true-positive rate for actionable findings. In the first half of 2026, Catching JiTTests helped catch 74 serious privacy bugs at the diff stage before they landed in production, lowering the overall occurrence of privacy SEVs by 20% during that timeframe."
+            }
+          ]
+        },
+        "es": {
+          "title": "Meta Implementa JiTTests Impulsados por Inteligencia Artificial para Detectar Errores",
+          "dek": "Según Meta. Meta detalla los resultados y el impacto positivo de su enfoque Catching Just-in-Time Tests (JiTTests) utilizando grandes modelos de lenguaje para generar pruebas ejecutables.",
+          "takeaways": [
+            "Meta ha integrado Catching JiTTests en su infraestructura de producción principal.",
+            "El sistema genera pruebas automáticamente utilizando flujos de trabajo basados en intenciones y diferencias dudosas.",
+            "Se utiliza un conjunto de modelos denominado LLM-as-Judge junto con el evaluador RubFake para filtrar falsos positivos.",
+            "El enfoque de humano en el bucle permite a los ingenieros revisar los resultados a un nivel agregado."
+          ],
+          "sections": [
+            {
+              "heading": "Enfoque de JiTTests en Producción",
+              "body": "Meta ha compartido los resultados y el impacto positivo de desplegar su enfoque Catching Just-in-Time Tests (JiTTests) en producción. Con cientos de millones de líneas de código en constante evolución, las pruebas tradicionales no pueden mantener el ritmo. JiTTests aprovecha grandes modelos de lenguaje para generar pruebas ejecutables que detectan errores al momento antes de que los cambios lleguen a producción."
+            },
+            {
+              "heading": "Flujo de Trabajo del Sistema",
+              "body": "El flujo de trabajo completo se desarrolla en cinco etapas: selección y activación nocturna de cambios riesgosos, dos flujos de generación de pruebas conscientes de las diferencias (dodgy diff e intent-aware), una evaluación automatizada mediante un conjunto LLM-as-Judge, un evaluador basado en reglas llamado RubFake, y un enfoque de humano en el bucle (human-on-the-loop) para revisar los resultados a nivel agregado."
+            },
+            {
+              "heading": "Impacto y Resultados Obtenidos",
+              "body": "Hasta la fecha, 589 ingenieros en Meta han interactuado con los resultados del sistema, reportando una tasa de verdaderos positivos del 60%. En la primera mitad de 2026, Catching JiTTests desempeñó un papel clave al detectar 74 errores graves de privacidad en la etapa de diferencias antes de llegar a producción, reduciendo la ocurrencia general de incidentes graves de privacidad en un 20%."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "meta-1",
+            "publisher": "meta",
+            "url": "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/",
+            "title": "Catching Bugs Before They Land: JiTTesting’s Human-on-the-Loop Approach at Full Scale"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Meta has deployed its Catching Just-in-Time Tests (JiTTests) approach into production infrastructure, utilizing large language models to generate executable tests that catch bugs before code lands.",
+            "sourceIds": [
+              "meta-1"
+            ]
+          },
+          {
+            "text": "According to Meta, Catching JiTTests helped catch 74 serious privacy bugs at the diff stage in the first half of 2026, contributing to a 20% reduction in overall privacy SEVs during that timeframe.",
+            "sourceIds": [
+              "meta-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "meta-1",
+            "tier": "A",
+            "url": "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-jittests-ai-bug-detection.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Meta Triển Khai Phương Pháp Kiểm Thử JiTTests Sử Dụng AI Để Phát Hiện Lỗi Trước Khi Đưa Vào Sản Xuất",
+          "en": "Meta Deploys AI-Driven JiTTests to Catch Code Bugs Before Production",
+          "es": "Meta Implementa JiTTests Impulsados por Inteligencia Artificial para Detectar Errores"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3",
       "reportingMode": "official-announcement",
