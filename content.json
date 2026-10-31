@@ -1,11 +1,147 @@
 {
-  "updatedAt": "2026-10-31T09:18:19.476Z",
+  "updatedAt": "2026-10-31T13:18:19.368Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3",
+      "clusterKey": "news:4294bc757107b8e511a7fb431e9a5bc9ca4e632f1ab8af64ef4ec3a2888520f9",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T13:18:19.368Z",
+      "modifiedAt": "2026-10-31T13:18:19.368Z",
+      "editions": {
+        "vi": {
+          "title": "Tăng tốc độ phân phối phần mềm với tự động hóa QA bằng đại lý sử dụng Amazon Nova Act – Phần 3",
+          "dek": "Theo công bố của AWS. Phần thứ ba giới thiệu các tính năng giúp QA Studio mở rộng quy mô trên toàn tổ chức thông qua quản lý ứng dụng và phân quyền người dùng dựa trên nhóm.",
+          "takeaways": [
+            "AWS giới thiệu phần 3 về tự động hóa QA sử dụng Amazon Nova Act.",
+            "Ứng dụng trong QA Studio giúp tổ chức các bài kiểm tra và báo cáo chỉ số sức khỏe.",
+            "Quản lý người dùng theo nhóm kiểm soát quyền xem và chỉnh sửa."
+          ],
+          "sections": [
+            {
+              "heading": "Tổ chức kiểm thử",
+              "body": "Ứng dụng trong QA Studio đại diện cho hệ thống đang được kiểm thử, bao gồm một trang web, ứng dụng web hoặc giao diện dịch vụ. Nó hoạt động như một vùng chứa cung cấp cho tập hợp các bài kiểm tra một ngôi nhà và một chủ sở hữu, cho phép các nhóm làm việc trong các ứng dụng họ sở hữu thay vì một danh sách phẳng."
+            },
+            {
+              "heading": "Hiểu về sức khỏe ứng dụng",
+              "body": "QA Studio ghi lại kết quả của mọi lần thực thi dưới dạng các chỉ số tùy chỉnh của Amazon CloudWatch, được phân chia theo ứng dụng và môi trường. Điểm số sức khỏe từ 0 đến 100 được tính toán bắt đầu từ tỷ lệ thành công và trừ đi hình phạt cho các bài kiểm tra không ổn định."
+            },
+            {
+              "heading": "Kiểm soát truy cập",
+              "body": "Quản lý người dùng dựa trên nhóm quyết định ứng dụng nào thuộc về nhóm nào, trong đó mỗi thành viên sở hữu một trong năm vai trò bao gồm Quản trị viên, Trưởng nhóm, Biên tập viên, Người thực thi và Người xem với các quyền tích lũy."
+            }
+          ]
+        },
+        "en": {
+          "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act – Part 3",
+          "dek": "According to AWS. AWS details new capabilities in QA Studio to help scale agentic QA automation across an organization using applications and team-based user management.",
+          "takeaways": [
+            "QA Studio introduces applications to organize tests and report health metrics.",
+            "Team-based user management controls who can view and modify tests.",
+            "Health scores calculate pass rates while subtracting penalties for flaky tests."
+          ],
+          "sections": [
+            {
+              "heading": "Organizing tests with applications",
+              "body": "An application in QA Studio represents the system under test, serving as a container that gives a collection of tests a home and an owner. Use cases and test suites belong to an application, allowing each team to work inside the applications they own instead of viewing one flat list."
+            },
+            {
+              "heading": "Understanding application health",
+              "body": "QA Studio records the outcome of every execution as Amazon CloudWatch custom metrics dimensioned by application and environment. A health score from 0 to 100 is computed starting from the pass rate and subtracting a penalty for flaky tests to prevent falsely perfect pictures."
+            },
+            {
+              "heading": "Controlling access with teams",
+              "body": "QA Studio organizes access around teams where an application belongs to exactly one team, and every member holds one of five cumulative roles ranging from Viewer and Executor up to Admin, Team Lead, and Editor."
+            }
+          ]
+        },
+        "es": {
+          "title": "Aceleración de la entrega de software con automatización de QA agéntica usando Amazon Nova Act – Parte 3",
+          "dek": "Según AWS. AWS detalla nuevas capacidades en QA Studio para ayudar a escalar la automatización de QA agéntica mediante aplicaciones y gestión de usuarios por equipos.",
+          "takeaways": [
+            "QA Studio introduce aplicaciones para organizar pruebas y métricas de salud.",
+            "La gestión de usuarios por equipos controla quién puede ver y modificar.",
+            "Las puntuaciones de salud calculan tasas de éxito restando penalizaciones."
+          ],
+          "sections": [
+            {
+              "heading": "Organización de pruebas",
+              "body": "Una aplicación en QA Studio representa el sistema bajo prueba, funcionando como un contenedor que asigna un hogar y un propietario a una colección de pruebas. Los casos de uso y las suites de pruebas pertenecen a una aplicación para que cada equipo trabaje en lo suyo."
+            },
+            {
+              "heading": "Salud de la aplicación",
+              "body": "QA Studio registra el resultado de cada ejecución como métricas personalizadas de Amazon CloudWatch dimensionadas por aplicación y entorno. Se calcula una puntuación de salud de 0 a 100 a partir de la tasa de aciertos restando una penalización por pruebas inestables."
+            },
+            {
+              "heading": "Control de acceso",
+              "body": "QA Studio organiza el acceso en torno a equipos donde una aplicación pertenece exactamente a un equipo, y cada miembro posee uno de cinco roles acumulativos que van desde visor hasta administrador."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-13",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3/",
+            "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act – Part 3"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS announced the third part of its guide on accelerating software delivery with agentic QA automation using Amazon Nova Act.",
+            "sourceIds": [
+              "aws-13"
+            ]
+          },
+          {
+            "text": "The new capabilities help QA Studio scale across an organization by introducing applications for organizing tests and health metrics, alongside team-based user management.",
+            "sourceIds": [
+              "aws-13"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-13",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Tăng tốc độ phân phối phần mềm với tự động hóa QA bằng đại lý sử dụng Amazon Nova Act – Phần 3",
+          "en": "Accelerating software delivery with agentic QA automation using Amazon Nova Act – Part 3",
+          "es": "Aceleración de la entrega de software con automatización de QA agéntica usando Amazon Nova Act – Parte 3"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "github-intelligence-code-context-history",
       "reportingMode": "official-announcement",
