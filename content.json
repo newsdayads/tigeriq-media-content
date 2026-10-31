@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-31T07:30:44.125Z",
+  "updatedAt": "2026-10-31T08:18:20.894Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "meta-andromeda-next-gen-ads-retrieval",
+      "reportingMode": "official-announcement",
+      "category": "AI Technology",
+      "storyId": "tigeriq:meta-andromeda-next-gen-ads-retrieval",
+      "clusterKey": "news:5812b632198d4159b295b9fde659d4497e4bf47ac39a97ab5a7d057d43505888",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T08:18:20.894Z",
+      "modifiedAt": "2026-10-31T08:18:20.894Z",
+      "editions": {
+        "vi": {
+          "title": "Meta giới thiệu thế hệ tiếp theo của công cụ truy xuất quảng cáo Andromeda",
+          "dek": "Theo công bố của Meta. Meta công bố hệ thống truy xuất quảng cáo cá nhân hóa Meta Andromeda thế hệ mới, ứng dụng thiết kế đồng bộ giữa mô hình, hệ thống và phần cứng GPU.",
+          "takeaways": [
+            "Meta giới thiệu thế hệ tiếp theo của Andromeda nhằm cải thiện hiệu suất truy xuất quảng cáo.",
+            "Hệ thống đạt thông lượng hơn một tỷ quảng cáo mỗi giây trong môi trường sản xuất.",
+            "Kể từ năm 2025, hệ thống này đã mang lại mức tăng trưởng 2.4% về lượng chuyển đổi trên Facebook.",
+            "Kiến trúc mới tích hợp mô hình hỗn hợp chuyên gia (MoE) lấy cảm hứng từ LLM."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về hệ thống Andromeda mới",
+              "body": "Bài viết mô tả thế hệ tiếp theo của Meta Andromeda, công cụ truy xuất quảng cáo cá nhân hóa của Meta, và cách thiết kế đồng bộ giữa mô hình, hệ thống và phần cứng GPU giúp mở ra một cột mốc hiệu quả mới cho việc truy xuất quảng cáo. Trong môi trường sản xuất, hệ thống chấm điểm cho mọi quảng cáo đủ điều kiện với hiệu suất mô hình gần bằng cấp độ xếp hạng ở quy mô truy xuất."
+            },
+            {
+              "heading": "Hiệu suất và tác động thực tế",
+              "body": "Hệ thống đưa ra các ứng viên hàng đầu với tốc độ hơn một tỷ quảng cáo mỗi giây, đánh dấu một chuẩn mực thông lượng mới cho các mô hình ở giai đoạn truy xuất quảng cáo. Kể từ năm 2025, Meta Andromeda đã mang lại mức tăng 2.4% về lượng chuyển đổi trên Facebook, giúp nhà quảng cáo đạt hiệu suất tốt hơn tự động."
+            }
+          ]
+        },
+        "en": {
+          "title": "Meta Announces Next Generation of Meta Andromeda Ads Retrieval Engine",
+          "dek": "According to Meta. Meta describes the next generation of Meta Andromeda, its personalized ads retrieval engine, leveraging model, system, and GPU hardware co-design.",
+          "takeaways": [
+            "Meta shares details on the next generation of its personalized ads retrieval engine, Meta Andromeda.",
+            "In production, the system surfaces top candidates at over one billion ads per second.",
+            "Since 2025, Meta Andromeda has delivered a 2.4% increase in conversions on Facebook.",
+            "The architecture introduces large language model inspired mixture of experts into retrieval."
+          ],
+          "sections": [
+            {
+              "heading": "Next Generation Ads Retrieval Engine",
+              "body": "This post describes the next generation of Meta Andromeda, Meta's personalized ads retrieval engine, and how co-designing the model, system, and GPU hardware unlocks a new efficiency frontier for ads retrieval. In production, the system scores every eligible ad with near ranking-level model performance at retrieval scale and surfaces the top candidates at over one billion ads per second."
+            },
+            {
+              "heading": "Performance Gains and Architecture",
+              "body": "Since 2025, Meta Andromeda has delivered a 2.4% increase in conversions on Facebook. For advertisers, this means better performance automatically from the retrieval system matching ads across a larger candidate pool, within the same latency budget, building on foundations established with previous launches."
+            }
+          ]
+        },
+        "es": {
+          "title": "Meta Anuncia la Siguiente Generación del Motor de Recuperación de Anuncios Andromeda",
+          "dek": "Según Meta. Meta describe la próxima generación de Meta Andromeda, su motor de recuperación de anuncios personalizados mediante el co-diseño de modelos, sistemas y GPU.",
+          "takeaways": [
+            "Meta presenta la próxima generación de su motor de recuperación de anuncios personalizados.",
+            "El sistema procesa y evalúa candidatos a más de mil millones de anuncios por segundo en producción.",
+            "Desde 2025, Meta Andromeda ha generado un incremento del 2.4% en conversiones en Facebook.",
+            "La arquitectura introduce conceptos inspirados en modelos de lenguaje grande para optimizar el rendimiento."
+          ],
+          "sections": [
+            {
+              "heading": "Nueva Generación de Recuperación de Anuncios",
+              "body": "Esta publicación describe la próxima generación de Meta Andromeda, el motor de recuperación de anuncios personalizados de Meta, y cómo el co-diseño del modelo, el sistema y el hardware de GPU desbloquea una nueva frontera de eficiencia para la recuperación de anuncios. En producción, el sistema puntúa cada anuncio elegible con un rendimiento cercano al nivel de clasificación."
+            },
+            {
+              "heading": "Impacto y Resultados Prácticos",
+              "body": "El sistema muestra los mejores candidatos a más de mil millones de anuncios por segundo, estableciendo un nuevo punto de referencia de rendimiento. Desde 2025, Meta Andromeda ha entregado un aumento del 2.4% en conversiones en Facebook, ofreciendo mejor rendimiento automático para los anunciantes dentro del mismo presupuesto de latencia."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://engineering.fb.com/2026/10/28/ml-applications/meta-andromeda-next-gen-ads-retrieval-gpu-co-design/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "meta-2",
+            "publisher": "meta",
+            "url": "https://engineering.fb.com/2026/10/28/ml-applications/meta-andromeda-next-gen-ads-retrieval-gpu-co-design/",
+            "title": "Meta Andromeda: Powering the Next Generation of Ads Retrieval Through Model-System Co-Design"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Meta announced the next generation of Meta Andromeda, its personalized ads retrieval engine, designed to unlock a new efficiency frontier through model, system, and GPU hardware co-design.",
+            "sourceIds": [
+              "meta-2"
+            ]
+          },
+          {
+            "text": "Meta states that the system scores every eligible ad with near ranking-level model performance and surfaces top candidates at over one billion ads per second in production.",
+            "sourceIds": [
+              "meta-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "meta-2",
+            "tier": "A",
+            "url": "https://engineering.fb.com/2026/10/28/ml-applications/meta-andromeda-next-gen-ads-retrieval-gpu-co-design/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/meta-andromeda-next-gen-ads-retrieval.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Meta giới thiệu thế hệ tiếp theo của công cụ truy xuất quảng cáo Andromeda",
+          "en": "Meta Announces Next Generation of Meta Andromeda Ads Retrieval Engine",
+          "es": "Meta Anuncia la Siguiente Generación del Motor de Recuperación de Anuncios Andromeda"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "configure-chatgpt-desktop-app-amazon-bedrock-aws-govcloud",
       "reportingMode": "official-announcement",
