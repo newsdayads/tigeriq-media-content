@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-30T23:18:23.361Z",
+  "updatedAt": "2026-10-31T02:18:27.733Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "managing-amazon-bedrock-costs-end-to-end",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:managing-amazon-bedrock-costs-end-to-end",
+      "clusterKey": "news:1bfe298fb02dc889b67887e6ec62a3618264908b2481bd81030c730f7e6ff887",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T02:18:27.733Z",
+      "modifiedAt": "2026-10-31T02:18:27.733Z",
+      "editions": {
+        "vi": {
+          "title": "Quản lý chi phí Amazon Bedrock từ đầu đến cuối: Cẩm nang cho FinOps và các nhóm nền tảng",
+          "dek": "Theo công bố của AWS. AWS công bố cẩm nang quản lý chi phí trí tuệ nhân tạo tạo sinh, trình bày mô hình vận hành năm giai đoạn cho Amazon Bedrock.",
+          "takeaways": [
+            "Quản lý chi phí cho trí tuệ nhân tạo tạo sinh là trách nhiệm chung giữa các nhóm xây dựng ứng dụng và nhóm chịu trách nhiệm về chi tiêu đám mây.",
+            "Mô hình vận hành năm giai đoạn bao gồm phân bổ, quan sát, thực thi, tối ưu hóa và vận hành đánh giá.",
+            "Amazon Bedrock tự động phân bổ chi phí suy luận cho IAM principal đã thực hiện lệnh gọi trên tất cả các mô hình.",
+            "Các nhóm có thể sử dụng Trình tính toán giá AWS và trang định giá Amazon Bedrock để mô hình hóa tỷ lệ chi phí."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan mô hình vận hành",
+              "body": "Quản lý chi phí cho trí tuệ nhân tạo tạo sinh là một kỷ luật kiến trúc và vận hành đòi hỏi sự phối hợp giữa các nhóm xây dựng ứng dụng và đội ngũ tài chính. AWS đưa ra mô hình vận hành năm giai đoạn chạy như một vòng lặp liên tục bao gồm phân bổ từng đô la cho chủ sở hữu, làm cho mọi yêu cầu có thể quan sát được, kiểm soát chi tiêu bằng ngân sách và thực thi, tối ưu hóa các mặc định của nền tảng, và duy trì nhịp độ đánh giá dữ liệu thành quyết định."
+            },
+            {
+              "heading": "Phân bổ chi phí chi tiết",
+              "body": "Giai đoạn đầu tiên tập trung vào việc phân bổ chi phí chi tiết trên Amazon Bedrock, hệ thống tự động gán chi phí suy luận cho IAM principal thực hiện lệnh gọi mà không cần quản lý tài nguyên bổ sung. Người dùng có thể thiết lập dữ liệu IAM principal trong bản xuất dữ liệu CUR 2.0, gắn thẻ các IAM principal với các chiều kinh doanh như nhóm, ứng dụng và trung tâm chi phí để phân tích trực tiếp qua AWS Billing và Cost Explorer."
+            }
+          ]
+        },
+        "en": {
+          "title": "Managing Amazon Bedrock costs end to end: A playbook for FinOps and platform teams",
+          "dek": "According to AWS. AWS published an end-to-end cost management playbook detailing a five-stage operating model for Amazon Bedrock deployments.",
+          "takeaways": [
+            "Cost management for generative AI is a shared responsibility between application builders and cloud finance teams.",
+            "The five-stage operating model spans attribute, observe, enforce, optimize, and operate review cadences.",
+            "Amazon Bedrock automatically attributes inference costs to the IAM principal that made the call across all models.",
+            "Platform teams can utilize application inference profiles and projects for alternative attribution mechanisms."
+          ],
+          "sections": [
+            {
+              "heading": "Operating model overview",
+              "body": "Cost management for generative AI functions as an architectural and operational discipline shared between application developers and cloud spend accountability teams. AWS presents a five-stage operating model run as a continuous loop: attribute every dollar to an owner, make every request observable, enforce budgets and restrictions, optimize platform defaults to eliminate waste, and operate a review cadence that converts data into decisions."
+            },
+            {
+              "heading": "Granular cost attribution",
+              "body": "Managing costs effectively relies on granular attribution, starting with Amazon Bedrock automatically attributing inference costs to the AWS Identity and Access Management principal that made the call across all models. Setup involves turning on IAM principal data in CUR 2.0 data exports, tagging IAM principals with business dimensions, configuring session names for federated access, and activating those tags in AWS Billing to track spend seamlessly."
+            }
+          ]
+        },
+        "es": {
+          "title": "Gestión de costos de Amazon Bedrock de extremo a extremo: Guía para equipos de FinOps",
+          "dek": "Según AWS. AWS publicó una guía de gestión de costos que detalla un modelo operativo de cinco etapas para Amazon Bedrock.",
+          "takeaways": [
+            "La gestión de costos para la inteligencia artificial generativa es una responsabilidad compartida entre desarrolladores y finanzas.",
+            "El modelo operativo de cinco etapas abarca atribución, observación, cumplimiento, optimización y revisión.",
+            "Amazon Bedrock atribuye automáticamente los costos de inferencia al principal de IAM que realizó la llamada.",
+            "Los equipos pueden utilizar perfiles de inferencia de aplicaciones y proyectos para mecanismos de atribución adicionales."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen del modelo operativo",
+              "body": "La gestión de costos para la inteligencia artificial generativa requiere una disciplina arquitectónica y operativa compartida entre los creadores de aplicaciones y los equipos responsables del gasto en la nube. AWS detalla un modelo operativo de cinco etapas ejecutado como un ciclo continuo: atribuir cada dólar a un propietario, hacer que cada solicitud sea observable, controlar el gasto con presupuestos, optimizar los valores predeterminados y operar con revisiones periódicas."
+            },
+            {
+              "heading": "Atribución de costos detallada",
+              "body": "La base del control financiero depende de la atribución granular de costos, donde Amazon Bedrock asigna automáticamente los costos de inferencia al principal de AWS Identity and Access Management que realizó la llamada en todos los modelos. La configuración requiere habilitar los datos del principal de IAM en CUR 2.0, etiquetar los principales con dimensiones comerciales y activar dichas etiquetas en la facturación de AWS."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/managing-amazon-bedrock-costs-end-to-end-a-playbook-for-finops-and-platform-teams/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-1",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/managing-amazon-bedrock-costs-end-to-end-a-playbook-for-finops-and-platform-teams/",
+            "title": "Managing Amazon Bedrock costs end to end: A playbook for FinOps and platform teams"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS published a cost management playbook outlining a five-stage operating model for Amazon Bedrock covering attribution, observability, enforcement, optimization, and review cadences.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          },
+          {
+            "text": "Amazon Bedrock automatically attributes inference costs to the IAM principal that made the call across all models without requiring additional managed resources.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/managing-amazon-bedrock-costs-end-to-end-a-playbook-for-finops-and-platform-teams/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/managing-amazon-bedrock-costs-end-to-end.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Quản lý chi phí Amazon Bedrock từ đầu đến cuối: Cẩm nang cho FinOps và các nhóm nền tảng",
+          "en": "Managing Amazon Bedrock costs end to end: A playbook for FinOps and platform teams",
+          "es": "Gestión de costos de Amazon Bedrock de extremo a extremo: Guía para equipos de FinOps"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "amazon-bedrock-agentcore-runtime-session-endpoints",
       "reportingMode": "official-announcement",
