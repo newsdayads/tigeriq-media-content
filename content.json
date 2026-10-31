@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-31T02:18:27.733Z",
+  "updatedAt": "2026-10-31T06:18:18.983Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
+      "clusterKey": "news:503a5b156f872395a614ff89abce7536ca4103805d8a15dedbc5b04e1fb850e4",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T06:18:18.983Z",
+      "modifiedAt": "2026-10-31T06:18:18.983Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng Runtime Kubernetes được xác thực cho NVIDIA Dynamo",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu AI Cluster Runtime (AICR) nhằm gói gọn NVIDIA Dynamo cùng hạ tầng hỗ trợ thành các công thức được xác thực.",
+          "takeaways": [
+            "NVIDIA giới thiệu AI Cluster Runtime (AICR) để đóng gói hạ tầng hỗ trợ.",
+            "Dynamo 1.4.2 sử dụng TCP cho mặt phẳng yêu cầu và ZMQ cho sự kiện bộ nhớ đệm KV.",
+            "AICR tách biệt thiết lập runtime khỏi việc triển khai ứng dụng bằng quy trình năm bước.",
+            "Đường dẫn mặc định của AICR trên Kubernetes không còn sử dụng NATS."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu AICR và Dynamo",
+              "body": "Nền tảng NVIDIA DSX AI Factory mang lại các công nghệ giúp hệ sinh thái thiết kế, xây dựng và vận hành các nhà máy AI hiệu quả hơn, trong đó có NVIDIA Dynamo. Để quản lý các phụ thuộc hạ tầng dễ dàng hơn, nền tảng tích hợp NVIDIA AI Cluster Runtime (AICR). Công cụ này đóng gói NVIDIA Dynamo và hạ tầng hỗ trợ thành các công thức được xác thực với các phiên bản thành phần được ghim."
+            },
+            {
+              "heading": "Định tuyến và Sự kiện KV-cache",
+              "body": "Dynamo 1.4.2 sử dụng TCP cho mặt phẳng yêu cầu và ZMQ cho các sự kiện bộ nhớ đệm KV-cache, cho phép cả bộ định tuyến Dynamo Frontend nguyên bản lẫn đường dẫn GAIE/EPP đưa ra quyết định định tuyến nhận biết bộ nhớ đệm. Mỗi công cụ worker vLLM phát ra các sự kiện KV-cache thô thông qua một nhà xuất bản ZMQ cục bộ."
+            }
+          ]
+        },
+        "en": {
+          "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+          "dek": "According to NVIDIA Developer. NVIDIA introduces the AI Cluster Runtime (AICR) to package NVIDIA Dynamo and its supporting infrastructure into validated recipes.",
+          "takeaways": [
+            "NVIDIA introduced the AI Cluster Runtime (AICR) to package Dynamo and supporting infrastructure.",
+            "Dynamo 1.4.2 uses TCP for the request plane and ZMQ for KV-cache events.",
+            "AICR separates runtime setup from application deployment using a five-step flow.",
+            "The default AICR path no longer uses NATS in Dynamo 1.4."
+          ],
+          "sections": [
+            {
+              "heading": "AICR Infrastructure and Packaging",
+              "body": "The NVIDIA DSX AI Factory Platform brings together technologies to help the ecosystem design, build, and operate more efficient AI factories, with NVIDIA Dynamo as one of them. To make management of infrastructure dependencies easier, the platform contains NVIDIA AI Cluster Runtime (AICR). It packages NVIDIA Dynamo and its supporting infrastructure into validated recipes defining configurations with pinned component versions."
+            },
+            {
+              "heading": "Routing and KV-Cache Architecture",
+              "body": "Dynamo 1.4.2 uses TCP for the request plane and ZMQ for KV-cache events, enabling both the native Dynamo Frontend router and the Gateway API Inference Extension (GAIE) / Endpoint Picker Plugin (EPP) path to make cache-aware routing decisions. Each vLLM worker engine emits raw KV-cache events through a local ZMQ publisher, which the Dynamo worker runtime subscribes to and republishes."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construir un Runtime de Kubernetes validado para NVIDIA Dynamo",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta AI Cluster Runtime (AICR) para empaquetar NVIDIA Dynamo y su infraestructura de soporte en recetas validadas.",
+          "takeaways": [
+            "NVIDIA lanzó AI Cluster Runtime (AICR) para empaquetar Dynamo y su infraestructura.",
+            "Dynamo 1.4.2 utiliza TCP para el plano de solicitudes y ZMQ para eventos de caché KV.",
+            "AICR separa la configuración del runtime del despliegue de aplicaciones en cinco pasos.",
+            "La ruta predeterminada de AICR ya no utiliza NATS en Dynamo 1.4."
+          ],
+          "sections": [
+            {
+              "heading": "Infraestructura y Empaquetado AICR",
+              "body": "La plataforma NVIDIA DSX AI Factory reúne tecnologías para ayudar al ecosistema a diseñar, construir y operar fábricas de IA más eficientes, siendo Dynamo una de ellas. Para facilitar la gestión de dichas dependencias de infraestructura, la plataforma incluye NVIDIA AI Cluster Runtime (AICR). Empaqueta NVIDIA Dynamo y su infraestructura de soporte en recetas validadas con versiones de componentes fijadas."
+            },
+            {
+              "heading": "Enrutamiento y Eventos KV-Cache",
+              "body": "Dynamo 1.4.2 utiliza TCP para el plano de solicitudes y ZMQ para los eventos de caché KV, permitiendo que tanto el enrutador frontend nativo de Dynamo como la ruta GAIE/EPP tomen decisiones de enrutamiento conscientes de la caché. Cada motor de trabajador de vLLM emite eventos de caché KV en bruto a través de un editor ZMQ local."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo/",
+            "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA released the AI Cluster Runtime (AICR) to package NVIDIA Dynamo and its supporting infrastructure into validated recipes.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "Dynamo 1.4.2 uses TCP for the request plane and ZMQ for KV-cache events to support cache-aware routing decisions.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/build-a-validated-kubernetes-runtime-for-nvidia-dynamo.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng Runtime Kubernetes được xác thực cho NVIDIA Dynamo",
+          "en": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+          "es": "Construir un Runtime de Kubernetes validado para NVIDIA Dynamo"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "managing-amazon-bedrock-costs-end-to-end",
       "reportingMode": "official-announcement",
