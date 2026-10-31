@@ -1,11 +1,144 @@
 {
-  "updatedAt": "2026-10-31T06:18:18.983Z",
+  "updatedAt": "2026-10-31T07:30:44.125Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "configure-chatgpt-desktop-app-amazon-bedrock-aws-govcloud",
+      "reportingMode": "official-announcement",
+      "category": "machine-learning",
+      "storyId": "tigeriq:configure-chatgpt-desktop-app-amazon-bedrock-aws-govcloud",
+      "clusterKey": "news:60272b986f392f2d37f2f6467c094a36fcd00fc6871c176541ccc797e46a684b",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-10-31T07:30:44.125Z",
+      "modifiedAt": "2026-10-31T07:30:44.125Z",
+      "editions": {
+        "vi": {
+          "title": "Cấu hình ứng dụng máy tính ChatGPT với Amazon Bedrock trong AWS GovCloud (US)",
+          "dek": "Theo công bố của AWS. Ứng dụng máy tính để bàn ChatGPT nay đã khả dụng trên Amazon Bedrock trong AWS GovCloud (US), cung cấp quyền truy cập vào các mô hình tiên tiến của OpenAI.",
+          "takeaways": [
+            "Ứng dụng máy tính để bàn ChatGPT hiện khả dụng trên Amazon Bedrock tại AWS GovCloud (US).",
+            "Hệ thống cung cấp quyền truy cập các mô hình frontier của OpenAI thông qua Work và Codex.",
+            "Cấu hình định tuyến yêu cầu mô hình thông qua Amazon Bedrock Mantle tại us-gov-west-1.",
+            "Hỗ trợ tính năng Zero data retention (ZDR) để bảo vệ thông tin nhạy cảm và tuân thủ quản trị dữ liệu."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan giải pháp",
+              "body": "Ứng dụng máy tính để bàn ChatGPT có sẵn trên Amazon Bedrock trong AWS GovCloud (US), cung cấp quyền truy cập vào các mô hình tiên tiến của OpenAI thông qua hai thành phần. Work hoàn thành các tác vụ phức tạp, nhiều bước và mang lại kết quả sẵn sàng đánh giá, trong khi Codex là một tác nhân mã hóa để phát triển, kiểm thử và đánh giá phần mềm."
+            },
+            {
+              "heading": "Bảo mật và cấu hình",
+              "body": "Cấu hình này định tuyến các yêu cầu mô hình thông qua Amazon Bedrock Mantle tại us-gov-west-1, nơi quyền truy cập có thể được quản lý bằng AWS Identity and Access Management (IAM) và các kiểm soát mạng hiện có của AWS GovCloud (US). Zero data retention (ZDR) cũng được hỗ trợ để xử lý các lời nhắc và phản hồi mà không bị ghi vào bộ lưu trữ bền vững bởi AWS."
+            }
+          ]
+        },
+        "en": {
+          "title": "Configure the ChatGPT desktop app with Amazon Bedrock in AWS GovCloud (US)",
+          "dek": "According to AWS. The ChatGPT desktop app is now available on Amazon Bedrock in AWS GovCloud (US), providing access to OpenAI’s frontier models.",
+          "takeaways": [
+            "The ChatGPT desktop app is available on Amazon Bedrock in AWS GovCloud (US).",
+            "It provides access to OpenAI's frontier models through Work and Codex components.",
+            "Model requests are routed through Amazon Bedrock Mantle in us-gov-west-1.",
+            "Zero data retention is supported so prompts and responses are not written to durable storage."
+          ],
+          "sections": [
+            {
+              "heading": "Solution Overview",
+              "body": "The ChatGPT desktop app is now available on Amazon Bedrock in AWS GovCloud (US), providing access to OpenAI’s frontier models through two components. Work completes complex, multi-step tasks and delivers review-ready results, and Codex is a coding agent for developing, testing, and reviewing software. This walkthrough is intended for organizations whose security architecture requires model inference to use AWS GovCloud (US) identities, endpoints, and Regional controls."
+            },
+            {
+              "heading": "Security and Controls",
+              "body": "It configures Codex to route model requests through Amazon Bedrock Mantle in us-gov-west-1, where access can be governed using AWS Identity and Access Management (IAM) and existing AWS GovCloud (US) network controls. Zero data retention (ZDR) is also supported. In this configurable mode, prompts and responses are processed without being written to durable storage by AWS or shared with model providers."
+            }
+          ]
+        },
+        "es": {
+          "title": "Configurar la aplicación de escritorio de ChatGPT con Amazon Bedrock en AWS GovCloud (US)",
+          "dek": "Según AWS. La aplicación de escritorio de ChatGPT ya está disponible en Amazon Bedrock en AWS GovCloud (US), ofreciendo acceso a los modelos de frontera de OpenAI.",
+          "takeaways": [
+            "La aplicación de escritorio de ChatGPT ya está disponible en Amazon Bedrock en AWS GovCloud (US).",
+            "Proporciona acceso a los modelos de frontera de OpenAI mediante Work y Codex.",
+            "Las solicitudes de modelos se enrutan a través de Amazon Bedrock Mantle en us-gov-west-1.",
+            "Se admite la retención de datos cero para proteger la información confidencial y cumplir con los requisitos."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de la solución",
+              "body": "La aplicación de escritorio de ChatGPT ya está disponible en Amazon Bedrock en AWS GovCloud (US), proporcionando acceso a los modelos de frontera de OpenAI a través de dos componentes. Work completa tareas complejas de varios pasos y ofrece resultados listos para revisar, y Codex es un agente de codificación para desarrollar, probar y revisar software."
+            },
+            {
+              "heading": "Seguridad y controles",
+              "body": "Configura Codex para enrutar las solicitudes de modelos a través de Amazon Bedrock Mantle en us-gov-west-1, donde el acceso se puede regir mediante AWS Identity and Access Management (IAM) y los controles de red existentes de AWS GovCloud (US). También se admite la retención de datos cero (ZDR) para proteger la información confidencial."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/configure-the-chatgpt-desktop-app-with-amazon-bedrock-in-aws-govcloud-us/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-4",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/configure-the-chatgpt-desktop-app-with-amazon-bedrock-in-aws-govcloud-us/",
+            "title": "Configure the ChatGPT desktop app with Amazon Bedrock in AWS GovCloud (US)"
+          }
+        ],
+        "claims": [
+          {
+            "text": "The ChatGPT desktop app is now available on Amazon Bedrock in AWS GovCloud (US), providing access to OpenAI’s frontier models through two components.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "Work completes complex, multi-task operations and delivers review-ready results, while Codex serves as a coding agent for developing, testing, and reviewing software.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "The configuration uses API-mode sign-in, a managed device policy, a named AWS profile, and network restrictions to route model requests through Amazon Bedrock Mantle in us-gov-west-1.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-4",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/configure-the-chatgpt-desktop-app-with-amazon-bedrock-in-aws-govcloud-us/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/configure-chatgpt-desktop-app-amazon-bedrock-aws-govcloud.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Cấu hình ứng dụng máy tính ChatGPT với Amazon Bedrock trong AWS GovCloud (US)",
+          "en": "Configure the ChatGPT desktop app with Amazon Bedrock in AWS GovCloud (US)",
+          "es": "Configurar la aplicación de escritorio de ChatGPT con Amazon Bedrock en AWS GovCloud (US)"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "build-a-validated-kubernetes-runtime-for-nvidia-dynamo",
       "reportingMode": "official-announcement",
