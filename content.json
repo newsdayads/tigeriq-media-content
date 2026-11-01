@@ -1,11 +1,138 @@
 {
-  "updatedAt": "2026-10-31T14:18:19.666Z",
+  "updatedAt": "2026-11-01T20:18:21.753Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
+      "clusterKey": "news:7f6b5e1562584fa2d0b3c3c7a0cd2e523cf06a224bd5248ed2ac831c2468d266",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-11-01T20:18:21.753Z",
+      "modifiedAt": "2026-11-01T20:18:21.753Z",
+      "editions": {
+        "vi": {
+          "title": "Cách Kiểm Tra và Cấu Hình NVIDIA GPUDirect Storage Cho Nền Tảng Của Bạn",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu tiện ích dòng lệnh gds-diag và kỹ năng tác nhân tùy chọn để đánh giá cấu hình GPUDirect Storage.",
+          "takeaways": [
+            "Công cụ gds-diag là tiện ích dòng lệnh mã nguồn mở được phân phối thông qua kho lưu trữ NVIDIA Magnum IO GitHub.",
+            "Tiện ích này giúp đánh giá môi trường GPUDirect Storage, xác định sự cố và đề xuất cải tiến cho hệ thống.",
+            "Kỹ năng tác nhân tùy chọn bổ sung giao diện ngôn ngữ tự nhiên để diễn giải ý định và điều phối quy trình chẩn đoán.",
+            "Kết quả chẩn đoán hiển thị các huy hiệu trạng thái như FAIL, WARN, INFO và PASS kèm theo kế hoạch giảm thiểu."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng Quan Về Công Cụ Gds-Diag",
+              "body": "NVIDIA công bố gds-diag là một tiện ích dòng lệnh mã nguồn mở giúp đánh giá các môi trường GPUDirect Storage, xác định vấn đề và đề xuất cải tiến. Công cụ này cung cấp nhiều lệnh phụ được nhóm thành các bước kiểm tra đầu cuối, xác thực trước và sau khi cài đặt, cùng với chẩn đoán sâu cho môi trường vùng chứa."
+            },
+            {
+              "heading": "Kỹ Năng Tác Nhân AI Và Giao Diện",
+              "body": "Bên cạnh dòng lệnh, một kỹ năng tác nhân tùy chọn được tích hợp để bổ sung giao diện ngôn ngữ tự nhiên. Kỹ năng này diễn giải ý định, điều phối quy trình chẩn đoán nhiều bước và áp dụng lý luận hướng dẫn bởi mô hình để diễn giải kết quả cũng như đề xuất biện pháp khắc phục."
+            }
+          ]
+        },
+        "en": {
+          "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
+          "dek": "According to NVIDIA Developer. NVIDIA introduces gds-diag, an open-source utility and optional agent skill to assess and configure GPUDirect Storage environments.",
+          "takeaways": [
+            "The gds-diag tool is an open-source command-line utility distributed via the NVIDIA Magnum IO GitHub repository.",
+            "It assesses GPUDirect Storage environments, identifies problems, and suggests improvements for deployments.",
+            "An optional agent skill provides a natural-language interface to interpret intent and orchestrate diagnostic workflows.",
+            "Findings are presented with status badges including FAIL, WARN, INFO, and PASS alongside mitigation plans."
+          ],
+          "sections": [
+            {
+              "heading": "Overview of the Gds-Diag Utility",
+              "body": "NVIDIA presents gds-diag as an open-source command-line utility designed to assess GPUDirect Storage environments, identify problems, and suggest improvements. The tool features multiple subcommands categorized into end-to-end checks, pre-installation validation, post-installation verification, and deep diagnostics for container environments."
+            },
+            {
+              "heading": "AI Agent Skill and Natural Language Diagnostics",
+              "body": "The gds-diag utility is bundled with an optional agent skill that adds a natural-language interface and orchestration layer. This skill interprets user intent, selects and invokes appropriate subcommands, coordinates multi-step diagnostic workflows, and applies model-guided reasoning to interpret results and propose remediation."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo comprobar y configurar NVIDIA GPUDirect Storage para su plataforma",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta gds-diag, una utilidad de código abierto y una habilidad de agente opcional para evaluar entornos GPUDirect Storage.",
+          "takeaways": [
+            "La herramienta gds-diag es una utilidad de línea de comandos de código abierto distribuida a través de NVIDIA Magnum IO.",
+            "Evalúa entornos GPUDirect Storage, identifica problemas y sugiere mejoras para las implementaciones de almacenamiento.",
+            "Una habilidad de agente opcional agrega una interfaz de lenguaje natural para interpretar la intención y coordinar diagnósticos.",
+            "Los hallazgos se presentan con insignias de estado como FAIL, WARN, INFO y PASS junto con planes de mitigación."
+          ],
+          "sections": [
+            {
+              "heading": "Descripción General De Gds-Diag",
+              "body": "NVIDIA detalla que gds-diag es una utilidad de línea de comandos de código abierto que evalúa los entornos de GPUDirect Storage, identifica problemas y sugiere mejoras. La herramienta proporciona múltiples subcomandos agrupados en comprobaciones de extremo a extremo, validación previa a la instalación y diagnósticos profundos."
+            },
+            {
+              "heading": "Habilidad De Agente Y Diagnóstico",
+              "body": "La herramienta incluye una habilidad de agente opcional que añade una interfaz de lenguaje natural para interpretar la intención, orquestar flujos de trabajo de diagnóstico de múltiples pasos y aplicar razonamiento guiado por modelos para interpretar resultados y proponer soluciones."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-4",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/",
+            "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA released gds-diag, an open-source command-line utility distributed through the NVIDIA Magnum IO GitHub repository that assesses GPUDirect Storage environments, identifies problems, and suggests improvements.",
+            "sourceIds": [
+              "nvidiadev-4"
+            ]
+          },
+          {
+            "text": "The gds-diag tool is bundled with an optional agent skill that adds a natural-language interface, interprets user intent, orchestrates multi-step workflows, and applies model-guided reasoning.",
+            "sourceIds": [
+              "nvidiadev-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-4",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Cách Kiểm Tra và Cấu Hình NVIDIA GPUDirect Storage Cho Nền Tảng Của Bạn",
+          "en": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
+          "es": "Cómo comprobar y configurar NVIDIA GPUDirect Storage para su plataforma"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "meta-jittests-ai-bug-detection",
       "reportingMode": "official-announcement",
