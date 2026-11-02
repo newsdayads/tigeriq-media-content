@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-02T21:18:20.809Z",
+  "updatedAt": "2026-11-02T23:18:20.986Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one",
+      "clusterKey": "news:e91cee94016f7c02450eff63ede623a729cb085a7974b737b0077701248f0a50",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-02T23:18:20.986Z",
+      "modifiedAt": "2026-11-02T23:18:20.986Z",
+      "editions": {
+        "vi": {
+          "title": "Chuẩn bị Kubernetes sẵn sàng cho AI trên NVIDIA Vera Rubin từ Ngày Đầu Tiên",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu cách cấu hình và tối ưu hóa Kubernetes cho phần cứng GPU NVIDIA Vera Rubin mới bằng AI Cluster Runtime.",
+          "takeaways": [
+            "NVIDIA AI Cluster Runtime giúp đơn giản hóa việc chuẩn bị Kubernetes cho phần cứng GPU mới.",
+            "Bộ công thức Vera Rubin NVL72 mã hóa các lựa chọn đã được kiểm chứng cho trình điều khiển và hệ điều hành.",
+            "Quá trình xác thực đạt hiệu suất băng thông bus qua cấu trúc NVLink."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về Runtime",
+              "body": "NVIDIA AI Cluster Runtime (AICR) ghi lại các cấu hình đã được tinh chỉnh thành các công thức có thể tái sử dụng, tạo ra các gói triển khai và xác thực các cụm đang chạy nhằm đơn giản hóa tính sẵn sàng của Kubernetes cho phần cứng GPU mới."
+            },
+            {
+              "heading": "Xác thực và Hiệu suất",
+              "body": "Việc xác thực đầu cuối trên các cụm tham chiếu Vera Rubin NVL72 sử dụng Trình điều khiển GPU phiên bản v26.7.0 và trình điều khiển DRA phiên bản v0.5.0 vượt qua các bài kiểm tra triển khai, tuân thủ và cổng hiệu suất NCCL all-reduce trên nhiều nút."
+            }
+          ]
+        },
+        "en": {
+          "title": "Making Kubernetes AI-Ready for NVIDIA Vera Rubin on Day One",
+          "dek": "According to NVIDIA Developer. NVIDIA details how the AI Cluster Runtime simplifies Kubernetes readiness, configuration, and validation for Vera Rubin GPU hardware.",
+          "takeaways": [
+            "NVIDIA AI Cluster Runtime captures tuned configurations as reusable recipes to simplify Kubernetes readiness.",
+            "The Vera Rubin NVL72 recipe family encodes validated choices for drivers, kernels, and platform settings.",
+            "End-to-end validation on Vera Rubin reference clusters passes deployment, conformance, and performance gates."
+          ],
+          "sections": [
+            {
+              "heading": "Cluster Runtime Solutions",
+              "body": "NVIDIA AI Cluster Runtime (AICR) captures tuned configurations as reusable recipes, generates deployment bundles, and validates running clusters to simplify Kubernetes readiness for new GPU hardware."
+            },
+            {
+              "heading": "Validation Results",
+              "body": "End-to-end validation on Vera Rubin NVL72 reference clusters using GPU Operator v26.7.0 and DRA driver v0.5.0 passes deployment, conformance, and a cross-node NCCL all-reduce performance gate achieving high bus bandwidth over the NVLink fabric."
+            }
+          ]
+        },
+        "es": {
+          "title": "Preparando Kubernetes para Inteligencia Artificial en NVIDIA Vera Rubin",
+          "dek": "Según NVIDIA Developer. NVIDIA anuncia herramientas para simplificar la preparación de Kubernetes y la configuración de hardware para las nuevas GPU Vera Rubin.",
+          "takeaways": [
+            "NVIDIA AI Cluster Runtime captura configuraciones optimizadas como recetas reutilizables.",
+            "La familia de recetas Vera Rubin NVL72 codifica opciones validadas para controladores y configuraciones.",
+            "La validación de extremo a extremo en clústeres de referencia supera pruebas de conformidad y rendimiento."
+          ],
+          "sections": [
+            {
+              "heading": "Runtime de Clústeres",
+              "body": "NVIDIA AI Cluster Runtime (AICR) captura configuraciones optimizadas como recetas reutilizables, genera paquetes de implementación y valida clústeres en ejecución para simplificar la preparación de Kubernetes para nuevo hardware de GPU."
+            },
+            {
+              "heading": "Validación en Vera Rubin",
+              "body": "La validación de extremo a extremo en clústeres de referencia Vera Rubin NVL72 utilizando GPU Operator v26.7.0 y el controlador DRA v0.5.0 supera la implementación, la conformidad y una puerta de rendimiento NCCL all-reduce."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-2",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/",
+            "title": "Making Kubernetes AI-Ready for NVIDIA Vera Rubin on Day One"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA AI Cluster Runtime (AICR) captures tuned configurations as reusable recipes, generates deployment bundles, and validates running clusters to simplify Kubernetes readiness for new GPU hardware.",
+            "sourceIds": [
+              "nvidiadev-2"
+            ]
+          },
+          {
+            "text": "End-to-end validation on Vera Rubin NVL72 reference clusters using GPU Operator v26.7.0 and DRA driver v0.5.0 passes deployment, conformance, and a cross-node NCCL all-reduce performance gate.",
+            "sourceIds": [
+              "nvidiadev-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-2",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Chuẩn bị Kubernetes sẵn sàng cho AI trên NVIDIA Vera Rubin từ Ngày Đầu Tiên",
+          "en": "Making Kubernetes AI-Ready for NVIDIA Vera Rubin on Day One",
+          "es": "Preparando Kubernetes para Inteligencia Artificial en NVIDIA Vera Rubin"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "nvidia-cosmos-world-models-simulation",
       "reportingMode": "official-announcement",
