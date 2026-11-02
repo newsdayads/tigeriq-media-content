@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-02T17:27:40.253Z",
+  "updatedAt": "2026-11-02T18:18:21.930Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "agentic-engineering-intelligence-amazon-nova-multimodal-embeddings-amazon-bedrock-agentcore",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:agentic-engineering-intelligence-amazon-nova-multimodal-embeddings-amazon-bedrock-agentcore",
+      "clusterKey": "news:700cb793e47196275f43c79ac1f59b2b49bfb03da17916a07499992ceed4e9d9",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-02T18:18:21.930Z",
+      "modifiedAt": "2026-11-02T18:18:21.930Z",
+      "editions": {
+        "vi": {
+          "title": "Trí tuệ kỹ thuật tác tử với Amazon Nova Multimodal Embeddings và Amazon Bedrock AgentCore",
+          "dek": "Theo công bố của AWS. Khám phá cách tiếp cận hệ thống đa tác tử mới nhằm tự động hóa việc thu thập bằng chứng thay thế linh kiện và đánh giá kỹ thuật.",
+          "takeaways": [
+            "Hệ thống đa tác tử giúp tự động hóa việc đối chiếu thông số kỹ thuật và thu thập bằng chứng.",
+            "Amazon Bedrock AgentCore cung cấp nền tảng để xây dựng và kết nối các tác tử ở quy mô lớn.",
+            "Amazon Nova Multimodal Embeddings hỗ trợ truy xuất đa phương thức và tính điểm tương đồng trực quan."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan giải pháp",
+              "body": "Giải pháp xây dựng một trợ lý kỹ thuật đa tác tử nhằm cắt giảm quy trình đối chiếu thủ công khi đánh giá thay thế linh kiện. Hệ thống sử dụng Amazon Bedrock AgentCore, Amazon Nova Multimodal Embeddings cùng mã nguồn mở Strands Agents SDK. Một bộ lập lịch định tuyến công việc qua ba tác tử chuyên trách để tìm kiếm cơ sở tri thức đa phương thức, chấm điểm ứng viên theo quy tắc dung sai tất định và kiểm tra dữ liệu web trực tiếp."
+            },
+            {
+              "heading": "Kiến trúc hệ thống",
+              "body": "Kiến trúc bao gồm việc đánh giá mức độ phù hợp thông số tất định bằng mã Python, điều phối đa tác tử thông qua bộ lập lịch nhẹ, và quy trình con người ở vòng lặp ra quyết định. Kỹ sư vẫn là người đưa ra quyết định cuối cùng trong khi hệ thống chỉ tổng hợp bằng chứng và soạn thảo tài liệu đánh giá tác động tích hợp."
+            }
+          ]
+        },
+        "en": {
+          "title": "Agentic engineering intelligence with Amazon Nova Multimodal Embeddings and Amazon Bedrock AgentCore",
+          "dek": "According to AWS. AWS details a multi-agent engineering assistant built to streamline component substitution evaluations using multimodal embeddings and Bedrock AgentCore.",
+          "takeaways": [
+            "Multi-agent orchestration routes queries across specialist agents to search knowledge bases and score candidates.",
+            "Amazon Nova Multimodal Embeddings enables joint semantic space retrieval for text and visual chart content.",
+            "The system acts as an evidence assembler and document drafter while keeping the engineer as the final decision-maker."
+          ],
+          "sections": [
+            {
+              "heading": "Solution overview",
+              "body": "The post details how to build a multi-agent engineering assistant that cuts manual cross-referencing behind part substitution evaluation using Amazon Bedrock AgentCore, Amazon Nova Multimodal Embeddings, and the open source Strands Agents SDK. A planner routes work across three specialist agents that search a multimodal knowledge base, score candidates against deterministic tolerance rules, compare part photos, and ground lifecycle claims in live web data."
+            },
+            {
+              "heading": "Architecture pillars",
+              "body": "The assistant is built around the design rule that the engineer makes every decision while the system assembles the evidence. Three pillars define the architecture: deterministic spec-fit evaluation using Python tolerance-rule code, multi-agent orchestration via a lightweight planner, and a human-in-the-loop decision framework that drafts justification memos and Integration Impact Assessments."
+            }
+          ]
+        },
+        "es": {
+          "title": "Inteligencia de ingeniería agéntica con Amazon Nova Multimodal Embeddings y Amazon Bedrock AgentCore",
+          "dek": "Según AWS. Un nuevo enfoque de múltiples agentes diseñado para automatizar la recopilación de evidencias en la sustitución de componentes.",
+          "takeaways": [
+            "Se implementa un sistema multi-agente utilizando Amazon Bedrock AgentCore y Amazon Nova Multimodal Embeddings.",
+            "El planificador enruta las consultas entre agentes especializados para buscar en bases de conocimiento multimodales.",
+            "El ingeniero mantiene el control total de la toma de decisiones mientras el sistema recopila evidencias y redacta borradores."
+          ],
+          "sections": [
+            {
+              "heading": "Descripción general",
+              "body": "La publicación muestra cómo construir un asistente de ingeniería multi-agente que reduce el cotejo manual detrás de la evaluación de sustitución de piezas mediante Amazon Bedrock AgentCore, Amazon Nova Multimodal Embeddings y Strands Agents SDK. Un planificador enruta el trabajo a través de tres agentes especializados que buscan en una base de conocimiento multimodal."
+            },
+            {
+              "heading": "Pilares de la solución",
+              "body": "El asistente se rige por la regla de diseño de que el ingeniero toma cada decisión y el sistema ensambla la evidencia para ella. La arquitectura consta de evaluación de especificaciones determinista, orquestación multi-agente y un marco de decisión con intervención humana para redactar memorandos de justificación."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/agentic-engineering-intelligence-with-amazon-nova-multimodal-embeddings-and-amazon-bedrock-agentcore/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-3",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/agentic-engineering-intelligence-with-amazon-nova-multimodal-embeddings-and-amazon-bedrock-agentcore/",
+            "title": "Agentic engineering intelligence with Amazon Nova Multimodal Embeddings and Amazon Bedrock AgentCore"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS announced a multi-agent engineering assistant architecture built using Amazon Bedrock AgentCore, Amazon Nova Multimodal Embeddings, and the Strands Agents SDK.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          },
+          {
+            "text": "The system utilizes a planner that routes work across specialist agents to search knowledge bases, score candidate parts, and gather evidence while keeping the engineer as the decision-maker.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-3",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/agentic-engineering-intelligence-with-amazon-nova-multimodal-embeddings-and-amazon-bedrock-agentcore/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/agentic-engineering-intelligence-amazon-nova-multimodal-embeddings-amazon-bedrock-agentcore.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Trí tuệ kỹ thuật tác tử với Amazon Nova Multimodal Embeddings và Amazon Bedrock AgentCore",
+          "en": "Agentic engineering intelligence with Amazon Nova Multimodal Embeddings and Amazon Bedrock AgentCore",
+          "es": "Inteligencia de ingeniería agéntica con Amazon Nova Multimodal Embeddings y Amazon Bedrock AgentCore"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "build-efficient-agents-with-knowledge-distillation-on-amazon-sagemaker-ai",
       "reportingMode": "official-announcement",
