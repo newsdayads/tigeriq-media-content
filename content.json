@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-02T18:18:21.930Z",
+  "updatedAt": "2026-11-02T21:18:20.809Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "nvidia-cosmos-world-models-simulation",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:nvidia-cosmos-world-models-simulation",
+      "clusterKey": "news:dee8b0f74172bc262abc66f08af9d9d4de1d5ab34f80282edeac1671bd9e4334",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-02T21:18:20.809Z",
+      "modifiedAt": "2026-11-02T21:18:20.809Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng mô hình thế giới cho mô phỏng tương tác với NVIDIA Cosmos",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu nền tảng mô hình nền tảng thế giới và công cụ phát triển cho trí tuệ nhân tạo vật lý nhằm giải quyết các thách thức về cảm biến và triển khai.",
+          "takeaways": [
+            "NVIDIA Cosmos cung cấp các mô hình nền tảng thế giới và công cụ phát triển cho AI vật lý.",
+            "Cosmos Framework hỗ trợ huấn luyện, học tăng cường, tối ưu hóa và suy luận cho nhiều dòng mô hình khác nhau.",
+            "Cosmos NIM microservices mang lại khả năng tăng tốc suy luận cho các ứng dụng."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về NVIDIA Cosmos",
+              "body": "NVIDIA Cosmos cung cấp các mô hình nền tảng thế giới và công cụ phát triển cho trí tuệ nhân tạo vật lý, giải quyết các thách thức về thích ứng cảm biến và triển khai đáng tin cậy. Nền tảng này bao gồm Cosmos Framework với các công cụ mô-đun và mở cho việc huấn luyện, học tăng cường, tối ưu hóa và suy luận."
+            },
+            {
+              "heading": "Khả năng huấn luyện và tối ưu hóa",
+              "body": "Khung công việc hỗ trợ huấn luyện trên văn bản, hình ảnh, video, âm thanh và hành động nhanh hơn với các kỹ năng mới. Người dùng có thể áp dụng LoRA để thích ứng tham số hiệu quả hoặc tinh chỉnh có giám sát toàn diện, đồng thời tận dụng các đường ống học tăng cường trực tuyến và ngoại tuyến."
+            }
+          ]
+        },
+        "en": {
+          "title": "Build World Models for Interactive Simulation with NVIDIA Cosmos",
+          "dek": "According to NVIDIA Developer. NVIDIA introduces world foundation models and development tools for physical AI to address sensor adaptation and reliable deployment challenges.",
+          "takeaways": [
+            "NVIDIA Cosmos provides world foundation models and development tools for physical AI.",
+            "Cosmos Framework offers modular and open tools for training, reinforcement learning, optimization, and inference.",
+            "Cosmos NIM microservices deliver accelerated inference with quantization and KV-cache-aware routing."
+          ],
+          "sections": [
+            {
+              "heading": "Overview of NVIDIA Cosmos",
+              "body": "NVIDIA Cosmos provides world foundation models and development tools for physical AI, addressing sensor adaptation and reliable deployment challenges. Cosmos Framework offers modular, open tools for training, reinforcement learning, optimization, and inference across multiple models."
+            },
+            {
+              "heading": "Training and Reinforcement Learning",
+              "body": "The platform supports training models on text, images, video, audio, and actions faster using new skills. Developers can use LoRA for parameter-efficient adaptation or full supervised fine-tuning, alongside newly supported online and offline reinforcement learning pipelines."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construcción de modelos del mundo para simulación interactiva con NVIDIA Cosmos",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta modelos fundamentales del mundo y herramientas de desarrollo para IA física orientados a resolver desafíos de adaptación de sensores.",
+          "takeaways": [
+            "NVIDIA Cosmos proporciona modelos fundamentales del mundo y herramientas de desarrollo para la IA física.",
+            "Cosmos Framework ofrece herramientas modulares y abiertas para entrenamiento, aprendizaje por refuerzo, optimización e inferencia.",
+            "Cosmos NIM microservices ofrece inferencia acelerada para los despliegues."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de NVIDIA Cosmos",
+              "body": "NVIDIA Cosmos proporciona modelos fundamentales del mundo y herramientas de desarrollo para la IA física, abordando los desafíos de adaptación de sensores y despliegue confiable. Cosmos Framework ofrece herramientas modulares y abiertas para el entrenamiento, la optimización y la inferencia de modelos."
+            },
+            {
+              "heading": "Entrenamiento y aprendizaje por refuerzo",
+              "body": "La plataforma permite entrenar modelos con texto, imágenes, video, audio y acciones de manera más rápida utilizando nuevas habilidades. Los desarrolladores pueden emplear LoRA para una adaptación eficiente de parámetros o realizar ajustes finos supervisados completos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-2",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/",
+            "title": "Build World Models for Interactive Simulation with NVIDIA Cosmos"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA Cosmos provides world foundation models and development tools for physical AI to address sensor adaptation and reliable deployment challenges.",
+            "sourceIds": [
+              "nvidiadev-2"
+            ]
+          },
+          {
+            "text": "Cosmos Framework offers modular, open tools for training, reinforcement learning, optimization, and inference across models including Cosmos 3, NVIDIA Alpamayo, GR00T, Qwen, and pi0.5.",
+            "sourceIds": [
+              "nvidiadev-2"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-2",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-cosmos-world-models-simulation.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng mô hình thế giới cho mô phỏng tương tác với NVIDIA Cosmos",
+          "en": "Build World Models for Interactive Simulation with NVIDIA Cosmos",
+          "es": "Construcción de modelos del mundo para simulación interactiva con NVIDIA Cosmos"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "agentic-engineering-intelligence-amazon-nova-multimodal-embeddings-amazon-bedrock-agentcore",
       "reportingMode": "official-announcement",
