@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-01T20:18:21.753Z",
+  "updatedAt": "2026-11-02T16:18:35.243Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "nvidia-workload-map",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:nvidia-workload-map",
+      "clusterKey": "news:bc3dddc2c746e8e45436e20941942fb04130823b5db7a9b764791be6dc85c8e2",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-11-02T16:18:35.243Z",
+      "modifiedAt": "2026-11-02T16:18:35.243Z",
+      "editions": {
+        "en": {
+          "title": "Support New AI Frameworks Faster Using NVIDIA Workload Map",
+          "dek": "According to NVIDIA Developer. NVIDIA introduces Workload Map to provide a common Kubernetes workload description for distributed AI frameworks.",
+          "takeaways": [
+            "NVIDIA Workload Map provides a common Kubernetes workload description for distributed workloads.",
+            "The project includes a catalog of prebuilt definitions for multiple frameworks and tools.",
+            "A single definition supports workload inspection, gang scheduling, and platform visibility."
+          ],
+          "sections": [
+            {
+              "heading": "Overview",
+              "body": "NVIDIA Workload Map provides a common Kubernetes workload description that enables schedulers, controllers, and platforms to interpret distributed workloads without framework-specific parsing code. Operating an AI factory requires a shared understanding of distributed workloads including their components, pod templates, replica counts, and status."
+            },
+            {
+              "heading": "Catalog and Integration",
+              "body": "The project ships a catalog of prebuilt definitions for JobSet, PyTorchJob, RayCluster, RayJob, RayService, KServe, Knative, MPIJob, NVIDIA NIM, LeaderWorkerSet, Milvus, Grove PodCliqueSet, and NVIDIA Dynamo. Elotl's Nova uses Workload Map to interpret workload structure and resource requirements for multi-cluster scheduling decisions."
+            }
+          ]
+        },
+        "vi": {
+          "title": "Hỗ trợ các khung AI mới nhanh hơn bằng NVIDIA Workload Map",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA giới thiệu Workload Map cung cấp mô tả công việc Kubernetes chung cho các khung AI phân tán.",
+          "takeaways": [
+            "NVIDIA Workload Map cung cấp mô tả công việc Kubernetes chung cho các khối lượng công việc phân tán.",
+            "Dự án bao gồm một danh mục các định nghĩa được xây dựng sẵn cho nhiều khung công tác.",
+            "Một định nghĩa duy nhất hỗ trợ kiểm tra khối lượng công việc và khả năng hiển thị của nền tảng."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan",
+              "body": "NVIDIA Workload Map cung cấp mô tả công việc Kubernetes chung cho phép các trình lập lịch, bộ điều khiển và nền tảng diễn giải các khối lượng công việc phân tán mà không cần mã phân tích cú pháp riêng cho từng khung. Việc vận hành một nhà máy AI đòi hỏi sự hiểu biết chung về các khối lượng công việc phân tán."
+            },
+            {
+              "heading": "Danh mục và Tích hợp",
+              "body": "Dự án bao gồm một danh mục các định nghĩa đã được kiểm tra trước cho JobSet, PyTorchJob, RayCluster, RayJob, RayService, KServe, Knative, MPIJob, NVIDIA NIM, LeaderWorkerSet, Milvus, Grove PodCliqueSet và NVIDIA Dynamo. Các loại khối lượng công việc bổ sung có thể được thêm vào bằng cách viết định nghĩa YAML."
+            }
+          ]
+        },
+        "es": {
+          "title": "Soporte para nuevos frameworks de IA más rápido con NVIDIA Workload Map",
+          "dek": "Según NVIDIA Developer. NVIDIA presenta Workload Map para proporcionar una descripción común de cargas de trabajo de Kubernetes.",
+          "takeaways": [
+            "NVIDIA Workload Map ofrece una descripción común de cargas de trabajo de Kubernetes para sistemas distribuidos.",
+            "El proyecto incluye un catálogo de definiciones preconstruidas para múltiples frameworks.",
+            "Una única definición admite la inspección de cargas de trabajo y la visibilidad en la plataforma."
+          ],
+          "sections": [
+            {
+              "heading": "Descripción General",
+              "body": "NVIDIA Workload Map proporciona una descripción común de cargas de trabajo de Kubernetes que permite a los programadores, controladores y plataformas interpretar cargas de trabajo distribuidas sin código de análisis específico del framework. La operación de una fábrica de IA requiere una comprensión compartida de estas cargas."
+            },
+            {
+              "heading": "Catálogo y Soporte",
+              "body": "El proyecto incluye un catálogo de definiciones probadas y preconstruidas para JobSet, PyTorchJob, RayCluster, RayJob, RayService, KServe, Knative, MPIJob, NVIDIA NIM, LeaderWorkerSet, Milvus, Grove PodCliqueSet y NVIDIA Dynamo. Los tipos de carga de trabajo adicionales se pueden incorporar mediante definiciones en YAML."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map/",
+            "title": "Support New AI Frameworks Faster Using NVIDIA Workload Map"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA Workload Map provides a common Kubernetes workload description that enables schedulers, controllers, and platforms to interpret distributed workloads without framework-specific parsing code.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "The project ships a catalog of prebuilt definitions for JobSet, PyTorchJob, RayCluster, RayJob, RayService, KServe, Knative, MPIJob, NVIDIA NIM, LeaderWorkerSet, Milvus, Grove PodCliqueSet, and NVIDIA Dynamo.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/nvidia-workload-map.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Hỗ trợ các khung AI mới nhanh hơn bằng NVIDIA Workload Map",
+          "en": "Support New AI Frameworks Faster Using NVIDIA Workload Map",
+          "es": "Soporte para nuevos frameworks de IA más rápido con NVIDIA Workload Map"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform",
       "reportingMode": "official-announcement",
