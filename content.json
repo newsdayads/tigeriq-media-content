@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-02T23:18:20.986Z",
+  "updatedAt": "2026-11-03T00:18:18.320Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "diagnose-distributed-ai-workload-failures-with-nvidia-attribution",
+      "reportingMode": "official-announcement",
+      "category": "Data Center / Cloud",
+      "storyId": "tigeriq:diagnose-distributed-ai-workload-failures-with-nvidia-attribution",
+      "clusterKey": "news:02dd8cd27ecc78b1ae7a6f6ea10fccde60fd5ae5f941345d5be2d6f90edd2acd",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-11-03T00:18:18.320Z",
+      "modifiedAt": "2026-11-03T00:18:18.320Z",
+      "editions": {
+        "vi": {
+          "title": "Chẩn đoán lỗi khối lượng công việc AI phân tán với NVIDIA Attribution",
+          "dek": "Theo công bố của NVIDIA Developer. NVIDIA ra mắt mã nguồn mở công cụ NVIDIA Attribution nhằm tương quan log, chỉ số và trạng thái bộ lập lịch để chẩn đoán lỗi khối lượng công việc AI.",
+          "takeaways": [
+            "NVIDIA Attribution là hệ thống quy kết lỗi tập trung vào khối lượng công việc mã nguồn mở.",
+            "Hệ thống bao gồm Attribution Service và Attribution Blueprint để kết nối bộ lập lịch với nguồn thu thập dữ liệu từ xa.",
+            "Quy trình xử lý gồm bốn giai đoạn: khoanh vùng, thu thập quan sát, trích xuất và tương quan sự kiện, cùng trả về kết quả có cấu trúc."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu hệ thống",
+              "body": "NVIDIA Attribution tương quan log, chỉ số, dữ liệu từ xa và trạng thái bộ lập lịch ở phạm vi khối lượng công việc để đưa ra chẩn đoán có cấu trúc gồm kết quả, nguyên nhân gốc rễ, nút bị ảnh hưởng, triệu chứng hỗ trợ và dấu vết bằng chứng. Hệ thống hoạt động thông qua hai thành phần có thể triển khai là Attribution Service và Attribution Blueprint."
+            },
+            {
+              "heading": "Thành phần triển khai",
+              "body": "Attribution Service cung cấp API REST cho công cụ quy kết lõi, trong khi Attribution Blueprint là trình điều phối tham chiếu bằng Python kết nối bộ lập lịch cụm và nguồn dữ liệu từ xa với dịch vụ. Blueprint đi kèm các trình kết nối ngữ cảnh thực thi cho Slurm, Kueue và đầu vào tĩnh cùng các trình kết nối log và chỉ số."
+            }
+          ]
+        },
+        "en": {
+          "title": "Diagnose Distributed AI Workload Failures with NVIDIA Attribution",
+          "dek": "According to NVIDIA Developer. NVIDIA open-sourced NVIDIA Attribution to correlate workload-scoped logs, metrics, telemetry, and scheduler state into reproducible diagnoses.",
+          "takeaways": [
+            "NVIDIA Attribution is an open-source, workload-centric failure-attribution system used across NVIDIA AI infrastructure.",
+            "The software consists of two deployable components: the Attribution Service and the Attribution Blueprint reference orchestrator.",
+            "The attribution workflow scopes workloads, collects observations, extracts and correlates events using deterministic rules, and returns a structured result."
+          ],
+          "sections": [
+            {
+              "heading": "Overview and Architecture",
+              "body": "NVIDIA Attribution correlates workload-scoped logs, metrics, telemetry, and scheduler state to produce a structured diagnosis with outcome, root cause, affected nodes, supporting symptoms, and an evidence trail. The system operates through two deployable components: the Attribution Service, which exposes a REST API for the core attribution engine, and the Attribution Blueprint, a Python reference orchestrator that connects cluster schedulers and telemetry sources to the Service."
+            },
+            {
+              "heading": "Four-Stage Process",
+              "body": "The attribution path has four stages: scope the workload, collect observations, extract and correlate events through deterministic rules, and return a structured result with terminal state and attributed domain. The Blueprint ships with execution-context connectors for Slurm, Kueue, and static inputs, plus log and metric connectors for Loki, local files, Kubernetes pod logs, and PromQL metrics."
+            }
+          ]
+        },
+        "es": {
+          "title": "Diagnosticar fallos de cargas de trabajo de IA distribuidas con NVIDIA Attribution",
+          "dek": "Según NVIDIA Developer. NVIDIA lanzó como código abierto NVIDIA Attribution para correlacionar registros, métricas y estado del programador en cargas de trabajo de IA.",
+          "takeaways": [
+            "NVIDIA Attribution es un sistema de atribución de fallos centrado en cargas de trabajo y de código abierto.",
+            "El sistema incluye el Attribution Service con una API REST y el orquestador de referencia Attribution Blueprint en Python.",
+            "El proceso de atribución abarca cuatro etapas desde la delimitación del alcance hasta la devolución de un resultado estructurado."
+          ],
+          "sections": [
+            {
+              "heading": "Componentes del Sistema",
+              "body": "NVIDIA Attribution correlaciona registros, métricas, telemetría y estado del programador con ámbito de carga de trabajo para generar un diagnóstico estructurado que incluye resultado, causa raíz, nodos afectados, síntomas de apoyo y un rastro de evidencia. Funciona a través de dos componentes desplegables: Attribution Service y Attribution Blueprint."
+            },
+            {
+              "heading": "Etapas de Atribución",
+              "body": "El camino de atribución consta de cuatro etapas: delimitar la carga de trabajo, recopilar observaciones, extraer y correlacionar eventos mediante reglas deterministas, y devolver un resultado estructurado con el estado terminal y el dominio atribuido. El Blueprint incluye conectores para Slurm, Kueue y entradas estáticas."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidiadev-1",
+            "publisher": "nvidiadev",
+            "url": "https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution/",
+            "title": "Diagnose Distributed AI Workload Failures with NVIDIA Attribution"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA announced the open-source release of NVIDIA Attribution to diagnose distributed AI workload failures by correlating logs, metrics, telemetry, and scheduler state.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          },
+          {
+            "text": "The system includes the Attribution Service with a REST API and the Attribution Blueprint Python reference orchestrator.",
+            "sourceIds": [
+              "nvidiadev-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidiadev-1",
+            "tier": "A",
+            "url": "https://developer.nvidia.com/blog/diagnose-distributed-ai-workload-failures-with-nvidia-attribution/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/diagnose-distributed-ai-workload-failures-with-nvidia-attribution.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Chẩn đoán lỗi khối lượng công việc AI phân tán với NVIDIA Attribution",
+          "en": "Diagnose Distributed AI Workload Failures with NVIDIA Attribution",
+          "es": "Diagnosticar fallos de cargas de trabajo de IA distribuidas con NVIDIA Attribution"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "making-kubernetes-ai-ready-for-nvidia-vera-rubin-on-day-one",
       "reportingMode": "official-announcement",
