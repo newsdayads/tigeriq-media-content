@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-03T00:18:18.320Z",
+  "updatedAt": "2026-11-03T02:18:28.317Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai",
+      "clusterKey": "news:db4034355a0e93f9e4663106ef1f137f5ff7502238877fea738273368f722e69",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-03T02:18:28.317Z",
+      "modifiedAt": "2026-11-03T02:18:28.317Z",
+      "editions": {
+        "vi": {
+          "title": "Chuẩn bị nội dung web cho Amazon Bedrock Knowledge Bases bằng Crawl4AI",
+          "dek": "Theo công bố của AWS. Khám phá cách mở rộng phạm vi của Amazon Bedrock Knowledge Bases bằng trình thu thập dữ liệu Crawl4AI mã nguồn mở trên AWS.",
+          "takeaways": [
+            "Sử dụng Amazon Bedrock Knowledge Bases để quản lý tính năng RAG.",
+            "Crawl4AI giúp tạo tệp Markdown và sidecar siêu dữ liệu vào Amazon S3.",
+            "Giải pháp hỗ trợ lọc nội dung, chọn vùng CSS và thêm thuộc tính tùy chỉnh."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan giải pháp",
+              "body": "Amazon Bedrock Knowledge Bases là tính năng RAG quản lý toàn diện giúp tự động hóa việc thu thập, lưu trữ, lập chỉ mục và truy xuất dữ liệu. Đối với nội dung trang web cần kiểm soát chi tiết hơn, người dùng có thể sử dụng Crawl4AI làm bước chuẩn bị tùy chỉnh trước khi đưa vào kho tri thức."
+            },
+            {
+              "heading": "Quy trình làm việc",
+              "body": "Ứng dụng AWS CDK đóng gói quá trình thực thi trong một hình ảnh vùng chứa. Khi lịch trình kích hoạt, tác vụ sẽ tiến hành thu thập thông tin trang web công khai, chuẩn bị định dạng Markdown cùng siêu dữ liệu rồi tải lên Amazon S3 trước khi bắt đầu công việc nhập dữ liệu."
+            }
+          ]
+        },
+        "en": {
+          "title": "Prepare web content for Amazon Bedrock Knowledge Bases with Crawl4AI",
+          "dek": "According to AWS. Learn how to extend Amazon Bedrock Knowledge Bases using Crawl4AI, an open source Python crawler, for custom web content ingestion.",
+          "takeaways": [
+            "Amazon Bedrock Knowledge Bases provides fully managed RAG capabilities.",
+            "Crawl4AI extends ingestion by writing Markdown and metadata sidecars to Amazon S3.",
+            "The workflow supports structured Markdown preparation and targeted CSS extraction."
+          ],
+          "sections": [
+            {
+              "heading": "Solution Overview",
+              "body": "Amazon Bedrock Knowledge Bases manages ingestion, storage, indexing, and retrieval for Retrieval Augmented Generation applications. While the Amazon Bedrock Web Crawler serves as the starting point for standard public website content, sources requiring custom metadata or removal of boilerplate can utilize Crawl4AI."
+            },
+            {
+              "heading": "Workflow Execution",
+              "body": "An AWS CDK application packages the implementation into a container image. Amazon EventBridge triggers an Amazon ECS task on AWS Fargate to crawl public websites, prepare Markdown files with metadata sidecars, upload them to Amazon S3, and initiate a knowledge base ingestion job."
+            }
+          ]
+        },
+        "es": {
+          "title": "Preparar contenido web para Amazon Bedrock Knowledge Bases con Crawl4AI",
+          "dek": "Según AWS. Conozca cómo extender Amazon Bedrock Knowledge Bases utilizando Crawl4AI, un rastreador de código abierto en Python.",
+          "takeaways": [
+            "Amazon Bedrock Knowledge Bases ofrece capacidades RAG totalmente gestionadas.",
+            "Crawl4AI permite preparar contenido web escribiendo Markdown y archivos de metadatos en Amazon S3.",
+            "El flujo admite la extracción dirigida y la preparación estructurada de Markdown."
+          ],
+          "sections": [
+            {
+              "heading": "Descripción general",
+              "body": "Amazon Bedrock Knowledge Bases gestiona la ingesta, el almacenamiento, la indexación y la recuperación para aplicaciones RAG. Para fuentes que requieren un mayor control sobre el contenido indexado, se puede implementar un paso de preparación personalizado con Crawl4AI."
+            },
+            {
+              "heading": "Funcionamiento del flujo",
+              "body": "Una aplicación AWS CDK empaqueta la implementación en una imagen de contenedor. Cuando se activa el programa, la tarea rastrea sitios web públicos, prepara archivos Markdown con un archivo adjunto de metadatos en Amazon S3 e inicia un trabajo de ingesta."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-1",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai/",
+            "title": "Prepare web content for Amazon Bedrock Knowledge Bases with Crawl4AI"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Amazon Web Services published a post detailing how to prepare web content for Amazon Bedrock Knowledge Bases using Crawl4AI, an open source Python crawler.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          },
+          {
+            "text": "The custom preparation step writes Markdown and a metadata sidecar for each page to Amazon S3, allowing the managed knowledge base to ingest both sources.",
+            "sourceIds": [
+              "aws-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-1",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Chuẩn bị nội dung web cho Amazon Bedrock Knowledge Bases bằng Crawl4AI",
+          "en": "Prepare web content for Amazon Bedrock Knowledge Bases with Crawl4AI",
+          "es": "Preparar contenido web para Amazon Bedrock Knowledge Bases con Crawl4AI"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "diagnose-distributed-ai-workload-failures-with-nvidia-attribution",
       "reportingMode": "official-announcement",
