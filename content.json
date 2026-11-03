@@ -1,11 +1,150 @@
 {
-  "updatedAt": "2026-11-03T21:17:01.717Z",
+  "updatedAt": "2026-11-03T22:18:22.124Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "building-ultra-low-latency-voice-ai-applications-on-aws",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:building-ultra-low-latency-voice-ai-applications-on-aws",
+      "clusterKey": "news:d0bcd27eb1e0b5ae19fb60d75c8063268d44c8c98a02ede98931276a1da675a0",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-03T22:18:22.124Z",
+      "modifiedAt": "2026-11-03T22:18:22.124Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng các ứng dụng AI giọng nói độ trễ cực thấp trên AWS",
+          "dek": "Theo công bố của AWS. Khám phá cách Cartesia tận dụng Mô hình Không gian Trạng thái và cơ sở hạ tầng AWS để cung cấp các giải pháp chuyển văn bản thành giọng nói và giọng nói thành văn bản.",
+          "takeaways": [
+            "Cartesia sử dụng Mô hình Không gian Trạng thái để cung cấp chuyển văn bản thành giọng nói và giọng nói thành văn bản dưới 100ms.",
+            "Sonic là mô hình chuyển văn bản thành giọng nói phát trực tuyến hàng đầu của Cartesia với thời gian tạo byte âm thanh đầu tiên khoảng 90ms.",
+            "Ink là mô hình chuyển giọng nói thành văn bản của Cartesia được xây dựng cho các ứng dụng AI hội thoại.",
+            "Sonic được cung cấp dưới dạng gói mô hình Amazon SageMaker AI thông qua AWS Marketplace."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu về AI giọng nói",
+              "body": "Giao diện giọng nói đang nhanh chóng trở thành chế độ tương tác mặc định cho hàng triệu người dùng trên toàn thế giới trong các trợ giúp ảo, trung tâm liên lạc hỗ trợ AI và công cụ trợ năng. Tuy nhiên, việc mang lại trải nghiệm giọng nói tự nhiên thực sự vẫn là một trong những thử thách lớn nhất trong cơ sở hạ tầng AI khi người dùng kỳ vọng độ phản hồi giống như con người."
+            },
+            {
+              "heading": "Mô hình Không gian Trạng thái",
+              "body": "Các mô hình biến áp truyền thống gặp khó khăn với độ trễ phát trực tuyến vì chúng xử lý toàn bộ chuỗi trước khi tạo ra đầu ra. Mô hình Không gian Trạng thái xử lý một chuỗi như một hệ thống phát triển liên tục theo thời gian, xử lý từng bước và mang theo một trạng thái nội bộ nhỏ gọn về phía trước để phù hợp với dữ liệu phát trực tuyến thời gian thực."
+            },
+            {
+              "heading": "Triển khai trên AWS",
+              "body": "Bạn có thể triển khai các mô hình Cartesia trực tiếp vào tài khoản AWS của riêng mình để đảm bảo chủ quyền dữ liệu, kiểm soát độ trễ hoặc tuân thủ. Sonic được cung cấp dưới dạng gói mô hình Amazon SageMaker AI thông qua AWS Marketplace, cho phép bạn triển khai tới một điểm cuối SageMaker chạy hoàn toàn trong VPC của bạn."
+            }
+          ]
+        },
+        "en": {
+          "title": "Building ultra-low-latency voice AI applications on AWS",
+          "dek": "According to AWS. Learn how Cartesia uses purpose-built State Space Models and AWS infrastructure to deliver real-time voice AI capabilities globally.",
+          "takeaways": [
+            "Cartesia uses purpose-built State Space Models and AWS infrastructure to deliver sub-100ms text-to-speech and speech-to-text.",
+            "Sonic delivers first audio byte in approximately 90ms with ultra-realistic voice quality across over 44 languages.",
+            "Ink provides native turn detection, context-aware end pointing, and streaming transcription for conversational AI.",
+            "Sonic is delivered as an Amazon SageMaker AI model package through AWS Marketplace for deployment within a VPC."
+          ],
+          "sections": [
+            {
+              "heading": "The Rise of Conversational AI",
+              "body": "Conversational AI is transforming how humans interact with technology across virtual assistants, AI-powered contact centers, real-time translation, and accessibility tools. Delivering a truly natural voice experience remains one of the hardest challenges in AI infrastructure, as excess latency can break conversational flow and erode user trust."
+            },
+            {
+              "heading": "State Space Models for Audio",
+              "body": "Traditional transformer-based text-to-speech models struggle with streaming latency because they process entire sequences before producing output. State Space Models resolve this trade-off by treating sequences as systems that evolve continuously over time, maintaining a constant memory footprint and supporting native streaming."
+            },
+            {
+              "heading": "Deploying Cartesia on AWS",
+              "body": "You can deploy Cartesia models directly into your own AWS account for data sovereignty, latency control, or compliance. Sonic is delivered as an Amazon SageMaker AI model package through AWS Marketplace, deploying to a SageMaker AI endpoint running entirely within your virtual private cloud."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construcción de aplicaciones de IA de voz de latencia ultrabaja en AWS",
+          "dek": "Según AWS. Conozca cómo Cartesia utiliza Modelos de Espacio de Estados y la infraestructura de AWS para ofrecer capacidades de voz en tiempo real.",
+          "takeaways": [
+            "Cartesia utiliza Modelos de Espacio de Estados e infraestructura de AWS para ofrecer texto a voz y voz a texto en menos de 100ms.",
+            "Sonic ofrece síntesis de voz ultrarrealista con el primer byte de audio en aproximadamente 90ms en más de 44 idiomas.",
+            "Ink es el modelo de voz a texto de Cartesia diseñado específicamente para aplicaciones de IA conversacional.",
+            "Sonic se entrega como un paquete de modelos de Amazon SageMaker AI a través de AWS Marketplace."
+          ],
+          "sections": [
+            {
+              "heading": "El auge de la IA conversacional",
+              "body": "La inteligencia artificial conversacional está transformando la forma en que los humanos interactúan con la tecnología a través de asistentes virtuales, centros de contacto y herramientas de accesibilidad. Ofrecer una experiencia de voz verdaderamente natural sigue siendo uno de los mayores desafíos en la infraestructura de IA."
+            },
+            {
+              "heading": "Modelos de Espacio de Estados",
+              "body": "Los modelos transformadores tradicionales tienen dificultades con la latencia de transmisión porque procesan secuencias completas antes de producir resultados. Los Modelos de Espacio de Estados resuelven esta compensación procesando los datos paso a paso y manteniendo una huella de memoria constante."
+            },
+            {
+              "heading": "Despliegue de Cartesia en AWS",
+              "body": "Puede implementar los modelos de Cartesia directamente en su propia cuenta de AWS para garantizar la soberanía de los datos, el control de la latencia o el cumplimiento normativo. Sonic se entrega como un paquete de modelos de Amazon SageMaker AI mediante AWS Marketplace."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/building-ultra-low-latency-voice-ai-applications-on-aws/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-5",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/building-ultra-low-latency-voice-ai-applications-on-aws/",
+            "title": "Building ultra-low-latency voice AI applications on AWS"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS publisher announced that Cartesia uses purpose-built State Space Models and AWS infrastructure to deliver sub-100ms text-to-speech and speech-to-text at global scale.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          },
+          {
+            "text": "Sonic is delivered as an Amazon SageMaker AI model package through AWS Marketplace, allowing deployment to a SageMaker AI endpoint running entirely within a virtual private cloud.",
+            "sourceIds": [
+              "aws-5"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-5",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/building-ultra-low-latency-voice-ai-applications-on-aws/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/building-ultra-low-latency-voice-ai-applications-on-aws.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng các ứng dụng AI giọng nói độ trễ cực thấp trên AWS",
+          "en": "Building ultra-low-latency voice AI applications on AWS",
+          "es": "Construcción de aplicaciones de IA de voz de latencia ultrabaja en AWS"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore",
       "reportingMode": "official-announcement",
