@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-03T02:18:28.317Z",
+  "updatedAt": "2026-11-03T10:18:22.879Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "cities-physical-agentic-ai-applications",
+      "reportingMode": "official-announcement",
+      "category": "technology",
+      "storyId": "tigeriq:cities-physical-agentic-ai-applications",
+      "clusterKey": "news:5e7c023632e93ddff511f0ac585e962f1900997ace5b9154294311fab3dbaa7f",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-03T10:18:22.879Z",
+      "modifiedAt": "2026-11-03T10:18:22.879Z",
+      "editions": {
+        "vi": {
+          "title": "Thành phố trên toàn cầu xây dựng và mở rộng dịch vụ AI với công nghệ AI vật lý và tác nhân của NVIDIA",
+          "dek": "Theo công bố của NVIDIA. NVIDIA cùng các đối tác đang mở rộng AI vật lý và các tác nhân AI cho các thành phố trên toàn thế giới.",
+          "takeaways": [
+            "NVIDIA và các đối tác mở rộng AI vật lý và tác nhân AI đến các thành phố trên toàn cầu.",
+            "Các thành phố áp dụng AI tác nhân của NVIDIA để cung cấp dịch vụ công nhanh chóng hơn.",
+            "Cơ sở hạ tầng tính toán chia sẻ mang lại nền tảng chung cho các cơ quan thành phố."
+          ],
+          "sections": [
+            {
+              "heading": "Triển khai dịch vụ công",
+              "body": "Từ các dịch vụ cư dân đến các tác nhân thị giác, các thành phố đang áp dụng AI tác nhân của NVIDIA để cung cấp các dịch vụ công nhanh chóng và phản hồi tốt hơn. Các nhóm thành phố không cần đầu tư cơ sở hạ tầng lớn để bắt đầu xây dựng các dịch vụ AI này, tùy thuộc vào khối lượng công việc, máy trạm NVIDIA RTX hoặc một hệ thống GPU nhỏ có thể là đủ."
+            },
+            {
+              "heading": "Quy hoạch cơ sở hạ tầng",
+              "body": "Ngoài các dịch vụ hướngra công chúng, các bản sao kỹ thuật số có thể giúp các thành phố đẩy nhanh quá trình quy hoạch cơ sở hạ tầng, giảm thiểu sự gián đoạn cho cộng đồng địa phương. Các bản sao kỹ thuật số của thành phố cũng có thể phục vụ như một mô phỏng hoạt động theo thời gian thực để hỗ trợ ra quyết định nhanh hơn."
+            }
+          ]
+        },
+        "en": {
+          "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
+          "dek": "According to NVIDIA. NVIDIA and its partners are expanding physical AI and AI agents to cities worldwide.",
+          "takeaways": [
+            "NVIDIA and its partners are expanding physical AI and AI agents to cities worldwide.",
+            "Cities are adopting NVIDIA agentic AI to deliver faster and more responsive public services.",
+            "Shared computing infrastructure provides a common foundation for city departments and local developers."
+          ],
+          "sections": [
+            {
+              "heading": "Agentic AI for Cities",
+              "body": "From resident services to vision agents, cities are adopting NVIDIA agentic AI to deliver faster, more responsive public services. City teams don't need a massive infrastructure investment to get started building these AI services, as NVIDIA RTX workstations or small GPU systems may be enough depending on the workload."
+            },
+            {
+              "heading": "Critical Infrastructure",
+              "body": "Beyond public-facing services, digital twins can help cities expedite infrastructure planning, minimizing disruption to local communities. City digital twins can also serve as a real-time operational simulation to facilitate faster decision-making across municipal operations."
+            }
+          ]
+        },
+        "es": {
+          "title": "Ciudades de todo el mundo construyen y amplían servicios de inteligencia artificial con NVIDIA",
+          "dek": "Según NVIDIA. NVIDIA y sus socios están expandiendo la inteligencia artificial física y los agentes de IA a ciudades de todo el mundo.",
+          "takeaways": [
+            "NVIDIA y sus socios expanden la IA física y los agentes de IA a ciudades de todo el mundo.",
+            "Las ciudades adoptan IA agéntica de NVIDIA para ofrecer servicios públicos más rápidos.",
+            "La infraestructura informática compartida ofrece una base común para los departamentos municipales."
+          ],
+          "sections": [
+            {
+              "heading": "IA agéntica",
+              "body": "Desde servicios para residentes hasta agentes de visión, las ciudades están adoptando la IA agéntica de NVIDIA para ofrecer servicios públicos más rápidos y con mayor capacidad de respuesta. Los equipos de las ciudades no necesitan una inversión masiva en infraestructura para comenzar a construir estos servicios."
+            },
+            {
+              "heading": "Infraestructura crítica",
+              "body": "Más allá de los servicios orientados al público, los gemelos digitales pueden ayudar a las ciudades a acelerar la planificación de infraestructuras, minimizando las interrupciones para las comunidades locales. Los gemelos digitales urbanos también pueden servir como simulación operativa en tiempo real."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "nvidia-1",
+            "publisher": "nvidia",
+            "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+            "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI"
+          }
+        ],
+        "claims": [
+          {
+            "text": "NVIDIA and its partners are expanding physical AI and AI agents to cities worldwide.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          },
+          {
+            "text": "Cities are adopting NVIDIA agentic AI to deliver faster and more responsive public services.",
+            "sourceIds": [
+              "nvidia-1"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "nvidia-1",
+            "tier": "A",
+            "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/cities-physical-agentic-ai-applications.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Thành phố trên toàn cầu xây dựng và mở rộng dịch vụ AI với công nghệ AI vật lý và tác nhân của NVIDIA",
+          "en": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic AI",
+          "es": "Ciudades de todo el mundo construyen y amplían servicios de inteligencia artificial con NVIDIA"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai",
       "reportingMode": "official-announcement",
