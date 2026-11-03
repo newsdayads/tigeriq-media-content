@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-03T10:18:22.879Z",
+  "updatedAt": "2026-11-03T20:18:32.154Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "gen-digital-norton-revamp-amazon-bedrock-agentcore",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:gen-digital-norton-revamp-amazon-bedrock-agentcore",
+      "clusterKey": "news:c65b0ca19413901c261575cdc892f215b4ebc92045671f9578b9305bebb7a96c",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-11-03T20:18:32.154Z",
+      "modifiedAt": "2026-11-03T20:18:32.154Z",
+      "editions": {
+        "vi": {
+          "title": "Gen Digital xây dựng công cụ tin tức tuyển chọn bằng AI cho Norton Revamp với Amazon Bedrock AgentCore Web Search",
+          "dek": "Theo công bố của AWS. Khám phá cách Gen Digital tích hợp Amazon Bedrock AgentCore Web Search và Amazon Nova để vận hành nền tảng quản lý danh tiếng chuyên nghiệp Norton Revamp.",
+          "takeaways": [
+            "Nền tảng Norton Revamp ra mắt vào tháng 3 năm 2026 với sự hỗ trợ từ Amazon Bedrock AgentCore Web Search.",
+            "Hệ thống cung cấp tin tức tuyển chọn bằng AI, gợi ý nội dung thông minh và thiết lập mục tiêu nhận thức xu hướng.",
+            "Kiến trúc kết hợp Amazon Nova, Amazon Bedrock và các dịch vụ AWS khác để xử lý dữ liệu và tạo nội dung."
+          ],
+          "sections": [
+            {
+              "heading": "Giới thiệu nền tảng Norton Revamp",
+              "body": "Gen Digital đã xây dựng Norton Revamp, một nền tảng quản lý danh tiếng chuyên nghiệp được hỗ trợ bởi trí tuệ nhân tạo. Nền tảng này ra mắt vào tháng 3 năm 2026 và được phát triển bởi một nhóm kỹ sư nhỏ nhằm giúp người dùng chuyển đổi ý tưởng thành các bài đăng mạng xã hội hấp dẫn."
+            },
+            {
+              "heading": "Công nghệ và Kiến trúc hệ thống",
+              "body": "Trung tâm của nền tảng là Công cụ tin tức được tuyển chọn bằng AI, sử dụng AgentCore Web Search để cập nhật thông tin web hiện tại và có trích dẫn. Ngăn xếp công nghệ bao gồm Amazon Bedrock làm động cơ AI cốt lõi, mô hình Amazon Nova Lite để tạo nội dung, cùng nhiều dịch vụ phụ trợ trên AWS."
+            }
+          ]
+        },
+        "en": {
+          "title": "How Gen Digital built Norton Revamp’s AI-curated News Engine with Amazon Bedrock AgentCore Web Search",
+          "dek": "According to AWS. Gen Digital details how they launched Norton Revamp in March 2026 using Amazon Bedrock AgentCore Web Search and Amazon Nova to power real-time professional content generation.",
+          "takeaways": [
+            "Gen Digital launched Norton Revamp in March 2026 as an AI-powered professional reputation management platform.",
+            "The platform features an AI-curated News Engine powered by AgentCore Web Search to ground content in current web knowledge.",
+            "Amazon Bedrock and Amazon Nova serve as the core generative AI stack for content creation, goal setting, and personalization."
+          ],
+          "sections": [
+            {
+              "heading": "Building Norton Revamp with AgentCore Web Search",
+              "body": "Gen Digital built Norton Revamp to help customers turn ideas into engaging social media posts using real-time awareness. The platform relies on Web Search on Amazon Bedrock AgentCore, a fully managed web search capability compliant with the Model Context Protocol, to ground every content suggestion and news feed item in current web knowledge."
+            },
+            {
+              "heading": "Core Features and Technical Stack",
+              "body": "The platform powers an AI-curated news feed, smart content suggestions, and trend-aware goal setting through an event-driven architecture. The generative AI stack utilizes Amazon Bedrock, Amazon Nova Lite for content and goal generation, and AgentCore Web Search for real-time retrieval entirely within the AWS environment."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo Gen Digital construyó el motor de noticias de Norton Revamp con Amazon Bedrock AgentCore Web Search",
+          "dek": "Según AWS. Conozca cómo Gen Digital desarrolló la plataforma Norton Revamp utilizando Amazon Bedrock AgentCore Web Search y Amazon Nova para la gestión de reputación profesional.",
+          "takeaways": [
+            "Gen Digital lanzó Norton Revamp en marzo de 2026 como una plataforma de gestión de reputación profesional impulsada por IA.",
+            "El motor de noticias concurrente utiliza AgentCore Web Search para fundamentar las sugerencias en conocimientos web actuales.",
+            "La arquitectura integra Amazon Bedrock y Amazon Nova para la generación de contenido y la configuración de objetivos."
+          ],
+          "sections": [
+            {
+              "heading": "Desarrollo de Norton Revamp",
+              "body": "Gen Digital desarrolló Norton Revamp para ayudar a los usuarios a convertir ideas en publicaciones atractivas para redes sociales mediante conocimiento web en tiempo real. La plataforma se lanzó en marzo de 2026 gracias al trabajo de un pequeño grupo de ingenieros."
+            },
+            {
+              "heading": "Pila tecnológica y arquitectura",
+              "body": "La solución integra Amazon Nova a través de Amazon Bedrock como el motor principal de lenguaje y AgentCore Web Search para la recuperación de información en tiempo real. La arquitectura basada en eventos procesa datos de manera completamente interna en el entorno de AWS."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-gen-digital-built-norton-revamps-ai-curated-news-engine-with-amazon-bedrock-agentcore-web-search/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-3",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-gen-digital-built-norton-revamps-ai-curated-news-engine-with-amazon-bedrock-agentcore-web-search/",
+            "title": "How Gen Digital built Norton Revamp’s AI-curated News Engine with Amazon Bedrock AgentCore Web Search"
+          }
+        ],
+        "claims": [
+          {
+            "text": "Gen Digital built Norton Revamp, an AI-powered professional reputation management platform launched in March 2026, using Amazon Bedrock AgentCore Web Search.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          },
+          {
+            "text": "The platform integrates Amazon Nova via Amazon Bedrock along with Web Search on Amazon Bedrock AgentCore to power an AI-curated news feed, smart content suggestions, and trend-aware goal setting.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-3",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-gen-digital-built-norton-revamps-ai-curated-news-engine-with-amazon-bedrock-agentcore-web-search/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/gen-digital-norton-revamp-amazon-bedrock-agentcore.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Gen Digital xây dựng công cụ tin tức tuyển chọn bằng AI cho Norton Revamp với Amazon Bedrock AgentCore Web Search",
+          "en": "How Gen Digital built Norton Revamp’s AI-curated News Engine with Amazon Bedrock AgentCore Web Search",
+          "es": "Cómo Gen Digital construyó el motor de noticias de Norton Revamp con Amazon Bedrock AgentCore Web Search"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "cities-physical-agentic-ai-applications",
       "reportingMode": "official-announcement",
