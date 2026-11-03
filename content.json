@@ -1,11 +1,135 @@
 {
-  "updatedAt": "2026-11-03T20:18:32.154Z",
+  "updatedAt": "2026-11-03T21:17:01.717Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore",
+      "reportingMode": "official-announcement",
+      "category": "AI and Database Technology",
+      "storyId": "tigeriq:build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore",
+      "clusterKey": "news:fc26d0185d3c9e231d832005b3e03684b89f34ddb1caab8b09f3973ea2a7c41c",
+      "readTime": "5",
+      "accent": "blue",
+      "publishedAt": "2026-11-03T21:17:01.717Z",
+      "modifiedAt": "2026-11-03T21:17:01.717Z",
+      "editions": {
+        "vi": {
+          "title": "Xây dựng lớp ngữ nghĩa cho AI tác nhân với EDB Postgres AI và Amazon Bedrock AgentCore",
+          "dek": "Theo công bố của AWS. Hướng dẫn chi tiết cách kết hợp EDB Postgres AI và Amazon Bedrock AgentCore để xây dựng lớp ngữ nghĩa cho ứng dụng AI tác nhân.",
+          "takeaways": [
+            "EDB Postgres AI đặt lớp ngữ nghĩa ngay bên trong cơ sở dữ liệu vận hành thông qua tiện ích mở rộng AIDB.",
+            "Amazon Bedrock AgentCore cung cấp môi trường thời gian chạy, cổng giao tiếp Gateway và quản lý danh tính cho tác nhân.",
+            "Hệ thống sử dụng các câu lệnh COMMENT, khóa ngoại của Postgres và các quyền kiểm soát truy cập để định nghĩa ý nghĩa dữ liệu."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan kiến trúc",
+              "body": "Bài viết giới thiệu cách xây dựng lớp ngữ nghĩa cho AI tác nhân sử dụng EDB Postgres AI và Amazon Bedrock AgentCore. Giải pháp chạy một tác nhân Strands Agents trên Amazon Bedrock AgentCore để truy vấn lớp dữ liệu nhằm trả lời các câu hỏi về thông tin khách hàng 360 độ."
+            },
+            {
+              "heading": "Lớp ngữ nghĩa trong Postgres",
+              "body": "EDB Postgres AI đưa lớp ngữ nghĩa vào sâu bên trong cơ sở dữ liệu vận hành bằng tiện ích mở rộng AIDB. Ý nghĩa kinh doanh nằm cạnh dữ liệu trong các câu lệnh COMMENT chuẩn của Postgres, biểu đồ liên kết xuất phát từ các khóa ngoại và tính năng quản trị tuân thủ theo các chính sách bảo mật hàng."
+            }
+          ]
+        },
+        "en": {
+          "title": "Build a semantic layer for agentic AI with EDB Postgres AI and Amazon Bedrock AgentCore",
+          "dek": "According to AWS. Learn how to build a semantic layer for agentic AI using EDB Postgres AI alongside Amazon Bedrock AgentCore.",
+          "takeaways": [
+            "EDB Postgres AI hosts the semantic layer directly inside the operational Postgres database using an AIDB extension.",
+            "Amazon Bedrock AgentCore provides the agent runtime, gateway authorization, and identity credential management.",
+            "Business definitions and join graphs leverage standard Postgres COMMENT statements and foreign keys."
+          ],
+          "sections": [
+            {
+              "heading": "Architecture Overview",
+              "body": "The publication demonstrates how to build a semantic layer for agentic AI using EDB Postgres AI. A Strands Agents agent runs on Amazon Bedrock AgentCore and queries the semantic layer to answer customer 360 questions from live operational data."
+            },
+            {
+              "heading": "Semantic Layer Implementation",
+              "body": "EDB Postgres AI places the semantic layer directly inside the operational Postgres database as an AIDB extension. Business meaning resides next to the data in standard Postgres COMMENT statements, while join graphs derive from Postgres foreign keys."
+            }
+          ]
+        },
+        "es": {
+          "title": "Construir una capa semántica para IA de agentes con EDB Postgres AI y Amazon Bedrock AgentCore",
+          "dek": "Según AWS. Un análisis detallado sobre cómo construir una capa semántica para IA de agentes utilizando EDB Postgres AI y Amazon Bedrock AgentCore.",
+          "takeaways": [
+            "EDB Postgres AI aloja la capa semántica dentro de la base de datos operacional de Postgres mediante una extensión AIDB.",
+            "Amazon Bedrock AgentCore ofrece el entorno de ejecución, la pasarela de autorización y el control de identidades.",
+            "Las definiciones de negocio y las relaciones se gestionan utilizando declaraciones COMMENT estándar de Postgres y claves foráneas."
+          ],
+          "sections": [
+            {
+              "heading": "Resumen de la arquitectura",
+              "body": "La publicación muestra cómo construir una capa semántica para la IA de agentes utilizando EDB Postgres AI. Un agente de Strands Agents se ejecuta en Amazon Bedrock AgentCore para consultar la capa y responder preguntas de clientes 360."
+            },
+            {
+              "heading": "Implementación semántica",
+              "body": "EDB Postgres AI sitúa la capa semántica dentro de la base de datos operacional de Postgres como una extensión AIDB. El significado del negocio se ubica junto a los datos mediante declaraciones COMMENT y las uniones se basan en claves foráneas."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore/"
+      ],
+      "factPack": {
+        "status": "reviewed",
+        "sources": [
+          {
+            "sourceId": "aws-4",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore/",
+            "title": "Build a semantic layer for agentic AI with EDB Postgres AI and Amazon Bedrock AgentCore"
+          }
+        ],
+        "claims": [
+          {
+            "text": "AWS and EDB demonstrated how to build a semantic layer for agentic AI using EDB Postgres AI and Amazon Bedrock AgentCore.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          },
+          {
+            "text": "The architecture uses a semantic knowledge base residing inside the operational Postgres database via an AIDB extension.",
+            "sourceIds": [
+              "aws-4"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-4",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore/"
+          }
+        ]
+      },
+      "cover": {
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/build-a-semantic-layer-for-agentic-ai-with-edb-postgres-ai-and-amazon-bedrock-agentcore.svg",
+        "width": 1200,
+        "height": 675,
+        "generated": true,
+        "generator": "TigerIQ original SVG illustration",
+        "source": "TigerIQ newsroom",
+        "rights": "Original TigerIQ illustration, no third-party imagery",
+        "alt": {
+          "vi": "Xây dựng lớp ngữ nghĩa cho AI tác nhân với EDB Postgres AI và Amazon Bedrock AgentCore",
+          "en": "Build a semantic layer for agentic AI with EDB Postgres AI and Amazon Bedrock AgentCore",
+          "es": "Construir una capa semántica para IA de agentes con EDB Postgres AI y Amazon Bedrock AgentCore"
+        }
+      },
+      "corrections": []
+    },
     {
       "slug": "gen-digital-norton-revamp-amazon-bedrock-agentcore",
       "reportingMode": "official-announcement",
