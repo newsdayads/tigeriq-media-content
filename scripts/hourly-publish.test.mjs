@@ -2985,7 +2985,8 @@ test("AI ranking keeps freshness as tie-break when relevance scores are equal",(
 
 test("Visual V2 stages a licensed raster atomically instead of generating a new SVG",()=>tmp(async root=>{
   const d=officialAnnouncement(),r=announcementReview();
-  const bytes=new Uint8Array([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
+  const bytes=new Uint8Array(300);
+  bytes.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
   const assetUrl="https://media.example.com/official-cover.jpg";
   const html='<html><head>'+
     '<meta property="og:image" content="'+assetUrl+'">'+
