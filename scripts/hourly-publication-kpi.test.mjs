@@ -28,7 +28,8 @@ const cloudflare={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
   scheduledHourUtc:"2026-10-23T22:00:00Z",now:at};
 
 function rasterStory(publishedAt="2026-10-23T22:17:50.063Z"){
-  const bytes=new Uint8Array([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
+  const bytes=new Uint8Array(300);
+  bytes.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
   return {...story(publishedAt),cover:{
     visualVersion:2,
     url:"https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/verified-story.jpg",
