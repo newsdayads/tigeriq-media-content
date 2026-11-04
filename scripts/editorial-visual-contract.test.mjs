@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import {createHash} from "node:crypto";
 import {
   VISUAL_COVER_PREFIX,VISUAL_RIGHTS_MATRIX,extractPublisherVisualDisclosure,
-  rasterDimensions,validateVisualMetadata,verifyRasterBytes,fetchVerifiedRasterAsset,buildRasterCover
+  rasterDimensions,validateVisualMetadata,verifyRasterBytes,fetchVerifiedRasterAsset,buildRasterCover,
+  buildOwnedOriginalRasterAsset
 } from "./editorial-visual-contract.mjs";
 
 function jpeg1200x675(){
@@ -34,6 +35,7 @@ const disclosureHtml=(ai="false")=>`<html><head>
 test("rights matrix allows only explicit publisher, owned and licensed AI classes",()=>{
   assert.equal(VISUAL_RIGHTS_MATRIX["publisher-licensed"].allowed,true);
   assert.equal(VISUAL_RIGHTS_MATRIX["owned-original"].allowed,true);
+  assert.ok(VISUAL_RIGHTS_MATRIX["owned-original"].classes.includes("owned-illustration"));
   assert.equal(VISUAL_RIGHTS_MATRIX["ai-generated-licensed"].allowed,true);
   assert.equal(VISUAL_RIGHTS_MATRIX.unknown.allowed,false);
   assert.equal(VISUAL_RIGHTS_MATRIX["web-scrape"].allowed,false);
@@ -110,4 +112,27 @@ test("new visual metadata rejects SVG, unknown rights, undersized/non-16:9 and m
   assert.throws(()=>validateVisualMetadata({...base,rightsClass:"unknown"},{slug:"story"}),/RIGHTS_CLASS_FORBIDDEN/);
   assert.throws(()=>validateVisualMetadata({...base,width:800},{slug:"story"}),/DIMENSIONS_INVALID/);
   assert.throws(()=>validateVisualMetadata({...base,alt:{en:"only english"}},{slug:"story"}),/LOCALE_METADATA_INVALID/);
+});
+
+
+test("owned original fallback uses repository-owned raster without inheriting publisher image rights",async()=>{
+  const raw=jpeg1200x675();
+  const readFileImpl=async()=>Buffer.from(raw).toString("base64");
+  const first=await buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>",{
+    title:"AI infrastructure hardware for a verified source",
+    sourceUrl:"https://example.com/story-one",sourceKey:"story-one",readFileImpl
+  });
+  const second=await buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>",{
+    title:"AI infrastructure hardware for a verified source",
+    sourceUrl:"https://example.com/story-two",sourceKey:"story-two",readFileImpl
+  });
+  assert.equal(first.candidate.rightsClass,"owned-original");
+  assert.equal(first.candidate.assetClass,"owned-illustration");
+  assert.equal(first.candidate.isAIGenerated,false);
+  assert.equal(first.candidate.owner,"TigerIQ Media");
+  assert.notEqual(first.sha256,second.sha256,"source-bound JPEG comment makes article assets independently traceable");
+  const cover=buildRasterCover(first,{slug:"owned-original-story",verifiedAt:"2026-11-04T00:00:00.000Z"});
+  assert.equal(cover.sourceAssetUrl,VISUAL_COVER_PREFIX+"owned-original-story.jpg");
+  assert.equal(cover.rightsVerified,true);
+  assert.doesNotThrow(()=>validateVisualMetadata(cover,{slug:"owned-original-story"}));
 });
