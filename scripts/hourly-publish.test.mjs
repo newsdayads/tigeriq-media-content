@@ -2458,11 +2458,10 @@ test("Official source mode with only old articles and one healthy feed has legit
   assert.equal(aiCalls,0);
 }));
 
-test("KPI missed article hour is attributed only to genuine schedules and uses safe reason codes",()=>{
-  assert.equal(missedHourlyTarget("NOOP_NO_READABLE_OFFICIAL_ARTICLE","schedule"),
-    "MISSED_HOURLY_TARGET NOOP_NO_READABLE_OFFICIAL_ARTICLE");
-  assert.equal(missedHourlyTarget("NOOP_DUPLICATE_STORY","schedule"),
-    "MISSED_HOURLY_TARGET NOOP_DUPLICATE_STORY");
+test("quality-first KPI accepts editorial NOOP and reports only genuine scheduled failures",()=>{
+  assert.equal(missedHourlyTarget("NOOP_NO_READABLE_OFFICIAL_ARTICLE","schedule"),null);
+  assert.equal(missedHourlyTarget("NOOP_DUPLICATE_STORY","schedule"),null);
+  assert.equal(missedHourlyTarget("NOOP_NO_VERIFIABLE_STORY","workflow_dispatch","cloudflare"),null);
   assert.equal(missedHourlyTarget("FEED_QUORUM_UNAVAILABLE","schedule"),
     "MISSED_HOURLY_TARGET FEED_QUORUM_UNAVAILABLE");
   assert.equal(missedHourlyTarget("HTTP https://secret.example/key=1","schedule"),
