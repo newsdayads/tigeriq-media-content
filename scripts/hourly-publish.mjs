@@ -1255,8 +1255,8 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
 }
 
 
-// Owner KPI: an editorial NOOP or upstream failure on a genuine scheduled
-// attempt is a missed article hour, not a successful hourly publication.
+// Quality-first KPI: an editorial NOOP is an accepted outcome. Genuine
+// provider/source/publisher failures remain visible as missed scheduled attempts.
 // Only fixed machine codes are logged. Never include provider text/secrets.
 export function missedHourlyTarget(reason,eventName=process.env.GITHUB_EVENT_NAME,
   schedulerOrigin=process.env.NEWS_SCHEDULER_ORIGIN){
@@ -1267,6 +1267,7 @@ export function missedHourlyTarget(reason,eventName=process.env.GITHUB_EVENT_NAM
   if(eventName!=="schedule"&&
     !(eventName==="workflow_dispatch"&&schedulerOrigin==="cloudflare"))return null;
   const safe=/^[A-Z][A-Z0-9_]{2,80}$/.test(reason)?reason:"UNCLASSIFIED_FAILURE";
+  if(safe.startsWith("NOOP_"))return null;
   return "MISSED_HOURLY_TARGET "+safe;
 }
 function reportMissedScheduledHour(reason){
