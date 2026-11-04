@@ -1,5 +1,5 @@
 import {createHash} from "node:crypto";
-import {spawnSync} from "node:child_process";
+import {readFile} from "node:fs/promises";
 
 export const VISUAL_CONTRACT_VERSION=2;
 export const VISUAL_MAX_BYTES=8*1024*1024;
@@ -177,26 +177,25 @@ function personalizeOwnedJpeg(input,sourceKey){
   ]));
 }
 
-function runOwnedRasterizer(svg,spawnSyncImpl){
-  const attempts=[
-    ["convert",["svg:-","-strip","-quality","82","jpeg:-"]],
-    ["magick",["convert","svg:-","-strip","-quality","82","jpeg:-"]]
-  ];
-  for(const [command,args] of attempts){
-    const result=spawnSyncImpl(command,args,{input:svg,encoding:null,maxBuffer:VISUAL_MAX_BYTES+1024*1024});
-    if(!result?.error&&result?.status===0&&result.stdout?.length>0)return new Uint8Array(result.stdout);
-    if(result?.error?.code!=="ENOENT"&&command==="convert")break;
-  }
-  throw Error("VISUAL_OWNED_RASTERIZER_UNAVAILABLE");
+const OWNED_VISUAL_TEMPLATE_URL=new URL("../assets/owned-cover-base64.txt",import.meta.url);
+
+async function readOwnedRasterTemplate(readFileImpl=readFile){
+  const encoded=String(await readFileImpl(OWNED_VISUAL_TEMPLATE_URL,"utf8")).trim();
+  if(!/^[A-Za-z0-9+/=]+$/.test(encoded))throw Error("VISUAL_OWNED_TEMPLATE_INVALID");
+  const bytes=new Uint8Array(Buffer.from(encoded,"base64"));
+  if(bytes.byteLength<256)throw Error("VISUAL_OWNED_TEMPLATE_INVALID");
+  return bytes;
 }
 
-export function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceKey,priorArticles=[],spawnSyncImpl=spawnSync}={}){
+export async function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceKey,priorArticles=[],readFileImpl=readFile}={}){
   const source=httpsUrl(sourceUrl);
   if(!source)throw Error("VISUAL_OWNED_SOURCE_INVALID");
   const cleanTitle=String(title||"").replace(/\s+/g," ").trim().slice(0,180);
   if(cleanTitle.length<8)throw Error("VISUAL_OWNED_TITLE_INVALID");
-  const rendered=runOwnedRasterizer(String(svg||""),spawnSyncImpl);
-  const bytes=personalizeOwnedJpeg(rendered,sourceKey||source.href);
+  if(typeof svg!=="string"||svg.length<64)throw Error("VISUAL_OWNED_ART_INVALID");
+  const template=await readOwnedRasterTemplate(readFileImpl);
+  const bytes=personalizeOwnedJpeg(template,(sourceKey||source.href)+"|"+
+    createHash("sha256").update(svg).digest("hex"));
   const dimensions=rasterDimensions(bytes,"image/jpeg");
   if(!dimensions||dimensions.width!==1200||dimensions.height!==675)
     throw Error("VISUAL_OWNED_DIMENSIONS_INVALID");
@@ -222,6 +221,7 @@ export function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceKey,pri
   return {candidate,bytes,mime:"image/jpeg",width:dimensions.width,height:dimensions.height,
     sha256,sourceAssetUrl:null,extension:"jpg"};
 }
+
 function validLocaleMap(map){
   return map&&typeof map==="object"&&LOCALES.every(lang=>
     typeof map[lang]==="string"&&map[lang].trim().length>=8&&map[lang].length<=500);
