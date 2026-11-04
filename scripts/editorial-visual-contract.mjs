@@ -165,15 +165,19 @@ export function visualExtension(mime){
 
 function personalizeOwnedJpeg(input,sourceKey){
   const bytes=input instanceof Uint8Array?input:new Uint8Array(input);
-  if(bytes.length<4||bytes[0]!==0xff||bytes[1]!==0xd8||
-    bytes[bytes.length-2]!==0xff||bytes[bytes.length-1]!==0xd9)
+  if(bytes.length<4||bytes[0]!==0xff||bytes[1]!==0xd8)
     throw Error("VISUAL_OWNED_RASTER_INVALID");
+  let eoi=-1;
+  for(let i=bytes.length-2;i>=2;i--){
+    if(bytes[i]===0xff&&bytes[i+1]===0xd9){eoi=i;break;}
+  }
+  if(eoi<0)throw Error("VISUAL_OWNED_RASTER_INVALID");
   const digest=createHash("sha256").update(String(sourceKey||"")).digest("hex").slice(0,32);
   const payload=Buffer.from("TigerIQ-owned-original:"+digest,"utf8");
   const length=payload.length+2;
   const marker=Buffer.from([0xff,0xfe,(length>>8)&0xff,length&0xff]);
   return new Uint8Array(Buffer.concat([
-    Buffer.from(bytes.subarray(0,bytes.length-2)),marker,payload,Buffer.from([0xff,0xd9])
+    Buffer.from(bytes.subarray(0,eoi)),marker,payload,Buffer.from(bytes.subarray(eoi))
   ]));
 }
 
@@ -204,7 +208,7 @@ export async function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceK
     throw Error("VISUAL_DUPLICATE_ASSET");
   const candidate={
     generated:true,assetClass:"owned-illustration",rightsClass:"owned-original",rightsVerified:true,
-    owner:"TigerIQ Media",author:"TigerIQ Newsroom procedural illustration renderer",
+    owner:"TigerIQ Media",author:"TigerIQ Newsroom owned-original cover renderer",
     license:OWNED_VISUAL_LICENSE_URL,rightsEvidenceUrl:OWNED_VISUAL_LICENSE_URL,
     originalSource:source.href,attribution:"TigerIQ Media",isAIGenerated:false,
     alt:{
