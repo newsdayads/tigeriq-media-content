@@ -3,7 +3,7 @@ import {randomUUID,createHash} from "node:crypto";
 import {join} from "node:path";
 import {pathToFileURL} from "node:url";
 import {hasPublicationArtifacts} from "./hourly-publication-kpi.mjs";
-import {extractPublisherVisualDisclosure,fetchVerifiedRasterAsset,buildRasterCover}
+import {extractPublisherVisualDisclosure,fetchVerifiedRasterAsset,buildRasterCover,buildOwnedOriginalRasterAsset}
   from "./editorial-visual-contract.mjs";
 
 export const FEEDS=[
@@ -989,7 +989,8 @@ export function alreadyPublishedInUtcHour(articles,now){
   return publishedRecordsInUtcHour(articles,now).length>0;
 }
 
-export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS}={}){
+export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new Date(),feeds=FEEDS,
+  ownedRasterizer=buildOwnedOriginalRasterAsset}={}){
   const visualV2Required=env.NEWS_VISUAL_V2_REQUIRED!=="false";
   // Dedupe before any RSS/AI network call. A second native/cloud cron in an
   // already-published UTC hour must not be reported as a missed article
@@ -1146,20 +1147,34 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     console.log("SOURCE_PACKET_READY items="+candidatePacket.length+" publishers="+publisherCount);
     let candidateVisualAsset=null;
     if(visualV2Required){
+      const publisher=String(candidatePacket[0]?.publisher||"source");
       const disclosed=candidatePacket.find(item=>item?.visualCandidate)?.visualCandidate;
-      if(!disclosed){
-        visualRejected=true;
-        console.warn("VISUAL_RIGHTS_UNVERIFIED "+String(candidatePacket[0]?.publisher||"source"));
-        continue;
+      if(disclosed){
+        try{
+          candidateVisualAsset=await fetchVerifiedRasterAsset(disclosed,{fetchImpl,priorArticles:store.articles});
+        }catch(error){
+          const code=typeof error?.message==="string"&&/^VISUAL_[A-Z0-9_]+$/.test(error.message)
+            ?error.message:"VISUAL_ASSET_REJECTED";
+          console.warn("PUBLISHER_"+code+" "+publisher);
+        }
+      }else{
+        console.warn("PUBLISHER_VISUAL_RIGHTS_UNVERIFIED "+publisher);
       }
-      try{
-        candidateVisualAsset=await fetchVerifiedRasterAsset(disclosed,{fetchImpl,priorArticles:store.articles});
-      }catch(error){
-        visualRejected=true;
-        const code=typeof error?.message==="string"&&/^VISUAL_[A-Z0-9_]+$/.test(error.message)
-          ?error.message:"VISUAL_ASSET_REJECTED";
-        console.warn(code+" "+String(candidatePacket[0]?.publisher||"source"));
-        continue;
+      if(!candidateVisualAsset){
+        try{
+          const item=candidatePacket[0];
+          candidateVisualAsset=await ownedRasterizer(coverSvg(item?.title),{
+            title:item?.title,sourceUrl:item?.url,sourceKey:item?.url||item?.id,
+            priorArticles:store.articles
+          });
+          console.log("VISUAL_OWNED_ORIGINAL_READY "+publisher);
+        }catch(error){
+          visualRejected=true;
+          const code=typeof error?.message==="string"&&/^VISUAL_[A-Z0-9_]+$/.test(error.message)
+            ?error.message:"VISUAL_OWNED_FALLBACK_REJECTED";
+          console.warn(code+" "+publisher);
+          continue;
+        }
       }
     }
     const candidateFactPack=lockMasterFactPack(candidatePacket,{attributed});
