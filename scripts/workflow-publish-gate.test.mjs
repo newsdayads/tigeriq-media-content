@@ -6,14 +6,26 @@ const yaml = readFileSync(new URL('../.github/workflows/hourly-publisher.yml', i
 
 test('NOOP cannot report a newly verified public article', () => {
   const commit = yaml.split('      - name: Commit article and original cover\n')[1]
+    ?.split('      - name: Verify committed story only when publication occurred (local read only)\n')[0];
+  const kpi = yaml.split('      - name: Verify committed story only when publication occurred (local read only)\n')[1]
     ?.split('      - name: Verify live article and original cover without AI provider calls\n')[0];
   const verify = yaml.split('      - name: Verify live article and original cover without AI provider calls\n')[1];
   assert.ok(commit, 'commit step must exist');
+  assert.ok(kpi, 'quality-first KPI step must exist');
   assert.ok(verify, 'live verification step must exist');
   assert.match(commit, /^        id: publication$/m);
   assert.match(commit, /if git diff --cached --quiet; then[\s\S]*echo "published=false" >> "\$GITHUB_OUTPUT"/);
   assert.match(commit, /git push[\s\S]*echo "published=true" >> "\$GITHUB_OUTPUT"/);
+  assert.match(kpi, /^        if: steps\.publication\.outputs\.published == 'true'$/m);
+  assert.match(kpi, /^          NEWS_PUBLICATION_OCCURRED: "true"$/m);
   assert.match(verify, /^        if: steps\.publication\.outputs\.published == 'true'$/m);
+});
+
+test('quality-first NOOP skips both post-publication verification gates', () => {
+  const guarded = [...yaml.matchAll(
+    /^      - name: (Verify committed story only when publication occurred \(local read only\)|Verify live article and original cover without AI provider calls)\n        if: steps\.publication\.outputs\.published == 'true'$/gm
+  )];
+  assert.equal(guarded.length, 2);
 });
 
 test('publisher only executes on scheduled or manually dispatched runs', () => {
