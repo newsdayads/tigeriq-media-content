@@ -1,11 +1,13 @@
 import {createHash} from "node:crypto";
+import {spawnSync} from "node:child_process";
 
 export const VISUAL_CONTRACT_VERSION=2;
 export const VISUAL_MAX_BYTES=8*1024*1024;
 export const VISUAL_COVER_PREFIX="https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/";
+export const OWNED_VISUAL_LICENSE_URL="https://github.com/newsdayads/tigeriq-media-content/blob/main/docs/OWNED_VISUAL_LICENSE.md";
 export const VISUAL_RIGHTS_MATRIX=Object.freeze({
   "publisher-licensed":Object.freeze({allowed:true,classes:["publisher-licensed-asset"],ai:false}),
-  "owned-original":Object.freeze({allowed:true,classes:["owned-photo"],ai:false}),
+  "owned-original":Object.freeze({allowed:true,classes:["owned-photo","owned-illustration"],ai:false}),
   "ai-generated-licensed":Object.freeze({allowed:true,classes:["ai-illustration"],ai:true}),
   "unknown":Object.freeze({allowed:false,classes:[],ai:null}),
   "web-scrape":Object.freeze({allowed:false,classes:[],ai:null}),
@@ -160,6 +162,66 @@ export function visualExtension(mime){
   if(mime==="image/webp")return "webp";
   throw Error("VISUAL_MIME_UNSUPPORTED");
 }
+
+function personalizeOwnedJpeg(input,sourceKey){
+  const bytes=input instanceof Uint8Array?input:new Uint8Array(input);
+  if(bytes.length<4||bytes[0]!==0xff||bytes[1]!==0xd8||
+    bytes[bytes.length-2]!==0xff||bytes[bytes.length-1]!==0xd9)
+    throw Error("VISUAL_OWNED_RASTER_INVALID");
+  const digest=createHash("sha256").update(String(sourceKey||"")).digest("hex").slice(0,32);
+  const payload=Buffer.from("TigerIQ-owned-original:"+digest,"utf8");
+  const length=payload.length+2;
+  const marker=Buffer.from([0xff,0xfe,(length>>8)&0xff,length&0xff]);
+  return new Uint8Array(Buffer.concat([
+    Buffer.from(bytes.subarray(0,bytes.length-2)),marker,payload,Buffer.from([0xff,0xd9])
+  ]));
+}
+
+function runOwnedRasterizer(svg,spawnSyncImpl){
+  const attempts=[
+    ["convert",["svg:-","-strip","-quality","82","jpeg:-"]],
+    ["magick",["convert","svg:-","-strip","-quality","82","jpeg:-"]]
+  ];
+  for(const [command,args] of attempts){
+    const result=spawnSyncImpl(command,args,{input:svg,encoding:null,maxBuffer:VISUAL_MAX_BYTES+1024*1024});
+    if(!result?.error&&result?.status===0&&result.stdout?.length>0)return new Uint8Array(result.stdout);
+    if(result?.error?.code!=="ENOENT"&&command==="convert")break;
+  }
+  throw Error("VISUAL_OWNED_RASTERIZER_UNAVAILABLE");
+}
+
+export function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceKey,priorArticles=[],spawnSyncImpl=spawnSync}={}){
+  const source=httpsUrl(sourceUrl);
+  if(!source)throw Error("VISUAL_OWNED_SOURCE_INVALID");
+  const cleanTitle=String(title||"").replace(/\s+/g," ").trim().slice(0,180);
+  if(cleanTitle.length<8)throw Error("VISUAL_OWNED_TITLE_INVALID");
+  const rendered=runOwnedRasterizer(String(svg||""),spawnSyncImpl);
+  const bytes=personalizeOwnedJpeg(rendered,sourceKey||source.href);
+  const dimensions=rasterDimensions(bytes,"image/jpeg");
+  if(!dimensions||dimensions.width!==1200||dimensions.height!==675)
+    throw Error("VISUAL_OWNED_DIMENSIONS_INVALID");
+  const sha256=createHash("sha256").update(bytes).digest("hex");
+  if(priorArticles.some(article=>article?.cover?.sha256===sha256))
+    throw Error("VISUAL_DUPLICATE_ASSET");
+  const candidate={
+    generated:true,assetClass:"owned-illustration",rightsClass:"owned-original",rightsVerified:true,
+    owner:"TigerIQ Media",author:"TigerIQ Newsroom procedural illustration renderer",
+    license:OWNED_VISUAL_LICENSE_URL,rightsEvidenceUrl:OWNED_VISUAL_LICENSE_URL,
+    originalSource:source.href,attribution:"TigerIQ Media",isAIGenerated:false,
+    alt:{
+      vi:"Minh họa công nghệ gốc của TigerIQ cho: "+cleanTitle,
+      en:"Original TigerIQ technology illustration for: "+cleanTitle,
+      es:"Ilustración tecnológica original de TigerIQ para: "+cleanTitle
+    },
+    caption:{
+      vi:"Minh họa gốc do TigerIQ Media tạo nội bộ. "+cleanTitle,
+      en:"Original illustration created in-house by TigerIQ Media. "+cleanTitle,
+      es:"Ilustración original creada internamente por TigerIQ Media. "+cleanTitle
+    }
+  };
+  return {candidate,bytes,mime:"image/jpeg",width:dimensions.width,height:dimensions.height,
+    sha256,sourceAssetUrl:null,extension:"jpg"};
+}
 function validLocaleMap(map){
   return map&&typeof map==="object"&&LOCALES.every(lang=>
     typeof map[lang]==="string"&&map[lang].trim().length>=8&&map[lang].length<=500);
@@ -251,9 +313,10 @@ export function buildRasterCover(asset,{slug,verifiedAt=new Date().toISOString()
   const cover={
     visualVersion:VISUAL_CONTRACT_VERSION,url:VISUAL_COVER_PREFIX+slug+"."+asset.extension,
     mime:asset.mime,width:asset.width,height:asset.height,bytes:asset.bytes.byteLength,sha256:asset.sha256,
-    generated:candidate.isAIGenerated===true,assetClass:candidate.assetClass,
+    generated:candidate.generated===true||candidate.isAIGenerated===true,assetClass:candidate.assetClass,
     rightsClass:candidate.rightsClass,rightsVerified:true,owner:candidate.owner,author:candidate.author,
-    originalSource:candidate.originalSource,sourceAssetUrl:asset.sourceAssetUrl,
+    originalSource:candidate.originalSource,sourceAssetUrl:candidate.rightsClass==="owned-original"
+      ?VISUAL_COVER_PREFIX+slug+"."+asset.extension:asset.sourceAssetUrl,
     rightsEvidenceUrl:candidate.rightsEvidenceUrl,license:candidate.license,
     attribution:candidate.attribution,isAIGenerated:candidate.isAIGenerated,
     alt:candidate.alt,caption:candidate.caption,verifiedAt
