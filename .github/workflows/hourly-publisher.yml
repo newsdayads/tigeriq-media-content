@@ -22,6 +22,8 @@ on:
       - scripts/public-site-verify.test.mjs
       - scripts/workflow-publish-gate.test.mjs
       - scripts/editorial-cover-integrity.test.mjs
+      - scripts/editorial-visual-contract.mjs
+      - scripts/editorial-visual-contract.test.mjs
       - scripts/editorial-source-diversity.test.mjs
       - scripts/editorial-structure.test.mjs
       - scripts/reviewer-evidence-prompt.test.mjs
@@ -59,7 +61,7 @@ jobs:
           echo "REVIEWER_MODEL_PRESENT=$REVIEWER_MODEL_SET"
           echo "AI_API_KEY_PRESENT=NOT_CHECKED_SECRET_READ_FORBIDDEN"
       - name: Publisher fail-closed and public-site guard tests
-        run: node --test scripts/hourly-publish.test.mjs scripts/public-site-verify.test.mjs scripts/workflow-publish-gate.test.mjs scripts/editorial-cover-integrity.test.mjs scripts/editorial-source-diversity.test.mjs scripts/editorial-structure.test.mjs scripts/reviewer-evidence-prompt.test.mjs scripts/cloudflare-scheduled-kpi.test.mjs scripts/hourly-publication-kpi.test.mjs scripts/scheduled-origin-receipt.test.mjs scripts/provider-transport-diagnostic.test.mjs infra/cloudflare-news-trigger/cron.test.mjs
+        run: node --test scripts/hourly-publish.test.mjs scripts/public-site-verify.test.mjs scripts/workflow-publish-gate.test.mjs scripts/editorial-cover-integrity.test.mjs scripts/editorial-visual-contract.test.mjs scripts/editorial-source-diversity.test.mjs scripts/editorial-structure.test.mjs scripts/reviewer-evidence-prompt.test.mjs scripts/cloudflare-scheduled-kpi.test.mjs scripts/hourly-publication-kpi.test.mjs scripts/scheduled-origin-receipt.test.mjs scripts/provider-transport-diagnostic.test.mjs infra/cloudflare-news-trigger/cron.test.mjs
       - name: Public article and cover HTTP verification (read only)
         if: github.event_name == 'pull_request'
         run: node scripts/public-site-verify.mjs
@@ -85,6 +87,7 @@ jobs:
         env:
           NEWS_REPORTING_MODE: official-announcement
           NEWS_HOURLY_PUBLISH_LIMIT: "true"
+          NEWS_VISUAL_V2_REQUIRED: "true"
           NEWS_SCHEDULER_ORIGIN: ${{ inputs.scheduler }}
           AI_CHAT_COMPLETIONS_URL: ${{ vars.AI_CHAT_COMPLETIONS_URL }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
