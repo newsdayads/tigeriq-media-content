@@ -1,5 +1,4 @@
 import {createHash} from "node:crypto";
-import {readFile} from "node:fs/promises";
 
 export const VISUAL_CONTRACT_VERSION=2;
 export const VISUAL_MAX_BYTES=8*1024*1024;
@@ -181,25 +180,115 @@ function personalizeOwnedJpeg(input,sourceKey){
   ]));
 }
 
-const OWNED_VISUAL_TEMPLATE_URL=new URL("../assets/owned-cover-base64.txt",import.meta.url);
-
-async function readOwnedRasterTemplate(readFileImpl=readFile){
-  const encoded=String(await readFileImpl(OWNED_VISUAL_TEMPLATE_URL,"utf8")).trim();
-  if(!/^[A-Za-z0-9+/=]+$/.test(encoded))throw Error("VISUAL_OWNED_TEMPLATE_INVALID");
-  const bytes=new Uint8Array(Buffer.from(encoded,"base64"));
-  if(bytes.byteLength<256)throw Error("VISUAL_OWNED_TEMPLATE_INVALID");
-  return bytes;
+function appendJpegSegment(out,marker,data){
+  const length=data.length+2;
+  out.push(0xff,marker,(length>>8)&0xff,length&0xff,...data);
 }
 
-export async function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceKey,priorArticles=[],readFileImpl=readFile}={}){
+function writeJpegBits(out,state,code,length){
+  for(let bit=length-1;bit>=0;bit--){
+    state.value=(state.value<<1)|((code>>bit)&1);
+    state.bits++;
+    if(state.bits===8){
+      const byte=state.value&0xff;
+      out.push(byte);
+      if(byte===0xff)out.push(0x00);
+      state.value=0;
+      state.bits=0;
+    }
+  }
+}
+
+function jpegMagnitude(value){
+  if(value===0)return {category:0,bits:0};
+  const magnitude=Math.abs(value);
+  const category=Math.floor(Math.log2(magnitude))+1;
+  return {category,bits:value>0?value:(1<<category)-1+value};
+}
+
+/**
+ * Build a real baseline JPEG entirely from TigerIQ-owned procedural pixels.
+ * It intentionally has no dependency on repository Base64/image blobs, so a
+ * corrupted template can never silently stop the hourly publisher again.
+ *
+ * Each 8x8 grayscale block is constant (AC=EOB) and its DC level forms a
+ * source-bound diagonal technology pattern. The JPEG tables are deliberately
+ * small but standards-compliant and browser-decodable.
+ */
+function ownedOriginalJpegTemplate(sourceKey){
+  const width=1200,height=675;
+  const out=[0xff,0xd8];
+
+  appendJpegSegment(out,0xe0,[
+    0x4a,0x46,0x49,0x46,0x00, // JFIF\0
+    0x01,0x01,0x00,0x00,0x01,0x00,0x01,0x00,0x00
+  ]);
+  appendJpegSegment(out,0xdb,[0x00,...Array(64).fill(8)]);
+  appendJpegSegment(out,0xc0,[
+    0x08,
+    (height>>8)&0xff,height&0xff,
+    (width>>8)&0xff,width&0xff,
+    0x01, // one grayscale component
+    0x01,0x11,0x00
+  ]);
+
+  // Canonical DC Huffman table: categories 0..11 all use 4-bit codes.
+  appendJpegSegment(out,0xc4,[
+    0x00,
+    0x00,0x00,0x00,0x0c,0x00,0x00,0x00,0x00,
+    0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+    0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b
+  ]);
+  // AC table contains only EOB, encoded as one zero bit.
+  appendJpegSegment(out,0xc4,[
+    0x10,
+    0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+    0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+    0x00
+  ]);
+  appendJpegSegment(out,0xda,[0x01,0x01,0x00,0x00,0x3f,0x00]);
+
+  const digest=createHash("sha256").update(String(sourceKey||"")).digest();
+  const phase=digest[0];
+  const blocksX=Math.ceil(width/8),blocksY=Math.ceil(height/8);
+  const state={value:0,bits:0};
+  let previousDc=0;
+  for(let y=0;y<blocksY;y++){
+    for(let x=0;x<blocksX;x++){
+      const base=55+Math.floor(135*x/Math.max(1,blocksX-1));
+      const stripe=(Math.floor((x+y+(phase%17))/6)%2)===1;
+      const luminance=Math.max(16,Math.min(235,base+(stripe?18:-8)));
+      // With Q00=8, a constant 8x8 block at luminance L has quantized DC=L-128.
+      const dc=luminance-128;
+      const diff=dc-previousDc;
+      previousDc=dc;
+      const {category,bits}=jpegMagnitude(diff);
+      if(category>11)throw Error("VISUAL_OWNED_DC_RANGE_INVALID");
+      writeJpegBits(out,state,category,4);
+      if(category)writeJpegBits(out,state,bits,category);
+      writeJpegBits(out,state,0,1); // AC EOB
+    }
+  }
+  if(state.bits){
+    const padding=8-state.bits;
+    state.value=(state.value<<padding)|((1<<padding)-1);
+    const byte=state.value&0xff;
+    out.push(byte);
+    if(byte===0xff)out.push(0x00);
+  }
+  out.push(0xff,0xd9);
+  return new Uint8Array(out);
+}
+
+export async function buildOwnedOriginalRasterAsset(svg,{title,sourceUrl,sourceKey,priorArticles=[]}={}){
   const source=httpsUrl(sourceUrl);
   if(!source)throw Error("VISUAL_OWNED_SOURCE_INVALID");
   const cleanTitle=String(title||"").replace(/\s+/g," ").trim().slice(0,180);
   if(cleanTitle.length<8)throw Error("VISUAL_OWNED_TITLE_INVALID");
   if(typeof svg!=="string"||svg.length<64)throw Error("VISUAL_OWNED_ART_INVALID");
-  const template=await readOwnedRasterTemplate(readFileImpl);
-  const bytes=personalizeOwnedJpeg(template,(sourceKey||source.href)+"|"+
-    createHash("sha256").update(svg).digest("hex"));
+  const seed=(sourceKey||source.href)+"|"+createHash("sha256").update(svg).digest("hex");
+  const template=ownedOriginalJpegTemplate(seed);
+  const bytes=personalizeOwnedJpeg(template,seed);
   const dimensions=rasterDimensions(bytes,"image/jpeg");
   if(!dimensions||dimensions.width!==1200||dimensions.height!==675)
     throw Error("VISUAL_OWNED_DIMENSIONS_INVALID");
