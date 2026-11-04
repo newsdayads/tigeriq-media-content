@@ -115,24 +115,30 @@ test("new visual metadata rejects SVG, unknown rights, undersized/non-16:9 and m
 });
 
 
-test("owned original fallback uses repository-owned raster without inheriting publisher image rights",async()=>{
-  const raw=jpeg1200x675();
-  const readFileImpl=async()=>Buffer.from(raw).toString("base64");
-  const first=await buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>",{
+test("owned original fallback generates a valid source-bound raster without external image bytes",async()=>{
+  const svg="<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>";
+  const first=await buildOwnedOriginalRasterAsset(svg,{
     title:"AI infrastructure hardware for a verified source",
-    sourceUrl:"https://example.com/story-one",sourceKey:"story-one",readFileImpl
+    sourceUrl:"https://example.com/story-one",sourceKey:"story-one"
   });
-  const second=await buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>",{
+  const second=await buildOwnedOriginalRasterAsset(svg,{
     title:"AI infrastructure hardware for a verified source",
-    sourceUrl:"https://example.com/story-two",sourceKey:"story-two",readFileImpl
+    sourceUrl:"https://example.com/story-two",sourceKey:"story-two"
   });
   assert.equal(first.candidate.rightsClass,"owned-original");
   assert.equal(first.candidate.assetClass,"owned-illustration");
   assert.equal(first.candidate.isAIGenerated,false);
   assert.equal(first.candidate.owner,"TigerIQ Media");
-  assert.notEqual(first.sha256,second.sha256,"source-bound JPEG comment makes article assets independently traceable");
+  assert.equal(first.mime,"image/jpeg");
+  assert.equal(first.width,1200);
+  assert.equal(first.height,675);
+  assert.ok(first.bytes.length>3000);
+  assert.deepEqual([...first.bytes.slice(0,2)],[0xff,0xd8]);
+  assert.deepEqual([...first.bytes.slice(-2)],[0xff,0xd9]);
+  assert.notEqual(first.sha256,second.sha256,"source-bound procedural pixels and JPEG comment keep article assets independently traceable");
   const cover=buildRasterCover(first,{slug:"owned-original-story",verifiedAt:"2026-11-04T00:00:00.000Z"});
   assert.equal(cover.sourceAssetUrl,VISUAL_COVER_PREFIX+"owned-original-story.jpg");
   assert.equal(cover.rightsVerified,true);
   assert.doesNotThrow(()=>validateVisualMetadata(cover,{slug:"owned-original-story"}));
+  assert.doesNotThrow(()=>verifyRasterBytes(first.bytes,cover));
 });
