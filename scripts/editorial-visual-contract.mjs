@@ -168,7 +168,7 @@ function validLocaleMap(map){
 export function validateVisualMetadata(cover,{slug,allowLegacy=false}={}){
   if(typeof slug!=="string"||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))
     throw Error("VISUAL_SLUG_INVALID");
-  if(allowLegacy&&cover?.visualVersion==null&&cover?.generated===true&&
+  if(allowLegacy&&cover?.visualVersion==null&&
     cover?.url===VISUAL_COVER_PREFIX+slug+".svg")return {legacy:true,cover};
   if(cover?.visualVersion!==VISUAL_CONTRACT_VERSION)throw Error("VISUAL_VERSION_REQUIRED");
   if(!["image/jpeg","image/webp"].includes(cover.mime))throw Error("VISUAL_MIME_UNSUPPORTED");
