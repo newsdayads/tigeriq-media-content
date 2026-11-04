@@ -222,7 +222,7 @@ async function readBoundedBinary(response,maxBytes=VISUAL_MAX_BYTES){
   return new Uint8Array(buffer);
 }
 
-export async function fetchVerifiedRasterAsset(candidate,{fetchImpl=fetch,slug,priorArticles=[]}={}){
+export async function fetchVerifiedRasterAsset(candidate,{fetchImpl=fetch,priorArticles=[]}={}){
   if(!candidate||candidate.rightsVerified!==true)throw Error("VISUAL_RIGHTS_UNVERIFIED");
   const asset=httpsUrl(candidate.assetUrl);
   if(!asset)throw Error("VISUAL_ASSET_URL_INVALID");
@@ -241,18 +241,26 @@ export async function fetchVerifiedRasterAsset(candidate,{fetchImpl=fetch,slug,p
   const sha256=createHash("sha256").update(bytes).digest("hex");
   if(priorArticles.some(article=>article?.cover?.sha256===sha256))
     throw Error("VISUAL_DUPLICATE_ASSET");
+  return {candidate,bytes,mime:mediaType,width:dimensions.width,height:dimensions.height,
+    sha256,sourceAssetUrl:asset.href,extension:visualExtension(mediaType)};
+}
+
+export function buildRasterCover(asset,{slug,verifiedAt=new Date().toISOString()}={}){
+  if(!asset?.candidate||!(asset.bytes instanceof Uint8Array))throw Error("VISUAL_ASSET_INVALID");
+  const candidate=asset.candidate;
   const cover={
-    visualVersion:VISUAL_CONTRACT_VERSION,url:VISUAL_COVER_PREFIX+slug+"."+visualExtension(mediaType),
-    mime:mediaType,width:dimensions.width,height:dimensions.height,bytes:bytes.byteLength,sha256,
+    visualVersion:VISUAL_CONTRACT_VERSION,url:VISUAL_COVER_PREFIX+slug+"."+asset.extension,
+    mime:asset.mime,width:asset.width,height:asset.height,bytes:asset.bytes.byteLength,sha256:asset.sha256,
     generated:candidate.isAIGenerated===true,assetClass:candidate.assetClass,
     rightsClass:candidate.rightsClass,rightsVerified:true,owner:candidate.owner,author:candidate.author,
-    originalSource:candidate.originalSource,sourceAssetUrl:asset.href,
+    originalSource:candidate.originalSource,sourceAssetUrl:asset.sourceAssetUrl,
     rightsEvidenceUrl:candidate.rightsEvidenceUrl,license:candidate.license,
     attribution:candidate.attribution,isAIGenerated:candidate.isAIGenerated,
-    alt:candidate.alt,caption:candidate.caption,verifiedAt:new Date().toISOString()
+    alt:candidate.alt,caption:candidate.caption,verifiedAt
   };
   validateVisualMetadata(cover,{slug});
-  return {cover,bytes,extension:visualExtension(mediaType)};
+  verifyRasterBytes(asset.bytes,cover);
+  return cover;
 }
 
 export function isLegacySvgCover(article){
