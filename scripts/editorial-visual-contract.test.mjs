@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import {createHash} from "node:crypto";
 import {
   VISUAL_COVER_PREFIX,VISUAL_RIGHTS_MATRIX,extractPublisherVisualDisclosure,
-  rasterDimensions,validateVisualMetadata,verifyRasterBytes,fetchVerifiedRasterAsset,buildRasterCover
+  rasterDimensions,validateVisualMetadata,verifyRasterBytes,fetchVerifiedRasterAsset,buildRasterCover,
+  validateVisualCandidate,readBoundedRasterBody
 } from "./editorial-visual-contract.mjs";
 
 function jpeg1200x675(){
@@ -48,6 +49,7 @@ test("og:image alone is rejected; explicit license, copyright and AI disclosure 
   assert.equal(candidate.rightsClass,"publisher-licensed");
   assert.equal(candidate.isAIGenerated,false);
   assert.equal(candidate.license,"https://example.com/media-license");
+  assert.equal(candidate.rightsEvidenceUrl,"https://example.com/media-license");
 });
 
 test("explicit AI image disclosure produces mandatory localized AI labels",()=>{
@@ -90,6 +92,41 @@ test("fetch gate rejects unverified rights and duplicate raster hashes before pu
     {fetchImpl,priorArticles:[]}),/VISUAL_RIGHTS_UNVERIFIED/);
   await assert.rejects(fetchVerifiedRasterAsset(candidate,{fetchImpl,
     priorArticles:[{cover:{sha256:first.sha256}}]}),/VISUAL_DUPLICATE_ASSET/);
+});
+
+test("candidate rights fail closed before any asset network request",async()=>{
+  const candidate=extractPublisherVisualDisclosure(disclosureHtml(),"https://example.com/story");
+  let fetchCalls=0;
+  const fetchImpl=async()=>{fetchCalls++;throw Error("NETWORK_MUST_NOT_RUN");};
+  await assert.rejects(fetchVerifiedRasterAsset({...candidate,rightsClass:"unknown"},
+    {fetchImpl,priorArticles:[]}),/VISUAL_RIGHTS_CLASS_FORBIDDEN/);
+  assert.equal(fetchCalls,0);
+  assert.throws(()=>validateVisualCandidate({...candidate,rightsEvidenceUrl:"http://example.com/license"}),
+    /VISUAL_RIGHTSEVIDENCEURL_INVALID/);
+});
+
+test("raster body is bounded while streaming even without Content-Length",async()=>{
+  let cancelled=false;
+  let released=false;
+  const chunks=[new Uint8Array(4),new Uint8Array(5)];
+  let index=0;
+  const response={headers:{get:()=>null},body:{getReader:()=>({
+    read:async()=>index<chunks.length?{done:false,value:chunks[index++]}:{done:true},
+    cancel:async()=>{cancelled=true;},
+    releaseLock:()=>{released=true;}
+  })}};
+  await assert.rejects(readBoundedRasterBody(response,8),/VISUAL_RESPONSE_TOO_LARGE/);
+  assert.equal(cancelled,true);
+  assert.equal(released,true);
+});
+
+test("raster body rejects declared oversize before reading stream",async()=>{
+  let reads=0;
+  const response={headers:{get:k=>k==="content-length"?"9":null},body:{getReader:()=>({
+    read:async()=>{reads++;return {done:true};}
+  })}};
+  await assert.rejects(readBoundedRasterBody(response,8),/VISUAL_RESPONSE_TOO_LARGE/);
+  assert.equal(reads,0);
 });
 
 test("new visual metadata rejects SVG, unknown rights, undersized/non-16:9 and missing locale metadata",()=>{
