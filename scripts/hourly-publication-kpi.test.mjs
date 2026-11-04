@@ -46,13 +46,23 @@ function rasterStory(publishedAt="2026-10-23T22:17:50.063Z"){
   }};
 }
 
-test("genuine scheduled hour with no new article fails even if Actions would otherwise be green",()=>{
+test("quality-first scheduled hour with no qualified article is a successful NOOP",()=>{
   for(const attempt of [github,cloudflare]){
     const result=evaluateHourlyPublication({...attempt,store:{articles:[]}});
     assert.equal(result.enforced,true);
-    assert.equal(result.passed,false);
-    assert.equal(result.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+    assert.equal(result.passed,true);
+    assert.equal(result.code,"NO_QUALIFIED_STORY_NOOP");
+    assert.equal(result.committedStoryCount,0);
     assert.equal(result.cloudflareNativeEvent,"NOT_VERIFIED_BY_GITHUB_INPUT");
+  }
+});
+
+test("a claimed publication without a committed story still fails closed",()=>{
+  for(const attempt of [github,cloudflare]){
+    const result=evaluateHourlyPublication({...attempt,publicationExpected:true,store:{articles:[]}});
+    assert.equal(result.passed,false);
+    assert.equal(result.code,"PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY");
+    assert.equal(result.publicationExpected,true);
   }
 });
 
@@ -138,12 +148,13 @@ test("normalized impossible February dates cannot fabricate a March publication"
   assert.equal(new Date(Date.parse("2026-02-30T22:17:50Z")).toISOString(),
     "2026-03-02T22:17:50.000Z");
   const input={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
-    scheduledHourUtc:"2026-03-02T22:00:00Z",now:new Date("2026-03-02T22:47:00Z")};
+    scheduledHourUtc:"2026-03-02T22:00:00Z",now:new Date("2026-03-02T22:47:00Z"),
+    publicationExpected:true};
   const fake=evaluateHourlyPublication({...input,store:{articles:[
     story("2026-02-30T22:17:50Z")]}});
   assert.equal(fake.passed,false);
   assert.equal(fake.committedStoryCount,0);
-  assert.equal(fake.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+  assert.equal(fake.code,"PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY");
   const valid=evaluateHourlyPublication({...input,store:{articles:[
     story("2026-03-02T22:17:50Z")]}});
   assert.equal(valid.passed,true);
@@ -153,13 +164,14 @@ test("normalized impossible February dates cannot fabricate a March publication"
 test("future articles in the target hour must not masquerade as already committed",()=>{
   const claimed={articles:[story("2026-10-24T08:59:00Z")]};
   const invalid={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
-    scheduledHourUtc:"2026-10-24T08:00:00Z",now:new Date("2026-10-24T08:25:00Z")};
+    scheduledHourUtc:"2026-10-24T08:00:00Z",now:new Date("2026-10-24T08:25:00Z"),
+    publicationExpected:true};
   const cloud=evaluateHourlyPublication({...invalid,store:claimed});
   assert.equal(cloud.passed,false);
   assert.equal(cloud.committedStoryCount,0);
-  assert.equal(cloud.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+  assert.equal(cloud.code,"PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY");
   const backup=evaluateHourlyPublication({eventName:"schedule",
-    now:new Date("2026-10-24T08:48:00Z"),store:claimed});
+    now:new Date("2026-10-24T08:48:00Z"),publicationExpected:true,store:claimed});
   assert.equal(backup.hourUtc,"2026-10-24T08:00:00Z");
   assert.equal(backup.passed,false);
   const after=evaluateHourlyPublication({...invalid,
@@ -190,12 +202,12 @@ test("off-hour stories and malformed timestamps cannot inflate the current-hour 
 test("late GitHub native backup cannot count the next hour as a successful previous-hour publish",()=>{
   // Real incident: schedule declared at :47, run began 07:35:41Z;
   // old implementation accepted a 07:17Z story and hid a missed 06Z hour.
-  const delayed={eventName:"schedule",now:new Date("2026-10-24T07:35:57Z")};
+  const delayed={eventName:"schedule",now:new Date("2026-10-24T07:35:57Z"),publicationExpected:true};
   const nextHourOnly={articles:[story("2026-10-24T07:17:48.716Z")]};
   const missed=evaluateHourlyPublication({...delayed,store:nextHourOnly});
   assert.equal(missed.hourUtc,"2026-10-24T06:00:00Z");
   assert.equal(missed.passed,false);
-  assert.equal(missed.code,"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY");
+  assert.equal(missed.code,"PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY");
   const actualPrevious={articles:[story("2026-10-24T06:17:48.716Z")]};
   assert.equal(evaluateHourlyPublication({...delayed,store:actualPrevious}).passed,true);
 });
@@ -221,7 +233,8 @@ test("backup cron respects a published article and cannot create a second one",(
 test("previous-hour, future-hour, and forged dates never satisfy current-hour KPI",()=>{
   for(const date of ["2026-10-23T21:17:50.063Z","2026-10-23T23:17:50.063Z",
     "2026-02-30T22:17:50.063Z","bad-2026-10-23T22:17:50.063Z"]){
-    assert.equal(evaluateHourlyPublication({...cloudflare,store:{articles:[story(date)]}}).passed,false);
+    assert.equal(evaluateHourlyPublication({...cloudflare,publicationExpected:true,
+      store:{articles:[story(date)]}}).passed,false);
   }
 });
 
@@ -244,8 +257,10 @@ test("manual dispatch and pull requests cannot create scheduled publication fail
   }
 });
 
-test("absent article data cannot be reported as a published article",()=>{
-  assert.equal(evaluateHourlyPublication({...github,store:{articles:null}}).passed,false);
+test("absent article data cannot satisfy a claimed publication",()=>{
+  const result=evaluateHourlyPublication({...github,publicationExpected:true,store:{articles:null}});
+  assert.equal(result.passed,false);
+  assert.equal(result.code,"PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY");
 });
 
 test("CLI exits nonzero when two articles were recorded in one scheduled hour",async()=>{
@@ -263,18 +278,22 @@ test("CLI exits nonzero when two articles were recorded in one scheduled hour",a
   }finally{await rm(root,{recursive:true,force:true});}
 });
 
-test("CLI reports a missed scheduled hour as a failing job without API calls",async()=>{
+test("CLI accepts a quality-first NOOP but fails a false publication receipt",async()=>{
   const root=await mkdtemp(join(tmpdir(),"news-kpi-test-"));
   const bin=fileURLToPath(new URL("./hourly-publication-kpi.mjs",import.meta.url));
   try{
     await writeFile(join(root,"content.json"),JSON.stringify({articles:[]}));
     const env={...process.env,GITHUB_EVENT_NAME:"workflow_dispatch",
       NEWS_SCHEDULER_ORIGIN:"cloudflare",NEWS_SCHEDULED_HOUR_UTC:"2026-10-23T22:00:00Z"};
-    const failed=spawnSync(process.execPath,[bin],{cwd:root,env,encoding:"utf8"});
-    assert.equal(failed.status,1);
-    assert.match(failed.stderr,/MISSED_HOURLY_TARGET_NO_COMMITTED_STORY/);
+    const noop=spawnSync(process.execPath,[bin],{cwd:root,env,encoding:"utf8"});
+    assert.equal(noop.status,0);
+    assert.match(noop.stdout,/NO_QUALIFIED_STORY_NOOP/);
+    const claimedEnv={...env,NEWS_PUBLICATION_OCCURRED:"true"};
+    const falseReceipt=spawnSync(process.execPath,[bin],{cwd:root,env:claimedEnv,encoding:"utf8"});
+    assert.equal(falseReceipt.status,1);
+    assert.match(falseReceipt.stderr,/PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY/);
     await writeFile(join(root,"content.json"),JSON.stringify({articles:[story()]}));
-    const passed=spawnSync(process.execPath,[bin],{cwd:root,env,encoding:"utf8"});
+    const passed=spawnSync(process.execPath,[bin],{cwd:root,env:claimedEnv,encoding:"utf8"});
     assert.equal(passed.status,0);
     assert.match(passed.stdout,/COMMITTED_STORY_PRESENT/);
     assert.match(passed.stdout,/NOT_VERIFIED_BY_GITHUB_INPUT/);
