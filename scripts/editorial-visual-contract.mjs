@@ -100,7 +100,7 @@ export function extractPublisherVisualDisclosure(html,articleUrl){
     assetUrl:asset.href,mime,declaredWidth:width,declaredHeight:height,
     assetClass:isAIGenerated?"ai-illustration":"publisher-licensed-asset",
     rightsClass:isAIGenerated?"ai-generated-licensed":"publisher-licensed",
-    rightsVerified:true,owner,author,license,rightsEvidenceUrl:article.href,
+    rightsVerified:true,owner,author,license,rightsEvidenceUrl:license,
     originalSource:article.href,attribution:owner,isAIGenerated,
     alt:locale.alt,caption:locale.caption,sourceAlt:alt
   };

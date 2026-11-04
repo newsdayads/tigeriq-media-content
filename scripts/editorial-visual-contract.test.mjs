@@ -48,6 +48,8 @@ test("og:image alone is rejected; explicit license, copyright and AI disclosure 
   assert.equal(candidate.rightsClass,"publisher-licensed");
   assert.equal(candidate.isAIGenerated,false);
   assert.equal(candidate.license,"https://example.com/media-license");
+  assert.equal(candidate.rightsEvidenceUrl,"https://example.com/media-license");
+  assert.notEqual(candidate.rightsEvidenceUrl,"https://example.com/story");
 });
 
 test("explicit AI image disclosure produces mandatory localized AI labels",()=>{
