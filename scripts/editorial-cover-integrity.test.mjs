@@ -37,7 +37,7 @@ test('published stories use their own checked-in legacy SVG or verified raster c
 
 test('cross-story reused cover URL is rejected without provider or network calls', () => {
   const articles=[{slug:'subject-a',cover:{generated:true,url:CANONICAL_COVER+'subject-b.svg'}}];
-  assert.throws(()=>checkGeneratedCovers(articles),/COVER_STALE_REFERENCE subject-a/);
+  assert.throws(()=>checkGeneratedCovers(articles),/COVER_METADATA_INVALID subject-a/);
 });
 
 test('missing checked-in cover cannot pass an editorial-only PR', () => {
