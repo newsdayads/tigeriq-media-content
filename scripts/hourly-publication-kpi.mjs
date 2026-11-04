@@ -3,29 +3,32 @@
 // GitHub workflow_dispatch inputs do NOT attest a native Cloudflare Cron event.
 import {readFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
+import {validateVisualMetadata} from "./editorial-visual-contract.mjs";
 
 const HOUR=/^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])T(?:[01]\d|2[0-3]):00:00Z$/;
 const PUBLISHED_AT=/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/;
 const NATIVE_PROOF="NOT_VERIFIED_BY_GITHUB_INPUT";
-const ORIGINAL_COVER_PREFIX="https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/";
 
 // A timestamp is not a published product. A counted hourly story must carry
-// full, nonempty three-language article bodies and its own canonical SVG cover.
+// full, nonempty three-language article bodies and a valid Visual V2 raster or legacy canonical SVG cover.
 // This local gate cannot attest live HTTP or the Cloudflare trigger.
 export function hasPublicationArtifacts(article){
   const slug=article?.slug;
-  return typeof slug==="string"&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)&&
-    ["vi","en","es"].every(lang=>{
-      const edition=article?.editions?.[lang];
-      return typeof edition?.title==="string"&&edition.title.trim().length>0&&
-        typeof edition?.dek==="string"&&edition.dek.trim().length>0&&
-        Array.isArray(edition.sections)&&edition.sections.length>0&&
-        edition.sections.every(section=>
-          typeof section?.heading==="string"&&section.heading.trim().length>0&&
-          typeof section?.body==="string"&&section.body.trim().length>0);
-    })&&
-    article?.cover?.generated===true&&
-    article.cover.url===ORIGINAL_COVER_PREFIX+slug+".svg";
+  if(typeof slug!=="string"||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))return false;
+  const editions=["vi","en","es"].every(lang=>{
+    const edition=article?.editions?.[lang];
+    return typeof edition?.title==="string"&&edition.title.trim().length>0&&
+      typeof edition?.dek==="string"&&edition.dek.trim().length>0&&
+      Array.isArray(edition.sections)&&edition.sections.length>0&&
+      edition.sections.every(section=>
+        typeof section?.heading==="string"&&section.heading.trim().length>0&&
+        typeof section?.body==="string"&&section.body.trim().length>0);
+  });
+  if(!editions)return false;
+  try{
+    validateVisualMetadata(article?.cover,{slug,allowLegacy:true});
+    return true;
+  }catch{return false;}
 }
 
 function validUtcHour(value){
