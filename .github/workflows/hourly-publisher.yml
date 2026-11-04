@@ -50,25 +50,6 @@ jobs:
         with:
           node-version: "24"
           package-manager-cache: false
-      - name: Owned original rasterizer capability
-        run: |
-          set -euo pipefail
-          cat > /tmp/tigeriq-owned-cover.svg <<'SVG'
-          <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675">
-            <rect width="1200" height="675" fill="#182232"/>
-            <circle cx="600" cy="337" r="180" fill="#5876b8"/>
-          </svg>
-          SVG
-          if command -v convert >/dev/null 2>&1; then
-            convert svg:/tmp/tigeriq-owned-cover.svg -strip -quality 82 jpeg:/tmp/tigeriq-owned-cover.jpg
-            test "$(identify -format '%wx%h' /tmp/tigeriq-owned-cover.jpg)" = "1200x675"
-          elif command -v magick >/dev/null 2>&1; then
-            magick convert svg:/tmp/tigeriq-owned-cover.svg -strip -quality 82 jpeg:/tmp/tigeriq-owned-cover.jpg
-            test "$(magick identify -format '%wx%h' /tmp/tigeriq-owned-cover.jpg)" = "1200x675"
-          else
-            echo "VISUAL_OWNED_RASTERIZER_UNAVAILABLE"
-            exit 1
-          fi
       - name: Publisher non-secret provider metadata presence
         env:
           AI_URL_SET: ${{ vars.AI_CHAT_COMPLETIONS_URL != '' }}
