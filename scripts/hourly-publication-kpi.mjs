@@ -53,7 +53,7 @@ function expectedGithubBackupHour(now){
   return validUtcHour(due.toISOString().slice(0,13)+":00:00Z");
 }
 
-export function evaluateHourlyPublication({eventName,schedulerOrigin,scheduledHourUtc,now=new Date(),store}={}){
+export function evaluateHourlyPublication({eventName,schedulerOrigin,scheduledHourUtc,now=new Date(),store,publicationExpected=false}={}){
   const enforced=eventName==="schedule"||
     (eventName==="workflow_dispatch"&&schedulerOrigin==="cloudflare");
   if(!enforced)return {enforced:false,passed:null,code:"NOT_SCHEDULED",
@@ -81,11 +81,13 @@ export function evaluateHourlyPublication({eventName,schedulerOrigin,scheduledHo
   }):[];
   const committedStoryCount=inHour.length;
   const artifactComplete=committedStoryCount===1&&hasPublicationArtifacts(inHour[0]);
-  const passed=committedStoryCount===1&&artifactComplete;
-  const code=committedStoryCount===0?"MISSED_HOURLY_TARGET_NO_COMMITTED_STORY":
+  const passed=committedStoryCount===0?!publicationExpected:
+    committedStoryCount===1&&artifactComplete;
+  const code=committedStoryCount===0
+    ?(publicationExpected?"PUBLICATION_RECEIPT_WITHOUT_COMMITTED_STORY":"NO_QUALIFIED_STORY_NOOP"):
     committedStoryCount>1?"MULTIPLE_COMMITTED_STORIES_IN_UTC_HOUR":
       artifactComplete?"COMMITTED_STORY_PRESENT":"INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION";
-  return {enforced:true,passed,code,committedStoryCount,
+  return {enforced:true,passed,code,committedStoryCount,publicationExpected:Boolean(publicationExpected),
     hourUtc,cloudflareNativeEvent:NATIVE_PROOF};
 }
 
@@ -95,7 +97,8 @@ export async function runHourlyPublicationKpi({env=process.env,now=new Date(),ro
     (eventName==="workflow_dispatch"&&env.NEWS_SCHEDULER_ORIGIN==="cloudflare");
   const store=scheduled?JSON.parse(await readFile(root+"/content.json","utf8")):null;
   const result=evaluateHourlyPublication({eventName,schedulerOrigin:env.NEWS_SCHEDULER_ORIGIN,
-    scheduledHourUtc:env.NEWS_SCHEDULED_HOUR_UTC,now,store});
+    scheduledHourUtc:env.NEWS_SCHEDULED_HOUR_UTC,now,store,
+    publicationExpected:env.NEWS_PUBLICATION_OCCURRED==="true"});
   console.log("TIGERIQ_HOURLY_PUBLICATION_KPI "+JSON.stringify(result));
   if(result.enforced&&!result.passed){
     console.error("::error title=TigerIQ News hourly KPI::"+result.code);
