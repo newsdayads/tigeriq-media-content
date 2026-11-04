@@ -115,16 +115,16 @@ test("new visual metadata rejects SVG, unknown rights, undersized/non-16:9 and m
 });
 
 
-test("owned original fallback rasterizes procedural art without inheriting publisher image rights",()=>{
+test("owned original fallback uses repository-owned raster without inheriting publisher image rights",async()=>{
   const raw=jpeg1200x675();
-  const spawnSyncImpl=()=>({status:0,stdout:Buffer.from(raw)});
-  const first=buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"></svg>",{
+  const readFileImpl=async()=>Buffer.from(raw).toString("base64");
+  const first=await buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>",{
     title:"AI infrastructure hardware for a verified source",
-    sourceUrl:"https://example.com/story-one",sourceKey:"story-one",spawnSyncImpl
+    sourceUrl:"https://example.com/story-one",sourceKey:"story-one",readFileImpl
   });
-  const second=buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"></svg>",{
+  const second=await buildOwnedOriginalRasterAsset("<svg width=\"1200\" height=\"675\"><rect width=\"1200\" height=\"675\"/></svg>",{
     title:"AI infrastructure hardware for a verified source",
-    sourceUrl:"https://example.com/story-two",sourceKey:"story-two",spawnSyncImpl
+    sourceUrl:"https://example.com/story-two",sourceKey:"story-two",readFileImpl
   });
   assert.equal(first.candidate.rightsClass,"owned-original");
   assert.equal(first.candidate.assetClass,"owned-illustration");
