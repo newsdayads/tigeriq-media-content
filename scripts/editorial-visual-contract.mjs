@@ -100,7 +100,7 @@ export function extractPublisherVisualDisclosure(html,articleUrl){
     assetUrl:asset.href,mime,declaredWidth:width,declaredHeight:height,
     assetClass:isAIGenerated?"ai-illustration":"publisher-licensed-asset",
     rightsClass:isAIGenerated?"ai-generated-licensed":"publisher-licensed",
-    rightsVerified:true,owner,author,license,rightsEvidenceUrl:article.href,
+    rightsVerified:true,owner,author,license,rightsEvidenceUrl:license,
     originalSource:article.href,attribution:owner,isAIGenerated,
     alt:locale.alt,caption:locale.caption,sourceAlt:alt
   };
@@ -212,28 +212,75 @@ export function verifyRasterBytes(input,cover){
   return {sha256:digest,...dimensions,bytes:bytes.byteLength};
 }
 
-async function readBoundedBinary(response,maxBytes=VISUAL_MAX_BYTES){
-  const declared=response.headers?.get?.("content-length");
-  if(typeof declared==="string"&&/^\d+$/.test(declared.trim())&&Number(declared)>maxBytes)
-    throw Error("VISUAL_RESPONSE_TOO_LARGE");
-  if(typeof response.arrayBuffer!=="function")throw Error("VISUAL_BINARY_BODY_REQUIRED");
-  const buffer=await response.arrayBuffer();
-  if(buffer.byteLength>maxBytes)throw Error("VISUAL_RESPONSE_TOO_LARGE");
-  return new Uint8Array(buffer);
+export function validateVisualCandidate(candidate){
+  if(!candidate||candidate.rightsVerified!==true)throw Error("VISUAL_RIGHTS_UNVERIFIED");
+  if(!["image/jpeg","image/webp"].includes(candidate.mime))throw Error("VISUAL_MIME_UNSUPPORTED");
+  const rule=VISUAL_RIGHTS_MATRIX[candidate.rightsClass];
+  if(!rule?.allowed||!rule.classes.includes(candidate.assetClass))
+    throw Error("VISUAL_RIGHTS_CLASS_FORBIDDEN");
+  if(typeof candidate.isAIGenerated!=="boolean"||candidate.isAIGenerated!==rule.ai)
+    throw Error("VISUAL_AI_DISCLOSURE_INVALID");
+  for(const key of ["owner","author","license","attribution"]){
+    if(typeof candidate[key]!=="string"||candidate[key].trim().length<2)
+      throw Error("VISUAL_"+key.toUpperCase()+"_MISSING");
+  }
+  const asset=httpsUrl(candidate.assetUrl);
+  if(!asset)throw Error("VISUAL_ASSET_URL_INVALID");
+  if(!httpsUrl(candidate.originalSource))throw Error("VISUAL_ORIGINALSOURCE_INVALID");
+  if(!httpsUrl(candidate.rightsEvidenceUrl))throw Error("VISUAL_RIGHTSEVIDENCEURL_INVALID");
+  if(!Number.isInteger(candidate.declaredWidth)||!Number.isInteger(candidate.declaredHeight)||
+    candidate.declaredWidth<1200||candidate.declaredHeight<675||
+    Math.abs(candidate.declaredWidth/candidate.declaredHeight-16/9)>0.035)
+    throw Error("VISUAL_DIMENSIONS_INVALID");
+  if(!validLocaleMap(candidate.alt)||!validLocaleMap(candidate.caption))
+    throw Error("VISUAL_LOCALE_METADATA_INVALID");
+  if(candidate.isAIGenerated&&LOCALES.some(lang=>!candidate.caption[lang].startsWith(AI_LABELS[lang])))
+    throw Error("VISUAL_AI_LABEL_MISSING");
+  return {candidate,asset};
+}
+
+export async function readBoundedRasterBody(response,maxBytes=VISUAL_MAX_BYTES){
+  if(!Number.isInteger(maxBytes)||maxBytes<1||maxBytes>VISUAL_MAX_BYTES)
+    throw Error("VISUAL_MAX_BYTES_INVALID");
+  const declared=response?.headers?.get?.("content-length");
+  if(typeof declared==="string"&&declared.trim()!==""){
+    if(!/^\d+$/.test(declared.trim()))throw Error("VISUAL_CONTENT_LENGTH_INVALID");
+    if(Number(declared)>maxBytes)throw Error("VISUAL_RESPONSE_TOO_LARGE");
+  }
+  const reader=response?.body?.getReader?.();
+  if(!reader)throw Error("VISUAL_STREAM_BODY_REQUIRED");
+  const chunks=[];
+  let total=0;
+  try{
+    for(;;){
+      const {done,value}=await reader.read();
+      if(done)break;
+      const chunk=value instanceof Uint8Array?value:new Uint8Array(value||0);
+      total+=chunk.byteLength;
+      if(total>maxBytes){
+        await reader.cancel?.("VISUAL_RESPONSE_TOO_LARGE").catch?.(()=>{});
+        throw Error("VISUAL_RESPONSE_TOO_LARGE");
+      }
+      chunks.push(chunk);
+    }
+  }finally{
+    try{reader.releaseLock?.();}catch{}
+  }
+  const out=new Uint8Array(total);
+  let offset=0;
+  for(const chunk of chunks){out.set(chunk,offset);offset+=chunk.byteLength;}
+  return out;
 }
 
 export async function fetchVerifiedRasterAsset(candidate,{fetchImpl=fetch,priorArticles=[]}={}){
-  if(!candidate||candidate.rightsVerified!==true)throw Error("VISUAL_RIGHTS_UNVERIFIED");
-  const asset=httpsUrl(candidate.assetUrl);
-  if(!asset)throw Error("VISUAL_ASSET_URL_INVALID");
-  if(!["image/jpeg","image/webp"].includes(candidate.mime))throw Error("VISUAL_MIME_UNSUPPORTED");
+  const {asset}=validateVisualCandidate(candidate);
   const response=await fetchImpl(asset.href,{redirect:"error",
     headers:{"user-agent":"TigerIQ-News/2.0","accept":"image/jpeg,image/webp"},
     signal:AbortSignal.timeout(15000)});
   if(response.status!==200)throw Error("VISUAL_HTTP_"+response.status);
   const mediaType=String(response.headers?.get?.("content-type")||"").split(";")[0].trim().toLowerCase();
   if(mediaType!==candidate.mime)throw Error("VISUAL_CONTENT_TYPE_MISMATCH");
-  const bytes=await readBoundedBinary(response);
+  const bytes=await readBoundedRasterBody(response);
   const dimensions=rasterDimensions(bytes,mediaType);
   if(!dimensions)throw Error("VISUAL_RASTER_INVALID");
   if(dimensions.width!==candidate.declaredWidth||dimensions.height!==candidate.declaredHeight)
