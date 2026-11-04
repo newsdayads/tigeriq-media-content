@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 
 const slug = 'example-ai-story';
 const cover = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/example-ai-story.svg';
-const article = { slug, cover: { url: cover }, editions: {
+const article = { slug, cover: { url: cover, generated: true }, editions: {
   vi: { title: 'Tin AI mới' }, en: { title: 'New AI story' }, es: { title: 'Nueva historia IA' }
 } };
 const htmlByLang = Object.fromEntries(Object.entries(article.editions).map(([lang, data]) =>
