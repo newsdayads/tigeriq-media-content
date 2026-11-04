@@ -3033,7 +3033,7 @@ test("Visual V2 keeps unlicensed publisher image rejected and uses owned origina
   const raw=new Uint8Array(300);
   raw.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
   const ownedRasterizer=(svg,options)=>buildOwnedOriginalRasterAsset(svg,{
-    ...options,spawnSyncImpl:()=>({status:0,stdout:Buffer.from(raw)})
+    ...options,readFileImpl:async()=>Buffer.from(raw).toString("base64")
   });
   let modelCalls=0;
   const fetchImpl=async(url,options)=>{
