@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
+import {validateVisualMetadata,verifyRasterBytes} from './editorial-visual-contract.mjs';
 
 const LIVE_ORIGIN = 'https://tigeriq-media.vercel.app';
 const COVER_PREFIX = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/';
@@ -58,17 +59,15 @@ function checkInput(article) {
   if (!article || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug || '')) {
     throw new Error('LIVE_VERIFY_INVALID_SLUG');
   }
-  const cover = article.cover?.url;
-  if (typeof cover !== 'string' || !cover.startsWith(COVER_PREFIX) ||
-      !cover.endsWith(`/${article.slug}.svg`) || cover.includes('?')) {
-    throw new Error('LIVE_VERIFY_UNTRUSTED_COVER');
-  }
+  let visual;
+  try{visual=validateVisualMetadata(article.cover,{slug:article.slug,allowLegacy:true});}
+  catch{throw new Error('LIVE_VERIFY_UNTRUSTED_COVER');}
   for (const lang of LANGUAGES) {
     if (typeof article.editions?.[lang]?.title !== 'string' || !article.editions[lang].title.trim()) {
       throw new Error(`LIVE_VERIFY_MISSING_EDITION_${lang}`);
     }
   }
-  return cover;
+  return {cover:article.cover.url,visual};
 }
 
 async function checkedGet(url, fetcher) {
@@ -81,7 +80,7 @@ export async function verifyPublishedArticle(article, {
   fetcher = fetch, retries = MAX_LIVE_VERIFY_ATTEMPTS, delayMs = 5000,
   pauseImpl = pause, nowImpl = Date.now
 } = {}) {
-  const cover = checkInput(article);
+  const {cover,visual} = checkInput(article);
   if (!Number.isInteger(retries) || retries < 1 || retries > MAX_LIVE_VERIFY_ATTEMPTS ||
       !Number.isFinite(delayMs) || delayMs < 0 || delayMs > 15_000) {
     throw new Error('LIVE_VERIFY_RETRY_LIMIT');
@@ -109,13 +108,25 @@ export async function verifyPublishedArticle(article, {
     }
     if (error) throw new Error(`LIVE_VERIFY_${lang}_FAILED: ${error.message}`);
   }
-  const image = await checkedGet(cover, fetcher);
-  if (!/^\s*<svg\b[\s\S]*<\/svg>\s*$/.test(image)) throw new Error('LIVE_VERIFY_COVER_INVALID_SVG');
-  const imageTitle = image.match(/^\s*<svg\b[^>]*><title id="title">([^<]*)<\/title>/)?.[1];
-  if (imageTitle !== expectedCoverTitle(article.editions.en.title)) {
-    throw new Error('LIVE_VERIFY_COVER_TITLE_MISMATCH');
+  if(visual.legacy){
+    const image = await checkedGet(cover, fetcher);
+    if (!/^\s*<svg\b[\s\S]*<\/svg>\s*$/.test(image)) throw new Error('LIVE_VERIFY_COVER_INVALID_SVG');
+    const imageTitle = image.match(/^\s*<svg\b[^>]*><title id="title">([^<]*)<\/title>/)?.[1];
+    if (imageTitle !== expectedCoverTitle(article.editions.en.title)) {
+      throw new Error('LIVE_VERIFY_COVER_TITLE_MISMATCH');
+    }
+  }else{
+    const response=await fetcher(cover,{redirect:'error',signal:AbortSignal.timeout(12000)});
+    if(response.status!==200)throw new Error(`LIVE_VERIFY_HTTP_${response.status}`);
+    const mediaType=String(response.headers?.get?.('content-type')||'').split(';')[0].trim().toLowerCase();
+    if(mediaType!==article.cover.mime||typeof response.arrayBuffer!=='function')
+      throw new Error('LIVE_VERIFY_COVER_CONTENT_TYPE');
+    const bytes=new Uint8Array(await response.arrayBuffer());
+    try{verifyRasterBytes(bytes,article.cover);}
+    catch{throw new Error('LIVE_VERIFY_COVER_RASTER_MISMATCH');}
   }
-  return { slug: article.slug, editions: output, cover, coverStatus: 200 };
+  return { slug: article.slug, editions: output, cover, coverStatus: 200,
+    visualVersion:visual.legacy?1:2 };
 }
 
 async function main() {

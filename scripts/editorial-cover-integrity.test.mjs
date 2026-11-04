@@ -1,31 +1,35 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {validateVisualMetadata,verifyRasterBytes,visualExtension} from './editorial-visual-contract.mjs';
 
 const CANONICAL_COVER='https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/';
 
-function checkGeneratedCovers(articles, readAsset=slug=>
-  readFileSync(new URL('../covers/'+slug+'.svg', import.meta.url),'utf8')) {
+function checkGeneratedCovers(articles, readAsset=(slug,extension,binary)=>
+  readFileSync(new URL('../covers/'+slug+'.'+extension, import.meta.url),binary?undefined:'utf8')) {
   let checked=0;
   for (const article of articles) {
-    const cover=article?.cover;
-    // External licensed raster covers have a different lifecycle. Validate
-    // locally generated SVGs against the actual checked-out Git tree.
-    if (cover?.generated!==true || typeof cover.url!=='string' || !cover.url.endsWith('.svg')) continue;
-    const slug=article.slug;
-    if (typeof slug!=='string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ||
-        cover.url!==CANONICAL_COVER+slug+'.svg')
-      throw Error('COVER_STALE_REFERENCE '+String(slug));
-    let body;
-    try { body=readAsset(slug); } catch { throw Error('COVER_ASSET_MISSING '+slug); }
-    if (typeof body!=='string' || !body.includes('<svg'))
-      throw Error('COVER_ASSET_INVALID '+slug);
+    const slug=article?.slug,cover=article?.cover;
+    let visual;
+    try{visual=validateVisualMetadata(cover,{slug,allowLegacy:true});}
+    catch{throw Error('COVER_METADATA_INVALID '+String(slug));}
+    if(visual.legacy){
+      let body;
+      try { body=readAsset(slug,'svg',false); } catch { throw Error('COVER_ASSET_MISSING '+slug); }
+      if (typeof body!=='string' || !body.includes('<svg'))
+        throw Error('COVER_ASSET_INVALID '+slug);
+    }else{
+      const extension=visualExtension(cover.mime);
+      let body;
+      try { body=readAsset(slug,extension,true); } catch { throw Error('COVER_ASSET_MISSING '+slug); }
+      try{verifyRasterBytes(body,cover);}catch{throw Error('COVER_ASSET_INVALID '+slug);}
+    }
     checked++;
   }
   return checked;
 }
 
-test('published stories use their own checked-in original SVG cover', () => {
+test('published stories use their own checked-in legacy SVG or verified raster cover', () => {
   const data=JSON.parse(readFileSync(new URL('../content.json',import.meta.url),'utf8'));
   assert.ok(Array.isArray(data.articles) && data.articles.length>0);
   assert.ok(checkGeneratedCovers(data.articles)>0);
@@ -33,7 +37,7 @@ test('published stories use their own checked-in original SVG cover', () => {
 
 test('cross-story reused cover URL is rejected without provider or network calls', () => {
   const articles=[{slug:'subject-a',cover:{generated:true,url:CANONICAL_COVER+'subject-b.svg'}}];
-  assert.throws(()=>checkGeneratedCovers(articles),/COVER_STALE_REFERENCE subject-a/);
+  assert.throws(()=>checkGeneratedCovers(articles),/COVER_METADATA_INVALID subject-a/);
 });
 
 test('missing checked-in cover cannot pass an editorial-only PR', () => {

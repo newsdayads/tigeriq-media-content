@@ -48,7 +48,7 @@ const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceId
  claimSourceEvidence:[{index:0,sourceIds:["openai-1","google-1"],excerpts:excerpts(["openai-1","google-1"])},
                       {index:1,sourceIds:["google-1","openai-1"],excerpts:excerpts(["google-1","openai-1"])}]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
- WRITER_MODEL:"writer-model",REVIEWER_MODEL:"reviewer-model"};
+ WRITER_MODEL:"writer-model",REVIEWER_MODEL:"reviewer-model",NEWS_VISUAL_V2_REQUIRED:"false"};
 function rssResponse(xml,url){ const response=new Response(xml,{status:200}); Object.defineProperty(response,"url",{value:url}); return response; }
 function mockFetch({replyDraft=draft,replyReview=review,nonJson=false,modelPrompts=null}={}){
  let call=0;
@@ -2981,3 +2981,64 @@ test("AI ranking keeps freshness as tie-break when relevance scores are equal",(
   assert.deepEqual(officialAiFetchCandidates(items,[]).map(item=>item.id),["a","b"]);
 });
 
+
+
+test("Visual V2 stages a licensed raster atomically instead of generating a new SVG",()=>tmp(async root=>{
+  const d=officialAnnouncement(),r=announcementReview();
+  const bytes=new Uint8Array(300);
+  bytes.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
+  const assetUrl="https://media.example.com/official-cover.jpg";
+  const html='<html><head>'+
+    '<meta property="og:image" content="'+assetUrl+'">'+
+    '<meta property="og:image:type" content="image/jpeg">'+
+    '<meta property="og:image:width" content="1200">'+
+    '<meta property="og:image:height" content="675">'+
+    '<meta property="og:image:alt" content="AI infrastructure hardware shown in the official announcement">'+
+    '<meta name="copyright" content="OpenAI">'+
+    '<meta name="author" content="OpenAI Visual Desk">'+
+    '<meta name="ai-generated" content="false">'+
+    '<link rel="license" href="https://openai.com/policies/media-license">'+
+    '</head><body><article><h1>'+officialTitle+'</h1><p>'+officialExcerpt.repeat(8)+'</p></article></body></html>';
+  let modelCalls=0;
+  const fetchImpl=async(url,options)=>{
+    if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+    if(url===data[0].url)return new Response(html,{status:200,headers:{"content-type":"text/html"}});
+    if(url===assetUrl)return new Response(bytes,{status:200,headers:{"content-type":"image/jpeg","content-length":String(bytes.length)}});
+    if(url===env.AI_CHAT_COMPLETIONS_URL){
+      const payload=modelCalls++===0?d:r;
+      return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify(payload)}}]}),
+        {status:200,headers:{"content-type":"application/json"}});
+    }
+    throw Error("UNEXPECTED_VISUAL_V2_URL "+url);
+  };
+  const result=await publish({root,fetchImpl,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement",NEWS_VISUAL_V2_REQUIRED:"true"},
+    now,feeds:[feeds[0]]});
+  assert.equal(result.status,"staged");
+  const stored=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+  assert.equal(stored.cover.visualVersion,2);
+  assert.equal(stored.cover.mime,"image/jpeg");
+  assert.equal(stored.cover.rightsVerified,true);
+  assert.equal(stored.cover.isAIGenerated,false);
+  assert.deepEqual(new Uint8Array(await fs.readFile(join(root,"covers",stored.slug+".jpg"))),bytes);
+  await assert.rejects(fs.access(join(root,"covers",stored.slug+".svg")));
+}));
+
+test("Visual V2 rejects og:image without rights disclosure before any metered model call",()=>tmp(async root=>{
+  const assetUrl="https://media.example.com/unlicensed.jpg";
+  const html='<html><head><meta property="og:image" content="'+assetUrl+'">'+
+    '<meta property="og:image:type" content="image/jpeg"></head><body><article><p>'+
+    officialExcerpt.repeat(8)+'</p></article></body></html>';
+  let modelCalls=0;
+  const fetchImpl=async(url)=>{
+    if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
+    if(url===data[0].url)return new Response(html,{status:200,headers:{"content-type":"text/html"}});
+    if(url===env.AI_CHAT_COMPLETIONS_URL){modelCalls++;throw Error("MODEL_MUST_NOT_RUN");}
+    throw Error("UNEXPECTED_URL "+url);
+  };
+  const result=await publish({root,fetchImpl,
+    env:{...env,NEWS_REPORTING_MODE:"official-announcement",NEWS_VISUAL_V2_REQUIRED:"true"},
+    now,feeds:[feeds[0]]});
+  assert.deepEqual(result,{status:"noop"});
+  assert.equal(modelCalls,0);
+}));

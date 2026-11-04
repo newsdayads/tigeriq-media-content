@@ -6,6 +6,7 @@ import {join} from "node:path";
 import {spawnSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
 import {evaluateHourlyPublication} from "./hourly-publication-kpi.mjs";
+import {createHash} from "node:crypto";
 
 const at=new Date("2026-10-23T22:20:00.000Z");
 const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({
@@ -25,6 +26,25 @@ const story=(publishedAt="2026-10-23T22:17:50.063Z")=>({
 const github={eventName:"schedule",now:new Date("2026-10-23T22:47:00.000Z")};
 const cloudflare={eventName:"workflow_dispatch",schedulerOrigin:"cloudflare",
   scheduledHourUtc:"2026-10-23T22:00:00Z",now:at};
+
+function rasterStory(publishedAt="2026-10-23T22:17:50.063Z"){
+  const bytes=new Uint8Array(300);
+  bytes.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
+  return {...story(publishedAt),cover:{
+    visualVersion:2,
+    url:"https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/verified-story.jpg",
+    mime:"image/jpeg",width:1200,height:675,bytes:bytes.length,
+    sha256:createHash("sha256").update(bytes).digest("hex"),
+    generated:false,assetClass:"publisher-licensed-asset",rightsClass:"publisher-licensed",
+    rightsVerified:true,owner:"Example Publisher",author:"Visual Desk",license:"Publisher license",
+    originalSource:"https://example.com/story",sourceAssetUrl:"https://example.com/story.jpg",
+    rightsEvidenceUrl:"https://example.com/license",attribution:"Example Publisher",
+    isAIGenerated:false,
+    alt:{vi:"Ảnh trung tâm dữ liệu",en:"Data center image",es:"Imagen del centro de datos"},
+    caption:{vi:"Ảnh do Example Publisher cung cấp.",en:"Image provided by Example Publisher.",
+      es:"Imagen proporcionada por Example Publisher."}
+  }};
+}
 
 test("genuine scheduled hour with no new article fails even if Actions would otherwise be green",()=>{
   for(const attempt of [github,cloudflare]){
@@ -259,4 +279,24 @@ test("CLI reports a missed scheduled hour as a failing job without API calls",as
     assert.match(passed.stdout,/COMMITTED_STORY_PRESENT/);
     assert.match(passed.stdout,/NOT_VERIFIED_BY_GITHUB_INPUT/);
   }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test("verified Visual V2 JPEG/WebP metadata counts as a complete publication while legacy SVG remains readable",()=>{
+  for(const route of [github,cloudflare]){
+    const raster=evaluateHourlyPublication({...route,store:{articles:[rasterStory()]}});
+    assert.equal(raster.passed,true);
+    assert.equal(raster.code,"COMMITTED_STORY_PRESENT");
+    const legacy=evaluateHourlyPublication({...route,store:{articles:[story()]}});
+    assert.equal(legacy.passed,true);
+  }
+});
+
+test("Visual V2 article with unknown rights cannot satisfy publication artifacts",()=>{
+  const bad=rasterStory();
+  bad.cover.rightsClass="unknown";
+  for(const route of [github,cloudflare]){
+    const result=evaluateHourlyPublication({...route,store:{articles:[bad]}});
+    assert.equal(result.passed,false);
+    assert.equal(result.code,"INCOMPLETE_TRILINGUAL_OR_COVER_PUBLICATION");
+  }
 });

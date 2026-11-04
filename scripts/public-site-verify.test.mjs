@@ -2,10 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { verifyPublishedArticle } from './public-site-verify.mjs';
 import { coverSvg } from './hourly-publish.mjs';
+import { createHash } from 'node:crypto';
 
 const slug = 'example-ai-story';
 const cover = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/example-ai-story.svg';
-const article = { slug, cover: { url: cover }, editions: {
+const article = { slug, cover: { url: cover, generated: true }, editions: {
   vi: { title: 'Tin AI mới' }, en: { title: 'New AI story' }, es: { title: 'Nueva historia IA' }
 } };
 const htmlByLang = Object.fromEntries(Object.entries(article.editions).map(([lang, data]) =>
@@ -210,4 +211,40 @@ test('duplicate H1 headings are ambiguous even when both match the expected arti
   await assert.rejects(verifyPublishedArticle(article, {
     fetcher: fakeFetch({ mutate }), retries: 1
   }), /LIVE_VERIFY_vi_FAILED: LIVE_VERIFY_STALE_OR_MISSING_CONTENT/);
+});
+
+function rasterBytes(){
+  const bytes=new Uint8Array(300);
+  bytes.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
+  return bytes;
+}
+test('Visual V2 live verification checks raster MIME, hash and pixel dimensions', async () => {
+  const bytes=rasterBytes();
+  const rasterCover='https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/example-ai-story.jpg';
+  const rasterArticle={...article,cover:{
+    visualVersion:2,url:rasterCover,mime:'image/jpeg',width:1200,height:675,bytes:bytes.length,
+    sha256:createHash('sha256').update(bytes).digest('hex'),generated:false,
+    assetClass:'publisher-licensed-asset',rightsClass:'publisher-licensed',rightsVerified:true,
+    owner:'Example Publisher',author:'Visual Desk',license:'Publisher license',
+    originalSource:'https://example.com/story',sourceAssetUrl:'https://example.com/story.jpg',
+    rightsEvidenceUrl:'https://example.com/license',attribution:'Example Publisher',isAIGenerated:false,
+    alt:{vi:'Ảnh trung tâm dữ liệu',en:'Data center image',es:'Imagen del centro de datos'},
+    caption:{vi:'Ảnh do Example Publisher cung cấp.',en:'Image provided by Example Publisher.',
+      es:'Imagen proporcionada por Example Publisher.'}
+  }};
+  const fetcher=async url=>{
+    if(url===rasterCover)return {status:200,headers:{get:k=>k==='content-type'?'image/jpeg':null},
+      arrayBuffer:async()=>bytes.buffer};
+    const lang=new URL(url).pathname.split('/')[1];
+    return {status:200,text:async()=>'<html lang="'+lang+'"><main><h1>'+
+      rasterArticle.editions[lang].title+'</h1><img src="'+rasterCover+'"></main></html>'};
+  };
+  const result=await verifyPublishedArticle(rasterArticle,{fetcher,retries:1});
+  assert.equal(result.visualVersion,2);
+  const corrupted=bytes.slice();corrupted[corrupted.length-1]^=1;
+  const badFetcher=async url=>url===rasterCover
+    ?{status:200,headers:{get:k=>k==='content-type'?'image/jpeg':null},arrayBuffer:async()=>corrupted.buffer}
+    :fetcher(url);
+  await assert.rejects(verifyPublishedArticle(rasterArticle,{fetcher:badFetcher,retries:1}),
+    /LIVE_VERIFY_COVER_RASTER_MISMATCH/);
 });
