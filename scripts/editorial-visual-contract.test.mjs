@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {createHash} from "node:crypto";
 import {
   VISUAL_COVER_PREFIX,VISUAL_RIGHTS_MATRIX,extractPublisherVisualDisclosure,
-  rasterDimensions,validateVisualMetadata,verifyRasterBytes,fetchVerifiedRasterAsset
+  rasterDimensions,validateVisualMetadata,verifyRasterBytes,fetchVerifiedRasterAsset,buildRasterCover
 } from "./editorial-visual-contract.mjs";
 
 function jpeg1200x675(){
@@ -82,13 +82,14 @@ test("fetch gate rejects unverified rights and duplicate raster hashes before pu
   const bytes=jpeg1200x675();
   const candidate=extractPublisherVisualDisclosure(disclosureHtml(),"https://example.com/story");
   const fetchImpl=async()=>new Response(bytes,{status:200,headers:{"content-type":"image/jpeg","content-length":String(bytes.length)}});
-  const first=await fetchVerifiedRasterAsset(candidate,{fetchImpl,slug:"story",priorArticles:[]});
-  assert.equal(first.cover.url,VISUAL_COVER_PREFIX+"story.jpg");
-  assert.equal(first.cover.generated,false);
+  const first=await fetchVerifiedRasterAsset(candidate,{fetchImpl,priorArticles:[]});
+  const cover=buildRasterCover(first,{slug:"story",verifiedAt:"2026-11-04T00:00:00.000Z"});
+  assert.equal(cover.url,VISUAL_COVER_PREFIX+"story.jpg");
+  assert.equal(cover.generated,false);
   await assert.rejects(fetchVerifiedRasterAsset({...candidate,rightsVerified:false},
-    {fetchImpl,slug:"other",priorArticles:[]}),/VISUAL_RIGHTS_UNVERIFIED/);
-  await assert.rejects(fetchVerifiedRasterAsset(candidate,{fetchImpl,slug:"other",
-    priorArticles:[{cover:{sha256:first.cover.sha256}}]}),/VISUAL_DUPLICATE_ASSET/);
+    {fetchImpl,priorArticles:[]}),/VISUAL_RIGHTS_UNVERIFIED/);
+  await assert.rejects(fetchVerifiedRasterAsset(candidate,{fetchImpl,
+    priorArticles:[{cover:{sha256:first.sha256}}]}),/VISUAL_DUPLICATE_ASSET/);
 });
 
 test("new visual metadata rejects SVG, unknown rights, undersized/non-16:9 and missing locale metadata",()=>{
