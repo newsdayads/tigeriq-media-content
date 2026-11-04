@@ -108,10 +108,12 @@ jobs:
           git commit -m "publish: verified trilingual AI story and cover"
           git push
           echo "published=true" >> "$GITHUB_OUTPUT"
-      - name: Verify one committed story in each scheduled UTC hour (local read only)
+      - name: Verify committed story only when publication occurred (local read only)
+        if: steps.publication.outputs.published == 'true'
         env:
           NEWS_SCHEDULER_ORIGIN: ${{ inputs.scheduler }}
           NEWS_SCHEDULED_HOUR_UTC: ${{ inputs.scheduled_hour_utc }}
+          NEWS_PUBLICATION_OCCURRED: "true"
         run: node scripts/hourly-publication-kpi.mjs
       - name: Verify live article and original cover without AI provider calls
         if: steps.publication.outputs.published == 'true'
