@@ -7,7 +7,7 @@ import {
 } from "./editorial-visual-contract.mjs";
 
 function jpeg1200x675(){
-  const bytes=new Uint8Array(2+2+2+17+2);
+  const bytes=new Uint8Array(300);
   let i=0;bytes[i++]=0xff;bytes[i++]=0xd8;
   bytes[i++]=0xff;bytes[i++]=0xc0;
   bytes[i++]=0x00;bytes[i++]=0x11;
