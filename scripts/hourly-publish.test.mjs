@@ -32,12 +32,19 @@ const edition=lang=>({title:lang+" official AI technology evaluation findings",d
  takeaways:["First verified evaluation and context","Independent official sources support this summary","Limitations and uncertainty are described"],
  sections:[1,2,3].map(n=>({heading:"Section "+n+" details",body:"Only source supported technology statements are included here, with limitations explicitly acknowledged and no invented facts."}))});
 const draft={slug:"ai-inference-evaluation-2026",category:"Research",readTime:5,
+ editorialVersion:2,storyClass:"Research",
+ angle:"Compare independently corroborated AI evaluation findings and their stated limits.",
+ context:"Two official publishers describe the same technology evaluation with methods and limitations that can be checked against source evidence.",
+ originalValue:"The report connects the corroborated findings to their documented limitations instead of repeating a release headline.",
+ limitations:["The available source packet supports only the stated evaluation scope and does not justify broader performance claims."],
  sourceIds:["openai-1","google-1"],
- claims:[{text:"Both official feeds discuss technology evaluation",sourceIds:["openai-1","google-1"]},
-         {text:"Both official feeds discuss methodology and limitations",sourceIds:["google-1","openai-1"]}],
+ claims:[{kind:"fact",text:"Both official feeds discuss technology evaluation",sourceIds:["openai-1","google-1"]},
+         {kind:"fact",text:"Both official feeds discuss methodology and limitations",sourceIds:["google-1","openai-1"]}],
  editions:{vi:edition("vi"),en:edition("en"),es:edition("es")}};
 const excerpts=(ids)=>ids.map(sourceId=>({sourceId,text:officialExcerpt}));
 const review={pass:true,claimsSupported:true,localesValid:true,supportedSourceIds:["openai-1","google-1"],supportedClaims:[0,1],
+ editorialRubric:{source:20,verification:20,newsworthiness:15,originalValue:10,writing:10,context:10,visual:0,localeSeo:5},
+ editorialScore:90,
  claimSourceEvidence:[{index:0,sourceIds:["openai-1","google-1"],excerpts:excerpts(["openai-1","google-1"])},
                       {index:1,sourceIds:["google-1","openai-1"],excerpts:excerpts(["google-1","openai-1"])}]};
 const env={AI_CHAT_COMPLETIONS_URL:"https://example.org/v1/chat/completions",AI_API_KEY:"FAKE_TEST_TOKEN",
@@ -2227,7 +2234,7 @@ const officialAnnouncement=()=>{
   const d=structuredClone(draft);
   d.reportingMode="official-announcement";
   d.sourceIds=["openai-1"];
-  d.claims=d.claims.map(c=>({...c,sourceIds:["openai-1"]}));
+  d.claims=d.claims.map(c=>({...c,kind:"attributed",sourceIds:["openai-1"]}));
   const labels={vi:"Theo công bố của OpenAI.",en:"According to OpenAI.",es:"Según OpenAI."};
   for(const l of ["vi","en","es"])d.editions[l].dek=labels[l]+" "+d.editions[l].dek;
   return d;
@@ -2235,6 +2242,8 @@ const officialAnnouncement=()=>{
 const announcementReview=()=>({
   pass:true,claimsSupported:true,localesValid:true,attributionValid:true,
   supportedSourceIds:["openai-1"],supportedClaims:[0,1],
+  editorialRubric:{source:20,verification:20,newsworthiness:15,originalValue:10,writing:10,context:10,visual:0,localeSeo:5},
+  editorialScore:90,
   claimSourceEvidence:[0,1].map(index=>({index,sourceIds:["openai-1"],
     excerpts:[{sourceId:"openai-1",text:officialExcerpt}]}))
 });
@@ -2861,16 +2870,23 @@ test("official announcement tries a second distinct AI source after editorial no
   });
   const acceptedDraft={
     reportingMode:"official-announcement",slug:"nvidia-second-ai-candidate",category:"AI",readTime:5,
+    editorialVersion:2,storyClass:"News",
+    angle:"Explain the verified AI robotics deployment update and keep the scope tied to the official evidence.",
+    context:"The official NVIDIA Developer evidence describes AI agent training, robotics simulation and concrete deployment constraints.",
+    originalValue:"The report organizes the source evidence around deployment constraints instead of copying the announcement headline.",
+    limitations:["This attributed report does not independently corroborate NVIDIA Developer claims beyond the supplied official evidence."],
     sourceIds:["nvidiadev-2"],
     claims:[
-      {text:"NVIDIA documents verified AI agent training.",sourceIds:["nvidiadev-2"]},
-      {text:"NVIDIA documents robotics simulation and deployment constraints.",sourceIds:["nvidiadev-2"]}
+      {kind:"attributed",text:"NVIDIA documents verified AI agent training.",sourceIds:["nvidiadev-2"]},
+      {kind:"attributed",text:"NVIDIA documents robotics simulation and deployment constraints.",sourceIds:["nvidiadev-2"]}
     ],
     editions:{vi:nativeEdition("vi"),en:nativeEdition("en"),es:nativeEdition("es")}
   };
   const acceptedReview={
     pass:true,claimsSupported:true,localesValid:true,attributionValid:true,
     supportedSourceIds:["nvidiadev-2"],supportedClaims:[0,1],
+    editorialRubric:{source:20,verification:20,newsworthiness:15,originalValue:10,writing:10,context:10,visual:0,localeSeo:5},
+    editorialScore:90,
     claimSourceEvidence:[0,1].map(index=>({index,sourceIds:["nvidiadev-2"],
       excerpts:[{sourceId:"nvidiadev-2",text:evidence}]}))
   };
