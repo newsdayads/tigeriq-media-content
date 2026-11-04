@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
 import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate,officialAiTechnologyScore,officialAiFetchCandidates} from "./hourly-publish.mjs";
+import {buildOwnedOriginalRasterAsset} from "./editorial-visual-contract.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
 const completeHourlyStory=(slug,publishedAt)=>({
@@ -3023,21 +3024,38 @@ test("Visual V2 stages a licensed raster atomically instead of generating a new 
   await assert.rejects(fs.access(join(root,"covers",stored.slug+".svg")));
 }));
 
-test("Visual V2 rejects og:image without rights disclosure before any metered model call",()=>tmp(async root=>{
+test("Visual V2 keeps unlicensed publisher image rejected and uses owned original raster fallback",()=>tmp(async root=>{
+  const d=officialAnnouncement(),r=announcementReview();
   const assetUrl="https://media.example.com/unlicensed.jpg";
   const html='<html><head><meta property="og:image" content="'+assetUrl+'">'+
     '<meta property="og:image:type" content="image/jpeg"></head><body><article><p>'+
     officialExcerpt.repeat(8)+'</p></article></body></html>';
+  const raw=new Uint8Array(300);
+  raw.set([0xff,0xd8,0xff,0xc0,0x00,0x11,0x08,0x02,0xa3,0x04,0xb0,0x03,0,1,2,3,4,5,6,7,8,0xff,0xd9]);
+  const ownedRasterizer=(svg,options)=>buildOwnedOriginalRasterAsset(svg,{
+    ...options,spawnSyncImpl:()=>({status:0,stdout:Buffer.from(raw)})
+  });
   let modelCalls=0;
-  const fetchImpl=async(url)=>{
+  const fetchImpl=async(url,options)=>{
     if(url===feeds[0].url)return rssResponse(item(data[0].url),url);
     if(url===data[0].url)return new Response(html,{status:200,headers:{"content-type":"text/html"}});
-    if(url===env.AI_CHAT_COMPLETIONS_URL){modelCalls++;throw Error("MODEL_MUST_NOT_RUN");}
+    if(url===env.AI_CHAT_COMPLETIONS_URL){
+      const payload=modelCalls++===0?d:r;
+      return new Response(JSON.stringify({choices:[{message:{content:JSON.stringify(payload)}}]}),
+        {status:200,headers:{"content-type":"application/json"}});
+    }
     throw Error("UNEXPECTED_URL "+url);
   };
-  const result=await publish({root,fetchImpl,
+  const result=await publish({root,fetchImpl,ownedRasterizer,
     env:{...env,NEWS_REPORTING_MODE:"official-announcement",NEWS_VISUAL_V2_REQUIRED:"true"},
     now,feeds:[feeds[0]]});
-  assert.deepEqual(result,{status:"noop"});
-  assert.equal(modelCalls,0);
+  assert.equal(result.status,"staged");
+  assert.equal(modelCalls,2);
+  const stored=JSON.parse(await fs.readFile(join(root,"content.json"),"utf8")).articles[0];
+  assert.equal(stored.cover.rightsClass,"owned-original");
+  assert.equal(stored.cover.assetClass,"owned-illustration");
+  assert.equal(stored.cover.isAIGenerated,false);
+  assert.equal(stored.cover.rightsVerified,true);
+  assert.match(stored.cover.sourceAssetUrl,/\/covers\/.*\.jpg$/);
+  await assert.rejects(fs.access(join(root,"covers",stored.slug+".svg")));
 }));
