@@ -2329,6 +2329,12 @@ test("Official announcement mode safely falls back to substantive official RSS e
   assert.match(modelPrompts[0],/Every factual sentence in claims, dek, takeaways and sections/);
   assert.match(modelPrompts[0],/one contiguous 24 to 500 character span/);
   assert.match(modelPrompts[0],/do not add mechanisms, scale, impact, context, comparisons, limitations or causal language/);
+  assert.match(modelPrompts[0],/editorialVersion:2/);
+  assert.match(modelPrompts[0],/storyClass:"News"/);
+  assert.match(modelPrompts[0],/context:"40-1200 chars"/);
+  assert.match(modelPrompts[0],/originalValue:"30-800 chars"/);
+  assert.match(modelPrompts[0],/limitations:\["20-500 chars"\]/);
+  assert.match(modelPrompts[0],/kind:"attributed"/);
   assert.match(modelPrompts[1],/publisher RSS title \+ description fallback/i);
   assert.match(modelPrompts[1],/Do NOT require the publisher name to be repeated in every later sentence/);
   assert.match(modelPrompts[1],/Use pass:false or claimsSupported:false/);
