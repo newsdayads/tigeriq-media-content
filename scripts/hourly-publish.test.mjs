@@ -797,7 +797,7 @@ test("AI writer and reviewer prompts require two-source claim evidence",()=>tmp(
  const result=await publish({root,fetchImpl:mockFetch({modelPrompts}),env,now,feeds});
  assert.equal(result.status,"staged");
  assert.equal(modelPrompts.length,2);
- assert.match(modelPrompts[0],/claims:\[\{text,sourceIds:\[idA,idB\]\}\]/);
+ assert.match(modelPrompts[0],/claims:\[\{kind:"fact\|attributed\|analysis\|inference",text,sourceIds:\[idA,idB\]\}\]/);
  assert.match(modelPrompts[1],/claimSourceEvidence/);
  assert.match(modelPrompts[1],/For EACH claim index/);
 }));
