@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate,officialAiTechnologyScore,officialAiFetchCandidates} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,editorialReviewRejectionCode,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate,officialAiTechnologyScore,officialAiFetchCandidates} from "./hourly-publish.mjs";
 import {buildOwnedOriginalRasterAsset} from "./editorial-visual-contract.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
@@ -785,13 +785,51 @@ test("publisher deduplicates same official story despite differing UTM tracking 
 }, {articles:[{slug:"an-earlier-slug-for-the-same-news",
  sources:["https://openai.com/news/one?utm_source=old-alert&utm_medium=rss"]}]}));
 
-test("review failure and bad AI envelope preserve content",()=>tmp(async root=>{
+test("review rejection is a quality NOOP while bad AI envelopes remain failures",()=>tmp(async root=>{
  const before=await fs.readFile(join(root,"content.json"),"utf8");
- await assert.rejects(()=>publish({root,fetchImpl:mockFetch({replyReview:{...review,pass:false}}),env,now,feeds}),/REVIEW_REJECTED/);
+ const rejected=await publish({root,fetchImpl:mockFetch({replyReview:{...review,pass:false}}),env,now,feeds});
+ assert.deepEqual(rejected,{status:"noop"});
  await assert.rejects(()=>publish({root,fetchImpl:mockFetch({nonJson:true}),env,now,feeds}),/INVALID_JSON_ENVELOPE/);
  assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
  assert.deepEqual(await fs.readdir(root),["content.json"]);
 }));
+
+test("reviewer schema drift is fail-closed as editorial NOOP without extra provider calls",()=>tmp(async root=>{
+ const before=await fs.readFile(join(root,"content.json"),"utf8");
+ const {editorialRubric,...missingRubric}=review;
+ const invalidKeys={...review,editorialRubric:{...review.editorialRubric,unexpected:1}};
+ for(const [replyReview,expected] of [
+   [missingRubric,"EDITORIAL_RUBRIC_MISSING"],
+   [invalidKeys,"EDITORIAL_RUBRIC_KEYS_INVALID"]
+ ]){
+   const messages=[];
+   let modelCalls=0;
+   const baseFetch=mockFetch({replyReview});
+   const fetchImpl=async(...args)=>{
+     if(args[0]===env.AI_CHAT_COMPLETIONS_URL)modelCalls++;
+     return baseFetch(...args);
+   };
+   const originalLog=console.log;
+   console.log=(...args)=>messages.push(args.join(" "));
+   try{
+     const result=await publish({root,fetchImpl,env,now,feeds});
+     assert.deepEqual(result,{status:"noop"});
+   }finally{console.log=originalLog;}
+   assert.equal(modelCalls,2,"writer + reviewer only; schema drift must not add provider retries");
+   assert.ok(messages.includes("REVIEW_CANDIDATE_REJECTED "+expected));
+   assert.ok(messages.includes("NOOP_REVIEW_REJECTED"));
+   assert.equal(await fs.readFile(join(root,"content.json"),"utf8"),before);
+   assert.deepEqual(await fs.readdir(root),["content.json"]);
+ }
+}));
+
+test("only editorial review gate errors are classified as review NOOP",()=>{
+ assert.equal(editorialReviewRejectionCode(Error("REVIEW_REJECTED")),"REVIEW_REJECTED");
+ assert.equal(editorialReviewRejectionCode(Error("EDITORIAL_RUBRIC_MISSING")),"EDITORIAL_RUBRIC_MISSING");
+ assert.equal(editorialReviewRejectionCode(Error("EDITORIAL_RUBRIC_SCORE_INVALID_source")),"EDITORIAL_RUBRIC_SCORE_INVALID_source");
+ assert.equal(editorialReviewRejectionCode(Error("AI_PROVIDER_HTTP_503")),null);
+ assert.equal(editorialReviewRejectionCode(Error("FEED_QUORUM_UNAVAILABLE")),null);
+});
 test("AI writer and reviewer prompts require two-source claim evidence",()=>tmp(async root=>{
  const modelPrompts=[];
  const result=await publish({root,fetchImpl:mockFetch({modelPrompts}),env,now,feeds});
