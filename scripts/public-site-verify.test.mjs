@@ -19,9 +19,11 @@ function fakeFetch({ mutate = (x) => x, coverBody = coverSvg(article.editions.en
   };
 }
 
-test('checks all three real site paths and the original cover without writing', async () => {
+test('checks all three PC01 production site paths and the original cover without writing', async () => {
   const r = await verifyPublishedArticle(article, { fetcher: fakeFetch(), retries: 1 });
   assert.deepEqual(r.editions.map((x) => x.locale), ['vi','en','es']);
+  assert.ok(r.editions.every((x) => x.url.startsWith('https://news.tigeriq.io.vn/')));
+  assert.ok(r.editions.every((x) => !x.url.includes('vercel.app')));
   assert.equal(r.coverStatus, 200);
   assert.equal(r.slug, slug);
 });

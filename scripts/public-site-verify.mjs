@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import {validateVisualMetadata,verifyRasterBytes} from './editorial-visual-contract.mjs';
 
-const LIVE_ORIGIN = 'https://tigeriq-media.vercel.app';
+const LIVE_ORIGIN = 'https://news.tigeriq.io.vn';
 const COVER_PREFIX = 'https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/';
 const LANGUAGES = ['vi', 'en', 'es'];
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
