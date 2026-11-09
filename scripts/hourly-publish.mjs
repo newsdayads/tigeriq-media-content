@@ -625,6 +625,22 @@ export function verifyEditorialRubric(review){
   return {score,rubric:{...rubric}};
 }
 
+const REVIEW_REJECTION_CODES=new Set([
+  "REVIEW_ATTRIBUTION_UNVERIFIED","REVIEW_REJECTED","REVIEW_SOURCES_UNVERIFIED",
+  "REVIEW_CLAIMS_UNVERIFIED","REVIEW_PER_CLAIM_EVIDENCE_MISSING",
+  "REVIEW_PER_CLAIM_EVIDENCE_INVALID","REVIEW_PER_CLAIM_SOURCES_UNVERIFIED",
+  "REVIEW_EXCERPTS_UNVERIFIED","EDITORIAL_RUBRIC_MISSING",
+  "EDITORIAL_RUBRIC_KEYS_INVALID","EDITORIAL_VISUAL_SCORE_PREMATURE",
+  "EDITORIAL_SCORE_MISMATCH","EDITORIAL_SCORE_BELOW_THRESHOLD"
+]);
+export function editorialReviewRejectionCode(error){
+  const code=typeof error?.message==="string"?error.message:"";
+  if(REVIEW_REJECTION_CODES.has(code))return code;
+  if(/^EDITORIAL_RUBRIC_SCORE_INVALID_(?:source|verification|newsworthiness|originalValue|writing|context|visual|localeSeo)$/.test(code))
+    return code;
+  return null;
+}
+
 // Fetch only the same authenticated public publisher origin, with bounded
 // redirects/body/time. Never send provider credentials to source websites.
 // If the publisher itself returns HTTP 403 to the article page, a sufficiently
@@ -1224,8 +1240,18 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     +'For EACH claim index, attest source IDs from TWO distinct publishers and provide a matching verbatim excerpt of at least 24 characters from the title or summary of EACH source. Reject nonmatching, missing or merely generic quotations. If no exact supporting excerpt exists, return pass:false. Do not attest a source merely because its publisher is different; compare the source text to the specific claim. '
     +'Pass only if ALL factual claims and prose are supported by at least two distinct publishers. '
     +'SOURCES='+JSON.stringify(sources)+' DRAFT='+JSON.stringify(draft))+' '+REVIEW_EXCERPT_INSTRUCTION});
-  verifyReview(review,draft,sources);
-  const editorialReview=verifyEditorialRubric(review);
+  let editorialReview;
+  try{
+    verifyReview(review,draft,sources);
+    editorialReview=verifyEditorialRubric(review);
+  }catch(error){
+    const reviewCode=editorialReviewRejectionCode(error);
+    if(!reviewCode)throw error;
+    console.log("REVIEW_CANDIDATE_REJECTED "+reviewCode);
+    console.log("NOOP_REVIEW_REJECTED");
+    reportMissedScheduledHour("NOOP_REVIEW_REJECTED");
+    return {status:"noop"};
+  }
   const nowIso=now.toISOString(),slug=draft.slug;
   if(visualV2Required&&!visualAsset)throw Error("VISUAL_ASSET_REQUIRED");
   const cover=visualV2Required
