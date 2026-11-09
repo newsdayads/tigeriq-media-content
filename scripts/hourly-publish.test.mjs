@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import os from "node:os";
 import {join} from "node:path";
-import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,editorialReviewRejectionCode,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate,officialAiTechnologyScore,officialAiFetchCandidates} from "./hourly-publish.mjs";
+import {FEEDS,readBoundedHttpText,parseFeed,providerConfig,modelJson,classifyProvider429Reason,validateDraft,verifyReview,editorialReviewRejectionCode,coverSvg,publish,commitContentJsonAtomically,createCoverExclusively,summarizePublishResult,missedHourlyTarget,alreadyPublishedInUtcHour,officialAiTechnologyCandidate,officialAiTechnologyScore,officialAiFetchCandidates,MAX_ATTRIBUTED_WRITER_CANDIDATES} from "./hourly-publish.mjs";
 import {buildOwnedOriginalRasterAsset} from "./editorial-visual-contract.mjs";
 
 const now=new Date("2026-10-18T03:00:00.000Z");
@@ -3023,6 +3023,50 @@ test("AI ranking keeps freshness as tie-break when relevance scores are equal",(
       url:"https://developer.nvidia.com/blog/b/",publishedAt:"2026-10-26T10:00:00.000Z"}
   ];
   assert.deepEqual(officialAiFetchCandidates(items,[]).map(item=>item.id),["a","b"]);
+});
+
+test("bounded writer window prefers distinct verified publishers without increasing calls",()=>{
+  const items=[
+    {id:"n1",publisher:"nvidiadev",title:"AI agents robotics machine learning model inference update",
+      summary:"AI agents robotics machine learning inference model details.",
+      url:"https://developer.nvidia.com/blog/n1/",publishedAt:"2026-10-26T12:00:00.000Z"},
+    {id:"n2",publisher:"nvidiadev",title:"AI agents robotics machine learning model inference release",
+      summary:"AI agents robotics machine learning inference model release details.",
+      url:"https://developer.nvidia.com/blog/n2/",publishedAt:"2026-10-26T11:59:00.000Z"},
+    {id:"n3",publisher:"nvidiadev",title:"AI agents robotics machine learning model inference guide",
+      summary:"AI agents robotics machine learning inference model guide details.",
+      url:"https://developer.nvidia.com/blog/n3/",publishedAt:"2026-10-26T11:58:00.000Z"},
+    {id:"g1",publisher:"google",title:"AI model update",
+      summary:"Artificial intelligence model deployment update.",
+      url:"https://blog.google/technology/ai/g1/",publishedAt:"2026-10-26T11:57:00.000Z"},
+    {id:"o1",publisher:"openai",title:"AI research update",
+      summary:"Artificial intelligence research model update.",
+      url:"https://openai.com/news/o1",publishedAt:"2026-10-26T11:56:00.000Z"}
+  ];
+  const scoreRank=[...items].sort((a,b)=>{
+    const score=officialAiTechnologyScore(b)-officialAiTechnologyScore(a);
+    return score||Date.parse(b.publishedAt)-Date.parse(a.publishedAt);
+  });
+  assert.deepEqual(scoreRank.slice(0,3).map(item=>item.publisher),
+    ["nvidiadev","nvidiadev","nvidiadev"],"fixture must reproduce same-publisher top three");
+  const ranked=officialAiFetchCandidates(items,[]);
+  assert.equal(MAX_ATTRIBUTED_WRITER_CANDIDATES,3);
+  assert.equal(ranked[0].id,"n1","strongest candidate remains first");
+  assert.equal(new Set(ranked.slice(0,MAX_ATTRIBUTED_WRITER_CANDIDATES).map(item=>item.publisher)).size,3);
+  assert.equal(ranked.length,items.length);
+  assert.deepEqual(new Set(ranked.map(item=>item.id)),new Set(items.map(item=>item.id)));
+});
+
+test("candidate diversity falls back to original rank when fewer publishers exist",()=>{
+  const items=[
+    {id:"a1",publisher:"nvidiadev",title:"AI agents model update",summary:"AI agents model inference details.",
+      url:"https://developer.nvidia.com/blog/a1/",publishedAt:"2026-10-26T12:00:00.000Z"},
+    {id:"a2",publisher:"nvidiadev",title:"AI agents model update",summary:"AI agents model inference details.",
+      url:"https://developer.nvidia.com/blog/a2/",publishedAt:"2026-10-26T11:59:00.000Z"},
+    {id:"b1",publisher:"google",title:"AI model update",summary:"Artificial intelligence model details.",
+      url:"https://blog.google/technology/ai/b1/",publishedAt:"2026-10-26T11:58:00.000Z"}
+  ];
+  assert.deepEqual(officialAiFetchCandidates(items,[]).map(item=>item.id),["a1","b1","a2"]);
 });
 
 

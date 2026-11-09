@@ -977,12 +977,30 @@ export function officialFetchCandidates(items,articles){
   return selected;
 }
 
+export const MAX_ATTRIBUTED_WRITER_CANDIDATES=3;
+
 export function officialAiFetchCandidates(items,articles){
-  return officialFetchCandidates(items,articles).sort((a,b)=>{
+  const ranked=officialFetchCandidates(items,articles).sort((a,b)=>{
     const score=officialAiTechnologyScore(b)-officialAiTechnologyScore(a);
     if(score!==0)return score;
     return Date.parse(b.publishedAt)-Date.parse(a.publishedAt);
   });
+  const writerWindow=Math.min(MAX_ATTRIBUTED_WRITER_CANDIDATES,ranked.length);
+  if(writerWindow<2)return ranked;
+
+  // Keep the strongest candidate first, then spend the remaining bounded
+  // writer slots on distinct verified publishers when available. This does
+  // not increase provider calls or weaken any writer/reviewer/visual gate.
+  const head=[ranked[0]],deferred=[];
+  const seenPublishers=new Set(ranked[0]?.publisher?[ranked[0].publisher]:[]);
+  for(const item of ranked.slice(1)){
+    if(head.length<writerWindow&&item?.publisher&&!seenPublishers.has(item.publisher)){
+      head.push(item);
+      seenPublishers.add(item.publisher);
+    }else deferred.push(item);
+  }
+  while(head.length<writerWindow&&deferred.length)head.push(deferred.shift());
+  return [...head,...deferred];
 }
 
 export function publishedRecordsInUtcHour(articles,now){
@@ -1130,7 +1148,6 @@ export async function publish({fetchImpl=fetch,env=process.env,root=".",now=new 
     reportMissedScheduledHour("NOOP_NO_AI_TECHNOLOGY_CANDIDATE");
     return {status:"noop"};
   }
-  const MAX_ATTRIBUTED_WRITER_CANDIDATES=3;
   let candidatePackets=[sourcePacket(eligibleItems)];
   if(attributed){
     candidatePackets=[];
