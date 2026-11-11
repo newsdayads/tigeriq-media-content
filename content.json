@@ -1,11 +1,181 @@
 {
-  "updatedAt": "2026-11-03T22:18:22.124Z",
+  "updatedAt": "2026-11-11T09:51:25.477Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "aws-agent-evaluation-playbook-bedrock",
+      "reportingMode": "official-announcement",
+      "category": "Technology",
+      "storyId": "tigeriq:aws-agent-evaluation-playbook-bedrock",
+      "clusterKey": "news:fd9a4c3fde7a4699a93bc10146f1a06dce4c4b121c4bf0b261cdb02d386fddd0",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-11-11T09:51:25.477Z",
+      "modifiedAt": "2026-11-11T09:51:25.477Z",
+      "editions": {
+        "vi": {
+          "title": "AWS công bố cẩm nang đánh giá tác nhân trên Amazon Bedrock AgentCore Evaluations",
+          "dek": "Theo công bố của AWS. Khám phá cách tiếp cận đánh giá tác nhân AI trong môi trường sản xuất sử dụng các công cụ tích hợp sẵn và thư viện bên thứ ba trên Amazon Bedrock.",
+          "takeaways": [
+            "AWS giới thiệu danh catalog đánh giá bao gồm các tùy chọn tích hợp sẵn, DeepEval và AutoEval.",
+            "Quy trình bắt đầu bằng việc xác định thành công theo thuật ngữ kinh doanh thay vì danh sách chỉ số.",
+            "Bộ đánh giá đa chiều giúp phân tích nhiều tiêu chí độc lập trong một lần gọi duy nhất."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về đánh giá tác nhân",
+              "body": "AWS thảo luận về những khó khăn khi triển khai tác nhân vào môi trường sản xuất, nơi việc kiểm tra ngẫu nhiên đầu ra hoặc theo dõi độ trễ không đủ để đảm bảo tác nhân hoàn thành nhiệm vụ, tuân thủ quy định và tránh rò rỉ dữ liệu."
+            },
+            {
+              "heading": "Danh mục các bộ đánh giá",
+              "body": "Nền tảng Amazon Bedrock AgentCore cung cấp các bộ đánh giá từ ba nguồn chính gồm các tùy chọn tích hợp sẵn của AWS, thư viện quản lý mã nguồn mở DeepEval và AutoEval, cùng với khả năng tạo bộ đánh giá tùy chỉnh."
+            }
+          ]
+        },
+        "en": {
+          "title": "AWS Details Agent Evaluation Playbook on Amazon Bedrock AgentCore",
+          "dek": "According to AWS. AWS publishes a guide on evaluating production AI agents using built-in, DeepEval, and AutoEval options within Amazon Bedrock AgentCore Evaluations.",
+          "takeaways": [
+            "AWS introduces an evaluation framework featuring built-in, DeepEval, and AutoEval evaluators.",
+            "The playbook recommends starting evaluation design with business outcomes rather than metric names.",
+            "Multi-dimension evaluators allow scoring several independent criteria from a single judge call."
+          ],
+          "sections": [
+            {
+              "heading": "Agent Evaluation Framework",
+              "body": "AWS highlights the challenge of determining whether a production agent successfully meets business needs. Teams are advised to define success in business terms, break outcomes into observable behaviors, and map them to appropriate trace-level or session-level evaluators."
+            },
+            {
+              "heading": "Evaluator Catalog and Tiers",
+              "body": "Amazon Bedrock AgentCore provides evaluators across built-in AWS options, managed third-party DeepEval and AutoEval libraries, and custom derived evaluators that allow teams to substitute their own models and prompts."
+            }
+          ]
+        },
+        "es": {
+          "title": "AWS publica la guía de evaluación de agentes en Amazon Bedrock AgentCore",
+          "dek": "Según AWS. AWS detalla estrategias y catálogos de evaluación para agentes de inteligencia artificial en producción utilizando Amazon Bedrock AgentCore.",
+          "takeaways": [
+            "AWS presenta un catálogo de evaluadores que incluye opciones nativas, DeepEval y AutoEval.",
+            "Se recomienda iniciar el proceso definiendo el éxito en términos de negocio y comportamientos observables.",
+            "Los evaluadores multidimensionales permiten calificar varios criterios independientes en una sola llamada."
+          ],
+          "sections": [
+            {
+              "heading": "Estrategia de Evaluación",
+              "body": "AWS señala que comprobar únicamente señales superficiales no garantiza que un agente complete las tareas del usuario o cumpla con las normas de privacidad, haciendo necesario un enfoque estructurado de evaluación."
+            },
+            {
+              "heading": "Fuentes de Evaluadores",
+              "body": "El catálogo de AgentCore incluye evaluadores integrados de AWS, bibliotecas de código abierto gestionadas de DeepEval y AutoEval, y opciones personalizadas basadas en plantillas de avisos."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/the-agent-evaluation-playbook-built-in-deepeval-and-autoeval-on-agentcore/"
+      ],
+      "factPack": {
+        "version": 2,
+        "status": "reviewed",
+        "locked": true,
+        "lockDigest": "e1593f840e026d293f1fc23abc61b05bc2cf2b28b9617f7482747c8f9463b877",
+        "sources": [
+          {
+            "sourceId": "aws-3",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/the-agent-evaluation-playbook-built-in-deepeval-and-autoeval-on-agentcore/",
+            "title": "The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations"
+          }
+        ],
+        "claims": [
+          {
+            "kind": "attributed",
+            "text": "AWS states that Amazon Bedrock AgentCore Evaluations provides a catalog of built-in, DeepEval, and AutoEval evaluators to measure agent behaviors in production.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          },
+          {
+            "kind": "attributed",
+            "text": "AWS outlines a three-step evaluation process starting with defining success in business terms, breaking outcomes into observable behaviors, and mapping them to appropriate evaluators.",
+            "sourceIds": [
+              "aws-3"
+            ]
+          }
+        ]
+      },
+      "editorial": {
+        "version": 2,
+        "storyClass": "Models/Product",
+        "angle": "AWS outlines agent evaluation strategies and catalogs on Amazon Bedrock AgentCore Evaluations, featuring built-in, DeepEval, and AutoEval options.",
+        "context": "AWS has published a guide detailing how teams can deploy and evaluate production agents on Amazon Bedrock AgentCore Evaluations, structuring evaluation around business outcomes, observable behaviors, and tiered evaluator sources.",
+        "originalValue": "The post details Amazon Bedrock AgentCore Evaluations, categorizing evaluators into built-in AWS options, managed DeepEval and AutoEval libraries, and custom derived evaluators.",
+        "limitations": [
+          "Evaluators must be mapped carefully to avoid hiding failures across multiple dimensions.",
+          "Custom evaluators require modifying prompts or rubrics when catalog options do not fit."
+        ],
+        "score": 89,
+        "rubric": {
+          "source": 20,
+          "verification": 20,
+          "newsworthiness": 13,
+          "originalValue": 12,
+          "writing": 10,
+          "context": 9,
+          "visual": 0,
+          "localeSeo": 5
+        },
+        "factPackDigest": "e1593f840e026d293f1fc23abc61b05bc2cf2b28b9617f7482747c8f9463b877"
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-3",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/the-agent-evaluation-playbook-built-in-deepeval-and-autoeval-on-agentcore/"
+          }
+        ]
+      },
+      "cover": {
+        "visualVersion": 2,
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-agent-evaluation-playbook-bedrock.jpg",
+        "mime": "image/jpeg",
+        "width": 1200,
+        "height": 675,
+        "bytes": 10793,
+        "sha256": "8ee2e3f092f48027b51a39f48c20640a78ebb2f53945ad5e21a1e66d4cd2d728",
+        "generated": true,
+        "assetClass": "owned-illustration",
+        "rightsClass": "owned-original",
+        "rightsVerified": true,
+        "owner": "TigerIQ Media",
+        "author": "TigerIQ Newsroom owned-original cover renderer",
+        "originalSource": "https://aws.amazon.com/blogs/machine-learning/the-agent-evaluation-playbook-built-in-deepeval-and-autoeval-on-agentcore/",
+        "sourceAssetUrl": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/aws-agent-evaluation-playbook-bedrock.jpg",
+        "rightsEvidenceUrl": "https://github.com/newsdayads/tigeriq-media-content/blob/main/docs/OWNED_VISUAL_LICENSE.md",
+        "license": "https://github.com/newsdayads/tigeriq-media-content/blob/main/docs/OWNED_VISUAL_LICENSE.md",
+        "attribution": "TigerIQ Media",
+        "isAIGenerated": false,
+        "alt": {
+          "vi": "Minh họa công nghệ gốc của TigerIQ cho: The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations",
+          "en": "Original TigerIQ technology illustration for: The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations",
+          "es": "Ilustración tecnológica original de TigerIQ para: The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations"
+        },
+        "caption": {
+          "vi": "Minh họa gốc do TigerIQ Media tạo nội bộ. The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations",
+          "en": "Original illustration created in-house by TigerIQ Media. The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations",
+          "es": "Ilustración original creada internamente por TigerIQ Media. The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations"
+        },
+        "verifiedAt": "2026-11-11T09:51:25.477Z"
+      },
+      "corrections": []
+    },
     {
       "slug": "building-ultra-low-latency-voice-ai-applications-on-aws",
       "reportingMode": "official-announcement",
