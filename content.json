@@ -1,11 +1,181 @@
 {
-  "updatedAt": "2026-11-11T09:51:25.477Z",
+  "updatedAt": "2026-11-13T15:18:24.874Z",
   "breaking": {
     "vi": "Google tăng cường đội ngũ Kinh tế và AI: Lời đáp trả chiến lược trước áp lực tăng trưởng quảng cáo",
     "en": "Google Expands AI & Economy Bench as Core Ad Growth Cools and Search Evolves",
     "es": "Google refuerza su equipo de IA y Economía ante la desaceleración publicitaria y la evolución de las búsquedas"
   },
   "articles": [
+    {
+      "slug": "natera-agentic-ai-amazon-bedrock-agentcore",
+      "reportingMode": "official-announcement",
+      "category": "Artificial Intelligence",
+      "storyId": "tigeriq:natera-agentic-ai-amazon-bedrock-agentcore",
+      "clusterKey": "news:ee8ac6991976041a3806a7b2ff93ff4d889c8a9d5274cc5fff3d58c4c8d9bd46",
+      "readTime": "4",
+      "accent": "blue",
+      "publishedAt": "2026-11-13T15:18:24.874Z",
+      "modifiedAt": "2026-11-13T15:18:24.874Z",
+      "editions": {
+        "vi": {
+          "title": "Natera thiết kế hệ thống AI tác nhân cho hoạt động phòng lab với Amazon Bedrock AgentCore",
+          "dek": "Theo công bố của AWS. Natera đã hợp tác với AWS để phát triển hệ thống SWARM nhằm xử lý các thách thức về độ bền thiết bị và kiến thức tổ chức.",
+          "takeaways": [
+            "Natera xây dựng SWARM sử dụng Amazon Bedrock AgentCore.",
+            "Hệ thống đạt tốc độ phản hồi nhanh hơn khoảng 130 lần.",
+            "Độ phủ tự động trên các vé hỗ trợ đạt 96.2 phần trăm."
+          ],
+          "sections": [
+            {
+              "heading": "Tổng quan về hệ thống SWARM",
+              "body": "Natera, đơn vị dẫn đầu về xét nghiệm DNA tự do tế bào, đã làm việc với đội ngũ kỹ thuật phòng lab và AWS để xây dựng SWARM (Systematic Workflow Analytics and Resolutions Manager). Hệ thống AI tác nhân này được thiết kế cho các hoạt động phòng lab nhằm nắm bắt và triển khai kiến thức tổ chức ở quy mô lớn, giúp giải quyết tình trạng gián đoạn xử lý mẫu do hỏng hóc thiết bị."
+            },
+            {
+              "heading": "Hiệu suất và Lựa chọn công nghệ",
+              "body": "Đội ngũ Natera chọn xây dựng SWARM trên Amazon Bedrock AgentCore, một dịch vụ được quản lý hoàn toàn từ AWS. Hệ thống mang lại thời gian phản hồi đầu tiên nhanh hơn khoảng 130 lần và độ phủ tự động 96.2 phần trăm trên các vé hỗ trợ, cung cấp cho các kỹ sư quyền truy cập tức thì vào kiến thức tổ chức ngay khi vé hỗ trợ được tạo ra."
+            }
+          ]
+        },
+        "en": {
+          "title": "How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore",
+          "dek": "According to AWS. Natera collaborated with AWS to build SWARM, addressing equipment downtime and knowledge continuity challenges in lab operations.",
+          "takeaways": [
+            "Natera built SWARM using Amazon Bedrock AgentCore.",
+            "SWARM achieves about 130x faster first response time.",
+            "The system delivers 96.2 percent automated coverage across support tickets."
+          ],
+          "sections": [
+            {
+              "heading": "Building SWARM for Laboratory Operations",
+              "body": "At Natera, a leader in cell-free DNA testing, keeping lab instruments running is critical. Natera's lab engineering team worked with AWS to build SWARM (Systematic Workflow Analytics and Resolutions Manager), an agentic AI system designed to capture and deploy institutional knowledge at scale using Amazon Bedrock AgentCore."
+            },
+            {
+              "heading": "Performance and Architecture Benefits",
+              "body": "SWARM delivers about 130x faster first response time and 96.2 percent automated coverage across support tickets. The team chose Amazon Bedrock AgentCore because it is a fully managed, extensible service designed to build, deploy, connect, secure, and operate AI agents at scale without requiring custom infrastructure plumbing."
+            }
+          ]
+        },
+        "es": {
+          "title": "Cómo Natera diseñó un sistema de IA agéntica para operaciones de laboratorio con Amazon Bedrock AgentCore",
+          "dek": "Según AWS. Natera trabajó con AWS para construir SWARM, un sistema de IA agéntica destinado a gestionar el conocimiento institucional y las operaciones de laboratorio.",
+          "takeaways": [
+            "Natera desarrolló SWARM utilizando Amazon Bedrock AgentCore.",
+            "El sistema ofrece un tiempo de respuesta inicial 130 veces más rápido.",
+            "Se alcanza una cobertura automatizada del 96.2 por ciento en tickets de soporte."
+          ],
+          "sections": [
+            {
+              "heading": "Desarrollo del Sistema SWARM",
+              "body": "En Natera, líder en pruebas de ADN libre de células, mantener los instrumentos de laboratorio en funcionamiento es fundamental. El equipo de ingeniería de laboratorio de Natera trabajó con AWS para construir SWARM (Systematic Workflow Analytics and Resolutions Manager), un sistema de IA agéntica para operaciones de laboratorio utilizando Amazon Bedrock AgentCore."
+            },
+            {
+              "heading": "Rendimiento y Resultados",
+              "body": "SWARM ofrece un tiempo de respuesta inicial aproximadamente 130 veces más rápido y una cobertura automatizada del 96.2 por ciento en los tickets de soporte. Esto otorga a los ingenieros acceso inmediato al conocimiento institucional en el momento exacto en que llega un ticket de soporte."
+            }
+          ]
+        }
+      },
+      "sources": [
+        "https://aws.amazon.com/blogs/machine-learning/how-natera-designed-an-agentic-ai-system-for-lab-ops-with-amazon-bedrock-agentcore/"
+      ],
+      "factPack": {
+        "version": 2,
+        "status": "reviewed",
+        "locked": true,
+        "lockDigest": "c179ba4ec4c6c957a7a0d94f0deb1793041295f61a3d1c2d8bc70e14971d4db0",
+        "sources": [
+          {
+            "sourceId": "aws-2",
+            "publisher": "aws",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-natera-designed-an-agentic-ai-system-for-lab-ops-with-amazon-bedrock-agentcore/",
+            "title": "How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore"
+          }
+        ],
+        "claims": [
+          {
+            "kind": "attributed",
+            "text": "Natera's lab engineering team worked with AWS to build SWARM using Amazon Bedrock AgentCore to capture and deploy institutional knowledge at scale.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          },
+          {
+            "kind": "attributed",
+            "text": "SWARM delivers about 130x faster first response time and 96.2 percent automated coverage across support tickets.",
+            "sourceIds": [
+              "aws-2"
+            ]
+          }
+        ]
+      },
+      "editorial": {
+        "version": 2,
+        "storyClass": "Models/Product",
+        "angle": "Natera builds SWARM, an agentic AI system for lab operations using Amazon Bedrock AgentCore.",
+        "context": "Natera, a leader in cell-free DNA testing, worked with AWS to build SWARM (Systematic Workflow Analytics and Resolutions Manager) to address lab instrument downtime and maintain institutional knowledge across precision equipment.",
+        "originalValue": "SWARM delivers about 130x faster first response time and 96.2 percent automated coverage across support tickets, giving engineers immediate access to institutional knowledge.",
+        "limitations": [
+          "Early prototypes using general-purpose retrieval without equipment-specific metadata produced inconsistent results.",
+          "Teams building under HIPAA or similar regulatory frameworks must confirm BAA coverage and data separation requirements."
+        ],
+        "score": 89,
+        "rubric": {
+          "source": 20,
+          "verification": 20,
+          "newsworthiness": 13,
+          "originalValue": 13,
+          "writing": 9,
+          "context": 9,
+          "visual": 0,
+          "localeSeo": 5
+        },
+        "factPackDigest": "c179ba4ec4c6c957a7a0d94f0deb1793041295f61a3d1c2d8bc70e14971d4db0"
+      },
+      "verification": {
+        "status": "verified",
+        "basis": "Attributed official announcement checked against full primary article by distinct AI models: gemini-3.5-flash-lite / gemini-3.6-flash",
+        "evidence": [
+          {
+            "sourceId": "aws-2",
+            "tier": "A",
+            "url": "https://aws.amazon.com/blogs/machine-learning/how-natera-designed-an-agentic-ai-system-for-lab-ops-with-amazon-bedrock-agentcore/"
+          }
+        ]
+      },
+      "cover": {
+        "visualVersion": 2,
+        "url": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/natera-agentic-ai-amazon-bedrock-agentcore.jpg",
+        "mime": "image/jpeg",
+        "width": 1200,
+        "height": 675,
+        "bytes": 10793,
+        "sha256": "3ddd7fc0af91827dc939280e64890c0595db76cd8b8761f3f42fa5ffa221acd4",
+        "generated": true,
+        "assetClass": "owned-illustration",
+        "rightsClass": "owned-original",
+        "rightsVerified": true,
+        "owner": "TigerIQ Media",
+        "author": "TigerIQ Newsroom owned-original cover renderer",
+        "originalSource": "https://aws.amazon.com/blogs/machine-learning/how-natera-designed-an-agentic-ai-system-for-lab-ops-with-amazon-bedrock-agentcore/",
+        "sourceAssetUrl": "https://raw.githubusercontent.com/newsdayads/tigeriq-media-content/main/covers/natera-agentic-ai-amazon-bedrock-agentcore.jpg",
+        "rightsEvidenceUrl": "https://github.com/newsdayads/tigeriq-media-content/blob/main/docs/OWNED_VISUAL_LICENSE.md",
+        "license": "https://github.com/newsdayads/tigeriq-media-content/blob/main/docs/OWNED_VISUAL_LICENSE.md",
+        "attribution": "TigerIQ Media",
+        "isAIGenerated": false,
+        "alt": {
+          "vi": "Minh họa công nghệ gốc của TigerIQ cho: How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore",
+          "en": "Original TigerIQ technology illustration for: How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore",
+          "es": "Ilustración tecnológica original de TigerIQ para: How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore"
+        },
+        "caption": {
+          "vi": "Minh họa gốc do TigerIQ Media tạo nội bộ. How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore",
+          "en": "Original illustration created in-house by TigerIQ Media. How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore",
+          "es": "Ilustración original creada internamente por TigerIQ Media. How Natera designed an agentic AI system for lab ops with Amazon Bedrock AgentCore"
+        },
+        "verifiedAt": "2026-11-13T15:18:24.874Z"
+      },
+      "corrections": []
+    },
     {
       "slug": "aws-agent-evaluation-playbook-bedrock",
       "reportingMode": "official-announcement",
